@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DIPimage User Manual &raquo; DIPimage and the MATLAB Compiler | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="sec_dum_mex_files.html" />
+  <link rel="next" href="sec_dum_faq.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dipimage_user_manual.html"><em>DIPimage</em> User Manual</a> &raquo;</span>
+          <em>DIPimage</em> and the <em>MATLAB Compiler</em>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#sec_dum_matlab_compiler_intro">The <em>MATLAB Compiler</em></a></li>
+            <li><a href="#sec_dum_matlab_compiler_compiling">Compiling an M-file that uses <em>DIPimage</em></a></li>
+            <li><a href="#sec_dum_matlab_compiler_deploying">Deploying your compiled program</a></li>
+          </ul>
+        </div>
+<aside class="m-note m-warning">
+<h4>Warning</h4>
+<p>This section hasn&rsquo;t been updated yet for <em>DIPimage 3</em>.
+Most of the information here is no longer correct.</p>
+</aside>
+<h2 id="sec_dum_matlab_compiler_intro">The <em>MATLAB Compiler</em></h2>
+<p>Since <em>MATLAB</em> version 7.0 (Release 14), the <em>MATLAB Compiler</em> no longer
+generates C or C++ code from M-files. Instead, it packages all M-files
+and MEX-files into a <em>Component Technology File</em> (CTF) archive,
+generates a small stub executable, and requires the end user to install
+the <em>MATLAB</em> Component Runtime (MCR). This MCR is the <em>MATLAB</em> interpreter
+(but without licensing restrictions). The upside of this is that there
+are no longer limitations as to what M-files can be compiled, meaning it
+is now possible to create standalone applications that use <em>DIPimage</em>. The
+downside is that, since code is not really compiled, there is no
+performance benefit to compiling.</p>
+<p>The <em>MATLAB</em> compiler can generate shared objects (dynamically linked
+libraries) as well as executables. This means that it is still possible
+to compile M-file code so that it can be called from your own C or C++
+code, even though this compiled M-file code can no longer be statically
+linked into your executable.</p>
+<p>M-files in the CTF archive are encrypted so that it is not possible to
+obtain source code from the compiled application. MEX-files are also
+protected in some way so they cannot be run outside of the deployed
+application. Therefore, even though the code is not truly compiled, your
+code is reasonably well protected against reverse-engineering.</p>
+<p>The explanations below are for Linux/UNIX systems. If you use Windows,
+similar issues will have to be taken into account. The <a href="https://www.mathworks.com/help/pdf_doc/compiler/compiler.pdf"><em>MATLAB Compiler</em>
+User&rsquo;s Guide</a>
+contains all the information needed to compile an M-file that uses
+<em>DIPimage</em>.</p>
+<h2 id="sec_dum_matlab_compiler_compiling">Compiling an M-file that uses <em>DIPimage</em></h2>
+<p>Please first read the <em>MATLAB Compiler</em> User&rsquo;s Guide, and make sure you
+are able to generate the <code>magicsquare.m</code> stand-alone example application
+using the <code>mcc</code> command (not through the <code>deploytool</code> GUI, since the
+explanations below assume you are familiar with <code>mcc</code>).</p>
+<p>There are a few things that have to be taken into account when your
+M-file uses <em>DIPimage</em>. First, like with other toolboxes, the <em>DIPimage</em>
+directory must not be added to the <em>MATLAB</em> path through the <code>startup.m</code>
+file (as suggested in the <em>DIPimage</em> installation instructions), but
+through the <code>mcc</code> command line. Second, instead of calling
+<code>dip_initialise</code>, call <code>dip_initialise_libs</code>.</p>
+<p><code>dip_initialise</code> searches for the correct version of the <em>DIPimage</em>
+toolbox to use, depending on the <em>MATLAB</em> version you are running. It then
+adds the necessary paths and calls <code>dip_initialise_libs</code>. Since this
+process doesn&rsquo;t work with the <em>MATLAB Compiler</em>, you will need to do these
+two steps separately.</p>
+<p>Hence, you need to create a special version of your <code>startup.m</code> file in
+the directory where your application M-file lives. Remove all the
+<code>addpath</code> instructions, and change the line <code>dip_initialise</code> into
+<code>dip_initialise_libs</code> (if you do not want the <em>DIPlib</em> version information
+to be displayed on startup, you can use the <code>'silent'</code> argument to
+<code>dip_initialise_libs</code>). Alternatively, you can call the
+<code>dip_initialise_libs</code> function in your application M-file. In this case,
+make and empty <code>startup.m</code> file to avoid your default one to be used.</p>
+<p>To find out which directories you need to add to the Compiler search
+path, type <code>path</code> on the <em>MATLAB</em> command line. It should return a long
+list of directories, three of which look like this:</p>
+<div class="m-code"><pre><span></span>/something/dip/common/mlv7_4/diplib
+/something/dip/common/mlv7_4/dipimage_mex
+/something/dip/common/dipimage
+</pre></div>
+
+<p>These three paths can be added the the <code>mcc</code> command line using the
+&lsquo;<code>-I</code>&lsquo; argument:</p>
+<div class="m-code"><pre><span></span>mcc -m myapplication.m ...
+    -I /something/dip/common/dipimage ...
+    -I /something/dip/common/mlv7_4/dipimage_mex ...
+    -I /something/dip/common/mlv7_4/diplib
+</pre></div>
+
+<p>Under some circumstances, <code>mcc</code> might give a warning telling you that
+the <code>dip_initialise_libs</code> command is unknown. However, when running the
+resulting executable, <em>DIPlib</em> gets initialized just fine. This must be
+due to the order in which paths get added and commands are executed.</p>
+<p>When running the stand-alone application you just created, the three
+<em>DIPlib</em> shared libraries must be on the <code>LD_LIBRARY_PATH</code> environment
+variable, as discussed in <a href="sec_dum_installing.html#sec_dum_installing_linux">UNIX/Linux installation</a>. It is possible to
+edit the shell script that is created by <code>mcc</code> (<code>run_myapplication.sh</code>)
+to properly set the <code>LD_LIBRARY_PATH</code> environment variable.</p>
+<h2 id="sec_dum_matlab_compiler_deploying">Deploying your compiled program</h2>
+<p><del>First of all, note that you need a special license of <em>DIPimage</em> and
+<em>DIPlib</em> to be able to distribute a program that uses this toolbox and
+associated libraries. Please read <a href="https://diplib.org/">our web page</a>
+for information on how to obtain such a license.</del></p>
+<p>The CTF file created by <code>mcc</code> needs either the exact same version of
+<em>MATLAB</em>, or the MCR created with that version, to run. It will also need
+the three <em>DIPlib</em> shared libraries <code>libdip.so</code>, <code>libdipio.so</code> and
+<code>libdml_mlvX_X.so</code> (the name of this last SO file should match the
+directory name given as path to the <em>MATLAB Compiler</em>). The end-user needs
+to install these three libraries and adjust the <code>LD_LIBRARY_PATH</code>
+environment variable prior to starting the executable.</p>
+<p>There is a very simple way of including the <em>DIPlib</em> libraries in the CTF
+file:</p>
+<div class="m-code"><pre><span></span>mcc -m myapplication.m ...
+    -I /something/dip/common/dipimage ...
+    -I /something/dip/common/mlv7_4/dipimage_mex ...
+    -I /something/dip/common/mlv7_4/diplib ...
+    -a /something/dip/Linux/libdip.so ...
+    -a /something/dip/Linux/libdipio.so ...
+    -a /something/dip/Linux/libdml_mlv7_4.so
+</pre></div>
+
+<p>The CTF archive will be called <code>myapplication.ctf</code>, and, once extracted,
+the <em>DIPlib</em> libraries will be in the directory
+<code>myapplication_mcr/something/dip/Linux/</code> (assuming 32-bit Linux OS).</p>
+<p>Thus, assuming your user puts the files <code>myapplication.ctf</code> and
+<code>myapplication</code> into the directory <code>/home/user/myapp/</code>, and installed
+the MCR into <code>/usr/local/mcr/v76/</code>, your user will have to do the
+following to start the application:</p>
+<div class="m-code"><pre><span></span><span class="nv">MCRROOT</span><span class="o">=</span>/usr/local/mcr/v76
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/home/user/myapp/myapplication_mcr/something/dip/Linux/
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MCRROOT</span><span class="si">}</span>/runtime/glnx86
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MCRROOT</span><span class="si">}</span>/bin/glnx86
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MCRROOT</span><span class="si">}</span>/sys/os/glnx86
+<span class="nv">MCRJREVER</span><span class="o">=</span><span class="sb">`</span>cat <span class="si">${</span><span class="nv">MCRROOT</span><span class="si">}</span>/sys/java/jre/glnx86/jre.cfg<span class="sb">`</span>
+<span class="nv">MCRJRE</span><span class="o">=</span><span class="si">${</span><span class="nv">MCRROOT</span><span class="si">}</span>/sys/java/jre/glnx86/jre<span class="si">${</span><span class="nv">MCRJREVER</span><span class="si">}</span>/lib/i386
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MCRJRE</span><span class="si">}</span>/native_threads
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MCRJRE</span><span class="si">}</span>/server
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MCRJRE</span><span class="si">}</span>/client
+<span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">LD_LIBRARY_PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">MCRJRE</span><span class="si">}</span>
+<span class="nv">XAPPLRESDIR</span><span class="o">=</span><span class="si">${</span><span class="nv">MCRROOT</span><span class="si">}</span>/X11/app-defaults
+<span class="nb">export</span> LD_LIBRARY_PATH
+<span class="nb">export</span> XAPPLRESDIR /home/user/myapp/myapplication &lt;arguments&gt;
+</pre></div>
+
+<p>You would do good creating a little shell script that collects these
+commands, and provide it with your executable (instead of
+<code>run_myapplication.sh</code>).</p>
+<p>Note that, in the shell commands above, the ones that contain <code>MCRJRE</code>
+are needed only if Java is enabled. You can add <code>-R -nojvm</code> to the <code>mcc</code>
+command to disable Java if your application does not use it. In the same
+way, add <code>-R -nodisplay</code> if your application does not use the graphic
+display.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="sec_dum_mex_files.html" class="m-doc">&laquo; Writing MEX-files that use <em>DIPlib</em></a> | <a href="dipimage_user_manual.html" class="m-doc"><em>DIPimage</em> User Manual</a> | <a href="sec_dum_faq.html" class="m-doc">Frequently asked questions &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

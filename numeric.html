@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The library infrastructure &raquo; Numeric algorithms and constants module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="infrastructure.html">The library infrastructure</a> &raquo;</span>
+          Numeric algorithms and constants <span class="m-thin">module</span>          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib-h.html">"diplib.h"</a></div>
+        </h1>
+        <p>Functions and constants to be used in numeric computation, unrelated to images.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#operator-members">Operators</a></li>
+                <li><a href="#variable-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+            <dt>
+              class <a href="dip-ThinPlateSpline.html" class="m-doc">dip::<wbr />ThinPlateSpline</a>
+            </dt>
+            <dd>Fits a thin plate spline function to a set of points. Useful for interpolation of scattered points.</dd>
+            <dt>
+              struct <a href="#dip-GaussianParameters" class="m-doc">dip::<wbr />GaussianParameters</a>
+            </dt>
+            <dd>Parameters defining a 1D Gaussian. Returned by <a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--dip-uint--dip-uint--dip-uint--Option-Periodicity-"><code>dip::GaussianMixtureModel</code></a>.</dd>
+            <dt>
+              class <a href="dip-StatisticsAccumulator.html" class="m-doc">dip::<wbr />StatisticsAccumulator</a>
+            </dt>
+            <dd><code>StatisticsAccumulator</code> computes population statistics by accumulating the first four central moments.</dd>
+            <dt>
+              class <a href="dip-VarianceAccumulator.html" class="m-doc">dip::<wbr />VarianceAccumulator</a>
+            </dt>
+            <dd><code>VarianceAccumulator</code> computes mean and standard deviation by accumulating the first two
+central moments.</dd>
+            <dt>
+              class <a href="dip-FastVarianceAccumulator.html" class="m-doc">dip::<wbr />FastVarianceAccumulator</a>
+            </dt>
+            <dd><code>FastVarianceAccumulator</code> computes mean and standard deviation by accumulating the sum of sample
+values and the sum of the square of sample values.</dd>
+            <dt>
+              class <a href="dip-CovarianceAccumulator.html" class="m-doc">dip::<wbr />CovarianceAccumulator</a>
+            </dt>
+            <dd><code>CovarianceAccumulator</code> computes covariance and correlation of pairs of samples by accumulating the
+first two central moments and cross-moments.</dd>
+            <dt>
+              class <a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::<wbr />DirectionalStatisticsAccumulator</a>
+            </dt>
+            <dd><code>DirectionalStatisticsAccumulator</code> computes directional mean and standard deviation by accumulating
+a unit vector with the input value as angle.</dd>
+            <dt>
+              class <a href="dip-MinMaxAccumulator.html" class="m-doc">dip::<wbr />MinMaxAccumulator</a>
+            </dt>
+            <dd><code>MinMaxAccumulator</code> computes minimum and maximum values of a sequence of values.</dd>
+            <dt>
+              class <a href="dip-MomentAccumulator.html" class="m-doc">dip::<wbr />MomentAccumulator</a>
+            </dt>
+            <dd><code>MomentAccumulator</code> accumulates the zeroth order moment, the first order normalized moments, and the
+second order central normalized moments, in <code>N</code> dimensions.</dd>
+          </dl>
+        </section>
+        <section id="enum-members">
+          <h2>Enums</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Option-Periodicity" class="m-doc">dip::<wbr />Option::<wbr />Periodicity</a>: int{ </span><span class="m-doc-wrap"><a href="#dip-Option-Periodicity-NOT_PERIODIC" class="m-doc">NOT_PERIODIC</a>,
+              <a href="#dip-Option-Periodicity-PERIODIC" class="m-doc">PERIODIC</a> }</span>
+            </dt>
+            <dd>Select if the operation is periodic or not. Used in <a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--dip-uint--dip-uint--dip-uint--Option-Periodicity-"><code>dip::GaussianMixtureModel</code></a>.</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt id="dip-gcd-dip-uint--dip-uint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-gcd-dip-uint--dip-uint-" class="m-doc-self">dip::<wbr />gcd</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> a,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> b) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Compute the greatest common denominator of two positive integers.</dd>
+            <dt id="dip-div_ceil-T-T--T-">
+              <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-div_ceil-T-T--T-" class="m-doc-self">dip::<wbr />div_ceil</a>(</span><span class="m-doc-wrap">T lhs,
+              T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Integer division, unsigned, return ceil.</dd>
+            <dt id="dip-div_floor-T-T--T-">
+              <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-div_floor-T-T--T-" class="m-doc-self">dip::<wbr />div_floor</a>(</span><span class="m-doc-wrap">T lhs,
+              T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Integer division, unsigned, return floor.</dd>
+            <dt id="dip-div_round-T-T--T-">
+              <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt; = T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-div_round-T-T--T-" class="m-doc-self">dip::<wbr />div_round</a>(</span><span class="m-doc-wrap">T lhs,
+              T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Integer division, return rounded.</dd>
+            <dt id="dip-modulo-dip-uint--dip-uint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-modulo-dip-uint--dip-uint-" class="m-doc-self">dip::<wbr />modulo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> value,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> period) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Integer modulo, result is always positive, as opposed to % operator.</dd>
+            <dt id="dip-modulo-dip-sint--dip-sint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-modulo-dip-sint--dip-sint-" class="m-doc-self">dip::<wbr />modulo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> value,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> period) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Integer modulo, result is always positive, as opposed to % operator.</dd>
+            <dt id="dip-floor_cast-T-T-">
+              <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-floor_cast-T-T-" class="m-doc-self">dip::<wbr />floor_cast</a>(</span><span class="m-doc-wrap">T v) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Fast floor operation, without checks, returning a <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a>.</dd>
+            <dt id="dip-ceil_cast-T-T-">
+              <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ceil_cast-T-T-" class="m-doc-self">dip::<wbr />ceil_cast</a>(</span><span class="m-doc-wrap">T v) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Fast ceil operation, without checks, returning a <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a>.</dd>
+            <dt id="dip-round_cast-T-T-">
+              <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-round_cast-T-T-" class="m-doc-self">dip::<wbr />round_cast</a>(</span><span class="m-doc-wrap">T v) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Fast round operation, without checks, returning a <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a>.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, bool inverse = false, typename &lt;SFINAE&gt;&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-consistent_round-T-T-" class="m-doc">dip::<wbr />consistent_round</a>(</span><span class="m-doc-wrap">T v) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Consistent rounding, without checks, returning a <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a>.</dd>
+            <dt id="dip-abs-T-T-">
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-abs-T-T-" class="m-doc-self">dip::<wbr />abs</a>(</span><span class="m-doc-wrap">T value) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd><code>constexpr</code> version of <code>std::abs</code>. Prefer <code>std::abs</code> outside of <code>constexpr</code> functions.</dd>
+            <dt id="dip-clamp-T-T-CL-T-CL-T-CL">
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-clamp-T-T-CL-T-CL-T-CL" class="m-doc-self">dip::<wbr />clamp</a>(</span><span class="m-doc-wrap">T const&amp; v,
+              T const&amp; lo,
+              T const&amp; hi) -&gt; T const&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Clamps a value between a min and max value (a.k.a. clip, saturate, etc.).</dd>
+            <dt id="dip-pow10-dip-sint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-pow10-dip-sint-" class="m-doc-self">dip::<wbr />pow10</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> power) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Computes integer powers of 10, assuming the power is relatively small.</dd>
+            <dt id="dip-ApproximatelyEquals-dip-dfloat--dip-dfloat--dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ApproximatelyEquals-dip-dfloat--dip-dfloat--dip-dfloat-" class="m-doc-self">dip::<wbr />ApproximatelyEquals</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lhs,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> rhs,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-6) -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Approximate floating-point equality: <code>abs(lhs-rhs)/lhs &lt;= tolerance</code>.</dd>
+            <dt id="dip-LengthUnicode-dip-String-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-LengthUnicode-dip-String-CL" class="m-doc-self">dip::<wbr />LengthUnicode</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; string) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Counts the length of a (UTF-8 encoded) Unicode string.</dd>
+            <dt id="dip-BesselJ0-dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BesselJ0-dip-dfloat-" class="m-doc-self">dip::<wbr />BesselJ0</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Bessel function J of the order 0.</dd>
+            <dt id="dip-BesselJ1-dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BesselJ1-dip-dfloat-" class="m-doc-self">dip::<wbr />BesselJ1</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Bessel function J of the order 1.</dd>
+            <dt id="dip-BesselJN-dip-dfloat--dip-uint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BesselJN-dip-dfloat--dip-uint-" class="m-doc-self">dip::<wbr />BesselJN</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Bessel function J of the order <code>n</code>.</dd>
+            <dt id="dip-BesselY0-dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BesselY0-dip-dfloat-" class="m-doc-self">dip::<wbr />BesselY0</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Bessel function Y of the order 0.</dd>
+            <dt id="dip-BesselY1-dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BesselY1-dip-dfloat-" class="m-doc-self">dip::<wbr />BesselY1</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Bessel function Y of the order 1.</dd>
+            <dt id="dip-BesselYN-dip-dfloat--dip-uint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BesselYN-dip-dfloat--dip-uint-" class="m-doc-self">dip::<wbr />BesselYN</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Bessel function Y of the order <code>n</code>.</dd>
+            <dt id="dip-Sinc-dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Sinc-dip-dfloat-" class="m-doc-self">dip::<wbr />Sinc</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the sinc function.</dd>
+            <dt id="dip-Phi-dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Phi-dip-dfloat-" class="m-doc-self">dip::<wbr />Phi</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes phi, the integral of the PDF of a Normal distribution with
+unit variance and zero mean from minus infinity to <code>x</code>.</dd>
+            <dt id="dip-Phi-dip-dfloat--dip-dfloat--dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Phi-dip-dfloat--dip-dfloat--dip-dfloat-" class="m-doc-self">dip::<wbr />Phi</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> m,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> s) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes phi, the integral of the PDF of a Normal distribution with
+standard deviation <code>s</code> and mean <code>m</code> from minus infinity to <code>x</code>.</dd>
+            <dt id="dip-HypersphereSurface-dip-uint--dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-HypersphereSurface-dip-uint--dip-dfloat-" class="m-doc-self">dip::<wbr />HypersphereSurface</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> r) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Computes the surface area of an <code>n</code>-dimensional hypersphere with radius <code>r</code>.</dd>
+            <dt id="dip-HypersphereVolume-dip-uint--dip-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-HypersphereVolume-dip-uint--dip-dfloat-" class="m-doc-self">dip::<wbr />HypersphereVolume</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> r) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Computes the volume of an <code>n</code>-dimensional hypersphere with radius <code>r</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />SymmetricEigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+            </dt>
+            <dd>Finds the eigenvalues and eigenvectors of a symmetric, real-valued matrix.</dd>
+            <dt id="dip-SymmetricEigenDecomposition2-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SymmetricEigenDecomposition2-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />SymmetricEigenDecomposition2</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+            </dt>
+            <dd>Finds the eigenvalues and eigenvectors of a 2x2 symmetric, real-valued matrix.</dd>
+            <dt id="dip-SymmetricEigenDecomposition3-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SymmetricEigenDecomposition3-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />SymmetricEigenDecomposition3</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+            </dt>
+            <dd>Finds the eigenvalues and eigenvectors of a 3x3 symmetric, real-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-LargestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />LargestEigenvector</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vector)</span>
+            </dt>
+            <dd>Finds the largest eigenvector of a symmetric, real-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SmallestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />SmallestEigenvector</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vector)</span>
+            </dt>
+            <dd>Finds the smallest eigenvector of a symmetric, real-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SymmetricEigenDecompositionPacked-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />SymmetricEigenDecompositionPacked</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+            </dt>
+            <dd>Finds the eigenvalues and eigenvectors of a symmetric, real-valued matrix, where only the unique values are given.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">dip::<wbr />EigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> vectors = nullptr)</span>
+            </dt>
+            <dd>Finds the eigenvalues and eigenvectors of a square, real-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">dip::<wbr />EigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> vectors = nullptr)</span>
+            </dt>
+            <dd>Finds the eigenvalues and eigenvectors of a square, complex-valued matrix.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Sum-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />Sum</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+            </dt>
+            <dd>Computes the sum of the values of a vector.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SumAbsSquare-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />SumAbsSquare</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a></span>
+            </dt>
+            <dd>Computes the sum of the square of the values of a vector.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Product-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />Product</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+            </dt>
+            <dd>Computes the product of the values of a vector.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Norm-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />Norm</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a></span>
+            </dt>
+            <dd>Computes the norm of a vector.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SquareNorm-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />SquareNorm</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a></span>
+            </dt>
+            <dd>Computes the square norm of a vector.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Determinant-dip-uint--ConstSampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />Determinant</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the determinant of a square, real-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Determinant-dip-uint--ConstSampleIterator<dip-dcomplex>-" class="m-doc">dip::<wbr />Determinant</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a></span>
+            </dt>
+            <dd>Computes the determinant of a square, complex-valued matrix.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DeterminantDiagonal-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />DeterminantDiagonal</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+            </dt>
+            <dd>Computes the determinant of a diagonal matrix.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Trace-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />Trace</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+            </dt>
+            <dd>Computes the trace of a square matrix.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-TraceDiagonal-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">dip::<wbr />TraceDiagonal</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+            </dt>
+            <dd>Computes the trace of a diagonal matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />SingularValueDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> U = nullptr,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> V = nullptr)</span>
+            </dt>
+            <dd>Computes the &ldquo;thin&rdquo; singular value decomposition of a real-valued matrix</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">dip::<wbr />SingularValueDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> U = nullptr,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> V = nullptr)</span>
+            </dt>
+            <dd>Computes the &ldquo;thin&rdquo; singular value decomposition of a complex-valued matrix</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Inverse-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />Inverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output)</span>
+            </dt>
+            <dd>Computes the inverse of a square, real-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Inverse-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">dip::<wbr />Inverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output)</span>
+            </dt>
+            <dd>Computes the inverse of a square, complex-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-dfloat-" class="m-doc">dip::<wbr />PseudoInverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-7)</span>
+            </dt>
+            <dd>Computes the Moore-Penrose pseudo-inverse of a real-valued matrix, using the Jacobi SVD decomposition.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--dip-dfloat-" class="m-doc">dip::<wbr />PseudoInverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-7)</span>
+            </dt>
+            <dd>Computes the Moore-Penrose pseudo-inverse of a complex-valued matrix, using the Jacobi SVD decomposition.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />Rank</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Computes the rank of a real-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>-" class="m-doc">dip::<wbr />Rank</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Computes the rank of a complex-valued matrix.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Solve-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">dip::<wbr />Solve</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> A,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> b,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output)</span>
+            </dt>
+            <dd>Solves a system of real-valued equations, using the Jacobi SVD decomposition.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GaussianMixtureModel-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-uint--dip-uint--dip-uint--Option-Periodicity-" class="m-doc">dip::<wbr />GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> data,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> responsibilities,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIter = 20,
+              <a href="numeric.html#dip-Option-Periodicity" class="m-doc">Option::Periodicity</a> periodicity = Option::Periodicity::NOT_PERIODIC) -&gt; std::vector&lt;GaussianParameters&gt;</span>
+            </dt>
+            <dd>Determines the parameters for a Gaussian Mixture Model.</dd>
+          </dl>
+        </section>
+        <section id="operator-members">
+          <h2>Operators</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-StatisticsAccumulator.html#dip-operator%2B-dip-StatisticsAccumulator--dip-StatisticsAccumulator-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a> lhs,
+              <a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a> const&amp; rhs) -&gt; <a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a></span>
+            </dt>
+            <dd>Combine two accumulators</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-VarianceAccumulator.html#dip-operator%2B-dip-VarianceAccumulator--dip-VarianceAccumulator-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-VarianceAccumulator.html" class="m-doc">dip::VarianceAccumulator</a> lhs,
+              <a href="dip-VarianceAccumulator.html" class="m-doc">dip::VarianceAccumulator</a> const&amp; rhs) -&gt; <a href="dip-VarianceAccumulator.html" class="m-doc">dip::VarianceAccumulator</a></span>
+            </dt>
+            <dd>Combine two accumulators</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-FastVarianceAccumulator.html#dip-operator%2B-dip-FastVarianceAccumulator--dip-FastVarianceAccumulator-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-FastVarianceAccumulator.html" class="m-doc">dip::FastVarianceAccumulator</a> lhs,
+              <a href="dip-FastVarianceAccumulator.html" class="m-doc">dip::FastVarianceAccumulator</a> const&amp; rhs) -&gt; <a href="dip-FastVarianceAccumulator.html" class="m-doc">dip::FastVarianceAccumulator</a></span>
+            </dt>
+            <dd>Combine two accumulators</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DirectionalStatisticsAccumulator.html#dip-operator%2B-dip-DirectionalStatisticsAccumulator--dip-DirectionalStatisticsAccumulator-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a> lhs,
+              <a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a> const&amp; rhs) -&gt; <a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a></span>
+            </dt>
+            <dd>Combine two accumulators</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-MinMaxAccumulator.html#dip-operator%2B-dip-MinMaxAccumulator--dip-MinMaxAccumulator-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a> lhs,
+              <a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a> const&amp; rhs) -&gt; <a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a></span>
+            </dt>
+            <dd>Combine two accumulators</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-MomentAccumulator.html#dip-operator%2B-dip-MomentAccumulator--dip-MomentAccumulator-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> lhs,
+              <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> const&amp; rhs) -&gt; <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a></span>
+            </dt>
+            <dd>Combine two accumulators</dd>
+          </dl>
+        </section>
+        <section id="variable-members">
+          <h2>Variables</h2>
+          <dl class="m-doc">
+            <dt id="dip-pi">
+            <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> const <a href="#dip-pi" class="m-doc-self">dip::<wbr />pi</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>The constant &pi;.</dd>
+            <dt id="dip-nan">
+            <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> const <a href="#dip-nan" class="m-doc-self">dip::<wbr />nan</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>A NaN value.</dd>
+            <dt id="dip-infinity">
+            <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> const <a href="#dip-infinity" class="m-doc-self">dip::<wbr />infinity</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Infinity.</dd>
+          </dl>
+        </section>
+        <section>
+            <h2>Class documentation</h2>
+                      <section class="m-doc-details" id="dip-GaussianParameters"><div>
+            <h3>
+              struct <a href="#dip-GaussianParameters" class="m-doc-self">dip::<wbr />GaussianParameters</a>
+            </h3>
+            <p>Parameters defining a 1D Gaussian. Returned by <a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--dip-uint--dip-uint--dip-uint--Option-Periodicity-"><code>dip::GaussianMixtureModel</code></a>.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Variables</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-GaussianParameters-position" class="m-doc-self" id="dip-GaussianParameters-position">position</a>                  </td>
+                  <td>
+                  The location of the origin, in pixels
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-GaussianParameters-amplitude" class="m-doc-self" id="dip-GaussianParameters-amplitude">amplitude</a>                  </td>
+                  <td>
+                  The amplitude (value at the origin)
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-GaussianParameters-sigma" class="m-doc-self" id="dip-GaussianParameters-sigma">sigma</a>                  </td>
+                  <td>
+                  The sigma (width)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="dip-Option-Periodicity"><div>
+            <h3>
+              enum class <a href="#dip-Option-Periodicity" class="m-doc-self">dip::<wbr />Option::<wbr />Periodicity</a>: int
+            </h3>
+            <p>Select if the operation is periodic or not. Used in <a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--dip-uint--dip-uint--dip-uint--Option-Periodicity-"><code>dip::GaussianMixtureModel</code></a>.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#dip-Option-Periodicity-NOT_PERIODIC" class="m-doc-self" id="dip-Option-Periodicity-NOT_PERIODIC">NOT_PERIODIC</a> = 0</td>
+                  <td>
+                  The operation is not periodic
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Option-Periodicity-PERIODIC" class="m-doc-self" id="dip-Option-Periodicity-PERIODIC">PERIODIC</a> = 1</td>
+                  <td>
+                  The operation is periodic, left and right ends of the data are contiguous
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-consistent_round-T-T-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T, bool inverse = false, typename &lt;SFINAE&gt;&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-consistent_round-T-T-" class="m-doc-self">dip::<wbr />consistent_round</a>(</span><span class="m-doc-wrap">T v) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p>Consistent rounding, without checks, returning a <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a>.</p>
+<p>This rounding is consistent in that half-way cases are rounded in the same direction for positive and negative
+values. The <code>inverse</code> template parameter indicates the direction for these cases. By default, it matches
+<code>std::round</code> for positive values.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />SymmetricEigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span></span>
+            </h3>
+            <p>Finds the eigenvalues and eigenvectors of a symmetric, real-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order; only the lower triangle will be used.</p>
+<p><code>lambdas</code> is a pointer to space for <code>n</code> values, which will be written sorted by magnitude, largest to smallest.</p>
+<p><code>vectors</code> is a pointer to space for <code>n*n</code> values and will receive the <code>n</code> eigenvectors. The eigenvectors
+can be accessed at <code>&amp;vectors[ 0 ]</code>, <code>&amp;vectors[ n ]</code>, <code>&amp;vectors[ 2*n ]</code>, etc.
+If <code>vectors</code> is <code>nullptr</code>, no eigenvectors are computed.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-LargestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-LargestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />LargestEigenvector</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vector)</span></span>
+            </h3>
+            <p>Finds the largest eigenvector of a symmetric, real-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order; only the lower triangle will be used.</p>
+<p><code>vector</code> is a pointer to space for <code>n</code> values, and will receive the eigenvector corresponding to the
+largest eigenvalue by magnitude. The full decomposition as in <a href="numeric.html#dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;-"><code>dip::SymmetricEigenDecomposition</code></a> is computed,
+but only one eigenvector is written to the output.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SmallestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SmallestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />SmallestEigenvector</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vector)</span></span>
+            </h3>
+            <p>Finds the smallest eigenvector of a symmetric, real-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order; only the lower triangle will be used.</p>
+<p><code>vector</code> is a pointer to space for <code>n</code> values, and will receive the eigenvector corresponding to the
+smallest eigenvalue by magnitude. The full decomposition as in <a href="numeric.html#dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;-"><code>dip::SymmetricEigenDecomposition</code></a> is computed,
+but only one eigenvector is written to the output.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SymmetricEigenDecompositionPacked-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SymmetricEigenDecompositionPacked-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />SymmetricEigenDecompositionPacked</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span></span>
+            </h3>
+            <p>Finds the eigenvalues and eigenvectors of a symmetric, real-valued matrix, where only the unique values are given.</p>
+<p>Calls <a href="numeric.html#dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;-"><code>dip::SymmetricEigenDecomposition</code></a> after copying over the input values to a temporary buffer.</p>
+<p><code>input</code> is a pointer to <code>n*(n+1)/2</code> values, stored in the same order as symmetric tensors are stored in an image
+(see dip::Tensor::Shape). That is, fist are the main diagonal elements, then the elements above the diagonal,
+column-wise. This translates to:</p>
+<ul>
+<li>2D: xx, yy, xy</li>
+<li>3D: xx, yy, zz, xy, xz, yz</li>
+<li>4D: xx, yy, zz, tt, xy, xz, yz, xt, yt, zt</li>
+<li>etc.</li>
+</ul>
+<p>See <a href="numeric.html#dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dfloat&gt;-"><code>dip::SymmetricEigenDecomposition</code></a> for information on <code>lambdas</code> and <code>vectors</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc-self">dip::<wbr />EigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> vectors = nullptr)</span></span>
+            </h3>
+            <p>Finds the eigenvalues and eigenvectors of a square, real-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order.</p>
+<p><code>lambdas</code> is a pointer to space for <code>n</code> values, sorted by magnitude, largest to smallest</p>
+<p><code>vectors</code> is a pointer to space for <code>n*n</code> values and will receive the <code>n</code> eigenvectors. The eigenvectors
+can be accessed at <code>&amp;vectors[ 0 ]</code>, <code>&amp;vectors[ n ]</code>, <code>&amp;vectors[ 2*n ]</code>, etc.
+If <code>vectors</code> is <code>nullptr</code>, no eigenvectors are computed.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc-self">dip::<wbr />EigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> vectors = nullptr)</span></span>
+            </h3>
+            <p>Finds the eigenvalues and eigenvectors of a square, complex-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order.</p>
+<p><code>lambdas</code> is a pointer to space for <code>n</code> values, sorted by magnitude, largest to smallest</p>
+<p><code>vectors</code> is a pointer to space for <code>n*n</code> values and will receive the <code>n</code> eigenvectors. The eigenvectors
+can be accessed at <code>&amp;vectors[ 0 ]</code>, <code>&amp;vectors[ n ]</code>, <code>&amp;vectors[ 2*n ]</code>, etc.
+If <code>vectors</code> is <code>nullptr</code>, no eigenvectors are computed.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Sum-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Sum-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />Sum</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the sum of the values of a vector.</p>
+<p><code>input</code> is a pointer to <code>n</code> values.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SumAbsSquare-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SumAbsSquare-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />SumAbsSquare</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the sum of the square of the values of a vector.</p>
+<p><code>input</code> is a pointer to <code>n</code> values.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Product-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Product-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />Product</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the product of the values of a vector.</p>
+<p><code>input</code> is a pointer to <code>n</code> values.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Norm-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Norm-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />Norm</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the norm of a vector.</p>
+<p><code>input</code> is a pointer to <code>n</code> values.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SquareNorm-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SquareNorm-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />SquareNorm</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the square norm of a vector.</p>
+<p><code>input</code> is a pointer to <code>n</code> values.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Determinant-dip-uint--ConstSampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Determinant-dip-uint--ConstSampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />Determinant</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the determinant of a square, real-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Determinant-dip-uint--ConstSampleIterator<dip-dcomplex>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Determinant-dip-uint--ConstSampleIterator<dip-dcomplex>-" class="m-doc-self">dip::<wbr />Determinant</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the determinant of a square, complex-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-DeterminantDiagonal-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-DeterminantDiagonal-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />DeterminantDiagonal</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the determinant of a diagonal matrix.</p>
+<p><code>input</code> is a pointer to <code>n</code> values, representing the matrix&rsquo;s main diagonal.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Trace-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Trace-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />Trace</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the trace of a square matrix.</p>
+<p><code>input</code> is a pointer to <code>n*n</code> values, in column-major order.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-TraceDiagonal-T-dip-uint--ConstSampleIterator<T>-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-TraceDiagonal-T-dip-uint--ConstSampleIterator<T>-" class="m-doc-self">dip::<wbr />TraceDiagonal</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the trace of a diagonal matrix.</p>
+<p><code>input</code> is a pointer to <code>n</code> values, representing the matrix&rsquo;s main diagonal.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />SingularValueDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> U = nullptr,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> V = nullptr)</span></span>
+            </h3>
+            <p>Computes the &ldquo;thin&rdquo; singular value decomposition of a real-valued matrix</p>
+<p><code>input</code> is a pointer to <code>m*n</code> values, in column-major order.</p>
+<p><code>output</code> is a pointer to <code>p</code> values, where <code>p = std::min( m, n )</code>. It contains the
+singular values of <code>input</code>, sorted in decreasing order.</p>
+<p><code>U</code> and <code>V</code> are pointers to <code>m*p</code> and <code>n*p</code> values, respectively. The left and right
+singular vectors will be written to then.
+If either of them is <code>nullptr</code>, neither is computed, and only <code>output</code> is filled.</p>
+<p><code>SingularValueDecomposition</code> uses the two-sided Jacobi SVD decomposition algorithm.
+This is efficient for small matrices only.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc-self">dip::<wbr />SingularValueDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> U = nullptr,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> V = nullptr)</span></span>
+            </h3>
+            <p>Computes the &ldquo;thin&rdquo; singular value decomposition of a complex-valued matrix</p>
+<p><code>input</code> is a pointer to <code>m*n</code> values, in column-major order.</p>
+<p><code>output</code> is a pointer to <code>p</code> values, where <code>p = std::min( m, n )</code>. It contains the
+singular values of <code>input</code>, sorted in decreasing order.</p>
+<p><code>U</code> and <code>V</code> are pointers to <code>m*p</code> and <code>n*p</code> values, respectively. The left and right
+singular vectors will be written to then.
+If either of them is <code>nullptr</code>, neither is computed, and only <code>output</code> is filled.</p>
+<p><code>SingularValueDecomposition</code> uses the two-sided Jacobi SVD decomposition algorithm.
+This is efficient for small matrices only.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Inverse-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Inverse-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />Inverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output)</span></span>
+            </h3>
+            <p>Computes the inverse of a square, real-valued matrix.</p>
+<p><code>input</code> and <code>output</code> are pointers to <code>n*n</code> values, in column-major order.</p>
+<p>The result is undetermined if the matrix is not invertible.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Inverse-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Inverse-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc-self">dip::<wbr />Inverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output)</span></span>
+            </h3>
+            <p>Computes the inverse of a square, complex-valued matrix.</p>
+<p><code>input</code> and <code>output</code> are pointers to <code>n*n</code> values, in column-major order.</p>
+<p>The result is undetermined if the matrix is not invertible.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-dfloat-" class="m-doc-self">dip::<wbr />PseudoInverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-7)</span></span>
+            </h3>
+            <p>Computes the Moore-Penrose pseudo-inverse of a real-valued matrix, using the Jacobi SVD decomposition.</p>
+<p><code>input</code> is a pointer to <code>m*n</code> values, in column-major order.</p>
+<p><code>output</code> is a pointer to <code>n*m</code> values, in column-major order.</p>
+<p><code>tolerance</code> is an appropriate tolerance. Singular values smaller than <code>tolerance * max(n,m) * p</code>, with <code>p</code>
+the largest singular value, will be set to zero in the inverse.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--dip-dfloat-" class="m-doc-self">dip::<wbr />PseudoInverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-7)</span></span>
+            </h3>
+            <p>Computes the Moore-Penrose pseudo-inverse of a complex-valued matrix, using the Jacobi SVD decomposition.</p>
+<p><code>input</code> and <code>output</code> are pointers to <code>m*n</code> values, in column-major order.</p>
+<p><code>output</code> is a pointer to <code>n*m</code> values, in column-major order.</p>
+<p><code>tolerance</code> is an appropriate tolerance. Singular values smaller than <code>tolerance * max(n,m) * p</code>, with <code>p</code>
+the largest singular value, will be set to zero in the inverse.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />Rank</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the rank of a real-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>m*n</code> values, in column-major order.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>-" class="m-doc-self">dip::<wbr />Rank</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input)</span></span>
+            </h3>
+            <p>Computes the rank of a complex-valued matrix.</p>
+<p><code>input</code> is a pointer to <code>m*n</code> values, in column-major order.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Solve-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Solve-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc-self">dip::<wbr />Solve</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> A,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> b,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output)</span></span>
+            </h3>
+            <p>Solves a system of real-valued equations, using the Jacobi SVD decomposition.</p>
+<p>Solves <span class="m-math"><svg style="width: 3.360em; height: 0.827em; vertical-align: -0.013em;" viewBox=".29 -8.13 33.6 8.27">
+<title>
+\(A x = b\)
+</title>
+<defs>
+<path id='eq2-g1-61' d='M6.57-3.93V-4.6H.48V-3.93H6.57ZM6.57-1.51V-2.18H.48V-1.51H6.57Z'/>
+<path id='eq2-g4-22' d='M6.72 0V-.19C6.04-.25 5.96-.35 5.81-1.21L4.69-7.96H4.38L.93-2C-.01-.42-.13-.29-.61-.19V0H1.62V-.19C1.01-.25 .92-.31 .92-.61C.92-.83 .95-.94 1.16-1.35L1.83-2.69H4.45L4.69-1.13C4.7-1.02 4.72-.92 4.72-.82C4.72-.37 4.55-.26 3.79-.19V0H6.72ZM4.39-3.12H2.08L3.87-6.22L4.39-3.12Z'/>
+<path id='eq2-g4-49' d='M5.63-3.82C5.63-4.66 5.05-5.25 4.25-5.25C3.42-5.25 2.8-4.76 1.95-3.45L3.19-8.08L3.13-8.13C2.54-8.03 2.11-7.96 1.31-7.86V-7.66C2.01-7.63 2.08-7.6 2.08-7.34C2.08-7.23 2.06-7.1 1.98-6.82L1.92-6.6L1.89-6.52L.27-.55V-.5C.27-.23 1.18 .13 1.86 .13C3.66 .13 5.63-1.94 5.63-3.82ZM4.62-3.64C4.62-2.86 4.03-1.58 3.31-.85C2.87-.39 2.36-.14 1.85-.14C1.48-.14 1.3-.27 1.3-.55C1.3-1.26 1.66-2.41 2.16-3.3C2.68-4.22 3.22-4.67 3.79-4.67C4.31-4.67 4.62-4.28 4.62-3.64Z'/>
+<path id='eq2-g4-71' d='M4.95-1.23L4.79-1.32C4.69-1.2 4.63-1.14 4.53-1C4.25-.64 4.12-.52 3.97-.52C3.8-.52 3.69-.68 3.61-1.01C3.59-1.12 3.57-1.18 3.56-1.2C3.28-2.32 3.13-2.97 3.13-3.14C3.66-4.06 4.09-4.59 4.3-4.59C4.37-4.59 4.48-4.55 4.59-4.49C4.73-4.41 4.81-4.38 4.92-4.38C5.16-4.38 5.32-4.56 5.32-4.81C5.32-5.07 5.12-5.25 4.84-5.25C4.31-5.25 3.87-4.82 3.04-3.55L2.91-4.2C2.74-5.01 2.61-5.25 2.29-5.25C2.01-5.25 1.63-5.16 .89-4.91L.76-4.86L.81-4.68L1.01-4.73C1.24-4.79 1.38-4.81 1.48-4.81C1.77-4.81 1.85-4.7 2.01-3.99L2.36-2.53L1.38-1.13C1.13-.77 .91-.56 .77-.56C.7-.56 .58-.6 .46-.67C.31-.75 .19-.79 .08-.79C-.15-.79-.32-.61-.32-.37C-.32-.06-.1 .13 .27 .13S.79 .02 1.38-.69L2.45-2.1L2.81-.67C2.97-.05 3.12 .13 3.5 .13C3.95 .13 4.26-.15 4.95-1.23Z'/>
+</defs>
+<g id='eq2-page1'>
+<use x='.9' y='0' xlink:href='#eq2-g4-22'/>
+<use x='8.36' y='0' xlink:href='#eq2-g4-71'/>
+<use x='17.57' y='0' xlink:href='#eq2-g1-61'/>
+<use x='28.25' y='0' xlink:href='#eq2-g4-49'/>
+</g>
+</svg></span>, where <code>A</code> is an <code>m</code>x<code>n</code> matrix (stored in column-major order),
+and <code>b</code> is a vector with <code>m</code> values.
+The unknown <code>x</code> will have <code>n</code> values, and will be written to <code>output</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-GaussianMixtureModel-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-uint--dip-uint--dip-uint--Option-Periodicity-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::vector&lt;GaussianParameters&gt;
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GaussianMixtureModel-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-uint--dip-uint--dip-uint--Option-Periodicity-" class="m-doc-self">dip::<wbr />GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> data,
+              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> responsibilities,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIter = 20,
+              <a href="numeric.html#dip-Option-Periodicity" class="m-doc">Option::Periodicity</a> periodicity = Option::Periodicity::NOT_PERIODIC)</span></span>
+            </h3>
+            <p>Determines the parameters for a Gaussian Mixture Model.</p>
+<p><code>data</code> is an iterator (or pointer) to the first of <code>size</code> samples of a GMM (not random samples drawn
+from such a distribution, but rather samples of a function representing the distribution).
+<code>numberOfGaussians</code> Gaussians will be fitted to it using the Expectation Maximization (EM) procedure.
+The parameters are initialized deterministically, the means are distributed equally over the domain and
+the sigma and amplitude are set to 1.</p>
+<p><code>responsibilities</code> optionally points to a buffer of size <code>size * numberOfGaussians</code> that will be used
+internally. If set to <code>nullptr</code> or a default-initialized iterator, a buffer will be allocated internally.
+Use this parameter when repeatedly calling this function to avoid memory allocations.</p>
+<p><code>maxIter</code> sets how many iterations are run. There is currently no other stopping criterion.
+<code>periodicity</code> determines if the data is considered periodic or not.</p>
+<p>The output is sorted by amplitude, most important component first.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

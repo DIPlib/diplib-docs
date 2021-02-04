@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::Framework::VariadicScanLineFilter class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-right-m m-text-right">
+<span class="m-thin"><a href="frameworks.html" class="m-doc">Frameworks</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib--framework-h.html">"diplib/framework.h"</a></span>          </div>
+
+          <div class="m-doc-template"><span class="m-doc-wrap-bumper">template&lt;</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> N,
+    typename TPI,
+    typename F&gt;</span></div>
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span><span class="m-breadcrumb"><a href="dip-Framework.html">Framework</a>::<wbr/></span>VariadicScanLineFilter <span class="m-thin">class</span>        </h1>
+        <p>An implementation of the ScanLinefilter for N input images and 1 output image.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#base-classes">Base classes</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Here, all buffers are of the same data type, and the scalar operation applied to each sample is the lambda
+function of type F, passed to the constructor. All input and output images must have the same number of tensor
+elements, and in the same order.</p>
+<p>When <code>N</code> = 1, the resulting object can be passed to the <a href="frameworks.html#dip-Framework-ScanMonadic-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-uint--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::ScanMonadic</code></a> function. When <code>N</code> = 2,
+you can use the <a href="frameworks.html#dip-Framework-ScanDyadic-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::ScanDyadic</code></a> function. For any other <code>N</code>, or when <a href="frameworks.html#dip-Framework-ScanDyadic-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::ScanDyadic</code></a>
+does not do the right thing, use <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>.</p>
+<p>The following example shows how to make a dyadic operator that performs computations in <code>sfloat</code> and generates
+an output image of that same type.</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">lhs</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">rhs</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span><span class="p">;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">dfloat</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+<span class="k">auto</span> <span class="n">sampleOperator</span> <span class="o">=</span> <span class="p">[</span> <span class="o">=</span> <span class="p">](</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">sfloat</span> <span class="k">const</span><span class="o">*</span><span class="p">,</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="n">its</span> <span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span> <span class="o">*</span><span class="n">its</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="o">*</span><span class="n">its</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">*</span> <span class="mi">10</span> <span class="p">)</span> <span class="o">+</span> <span class="n">offset</span><span class="p">;</span> <span class="p">};</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">VariadicScanLineFilter</span><span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">sfloat</span><span class="p">,</span> <span class="k">decltype</span><span class="p">(</span> <span class="n">sampleOperator</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="n">scanLineFilter</span><span class="p">(</span> <span class="n">sampleOperator</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">ScanDyadic</span><span class="p">(</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span><span class="p">,</span> <span class="n">scanLineFilter</span> <span class="p">);</span>
+</pre></div>
+
+<p><code>sampleOperator</code> is a lambda function, which captures <code>offset</code> by value (note that capturing by reference will
+slow down the execution significantly). It has a single input argument, a <code>std::array</code> of 2 float pointers. The
+first pointer will point at a sample in the <code>lhs</code> input image, and the second to the corresponding sample in the
+<code>rhs</code> input image. The return value of the lambda will be assigned to the corresponding sample in the output image.
+Note that to access the sample values, you need to use the syntax <code>*its[ 0 ]</code>, where the <code>0</code> is the index into
+the array, yielding a pointer, which is dereferenced by the <code>*</code> operator to access the sample value.</p>
+<p>To use the <code>VariadicScanLineFilter</code> with dynamic data type dispatch, it is necessary to use an auxiliary function.
+Such an auxiliary function also simplifies the use of the class template:</p>
+<div class="m-code"><pre><span></span><span class="k">template</span><span class="o">&lt;</span> <span class="k">typename</span> <span class="nc">TPI</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">F</span> <span class="o">&gt;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">ScanLineFilter</span> <span class="o">&gt;</span> <span class="n">NewFilter</span><span class="p">(</span> <span class="n">F</span> <span class="n">func</span> <span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">ScanLineFilter</span> <span class="o">&gt;&gt;</span><span class="p">(</span> <span class="k">new</span> <span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">VariadicScanLineFilter</span><span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">TPI</span><span class="p">,</span> <span class="n">F</span> <span class="o">&gt;</span><span class="p">(</span> <span class="n">func</span> <span class="p">));</span>
+<span class="p">}</span>
+<span class="c1">// ...</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">in</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span><span class="p">;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">DataType</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">in</span><span class="p">.</span><span class="n">DataType</span><span class="p">();</span>
+<span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">ScanLineFilter</span> <span class="o">&gt;</span> <span class="n">scanLineFilter</span><span class="p">;</span>
+<span class="n">DIP_OVL_CALL_ASSIGN_REAL</span><span class="p">(</span> <span class="n">scanLineFilter</span><span class="p">,</span> <span class="n">NewFilter</span><span class="p">,</span> <span class="p">(</span>
+      <span class="p">[</span> <span class="o">=</span> <span class="p">](</span> <span class="k">auto</span> <span class="n">its</span> <span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span> <span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span> <span class="o">*</span><span class="n">its</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="p">)</span> <span class="o">+</span> <span class="n">offset</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">),</span> <span class="n">dt</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">ScanMonadic</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">in</span><span class="p">.</span><span class="n">TensorElements</span><span class="p">(),</span> <span class="o">*</span><span class="n">scanLineFilter</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">Framework</span><span class="o">::</span><span class="n">ScanOption</span><span class="o">::</span><span class="n">TensorAsSpatialDim</span> <span class="p">);</span>
+</pre></div>
+
+<p>Notice in this case we used a generic lambda, i.e. its input parameter has type <code>auto</code>. It will be compiled
+differently for each allowed data type. The function template <code>NewFilter</code> that we defined specifies the <code>N</code> in
+the <code>VariadicScanLineFilter</code> template, and helps pass on the type of the lambda, which is automatically determined
+by the compiler and filled out. That is, the function can be called as <code>NewFilter&lt; dip::sfloat &gt;( sampleOperator )</code>.
+The object is allocated in free memory, and its lifetime is managed by <code>std::unique_ptr</code>, meaning that there is
+no need to explicitly delete the object. Next, we use the <code>DIP_OVL_CALL_ASSIGN_REAL</code> macro to call different
+instantiations of our function, depending on the data type <code>dt</code>, which we determine dynamically from the input
+image. The output is captured in a variable and passed to the scan function.</p>
+<p>For values of <code>N</code> from 1 to 4 there are pre-defined functions just like the <code>NewFilter</code> function above:
+<a href="frameworks.html#dip-Framework-NewMonadicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewMonadicScanLineFilter</code></a>, <a href="frameworks.html#dip-Framework-NewDyadicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewDyadicScanLineFilter</code></a>,
+<a href="frameworks.html#dip-Framework-NewTriadicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewTriadicScanLineFilter</code></a>, <a href="frameworks.html#dip-Framework-NewTetradicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewTetradicScanLineFilter</code></a>.
+These functions take an optional second input argument <code>cost</code>, which specifies the cost in cycles to execute
+a single call of <code>func</code>. This cost is used to determine if it&rsquo;s worthwhile to parallelize the operation, see
+<a href="design.html#design_multithreading">Multithreading</a>.</p>
+        <section id="base-classes">
+          <h2>Base classes</h2>
+          <dl class="m-doc">
+            <dt>
+              class <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::<wbr />Framework::<wbr />ScanLineFilter</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>.</dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

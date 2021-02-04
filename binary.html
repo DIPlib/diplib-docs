@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filtering &raquo; Binary image filters module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="filtering.html">Filtering</a> &raquo;</span>
+          Binary image filters <span class="m-thin">module</span>          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--binary-h.html">"diplib/binary.h"</a></div>
+        </h1>
+        <p>Processing binary images, including binary mathematical morphology.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+            <dt>
+              class <a href="dip-Interval.html" class="m-doc">dip::<wbr />Interval</a>
+            </dt>
+            <dd>Represents the shape of an interval for inf-generating and sup-generating operators.</dd>
+          </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+            <dt>
+              using <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::<wbr />IntervalArray</a> = std::vector&lt;Interval&gt;
+
+            </dt>
+            <dd>An array of intervals.</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryDilation-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />BinaryDilation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Binary morphological dilation operation.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryErosion-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />BinaryErosion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::OBJECT)</span>
+            </dt>
+            <dd>Binary morphological erosion operation.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryClosing-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />BinaryClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::SPECIAL)</span>
+            </dt>
+            <dd>Binary morphological closing operation.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryOpening-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />BinaryOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::SPECIAL)</span>
+            </dt>
+            <dd>Binary morphological opening operation.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryPropagation-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />BinaryPropagation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; inSeed,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; inMask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Morphological propagation of binary objects.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-EdgeObjectsRemove-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">dip::<wbr />EdgeObjectsRemove</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1)</span>
+            </dt>
+            <dd>Remove edge objects from binary image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FillHoles-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">dip::<wbr />FillHoles</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1)</span>
+            </dt>
+            <dd>Fill holes in binary image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ConditionalThickening2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />ConditionalThickening2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::LOSE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Thickens the image <code>in</code> conditioned on the mask (2D only).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ConditionalThinning2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />ConditionalThinning2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::LOSE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Thins the image <code>in</code> conditioned on the mask (2D only).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryAreaOpening-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />BinaryAreaOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> filterSize,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Computes the area opening of a binary image</dd>
+            <dt id="dip-BinaryAreaClosing-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryAreaClosing-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />BinaryAreaClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> filterSize,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; s_edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Computes the area closing of a binary image, by calling <a href="binary.html#dip-BinaryAreaOpening-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL"><code>dip::BinaryAreaOpening</code></a> on the inverse
+of the input image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />EuclideanSkeleton</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::NATURAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Accurate binary skeleton (2D and 3D only).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />CountNeighbors</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FOREGROUND,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Counts the number of set neighbors for each pixel in the binary image <code>in</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MajorityVote-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL" class="m-doc">dip::<wbr />MajorityVote</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Filters the binary image by setting each pixel to the phase with more pixels in the neighborhood.</dd>
+            <dt id="dip-GetSinglePixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GetSinglePixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />GetSinglePixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Returns the isolated pixels in the binary image <code>in</code>. That is, the set pixels with zero neighbors. See <a href="binary.html#dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><code>dip::CountNeighbors</code></a>.</dd>
+            <dt id="dip-GetEndPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GetEndPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />GetEndPixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Returns the end pixels in the skeleton image <code>in</code>. That is, the set pixels with one neighbor. See <a href="binary.html#dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><code>dip::CountNeighbors</code></a>.</dd>
+            <dt id="dip-GetLinkPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GetLinkPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />GetLinkPixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Returns the link pixels in the skeleton image <code>in</code>. That is, the set pixels with two neighbors. See <a href="binary.html#dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><code>dip::CountNeighbors</code></a>.</dd>
+            <dt id="dip-GetBranchPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GetBranchPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />GetBranchPixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span>
+            </dt>
+            <dd>Returns the branch pixels in the skeleton image <code>in</code>. That is, the set pixels with more than two neighbors. See <a href="binary.html#dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><code>dip::CountNeighbors</code></a>.</dd>
+            <dt id="dip-Invert-dip-IntervalArray-L">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Invert-dip-IntervalArray-L" class="m-doc-self">dip::<wbr />Invert</a>(</span><span class="m-doc-wrap"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>&amp; array)</span>
+            </dt>
+            <dd>Inverts the intervals in the array, swapping foreground and background pixels. Works correctly
+if intervals in the array share data. However, this function could also affect other intervals not in
+the array, if data is shared.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SupGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL" class="m-doc">dip::<wbr />SupGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Sup-generating operator, also known as hit-miss operator.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-InfGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL" class="m-doc">dip::<wbr />InfGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Inf-generating operator, the dual of the hit-miss operator.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-UnionSupGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL" class="m-doc">dip::<wbr />UnionSupGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Union of Sup-generating operators.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-UnionSupGenerating2D-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />UnionSupGenerating2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Union of Sup-generating operators.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-IntersectionInfGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL" class="m-doc">dip::<wbr />IntersectionInfGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Intersection of Inf-generating operators.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-IntersectionInfGenerating2D-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />IntersectionInfGenerating2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Intersection of Inf-generating operators.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Thickening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL" class="m-doc">dip::<wbr />Thickening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Applies the thickening operator, optionally constrained by a mask, to an image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Thickening2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-uint--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />Thickening2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Applies the thickening operator, optionally constrained by a mask, to an image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Thinning-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL" class="m-doc">dip::<wbr />Thinning</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Applies the thinning operator, optionally constrained by a mask, to an image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Thinning2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-uint--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />Thinning2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Applies the thinning operator, optionally constrained by a mask, to an image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-HomotopicThinningInterval2D-dip-uint-" class="m-doc">dip::<wbr />HomotopicThinningInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2) -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+            </dt>
+            <dd>Returns a 2D interval array for homotopic thinning.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-HomotopicThickeningInterval2D-dip-uint-" class="m-doc">dip::<wbr />HomotopicThickeningInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2) -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+            </dt>
+            <dd>Returns a 2D interval array for homotopic thickening.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-EndPixelInterval2D-dip-uint-" class="m-doc">dip::<wbr />EndPixelInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2) -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+            </dt>
+            <dd>Returns an interval array for detecting end pixels. Includes isolated pixels.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-HomotopicEndPixelInterval2D-dip-uint-" class="m-doc">dip::<wbr />HomotopicEndPixelInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2) -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+            </dt>
+            <dd>Returns an interval array for detecting end pixels. Excludes isolated pixels</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-HomotopicInverseEndPixelInterval2D-dip-uint-" class="m-doc">dip::<wbr />HomotopicInverseEndPixelInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2) -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+            </dt>
+            <dd>Returns an interval array for detecting end background pixels. Excludes isolated pixels.</dd>
+            <dt id="dip-SinglePixelInterval-dip-uint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SinglePixelInterval-dip-uint-" class="m-doc-self">dip::<wbr />SinglePixelInterval</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims = 2) -&gt; <a href="dip-Interval.html" class="m-doc">dip::Interval</a></span>
+            </dt>
+            <dd>Returns an interval for detecting single pixels. Use with <a href="binary.html#dip-SupGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL"><code>dip::SupGenerating</code></a> to detect isolated
+pixels. Note that <a href="binary.html#dip-GetSinglePixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::GetSinglePixels</code></a> is more efficient.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BranchPixelInterval2D" class="m-doc">dip::<wbr />BranchPixelInterval2D</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+            </dt>
+            <dd>Returns a 2D interval array for detecting branch pixels.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BoundaryPixelInterval2D" class="m-doc">dip::<wbr />BoundaryPixelInterval2D</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Interval.html" class="m-doc">dip::Interval</a></span>
+            </dt>
+            <dd>Returns a 2D interval for detecting boundary pixels.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ConvexHullInterval2D" class="m-doc">dip::<wbr />ConvexHullInterval2D</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+            </dt>
+            <dd>Returns a 2D interval array to thicken to a convex hull.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-BinaryDilation-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BinaryDilation-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />BinaryDilation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Binary morphological dilation operation.</p>
+<p>The <code>connectivity</code> parameter defines the metric, that is, the shape of
+the structuring element (see <a href="concepts.html#connectivity">Connectivity</a>). Alternating connectivity
+is only implemented for 2D and 3D images.</p>
+<p>The <code>edgeCondition</code> parameter specifies whether pixels past the border of the image should be
+treated as object (by passing <code>"object"</code>) or as background (by passing <code>"background"</code>).</p>
+<p>For dilations with arbitrary structuring elements, see <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>.</p>
+<p>When <code>connectivity</code> is equal to the image dimensionality, a square structuring element is obtained.
+For this case, <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> is always the faster choice.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-BinaryErosion-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BinaryErosion-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />BinaryErosion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::OBJECT)</span></span>
+            </h3>
+            <p>Binary morphological erosion operation.</p>
+<p>The <code>connectivity</code> parameter defines the metric, that is, the shape of
+the structuring element (see <a href="concepts.html#connectivity">Connectivity</a>). Alternating connectivity
+is only implemented for 2D and 3D images.</p>
+<p>The <code>edgeCondition</code> parameter specifies whether pixels past the border of the image should be
+treated as object (by passing <code>"object"</code>) or as background (by passing <code>"background"</code>).</p>
+<p>For erosions with arbitrary structuring elements, see <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>.</p>
+<p>When <code>connectivity</code> is equal to the image dimensionality, a square structuring element is obtained.
+For this case, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a> is always the faster choice.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-BinaryClosing-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BinaryClosing-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />BinaryClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::SPECIAL)</span></span>
+            </h3>
+            <p>Binary morphological closing operation.</p>
+<p>The <code>connectivity</code> parameter defines the metric, that is, the shape of
+the structuring element (see <a href="concepts.html#connectivity">Connectivity</a>). Alternating connectivity
+is only implemented for 2D and 3D images.</p>
+<p>The <code>edgeCondition</code> parameter specifies whether pixels past the border of the image should be
+treated as object (by passing <code>"object"</code>) or as background (by passing <code>"background"</code>).
+Additionally, you can set it to <code>"special"</code> for special handling:
+<code>"background"</code> for the dilation, <code>"object"</code> for the erosion; this avoids the border
+effect you can get in the corners of the image in some cases.</p>
+<p>For closings with arbitrary structuring elements, see <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a>.</p>
+<p>When <code>connectivity</code> is equal to the image dimensionality, a square structuring element is obtained.
+For this case, <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> is always the faster choice.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-BinaryOpening-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BinaryOpening-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />BinaryOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::SPECIAL)</span></span>
+            </h3>
+            <p>Binary morphological opening operation.</p>
+<p>The <code>connectivity</code> parameter defines the metric, that is, the shape of
+the structuring element (see <a href="concepts.html#connectivity">Connectivity</a>). Alternating connectivity
+is only implemented for 2D and 3D images.</p>
+<p>The <code>edgeCondition</code> parameter specifies whether pixels past the border of the image should be
+treated as object (by passing <code>"object"</code>) or as background (by passing <code>"background"</code>).
+Additionally, you can set it to <code>"special"</code> for special handling:
+<code>"object"</code> for the erosion, <code>"background"</code> for the dilation; this avoids the border
+effect you can get in the corners of the image in some cases.</p>
+<p>For openings with arbitrary structuring elements, see <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a>.</p>
+<p>When <code>connectivity</code> is equal to the image dimensionality, a square structuring element is obtained.
+For this case, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> is always the faster choice.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-BinaryPropagation-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BinaryPropagation-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />BinaryPropagation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; inSeed,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; inMask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Morphological propagation of binary objects.</p>
+<p><code>inSeed</code> contains the seeds to propagate. To use no seeds, simply pass a raw image, i.e. <code>dip::Image()</code>.
+<code>inMask</code> contains the mask in which propagation is allowed.</p>
+<p>The <code>connectivity</code> parameter defines the metric, that is, the shape of
+the structuring element (see <a href="concepts.html#connectivity">Connectivity</a>). Alternating connectivity
+is only implemented for 2D and 3D images.</p>
+<p>The <code>edgeCondition</code> parameter specifies whether pixels past the border of the image should be
+treated as object (by passing <code>"object"</code>) or as background (by passing <code>"background"</code>).</p>
+<p>The algorithm is repeated <code>iterations</code> times. Pass 0 to continue until propagation is completed.</p>
+<p>The function <a href="morphology.html#dip-MorphologicalReconstruction-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::MorphologicalReconstruction</code></a> provides similar functionality for other data types.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-EdgeObjectsRemove-dip-Image-CL-dip-Image-L-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-EdgeObjectsRemove-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />EdgeObjectsRemove</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1)</span></span>
+            </h3>
+            <p>Remove edge objects from binary image.</p>
+<p>Removes those binary objects from <code>in</code> that are connected to the edges of the image.
+This function calls <a href="binary.html#dip-BinaryPropagation-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryPropagation</code></a> with no seed image and <code>edgeCondition</code> set to
+<code>"object"</code>. The result of the propagation is xor-ed with the input image.</p>
+<p>The <code>connectivity</code> parameter defines the metric, that is, the shape of
+the structuring element (see <a href="concepts.html#connectivity">Connectivity</a>).</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-FillHoles-dip-Image-CL-dip-Image-L-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-FillHoles-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />FillHoles</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1)</span></span>
+            </h3>
+            <p>Fill holes in binary image.</p>
+<p>Removes holes in binary objects in <code>in</code> that are not connected to the edges of the image.
+This function calls <a href="binary.html#dip-BinaryPropagation-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryPropagation</code></a> using the inverted <code>in</code>, with no seed image, and
+<code>edgeCondition</code> set to <code>"object"</code>. This finds the background connected to the edge, which is
+the only background to be preserved.</p>
+<p>The <code>connectivity</code> parameter defines the metric, that is, the shape of
+the structuring element (see <a href="concepts.html#connectivity">Connectivity</a>).</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-ConditionalThickening2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ConditionalThickening2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />ConditionalThickening2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::LOSE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Thickens the image <code>in</code> conditioned on the mask (2D only).</p>
+<p>A thickening is a dilation that preserves topology. If no <code>mask</code> is given (i.e. the image is raw),
+it will produce an inverse skeleton of the background (given sufficient iterations).
+If a <code>mask</code> is given, the dilation will not propagate outside of the set pixels in <code>mask</code>.</p>
+<p>The dilation always uses the unit 4-connected neighborhood. That is, it iteratively propagates using
+a connectivity of 1. The topology preserved is that of the 8-connected background. <code>iterations</code> iterations
+are applied. If <code>iterations</code> is 0, the algorithm iterates until idempotency.</p>
+<p><code>endPixelCondition</code> determines if background branches are kept. The string <code>"keep"</code> is equivalent to the
+<code>"natural"</code> end pixel condition in <a href="binary.html#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><code>dip::EuclideanSkeleton</code></a>, and <code>"lose"</code> causes branches to not be kept
+(meaning that only single background pixels and loops in background are kept).</p>
+<p>The <code>edgeCondition</code> parameter specifies whether the border of the image should be treated as object (<code>"object"</code>)
+or as background (<code>"background"</code>). Note that the algorithm doesn&rsquo;t propagate into the pixels around the edge
+of the image. The <code>edgeCondition</code> is used to modify the input image before the iterative process starts.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-ConditionalThinning2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ConditionalThinning2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />ConditionalThinning2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::LOSE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Thins the image <code>in</code> conditioned on the mask (2D only).</p>
+<p>A thinning is an erosion that preserves topology. If no <code>mask</code> is given (i.e. the image is raw),
+it will produce a skeleton of the object (given sufficient iterations).
+If a <code>mask</code> is given, the erosion will not propagate outside of the set pixels in <code>mask</code>.
+Note that <a href="binary.html#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><code>dip::EuclideanSkeleton</code></a> produces a better skeleton.</p>
+<p>The erosion always uses the unit 4-connected neighborhood. That is, it iteratively propagates using
+a connectivity of 1. The topology preserved is that of the 8-connected foreground. <code>iterations</code> iterations
+are applied. If <code>iterations</code> is 0, the algorithm iterates until idempotency.</p>
+<p><code>endPixelCondition</code> determines if background branches are kept. The string <code>"keep"</code> is equivalent to the
+<code>"natural"</code> end pixel condition in <a href="binary.html#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><code>dip::EuclideanSkeleton</code></a>, and <code>"lose"</code> causes branches to not be kept
+(meaning that only single background pixels and loops in background are kept).</p>
+<p>The <code>edgeCondition</code> parameter specifies whether the border of the image should be treated as object (<code>"object"</code>)
+or as background (<code>"background"</code>). Note that the algorithm doesn&rsquo;t propagate into the pixels around the edge
+of the image. The <code>edgeCondition</code> is used to modify the input image before the iterative process starts.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-BinaryAreaOpening-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BinaryAreaOpening-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />BinaryAreaOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> filterSize,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Computes the area opening of a binary image</p>
+<p>The area opening removes all connected components that have an area smaller than the given parameter <code>filterSize</code>,
+and is equivalent to the supremum of openings with all possible connected structuring elements of that area.</p>
+<p><code>connectivity</code> determines what a connected component is. See <a href="concepts.html#connectivity">Connectivity</a> for information on the
+connectivity parameter.</p>
+<p>The <code>edgeCondition</code> parameter specifies whether pixels past the border of the image should be
+treated as object (by passing <code>"object"</code>) or as background (by passing <code>"background"</code>).</p>
+<p>The operation is implemented through <a href="regions.html#dip-Label-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-uint--dip-StringArray-"><code>dip::Label</code></a>.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="morphology.html#dip-AreaOpening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL"><code>dip::AreaOpening</code></a>, <a href="morphology.html#dip-AreaClosing-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-uint-"><code>dip::AreaClosing</code></a></p>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />EuclideanSkeleton</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::NATURAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Accurate binary skeleton (2D and 3D only).</p>
+<p>This algorithm computes quasi-Euclidean distances and tests Hilditch conditions to preserve topology. In 2D,
+integer distances to neighbors are as follows:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>neighbors</th>
+<th>distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4-connected</td>
+<td>5</td>
+</tr>
+<tr>
+<td>8-connected</td>
+<td>7</td>
+</tr>
+<tr>
+<td>knight&rsquo;s move</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<p>and in 3D as follows:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>neighbors</th>
+<th>distance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6-connected neighbors</td>
+<td>4</td>
+</tr>
+<tr>
+<td>18-connected neighbors</td>
+<td>6</td>
+</tr>
+<tr>
+<td>26-connected neighbors</td>
+<td>7</td>
+</tr>
+<tr>
+<td>knight&rsquo;s move</td>
+<td>9</td>
+</tr>
+<tr>
+<td>(2,1,1) neighbors</td>
+<td>10</td>
+</tr>
+<tr>
+<td>(2,2,1) neighbors</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>endPixelCondition</code> parameter determines what is considered an &ldquo;end pixel&rdquo; in the skeleton, and thus affects
+how many branches are generated. It is one of the following strings:</p>
+<ul>
+<li><code>"loose ends away"</code>: Loose ends are eaten away (nothing is considered an end point).</li>
+<li><code>"natural"</code>: &ldquo;natural&rdquo; end pixel condition of this algorithm.</li>
+<li><code>"one neighbor"</code>: Keep endpoint if it has one neighbor.</li>
+<li><code>"two neighbors"</code>: Keep endpoint if it has two neighbors.</li>
+<li><code>"three neighbors"</code>: Keep endpoint if it has three neighbors.</li>
+</ul>
+<p>The <code>edgeCondition</code> parameter specifies whether the border of the image should be treated as object (<code>"object"</code>)
+or as background (<code>"background"</code>).</p>
+<aside class="m-note m-warning">
+<h4>Warning</h4>
+<p>Pixels in a 2-pixel border around the edge are not processed. If this is an issue, consider adding 2 pixels
+on each side of your image.</p>
+</aside>
+<aside class="m-note m-danger">
+<h4>Bug</h4>
+<p>Results in 3D are not always correct: <code>"loose ends away"</code>, <code>"one neighbor"</code> and <code>"three neighbors"</code> produce the
+same results, and sometimes planes in the skeleton are not thinned to a single pixel thickness.</p>
+</aside>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>B.J.H. Verwer, &ldquo;Improved metrics in image processing applied to the Hilditch skeleton&rdquo;, 9<sup>th</sup> ICPR, 1988.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />CountNeighbors</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FOREGROUND,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Counts the number of set neighbors for each pixel in the binary image <code>in</code>.</p>
+<p>Out will contain, for each set pixel, 1 + the number of neighbors that are also set. The neighborhood is
+given by <code>connectivity</code>, see <a href="concepts.html#connectivity">Connectivity</a> for more information. If <code>mode</code> is set to <code>"all"</code>, the
+count is computed for all pixels, not only the foreground ones. In this case, for the non-set pixels the
+count is not increased by 1, and therefore yields simply the count of set pixels in the full neighborhood.</p>
+<p><code>edgeCondition</code> determines the value of pixels outside the image domain, and can be <code>"object"</code> or <code>"background"</code>.</p>
+<p>This function is typically used on the output of <a href="binary.html#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><code>dip::EuclideanSkeleton</code></a> to distinguish different types
+of pixels.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="binary.html#dip-GetSinglePixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::GetSinglePixels</code></a>, <a href="binary.html#dip-GetEndPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::GetEndPixels</code></a>, <a href="binary.html#dip-GetLinkPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::GetLinkPixels</code></a>, <a href="binary.html#dip-GetBranchPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::GetBranchPixels</code></a></p>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-MajorityVote-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MajorityVote-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />MajorityVote</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeCondition = S::BACKGROUND)</span></span>
+            </h3>
+            <p>Filters the binary image by setting each pixel to the phase with more pixels in the neighborhood.</p>
+<p>The majority vote filter is the binary equivalent to the median filter. If in the neighborhood of a pixel there
+are more foreground than background pixels, the pixel will be set to foreground. Otherwise it will be set to
+background. The pixel itself is part of the neighborhood, and therefore the neighborhood always has an odd number
+of pixels.</p>
+<p>Note that this is equivalent to (but more efficient than):</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">uint</span> <span class="n">neighborhoodSize</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">NeighborList</span><span class="p">(</span> <span class="p">{</span> <span class="s">&quot;connected&quot;</span><span class="p">,</span> <span class="n">connectivity</span> <span class="p">},</span> <span class="n">in</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">()</span> <span class="p">).</span><span class="n">Size</span><span class="p">();</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">CountNeighbors</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">connectivity</span><span class="p">,</span> <span class="s">&quot;all&quot;</span><span class="p">,</span> <span class="n">edgeCondition</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="n">neighborhoodSize</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+
+<p>with <code>neighborhoodSize</code> the number of pixels in the neighborhood given by <code>connectivity</code>.</p>
+<p><code>edgeCondition</code> determines the value of pixels outside the image domain, and can be <code>"object"</code> or <code>"background"</code>.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="nonlinear.html#dip-MedianFilter-dip-Image-CL-dip-Image-L-dip-Kernel-CL-dip-StringArray-CL"><code>dip::MedianFilter</code></a>, <a href="binary.html#dip-CountNeighbors-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><code>dip::CountNeighbors</code></a></p>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-SupGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SupGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL" class="m-doc-self">dip::<wbr />SupGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Sup-generating operator, also known as hit-miss operator.</p>
+<p>The sup-generating operator is a relaxed template matching, where <code>interval</code> is the template.
+<code>interval</code> contains some pixels that must be foreground, and some that must be background, but
+also allows &ldquo;don&rsquo;t care&rdquo; pixels, which will be ignored in the matching.</p>
+<p>This operator is equal to the infimum of an erosion and an anti-erosion:</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Infimum</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Erosion</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">hit</span> <span class="p">),</span> <span class="n">dip</span><span class="o">::</span><span class="n">Erosion</span><span class="p">(</span> <span class="o">~</span><span class="n">in</span><span class="p">,</span> <span class="n">miss</span> <span class="p">));</span>
+</pre></div>
+
+<p>where <code>hit</code> and <code>miss</code> are the two binary structuring elements in <code>interval</code>.</p>
+<p>This function is specifically for binary images. Use <a href="morphology.html#dip-HitAndMiss-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StructuringElement-CL-dip-String-CL-dip-StringArray-CL"><code>dip::HitAndMiss</code></a> for a more general operator.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-InfGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-InfGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL" class="m-doc-self">dip::<wbr />InfGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Inf-generating operator, the dual of the hit-miss operator.</p>
+<p>This operator is equal to the supremum of a dilation and an anti-dilation:</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Supremum</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Dilation</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">hit</span> <span class="p">),</span> <span class="n">dip</span><span class="o">::</span><span class="n">Dilation</span><span class="p">(</span> <span class="o">~</span><span class="n">in</span><span class="p">,</span> <span class="n">miss</span> <span class="p">));</span>
+</pre></div>
+
+<p>where <code>hit</code> and <code>miss</code> are the two binary structuring elements in <code>interval</code>.</p>
+<p>This function is specifically for binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-UnionSupGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-UnionSupGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL" class="m-doc-self">dip::<wbr />UnionSupGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Union of Sup-generating operators.</p>
+<p>Applies the sup-generating operator with each of the intervals in <code>intervals</code>, and takes the union
+of the results.</p>
+<p>This function is specifically for binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-UnionSupGenerating2D-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-UnionSupGenerating2D-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />UnionSupGenerating2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Union of Sup-generating operators.</p>
+<p>Applies the sup-generating operator with all the rotated versions of <code>interval</code>, and takes the union
+of the results. See <a href="dip-Interval.html#dip-Interval-GenerateRotatedVersions-dip-uint--dip-String--C"><code>dip::Interval::GenerateRotatedVersions</code></a> for the definition of <code>rotationAngle</code>
+and <code>rotationDirection</code>.</p>
+<p>This function is specifically for 2D binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-IntersectionInfGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-IntersectionInfGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL" class="m-doc-self">dip::<wbr />IntersectionInfGenerating</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Intersection of Inf-generating operators.</p>
+<p>Applies the inf-generating operator with each of the intervals in <code>intervals</code>, and takes the intersection
+of the results.</p>
+<p>This function is specifically for binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-IntersectionInfGenerating2D-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-IntersectionInfGenerating2D-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />IntersectionInfGenerating2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Intersection of Inf-generating operators.</p>
+<p>Applies the inf-generating operator with all the rotated versions of <code>interval</code>, and takes the intersection
+of the results. See <a href="dip-Interval.html#dip-Interval-GenerateRotatedVersions-dip-uint--dip-String--C"><code>dip::Interval::GenerateRotatedVersions</code></a> for the definition of <code>rotationAngle</code>
+and <code>rotationDirection</code>.</p>
+<p>This function is specifically for 2D binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Thickening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Thickening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />Thickening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Applies the thickening operator, optionally constrained by a mask, to an image.</p>
+<p>Thickening is defined as <code>in + SupGenerating(in)</code>. The constrained operation is defined as
+ <code>in + (SupGenerating(in) &amp; mask)</code>.</p>
+<p>The operation is applied with each of the intervals in <code>intervals</code>, and repeated <code>iterations</code>
+times. If <code>iterations</code> is 0, the operation is repeated until convergence.</p>
+<p>A thickening with the right set of intervals leads to a background skeleton, also called skiz.
+See <a href="binary.html#dip-HomotopicThickeningInterval2D-dip-uint-"><code>dip::HomotopicThickeningInterval2D</code></a>.
+The intervals returned by <a href="binary.html#dip-HomotopicInverseEndPixelInterval2D-dip-uint-"><code>dip::HomotopicInverseEndPixelInterval2D</code></a> prune the skiz to single
+points and circles.</p>
+<p>This function is specifically for binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Thickening2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-uint--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Thickening2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />Thickening2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Applies the thickening operator, optionally constrained by a mask, to an image.</p>
+<p>The operation is applied with with all the rotated versions of <code>interval</code>, and repeated <code>iterations</code>
+times. See <a href="binary.html#dip-Thickening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><code>dip::Thickening</code></a> for a description of the operation.
+See <a href="dip-Interval.html#dip-Interval-GenerateRotatedVersions-dip-uint--dip-String--C"><code>dip::Interval::GenerateRotatedVersions</code></a> for the definition of <code>rotationAngle</code> and <code>rotationDirection</code>.</p>
+<p>This function is specifically for 2D binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Thinning-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Thinning-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />Thinning</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> const&amp; intervals,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Applies the thinning operator, optionally constrained by a mask, to an image.</p>
+<p>Thinning is defined as <code>in - SupGenerating(in)</code>. The constrained operation is defined as
+ <code>in - (SupGenerating(in) &amp; mask)</code>.</p>
+<p>The operation is applied with each of the intervals in <code>intervals</code>, and repeated <code>iterations</code>
+times. If <code>iterations</code> is 0, the operation is repeated until convergence.</p>
+<p>A thinning with the right set of intervals leads to a skeleton. See <a href="binary.html#dip-HomotopicThinningInterval2D-dip-uint-"><code>dip::HomotopicThinningInterval2D</code></a>.
+The intervals returned by <a href="binary.html#dip-HomotopicEndPixelInterval2D-dip-uint-"><code>dip::HomotopicEndPixelInterval2D</code></a> prune the skeleton to single points and
+circles.</p>
+<p>This function is specifically for binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Thinning2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-uint--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Thinning2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />Thinning2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Interval.html" class="m-doc">dip::Interval</a> const&amp; interval,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span></span>
+            </h3>
+            <p>Applies the thinning operator, optionally constrained by a mask, to an image.</p>
+<p>The operation is applied with with all the rotated versions of <code>interval</code>, and repeated <code>iterations</code>
+times. See <a href="binary.html#dip-Thinning-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><code>dip::Thinning</code></a> for a description of the operation.
+See <a href="dip-Interval.html#dip-Interval-GenerateRotatedVersions-dip-uint--dip-String--C"><code>dip::Interval::GenerateRotatedVersions</code></a> for the definition of <code>rotationAngle</code> and <code>rotationDirection</code>.</p>
+<p>This function is specifically for 2D binary images.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-HomotopicThinningInterval2D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-HomotopicThinningInterval2D-dip-uint-" class="m-doc-self">dip::<wbr />HomotopicThinningInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2)</span></span>
+            </h3>
+            <p>Returns a 2D interval array for homotopic thinning.</p>
+<p>Use with <a href="binary.html#dip-Thinning-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><code>dip::Thinning</code></a> to shrink objects without changing the Euler number.
+Note that <a href="binary.html#dip-ConditionalThinning2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><code>dip::ConditionalThinning2D</code></a> is more efficient, though the two functions do not produce exactly
+the same output. To create a skeleton, use <a href="binary.html#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><code>dip::EuclideanSkeleton</code></a>.</p>
+<p><code>connectivity</code> can be 1 to produce 4-connected skeletons, or 2 for 8-connected skeletons.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-HomotopicThickeningInterval2D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-HomotopicThickeningInterval2D-dip-uint-" class="m-doc-self">dip::<wbr />HomotopicThickeningInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2)</span></span>
+            </h3>
+            <p>Returns a 2D interval array for homotopic thickening.</p>
+<p>Use with <a href="binary.html#dip-Thickening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><code>dip::Thickening</code></a> to grow objects without merging them.
+This produces a background skeleton (also known as skiz).
+Note that <a href="binary.html#dip-ConditionalThickening2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-String-CL"><code>dip::ConditionalThickening2D</code></a> is more efficient, though the two options do not produce exactly
+the same output. To create a background skeleton, use <a href="binary.html#dip-EuclideanSkeleton-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><code>dip::EuclideanSkeleton</code></a> on the inverted image.</p>
+<p><code>connectivity</code> can be 1 to produce 4-connected skeletons, or 2 for 8-connected skeletons.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-EndPixelInterval2D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-EndPixelInterval2D-dip-uint-" class="m-doc-self">dip::<wbr />EndPixelInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2)</span></span>
+            </h3>
+            <p>Returns an interval array for detecting end pixels. Includes isolated pixels.</p>
+<p>Use with <a href="binary.html#dip-UnionSupGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL"><code>dip::UnionSupGenerating</code></a> to detect skeleton end pixels. Note that <a href="binary.html#dip-GetEndPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::GetEndPixels</code></a>
+is more efficient.</p>
+<p><code>connectivity</code> can be 1 to work with 4-connected skeletons, or 2 for 8-connected skeletons.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-HomotopicEndPixelInterval2D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-HomotopicEndPixelInterval2D-dip-uint-" class="m-doc-self">dip::<wbr />HomotopicEndPixelInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2)</span></span>
+            </h3>
+            <p>Returns an interval array for detecting end pixels. Excludes isolated pixels</p>
+<p>Use with <a href="binary.html#dip-Thinning-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><code>dip::Thinning</code></a> to prune end points from the skeleton.</p>
+<p><code>connectivity</code> can be 1 to prune 4-connected skeletons, or 2 for 8-connected skeletons.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-HomotopicInverseEndPixelInterval2D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-HomotopicInverseEndPixelInterval2D-dip-uint-" class="m-doc-self">dip::<wbr />HomotopicInverseEndPixelInterval2D</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2)</span></span>
+            </h3>
+            <p>Returns an interval array for detecting end background pixels. Excludes isolated pixels.</p>
+<p>Use with <a href="binary.html#dip-Thickening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><code>dip::Thickening</code></a> to prune end points from the background skeleton.</p>
+<p><code>connectivity</code> can be 1 to prune 4-connected skeletons, or 2 for 8-connected skeletons.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-BranchPixelInterval2D"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BranchPixelInterval2D" class="m-doc-self">dip::<wbr />BranchPixelInterval2D</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Returns a 2D interval array for detecting branch pixels.</p>
+<p>Use with <a href="binary.html#dip-UnionSupGenerating-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-String-CL"><code>dip::UnionSupGenerating</code></a> to detect skeleton branch pixels. Note that <a href="binary.html#dip-GetBranchPixels-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::GetBranchPixels</code></a>
+is more efficient.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-BoundaryPixelInterval2D"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html" class="m-doc">dip::Interval</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BoundaryPixelInterval2D" class="m-doc-self">dip::<wbr />BoundaryPixelInterval2D</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Returns a 2D interval for detecting boundary pixels.</p>
+<p>Use with <a href="binary.html#dip-UnionSupGenerating2D-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-uint--dip-String-CL-dip-String-CL"><code>dip::UnionSupGenerating2D</code></a> to detect object boundary pixels. Set <code>rotationAngle</code> to 45 to detect pixels
+8-connected to the background, and to 90 to detect pixels 4-connected to the background. Note that the
+difference between the input image and the eroded image accomplishes the same thing.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-ConvexHullInterval2D"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ConvexHullInterval2D" class="m-doc-self">dip::<wbr />ConvexHullInterval2D</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Returns a 2D interval array to thicken to a convex hull.</p>
+<p>Use with <a href="binary.html#dip-Thickening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-IntervalArray-CL-dip-uint--dip-String-CL"><code>dip::Thickening</code></a> to grow concave sections of objects until the objects are all convex.
+This leads to octagonal shapes.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

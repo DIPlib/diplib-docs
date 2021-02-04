@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::Graph class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-right-m m-text-right">
+<span class="m-thin"><a href="infrastructure.html" class="m-doc">The library infrastructure</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib--graph-h.html">"diplib/graph.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>Graph <span class="m-thin">class</span>        </h1>
+        <p>A non-directed, edge-weighted graph.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Vertices are identified by an index, these indices are expected to be consecutive. Each vertex contains a list
+of indices to edges, and has an optional value.
+Edges are represented by indices to two vertices, and a double precision floating-point weight.
+If the two vertex indices for an edge are the same, the edge is not valid; this situation arises when an edge is
+deleted.</p>
+<p>If converting an image to a graph, each pixel is converted to a vertex. The pixel&rsquo;s linear index (see <a href="dip-Image.html#pointers">On pixel coordinates, indices, offsets and data pointers</a>)
+is the vertex index.</p>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+            <dt id="dip-Graph-Graph-dip-uint--dip-uint-">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Graph-Graph-dip-uint--dip-uint-" class="m-doc-self">Graph</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nVertices,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nEdges = 0) <span class="m-label m-flat m-info">explicit</span> </span>
+            </dt>
+            <dd>Construct a graph with <code>nVertices</code> vertices. Vertices are identified by their index, which
+is in the range [0,<code>nVertices</code>]. <code>nEdges</code> is the expected number of edges for each vertex, and is used
+to reserve space for them.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Graph-Graph-dip-Image-CL-dip-uint--dip-String-CL" class="m-doc">Graph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; weights = "difference")</span>
+            </dt>
+            <dd>Construct a graph for the given image.</dd>
+            </dl>
+        </section>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="dip-Graph-Vertex.html" class="m-doc">Vertex</a>
+            </dt>
+            <dd>A vertex in the graph</dd>
+            <dt>
+              struct <a href="#dip-Graph-Edge" class="m-doc">Edge</a>
+            </dt>
+            <dd>An edge in the graph</dd>
+          </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+            <dt id="dip-Graph-VertexIndex">
+              using <a href="#dip-Graph-VertexIndex" class="m-doc-self">VertexIndex</a> = <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
+
+            </dt>
+            <dd>Type for indices to vertices</dd>
+            <dt id="dip-Graph-EdgeIndex">
+              using <a href="#dip-Graph-EdgeIndex" class="m-doc-self">EdgeIndex</a> = <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
+
+            </dt>
+            <dd>Type for indices to edges</dd>
+            <dt id="dip-Graph-EdgeList">
+              using <a href="#dip-Graph-EdgeList" class="m-doc-self">EdgeList</a> = std::vector&lt;EdgeIndex&gt;
+
+            </dt>
+            <dd>Type for list of edge indices</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt id="dip-Graph-NumberOfVertices-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-NumberOfVertices-C" class="m-doc-self">NumberOfVertices</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of vertices in the graph.</dd>
+            <dt id="dip-Graph-NumberOfEdges-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-NumberOfEdges-C" class="m-doc-self">NumberOfEdges</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of edges in the graph, including invalid edges.</dd>
+            <dt id="dip-Graph-CountEdges-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-CountEdges-C" class="m-doc-self">CountEdges</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Counts the number of valid edges in the graph.</dd>
+            <dt id="dip-Graph-Edges-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-Edges-C" class="m-doc-self">Edges</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;Edge&gt; const&amp;</span>
+            </dt>
+            <dd>Gets the set of edges in the graph. The weights of the edges are mutable, they can be directly modified.</dd>
+            <dt id="dip-Graph-OtherVertex-dip-Graph-EdgeIndex--dip-Graph-VertexIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-OtherVertex-dip-Graph-EdgeIndex--dip-Graph-VertexIndex--C" class="m-doc-self">OtherVertex</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge,
+              <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> vertex) const -&gt; <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a></span>
+            </dt>
+            <dd>Finds the index to the vertex that is joined to the vertex with index <code>vertex</code> through the edge with
+index <code>edge</code>.</dd>
+            <dt id="dip-Graph-EdgeWeight-dip-Graph-EdgeIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-EdgeWeight-dip-Graph-EdgeIndex--C" class="m-doc-self">EdgeWeight</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>&amp;</span>
+            </dt>
+            <dd>Returns a reference to the weight of the edge with index <code>edge</code>. This value is mutable even
+if the graph is <code>const</code>.</dd>
+            <dt id="dip-Graph-EdgeIndices-dip-Graph-VertexIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-EdgeIndices-dip-Graph-VertexIndex--C" class="m-doc-self">EdgeIndices</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) const -&gt; <a href="dip-Graph.html#dip-Graph-EdgeList" class="m-doc">dip::Graph::EdgeList</a> const&amp;</span>
+            </dt>
+            <dd>Get the indices to the edges that join vertex <code>v</code>.</dd>
+            <dt id="dip-Graph-VertexValue-dip-Graph-VertexIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-VertexValue-dip-Graph-VertexIndex--C" class="m-doc-self">VertexValue</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>&amp;</span>
+            </dt>
+            <dd>Returns a reference to the value of the vertex <code>v</code>. This value is mutable even if the graph is <code>const</code>.</dd>
+            <dt id="dip-Graph-AddEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-AddEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-" class="m-doc-self">AddEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
+              <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v2,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight)</span>
+            </dt>
+            <dd>Add an edge between vertices <code>v1</code> and <code>v2</code>, with weight <code>weight</code>. If the edge already exists,
+update the weight of the edge to be <code>weight</code>.</dd>
+            <dt id="dip-Graph-AddEdgeSumWeight-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-AddEdgeSumWeight-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-" class="m-doc-self">AddEdgeSumWeight</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
+              <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v2,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight)</span>
+            </dt>
+            <dd>Add an edge between vertices <code>v1</code> and <code>v2</code>, with weight <code>weight</code>. If the edge already exists,
+update the weight of the edge by adding <code>weight</code> to the existing weight.</dd>
+            <dt id="dip-Graph-DeleteEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-DeleteEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex-" class="m-doc-self">DeleteEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
+              <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v2)</span>
+            </dt>
+            <dd>Delete the edge between vertices <code>v1</code> and <code>v2</code>.</dd>
+            <dt id="dip-Graph-DeleteEdge-dip-Graph-EdgeIndex-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-DeleteEdge-dip-Graph-EdgeIndex-" class="m-doc-self">DeleteEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge)</span>
+            </dt>
+            <dd>Delete the edge <code>edge</code>.</dd>
+            <dt id="dip-Graph-Neighbors-dip-Graph-VertexIndex-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-Neighbors-dip-Graph-VertexIndex-" class="m-doc-self">Neighbors</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) -&gt; std::vector&lt;VertexIndex&gt;</span>
+            </dt>
+            <dd>Returns a list of indices to neighboring vertices. The list is created. <code>EdgeIndices</code> is
+a more efficient, but less convenient, function.</dd>
+            <dt id="dip-Graph-UpdateEdgeWeights-C">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-UpdateEdgeWeights-C" class="m-doc-self">UpdateEdgeWeights</a>(</span><span class="m-doc-wrap">) const</span>
+            </dt>
+            <dd>Re-computes edge weights as the absolute difference between vertex values.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-MinimumSpanningForest-std-vector<VertexIndex>-CL-C" class="m-doc">MinimumSpanningForest</a>(</span><span class="m-doc-wrap">std::vector&lt;VertexIndex&gt; const&amp; roots = {}) const -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
+            </dt>
+            <dd>Computes the minimum spanning forest (MSF) using Prim&rsquo;s algorithm.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-RemoveLargestEdges-dip-uint-" class="m-doc">RemoveLargestEdges</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> number)</span>
+            </dt>
+            <dd>Removes <code>number</code> edges with the largest weights from the graph.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Class documentation</h2>
+          <section class="m-doc-details" id="dip-Graph-Edge"><div>
+            <h3>
+              struct <a href="#dip-Graph-Edge" class="m-doc-self">Edge</a>
+            </h3>
+            <p>An edge in the graph</p>
+<p>If both vertices are 0, the edge is not valid (never used or deleted). Otherwise, <code>vertices[1] &gt; vertices[0]</code>.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Variables</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                  std::array&lt;VertexIndex, 2&gt; <a href="#dip-Graph-Edge-vertices" class="m-doc-self" id="dip-Graph-Edge-vertices">vertices</a>                  </td>
+                  <td>
+                  The two vertices joined by this edge
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  mutable <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-Graph-Edge-weight" class="m-doc-self" id="dip-Graph-Edge-weight">weight</a>                  </td>
+                  <td>
+                  The weight of this edge
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-Graph-Graph-dip-Image-CL-dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Graph-Graph-dip-Image-CL-dip-uint--dip-String-CL" class="m-doc-self">Graph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; weights = "difference")</span></span>
+            </h3>
+            <p>Construct a graph for the given image.</p>
+<p><code>connectivity</code> indicates which pixels are considered neighbors. Currently, only a connectivity of 1 is
+allowed. This makes neighbors the pixels at a city-block distance of 1 (in 2D, there are 4 such neighbors,
+in 3D there are 6).</p>
+<p>By default, the edge weights are given by the absolute difference between the two pixel values.
+If <code>weights</code> is <code>"average"</code>, the edge weights are given by the average of the two pixel values.</p>
+<p>Vertex values are set to the corresponding pixel value.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Graph-MinimumSpanningForest-std-vector<VertexIndex>-CL-C"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Graph.html" class="m-doc">dip::Graph</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Graph-MinimumSpanningForest-std-vector<VertexIndex>-CL-C" class="m-doc-self">MinimumSpanningForest</a>(</span><span class="m-doc-wrap">std::vector&lt;VertexIndex&gt; const&amp; roots = {}) const</span></span>
+            </h3>
+            <p>Computes the minimum spanning forest (MSF) using Prim&rsquo;s algorithm.</p>
+<p>If <code>roots</code> is an empty set, the vertex with index 0 is used as the root, and the resulting graph
+will be a minimum spanning tree (MST). If multiple roots are given, each one will spawn a tree.</p>
+<p>The output graph only contains edges reachable from the given roots. Any components not connected
+to the roots will not remain in the graph (the vertices will be copied over, but not connected).</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Graph-RemoveLargestEdges-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Graph-RemoveLargestEdges-dip-uint-" class="m-doc-self">RemoveLargestEdges</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> number)</span></span>
+            </h3>
+            <p>Removes <code>number</code> edges with the largest weights from the graph.</p>
+<p>If the graph is a minimum spanning tree, it will be converted to a minimum spanning forest with
+<code>number + 1</code> trees. This is a segmentation of the tree into the <code>number + 1</code> regions with smallest
+trees.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

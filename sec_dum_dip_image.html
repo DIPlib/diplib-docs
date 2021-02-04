@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DIPimage User Manual &raquo; The dip_image Object | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="sec_dum_gettingstarted.html" />
+  <link rel="next" href="sec_dum_dip_measurement.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dipimage_user_manual.html"><em>DIPimage</em> User Manual</a> &raquo;</span>
+          The <code>dip_image</code> Object
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#sec_dum_dip_image_creating">Creating a <code>dip_image</code> object</a></li>
+            <li><a href="#sec_dum_dip_image_displaying">Displaying <code>dip_image</code> objects</a></li>
+            <li><a href="#sec_dum_dip_image_operations">Operations on <code>dip_image</code> objects</a></li>
+            <li><a href="#sec_dum_dip_image_dimensions">Dimensions</a></li>
+            <li><a href="#sec_dum_dip_image_indexing">Indexing pixels</a></li>
+            <li><a href="#sec_dum_dip_image_tensors">Tensor images</a></li>
+            <li><a href="#sec_dum_dip_image_color">Color images</a></li>
+            <li>
+              <a href="#sec_dum_dip_image_shape">Manipulating the image shape</a>
+              <ul>
+                <li><a href="#sec_dum_dip_image_reshape">A note on the reshape and squeeze methods</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#sec_dum_dip_image_overloaded">Overloaded methods with different behavior</a>
+              <ul>
+                <li><a href="#sec_dum_dip_image_find"><code>find</code>, <code>findcoord</code></a></li>
+                <li><a href="#sec_dum_dip_image_gradient"><code>gradient</code></a></li>
+                <li><a href="#sec_dum_dip_image_ind2sub"><code>ind2sub</code>, <code>sub2ind</code></a></li>
+                <li><a href="#sec_dum_dip_image_isscalar"><code>isscalar</code>, <code>isvector</code>, <code>isrow</code>, <code>iscolumn</code>, <code>ismatrix</code></a></li>
+                <li><a href="#sec_dum_dip_image_max"><code>max</code>, <code>min</code>, <code>mean</code>, <code>median</code>, <code>std</code>, <code>var</code>, <code>prod</code>, <code>sum</code>, <code>all</code>, <code>any</code></a></li>
+                <li><a href="#sec_dum_dip_image_ndims"><code>ndims</code></a></li>
+                <li><a href="#sec_dum_dip_image_numel"><code>numel</code></a></li>
+                <li><a href="#sec_dum_dip_image_rotate"><code>rotate</code></a></li>
+              </ul>
+            </li>
+            <li><a href="#sec_dum_dip_image_review">Review of the differences between a <code>dip_image</code> and a <em>MATLAB</em> array</a></li>
+          </ul>
+        </div>
+<p>Images used by this toolbox are encapsulated in an object called
+<code>dip_image</code>. Objects of this type are unlike regular <em>MATLAB</em> arrays in
+some ways, but behave similarly most of the time. This chapter explains
+the usage of these objects.</p>
+<p>For more information on the functions mentioned in this chapter (and
+elsewhere) use the <em>MATLAB</em> help system. At the <em>MATLAB</em> command prompt, type
+<code>help &lt;function_name&gt;</code>.</p>
+<h2 id="sec_dum_dip_image_creating">Creating a <code>dip_image</code> object</h2>
+<p>To create a <code>dip_image</code> object, the function <code>dip_image</code> must be used.
+It converts any numeric array into an image object. The optional second
+argument indicates the desired data type for the image. The pixel data
+will be converted to this type if possible, or else an error will be
+generated (for example, it is illegal to convert complex data to a real
+type, since there are many ways this can be accomplished; it is
+necessary to do this explicitly). The valid data types are listed in
+the table below. This table also lists some alternative names
+that are mapped to the names on the left; these are just to make
+specifying the data type easier.</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Data type</th>
+<th>Description</th>
+<th>Other allowed names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bin</code></td>
+<td>binary (in 8-bit integer)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uint8</code></td>
+<td>8-bit unsigned integer</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uint16</code></td>
+<td>16-bit unsigned integer</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uint32</code></td>
+<td>32-bit unsigned integer</td>
+<td></td>
+</tr>
+<tr>
+<td><code>uint64</code></td>
+<td>64-bit unsigned integer</td>
+<td></td>
+</tr>
+<tr>
+<td><code>sint8</code></td>
+<td>8-bit signed integer</td>
+<td><code>int8</code></td>
+</tr>
+<tr>
+<td><code>sint16</code></td>
+<td>16-bit signed integer</td>
+<td><code>int16</code></td>
+</tr>
+<tr>
+<td><code>sint32</code></td>
+<td>32-bit signed integer</td>
+<td><code>int32</code></td>
+</tr>
+<tr>
+<td><code>sint64</code></td>
+<td>64-bit signed integer</td>
+<td><code>int64</code></td>
+</tr>
+<tr>
+<td><code>sfloat</code></td>
+<td>single precision float</td>
+<td><code>single</code></td>
+</tr>
+<tr>
+<td><code>dfloat</code></td>
+<td>double precision float</td>
+<td><code>double</code></td>
+</tr>
+<tr>
+<td><code>scomplex</code></td>
+<td>single precision complex</td>
+<td></td>
+</tr>
+<tr>
+<td><code>dcomplex</code></td>
+<td>double precision complex</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>For example,</p>
+<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">dip_image</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s">&#39;sfloat&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>will convert the data in <code>a</code> to <code>single</code> (4-byte) floats before creating
+the <code>dip_image</code> object. The variable <code>a</code> now behaves somewhat
+differently than you might be used to. The following sections explain
+its behavior.</p>
+<p>To convert a <code>dip_image</code> object back to a <em>MATLAB</em> array use the function
+<code>dip_array</code>. It simply returns the data array stored inside the
+<code>dip_image</code> object. The functions <code>double</code>, <code>single</code>, <code>uint8</code>, etc.
+convert the <code>dip_image</code> object to a <em>MATLAB</em> array of the specified class.</p>
+<p>There are also some commands to create an image from scratch. <code>newim</code> is
+equivalent to the <code>zeros</code> function, but returns a <code>dip_image</code> object.</p>
+<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">newim</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">);</span>
+</pre></div>
+
+<p>creates an image with 256x256 pixels set to zero. An additional
+parameter (as in the table above) can be used to specify the
+data type of the new image. The default is <code>'sfloat'</code>. If <code>b</code> is an
+object of type <code>dip_image</code>, then</p>
+<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">newim</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+
+<p>creates an image of the same size (this is the same as
+<code>newim(imsize(b))</code>). The functions <code>xx</code>, <code>yy</code>, <code>zz</code>, <code>rr</code> and <code>phiphi</code> all
+create an image containing the coordinates of its pixels, and can be
+used in formulas that need them. For example, <code>rr([256,256])&lt;64</code> creates a
+binary image with a disk of radius 64. The expression</p>
+<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="p">(</span><span class="n">yy</span><span class="p">(</span><span class="s">&#39;corner&#39;</span><span class="p">))</span><span class="o">*</span><span class="nb">sin</span><span class="p">((</span><span class="n">xx</span><span class="p">(</span><span class="s">&#39;corner&#39;</span><span class="p">))</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+
+<p>generates a nice test pattern with increasing frequency along the
+x-axis, and increasing amplitude along the y-axis. All these functions
+have 256x256 pixels as the default output size, and allow as a parameter
+either the size of an image, or an image whose size is to be copied. For
+example, <code>a*xx(a)</code> is an image multiplied by its x-coordinates.</p>
+<h2 id="sec_dum_dip_image_displaying">Displaying <code>dip_image</code> objects</h2>
+<p>When a <em>MATLAB</em> command does not end with a semicolon, the display method
+is called for the resulting values, if any. This method defaults to
+calling the <code>disp</code> method, which displays all the values in matrices.
+For the <code>dip_image</code> objects, the display method has been overloaded to
+call <code>dipshow</code> instead. <code>dipshow</code> displays the image in a figure window
+(see <a href="sec_dum_functions.html#sec_dum_functions_dipshow">The <code>dipshow</code> function</a> for more information on this
+function). Before display, <code>dipshow</code> first calls <code>squeeze</code> (see
+<a href="sec_dum_dip_image.html#sec_dum_dip_image_dimensions">Dimensions</a> and <a href="sec_dum_dip_image.html#sec_dum_dip_image_indexing">Indexing pixels</a>),
+meaning that a 4x1x6 image will be displayed as if it were a 4x6 image.</p>
+<p>The <code>disp</code> method shows only the image size and data type instead. If
+you want <code>display</code> to call <code>disp</code> instead of <code>dipshow</code>, you can change
+the <code>'DisplayToFigure'</code> preference using <code>dipsetpref</code> (see
+<a href="sec_dum_functions.html#sec_dum_functions_dippref">Toolbox preferences: <code>dipsetpref</code> and <code>dipgetpref</code></a> and <a href="sec_dum_customizing.html#sec_dum_customizing_dippref">Other settings</a>).</p>
+<p>For images that cannot be displayed by <code>dipshow</code>, (e.g. zero-dimensional
+and empty images, tensor images, etc.), <code>display</code> always calls <code>disp</code>.</p>
+<p>There exist overloaded methods to query image properties, such as <code>size</code>
+and <code>ndims</code>, and some methods that are specific to <code>dip_image</code> objects,
+such as <code>imsize</code>, <code>ntensordims</code> and <code>datatype</code>.</p>
+<h2 id="sec_dum_dip_image_operations">Operations on <code>dip_image</code> objects</h2>
+<p>All mathematical operations have been overloaded for the <code>dip_image</code>
+object. The matrix multiplication (<code>*</code>)
+does a pixel-by-pixel multiplication, just as the array multiplication
+(<code>.*</code>) (the difference between these two operators becomes relevant
+when we introduce tensor images, see <a href="sec_dum_dip_image.html#sec_dum_dip_image_tensors">Tensor images</a>).
+The same applies to the other matrix operations. Relational
+operations return binary images. Binary operations on non-binary images
+treat any non-zero value in those images as true and zero as false. For
+example, to do a threshold we do not need a special function, since we
+have the relational operators:</p>
+<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">;</span>
+</pre></div>
+
+<p>A double threshold would be (note <em>MATLAB</em>&lsquo;s operator precedence):</p>
+<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">;</span>
+</pre></div>
+
+<p>When the two images in the operation do not have the same number of
+dimensions, images are expanded to match each other. This is called
+<em>singleton expansion</em>. For example, if image <code>a</code> is 10x12x15, and
+image <code>b</code> is 10x12, then image <code>b</code> is expanded along the third dimension
+by replication to compute <code>a+b</code>, resulting in an image the same size as
+<code>a</code>. If image <code>a</code> is 10x1, and image <code>b</code> is 1x12, the result of <code>a+b</code> is
+10x12. Only dimensions of size one (and non-existing dimensions) will be
+expanded. If image <code>a</code> is 10x12, and image <code>b</code> is 1x6, <code>a+b</code> will
+produce an error.</p>
+<p>A note is required on the data types of the resulting images. The
+&ldquo;higher&rdquo; data type always determines this result, but we have chosen
+never to return an integer type after any arithmetic operation. Thus,
+adding two integer images will result in a 4-byte floating-point image;
+an 8-byte floating-point (<code>double</code>) image is returned only if any of the
+two inputs is <code>double</code>.</p>
+<p>Many of the arithmetic functions have also been defined for objects of
+type <code>dip_image</code> (see the two tables below for a complete listing).
+The basic difference between these and their <em>MATLAB</em> counterpart is that by
+default they work on the image as a whole, instead of on a per-column basis.
+For example, the function <code>sum</code> returns a row
+vector with the sum over the columns when applied to a numeric matrix,
+but returns a single number when applied to an image. An additional argument
+can be provided to compute a sum projection. Besides these,
+there are some other functions that are only defined for objects of type
+<code>dip_image</code>. See <a href="sec_dum_dip_image.html#sec_dum_dip_image_overloaded">Overloaded methods with different behavior</a> to learn about these
+functions. That section also lists some functions that behave
+differently than usual when applied to images.</p>
+<table class="m-table">
+<thead>
+<tr>
+<th colspan="6">Arithmetic functions defined for objects of type <code>dip_image</code> (image in, image out)</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abs</code></td>
+<td><code>acos</code></td>
+<td><code>and</code>, <code>&amp;</code></td>
+<td><code>angle</code></td>
+<td><code>asin</code></td>
+<td><code>atan</code></td>
+</tr>
+<tr>
+<td><code>atan2</code></td>
+<td><code>besselj</code></td>
+<td><code>ceil</code></td>
+<td><code>complex</code></td>
+<td><code>conj</code></td>
+<td><code>cos</code></td>
+</tr>
+<tr>
+<td><code>erf</code></td>
+<td><code>exp</code></td>
+<td><code>fix</code></td>
+<td><code>floor</code></td>
+<td><code>hypot</code></td>
+<td><code>imag</code></td>
+</tr>
+<tr>
+<td><code>log</code></td>
+<td><code>log10</code></td>
+<td><code>log2</code></td>
+<td><code>mod</code></td>
+<td><code>not</code>, <code>~</code></td>
+<td><code>or</code>, <code>|</code></td>
+</tr>
+<tr>
+<td><code>phase</code></td>
+<td><code>pow10</code></td>
+<td><code>pow2</code></td>
+<td><code>real</code></td>
+<td><code>round</code></td>
+<td><code>sign</code></td>
+</tr>
+<tr>
+<td><code>sin</code></td>
+<td><code>sqrt</code></td>
+<td><code>tan</code></td>
+<td><code>xor</code></td>
+<td><code>-</code></td>
+<td><code>+</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td><code>.*</code></td>
+<td><code>./</code></td>
+<td><code>/</code></td>
+<td><code>\^</code></td>
+<td><code>.^</code></td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td><code>~=</code></td>
+<td><code>&gt;</code></td>
+<td><code>&gt;=</code></td>
+<td><code>&lt;</code></td>
+<td><code>&lt;=</code></td>
+</tr>
+</tbody>
+</table>
+<table class="m-table">
+<thead>
+<tr>
+<th colspan="6">Arithmetic functions defined for objects of type <code>dip_image</code> (image in, scalar out)</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all</code></td>
+<td><code>any</code></td>
+<td><code>max</code></td>
+<td><code>mean</code></td>
+<td><code>median</code></td>
+<td><code>min</code></td>
+</tr>
+<tr>
+<td><code>percentile</code></td>
+<td><code>prod</code></td>
+<td><code>std</code></td>
+<td><code>sum</code></td>
+<td><code>var</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sec_dum_dip_image_dimensions">Dimensions</h2>
+<p><em>MATLAB</em> arrays have at least 2 dimensions. This is not true for an image
+in a <code>dip_image</code> object, which can also have 0 or 1 dimension. That is,
+for images there is an explicit distinction between a 2D image of size
+256 by 1 pixels, and a 1D image of size 256. Even though both images
+have the same number of pixels and their <em>MATLAB</em> array representation is
+identical, these two images behave differently in many aspects. For
+example, the <code>imsize</code> method (which is specific to <code>dip_image</code> objects,
+and returns the image size) will return two numbers for the first image,
+but only one for the second; similarly, it will return an empty array for
+a 0D image (whereas the corresponding <em>MATLAB</em> matrix has a size of 1-by-1).
+The method <code>size</code> (which is overloaded from the common <em>MATLAB</em> function)
+behaves more similarly to what you&rsquo;re used to, as it always returns at
+least two values. This method is implemented because <em>MATLAB</em> requires
+it for displaying information with <code>whos</code>, we recommend you always use
+<code>imsize</code> with <code>dip_image</code> objects.</p>
+<p>Use the function <code>ndims</code> to obtain the number of dimensions in an image.</p>
+<p>The 2D image in the example above has a singleton dimension. A singleton
+dimension is any dimension of size 1. In <em>MATLAB</em> arrays, trailing
+singleton dimensions are removed if the array has more than two
+dimensions. That is, an array of size 4x1x6x1 is silently converted to
+an array of size 4x1x6. This never happens with <code>dip_image</code> objects.</p>
+<p>As in <em>MATLAB</em>, operations between two images require that both images
+have compatible sizes. Singleton expansion is applied to make the two
+images equal in size. Singleton trailing dimensions can be applied to
+one of the images before singleton expansion, meaning that the images
+do not need to have the same dimensionality.</p>
+<h2 id="sec_dum_dip_image_indexing">Indexing pixels</h2>
+<p>In image processing, it is conventional to index images starting at
+(0,0) in the upper-right corner, and have the first index (usually x),
+index into the image horizontally. Unfortunately, <em>MATLAB</em> is based on
+matrices, which are indexed starting at one, and indicating the row
+number first. By encapsulating images in an object, we were allowed to
+redefine the indexing. We chose not to follow <em>MATLAB</em>&lsquo;s default indexing
+method. This might be confusing at first, and special care must be taken
+to check the class of a variable before indexing.</p>
+<p><code>dip_image</code> objects are indexed from 0 to <code>end</code> in each dimension, the
+first being the horizontal. The <code>imsize</code> function also returns the image
+width as the first number in the array. Any portion of a <code>dip_image</code>
+object, when extracted, is still a <code>dip_image</code> object, and of the same
+dimensionality, even if it is just a single pixel. Thus, if <code>a</code> is a 3D
+<code>dip_image</code> object, <code>a(0,0,0)</code> is also a 3D <code>dip_image</code> object, even
+though it only has a single pixel. To get a pixel value as a <em>MATLAB</em>
+array, use <code>double(a(0,0,0))</code>. To remove these singleton dimensions use
+<code>squeeze</code>. For example, <code>a(:,:,2)</code> is a 3D image with a singleton
+dimensions, whereas <code>squeeze(a(:,:,2))</code> is a 2D image.</p>
+<p>Any numeric type can be assigned into a <code>dip_image</code> object, without
+changing the image data type (that is, the element assigned into the
+image is converted to the image data type). For example,</p>
+<div class="m-code"><pre><span></span><span class="n">b</span><span class="p">(:,</span><span class="mi">0</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+<p>sets the top row of the image in <code>b</code> to 0. Note that indexing
+expressions can become as complicated as you like. For example, to
+sub-sample the image by a factor 3, we could write</p>
+<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">);</span>
+</pre></div>
+
+<p>Instead of using full indexing (indexing each dimension separately), it
+is also possible to index using a single (linear) index. As with standard
+<em>MATLAB</em> arrays, the indices increase in the vertical direction, which is
+how pixels are stored in memory. However they start at 0 for <code>dip_image</code>
+objects (<span class="m-math"><svg style="width: 8.012em; height: 1.077em; vertical-align: -0.262em;" viewBox="-.24 -8.17 80.12 10.77">
+<title>
+\(i = y + x \cdot \textrm{height}\)
+</title>
+<defs>
+<path id='eq285-g9-101' d='M5.07-1.88L4.88-1.96C4.3-1.05 3.79-.71 3.02-.71C2.37-.71 1.87-1.02 1.52-1.66C1.28-2.13 1.18-2.55 1.16-3.31H4.84C4.75-4.09 4.63-4.44 4.33-4.82C3.97-5.25 3.42-5.5 2.8-5.5C1.32-5.5 .3-4.3 .3-2.56C.3-.91 1.16 .12 2.53 .12C3.68 .12 4.57-.59 5.07-1.88ZM3.62-3.69H1.18C1.32-4.64 1.72-5.07 2.45-5.07S3.47-4.73 3.62-3.69Z'/>
+<path id='eq285-g9-103' d='M5.62-4.64V-5.1H4.7C4.46-5.1 4.28-5.14 4.04-5.22L3.78-5.32C3.46-5.44 3.13-5.5 2.82-5.5C1.71-5.5 .82-4.64 .82-3.55C.82-2.8 1.15-2.34 1.94-1.95L1.42-1.47C1.03-1.12 .87-.88 .87-.65C.87-.39 1.02-.25 1.51-.01C.66 .61 .33 1 .33 1.45C.33 2.08 1.27 2.61 2.4 2.61C3.3 2.61 4.23 2.3 4.85 1.79C5.31 1.42 5.51 1.04 5.51 .59C5.51-.16 4.95-.66 4.06-.69L2.52-.77C1.89-.79 1.59-.9 1.59-1.09C1.59-1.33 1.98-1.75 2.31-1.84C2.41-1.83 2.5-1.82 2.53-1.82C2.76-1.79 2.92-1.78 2.99-1.78C3.43-1.78 3.91-1.96 4.28-2.28C4.67-2.62 4.85-3.04 4.85-3.63C4.85-3.98 4.79-4.26 4.63-4.64H5.62ZM5.18 .77C5.18 1.46 4.27 1.92 2.92 1.92C1.87 1.92 1.17 1.58 1.17 1.05C1.17 .78 1.26 .62 1.76 .02C2.15 .11 3.11 .18 3.69 .18C4.78 .18 5.18 .33 5.18 .77ZM3.93-3.17C3.93-2.5 3.59-2.08 3.04-2.08C2.32-2.08 1.82-2.86 1.82-4V-4.04C1.82-4.75 2.15-5.16 2.7-5.16C3.07-5.16 3.38-4.96 3.57-4.6C3.79-4.18 3.93-3.63 3.93-3.17Z'/>
+<path id='eq285-g9-104' d='M5.82 0V-.18C5.18-.3 5.1-.39 5.1-1.22V-3.6C5.1-4.85 4.6-5.5 3.63-5.5C2.93-5.5 2.43-5.21 1.88-4.5V-8.13L1.82-8.17C1.41-8.02 1.11-7.93 .44-7.73L.12-7.64V-7.45C.17-7.46 .2-7.46 .26-7.46C.78-7.46 .87-7.36 .87-6.85V-1.22C.87-.38 .8-.27 .11-.18V0H2.69V-.18C2-.25 1.88-.39 1.88-1.22V-4.1C2.38-4.65 2.74-4.85 3.2-4.85C3.8-4.85 4.1-4.42 4.1-3.59V-1.22C4.1-.41 3.98-.25 3.29-.18V0H5.82Z'/>
+<path id='eq285-g9-105' d='M3.02 0V-.18C2.24-.24 2.14-.36 2.14-1.22V-5.46L2.09-5.5L.24-4.84V-4.66L.33-4.67C.48-4.7 .63-4.71 .74-4.71C1.03-4.71 1.14-4.52 1.14-3.99V-1.22C1.14-.36 1.02-.23 .19-.18V0H3.02ZM2.25-7.56C2.25-7.89 1.98-8.17 1.64-8.17C1.3-8.17 1.03-7.89 1.03-7.56C1.03-7.21 1.3-6.95 1.64-6.95C1.98-6.95 2.25-7.21 2.25-7.56Z'/>
+<path id='eq285-g9-116' d='M3.34-.79L3.18-.92C2.92-.61 2.73-.5 2.46-.5C2.02-.5 1.84-.81 1.84-1.58V-5H3.05V-5.38H1.84V-6.77C1.84-6.89 1.82-6.92 1.76-6.92C1.69-6.8 1.6-6.69 1.52-6.59C1.08-5.93 .67-5.49 .36-5.31C.23-5.22 .16-5.15 .16-5.08C.16-5.05 .17-5.02 .2-5H.84V-1.4C.84-.39 1.2 .12 1.89 .12C2.49 .12 2.94-.17 3.34-.79Z'/>
+<path id='eq285-g4-1' d='M2.16-3.05C2.16-3.42 1.85-3.73 1.49-3.73S.83-3.43 .83-3.05C.83-2.6 1.24-2.41 1.49-2.41S2.16-2.61 2.16-3.05Z'/>
+<path id='eq285-g4-184' d='M2.97-3.41H.36V-2.62H2.97V0H3.75V-2.62H6.36V-3.41H3.75V-6.03H2.97V-3.41Z'/>
+<path id='eq285-g1-61' d='M6.57-3.93V-4.6H.48V-3.93H6.57ZM6.57-1.51V-2.18H.48V-1.51H6.57Z'/>
+<path id='eq285-g7-56' d='M2.8-1.23L2.64-1.36C2.13-.68 1.87-.43 1.67-.43C1.57-.43 1.48-.51 1.48-.61C1.48-.8 1.6-1.16 1.67-1.39L2.72-5.23L2.68-5.25C1.48-5.03 1.24-4.99 .77-4.95V-4.76C1.42-4.75 1.52-4.72 1.52-4.48C1.52-4.38 1.49-4.18 1.42-3.95L.85-1.85C.66-1.13 .58-.79 .58-.55C.58-.11 .77 .13 1.13 .13C1.69 .13 2.12-.23 2.8-1.23ZM3.29-7C3.29-7.35 3.01-7.66 2.69-7.66S2.13-7.4 2.13-7.03C2.13-6.65 2.36-6.4 2.7-6.4C3.01-6.4 3.29-6.67 3.29-7Z'/>
+<path id='eq285-g7-71' d='M4.95-1.23L4.79-1.32C4.69-1.2 4.63-1.14 4.53-1C4.25-.64 4.12-.52 3.97-.52C3.8-.52 3.69-.68 3.61-1.01C3.59-1.12 3.57-1.18 3.56-1.2C3.28-2.32 3.13-2.97 3.13-3.14C3.66-4.06 4.09-4.59 4.3-4.59C4.37-4.59 4.48-4.55 4.59-4.49C4.73-4.41 4.81-4.38 4.92-4.38C5.16-4.38 5.32-4.56 5.32-4.81C5.32-5.07 5.12-5.25 4.84-5.25C4.31-5.25 3.87-4.82 3.04-3.55L2.91-4.2C2.74-5.01 2.61-5.25 2.29-5.25C2.01-5.25 1.63-5.16 .89-4.91L.76-4.86L.81-4.68L1.01-4.73C1.24-4.79 1.38-4.81 1.48-4.81C1.77-4.81 1.85-4.7 2.01-3.99L2.36-2.53L1.38-1.13C1.13-.77 .91-.56 .77-.56C.7-.56 .58-.6 .46-.67C.31-.75 .19-.79 .08-.79C-.15-.79-.32-.61-.32-.37C-.32-.06-.1 .13 .27 .13S.79 .02 1.38-.69L2.45-2.1L2.81-.67C2.97-.05 3.12 .13 3.5 .13C3.95 .13 4.26-.15 4.95-1.23Z'/>
+<path id='eq285-g7-72' d='M5.07-4.6C5.07-4.95 4.78-5.25 4.42-5.25C4.14-5.25 3.95-5.07 3.95-4.81C3.95-4.62 4.05-4.5 4.29-4.35C4.51-4.22 4.6-4.11 4.6-3.94C4.6-3.47 4.17-2.55 3.14-.86L2.91-2.24C2.73-3.3 2.06-5.25 1.88-5.25H1.83L1.73-5.24L.56-5.04L.18-4.97V-4.76C.32-4.8 .42-4.81 .55-4.81C1.02-4.81 1.24-4.63 1.46-4.05C1.79-3.24 2.44-.57 2.44-.1C2.44 .04 2.39 .18 2.32 .32C2.23 .48 1.69 1.18 1.48 1.41C1.2 1.7 1.06 1.8 .91 1.8C.82 1.8 .75 1.76 .62 1.67C.44 1.52 .32 1.46 .18 1.46C-.08 1.46-.29 1.67-.29 1.93C-.29 2.24-.04 2.45 .32 2.45C1 2.45 2.29 1.08 3.51-.96C4.51-2.61 5.07-3.92 5.07-4.6Z'/>
+</defs>
+<g id='eq285-page1'>
+<use x='-.24' y='0' xlink:href='#eq285-g7-56'/>
+<use x='6.86' y='0' xlink:href='#eq285-g1-61'/>
+<use x='17.74' y='0' xlink:href='#eq285-g7-72'/>
+<use x='26.16' y='0' xlink:href='#eq285-g4-184'/>
+<use x='35.55' y='0' xlink:href='#eq285-g7-71'/>
+<use x='44.22' y='0' xlink:href='#eq285-g4-1'/>
+<use x='49.98' y='0' xlink:href='#eq285-g9-104'/>
+<use x='55.96' y='0' xlink:href='#eq285-g9-101'/>
+<use x='61.27' y='0' xlink:href='#eq285-g9-105'/>
+<use x='64.59' y='0' xlink:href='#eq285-g9-103'/>
+<use x='70.57' y='0' xlink:href='#eq285-g9-104'/>
+<use x='76.55' y='0' xlink:href='#eq285-g9-116'/>
+</g>
+</svg></span>). The output is always a 1D image.</p>
+<p>Finally, it is also possible to index using a mask image. Any binary
+image (or logical array) can be used as mask, but it must be of the same
+size as the image into which is being indexed. For example,</p>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+<p>sets all pixels in <code>a</code>, where <code>m</code> is one, to zero. A very common
+expression is of the form</p>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+<p>(which sets all negative pixels to zero).</p>
+<p>Note that the expression <code>a(m)</code> above returns a one-dimensional image,
+with all pixels selected by the mask. It is equivalent to <code>a(find(m))</code>,
+where <code>find</code> returns an array of indices where <code>m</code> is one. This array is
+then used as a linear index into <code>a</code>.</p>
+<h2 id="sec_dum_dip_image_tensors">Tensor images</h2>
+<p>Some image data benefits from assigning multiple values to each pixel.
+The most common example is a multi-channel image, such as an RGB
+color image. The multi-channel image is a form of vector image, where
+each pixel is a vector of values. Similarly, you could think of each
+pixel being a matrix. This concept can be generalized using tensors.
+A tensor can be a scalar value (0-rank tensor), a vector (1-rank tensor),
+a matrix (2-rank tensor), etc. In <em>DIPimage</em> (and <em>DIPlib</em>) we currently
+limit the tensor rank to 2, simply because we never came across a use
+for higher-rank tensor images.</p>
+<p>The function <code>newtensorim</code> creates a new tensor image filled with zeros:</p>
+<div class="m-code"><pre><span></span><span class="n">A</span> <span class="p">=</span> <span class="n">newtensorim</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">])</span>
+</pre></div>
+
+<p>creates a 2-by-2 tensor image of 256 by 256 pixels.</p>
+<p>Note that a scalar image (with one component) is also a tensor
+image (<code>istensor</code> returns true). The function <code>isscalar</code> returns true
+when there is only one tensor component. Additionally, the function
+<code>isvector</code> returns true if the tensor has rank 1. Relevant similar
+functions are <code>iscolumn</code>, <code>isrow</code>.</p>
+<p>Some arithmetic operations behave differently for non-scalar images than
+for scalar images. For example, the <code>*</code> operator, which behaves
+identically to the <code>.*</code> operator for scalar images, actually applies
+a matrix multiplication between each corresponding pair of pixels. For
+example, the following code applies a matrix multiplication to the
+2-vector image <code>b</code>, yielding a 2-by-2 matrix image <code>c</code>:</p>
+<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">readim</span><span class="p">(</span><span class="s">&#39;trui&#39;</span><span class="p">);</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>      <span class="c">% yields a 2-vector</span>
+<span class="n">c</span> <span class="p">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="o">&#39;</span>           <span class="c">% yields a 2-by-2 matrix</span>
+</pre></div>
+
+<p>The pixels of a tensor image can be indexed like a normal image,
+returning a new tensor image. It can also be indexed using curly
+braces (<code>{}</code>) to select one or more tensor elements (channels). Indexing
+into the tensor dimension is identical to indexing into a <em>MATLAB</em>
+matrix: the first index goes down, and indices start at 0. For
+example, <code>c{1,1}</code> is a scalar image with the first tensor element of
+each matrix in the image <code>c</code>.
+A single index uses linear indexing: <code>c{1}</code> also is the first tensor element.</p>
+<p>It is possible to combine spatial and tensor indexing, but the curly
+braces have to come first (this is a limitation of the <em>MATLAB</em> parser).
+Thus, write <code>c{1}(0,0)</code>, not <code>c(0,0){1}</code>.</p>
+<aside class="m-note m-warning">
+<h4>Warning</h4>
+<p>Note that the function <code>end</code> only works correctly for spatial indexing
+(within <code>()</code>), not for tensor images (within <code>{}</code>).</p>
+</aside>
+<p>Because of limitations in the <em>MATLAB</em> language, it is impossible to know,
+for the overloaded <code>end</code> method, if it is being used inside curly or
+round braces (i.e. whether the last element of the image array is
+requested, or the last pixel of the image is requested). The solution we
+have adopted is to always assume round braces (<code>()</code>). Never use <code>end</code>
+within curly braces (<code>{}</code>). You can use <code>tensorsize</code> or <code>numtensorel</code>
+to compute indices from the end for tensor indexing:</p>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">{</span><span class="k">end</span><span class="p">};</span>             <span class="c">% doesn&#39;t work!</span>
+<span class="n">a</span><span class="p">{</span><span class="n">numtensorel</span><span class="p">(</span><span class="n">a</span><span class="p">)};</span>  <span class="c">% returns the last tensor component</span>
+</pre></div>
+
+<p>Note here that the image <code>c</code> above is a special type of matrix image:
+it is symmetric. That is because <code>c{1,2}</code> and <code>c{2,1}</code> are the result of
+the same operation: <code>b{1}*b{2}</code>. The <code>*</code> operator recognizes that the two
+inputs are transposed versions of each other (because they point at the
+same data block), and thus knows not to compute the same thing twice.
+The image <code>c</code> actually only contains 3 tensor elements, even though it
+represents a 2-by-2 matrix. Therefore, <code>c{4}</code> is an out-of-bounds error,
+whereas <code>c{2,2}</code> returns the result of <code>b{2}.^2</code>, and is identical to
+<code>c{3}</code>. There are special representations for the column-major matrix
+(the default), row-major matrix (obtained by transposing a matrix, which
+therefore doesn&rsquo;t need to copy any data), symmetric matrix, and upper
+and lower triangular matrices. How the elements are stored is described
+in the <em>DIPlib</em> API documentation, but if you always access matrix
+elements using the two-index form then there is no need to know how
+these are stored.</p>
+<p>The method <code>numtensorel</code> returns the number of tensor elements, and
+the method <code>tensorsize</code> returns the size of the tensor.</p>
+<aside class="m-note m-info">
+<h4>TODO</h4>
+<p>Document how to set and change the tensor shape.</p>
+</aside>
+<p>To get the array at a single pixel, use the <code>double</code> function:
+<code>c(0,0)</code> is a tensor image with a single pixel, and <code>double(c(0,0))</code> is
+a <em>MATLAB</em> array with the tensor values at the first pixel.</p>
+<p>Functions defined specifically for tensor images are summarized in the
+following table. See <a href="sec_dum_dip_image.html#sec_dum_dip_image_overloaded">Overloaded methods with different behavior</a>.</p>
+<table class="m-table">
+<thead>
+<tr>
+<th colspan="6">Functions defined for tensor images</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cross</code></td>
+<td><code>curl</code></td>
+<td><code>det</code></td>
+<td><code>diag</code></td>
+<td><code>divergence</code></td>
+<td><code>dot</code></td>
+</tr>
+<tr>
+<td><code>eig</code></td>
+<td><code>eye</code></td>
+<td><code>inv</code></td>
+<td><code>norm</code></td>
+<td><code>pinv</code></td>
+<td><code>rotate</code></td>
+</tr>
+<tr>
+<td><code>svd</code></td>
+<td><code>trace</code></td>
+<td><code>*</code></td>
+<td><code>.'</code></td>
+<td><code>'</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sec_dum_dip_image_color">Color images</h2>
+<p>A color image is represented in a <code>dip_image</code> object by a tensor image
+with some extra information on the color space in which the pixel values
+are to be interpreted. A color image must have more than one channel, so
+the tensor image that represents it should have at least two components.
+Use the <code>colorspace</code> function to add this color space information to a
+tensor image:</p>
+<div class="m-code"><pre><span></span><span class="n">C</span> <span class="p">=</span> <span class="n">colorspace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s">&#39;RGB&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>A color space is any string recognized by the system. See <code>help colorspace</code>
+for currently known color spaces.
+Images with a color space will be displayed by <code>dipshow</code>, which will
+convert them to RGB for a correct representation.</p>
+<p>To convert an image from one color space to another, use the
+<code>colorspace</code> function. Converting to a color-space-less tensor image is
+done by specifying the empty string as a color space. This action only
+changes the color space information, and does not change any pixel
+values. Thus, to change from one color space to another without
+converting the pixel values themselves, change first to a
+color-space-less tensor image, and then to the final color space.</p>
+<p>The function <code>joinchannels</code> combines two or more images into a color
+image using the specified color space:</p>
+<div class="m-code"><pre><span></span><span class="n">C</span> <span class="p">=</span> <span class="n">joinchannels</span><span class="p">(</span><span class="s">&#39;RGB&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+
+<p>The function <code>newcolorim</code> creates a new color image of the given
+color space, filled with zeros:</p>
+<div class="m-code"><pre><span></span><span class="n">C</span> <span class="p">=</span> <span class="n">newcolorim</span><span class="p">([</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">],</span><span class="s">&#39;RGB&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>All operations that are defined for tensor images can be applied to
+color images. These operations simply ignore the color space. Thus,
+adding two images with different color spaces does not cause one to
+be converted to the other color space. Typically, the output image
+will have the color space of the first input image with a color space
+and whose number of tensor elements matches that of the output image.</p>
+<h2 id="sec_dum_dip_image_shape">Manipulating the image shape</h2>
+<p>Functions used in <em>MATLAB</em> to manipulate array dimensions have been
+overloaded to do the same thing with images. They are listed in
+the table below.</p>
+<table class="m-table">
+<thead>
+<tr>
+<th colspan="6">Dimension manipulation functions defined for objects of type <code>dip_image</code></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cat</code></td>
+<td><code>circshift</code></td>
+<td><code>expanddim</code></td>
+<td><code>flipdim</code></td>
+<td><code>fliplr</code></td>
+<td><code>flipud</code></td>
+</tr>
+<tr>
+<td><code>permute</code></td>
+<td><code>repmat</code></td>
+<td><code>reshape</code></td>
+<td><code>rot90</code></td>
+<td><code>shiftdim</code></td>
+<td><code>squeeze</code></td>
+</tr>
+<tr>
+<td><code>swapdim</code></td>
+<td><code>tensortospatial</code></td>
+<td><code>spatialtotensor</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>A few of these functions are unique to <code>dip_image</code> objects.
+The function <code>expanddim</code> adds trailing singleton dimensions, and <code>swapdim</code>
+is a simpler interface to the more general <code>permute</code>, and allows to
+swap two image dimensions.</p>
+<p><code>spatialtotensor</code> takes a spatial dimension of a scalar image and converts
+it to the tensor dimension, returning a vector image. <code>tensortospatial</code> does
+the reverse, returning a scalar image.
+When not specifying which spatial dimension to use, both these functions pick
+the dimension that requires no copying of data: 2. If you specify any other
+dimension, the data must be copied (and reordered). Thus, by using dimension 2,
+it is possible to exchange image shapes very efficiently, for example to
+apply functions such as <code>max</code> or <code>sum</code> along the tensor dimension.</p>
+<p>Note that <code>reshape</code> and <code>squeeze</code> never copy image data (but see
+<a href="sec_dum_dip_image.html#sec_dum_dip_image_reshape">A note on the reshape and squeeze methods</a>), and thus preserve the
+linear indexing order (the linear indexing order is related to storage in memory).
+Because linear indexing order matches the <em>MATLAB</em> storage order, dimension 2
+is the most rapidly changing dimension. This means that squeezing an image of
+size <code>[1,10,20,30]</code> leads to an image of size <code>[20,10,30]</code>, not <code>[10,20,30]</code>,
+as one would expect.</p>
+<h3 id="sec_dum_dip_image_reshape">A note on the reshape and squeeze methods</h3>
+<p><code>reshape</code> and <code>squeeze</code> have a different behavior in <em>DIPimage 3</em> than they
+had in earlier versions of the toolbox. The behavior was changed for consistency,
+though the new behavior can be surprising at times.</p>
+<p>In older versions of the toolbox, <code>reshape</code> and <code>squeeze</code> often reordered the
+data (i.e. incurred the cost of a data copy), whereas the methods applied to a
+normal array never do so, these methods are supposed to be essentially free.
+<code>reshape</code> was implemented to fill the output image row-wise with pixels taken
+row-wise from the input image. But because MATLAB stores matrices column-wise,
+the data copy was necessary. However, this behavior was inconsistent with
+linear indexing, which wasn&rsquo;t translated to use that same ordering. That is,
+linear indexing used the memory order of the pixels to translate an index to
+pixel coordinates, in the same way that it works for normal array. Thus,
+applying <code>reshape</code> (or <code>squeeze</code>, which applies a <code>reshape</code> to remove singleton
+dimensions) would change the pixels accessed at a given linear index, which is
+counter-intuitive. For example, in the following program <code>a</code> and <code>b</code> are
+different values:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span> <span class="p">=</span> <span class="n">dip_image</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
+<span class="n">a</span> <span class="p">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<span class="n">img</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">orig</span><span class="p">,[</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span>
+<span class="n">b</span> <span class="p">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+</pre></div>
+
+<p><em>DIPimage 3</em> changed this behavior, such that <code>reshape</code> and <code>squeeze</code> are
+essentially free like they are for normal MATLAB arrays. Reshaping or squeezing
+an image is consistent with linear indexing (i.e. <code>a</code> and <code>b</code> above have the
+same value). However, this causes a different surprising behavior: <code>squeeze</code>
+reorders dimensions!</p>
+<p>MATLAB&rsquo;s array memory layout is such that a <code>dip_image</code>&lsquo;s dimensions are ordered
+in memory like so: [2, 1, 3, 4, &hellip;]. If <code>squeeze</code> were to remove dimension number
+1, subsequent dimensions would move left, meaning that dimension number 3 ends up
+in the location of dimension 1, but 2 stays where it was. An image of size 1x20x30,
+when squeezed, becomes an image of size 30x20, not 20x30 as one would expect.
+Similarly, removing dimension 2 would move dimension 1 to its place, and dimension
+3 to the place of 1. Thus, an image of size 20x1x30 becomes a image of size 30x20,
+not 20x30 as one would expect.</p>
+<p>Setting the preference <a href="sec_dum_customizing.html#sec_dum_customizing_dippref_cheapsqueeze">CheapSqueeze</a>
+to <code>'off'</code> changes the behavior of <code>squeeze</code> to match its old behavior,
+possibly incurring a data copy. In essence, when the setting is <code>'off'</code>,
+then <code>squeeze</code> is implemented through <code>permute</code>, whereas when it is <code>'on'</code>
+(the default), it is implemented through <code>reshape</code>.</p>
+<h2 id="sec_dum_dip_image_overloaded">Overloaded methods with different behavior</h2>
+<p>Most overloaded methods behave in a consistent manner with the built-in
+<em>MATLAB</em> functions that they overload. However, due to differences of
+the <code>dip_image</code> object, some behave somewhat differently. We summarize
+these functions here.</p>
+<h3 id="sec_dum_dip_image_find"><code>find</code>, <code>findcoord</code></h3>
+<p><code>find</code> works similarly to the base version, except it is not possible
+to obtain <code>[I,J]</code> indices as output. The indices returned are always
+linear indices. An optional second output argument receives the non-zero
+values. To obtain the coordinates of non-zero values, use <code>findcoord</code>
+instead. It returns the coordinates of the pixels with non-zero values
+as a single array, with as many columns as dimensions in the input
+image, and one row for every non-zero pixel. Note that this matrix
+cannot be used directly to index an image.</p>
+<h3 id="sec_dum_dip_image_gradient"><code>gradient</code></h3>
+<p>The overloaded version of <code>gradient</code> returns a vector image, instead of
+multiple outputs. The derivatives are computed using Gaussian
+derivatives by default.</p>
+<h3 id="sec_dum_dip_image_ind2sub"><code>ind2sub</code>, <code>sub2ind</code></h3>
+<p>These functions have the same function as their base counterparts, but
+instead of using subscripts specified with one array for each dimension,
+they take and return a single coordinate array, compatible to that
+returned by <code>findcoord</code>. Also, instead of a size array, they take an
+image as input.</p>
+<h3 id="sec_dum_dip_image_isscalar"><code>isscalar</code>, <code>isvector</code>, <code>isrow</code>, <code>iscolumn</code>, <code>ismatrix</code></h3>
+<p>These functions examine the tensor shape, not the image shape. A scalar
+image (it has a single channel) tests true with <code>isscalar</code>, no matter
+how many spatial dimensions it has.</p>
+<h3 id="sec_dum_dip_image_max"><code>max</code>, <code>min</code>, <code>mean</code>, <code>median</code>, <code>std</code>, <code>var</code>, <code>prod</code>, <code>sum</code>, <code>all</code>, <code>any</code></h3>
+<p>The built-in <em>MATLAB</em> versions of these always operate along matrix columns,
+yielding a row vector where each element is the max/min/mean/etc. of the
+corresponding column. This is a max/min/mean/etc. projection. It is possible
+to have them work along a different array dimension, and only since R2018b
+along multiple dimensions.</p>
+<p>The overloaded versions of these functions that operate on <code>dip_image</code>
+objects can work along any number of dimensions simultaneously. By default,
+they operate on all dimensions, such that <code>max(a)</code> returns the maximum
+value of the image <code>a</code>. And <code>max(a,[],[2,3])</code>, if <code>a</code> is a 3D image, returns
+a 3D image with two singleton dimensions, where each pixel <code>i</code> contains the
+maximum over <code>a(i,:,:)</code>.</p>
+<p>Note there is a second argument to <code>max</code> that we didn&rsquo;t use above. The
+projection functions all take a mask image as an optional second argument.
+The projection is taken only over those pixels selected by the mask. For
+example,</p>
+<div class="m-code"><pre><span></span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+<p>computes the mean projection along the first dimension (x axis), but only
+computes the mean over the positive pixels.</p>
+<p>The function <code>percentile</code> is also projection function, but does not have a
+counterpart for <em>MATLAB</em> arrays (unless you have the statistics toolbox).</p>
+<h3 id="sec_dum_dip_image_ndims"><code>ndims</code></h3>
+<p>This method can return 0 or 1 (for 0D and 1D images, respectively).
+For normal <em>MATLAB</em> arrays it always returns at least 2. Note that
+<code>ndims(a)</code> is not necessarily equal to <code>length(size(a))</code>, but it is
+equal to <code>length(imsize(a))</code>.</p>
+<h3 id="sec_dum_dip_image_numel"><code>numel</code></h3>
+<p>The overloaded <code>numel</code> is the number of samples in the image. Note that
+<code>prod(size(a))</code> is not equal to <code>numel(a)</code>, as it is for regular arrays.
+Instead, the following relations hold:</p>
+<ul>
+<li>
+<p><code>prod(size(a)) == numpixels(a)</code></p>
+</li>
+<li>
+<p><code>prod(tensorsize(a)) == numtensorel(a)</code></p>
+</li>
+<li>
+<p><code>numpixels(a) * numtensorel(a) == numel(a)</code></p>
+</li>
+</ul>
+<h3 id="sec_dum_dip_image_rotate"><code>rotate</code></h3>
+<p>The overloaded method <code>rotate</code> has nothing to with <em>MATLAB</em>&lsquo;s <code>rotate</code>
+(a handle graphics function).
+Applied to a 3-vector image, it rotates the vectors around an axis
+given by a second vector image or vector.</p>
+<h2 id="sec_dum_dip_image_review">Review of the differences between a <code>dip_image</code> and a <em>MATLAB</em> array</h2>
+<p>As we have seen, objects of type <code>dip_image</code> have some differences with
+respect of regular <em>MATLAB</em> arrays. The main difference is in indexing. We
+start counting pixels from 0, and the first index counts from left to
+right. This ordering is also used by functions such as <code>imsize</code>, in which
+the first number is the image width and the second one the height.
+Finally, <code>ndims</code> can return 0 or 1, which it never does for <em>MATLAB</em>
+arrays. The reason is that zero-dimensional and one-dimensional images are
+allowed, and are not seen as a special case of two-dimensional images.
+Furthermore, singleton dimensions at the end are not ignored.</p>
+<p>Another major difference is that one of the dimensions is not a spatial
+dimension, and is not included in the result of <code>imsize</code> and <code>ndims</code>, or
+accessible using normal indexing. This dimension represents a tensor at
+each image pixel. <code>tensorsize</code> and <code>numtensorel</code> are relevant here, as
+is indexing using curly braces (<code>{}</code>) as in cell array indexing.
+Color images are images with multiple tensor elements (i.e. channels),
+and color space information.</p>
+<p>When a <em>MATLAB</em> command results in an object of type <code>dip_image</code>, and it
+is not ended with a semicolon, the image is displayed to a figure
+window, instead of having its pixel values shown in the command window.
+This is the default behavior, but can be overridden.</p>
+<p>All operators work on a pixel-by-pixel basis. For example, the transpose
+operators <code>'</code> and <code>.'</code> transpose the vector or matrix at each pixel,
+not the image itself, and the multiplication operator <code>*</code> applies matrix
+multiplication to each of the corresponding pixel pairs.
+All functions that work on the columns of numeric arrays (such as <code>sum</code>
+and <code>max</code>) work on the image as a whole when applied to a <code>dip_image</code> object.</p>
+<p>Objects of type <code>dip_image</code> cannot be used in functions of the
+MathWorks&rsquo; Image Processing Toolbox. Although most of <em>MATLAB</em>&lsquo;s functions
+work on <code>dip_image</code> objects, not every function will work as expected.
+Use the functions <code>dip_array</code>, <code>double</code> or <code>uint8</code> to convert the image
+to a format recognizable by these functions.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="sec_dum_gettingstarted.html" class="m-doc">&laquo; Getting Started</a> | <a href="dipimage_user_manual.html" class="m-doc"><em>DIPimage</em> User Manual</a> | <a href="sec_dum_dip_measurement.html" class="m-doc">The <code>dip_measurement</code> Object &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

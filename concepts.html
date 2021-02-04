@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Assorted concepts used in DIPlib 3 | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          Assorted concepts used in <em>DIPlib 3</em>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#connectivity">Connectivity</a></li>
+            <li><a href="#aliasing">Handling input and output images that alias each other</a></li>
+            <li><a href="#coordinates_origin">Coordinate system origin</a></li>
+            <li><a href="#normal_strides">Normal strides</a></li>
+          </ul>
+        </div>
+<p>This page describes assorted concepts used in <em>DIPlib 3</em>.</p>
+<h2 id="connectivity">Connectivity</h2>
+<p>Traditionally, neighborhood connectivity is given as 4 or 8 in a 2D image, 6, 18 or 26
+in a 3D image, etc. These numbers indicate the number of neighbors one obtains when
+using the given connectivity. Since this way of indicating connectivity does not naturally
+lead to dimensionality-independent code, <em>DIPlib</em> uses the distance to the neighbors in
+city-block distance instead (the L1 norm). Thus, the connectivity is a number between
+1 and <em>N</em>, where <em>N</em> is the image dimensionality. For example, in a 2D image,
+a connectivity of 1 leads to 4 nearest neighbors (the edge neighbors), and a connectivity
+of 2 leads to 8 nearest neighbors (the edge and vertex neighbors).</p>
+<p>We use negative values for connectivity in some algorithms, in e.g. the binary dilation.
+These indicate alternating connectivities, which leads to more isotropic shapes than
+using the same connectivity for all iterations. These alternating connectivities are
+available only if the function takes a <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a> as connectivity parameter.</p>
+<p>In terms of the classical connectivity denominations we have, in 2D:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Connectivity</th>
+<th>Classical denominations</th>
+<th>Structuring element shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4 connectivity</td>
+<td>diamond</td>
+</tr>
+<tr>
+<td>2</td>
+<td>8 connectivity</td>
+<td>square</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>4-8 connectivity</td>
+<td>octagon</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>8-4 connectivity</td>
+<td>octagon</td>
+</tr>
+</tbody>
+</table>
+<p>And in 3D:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Connectivity</th>
+<th>Classical denominations</th>
+<th>Structuring element shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>6 connectivity</td>
+<td>octahedron</td>
+</tr>
+<tr>
+<td>2</td>
+<td>18 connectivity</td>
+<td>cuboctahedron</td>
+</tr>
+<tr>
+<td>3</td>
+<td>26 connectivity</td>
+<td>cube</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>6-26 connectivity</td>
+<td>small rhombicuboctahedron</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>26-6 connectivity</td>
+<td>small rhombicuboctahedron</td>
+</tr>
+</tbody>
+</table>
+<p>Some functions will interpret a connectivity of 0 to mean the maximum connectivity
+(i.e. equal to the image dimensionality). This is an easy way to define a default
+value that changes depending on the image dimensionality.</p>
+<h2 id="aliasing">Handling input and output images that alias each other</h2>
+<p>Many of the old <em>DIPlib 2</em> functions (the ones that cannot work
+in-place) used a function <code>dip_ImagesSeparate()</code> to create temporary images
+when output images are also input images. The resource handler takes
+care of moving the data blocks from the temporary images to the output
+images when the function ends. With the current design of shared pointers
+to the data, this is no longer necessary. Say a function is called with</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Filter</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">params</span> <span class="p">);</span>
+</pre></div>
+
+<p>Then the function <code>dip::Filter()</code> does this:</p>
+<div class="m-code"><pre><span></span><span class="kt">void</span> <span class="n">dip</span><span class="o">::</span><span class="n">Filter</span><span class="p">(</span> <span class="k">const</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">in_c</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span> <span class="p">{</span>
+   <span class="n">Image</span> <span class="n">in</span> <span class="o">=</span> <span class="n">in_c</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span>
+   <span class="n">out</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span>
+   <span class="c1">// do more processing ...</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>What happens here is that the new image <code>in</code> is a copy of the input image, <code>A</code>,
+pointing at the same data segment. The image <code>out</code> is a reference to image <code>A</code>.
+When we strip <code>A</code>, the new image <code>in</code> still points at the original data segment,
+which will not be freed until <code>in</code> goes out of scope. Thus, the copy <code>in</code>
+preserves the original image data, leaving the output image, actually the
+image <code>A</code> in the caller&rsquo;s space, available for modifying.</p>
+<p>However, if <code>out</code> is not stripped, and data is written into it, then <code>in</code> is
+changed during processing. So if the function cannot work in place, it should
+always test for aliasing of image data, and strip/forge the output image if
+necessary:</p>
+<div class="m-code"><pre><span></span><span class="kt">void</span> <span class="n">dip</span><span class="o">::</span><span class="n">Filter</span><span class="p">(</span> <span class="k">const</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">in_c</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span> <span class="p">{</span>
+   <span class="n">Image</span> <span class="n">in</span> <span class="o">=</span> <span class="n">in_c</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span>
+   <span class="k">if</span><span class="p">(</span> <span class="n">in</span><span class="p">.</span><span class="n">Aliases</span><span class="p">(</span> <span class="n">out</span> <span class="p">))</span> <span class="p">{</span>
+      <span class="n">out</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span>       <span class="c1">// Force out to not point at data we still need</span>
+   <span class="p">}</span>
+   <span class="n">out</span><span class="p">.</span><span class="n">ReForge</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>   <span class="c1">// create new data segment for output</span>
+   <span class="c1">// do more processing ...</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Note that the <a href="dip-Framework.html"><code>dip::Framework</code></a> functions take care of this.</p>
+<h2 id="coordinates_origin">Coordinate system origin</h2>
+<p>Some functions, such as <a href="transform.html#dip-FourierTransform-dip-Image-CL-dip-Image-L-dip-StringSet-CL-dip-BooleanArray-"><code>dip::FourierTransform</code></a>, <a href="geometry.html#dip-Rotation-dip-Image-CL-dip-Image-L-dip-dfloat--dip-uint--dip-uint--dip-String-CL-dip-String-CL"><code>dip::Rotation</code></a> and
+<a href="geometry.html#dip-AffineTransform-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-String-CL"><code>dip::AffineTransform</code></a>, use a coordinate system where the origin is a pixel
+in the middle of the image. The indices of this pixel are given by
+<code>index[ ii ] = img.Size( ii ) / 2</code>. This pixel is exactly in the middle of the
+image for odd-sized images, and to the right of the exact middle for
+even-sized images.</p>
+<p>The function <a href="generation_coordinates.html#dip-FillCoordinates-dip-Image-L-dip-StringSet-CL-dip-String-CL"><code>dip::FillCoordinates</code></a> and related functions can be used to
+obtain the coordinates for each pixel. These all have a <code>mode</code> parameter
+that determines which coordinate system to use. The value <code>"right"</code> (the
+default) places the origin in the same location as <a href="transform.html#dip-FourierTransform-dip-Image-CL-dip-Image-L-dip-StringSet-CL-dip-BooleanArray-"><code>dip::FourierTransform</code></a>,
+<a href="geometry.html#dip-Rotation-dip-Image-CL-dip-Image-L-dip-dfloat--dip-uint--dip-uint--dip-String-CL-dip-String-CL"><code>dip::Rotation</code></a>, etc.</p>
+<p>The function <a href="dip-Image.html#dip-Image-GetCenter-dip-String-CL-C"><code>dip::Image::GetCenter</code></a> (using the default value for its input
+argument) returns the coordinates of the central pixel as a floating-point array.</p>
+<h2 id="normal_strides">Normal strides</h2>
+<p>As discussed in <a href="dip-Image.html#strides">Strides</a>, images in <em>DIPlib</em> can be stored in different orders.
+The stride array specifies how many samples to skip to find the neighboring pixel
+along each image dimension. Likewise, the tensor stride indicates how many samples
+to skip to find the value for the next channel of the current pixel. When an image
+is first forged, the sample ordering is <em>normal</em>, unless an external interface
+is set (see <a href="dip-Image.html#external_interface">Define an image&rsquo;s allocator</a>). Normal strides are defined as follows:</p>
+<ol>
+<li>The tensor stride is set to 1. That is, image channels are interleaved.</li>
+<li>The first dimension&rsquo;s stride is set to the number of tensor elements. That is,
+   pixels are stored consecutively in memory along the first dimension (x).</li>
+<li>Other image dimension&rsquo;s strides are set to the previous dimension&rsquo;s
+   stride times the previous dimension&rsquo;s size. That is, image rows are stored
+   consecutively without padding, as are image planes, etc.</li>
+</ol>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

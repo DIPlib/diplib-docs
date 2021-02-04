@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Style guide for contributors | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          Style guide for contributors
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#style_general">Programming style</a></li>
+            <li><a href="#style_names">Naming conventions</a></li>
+            <li><a href="#style_formatting">Formatting</a></li>
+            <li><a href="#style_functions">Function signatures</a></li>
+            <li><a href="#style_headers">Header files</a></li>
+            <li><a href="#documentation">Documentation</a></li>
+          </ul>
+        </div>
+<p>When contributing to <em>DIPlib</em>, please follow the style and layout of other files.
+Specifically:</p>
+<h2 id="style_general">Programming style</h2>
+<ul>
+<li>
+<p>Everything should be declared within the <code>dip</code> namespace, or a sub-namespace. The
+  exception is functionality that interfaces <em>DIPlib</em> with other libraries or software,
+  which should be defined in their own namespaces (e.g. the <code>dml</code> namespace for the
+  <em>DIPlib&ndash;MATLAB</em> interface).</p>
+</li>
+<li>
+<p>Don&rsquo;t put <code>dip::</code> in front of every identifier within the library code, but do always
+  do so for <code>dip::sint</code> and <code>dip::uint</code>, as they might be confused with types commonly
+  present in the base namespace or as preprocessor macros.</p>
+</li>
+<li>
+<p>Do explicitly state the namespace for identifiers from every other library, including
+  <code>std::</code>. This makes it easier to find references to specific types or functions.</p>
+</li>
+<li>
+<p>All functions local to a translation unit must either be declared <code>static</code> or within
+  an unnamed (anonymous) namespace, to prevent name space pollution and to prevent
+  them from being exported out of the library.</p>
+</li>
+<li>
+<p>Prefer <code>using</code> over <code>typedef</code>.</p>
+</li>
+<li>
+<p>Use <code>struct</code> for classes without any private members.</p>
+</li>
+<li>
+<p>Do not declare more than one variable on the same line of code. That is, avoid things
+  like <code>float *a, b = 2.5, *c = NULL</code>, which is confusing.</p>
+</li>
+<li>
+<p>Declare variables where they are first initialized, or as close as possible to that
+  point. Uninitialized variables need some description.</p>
+</li>
+</ul>
+<h2 id="style_names">Naming conventions</h2>
+<ul>
+<li>
+<p>Use camel case for variable, function and class names. Variable names start with
+  a lowercase letter, function and class names start with an uppercase letter. Don&rsquo;t
+  use underscores except for in a few special cases. Private class member variables
+  end in an underscore. Constants are in all uppercase letters, with underscores to
+  separate words if necessary. Internal names (the ones that are not meant to be used
+  directly by library users), if public, do not have documentation and clearly
+  warn the user by their name (such as <code>dip::Image::ShiftOriginUnsafe</code>), or are declared
+  in the <code>dip::detail</code> namespace; private internal names (declared static or inside
+  an unnamed namespace) do not have any specific requirements.</p>
+</li>
+<li>
+<p>Setter member functions start with <code>Set</code>. But getter member functions do <em>not</em> start
+  with <code>Get</code>. Query functions that return a boolean start with <code>Is</code>. Member functions
+  that do something have a name that resembles a verb: <code>Forge</code>, <code>Convert</code>, <code>PermuteDimensions</code>.</p>
+</li>
+<li>
+<p>The exception is in classes such as <code>dip::DimensionArray</code>, which is meant to emulate
+  the <code>std::vector</code> class, and therefore follows the naming convention of the C++ Standard
+  Library. Also, most classes define a <code>swap</code> operator that needs to be named as in
+  the C++ Standard Library to be useful.</p>
+</li>
+<li>
+<p>Use all uppercase letters for preprocessor macros. Separate words with an underscore.
+  Macros always start with <code>DIP_</code>. Include guards also start with <code>DIP_</code>, and end with
+  <code>_H</code>; the part in the middle is an all-uppercase version of the file name.</p>
+</li>
+<li>
+<p>File names are in all lowercase and use underscores between words. There&rsquo;s no need
+  to shorten names to 8 characters, so don&rsquo;t make the names cryptic.</p>
+</li>
+</ul>
+<h2 id="style_formatting">Formatting</h2>
+<ul>
+<li>
+<p>All loops and conditional statements should be surrounded by braces, even if they
+  are only one statement long.</p>
+</li>
+<li>
+<p>Indents are three spaces, don&rsquo;t use tab characters. Continuation indents are double
+  regular indents, as are the indents for class definitions. Namespace scope is not
+  indented.</p>
+</li>
+<li>
+<p>The keyword <code>const</code> comes after the type name it modifies: <code>dip::Image const&amp; img</code>.</p>
+</li>
+<li>
+<p>Braces and brackets have spaces on the inside, not the outside.</p>
+</li>
+<li>
+<p>Keep each statement on its own line.</p>
+</li>
+</ul>
+<h2 id="style_functions">Function signatures</h2>
+<ul>
+<li>
+<p>Option parameters to high-level functions (those that should be available in interfaces
+  to other languages such as <em>MATLAB</em>) should be strings or string arrays, which are easier
+  to translate to scripted languages.</p>
+</li>
+<li>
+<p>Option parameters to low-level functions (those that are meant to be called only from
+  C++ code) should be defined as <code>enum class</code>, these are simpler and more efficient than
+  strings. Use the <code>DIP_DECLARE_OPTIONS</code> macro to turn the enumerator into a flag set.
+  Declare these option types within the <code>dip::Option::</code> namespace or another sub-namespace
+  if more appropriate.</p>
+</li>
+<li>
+<p>Don&rsquo;t use <code>bool</code> as a function parameter, prefer meaningful strings in high-level functions
+  (e.g. &ldquo;black&rdquo;/&rdquo;white&rdquo;), and <code>enum class</code> with two options defined in <code>dip::Option::</code>
+  namespace for low-level functions. Only private functions can deviate from this.</p>
+</li>
+<li>
+<p>Multiple return values are preferably combined in a <code>struct</code>, rather than a <code>std::tuple</code>
+  or similar, as a <code>struct</code> has named members and is easier to use. Output should rarely
+  be put into the function&rsquo;s argument list, with the exception of images
+  (see <a href="design.html#design_function_signatures">Function signatures</a>). </p>
+</li>
+<li>
+<p>For every function that produces an output image, there should be two signatures,
+  the main one with the <code>out</code> image as an input argument, and a second one, defined
+  as <code>inline</code> in the header file, as follows:</p>
+<div class="m-code"><pre><span></span><span class="kr">inline</span> <span class="n">Image</span> <span class="n">Function</span><span class="p">(</span> <span class="n">Image</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span> <span class="p">{</span>
+   <span class="n">Image</span> <span class="n">out</span><span class="p">;</span>
+   <span class="n">Function</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="p">...</span> <span class="p">);</span>
+   <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</li>
+<li>
+<p>Add default values to as many input parameters as possible in the high-level functions.
+  Sort the parameters such that the more important ones (the ones that the user is most likely
+  to want to set) appear first. Image input parameters always appear first, with input image
+  as first parameter, and output image as last image parameter:</p>
+<div class="m-code"><pre><span></span><span class="kt">void</span> <span class="nf">Function</span><span class="p">(</span>
+   <span class="n">Image</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">in</span><span class="p">,</span>
+   <span class="n">Image</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">kernel</span><span class="p">,</span>
+   <span class="n">Image</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span>
+   <span class="n">dfloat</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="n">BooleanArray</span> <span class="n">process</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="p">);</span>
+</pre></div>
+
+</li>
+</ul>
+<h2 id="style_headers">Header files</h2>
+<ul>
+<li>
+<p>In header files that define &ldquo;modules&rdquo; or parts of them (e.g. <code>diplib/linear.h</code>), always
+  first include <code>diplib.h</code>. In header files that define helper classes and don&rsquo;t reference
+  the <code>dip::Image</code> object, you can instead include only the minimal subset of header files
+  (e.g. include only <code>diplib/library/types.h</code>).</p>
+</li>
+<li>
+<p>Try to pull in as few header files as possible in public header files. Include those
+  header files that define any function input types (e.g. in <code>diplib/linear.h</code> we include
+  <code>diplib/kernel.h</code>). Types that are output arguments can be forward-declared if that
+  makes sense. For example, <code>dip::Kernel</code> has a method that creates a <code>dip::PixelTable</code>,
+  which is used mostly internally. Most users of <code>dip::Kernel</code> will not use this method.
+  Therefore, there is no point in pulling in <code>diplib/pixel_table.h</code> for all users of
+  <code>diplib/kernel.h</code>, and we forward-declare <code>dip::PixelTable</code> instead.</p>
+</li>
+<li>
+<p>Some STL containers such as <code>std::vector</code> and <code>std::set</code> are defined when including
+  <code>diplib.h</code>. There is no need to explicitly include the corresponding standard headers
+  for these. The current list of headers guaranteed to be included by <code>diplib.h</code> is:
+  <code>&lt;algorithm&gt;</code>, <code>&lt;cctype&gt;</code>, <code>&lt;cmath&gt;</code>, <code>&lt;complex&gt;</code>, <code>&lt;cstddef&gt;</code>, <code>&lt;cstdint&gt;</code>, <code>&lt;cstdlib&gt;</code>,
+  <code>&lt;cstring&gt;</code>, <code>&lt;exception&gt;</code>, <code>&lt;functional&gt;</code>, <code>&lt;initializer_list&gt;</code>, <code>&lt;iostream&gt;</code>,
+  <code>&lt;iterator&gt;</code>, <code>&lt;limits&gt;</code>, <code>&lt;memory&gt;</code>, <code>&lt;numeric&gt;</code>, <code>&lt;set&gt;</code>, <code>&lt;string&gt;</code>, <code>&lt;type_traits&gt;</code>,
+  <code>&lt;utility&gt;</code>, <code>&lt;vector&gt;</code>.</p>
+</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>
+<p>The first line of a documentation block is the brief string. You can add a <code>\brief</code>
+  command to extend the brief string to a whole paragraph, but please keep it brief.
+  Add additional paragraphs of documentation if needed.</p>
+</li>
+<li>
+<p>Add <code>\see</code> to link to functions in other modules, or in the same module but &ldquo;far away&rdquo;.
+  Linking to the next or previous function is not very important, but do so if it makes
+  sense and there is a <code>\see</code> section anyway. Note that the documentation lists the functions
+  in the same order as that they appear in the header files.</p>
+</li>
+<li>
+<p>Use <code>!!! par "name"</code> for a named info box. It will be rendered with a gray background.</p>
+</li>
+<li>
+<p>Use <code>!!! attention</code> and <code>!!! warning</code> for two levels of attention-grabbing info boxes.
+  These are rendered with lighter and darker 2nd color background (highly contrasting!).</p>
+</li>
+<li>
+<p>Don&rsquo;t use <code>!!! note</code> or <code>!!! remark</code>.</p>
+</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

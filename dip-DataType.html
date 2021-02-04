@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::DataType struct | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-right-m m-text-right">
+<span class="m-thin"><a href="pixeltypes.html" class="m-doc">Pixel data types</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib-h.html">"diplib.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>DataType <span class="m-thin">struct</span>        </h1>
+        <p><code>DataType</code> objects are used to indicate what the data type of
+an image is.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#operator-members">Operators</a></li>
+                <li><a href="#related">Related</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>It is a simple enumeration type, but with some added member functions that can be used
+to query the data type. A series of constant expressions (<code>dip::DT_XXX</code>) have been defined
+that should be used when specifying a data type, there is never a need to call the
+constructors to this class explicitly. It is possible to call <code>DataType</code> member functions
+on these constants:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">DT_BIN</span><span class="p">.</span><span class="n">SizeOf</span><span class="p">();</span>
+</pre></div>
+
+<p>See <a href="pixeltypes.html">Pixel data types</a> for more information about image sample data types.</p>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+            <dt id="dip-DataType-DataType">
+              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType" class="m-doc-self">DataType</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>The default data type is single-precision Float (<a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>).</dd>
+            <dt id="dip-DataType-DataType-T-T-">
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType-T-T-" class="m-doc-self">DataType</a>(</span><span class="m-doc-wrap">T ) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Get the data type value of any expression, as long as that expression is of one of the known data types</dd>
+            <dt id="dip-DataType-DataType-dip-String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType-dip-String-CL" class="m-doc-self">DataType</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) <span class="m-label m-flat m-info">explicit</span> </span>
+            </dt>
+            <dd>A string can be cast to a data type. See <a href="pixeltypes.html">Pixel data types</a> for recognized strings.</dd>
+            </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+            <dt>
+              using <a href="#dip-DataType-Classes" class="m-doc">Classes</a> = dip::detail::Options&lt;DT&gt;
+
+            </dt>
+            <dd>Specifies a collection of data types.</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt id="dip-DataType-swap-dip-DataType-L">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DataType-swap-dip-DataType-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a>&amp; other)</span>
+            </dt>
+            <dd>Swaps the values of <code>this</code> and <code>other</code></dd>
+            <dt id="dip-DataType-Name-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-Name-C" class="m-doc-self">Name</a>(</span><span class="m-doc-wrap">) const -&gt; char const*</span>
+            </dt>
+            <dd>Returns a C-style string constant with a representation of the data type name. See <a href="pixeltypes.html">Pixel data types</a> for returned strings.</dd>
+            <dt id="dip-DataType-SizeOf-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-SizeOf-C" class="m-doc-self">SizeOf</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the size in bytes of the data type.</dd>
+            <dt id="dip-DataType-IsInRange-dip-sint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInRange-dip-sint--C" class="m-doc-self">IsInRange</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> value) const -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the integer <code>value</code> is within the range representable by the data type.</dd>
+            <dt id="dip-DataType-IsInRange-dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInRange-dip-uint--C" class="m-doc-self">IsInRange</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> value) const -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the integer <code>value</code> is within the range representable by the data type.</dd>
+            <dt id="dip-DataType-Real">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-Real" class="m-doc-self">Real</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns the real data type corresponding to a complex data type</dd>
+            <dt id="dip-DataType-IsA-dip-DataType-Classes--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsA-dip-DataType-Classes--C" class="m-doc-self">IsA</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> cls) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is of the given class.</dd>
+            <dt id="dip-DataType-IsBinary-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsBinary-C" class="m-doc-self">IsBinary</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is binary.</dd>
+            <dt id="dip-DataType-IsUInt-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsUInt-C" class="m-doc-self">IsUInt</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is an unsigned integer type.</dd>
+            <dt id="dip-DataType-IsSInt-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsSInt-C" class="m-doc-self">IsSInt</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is a signed integer type.</dd>
+            <dt id="dip-DataType-IsInteger-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInteger-C" class="m-doc-self">IsInteger</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is an integer type.</dd>
+            <dt id="dip-DataType-IsFloat-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFloat-C" class="m-doc-self">IsFloat</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is a floating point type.</dd>
+            <dt id="dip-DataType-IsReal-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsReal-C" class="m-doc-self">IsReal</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is real (floating point or integer).</dd>
+            <dt id="dip-DataType-IsFlex-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFlex-C" class="m-doc-self">IsFlex</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is one of the &ldquo;flex&rdquo; types (floating point or complex).</dd>
+            <dt id="dip-DataType-IsFlexBin-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFlexBin-C" class="m-doc-self">IsFlexBin</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is floating point, complex or binary.</dd>
+            <dt id="dip-DataType-IsComplex-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsComplex-C" class="m-doc-self">IsComplex</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is complex.</dd>
+            <dt id="dip-DataType-IsUnsigned-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsUnsigned-C" class="m-doc-self">IsUnsigned</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is an unsigned type (binary or unsigned integer).</dd>
+            <dt id="dip-DataType-IsSigned-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsSigned-C" class="m-doc-self">IsSigned</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is a signed type (signed integer, floating point or complex)</dd>
+            <dt id="dip-DataType-SuggestInteger-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestInteger-dip-DataType-" class="m-doc-self">SuggestInteger</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns an integer type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestSigned-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestSigned-dip-DataType-" class="m-doc-self">SuggestSigned</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a signed type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestFloat-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFloat-dip-DataType-" class="m-doc-self">SuggestFloat</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable floating-point type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestDouble-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestDouble-dip-DataType-" class="m-doc-self">SuggestDouble</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable double precision floating-point type (real or complex) that can hold large sums of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestComplex-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestComplex-dip-DataType-" class="m-doc-self">SuggestComplex</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestFlex-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFlex-dip-DataType-" class="m-doc-self">SuggestFlex</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable floating-point or complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestFlexBin-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFlexBin-dip-DataType-" class="m-doc-self">SuggestFlexBin</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable floating-point, complex or binary type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestAbs-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestAbs-dip-DataType-" class="m-doc-self">SuggestAbs</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable type that can hold samples of type <code>abs(type)</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt id="dip-DataType-SuggestReal-dip-DataType-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestReal-dip-DataType-" class="m-doc-self">SuggestReal</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable real type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestArithmetic-dip-DataType--dip-DataType-" class="m-doc">SuggestArithmetic</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable floating-point, complex or binary type (&ldquo;FlexBin&rdquo;) that can hold the result of an
+arithmetic computation performed with the two data types.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestDyadicOperation-dip-DataType--dip-DataType-" class="m-doc">SuggestDyadicOperation</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable type that can hold any samples of the two data types.</dd>
+          </dl>
+        </section>
+        <section id="operator-members">
+          <h2>Operators</h2>
+          <dl class="m-doc">
+            <dt id="dip-DataType-operator%20int-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%20int-C" class="m-doc-self">operator int</a>(</span><span class="m-doc-wrap">) const -&gt; int <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd><code>DataType</code> objects implicitly convert to the enumeration integer.</dd>
+            <dt id="dip-DataType-operator%3D%3D-dip-DataType--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%3D%3D-dip-DataType--C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> other) const -&gt; bool</span>
+            </dt>
+            <dd><code>DataType</code> objects can be compared.</dd>
+            <dt id="dip-DataType-operator%20Classes-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%20Classes-C" class="m-doc-self">operator Classes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Implicit conversion to <a href="dip-DataType.html#dip-DataType-Classes"><code>dip::DataType::Classes</code></a> options class.</dd>
+          </dl>
+        </section>
+        <section id="related">
+          <h2>Related</h2>
+          <dl class="m-doc">
+            <dt id="dip-operator%3C%3C-std-ostream-L-dip-DataType-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-dip-DataType-" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; std::ostream&amp;</span>
+            </dt>
+            <dd>You can output a <a href="dip-DataType.html"><code>dip::DataType</code></a> to <code>std::cout</code> or any other stream. The result of <a href="dip-DataType.html#dip-DataType-Name-C"><code>type.Name()</code></a>
+is written.</dd>
+            <dt id="dip-DataTypeArray">
+              using <a href="#dip-DataTypeArray" class="m-doc-self">dip::<wbr />DataTypeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::DataType&gt;</a>
+
+            </dt>
+            <dd>An array to hold data types</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Alias documentation</h2>
+          <section class="m-doc-details" id="dip-DataType-Classes"><div>
+            <h3>
+              using <a href="#dip-DataType-Classes" class="m-doc-self">Classes</a> = dip::detail::Options&lt;DT&gt;
+
+            </h3>
+            <p>Specifies a collection of data types.</p>
+<p>Valid values are:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Classes constant</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Class_Bin</code></td>
+<td><a href="pixeltypes.html#dip-DT_BIN"><code>DT_BIN</code></a></td>
+</tr>
+<tr>
+<td><code>Class_UInt8</code></td>
+<td><a href="pixeltypes.html#dip-DT_UINT8"><code>DT_UINT8</code></a></td>
+</tr>
+<tr>
+<td><code>Class_SInt8</code></td>
+<td><a href="pixeltypes.html#dip-DT_SINT8"><code>DT_SINT8</code></a></td>
+</tr>
+<tr>
+<td><code>Class_UInt16</code></td>
+<td><a href="pixeltypes.html#dip-DT_UINT16"><code>DT_UINT16</code></a></td>
+</tr>
+<tr>
+<td><code>Class_SInt16</code></td>
+<td><a href="pixeltypes.html#dip-DT_SINT16"><code>DT_SINT16</code></a></td>
+</tr>
+<tr>
+<td><code>Class_UInt32</code></td>
+<td><a href="pixeltypes.html#dip-DT_UINT32"><code>DT_UINT32</code></a></td>
+</tr>
+<tr>
+<td><code>Class_SInt32</code></td>
+<td><a href="pixeltypes.html#dip-DT_SINT32"><code>DT_SINT32</code></a></td>
+</tr>
+<tr>
+<td><code>Class_UInt64</code></td>
+<td><a href="pixeltypes.html#dip-DT_UINT64"><code>DT_UINT64</code></a></td>
+</tr>
+<tr>
+<td><code>Class_SInt64</code></td>
+<td><a href="pixeltypes.html#dip-DT_SINT64"><code>DT_SINT64</code></a></td>
+</tr>
+<tr>
+<td><code>Class_SFloat</code></td>
+<td><a href="pixeltypes.html#dip-DT_SFLOAT"><code>DT_SFLOAT</code></a></td>
+</tr>
+<tr>
+<td><code>Class_DFloat</code></td>
+<td><a href="pixeltypes.html#dip-DT_DFLOAT"><code>DT_DFLOAT</code></a></td>
+</tr>
+<tr>
+<td><code>Class_SComplex</code></td>
+<td><a href="pixeltypes.html#dip-DT_SCOMPLEX"><code>DT_SCOMPLEX</code></a></td>
+</tr>
+<tr>
+<td><code>Class_DComplex</code></td>
+<td><a href="pixeltypes.html#dip-DT_DCOMPLEX"><code>DT_DCOMPLEX</code></a></td>
+</tr>
+<tr>
+<td><code>Class_Binary</code></td>
+<td><code>Class_Bin</code></td>
+</tr>
+<tr>
+<td><code>Class_UInt</code></td>
+<td><code>Class_UInt8 + Class_UInt16 + Class_UInt32 + Class_UInt64</code></td>
+</tr>
+<tr>
+<td><code>Class_SInt</code></td>
+<td><code>Class_SInt8 + Class_SInt16 + Class_SInt32 + Class_SInt64</code></td>
+</tr>
+<tr>
+<td><code>Class_Integer</code></td>
+<td><code>Class_UInt + Class_SInt</code></td>
+</tr>
+<tr>
+<td><code>Class_IntOrBin</code></td>
+<td><code>Class_Integer + Class_Binary</code></td>
+</tr>
+<tr>
+<td><code>Class_Float</code></td>
+<td><code>Class_SFloat + Class_DFloat</code></td>
+</tr>
+<tr>
+<td><code>Class_Complex</code></td>
+<td><code>Class_SComplex + Class_DComplex</code></td>
+</tr>
+<tr>
+<td><code>Class_Flex</code></td>
+<td><code>Class_Float + Class_Complex</code></td>
+</tr>
+<tr>
+<td><code>Class_FlexBin</code></td>
+<td><code>Class_Flex + Class_Binary</code></td>
+</tr>
+<tr>
+<td><code>Class_Unsigned</code></td>
+<td><code>Class_Binary + Class_UInt</code></td>
+</tr>
+<tr>
+<td><code>Class_Signed</code></td>
+<td><code>Class_SInt + Class_Float + Class_Complex</code></td>
+</tr>
+<tr>
+<td><code>Class_Real</code></td>
+<td><code>Class_Integer + Class_Float</code></td>
+</tr>
+<tr>
+<td><code>Class_SignedReal</code></td>
+<td><code>Class_SInt + Class_Float</code></td>
+</tr>
+<tr>
+<td><code>Class_NonBinary</code></td>
+<td><code>Class_Real + Class_Complex</code></td>
+</tr>
+<tr>
+<td><code>Class_NonComplex</code></td>
+<td><code>Class_Binary + Class_Real</code></td>
+</tr>
+<tr>
+<td><code>Class_All</code></td>
+<td><code>Class_Binary + Class_Real + Class_Complex</code></td>
+</tr>
+</tbody>
+</table>
+<p>Note that you can add these constants together, for example <code>dip::DataType::Class_UInt8 + dip::DataType::Class_UInt16</code>.</p>
+<p>It is possible to see if an image is of a type within a collection using the <code>Contains</code> method of
+<code>dip::DataType::Classes</code> with a <a href="dip-DataType.html"><code>dip::DataType</code></a> as argument:</p>
+<div class="m-code"><pre><span></span><span class="k">if</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DataType</span><span class="o">::</span><span class="n">Class_Flex</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span> <span class="n">image</span><span class="p">.</span><span class="n">DataType</span><span class="p">()</span> <span class="p">))</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</pre></div>
+
+<p>But more convenient is to use the <a href="dip-DataType.html#dip-DataType-IsA-dip-DataType-Classes--C"><code>dip::DataType::IsA</code></a> method:</p>
+<div class="m-code"><pre><span></span><span class="k">if</span><span class="p">(</span> <span class="n">image</span><span class="p">.</span><span class="n">DataType</span><span class="p">().</span><span class="n">IsA</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DataType</span><span class="o">::</span><span class="n">Class_Flex</span> <span class="p">))</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</pre></div>
+
+<p>This is equivalent to using one of the test functions, if defined for the specific group:</p>
+<div class="m-code"><pre><span></span><span class="k">if</span><span class="p">(</span> <span class="n">image</span><span class="p">.</span><span class="n">DataType</span><span class="p">().</span><span class="n">IsFlex</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</pre></div>
+
+<p>The following combination of classes cover all data types, and are non-intersecting:</p>
+<ul>
+<li><code>Class_Unsigned</code> and <code>Class_Signed</code></li>
+<li><code>Class_Complex</code> and <code>Class_NonComplex</code></li>
+<li><code>Class_Binary</code> and <code>Class_NonBinary</code></li>
+<li><code>Class_FlexBin</code> and <code>Class_Integer</code></li>
+<li><code>Class_Flex</code> and <code>Class_IntOrBin</code></li>
+<li><code>Class_Binary</code>, <code>Class_Real</code> and <code>Class_Complex</code></li>
+<li><code>Class_Binary</code>, <code>Class_Integer</code>, <code>Class_Float</code> and <code>Class_Complex</code></li>
+</ul>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-DataType-SuggestArithmetic-dip-DataType--dip-DataType-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-DataType-SuggestArithmetic-dip-DataType--dip-DataType-" class="m-doc-self">SuggestArithmetic</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2)</span></span>
+            </h3>
+            <p>Returns a suitable floating-point, complex or binary type (&ldquo;FlexBin&rdquo;) that can hold the result of an
+arithmetic computation performed with the two data types.</p>
+<p>The output value given <code>type1</code> and <code>type2</code> is as follows. First the two arguments are promoted using
+<a href="dip-DataType.html#dip-DataType-SuggestFlexBin-dip-DataType-"><code>dip::DataType::SuggestFlexBin</code></a> (which converts 8 and 16-bit integers to <code>DT_SFLOAT</code> and 32 and 64-bit integers
+to <code>DT_DFLOAT</code>), and the resulting two types are looked up in this table (note that the order of the two
+inputs is irrelevant, and the table is symmetric):</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th><code>DT_BIN</code></th>
+<th><code>DT_SFLOAT</code></th>
+<th><code>DT_DFLOAT</code></th>
+<th><code>DT_SCOMPLEX</code></th>
+<th><code>DT_DCOMPLEX</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>DT_BIN</code></strong></td>
+<td><code>DT_BIN</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SFLOAT</code></strong></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_DFLOAT</code></strong></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SCOMPLEX</code></strong></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_DCOMPLEX</code></strong></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+</tbody>
+</table>
+          </div></section>
+          <section class="m-doc-details" id="dip-DataType-SuggestDyadicOperation-dip-DataType--dip-DataType-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-DataType-SuggestDyadicOperation-dip-DataType--dip-DataType-" class="m-doc-self">SuggestDyadicOperation</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2)</span></span>
+            </h3>
+            <p>Returns a suitable type that can hold any samples of the two data types.</p>
+<p>The output value given <code>type1</code> and <code>type2</code> is as follows (note that the order of the two inputs is
+irrelevant, and the table is symmetric):</p>
+<div class="m-text m-tiny m-block m-flat">
+<table class="m-table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+<th><code>DT_BIN</code></th>
+<th><code>DT_UINT8</code></th>
+<th><code>DT_SINT8</code></th>
+<th><code>DT_UINT16</code></th>
+<th><code>DT_SINT16</code></th>
+<th><code>DT_UINT32</code></th>
+<th><code>DT_SINT32</code></th>
+<th><code>DT_UINT64</code></th>
+<th><code>DT_SINT64</code></th>
+<th><code>DT_SFLOAT</code></th>
+<th><code>DT_DFLOAT</code></th>
+<th><code>DT_SCOMPLEX</code></th>
+<th><code>DT_DCOMPLEX</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>DT_BIN</code></strong></td>
+<td><code>DT_BIN</code></td>
+<td><code>DT_UINT8</code></td>
+<td><code>DT_SINT8</code></td>
+<td><code>DT_UINT16</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_UINT32</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_UINT8</code></strong></td>
+<td><code>DT_UINT8</code></td>
+<td><code>DT_UINT8</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_UINT16</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_UINT32</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SINT8</code></strong></td>
+<td><code>DT_SINT8</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_SINT8</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_UINT16</code></strong></td>
+<td><code>DT_UINT16</code></td>
+<td><code>DT_UINT16</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_UINT16</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_UINT32</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SINT16</code></strong></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT16</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_UINT32</code></strong></td>
+<td><code>DT_UINT32</code></td>
+<td><code>DT_UINT32</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_UINT32</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_UINT32</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SINT32</code></strong></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT32</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_UINT64</code></strong></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_UINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SINT64</code></strong></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_SINT64</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SFLOAT</code></strong></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_DFLOAT</code></strong></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DFLOAT</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_SCOMPLEX</code></strong></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_SCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+<tr>
+<td><strong><code>DT_DCOMPLEX</code></strong></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+<td><code>DT_DCOMPLEX</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

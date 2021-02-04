@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Measurement module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          Measurement <span class="m-thin">module</span>        </h1>
+        <p>The measurement infrastructure and functionality.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#namespaces">Namespaces</a></li>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#operator-members">Operators</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>The <a href="dip-MeasurementTool.html"><code>dip::MeasurementTool</code></a> class provides the main interface to the
+functionality in this module. Quantification results are encapsulated in
+an object of the <a href="dip-Measurement.html"><code>dip::Measurement</code></a> class.</p>
+        <section id="namespaces">
+          <h2>Namespaces</h2>
+          <dl class="m-doc">
+            <dt>namespace <a href="dip-Feature.html" class="m-doc">dip::<wbr />Feature</a></dt>
+            <dd>Contains classes that implement the measurement features.</dd>
+          </dl>
+        </section>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="#dip-FeretValues" class="m-doc">dip::<wbr />FeretValues</a>
+            </dt>
+            <dd>Contains the various Feret diameters as returned by <a href="dip-ConvexHull.html#dip-ConvexHull-Feret-C"><code>dip::ConvexHull::Feret</code></a> and <a href="dip-ChainCode.html#dip-ChainCode-Feret-dip-dfloat--C"><code>dip::ChainCode::Feret</code></a>.</dd>
+            <dt>
+              class <a href="dip-RadiusValues.html" class="m-doc">dip::<wbr />RadiusValues</a>
+            </dt>
+            <dd>Holds the various output values of the <a href="dip-Polygon.html#dip-Polygon-RadiusStatistics-C"><code>dip::Polygon::RadiusStatistics</code></a> function.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              struct <a href="dip-Vertex-T.html" class="m-doc">dip::<wbr />Vertex</a>
+            </dt>
+            <dd>Encodes a location in a 2D image</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              struct <a href="dip-BoundingBox-T.html" class="m-doc">dip::<wbr />BoundingBox</a>
+            </dt>
+            <dd>Encodes a bounding box in a 2D image by the top left and bottom right corners (both coordinates included in the box).</dd>
+            <dt>
+              class <a href="dip-CovarianceMatrix.html" class="m-doc">dip::<wbr />CovarianceMatrix</a>
+            </dt>
+            <dd>A 2D covariance matrix for computation with 2D vertices.</dd>
+            <dt>
+              struct <a href="dip-Polygon.html" class="m-doc">dip::<wbr />Polygon</a>
+            </dt>
+            <dd>A polygon with floating-point vertices.</dd>
+            <dt>
+              class <a href="dip-ConvexHull.html" class="m-doc">dip::<wbr />ConvexHull</a>
+            </dt>
+            <dd>A convex hull is a convex polygon. It can be constructed from a <a href="dip-Polygon.html"><code>dip::Polygon</code></a>, and a const reference
+to the underlying <code>dip::Polygon</code> object can be obtained. It is guaranteed clockwise.</dd>
+            <dt>
+              struct <a href="dip-ChainCode.html" class="m-doc">dip::<wbr />ChainCode</a>
+            </dt>
+            <dd>The contour of an object as a chain code sequence.</dd>
+            <dt>
+              struct <a href="dip-Feature-Information.html" class="m-doc">dip::<wbr />Feature::<wbr />Information</a>
+            </dt>
+            <dd>Information about a measurement feature</dd>
+            <dt>
+              struct <a href="dip-Feature-ValueInformation.html" class="m-doc">dip::<wbr />Feature::<wbr />ValueInformation</a>
+            </dt>
+            <dd>Information about a measurement value, one of the components of a feature</dd>
+            <dt>
+              class <a href="dip-Feature-Base.html" class="m-doc">dip::<wbr />Feature::<wbr />Base</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The pure virtual base class for all measurement features.</dd>
+            <dt>
+              class <a href="dip-Feature-LineBased.html" class="m-doc">dip::<wbr />Feature::<wbr />LineBased</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The pure virtual base class for all line-based measurement features.</dd>
+            <dt>
+              class <a href="dip-Feature-ImageBased.html" class="m-doc">dip::<wbr />Feature::<wbr />ImageBased</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The pure virtual base class for all image-based measurement features.</dd>
+            <dt>
+              class <a href="dip-Feature-ChainCodeBased.html" class="m-doc">dip::<wbr />Feature::<wbr />ChainCodeBased</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The pure virtual base class for all chain-code&ndash;based measurement features.</dd>
+            <dt>
+              class <a href="dip-Feature-PolygonBased.html" class="m-doc">dip::<wbr />Feature::<wbr />PolygonBased</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The pure virtual base class for all polygon-based measurement features.</dd>
+            <dt>
+              class <a href="dip-Feature-ConvexHullBased.html" class="m-doc">dip::<wbr />Feature::<wbr />ConvexHullBased</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The pure virtual base class for all convex-hull&ndash;based measurement features.</dd>
+            <dt>
+              class <a href="dip-Feature-Composite.html" class="m-doc">dip::<wbr />Feature::<wbr />Composite</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The pure virtual base class for all composite measurement features.</dd>
+            <dt>
+              class <a href="dip-Measurement.html" class="m-doc">dip::<wbr />Measurement</a>
+            </dt>
+            <dd>Contains measurement results, as obtained through <a href="dip-MeasurementTool.html#dip-MeasurementTool-Measure-dip-Image-CL-dip-Image-CL-dip-StringArray--dip-UnsignedArray-CL-dip-uint--C"><code>dip::MeasurementTool::Measure</code></a>.</dd>
+            <dt>
+              class <a href="dip-MeasurementTool.html" class="m-doc">dip::<wbr />MeasurementTool</a>
+            </dt>
+            <dd>Performs measurements on images.</dd>
+          </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+            <dt>
+              using <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::<wbr />VertexFloat</a> = <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;dip::dfloat&gt;</a>
+
+            </dt>
+            <dd>A vertex with floating-point coordinates</dd>
+            <dt>
+              using <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::<wbr />VertexInteger</a> = <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;dip::sint&gt;</a>
+
+            </dt>
+            <dd>A vertex with integer coordinates</dd>
+            <dt>
+              using <a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">dip::<wbr />BoundingBoxFloat</a> = <a href="dip-BoundingBox-T.html" class="m-doc">BoundingBox&lt;dip::dfloat&gt;</a>
+
+            </dt>
+            <dd>A bounding box with floating-point coordinates</dd>
+            <dt>
+              using <a href="dip-BoundingBox-T.html#dip-BoundingBoxInteger" class="m-doc">dip::<wbr />BoundingBoxInteger</a> = <a href="dip-BoundingBox-T.html" class="m-doc">BoundingBox&lt;dip::sint&gt;</a>
+
+            </dt>
+            <dd>A bounding box with integer coordinates</dd>
+            <dt>
+              using <a href="dip-ChainCode.html#dip-ChainCodeArray" class="m-doc">dip::<wbr />ChainCodeArray</a> = std::vector&lt;ChainCode&gt;
+
+            </dt>
+            <dd>A collection of object contours</dd>
+            <dt>
+              using <a href="dip-Feature-Information.html#dip-Feature-InformationArray" class="m-doc">dip::<wbr />Feature::<wbr />InformationArray</a> = std::vector&lt;Information&gt;
+
+            </dt>
+            <dd>Information about the known measurement features</dd>
+            <dt>
+              using <a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">dip::<wbr />Feature::<wbr />ValueInformationArray</a> = std::vector&lt;ValueInformation&gt;
+
+            </dt>
+            <dd>Information about the values of a measurement feature, or all values of all measurement features
+in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</dd>
+            <dt>
+              using <a href="#dip-ObjectIdToIndexMap" class="m-doc">dip::<wbr />ObjectIdToIndexMap</a> = std::map&lt;dip::uint, dip::uint&gt;
+
+            </dt>
+            <dd>Maps object IDs to object indices</dd>
+            </dl>
+        </section>
+        <section id="enum-members">
+          <h2>Enums</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Feature-Type" class="m-doc">dip::<wbr />Feature::<wbr />Type</a>: int{ </span><span class="m-doc-wrap"><a href="#dip-Feature-Type-LINE_BASED" class="m-doc">LINE_BASED</a>,
+              <a href="#dip-Feature-Type-IMAGE_BASED" class="m-doc">IMAGE_BASED</a>,
+              <a href="#dip-Feature-Type-CHAINCODE_BASED" class="m-doc">CHAINCODE_BASED</a>,
+              <a href="#dip-Feature-Type-POLYGON_BASED" class="m-doc">POLYGON_BASED</a>,
+              <a href="#dip-Feature-Type-CONVEXHULL_BASED" class="m-doc">CONVEXHULL_BASED</a>,
+              <a href="#dip-Feature-Type-COMPOSITE" class="m-doc">COMPOSITE</a> }</span>
+            </dt>
+            <dd>The types of measurement features</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Norm-T-Vertex<T>-CL" class="m-doc">dip::<wbr />Norm</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>The norm of the vector <code>v</code>.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-NormSquare-T-Vertex<T>-CL" class="m-doc">dip::<wbr />NormSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>The square of the norm of the vector <code>v</code>.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Distance-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />Distance</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>The norm of the vector <code>v2-v1</code>.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-DistanceSquare-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />DistanceSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>The square norm of the vector <code>v2-v1</code>.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Angle-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />Angle</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>The angle of the vector <code>v2-v1</code>.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-CrossProduct-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />CrossProduct</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Compute the z component of the cross product of vectors <code>v1</code> and <code>v2</code></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-ParallelogramSignedArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />ParallelogramSignedArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Compute the z component of the cross product of vectors <code>v2-v1</code> and <code>v3-v1</code></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />TriangleArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Compute the area of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code></dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleHeight-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />TriangleHeight</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Compute the height of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>, with <code>v3</code> the tip</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetImageChainCodes-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-" class="m-doc">dip::<wbr />GetImageChainCodes</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2) -&gt; <a href="dip-ChainCode.html#dip-ChainCodeArray" class="m-doc">dip::ChainCodeArray</a></span>
+            </dt>
+            <dd>Returns the set of chain codes sequences that encode the contours of the given objects in a labeled image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetSingleChainCode-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-" class="m-doc">dip::<wbr />GetSingleChainCode</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; startCoord,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2) -&gt; <a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a></span>
+            </dt>
+            <dd>Returns the chain codes sequence that encodes the contour of one object in a binary or labeled image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ObjectToMeasurement-dip-Image-CL-dip-Image-L-Measurement-IteratorFeature-CL" class="m-doc">dip::<wbr />ObjectToMeasurement</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span>
+            </dt>
+            <dd>Paints each object with the selected measurement feature values.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MeasurementWriteCSV-dip-Measurement-CL-dip-String-CL-dip-StringSet-CL" class="m-doc">dip::<wbr />MeasurementWriteCSV</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; measurement,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {})</span>
+            </dt>
+            <dd>Writes a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> structure to a CSV file.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Minimum-Measurement-IteratorFeature-CL" class="m-doc">dip::<wbr />Minimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a></span>
+            </dt>
+            <dd>Returns the smallest feature value in the first column of <code>featureValues</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Maximum-Measurement-IteratorFeature-CL" class="m-doc">dip::<wbr />Maximum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a></span>
+            </dt>
+            <dd>Returns the largest feature value in the first column of <code>featureValues</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Percentile-Measurement-IteratorFeature-CL-dip-dfloat-" class="m-doc">dip::<wbr />Percentile</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a></span>
+            </dt>
+            <dd>Returns the <code>percentile</code> feature value in the first column of <code>featureValues</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Median-Measurement-IteratorFeature-CL" class="m-doc">dip::<wbr />Median</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Returns the median feature value in the first column of <code>featureValues</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Mean-Measurement-IteratorFeature-CL" class="m-doc">dip::<wbr />Mean</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Returns the mean feature value in the first column of <code>featureValues</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MaximumAndMinimum-Measurement-IteratorFeature-CL" class="m-doc">dip::<wbr />MaximumAndMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a></span>
+            </dt>
+            <dd>Returns the maximum and minimum feature values in the first column of <code>featureValues</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SampleStatistics-Measurement-IteratorFeature-CL" class="m-doc">dip::<wbr />SampleStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a></span>
+            </dt>
+            <dd>Returns the first four central moments of the feature values in the first column of <code>featureValues</code>.</dd>
+          </dl>
+        </section>
+        <section id="operator-members">
+          <h2>Operators</h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%3D%3D-T-Vertex<T>--Vertex<T>-" class="m-doc">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v2) -&gt; bool</span>
+            </dt>
+            <dd>Compare two vertices</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--Vertex<T>-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+            </dt>
+            <dd>Add two vertices together, with identical types</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-dip-VertexFloat--dip-VertexInteger-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
+              <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Add two vertices together, where the LHS is floating-point and the RHS is integer</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-dip-VertexInteger-CL-dip-VertexFloat-" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
+              <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Add two vertices together, where the LHS is integer and the RHS is floating-point</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--Vertex<T>-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+            </dt>
+            <dd>Subtract two vertices from each other</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--dip-VertexFloat--dip-VertexInteger-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
+              <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Subtract two vertices from each other, where the LHS is floating-point and the RHS is integer</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--dip-VertexInteger-CL-dip-VertexFloat-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
+              <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Subtract two vertices from each other, where the LHS is integer and the RHS is floating-point</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, typename S&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--S-" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
+              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+            </dt>
+            <dd>Add a vertex and a constant</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T, typename S&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--S-" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
+              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+            </dt>
+            <dd>Subtract a vertex and a constant</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2A-T-Vertex<T>--dip-dfloat-" class="m-doc">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+            </dt>
+            <dd>Multiply a vertex and a constant</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2F-T-Vertex<T>--dip-dfloat-" class="m-doc">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+            </dt>
+            <dd>Divide a vertex by a constant</dd>
+            <dt id="dip-operator%2B-dip-Measurement-CL-dip-Measurement-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-dip-Measurement-CL-dip-Measurement-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; lhs,
+              <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; rhs) -&gt; <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a></span>
+            </dt>
+            <dd>The <code>+</code> operator merges two <a href="dip-Measurement.html"><code>dip::Measurement</code></a> objects.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Measurement.html#dip-operator%3C%3C-std-ostream-L-dip-Measurement-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; measurement) -&gt; std::ostream&amp;</span>
+            </dt>
+            <dd>You can output a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> to <code>std::cout</code> or any other stream to produce a human-readable
+representation of the tabular data in it.</dd>
+          </dl>
+        </section>
+        <section>
+            <h2>Class documentation</h2>
+                      <section class="m-doc-details" id="dip-FeretValues"><div>
+            <h3>
+              struct <a href="#dip-FeretValues" class="m-doc-self">dip::<wbr />FeretValues</a>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>Contains the various Feret diameters as returned by <a href="dip-ConvexHull.html#dip-ConvexHull-Feret-C"><code>dip::ConvexHull::Feret</code></a> and <a href="dip-ChainCode.html#dip-ChainCode-Feret-dip-dfloat--C"><code>dip::ChainCode::Feret</code></a>.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Variables</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-FeretValues-maxDiameter" class="m-doc-self" id="dip-FeretValues-maxDiameter">maxDiameter</a>                  </td>
+                  <td>
+                  The maximum Feret diameter
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-FeretValues-minDiameter" class="m-doc-self" id="dip-FeretValues-minDiameter">minDiameter</a>                  </td>
+                  <td>
+                  The minimum Feret diameter
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-FeretValues-maxPerpendicular" class="m-doc-self" id="dip-FeretValues-maxPerpendicular">maxPerpendicular</a>                  </td>
+                  <td>
+                  The Feret diameter perpendicular to <code>minDiameter</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-FeretValues-maxAngle" class="m-doc-self" id="dip-FeretValues-maxAngle">maxAngle</a>                  </td>
+                  <td>
+                  The angle at which <code>maxDiameter</code> was measured
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-FeretValues-minAngle" class="m-doc-self" id="dip-FeretValues-minAngle">minAngle</a>                  </td>
+                  <td>
+                  The angle at which <code>minDiameter</code> was measured
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+            <h2>Alias documentation</h2>
+                      <section class="m-doc-details" id="dip-VertexFloat"><div>
+            <h3>
+              using <a href="#dip-VertexFloat" class="m-doc-self">dip::<wbr />VertexFloat</a> = <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;dip::dfloat&gt;</a>
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>A vertex with floating-point coordinates</p>
+          </div></section>
+                      <section class="m-doc-details" id="dip-VertexInteger"><div>
+            <h3>
+              using <a href="#dip-VertexInteger" class="m-doc-self">dip::<wbr />VertexInteger</a> = <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;dip::sint&gt;</a>
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>A vertex with integer coordinates</p>
+          </div></section>
+                      <section class="m-doc-details" id="dip-BoundingBoxFloat"><div>
+            <h3>
+              using <a href="#dip-BoundingBoxFloat" class="m-doc-self">dip::<wbr />BoundingBoxFloat</a> = <a href="dip-BoundingBox-T.html" class="m-doc">BoundingBox&lt;dip::dfloat&gt;</a>
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>A bounding box with floating-point coordinates</p>
+          </div></section>
+                      <section class="m-doc-details" id="dip-BoundingBoxInteger"><div>
+            <h3>
+              using <a href="#dip-BoundingBoxInteger" class="m-doc-self">dip::<wbr />BoundingBoxInteger</a> = <a href="dip-BoundingBox-T.html" class="m-doc">BoundingBox&lt;dip::sint&gt;</a>
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>A bounding box with integer coordinates</p>
+          </div></section>
+                      <section class="m-doc-details" id="dip-ChainCodeArray"><div>
+            <h3>
+              using <a href="#dip-ChainCodeArray" class="m-doc-self">dip::<wbr />ChainCodeArray</a> = std::vector&lt;ChainCode&gt;
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>A collection of object contours</p>
+          </div></section>
+                      <section class="m-doc-details" id="dip-Feature-InformationArray"><div>
+            <h3>
+              using <a href="#dip-Feature-InformationArray" class="m-doc-self">dip::<wbr />Feature::<wbr />InformationArray</a> = std::vector&lt;Information&gt;
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Information about the known measurement features</p>
+          </div></section>
+                      <section class="m-doc-details" id="dip-Feature-ValueInformationArray"><div>
+            <h3>
+              using <a href="#dip-Feature-ValueInformationArray" class="m-doc-self">dip::<wbr />Feature::<wbr />ValueInformationArray</a> = std::vector&lt;ValueInformation&gt;
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Information about the values of a measurement feature, or all values of all measurement features
+in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</p>
+          </div></section>
+                      <section class="m-doc-details" id="dip-ObjectIdToIndexMap"><div>
+            <h3>
+              using <a href="#dip-ObjectIdToIndexMap" class="m-doc-self">dip::<wbr />ObjectIdToIndexMap</a> = std::map&lt;dip::uint, dip::uint&gt;
+
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Maps object IDs to object indices</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="dip-Feature-Type"><div>
+            <h3>
+              enum class <a href="#dip-Feature-Type" class="m-doc-self">dip::<wbr />Feature::<wbr />Type</a>: int
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>The types of measurement features</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#dip-Feature-Type-LINE_BASED" class="m-doc-self" id="dip-Feature-Type-LINE_BASED">LINE_BASED</a> = 0</td>
+                  <td>
+                  The feature is derived from <a href="dip-Feature-LineBased.html"><code>dip::Feature::LineBased</code></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Feature-Type-IMAGE_BASED" class="m-doc-self" id="dip-Feature-Type-IMAGE_BASED">IMAGE_BASED</a> = 1</td>
+                  <td>
+                  The feature is derived from <a href="dip-Feature-ImageBased.html"><code>dip::Feature::ImageBased</code></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Feature-Type-CHAINCODE_BASED" class="m-doc-self" id="dip-Feature-Type-CHAINCODE_BASED">CHAINCODE_BASED</a> = 2</td>
+                  <td>
+                  The feature is derived from <a href="dip-Feature-ChainCodeBased.html"><code>dip::Feature::ChainCodeBased</code></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Feature-Type-POLYGON_BASED" class="m-doc-self" id="dip-Feature-Type-POLYGON_BASED">POLYGON_BASED</a> = 3</td>
+                  <td>
+                  The feature is derived from <a href="dip-Feature-PolygonBased.html"><code>dip::Feature::PolygonBased</code></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Feature-Type-CONVEXHULL_BASED" class="m-doc-self" id="dip-Feature-Type-CONVEXHULL_BASED">CONVEXHULL_BASED</a> = 4</td>
+                  <td>
+                  The feature is derived from <a href="dip-Feature-ConvexHullBased.html"><code>dip::Feature::ConvexHullBased</code></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Feature-Type-COMPOSITE" class="m-doc-self" id="dip-Feature-Type-COMPOSITE">COMPOSITE</a> = 5</td>
+                  <td>
+                  The feature is derived from <a href="dip-Feature-Composite.html"><code>dip::Feature::Composite</code></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-Norm-T-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Norm-T-Vertex<T>-CL" class="m-doc-self">dip::<wbr />Norm</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v)</span></span>
+            </h3>
+            <p>The norm of the vector <code>v</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-NormSquare-T-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-NormSquare-T-Vertex<T>-CL" class="m-doc-self">dip::<wbr />NormSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v)</span></span>
+            </h3>
+            <p>The square of the norm of the vector <code>v</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Distance-T-Vertex<T>-CL-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Distance-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />Distance</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2)</span></span>
+            </h3>
+            <p>The norm of the vector <code>v2-v1</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-DistanceSquare-T-Vertex<T>-CL-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-DistanceSquare-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />DistanceSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2)</span></span>
+            </h3>
+            <p>The square norm of the vector <code>v2-v1</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Angle-T-Vertex<T>-CL-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Angle-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />Angle</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2)</span></span>
+            </h3>
+            <p>The angle of the vector <code>v2-v1</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-CrossProduct-T-Vertex<T>-CL-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-CrossProduct-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />CrossProduct</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2)</span></span>
+            </h3>
+            <p>Compute the z component of the cross product of vectors <code>v1</code> and <code>v2</code></p>
+          </div></section>
+          <section class="m-doc-details" id="dip-ParallelogramSignedArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ParallelogramSignedArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />ParallelogramSignedArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3)</span></span>
+            </h3>
+            <p>Compute the z component of the cross product of vectors <code>v2-v1</code> and <code>v3-v1</code></p>
+          </div></section>
+          <section class="m-doc-details" id="dip-TriangleArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-TriangleArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />TriangleArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3)</span></span>
+            </h3>
+            <p>Compute the area of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code></p>
+          </div></section>
+          <section class="m-doc-details" id="dip-TriangleHeight-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-TriangleHeight-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />TriangleHeight</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3)</span></span>
+            </h3>
+            <p>Compute the height of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>, with <code>v3</code> the tip</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-GetImageChainCodes-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-ChainCode.html#dip-ChainCodeArray" class="m-doc">dip::ChainCodeArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GetImageChainCodes-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-" class="m-doc-self">dip::<wbr />GetImageChainCodes</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>Returns the set of chain codes sequences that encode the contours of the given objects in a labeled image.</p>
+<p>Note that only the first closed contour for each label is found; if an object has multiple connected components,
+only part of it is found. The chain code traces the outer perimeter of the object, holes are ignored.</p>
+<p><code>objectIDs</code> is a list with object IDs present in the labeled image. If an empty array is given, all objects in
+the image are used. For the meaning of <code>connectivity</code>, see <a href="concepts.html#connectivity">Connectivity</a>.</p>
+<p><code>labels</code> is a labeled image, and must be scalar and of an unsigned integer type.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-GetSingleChainCode-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GetSingleChainCode-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-" class="m-doc-self">dip::<wbr />GetSingleChainCode</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; startCoord,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 2)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>Returns the chain codes sequence that encodes the contour of one object in a binary or labeled image.</p>
+<p>Note that only one closed contour is found; if the object has multiple connected components,
+only part of it is found. The chain code traces the outer perimeter of the object, holes are ignored.</p>
+<p><code>startCoord</code> is the 2D coordinates of a boundary pixel. If it points to a zero-valued pixel or a pixel not on
+the boundary of an object, an exception will be thrown.</p>
+<p>For the meaning of <code>connectivity</code>, see <a href="concepts.html#connectivity">Connectivity</a>.</p>
+<p><code>labels</code> is a labeled or binary image, and must be scalar and of a binary or unsigned integer type.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-ObjectToMeasurement-dip-Image-CL-dip-Image-L-Measurement-IteratorFeature-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ObjectToMeasurement-dip-Image-CL-dip-Image-L-Measurement-IteratorFeature-CL" class="m-doc-self">dip::<wbr />ObjectToMeasurement</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Paints each object with the selected measurement feature values.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.
+It is assumed that that measurement object was obtained through measurement of the input <code>label</code> image.
+To obtain such a view, use the measurement&rsquo;s <code>[]</code> indexing with a feature name. Alternatively, use the
+<a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a> method to select an arbitrary subset of feature value columns.
+The <a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method can be used for the same purpose.</p>
+<p>If the selected feature has more than one value, then <code>out</code> will be a vector image with as many tensor elements
+as values are in the feature.</p>
+<p><code>out</code> will be of type <code>DT_SFLOAT</code>. To change the data type, set the data type of <code>out</code> and set its protect
+flag before calling this function:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span><span class="p">;</span>
+<span class="n">out</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT32</span> <span class="p">);</span>
+<span class="n">out</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
+<span class="n">ObjectToMeasurement</span><span class="p">(</span> <span class="n">label</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">featureValues</span> <span class="p">);</span>
+</pre></div>
+          </div></section>
+          <section class="m-doc-details" id="dip-MeasurementWriteCSV-dip-Measurement-CL-dip-String-CL-dip-StringSet-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MeasurementWriteCSV-dip-Measurement-CL-dip-String-CL-dip-StringSet-CL" class="m-doc-self">dip::<wbr />MeasurementWriteCSV</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; measurement,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {})</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Writes a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> structure to a CSV file.</p>
+<p>The CSV (comma separated values) file is a generic container for tabular data, and can be
+read in just about any graphing and statistics software package.</p>
+<p>The file written contains three header rows, followed by one row per object. The three
+header rows contain the feature names, the value names, and the value units. The feature
+names, of which there typically are fewer than columns, are interspersed with empty cells
+to line them up with the first column for the feature. For example:</p>
+<div class="m-code"><pre><span></span>ObjectID, Size,  Center, ,      Feret, ,      ,        ,
+,         ,      dim0,   dim1,  Max,   Min,   PerpMin, MaxAng, MinAng
+,         um^2,  um,     um,    um,    um,    um,      rad,    rad
+1,        397.0, 20.06,  12.98, 34.99, 16.43, 34.83,   2.111,  3.588
+2,        171.0, 63.13,  4.123, 20.22, 11.00, 20.00,   2.993,  4.712
+3,        628.0, 108.4,  12.47, 32.20, 26.00, 28.00,   2.202,  0.000
+4,        412.0, 154.5,  9.561, 26.40, 22.00, 23.00,   2.222,  4.712
+</pre></div>
+
+<aside class="m-note m-info">
+<h4>Attention</h4>
+<p>The file will not have columns aligned with spaces as shown here, each
+comma is always followed by a single space.</p>
+</aside>
+<p><code>options</code> is one or more of the following values:</p>
+<ul>
+<li><code>"unicode"</code>: The units will be written using unicode strings. By default, only ASCII
+  characters are used.</li>
+<li><code>"simple"</code>: There will only be a single header line, combining the three strings as
+  follows: <code>"Feature value (units)"</code>. For example: <code>"Size (um^2)"</code>, <code>"Feret Max (um)"</code>, etc.</li>
+</ul>
+          </div></section>
+          <section class="m-doc-details" id="dip-Minimum-Measurement-IteratorFeature-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Minimum-Measurement-IteratorFeature-CL" class="m-doc-self">dip::<wbr />Minimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Returns the smallest feature value in the first column of <code>featureValues</code>.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object. Only the
+first value of the feature is used. For features with multiple values, select a value using the
+<a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <code>dip::Measurement</code> object
+directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Maximum-Measurement-IteratorFeature-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Maximum-Measurement-IteratorFeature-CL" class="m-doc-self">dip::<wbr />Maximum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Returns the largest feature value in the first column of <code>featureValues</code>.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object. Only the
+first value of the feature is used. For features with multiple values, select a value using the
+<a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <code>dip::Measurement</code> object
+directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Percentile-Measurement-IteratorFeature-CL-dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Percentile-Measurement-IteratorFeature-CL-dip-dfloat-" class="m-doc-self">dip::<wbr />Percentile</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Returns the <code>percentile</code> feature value in the first column of <code>featureValues</code>.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object. Only the
+first value of the feature is used. For features with multiple values, select a value using the
+<a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <code>dip::Measurement</code> object
+directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Median-Measurement-IteratorFeature-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Median-Measurement-IteratorFeature-CL" class="m-doc-self">dip::<wbr />Median</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Returns the median feature value in the first column of <code>featureValues</code>.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object. Only the
+first value of the feature is used. For features with multiple values, select a value using the
+<a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <code>dip::Measurement</code> object
+directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Mean-Measurement-IteratorFeature-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Mean-Measurement-IteratorFeature-CL" class="m-doc-self">dip::<wbr />Mean</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Returns the mean feature value in the first column of <code>featureValues</code>.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object. Only the
+first value of the feature is used. For features with multiple values, select a value using the
+<a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <code>dip::Measurement</code> object
+directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-MaximumAndMinimum-Measurement-IteratorFeature-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MaximumAndMinimum-Measurement-IteratorFeature-CL" class="m-doc-self">dip::<wbr />MaximumAndMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Returns the maximum and minimum feature values in the first column of <code>featureValues</code>.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object. Only the
+first value of the feature is used. For features with multiple values, select a value using the
+<a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <code>dip::Measurement</code> object
+directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SampleStatistics-Measurement-IteratorFeature-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SampleStatistics-Measurement-IteratorFeature-CL" class="m-doc-self">dip::<wbr />SampleStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></div>
+            </h3>
+            <p>Returns the first four central moments of the feature values in the first column of <code>featureValues</code>.</p>
+<p>The input <code>featureValues</code> is a view over a specific feature in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object. Only the
+first value of the feature is used. For features with multiple values, select a value using the
+<a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <code>dip::Measurement</code> object
+directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

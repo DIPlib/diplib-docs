@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::StructuringElement class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-right-m m-text-right">
+<span class="m-thin"><a href="morphology.html" class="m-doc">Morphological filtering</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>StructuringElement <span class="m-thin">class</span>        </h1>
+        <p>Represents the shape and size of a structuring element.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#line_morphology">Line morphology</a></li>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>Many functions in the Mathematical Morphology module require a structuring element definition.
+There are two ways to define a structuring element: the user can specify the shape name and the size
+of a structuring element, and the user can pass an image containing the structuring element.</p>
+<p>Objects of type <a href="dip-Image.html"><code>dip::Image</code></a>, <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> and <a href="supporttypes.html#dip-String"><code>dip::String</code></a> implicitly convert to
+a <a href="dip-StructuringElement.html"><code>dip::StructuringElement</code></a>, so it should be convenient to use these various representations in your
+code.</p>
+<p>To define a structuring element by shape and size, pass a string defining the shape, and a
+floating-point array with the size along each dimension.
+These are the valid shape strings, and the corresponding meaning of the size array:</p>
+<ul>
+<li>
+<p><code>"rectangular"</code>, <code>"elliptic"</code>, and <code>"diamond"</code>: these are unit circles in different metrics. The
+  size array corresponds to the diameter in that metric. <code>"elliptic"</code> is the default shape,
+  because it is isotropic, but it also is the slowest to compute. Both <code>"elliptic"</code> and <code>"diamond"</code>
+  structuring elements always are symmetric. That is, their origin is centered on a pixel.
+  The pixels included in the shape are those at most half of the diameter away from the origin.
+  For the <code>"rectangular"</code> structuring element, a box with integer sizes is always generated,
+  but the box can be even in size also, meaning that the origin is in between pixels.
+  Any size array element that is smaller or equal to 1 causes that dimension to not be processed.</p>
+</li>
+<li>
+<p><code>"octagonal"</code>: an approximation to the ellipse in 2D only.</p>
+</li>
+<li>
+<p><code>"parabolic"</code>: the parabolic structuring element is the morphological equivalent to the Gaussian
+  kernel in linear filtering. It is separable and perfectly isotropic. The size array corresponds
+  to the scaling of the parabola (i.e. the <span class="m-math"><svg style="width: 0.567em; height: 0.538em; vertical-align: -0.013em;" viewBox=".16 -5.25 5.67 5.38">
+<title>
+\(a\)
+</title>
+<defs>
+<path id='eq127-g1-48' d='M5.67-1.19L5.53-1.31L5.19-.98C4.82-.6 4.68-.49 4.57-.49C4.48-.49 4.41-.56 4.41-.64C4.41-.88 4.91-2.93 5.47-4.97C5.5-5.09 5.51-5.11 5.54-5.22L5.46-5.25L4.73-5.17L4.69-5.13L4.56-4.56C4.47-5 4.12-5.25 3.61-5.25C2.02-5.25 .2-3.08 .2-1.19C.2-.36 .66 .13 1.42 .13C2.25 .13 2.76-.26 3.81-1.74C3.56-.76 3.54-.67 3.54-.37C3.54-.02 3.68 .12 4.01 .12C4.49 .12 4.78-.11 5.67-1.19ZM4.35-4.26C4.35-3.26 3.74-1.86 2.93-.98C2.64-.66 2.24-.45 1.89-.45C1.46-.45 1.2-.79 1.2-1.33C1.2-1.98 1.62-3.14 2.12-3.89C2.6-4.6 3.13-4.99 3.62-4.99C3.64-4.99 3.66-4.99 3.68-4.99C4.09-4.97 4.35-4.68 4.35-4.26Z'/>
+</defs>
+<g id='eq127-page1'>
+<use x='.16' y='0' xlink:href='#eq127-g1-48'/>
+</g>
+</svg></span> in <span class="m-math"><svg style="width: 2.691em; height: 1.038em; vertical-align: -0.013em;" viewBox=".16 -10.24 26.91 10.38">
+<title>
+\(a^{-2} x^2\)
+</title>
+<defs>
+<path id='eq128-g8-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+<path id='eq128-g1-0' d='M5.01-2V-2.49H.54V-2H5.01Z'/>
+<path id='eq128-g4-48' d='M5.67-1.19L5.53-1.31L5.19-.98C4.82-.6 4.68-.49 4.57-.49C4.48-.49 4.41-.56 4.41-.64C4.41-.88 4.91-2.93 5.47-4.97C5.5-5.09 5.51-5.11 5.54-5.22L5.46-5.25L4.73-5.17L4.69-5.13L4.56-4.56C4.47-5 4.12-5.25 3.61-5.25C2.02-5.25 .2-3.08 .2-1.19C.2-.36 .66 .13 1.42 .13C2.25 .13 2.76-.26 3.81-1.74C3.56-.76 3.54-.67 3.54-.37C3.54-.02 3.68 .12 4.01 .12C4.49 .12 4.78-.11 5.67-1.19ZM4.35-4.26C4.35-3.26 3.74-1.86 2.93-.98C2.64-.66 2.24-.45 1.89-.45C1.46-.45 1.2-.79 1.2-1.33C1.2-1.98 1.62-3.14 2.12-3.89C2.6-4.6 3.13-4.99 3.62-4.99C3.64-4.99 3.66-4.99 3.68-4.99C4.09-4.97 4.35-4.68 4.35-4.26Z'/>
+<path id='eq128-g4-71' d='M4.95-1.23L4.79-1.32C4.69-1.2 4.63-1.14 4.53-1C4.25-.64 4.12-.52 3.97-.52C3.8-.52 3.69-.68 3.61-1.01C3.59-1.12 3.57-1.18 3.56-1.2C3.28-2.32 3.13-2.97 3.13-3.14C3.66-4.06 4.09-4.59 4.3-4.59C4.37-4.59 4.48-4.55 4.59-4.49C4.73-4.41 4.81-4.38 4.92-4.38C5.16-4.38 5.32-4.56 5.32-4.81C5.32-5.07 5.12-5.25 4.84-5.25C4.31-5.25 3.87-4.82 3.04-3.55L2.91-4.2C2.74-5.01 2.61-5.25 2.29-5.25C2.01-5.25 1.63-5.16 .89-4.91L.76-4.86L.81-4.68L1.01-4.73C1.24-4.79 1.38-4.81 1.48-4.81C1.77-4.81 1.85-4.7 2.01-3.99L2.36-2.53L1.38-1.13C1.13-.77 .91-.56 .77-.56C.7-.56 .58-.6 .46-.67C.31-.75 .19-.79 .08-.79C-.15-.79-.32-.61-.32-.37C-.32-.06-.1 .13 .27 .13S.79 .02 1.38-.69L2.45-2.1L2.81-.67C2.97-.05 3.12 .13 3.5 .13C3.95 .13 4.26-.15 4.95-1.23Z'/>
+</defs>
+<g id='eq128-page1'>
+<use x='.16' y='0' xlink:href='#eq128-g4-48'/>
+<use x='6.58' y='-4.34' xlink:href='#eq128-g1-0'/>
+<use x='12.15' y='-4.34' xlink:href='#eq128-g8-50'/>
+<use x='17.03' y='0' xlink:href='#eq128-g4-71'/>
+<use x='22.92' y='-4.34' xlink:href='#eq128-g8-50'/>
+</g>
+</svg></span>). A value equal
+  or smaller to 0 causes that dimension to not be processed. The boundary condition is ignored
+  for operators with this structuring element, and the output image is always a floating-point type.</p>
+</li>
+<li>
+<p><code>"line"</code>, <code>"fast line"</code>, <code>"periodic line"</code>, <code>"discrete line"</code>, <code>"interpolated line"</code>:
+  these are straight lines, using different implementations.
+  The size array corresponds to the size of the bounding box of the line, with signs indicating
+  the direction. Thus, if the size array is <code>{2,2}</code>, the line goes right and down two pixels,
+  meaning that the line is formed by two pixels at an angle of 45 degrees down. If the size array
+  is <code>{-2,2}</code>, then the line is again two pixels, but at an angle of 135 degrees. (Note that
+  in images, angles increase clockwise from the x-axis, as the y-axis is inverted). For a description
+  of the meaning of these various line implementations, see <a href="dip-StructuringElement.html#line_morphology">Line morphology</a>.</p>
+</li>
+</ul>
+<p>To define a structuring element through an image, provide either a binary or grey-value image.
+If the image is binary, the set pixels form the structuring element. If the image is a grey-value
+image, those grey values are directly used as structuring element values. Set pixels to negative infinity
+to exclude them from the structuring element (the result would be the same by setting them to
+a value lower than the range of the input image, but the algorithm should be more efficient if
+those pixels are excluded).</p>
+<p>Note that the image is directly used as neighborhood (i.e. no mirroring is applied).
+That is, <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> and <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a> will use the same neighborhood. Their composition only
+leads to an opening or a closing if the structuring element is symmetric. For non-symmetric structuring
+element images, you need to mirror it in one of the two function calls:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">se</span> <span class="o">=</span> <span class="p">...;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Erosion</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">se</span> <span class="p">);</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Dilation</span><span class="p">(</span> <span class="n">out</span><span class="p">,</span> <span class="n">se</span><span class="p">.</span><span class="n">Mirror</span><span class="p">()</span> <span class="p">);</span>
+</pre></div>
+
+<p>(Do note that, in the code above, <code>se</code> itself is modified! use <code>se.QuickCopy().Mirror()</code> to prevent
+that.)</p>
+<p>As elsewhere, the origin of the structuring element is in the middle of the image, on the pixel to
+the right of the center in case of an even-sized image.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="dip-Kernel.html"><code>dip::Kernel</code></a>, <a href="dip-PixelTable.html"><code>dip::PixelTable</code></a></p>
+</aside>
+<h2 id="line_morphology">Line morphology</h2>
+<p>There are various different ways of applying dilations, erosions, openings and closings with line
+structuring elements. The <a href="dip-StructuringElement.html"><code>dip::StructuringElement</code></a> class accepts five different strings each
+providing a different definition of the line structuring element. Further, there is also the
+<a href="morphology.html#dip-PathOpening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-StringSet-CL"><code>dip::PathOpening</code></a> function, which provides path openings and closings. Here we describe the five
+different line structuring elements implemented in <em>DIPlib</em>.</p>
+<ul>
+<li>
+<p><code>"line"</code>: This is an efficient implementation that yields the same results as the traditional line
+  structuring element (<code>"discrete line"</code>). It is implemented as a combination of <code>"periodic line"</code> and
+  <code>"discrete line"</code>, and is called <em>recursive line</em> in the literature (see Soille, 1996). If the line
+  parameters are such that the periodic line has a short period, this implementation saves a lot of time.
+  In this case, for a given line angle, the cost of the operation is independent of the length of the line.
+  If the line parameters are such that the periodic line has only one point, this is identical to
+  <code>"discrete line"</code>.</p>
+</li>
+<li>
+<p><code>"fast line"</code>: This is a faster algorithm that applies a 1D operation along Bresenham lines, yielding
+  a non-translation-invariant result. The cost of this operation is always independent of the length of the line.</p>
+</li>
+<li>
+<p><code>"periodic line"</code>: This is a line formed of only a subset of the pixels along the Bresenham line,
+  such that it can be computed as a 1D operation along Bresenham lines, but still yields a
+  translation-invariant result (Soille, 1996). It might not be very useful on its own, but when combined
+  with the <code>"discrete line"</code>, it provides a more efficient implementation of the traditional line structuring
+  element (see <code>"line"</code> above).</p>
+</li>
+<li>
+<p><code>"discrete line"</code>: This is the traditional line structuring element, drawn using the Bresenham algorithm
+  and applied brute-force.</p>
+</li>
+<li>
+<p><code>"interpolated line"</code>: This operation skews the image, using interpolation, such that the line operation
+  can be applied along an image axis; the result of the operation is then skewed back. The result is an
+  operation with a line that uses interpolation to read image intensities in between pixels.
+  This greatly improves the results in e.g. a granulometry when the input image is band limited
+  (Luengo Hendriks, 2005). However, the result of morphological operations is not band limited, and so the
+  second, reverse skew operation will lose some precision. Note that the result of morphological operations
+  with this SE do not strictly satisfy the corresponding properties (only by approximation) because of the
+  interpolated values. Setting the boundary condition to <code>"periodic"</code> allows the operation to occur completely
+  in place; other boundary conditions lead to a larger intermediate image, and thus will always require
+  additional, temporary storage.</p>
+</li>
+</ul>
+<p>For all these lines, if they are an even number of pixels in length, then the origin is placed at the result
+of the integer division <code>length/2</code>. That is, on the pixel that comes just after the true middle of the line.
+This means that the line <code>{8,3}</code> will have the origin on pixel number 4 (when starting counting at 0), as will
+the line <code>{-8,-3}</code>. The difference between these two is that the latter starts on the bottom right and goes
+left and up, whereas the former starts on the top left and goes right and down. Note that the drawn Bresenham
+line might have a slightly different configuration also.</p>
+<p>The SE <code>"line"</code> is different from the others in that these two lines will be normalized to the exact same line:
+If the first size component is negative, all size components will be negated, turning <code>{-8,-3}</code> into <code>{8,3}</code>.
+This makes it easier to decompose the SE into the two components. Do note that, because of this normalization,
+there could be a 1 pixel shift for even-sized lines as compared to <code>"discrete line"</code> or <code>"fast line"</code>.</p>
+<p>A few quick experiments have shown that, depending on the angle and the direction of the line w.r.t.
+the image storage order, <code>"discrete line"</code> can be much faster than <code>"line"</code> (or <code>"fast line"</code>) for shorter
+lines (times were equal with around 50px length), or they can be much slower for even the shortest of lines.
+Predicting which implementation of the line will be faster for a given situation is not trivial.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>P. Soille, E. J. Breen and R. Jones, &ldquo;Recursive implementation of erosions and dilations along discrete lines
+  at arbitrary angles&rdquo;, IEEE Transactions on Pattern Analysis and Machine Intelligence 18(5):562-567, 1996.</li>
+<li>C.L. Luengo Hendriks and L.J. van Vliet, &ldquo;Using line segments as structuring elements for sampling-invariant
+  measurements&rdquo;, IEEE Transactions on Pattern Analysis and Machine Intelligence 27(11):1826-1831, 2005.</li>
+</ul>
+</aside>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+            <dt id="dip-StructuringElement-StructuringElement">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>The default structuring element is a disk with a diameter of 7 pixels.</dd>
+            <dt id="dip-StructuringElement-StructuringElement-dip-String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape)</span>
+            </dt>
+            <dd>A string implicitly converts to a structuring element, it is interpreted as a shape.</dd>
+            <dt id="dip-StructuringElement-StructuringElement-dip-FloatArray--dip-String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-FloatArray--dip-String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> params,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC)</span>
+            </dt>
+            <dd>A <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> implicitly converts to a structuring element, it is interpreted as the
+parameter of the SE for all dimensions. A second argument specifies the shape.</dd>
+            <dt id="dip-StructuringElement-StructuringElement-dip-dfloat--dip-String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-dfloat--dip-String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> param,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC)</span>
+            </dt>
+            <dd>A floating-point value implicitly converts to a structuring element, it is interpreted as the
+parameter of the SE along each dimension. A second argument specifies the shape.</dd>
+            <dt id="dip-StructuringElement-StructuringElement-dip-Image-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-Image-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image)</span>
+            </dt>
+            <dd>An image implicitly converts to a structuring element.</dd>
+            </dl>
+        </section>
+        <section id="enum-members">
+          <h2>Enums</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-StructuringElement-ShapeCode" class="m-doc">ShapeCode</a>: int{ </span><span class="m-doc-wrap"><a href="#dip-StructuringElement-ShapeCode-RECTANGULAR" class="m-doc">RECTANGULAR</a>,
+              <a href="#dip-StructuringElement-ShapeCode-ELLIPTIC" class="m-doc">ELLIPTIC</a>,
+              <a href="#dip-StructuringElement-ShapeCode-DIAMOND" class="m-doc">DIAMOND</a>,
+              <a href="#dip-StructuringElement-ShapeCode-OCTAGONAL" class="m-doc">OCTAGONAL</a>,
+              <a href="#dip-StructuringElement-ShapeCode-LINE" class="m-doc">LINE</a>,
+              <a href="#dip-StructuringElement-ShapeCode-FAST_LINE" class="m-doc">FAST_LINE</a>,
+              <a href="#dip-StructuringElement-ShapeCode-PERIODIC_LINE" class="m-doc">PERIODIC_LINE</a>,
+              <a href="#dip-StructuringElement-ShapeCode-DISCRETE_LINE" class="m-doc">DISCRETE_LINE</a>,
+              <a href="#dip-StructuringElement-ShapeCode-INTERPOLATED_LINE" class="m-doc">INTERPOLATED_LINE</a>,
+              <a href="#dip-StructuringElement-ShapeCode-PARABOLIC" class="m-doc">PARABOLIC</a>,
+              <a href="#dip-StructuringElement-ShapeCode-CUSTOM" class="m-doc">CUSTOM</a> }</span>
+            </dt>
+            <dd>Possible shapes of a structuring element</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt id="dip-StructuringElement-Mirror">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StructuringElement-Mirror" class="m-doc-self">Mirror</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Mirrors the structuring element.</dd>
+            <dt id="dip-StructuringElement-IsMirrored-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-IsMirrored-C" class="m-doc-self">IsMirrored</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>True if SE is mirrored.</dd>
+            <dt id="dip-StructuringElement-Kernel-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-Kernel-C" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a></span>
+            </dt>
+            <dd>Converts the Structuring element into a kernel</dd>
+            <dt id="dip-StructuringElement-Params-dip-UnsignedArray-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-Params-dip-UnsignedArray-CL-C" class="m-doc-self">Params</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; imsz) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Retrieves the size array, adjusted to an image of size <code>imsz</code>.</dd>
+            <dt id="dip-StructuringElement-Params-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-Params-C" class="m-doc-self">Params</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the structuring element parameters, not adjusted to image dimensionality.</dd>
+            <dt id="dip-StructuringElement-Shape-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-Shape-C" class="m-doc-self">Shape</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-StructuringElement.html#dip-StructuringElement-ShapeCode" class="m-doc">dip::StructuringElement::ShapeCode</a></span>
+            </dt>
+            <dd>Returns the structuring element shape</dd>
+            <dt id="dip-StructuringElement-IsCustom-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-IsCustom-C" class="m-doc-self">IsCustom</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the structuring element is a custom shape</dd>
+            <dt id="dip-StructuringElement-IsFlat-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-IsFlat-C" class="m-doc-self">IsFlat</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the structuring element is flat or grey-valued</dd>
+          </dl>
+        </section>
+        <section>
+            <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="dip-StructuringElement-ShapeCode"><div>
+            <h3>
+              enum class <a href="#dip-StructuringElement-ShapeCode" class="m-doc-self">ShapeCode</a>: int
+            </h3>
+            <p>Possible shapes of a structuring element</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-RECTANGULAR" class="m-doc-self" id="dip-StructuringElement-ShapeCode-RECTANGULAR">RECTANGULAR</a> = 0</td>
+                  <td>
+                  Corresponding to string <code>"rectangular"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-ELLIPTIC" class="m-doc-self" id="dip-StructuringElement-ShapeCode-ELLIPTIC">ELLIPTIC</a> = 1</td>
+                  <td>
+                  Corresponding to string <code>"elliptic"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-DIAMOND" class="m-doc-self" id="dip-StructuringElement-ShapeCode-DIAMOND">DIAMOND</a> = 2</td>
+                  <td>
+                  Corresponding to string <code>"diamond"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-OCTAGONAL" class="m-doc-self" id="dip-StructuringElement-ShapeCode-OCTAGONAL">OCTAGONAL</a> = 3</td>
+                  <td>
+                  Corresponding to string <code>"octagonal"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-LINE" class="m-doc-self" id="dip-StructuringElement-ShapeCode-LINE">LINE</a> = 4</td>
+                  <td>
+                  Corresponding to string <code>"line"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-FAST_LINE" class="m-doc-self" id="dip-StructuringElement-ShapeCode-FAST_LINE">FAST_LINE</a> = 5</td>
+                  <td>
+                  Corresponding to string <code>"fast line"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-PERIODIC_LINE" class="m-doc-self" id="dip-StructuringElement-ShapeCode-PERIODIC_LINE">PERIODIC_LINE</a> = 6</td>
+                  <td>
+                  Corresponding to string <code>"periodic line"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-DISCRETE_LINE" class="m-doc-self" id="dip-StructuringElement-ShapeCode-DISCRETE_LINE">DISCRETE_LINE</a> = 7</td>
+                  <td>
+                  Corresponding to string <code>"discrete line"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-INTERPOLATED_LINE" class="m-doc-self" id="dip-StructuringElement-ShapeCode-INTERPOLATED_LINE">INTERPOLATED_LINE</a> = 8</td>
+                  <td>
+                  Corresponding to string <code>"interpolated line"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-PARABOLIC" class="m-doc-self" id="dip-StructuringElement-ShapeCode-PARABOLIC">PARABOLIC</a> = 9</td>
+                  <td>
+                  Corresponding to string <code>"parabolic"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-StructuringElement-ShapeCode-CUSTOM" class="m-doc-self" id="dip-StructuringElement-ShapeCode-CUSTOM">CUSTOM</a> = 10</td>
+                  <td>
+                  Defined through an image.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

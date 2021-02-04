@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analysis module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          Analysis <span class="m-thin">module</span>          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--analysis-h.html">"diplib/analysis.h"</a></div>
+        </h1>
+        <p>Assorted analysis tools.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#operator-members">Operators</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+            <dt>
+              struct <a href="#dip-SubpixelLocationResult" class="m-doc">dip::<wbr />SubpixelLocationResult</a>
+            </dt>
+            <dd>Contains the result of the function <a href="analysis.html#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><code>dip::SubpixelLocation</code></a>.</dd>
+            <dt>
+              class <a href="dip-Distribution.html" class="m-doc">dip::<wbr />Distribution</a>
+            </dt>
+            <dd>Holds probability density functions and other types of distribution</dd>
+          </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+            <dt id="dip-SubpixelLocationArray">
+              using <a href="#dip-SubpixelLocationArray" class="m-doc-self">dip::<wbr />SubpixelLocationArray</a> = std::vector&lt;SubpixelLocationResult&gt;
+
+            </dt>
+            <dd>Contains the result of the functions <a href="analysis.html#dip-SubpixelMaxima-dip-Image-CL-dip-Image-CL-dip-String-CL"><code>dip::SubpixelMaxima</code></a> and <a href="analysis.html#dip-SubpixelMinima-dip-Image-CL-dip-Image-CL-dip-String-CL"><code>dip::SubpixelMinima</code></a>.</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Find-dip-Image-CL-dip-Image-CL" class="m-doc">dip::<wbr />Find</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+            </dt>
+            <dd>Finds the coordinates for all non-zero pixels in the scalar image <code>in</code>, optionally constrained to the pixels selected by <code>mask</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />SubpixelLocation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; position,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::MAXIMUM,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::PARABOLIC_SEPARABLE) -&gt; <a href="analysis.html#dip-SubpixelLocationResult" class="m-doc">dip::SubpixelLocationResult</a></span>
+            </dt>
+            <dd>Gets coordinates of a local extremum with sub-pixel precision</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SubpixelMaxima-dip-Image-CL-dip-Image-CL-dip-String-CL" class="m-doc">dip::<wbr />SubpixelMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::PARABOLIC_SEPARABLE) -&gt; <a href="analysis.html#dip-SubpixelLocationArray" class="m-doc">dip::SubpixelLocationArray</a></span>
+            </dt>
+            <dd>Gets coordinates of local maxima with sub-pixel precision</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SubpixelMinima-dip-Image-CL-dip-Image-CL-dip-String-CL" class="m-doc">dip::<wbr />SubpixelMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::PARABOLIC_SEPARABLE) -&gt; <a href="analysis.html#dip-SubpixelLocationArray" class="m-doc">dip::SubpixelLocationArray</a></span>
+            </dt>
+            <dd>Gets coordinates of local minima with sub-pixel precision</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MeanShift-dip-Image-CL-dip-FloatArray-CL-dip-dfloat-" class="m-doc">dip::<wbr />MeanShift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; meanShiftVectorResult,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; start,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> epsilon = 1e-3) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Finds the coordinates of a local maximum close to <code>start</code></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MeanShift-dip-Image-CL-dip-FloatCoordinateArray-CL-dip-dfloat-" class="m-doc">dip::<wbr />MeanShift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; meanShiftVectorResult,
+              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; startArray,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> epsilon = 1e-3) -&gt; <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a></span>
+            </dt>
+            <dd>Finds the coordinates of local a maximum close to each point in <code>startArray</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GaussianMixtureModel-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-uint--dip-StringSet-CL" class="m-doc">dip::<wbr />GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 2,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians = 2,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIter = 20,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
+            </dt>
+            <dd>Determines the parameters for a Gaussian Mixture Model for every line in the image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />CrossCorrelationFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in1Representation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in2Representation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; normalize = S::NORMALIZE)</span>
+            </dt>
+            <dd>Calculates the cross-correlation between two images of equal size.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-AutoCorrelationFT-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />AutoCorrelationFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL)</span>
+            </dt>
+            <dd>Computes the auto-correlation function.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FindShift-dip-Image-CL-dip-Image-CL-dip-String-CL-dip-dfloat--dip-UnsignedArray-" class="m-doc">dip::<wbr />FindShift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::MTS,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = 0,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> maxShift = {}) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Estimates the (sub-pixel) global shift between <code>in1</code> and <code>in2</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FourierMellinMatch2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />FourierMellinMatch2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; correlationMethod = S::PHASE) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Finds the scaling, translation and rotation between two 2D images using the Fourier Mellin transform</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StructureTensor-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-" class="m-doc">dip::<wbr />StructureTensor</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; gradientSigmas = {1.0},
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; tensorSigmas = {5.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the structure tensor.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P" class="m-doc">dip::<wbr />StructureTensorAnalysis2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* orientation = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* energy = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* anisotropy1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* anisotropy2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* curvature = nullptr)</span>
+            </dt>
+            <dd>Computes useful image parameters from the 2D structure tensor.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P" class="m-doc">dip::<wbr />StructureTensorAnalysis3D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* phi1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* theta1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* phi2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* theta2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l3 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* phi3 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* theta3 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* energy = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* cylindrical = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* planar = nullptr)</span>
+            </dt>
+            <dd>Computes useful image parameters from the 3D structure tensor.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StructureTensorAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL" class="m-doc">dip::<wbr />StructureTensorAnalysis</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a>&amp; out,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; outputs)</span>
+            </dt>
+            <dd>Interface to <a href="analysis.html#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis2D</code></a> and <a href="analysis.html#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis3D</code></a>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructureAnalysis-dip-Image-CL-dip-Image-CL-std-vector<dfloat>-CL-dip-String-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-" class="m-doc">dip::<wbr />StructureAnalysis</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              std::vector&lt;dfloat&gt; const&amp; scales = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; feature = "energy",
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; gradientSigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Analyzes the local structure of the image at multiple scales.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MonogenicSignal-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-dfloat--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />MonogenicSignal</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; wavelengths = {3.0,24.0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> bandwidth = 0.41,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL)</span>
+            </dt>
+            <dd>Computes the monogenic signal, a multi-dimensional generalization of the analytic signal.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MonogenicSignalAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL-dip-dfloat--dip-dfloat--dip-dfloat--dip-dfloat--dip-String-CL" class="m-doc">dip::<wbr />MonogenicSignalAnalysis</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a>&amp; out,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; outputs,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noiseThreshold = 0.2,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> frequencySpreadThreshold = 0.5,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigmoidParameter = 10,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> deviationGain = 1.5,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::BOTH)</span>
+            </dt>
+            <dd>Computes useful image parameters from the monogenic signal.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-OrientationSpace-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-dfloat--dip-uint-" class="m-doc">dip::<wbr />OrientationSpace</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> order = 8,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> radCenter = 0.1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> radSigma = 0.8,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> orientations = 0)</span>
+            </dt>
+            <dd>Creates an orientation space for a 2D image</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PairCorrelation-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL-dip-StringSet-CL" class="m-doc">dip::<wbr />PairCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; object,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 1000000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {}) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Estimates the pair correlation function of the different phases in <code>object</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ProbabilisticPairCorrelation-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL-dip-StringSet-CL" class="m-doc">dip::<wbr />ProbabilisticPairCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; phases,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 1000000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {}) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Estimates the probabilistic pair correlation function of the different phases in <code>phases</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Semivariogram-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />Semivariogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 1000000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Estimates the expected value of half the square difference between field values at a distance <code>d</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChordLength-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL" class="m-doc">dip::<wbr />ChordLength</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; object,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 100000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Estimates the chord length distribution of the different phases in <code>object</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DistanceDistribution-dip-Image-CL-dip-Image-CL-dip-uint-" class="m-doc">dip::<wbr />DistanceDistribution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; object,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; region,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Computes the distribution of distances to the background of <code>region</code> for the different phases in <code>object</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Granulometry-dip-Image-CL-dip-Image-CL-std-vector<dfloat>-CL-dip-String-CL-dip-String-CL-dip-StringSet-CL" class="m-doc">dip::<wbr />Granulometry</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              std::vector&lt;dfloat&gt; const&amp; scales = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = "isotropic",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {}) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Computes the granulometric function for an image</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FractalDimension-dip-Image-CL-dip-dfloat-" class="m-doc">dip::<wbr />FractalDimension</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> eta = 0.5) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Estimates the fractal dimension of the binary image <code>in</code> the sliding box method.</dd>
+          </dl>
+        </section>
+        <section id="operator-members">
+          <h2>Operators</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Distribution.html#dip-operator%3C%3C-std-ostream-L-dip-Distribution-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; distribution) -&gt; std::ostream&amp;</span>
+            </dt>
+            <dd>Writes the distribution to a stream</dd>
+          </dl>
+        </section>
+        <section>
+            <h2>Class documentation</h2>
+                      <section class="m-doc-details" id="dip-SubpixelLocationResult"><div>
+            <h3>
+              struct <a href="#dip-SubpixelLocationResult" class="m-doc-self">dip::<wbr />SubpixelLocationResult</a>
+            </h3>
+            <p>Contains the result of the function <a href="analysis.html#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><code>dip::SubpixelLocation</code></a>.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Variables</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> <a href="#dip-SubpixelLocationResult-coordinates" class="m-doc-self" id="dip-SubpixelLocationResult-coordinates">coordinates</a>                  </td>
+                  <td>
+                  Coordinates of local extremum
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <a href="#dip-SubpixelLocationResult-value" class="m-doc-self" id="dip-SubpixelLocationResult-value">value</a>                  </td>
+                  <td>
+                  Interpolated value at local extremum
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-Find-dip-Image-CL-dip-Image-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Find-dip-Image-CL-dip-Image-CL" class="m-doc-self">dip::<wbr />Find</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
+            </h3>
+            <p>Finds the coordinates for all non-zero pixels in the scalar image <code>in</code>, optionally constrained to the pixels selected by <code>mask</code>.</p>
+<p><code>in</code> must be scalar, but can have any data type. <code>mask</code>, if forged, must be of the same sizes as <code>in</code>, or be
+singleton expandable to that size, and must be binary.</p>
+<p>The output array contains the coordinates for all non-zero pixels, in linear index order (that is, the image is
+traversed row-wise to find the pixels). Note that this function is intended to be used with images that have
+relatively few non-zero pixels, and there usually is a better alternative than to list the coordinates of
+all non-zero pixels.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="math_statistics.html#dip-Count-dip-Image-CL-dip-Image-CL"><code>dip::Count</code></a></p>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="analysis.html#dip-SubpixelLocationResult" class="m-doc">dip::SubpixelLocationResult</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />SubpixelLocation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; position,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::MAXIMUM,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::PARABOLIC_SEPARABLE)</span></span>
+            </h3>
+            <p>Gets coordinates of a local extremum with sub-pixel precision</p>
+<p>Determines the sub-pixel location of a local maximum or minimum close to <code>position</code>. <code>position</code> should point
+to a pixel whose value is larger than its direct neighbors&rsquo; (if <code>polarity</code> is <code>"maximum"</code>) or smaller than
+its direct neighbors&rsquo; (<code>polarity</code> is <code>"minimum"</code>).</p>
+<p>The <code>coordinates</code> member of the output struct will contain the the sub-pixel location of this local
+extremum. The <code>value</code> member will contain the interpolated grey value at the location of the extremum.</p>
+<p><code>method</code> determines which method is used. These are the allowed values:</p>
+<ul>
+<li><code>"linear"</code>: Computes the center of gravity of 3 pixels around the extremum, in each dimension independently.
+  The value at the extremum is that of the pixel at <code>position</code>.</li>
+<li><code>"parabolic"</code>: Fits a parabola to a 3-pixel-wide block around the extremum (for up to 3D only).</li>
+<li><code>"parabolic separable"</code>: Fits a parabola in each dimension independently. The value at the extremum
+  is the maximum/minimum of the values obtained in each of the 1D processes, and thus not equivalent
+  to the grey value obtained by true interpolation.</li>
+<li><code>"gaussian"</code>: Fits a Gaussian to a 3-pixel-wide block around the extremum (for up to 3D only).</li>
+<li><code>"gaussian separable"</code>: Fits a Gaussian in each dimension independently. The value at the extremum
+  is the maximum/minimum of the values obtained in each of the 1D processes, and thus not equivalent
+  to the grey value obtained by true interpolation.</li>
+<li><code>"integer"</code>: Doesn&rsquo;t look for sub-pixel locations, returning the integer coordinates of the extremum.</li>
+</ul>
+<p>The image <code>in</code> must be scalar and real-valued.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SubpixelMaxima-dip-Image-CL-dip-Image-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="analysis.html#dip-SubpixelLocationArray" class="m-doc">dip::SubpixelLocationArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SubpixelMaxima-dip-Image-CL-dip-Image-CL-dip-String-CL" class="m-doc-self">dip::<wbr />SubpixelMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::PARABOLIC_SEPARABLE)</span></span>
+            </h3>
+            <p>Gets coordinates of local maxima with sub-pixel precision</p>
+<p>Detects local maxima in the image, and returns their coordinates, with sub-pixel precision.
+Only pixels where <code>mask</code> is on will be examined. Local maxima are detected using <a href="segmentation.html#dip-Maxima-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::Maxima</code></a>,
+then their position is determined more precisely using <a href="analysis.html#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><code>dip::SubpixelLocation</code></a>.</p>
+<p>A local maximum can not touch the edge of the image. That is, its integer location must be one
+pixel away from the edge.</p>
+<p>See <a href="analysis.html#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><code>dip::SubpixelLocation</code></a> for the definition of the <code>method</code> parameter.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-SubpixelMinima-dip-Image-CL-dip-Image-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="analysis.html#dip-SubpixelLocationArray" class="m-doc">dip::SubpixelLocationArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SubpixelMinima-dip-Image-CL-dip-Image-CL-dip-String-CL" class="m-doc-self">dip::<wbr />SubpixelMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::PARABOLIC_SEPARABLE)</span></span>
+            </h3>
+            <p>Gets coordinates of local minima with sub-pixel precision</p>
+<p>Detects local minima in the image, and returns their coordinates, with sub-pixel precision.
+Only pixels where <code>mask</code> is on will be examined. Local minima are detected using <a href="segmentation.html#dip-Minima-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::Minima</code></a>,
+then their position is determined more precisely using <a href="analysis.html#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><code>dip::SubpixelLocation</code></a>.</p>
+<p>A local minimum can not touch the edge of the image. That is, its integer location must be one
+pixel away from the edge.</p>
+<p>See <a href="analysis.html#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><code>dip::SubpixelLocation</code></a> for the definition of the <code>method</code> parameter.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-MeanShift-dip-Image-CL-dip-FloatArray-CL-dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MeanShift-dip-Image-CL-dip-FloatArray-CL-dip-dfloat-" class="m-doc-self">dip::<wbr />MeanShift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; meanShiftVectorResult,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; start,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> epsilon = 1e-3)</span></span>
+            </h3>
+            <p>Finds the coordinates of a local maximum close to <code>start</code></p>
+<p>The mean shift method iteratively finds the center of gravity of a Gaussian-shaped neighborhood around <code>start</code>,
+moving <code>start</code> to this location, until convergence. The location that the process converges to is a local
+maximum. Convergence is assumed when the magnitude of the shift is smaller than <code>epsilon</code>.</p>
+<p>To speed up the computation within this function, the output of <a href="linear.html#dip-MeanShiftVector-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::MeanShiftVector</code></a> is used. This filter
+pre-computes the center of gravity of all neighborhoods in the image. Specify the neighborhood sizes in that
+function.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-MeanShift-dip-Image-CL-dip-FloatCoordinateArray-CL-dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MeanShift-dip-Image-CL-dip-FloatCoordinateArray-CL-dip-dfloat-" class="m-doc-self">dip::<wbr />MeanShift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; meanShiftVectorResult,
+              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; startArray,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> epsilon = 1e-3)</span></span>
+            </h3>
+            <p>Finds the coordinates of local a maximum close to each point in <code>startArray</code>.</p>
+<p>Repeatedly calls the <a href="analysis.html#dip-MeanShift-dip-Image-CL-dip-FloatArray-CL-dip-dfloat-"><code>dip::MeanShift</code></a> function described above, for each point in <code>startArray</code>. Duplicate maxima
+are not removed, such that <code>out[ii]</code> is the local maximum arrived to from <code>startArray[ii]</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-GaussianMixtureModel-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-uint--dip-StringSet-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GaussianMixtureModel-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-uint--dip-StringSet-CL" class="m-doc-self">dip::<wbr />GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 2,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians = 2,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIter = 20,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span></span>
+            </h3>
+            <p>Determines the parameters for a Gaussian Mixture Model for every line in the image.</p>
+<p><code>in</code> must be real-valued and scalar. For each image line along <code>dimension</code>, a Gaussian Mixture Model (GMM)
+is fitted to find the <code>numberOfGaussians</code> most important Gaussian components. In the output image, <code>dimension</code>
+indexes the Gaussian component. The components are stored in order of importance, the component with the largest
+amplitude first. The parameters to each Gaussian are stored as tensor components, in the order
+position, amplitude and sigma.</p>
+<p><code>out</code> is a double-precision floating-point image with three tensor components. It has a size of <code>numberOfGaussians</code>
+along <code>dimension</code>, and the same size as <code>in</code> along all other dimensions.</p>
+<p><code>maxIter</code> sets how many iterations are run. There is currently no other stopping criterion.</p>
+<p><code>flags</code> can contain the following values:</p>
+<ul>
+<li><code>"periodic"</code> specifies that the image is periodic along <code>dimension</code>.</li>
+<li><code>"pixel size"</code> scales the parameters written to the output image with the pixel size along <code>dimension</code>.
+  By default these parameters are in pixels.</li>
+</ul>
+          </div></section>
+          <section class="m-doc-details" id="dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />CrossCorrelationFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in1Representation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in2Representation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; normalize = S::NORMALIZE)</span></span>
+            </h3>
+            <p>Calculates the cross-correlation between two images of equal size.</p>
+<p>The <code>normalize</code> flag determines whether to compute the regular cross-correlation (<code>"don't normalize"</code>)
+or to normalize the frequency-domain inputs so that only the phase information is of importance
+(<code>"normalize"</code> or <code>"phase"</code>). The normalization results as a very sharp peak in the spatial domain, which
+increases the precision with which a shift between the two images can be determined.
+Note that this normalization is not related to what is commonly referred to as &ldquo;normalized cross-correlation&rdquo;,
+where the input images are whitened (in the spatial domain) before the cross-correlations is computed. The
+method is instead related to the &ldquo;phase correlation&rdquo; as proposed by Kuglin and Hines (1975).</p>
+<p>When <code>normalize</code> is <code>"normalize"</code>, the computation performed in the Fourier Domain is (as per Luengo &amp; van Vliet, 2000)</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">(</span> <span class="n">in1</span> <span class="o">*</span> <span class="n">dip</span><span class="o">::</span><span class="n">Conjugate</span><span class="p">(</span><span class="n">in2</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="n">dip</span><span class="o">::</span><span class="n">SquareModulus</span><span class="p">(</span><span class="n">in1</span><span class="p">);</span>
+</pre></div>
+
+<p>When <code>normalize</code> is set to <code>"phase"</code>, the computation is (as per Kuglin &amp; Hines, 1975)</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">(</span> <span class="n">in1</span> <span class="o">*</span> <span class="n">dip</span><span class="o">::</span><span class="n">Conjugate</span><span class="p">(</span><span class="n">in2</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Modulus</span><span class="p">(</span><span class="n">in1</span><span class="p">)</span> <span class="o">*</span> <span class="n">dip</span><span class="o">::</span><span class="n">Modulus</span><span class="p">(</span><span class="n">in2</span><span class="p">)</span> <span class="p">);</span>
+</pre></div>
+
+<p>(See <a href="math_arithmetic.html#dip-Conjugate-dip-Image-CL-dip-Image-L"><code>dip::Conjugate</code></a>, <a href="math_arithmetic.html#dip-SquareModulus-dip-Image-CL-dip-Image-L"><code>dip::SquareModulus</code></a> and <a href="math_arithmetic.html#dip-Modulus-dip-Image-CL-dip-Image-L"><code>dip::Modulus</code></a>.)</p>
+<p>These two approaches are identical if the only difference between <code>in1</code> and <code>in2</code> is a shift, except that
+<code>"normalize"</code> is computationally cheaper than <code>"phase"</code>. If the images are otherwise not identical, then
+the <code>"phase"</code> method might be the better choice. If there exist strong differences, the non-normalized
+method can be the best option.</p>
+<p>As elsewhere, the origin is in the middle of the image, on the pixel to the right of
+the center in case of an even-sized image. Thus, for <code>in1==in2</code>, only this pixel will be set.
+See <a href="analysis.html#dip-FindShift-dip-Image-CL-dip-Image-CL-dip-String-CL-dip-dfloat--dip-UnsignedArray-"><code>dip::FindShift</code></a> with the <code>"CC"</code>, <code>"NCC"</code> or <code>"PC"</code>  methods for localizing this peak.</p>
+<p>If <code>in1</code> or <code>in2</code> is already Fourier transformed, set <code>in1Representation</code> or <code>in2Representation</code>
+to <code>"frequency"</code>. Similarly, if <code>outRepresentation</code> is <code>"frequency"</code>, the output will not be
+inverse-transformed, so will be in the frequency domain.</p>
+<p><code>in1</code> and <code>in2</code> must be scalar images with the same dimensionality and sizes. Spatial-domain
+images must be real-valued, and frequency-domain images are assumed (but not tested) to be
+conjugate-symmetric (i.e. be Fourier transforms of real-valued images).
+<code>out</code> will be real-valued if <code>outRepresentation</code> is <code>"spatial"</code>.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>C.D. Kuglin and D.C. Hines, &ldquo;The phase correlation image alignment method&rdquo;, International
+  Conference on Cybernetics and Society (IEEE), pp 163-165, 1975.</li>
+<li>C.L. Luengo Hendriks and L.J. van Vliet, &ldquo;Improving resolution to reduce aliasing in an undersampled image sequence&rdquo;,
+  in: Proceedings of SPIE 3965:214–222, 2000.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-AutoCorrelationFT-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-AutoCorrelationFT-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />AutoCorrelationFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL)</span></span>
+            </h3>
+            <p>Computes the auto-correlation function.</p>
+<p>Equivalent to calling <a href="analysis.html#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><code>dip::CrossCorrelationFT</code></a> with the same image as the two inputs, and the
+<code>normalize</code> flag set to <code>"don't normalize"</code> (normalization would yield a very boring output indeed).</p>
+<p>As elsewhere, the origin is in the middle of the image, on the pixel to the right of
+the center in case of an even-sized image.</p>
+<p>If <code>in</code> is already Fourier transformed, set <code>inRepresentation</code> to <code>"frequency"</code>.
+Similarly, if <code>outRepresentation</code> is <code>"frequency"</code>, the output will not be
+inverse-transformed, so will be in the frequency domain.</p>
+<p><code>in</code> must be a scalar image. Spatial-domain images must be real-valued, and a frequency-domain image
+is assumed (but not tested) to be conjugate-symmetric (i.e. the Fourier transform of real-valued image).
+<code>out</code> will be real-valued if <code>outRepresentation</code> is <code>"spatial"</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-FindShift-dip-Image-CL-dip-Image-CL-dip-String-CL-dip-dfloat--dip-UnsignedArray-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-FindShift-dip-Image-CL-dip-Image-CL-dip-String-CL-dip-dfloat--dip-UnsignedArray-" class="m-doc-self">dip::<wbr />FindShift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::MTS,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = 0,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> maxShift = {})</span></span>
+            </h3>
+            <p>Estimates the (sub-pixel) global shift between <code>in1</code> and <code>in2</code>.</p>
+<p>The numbers found represent the shift of <code>in2</code> with respect to <code>in1</code>, or equivalently, the position of the
+top-left pixel of <code>in2</code> in the coordinate system of <code>in1</code>. Shifting <code>in1</code> by the returned shift aligns the
+two images. See <a href="geometry.html#dip-Shift-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL"><code>dip::Shift</code></a>.</p>
+<p>There are various methods that can be used to determine the shift, see below.
+For the methods that require that the shift be small, first the integer pixel is calculated using cross
+correlation, and both images are cropped to the common part. <code>maxShift</code> can be used to restrict the shift
+found. This is useful, for example, when the images contain a repeating pattern. Noise in the images can
+cause a shift of several pattern periods to be &ldquo;optimal&rdquo; (e.g. the cross-correlation yields a larger value),
+even if a much smaller shift would also explain the differences. In this case, set <code>maxShift</code> to be slightly
+smaller than the pattern period along each dimension.</p>
+<p>Valid strings for <code>method</code> are:</p>
+<ul>
+<li>
+<p><code>"integer only"</code>: The cross-correlation method simply computes the cross-correlation, using
+  <a href="analysis.html#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><code>dip::CrossCorrelationFT</code></a>, and then finds the position of the pixel with the largest value.
+  This method works for any number of dimensions. <code>parameter</code> is ignored.</p>
+</li>
+<li>
+<p><code>"CC"</code>: The cross-correlation method computes the cross-correlation, using <a href="analysis.html#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><code>dip::CrossCorrelationFT</code></a>,
+  and then uses <a href="analysis.html#dip-SubpixelLocation-dip-Image-CL-dip-UnsignedArray-CL-dip-String-CL-dip-String-CL"><code>dip::SubpixelLocation</code></a> to find the location of the largest peak with sub-pixel precision.
+  This method works for any number of dimensions. <code>parameter</code> is ignored.</p>
+</li>
+<li>
+<p><code>"NCC"</code>: As <code>"CC"</code>, but using the normalized cross-correlation, which makes the peak much sharper
+  (Luengo Hendriks, 1998). This method works for any number of dimensions. <code>parameter</code> is ignored.
+  See the notes in <a href="analysis.html#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><code>dip::CrossCorrelationFT</code></a> regarding the normalization of the cross-correlation using the
+  <code>"normalize"</code> flag, which is not as what is commonly referred to as &ldquo;normalized cross-correlation&rdquo;.</p>
+</li>
+<li>
+<p><code>"PC"</code>: As <code>"CC"</code>, but using phase correlation. This method works for any number of dimensions.
+  <code>parameter</code> is ignored. See the notes in <a href="analysis.html#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><code>dip::CrossCorrelationFT</code></a> regarding the normalization of the
+  cross-correlation using the <code>"phase"</code> flag.</p>
+</li>
+<li>
+<p><code>"CPF"</code>: The CPF method (see Luengo Hendriks (1998), where it is called FFTS) uses the phase of the
+  cross-correlation (as calculated by <a href="analysis.html#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><code>dip::CrossCorrelationFT</code></a>) to estimate the shift. <code>parameter</code> sets
+  the largest frequency used in this estimation. The maximum value that makes sense is <code>sqrt(0.5)</code>.
+  Any larger value will give the same result. Choose smaller values to ignore the higher frequencies, which
+  have a smaller SNR and are more affected by aliasing. If <code>parameter</code> is &lt;= 0, the optimal found for images
+  sub-sampled by a factor four will be used (parameter = 0.2).
+  This method only supports 2-D images.</p>
+</li>
+<li>
+<p><code>"MTS"</code>: The MTS method (see Luengo Hendriks (1998), where it is called GRS) uses a first order Taylor
+  approximation of the equation <code>in1(t) = in2(t-s)</code> at scale <code>parameter</code>. If <code>parameter</code> is &lt;= 0, a scale
+  of 1 will be used. This means that the images will be smoothed with a Gaussian kernel of 1. This method is
+  more accurate than CPF.
+  This method supports images with a dimensionality between 1 and 3.</p>
+</li>
+<li>
+<p><code>"ITER"</code>: The ITER method is an iterative version of the MTS method. It is known that a single estimation
+  with MTS has a bias due to truncation of the Taylor expansion series (Pham et al., 2005). The bias can be
+  expressed as a polynomial of the subpixel displacements. As a result, if the MTS method is applied iteratively,
+  and the shift is refined after each iteration, the bias eventually becomes negligible. By using just 3
+  iterations, and noticing that <code>log(bias_increment)</code> is a linear sequence, it is possible to correct for the
+  bias up to O(10<sup>6</sup>).</p>
+</li>
+</ul>
+<p>Set <code>parameter</code> to 0 for normal behavior. <code>parameter</code> in the range (0,0.1] specifies the desired accuracy.
+  A negative <code>parameter</code> causes <code>round(-parameter)</code> iterations to be run.
+  This method supports images with a dimensionality between 1 and 3.</p>
+<ul>
+<li><code>"PROJ"</code>: The PROJ method computes the shift in each dimension separately, applying the ITER method on the
+  projection of the image onto each axis. It is fast and fairly accurate for high SNR. Should not be used for
+  low SNR. <code>parameter</code> is passed unchanged to the ITER method. This method supports images with any number of
+  dimensions.</li>
+</ul>
+<p><code>in1</code> and <code>in2</code> must be scalar images with the same dimensionality and sizes.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>C.L. Luengo Hendriks, &ldquo;Improved Resolution in Infrared Imaging Using Randomly Shifted Images&rdquo;, M.Sc. Thesis,
+  Delft University of Technology, The Netherlands, 1998.</li>
+<li>T.Q. Pham, M. Bezuijen, L.J. van Vliet, K. Schutte and C.L. Luengo Hendriks, &ldquo;Performance of Optimal
+  Registration Estimators&rdquo;, in: Visual Information Processing XIV, Proceedings of SPIE 5817, 2005.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-FourierMellinMatch2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-FourierMellinMatch2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />FourierMellinMatch2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; correlationMethod = S::PHASE)</span></span>
+            </h3>
+            <p>Finds the scaling, translation and rotation between two 2D images using the Fourier Mellin transform</p>
+<p>The output array represents a 2x3 affine transform matrix (in column-major order) that can be used as input
+to <a href="geometry.html#dip-AffineTransform-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-String-CL"><code>dip::AffineTransform</code></a> to transform <code>in2</code> to match <code>in1</code>. <code>out</code> is the <code>in2</code> image transformed in this way.</p>
+<p>The two images must be real-valued, scalar and two-dimensional, and have the same sizes.</p>
+<p><code>interpolationMethod</code> has a restricted set of options: <code>"linear"</code>, <code>"3-cubic"</code>, or <code>"nearest"</code>.
+See <a href="geometry.html#interpolation_methods">Interpolation methods</a> for their definition. If <code>in</code> is binary, <code>interpolationMethod</code> will be
+ignored, nearest neighbor interpolation will be used.</p>
+<p><code>correlationMethod</code> determines the normalization applied in the cross correlation. It can be
+<code>"don't normalize"</code>, <code>"normalize"</code> or <code>"phase"</code>. See <a href="analysis.html#dip-CrossCorrelationFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-String-CL"><code>dip::CrossCorrelationFT</code></a> for an explanation of
+these flags.</p>
+<p>Example:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">in1</span><span class="p">,</span> <span class="n">in2</span><span class="p">,</span> <span class="n">out</span><span class="p">;</span>
+<span class="c1">// assign to in1 and in2 two similar images</span>
+<span class="k">auto</span> <span class="n">T</span> <span class="o">=</span> <span class="n">FourierMellinMatch2D</span><span class="p">(</span> <span class="n">in1</span><span class="p">,</span> <span class="n">in2</span><span class="p">,</span> <span class="n">out</span> <span class="p">);</span>
+<span class="c1">// out is a transformed version of in2, as per</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">AffineTransform</span><span class="p">(</span> <span class="n">in2</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">T</span> <span class="p">);</span>
+</pre></div>
+          </div></section>
+          <section class="m-doc-details" id="dip-StructureTensor-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-StructureTensor-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-" class="m-doc-self">dip::<wbr />StructureTensor</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; gradientSigmas = {1.0},
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; tensorSigmas = {5.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span></span>
+            </h3>
+            <p>Computes the structure tensor.</p>
+<p>The structure tensor is a tensor image that contains, at each pixel, information about the local image structure.
+The eigenvalues of the structure tensor are larger when there are stronger gradients locally. That is, if all
+eigenvalues are small, the image is locally uniform. If one eigenvalue is large, then there is a unique line
+or edge orientation (in 2D), or a plane-like edge or structure (in 3D). In 3D, if two eigenvalues are large
+then there is a line-like structure. The associated eigenvalues indicate the orientation of this structure.
+See the literature references below for more information.</p>
+<p><code>in</code> must be a scalar, real-valued image. <code>out</code> will be a symmetric NxN tensor image, where N is the number
+of dimensions in <code>in</code>. Out is computed by:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">g</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Gradient</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">gradientSigmas</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">g</span> <span class="o">*</span> <span class="n">dip</span><span class="o">::</span><span class="n">Transpose</span><span class="p">(</span> <span class="n">g</span> <span class="p">),</span> <span class="n">tensorSigmas</span> <span class="p">);</span>
+</pre></div>
+
+<p>If <code>mask</code> is given (not a raw image), then it is interpreted as confidence weights for the input pixels. It
+should have values between 0 and 1 (or be binary). Normalized differential convolution is used to compute the
+gradients. This method applies Gaussian gradients taking missing and uncertain values into account. See
+<a href="linear.html#dip-NormalizedDifferentialConvolution-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::NormalizedDifferentialConvolution</code></a>.</p>
+<p>See <a href="linear.html#dip-Gauss-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-UnsignedArray-CL-dip-String--dip-StringArray-CL-dip-dfloat-"><code>dip::Gauss</code></a> for the meaning of the parameters <code>method</code>, <code>boundaryCondition</code> and <code>truncation</code>.</p>
+<p>The functions <a href="analysis.html#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis2D</code></a> and <a href="analysis.html#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis3D</code></a> can be used with the output
+of this function to obtain useful image parameters.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>B. Jahne, &ldquo;Practical Handbook on Image Processing for Scientific Applications&rdquo;, chapter 13, CRC Press, 1997.</li>
+<li>L.J. van Vliet and P.W. Verbeek, &ldquo;Estimators for Orientation and Anisotropy in Digitized Images&rdquo;,
+  in: Proceedings First Annual Conference of the Advanced School for Computing and Imaging, pp. 442-450, ASCI, Delft, 1995.</li>
+<li>C.F. Westin, &ldquo;A Tensor Framework for Multidimensional Signal Processing&rdquo;, PhD thesis, Link&ouml;ping University, Sweden, 1994.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P" class="m-doc-self">dip::<wbr />StructureTensorAnalysis2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* orientation = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* energy = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* anisotropy1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* anisotropy2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* curvature = nullptr)</span></span>
+            </h3>
+            <p>Computes useful image parameters from the 2D structure tensor.</p>
+<p><code>in</code> must be a 2D, symmetric 2x2 tensor image obtained from <a href="analysis.html#dip-StructureTensor-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::StructureTensor</code></a>. This function takes a pointer
+to output images, instead of taking them by reference. Set pointers to <code>nullptr</code> if you do not want the given
+output computed. Use this function as follows:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">st</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">StructureTensor</span><span class="p">(</span> <span class="n">img</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">energy</span><span class="p">,</span> <span class="n">orientation</span><span class="p">;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">StructureTensorAnalysis2D</span><span class="p">(</span> <span class="n">st</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">orientation</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">energy</span> <span class="p">);</span>
+</pre></div>
+
+<p>(note how the last two parameters were not given, they default to <code>nullptr</code>). The code above computes both the
+orientation and energy values of the structure tensor.</p>
+<p>The output images will be reallocated to be the same size as the input image. They will be scalar and of a
+floating-point type.</p>
+<p>The output images are defined as follows:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Image</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>l1</code></td>
+<td>The largest eigenvalue.</td>
+</tr>
+<tr>
+<td><code>l2</code></td>
+<td>The smallest eigenvalue.</td>
+</tr>
+<tr>
+<td><code>orientation</code></td>
+<td>Orientation. Lies in the interval (-&pi;/2, &pi;/2).</td>
+</tr>
+<tr>
+<td><code>energy</code></td>
+<td>Sum of the two eigenvalues <code>l1</code> and <code>l2</code>.</td>
+</tr>
+<tr>
+<td><code>anisotropy1</code></td>
+<td>Measure for local anisotropy: <code>( l1 - l2 ) / ( l1 + l2 )</code>.</td>
+</tr>
+<tr>
+<td><code>anisotropy2</code></td>
+<td>Measure for local anisotropy: <code>1 - l2 / l1</code>, where <code>l1 &gt; 0</code>.</td>
+</tr>
+<tr>
+<td><code>curvature</code></td>
+<td>Magnitude of the curvature (1/bending radius).</td>
+</tr>
+</tbody>
+</table>
+<p>Curvature sign cannot be computed because the structure tensor does not distinguish the direction of
+the gradient.</p>
+<p>Note that <code>l1</code> and <code>l2</code> will both reference data within the same data segment, and therefore will likely not
+have normal strides.</p>
+<p>For a 3D structure tensor analysis, see the function <a href="analysis.html#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis3D</code></a>.
+A different interface to this function is available in <a href="analysis.html#dip-StructureTensorAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL"><code>dip::StructureTensorAnalysis</code></a>.
+Note that eigenvalues and eigenvectors can also be computed using <a href="math_tensor.html#dip-Eigenvalues-dip-Image-CL-dip-Image-L"><code>dip::Eigenvalues</code></a>
+and <a href="numeric.html#dip-EigenDecomposition-dip-uint--ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dcomplex&gt;--SampleIterator&lt;dip-dcomplex&gt;-"><code>dip::EigenDecomposition</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P" class="m-doc-self">dip::<wbr />StructureTensorAnalysis3D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* phi1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* theta1 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* phi2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* theta2 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* l3 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* phi3 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* theta3 = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* energy = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* cylindrical = nullptr,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>* planar = nullptr)</span></span>
+            </h3>
+            <p>Computes useful image parameters from the 3D structure tensor.</p>
+<p><code>in</code> must be a 3D, symmetric 3x3 tensor image obtained from <a href="analysis.html#dip-StructureTensor-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::StructureTensor</code></a>. This function takes a pointer
+to output images, instead of taking them by reference. Set pointers to <code>nullptr</code> if you do not want the given
+output computed. Use this function as follows:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">st</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">StructureTensor</span><span class="p">(</span> <span class="n">img</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">energy</span><span class="p">;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">StructureTensorAnalysis3D</span><span class="p">(</span> <span class="n">st</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="k">nullptr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">energy</span> <span class="p">);</span>
+</pre></div>
+
+<p>(note how the last two parameters were not given, they default to <code>nullptr</code>). The code above computes the
+energy value of the structure tensor.</p>
+<p>The output images will be reallocated to be the same size as the input image. They will be scalar and of a
+floating-point type.</p>
+<p>The output images are defined as follows:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Image</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>l1</code></td>
+<td>The largest eigenvalue.</td>
+</tr>
+<tr>
+<td><code>phi1</code></td>
+<td>First component of the orientation of the eigenvector for <code>l1</code>.</td>
+</tr>
+<tr>
+<td><code>theta1</code></td>
+<td>Second component of the orientation of the eigenvector for <code>l1</code>.</td>
+</tr>
+<tr>
+<td><code>l2</code></td>
+<td>The middle eigenvalue.</td>
+</tr>
+<tr>
+<td><code>phi2</code></td>
+<td>First component of the orientation of the eigenvector for <code>l2</code>.</td>
+</tr>
+<tr>
+<td><code>theta2</code></td>
+<td>Second component of the orientation of the eigenvector for <code>l2</code>.</td>
+</tr>
+<tr>
+<td><code>l3</code></td>
+<td>The smallest eigenvalue.</td>
+</tr>
+<tr>
+<td><code>phi3</code></td>
+<td>First component of the orientation of the eigenvector for <code>l3</code>.</td>
+</tr>
+<tr>
+<td><code>theta3</code></td>
+<td>Second component of the orientation of the eigenvector for <code>l3</code>.</td>
+</tr>
+<tr>
+<td><code>energy</code></td>
+<td>Sum of the three eigenvalues <code>l1</code>, <code>l2</code> and <code>l3</code>.</td>
+</tr>
+<tr>
+<td><code>cylindrical</code></td>
+<td>Measure for local anisotropy: <code>( l2 - l3 ) / ( l2 + l3 )</code>.</td>
+</tr>
+<tr>
+<td><code>planar</code></td>
+<td>Measure for local anisotropy: <code>( l1 - l2 ) / ( l1 + l2 )</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>For a 2D structure tensor analysis, see the function <a href="analysis.html#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis2D</code></a>.
+A different interface to this function is available in <a href="analysis.html#dip-StructureTensorAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL"><code>dip::StructureTensorAnalysis</code></a>.
+Note that eigenvalues and eigenvectors can also be computed using <a href="math_tensor.html#dip-Eigenvalues-dip-Image-CL-dip-Image-L"><code>dip::Eigenvalues</code></a>
+and <a href="numeric.html#dip-EigenDecomposition-dip-uint--ConstSampleIterator&lt;dip-dfloat&gt;--SampleIterator&lt;dip-dcomplex&gt;--SampleIterator&lt;dip-dcomplex&gt;-"><code>dip::EigenDecomposition</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-StructureTensorAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-StructureTensorAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL" class="m-doc-self">dip::<wbr />StructureTensorAnalysis</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a>&amp; out,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; outputs)</span></span>
+            </h3>
+            <p>Interface to <a href="analysis.html#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis2D</code></a> and <a href="analysis.html#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis3D</code></a>.</p>
+<p><code>in</code> is as in <a href="analysis.html#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis2D</code></a> or <a href="analysis.html#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis3D</code></a>. That is, either a 2D
+symmetric 2x2 tensor image or a 3D symmetric 3x3 tensor image, real-valued, as obtained from <a href="analysis.html#dip-StructureTensor-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::StructureTensor</code></a>.
+<code>out</code> is an array with references to output images. It should have exactly as many elements as <code>outputs</code>.</p>
+<p><code>outputs</code> is an array with one or more of the following strings, indicating which outputs are needed:</p>
+<ul>
+<li>For 2D inputs: <code>"l1"</code>, <code>"l2"</code>, <code>"orientation"</code>, <code>"energy"</code>, <code>"anisotropy1"</code>, <code>"anisotropy2"</code>, <code>"curvature"</code>.</li>
+<li>For 3D inputs: <code>"l1"</code>, <code>"phi1"</code>, <code>"theta1"</code>, <code>"l2"</code>, <code>"phi2"</code>, <code>"theta2"</code>, <code>"l3"</code>, <code>"phi3"</code>, <code>"theta3"</code>,
+  <code>"energy"</code>, <code>"cylindrical"</code>, <code>"planar"</code>.</li>
+</ul>
+<p>The order of the strings in <code>outputs</code> indicates the order they will be written to the <code>out</code> array.</p>
+<p>See the functions <a href="analysis.html#dip-StructureTensorAnalysis2D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis2D</code></a> and <a href="analysis.html#dip-StructureTensorAnalysis3D-dip-Image-CL-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P-dip-Image-P"><code>dip::StructureTensorAnalysis3D</code></a> for more information
+on these outputs.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-StructureAnalysis-dip-Image-CL-dip-Image-CL-std-vector<dfloat>-CL-dip-String-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-StructureAnalysis-dip-Image-CL-dip-Image-CL-std-vector<dfloat>-CL-dip-String-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-" class="m-doc-self">dip::<wbr />StructureAnalysis</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              std::vector&lt;dfloat&gt; const&amp; scales = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; feature = "energy",
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; gradientSigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span></span>
+            </h3>
+            <p>Analyzes the local structure of the image at multiple scales.</p>
+<p>Computes the structure tensor, smoothed with each of the values in <code>scales</code> multiplied by <code>gradientSigmas</code>,
+determines the feature <code>feature</code> from it, and averages across the image for each scale. This leads to a series
+of data points showing how the selected feature changes across scales. <code>scales</code> and <code>gradientSigmas</code> are
+given in pixels, the image&rsquo;s pixel size is not taken into account.</p>
+<p>The reason that each element of <code>scales</code> is multiplied by <code>gradientSigmas</code> is to allow analysis of
+non-isotropic images. The <code>gradientSigmas</code> corrects for the non-isotropy, allowing <code>scales</code> to be a scalar
+value for each scale.</p>
+<p><code>scales</code> defaults to a series of 10 values geometrically spaced by <code>sqrt(2)</code>, and starting at 1.0. Units are
+pixels.</p>
+<p><code>feature</code> can be any of the strings allowed by <a href="analysis.html#dip-StructureTensorAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL"><code>dip::StructureTensorAnalysis</code></a>, but <code>"energy"</code>, <code>"anisotropy1"</code>,
+and <code>"anisotropy2"</code> (in 2D), and <code>"energy"</code>, <code>"cylindrical"</code>, and <code>"planar"</code> (in 2D) make the most sense.</p>
+<p>See <a href="linear.html#dip-Gauss-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-UnsignedArray-CL-dip-String--dip-StringArray-CL-dip-dfloat-"><code>dip::Gauss</code></a> for the meaning of the parameters <code>method</code>, <code>boundaryCondition</code> and <code>truncation</code>.</p>
+<p><code>in</code> must be scalar and real-valued, and either 2D or 3D. <code>mask</code> must be of the same size, and limits the
+region over which the structure tensor feature is averaged.</p>
+<p>See <a href="analysis.html#dip-StructureTensor-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::StructureTensor</code></a> for more information about the structure tensor.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-MonogenicSignal-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-dfloat--dip-String-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MonogenicSignal-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-dfloat--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />MonogenicSignal</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; wavelengths = {3.0,24.0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> bandwidth = 0.41,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL)</span></span>
+            </h3>
+            <p>Computes the monogenic signal, a multi-dimensional generalization of the analytic signal.</p>
+<p>The monogenic signal of an <em>n</em>-dimensional image has <em>n</em>+1 components. The first component has been
+filtered with the even (symmetric) filter component, and the other <em>n</em> components have been filtered
+with the odd (antisymmetric) filter components, where each of those filter components is antisymmetric
+along a different dimension.</p>
+<p>This function splits the frequency spectrum of the image into <code>wavelengths.size()</code> components. The radial
+component of a log-Gabor filter bank will be used. These radial frequency filters are defined by
+<code>wavelengths</code> (in pixels) and <code>bandwidth</code>. See <a href="linear.html#dip-LogGaborFilterBank-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-dfloat--dip-uint--dip-String-CL-dip-String-CL"><code>dip::LogGaborFilterBank</code></a> for details.</p>
+<p>The filters are always applied in the frequency domain. If <code>outRepresentation</code> is <code>"spatial"</code>, the inverse
+Fourier transform will be applied to bring the result back to the spatial domain. Otherwise, it should be
+<code>"frequency"</code>, and no inverse transform will be applied. Likewise, <code>inRepresentation</code> specifies whether <code>in</code>
+has already been converted to the frequency domain or not.</p>
+<p><code>in</code> must be scalar and real-valued if given in the spatial domain. If <code>in</code> is in the frequency domain, it is
+expected to be conjugate symmetric, and thus have a real-valued inverse transform (the imaginary part of the
+inverse transform will be discarded).
+Out will be a tensor image with <code>wavelengths.size()</code> tensor columns and <em>n</em>+1 tensor rows. The data type will be
+single-precision float for spatial-domain output, or single-precision complex for frequency-domain output.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>M. Felsberg and G. Sommer, &ldquo;The Monogenic Signal&rdquo;, IEEE Transactions on Signal Processing 49(12):3136-3144, 2001.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-MonogenicSignalAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL-dip-dfloat--dip-dfloat--dip-dfloat--dip-dfloat--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MonogenicSignalAnalysis-dip-Image-CL-dip-ImageRefArray-L-dip-StringArray-CL-dip-dfloat--dip-dfloat--dip-dfloat--dip-dfloat--dip-String-CL" class="m-doc-self">dip::<wbr />MonogenicSignalAnalysis</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a>&amp; out,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; outputs,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noiseThreshold = 0.2,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> frequencySpreadThreshold = 0.5,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigmoidParameter = 10,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> deviationGain = 1.5,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::BOTH)</span></span>
+            </h3>
+            <p>Computes useful image parameters from the monogenic signal.</p>
+<p><code>in</code> is a tensor image produced by <a href="analysis.html#dip-MonogenicSignal-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-dfloat--dip-String-CL-dip-String-CL"><code>dip::MonogenicSignal</code></a>, for which <code>in.TensorRows() == in.Dimensionality() + 1</code>,
+and <code>in.TensorColumns() &gt; 1</code>. In the case of a single column (a single wavelength was given), the congruency output
+is not possible. <code>in</code> is real-valued (single-precision float) and in the spatial domain.
+<code>out</code> is an array with references to output images. It should have exactly as many elements as <code>outputs</code>.</p>
+<p><code>outputs</code> is an array with one or more of the following strings, indicating which outputs are needed:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Image</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"congruency"</code></td>
+<td><strong>Phase congruency</strong>, a measure of line/edge significance</td>
+</tr>
+<tr>
+<td><code>"orientation"</code></td>
+<td>Line/edge orientation (in the range [-&pi;/2, &pi;/2]), 2D only</td>
+</tr>
+<tr>
+<td><code>"phase"</code></td>
+<td>Phase angle (&pi;/2 is a white line, 0 is an edge, -&pi;/2 is a black line)</td>
+</tr>
+<tr>
+<td><code>"energy"</code></td>
+<td>Raw phase congruency energy</td>
+</tr>
+<tr>
+<td><code>"symmetry"</code></td>
+<td><strong>Phase symmetry</strong>, a contrast invariant measure of symmetry</td>
+</tr>
+<tr>
+<td><code>"symenergy"</code></td>
+<td>Raw phase symmetry energy</td>
+</tr>
+</tbody>
+</table>
+<p>The order of the strings in <code>outputs</code> indicates the order they will be written to the <code>out</code> array.</p>
+<p>The output images will be reallocated to be the same size as the input image. They will be scalar and of a
+floating-point type.</p>
+<p><code>noiseThreshold</code> indicates the noise threshold to use on the energy images when computing phase congruency
+or symmetry.</p>
+<p>Two different algorithms for phase congruency are implemented:</p>
+<ul>
+<li>
+<p>Kovesi&rsquo;s method works for images in 2D only, and requires several scales (&gt;2) to be present in the monogenic
+  signal. This method will use the following input arguments:</p>
+<ul>
+<li><code>frequencySpreadThreshold</code> is a threshold that avoids high phase congruency values if the frequency
+  spread is not large enough.</li>
+<li><code>sigmoidParameter</code> is the parameter to the sigmoid function that weighs congruency with the frequency
+  spread.</li>
+<li><code>deviationGain</code> determines how much the calculated phase deviation should be magnified. Larger values
+  create a sharper response to edges, but also reduces this response&rsquo;s magnitude. Sensible values are in
+  the range [1,2].</li>
+</ul>
+</li>
+<li>
+<p>Felsberg&rsquo;s method works in any number of dimensions, and requires exactly two scales to be present in the
+  monogenic signal. This method ignores the three input arguments specified above.</p>
+</li>
+</ul>
+<p>Phase symmetry can be computed with any number of dimensions and any number of scales. The <code>polarity</code> input
+argument will be used. It is the string <code>"white"</code>, <code>"black"</code> or <code>"both"</code>, indicating which symmetry features
+to find.</p>
+<p>The other outputs are computed as part of the computation of phase congruency or phase symmetry. These outputs
+can be requested without requesting the two main parameters, but might require some of the input arguments
+discussed above to be set.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>P. Kovesi, &ldquo;Image features from phase information&rdquo;, Videre: Journal of Computer Vision Research 1(3), 1999.</li>
+<li>M. Felsberg and G. Sommer, &ldquo;A New Extension of Linear Signal Processing for Estimating Local Properties and
+  Detecting Features&rdquo;, DAGM Symposium, 2000.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-OrientationSpace-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-dfloat--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-OrientationSpace-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-dfloat--dip-uint-" class="m-doc-self">dip::<wbr />OrientationSpace</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> order = 8,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> radCenter = 0.1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> radSigma = 0.8,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> orientations = 0)</span></span>
+            </h3>
+            <p>Creates an orientation space for a 2D image</p>
+<p><code>out</code> is a 3D image, where the 3<sup>rd</sup> dimension represents orientation. Structures (lines and edges) in
+the image are separated into different orientation planes. This transformation separates, for example, intersecting
+rings (such as the logo of the Olympic Games) into non-touching objects. This is accomplished using an orientation-selective
+quadrature filter. Because it&rsquo;s a quadrature filter, the output is complex-valued, with the real component responding
+to lines and the imaginary component responding to edges.</p>
+<p><code>order</code> determines the angular selectivity. Increasing this number makes the filter longer, and therefore it responds
+to a narrower range of orientations. <code>radCenter</code> determines the overall scaling of the filter. Increasing this
+value makes the filter smaller. The <code>radSigma</code> parameter controls the bandwidth of the filter. Reducing this value
+makes the filter more specific to a frequency range (the scale selected by <code>radCenter</code>).</p>
+<p>By default, the orientation space is sampled at <code>order * 2 + 1</code> different orientations (this is the number
+of filters applied, and the number of samples along the 3<sup>rd</sup> dimension). <code>orientation</code>, when positive,
+determines the number of orientation used. This parameter can be used to oversample the orientation space.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>M. van Ginkel, P.W. Verbeek and L.J. van Vliet, &ldquo;Improved Orientation Selectivity for Orientation Estimation&rdquo;,
+  Proceedings 10th Scandinavian Conference on Image Analysis, pp 533-537, Pattern Recognition Society of Finland, 1997.</li>
+<li>M. van Ginkel, &ldquo;Image Analysis using Orientation Space based on Steerable Filters&rdquo;, PhD Thesis,
+  Delft University of Technology, The Netherlands, 2002.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-PairCorrelation-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL-dip-StringSet-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-PairCorrelation-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL-dip-StringSet-CL" class="m-doc-self">dip::<wbr />PairCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; object,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 1000000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {})</span></span>
+            </h3>
+            <p>Estimates the pair correlation function of the different phases in <code>object</code>.</p>
+<p>If <code>object</code> is a binary image, the image is a regarded as a two-phase image.
+In case <code>object</code> is of an unsigned integer type, the image is regarded as a labeled image,
+with each integer value encoding a phase (note that 0 is included here).</p>
+<p>Optionally a <code>mask</code> image can be provided to select which pixels in <code>object</code>
+should be used to estimate the pair correlation.</p>
+<p><code>probes</code> specifies how many random point pairs should be drawn to estimate the function.
+<code>length</code> specifies the maximum correlation length in pixels.
+The correlation function can be estimated using a random sampling method (<code>sampling</code> is
+<code>"random"</code>), or a grid sampling method (<code>"grid"</code>). For grid sampling, <code>probes</code> can be 0,
+in which case all possible pairs along all image axes are used. Otherwise, the grid covers
+a subset of points, with all possible pairs along all image axes; the actual number of pairs
+is approximate. In general, the grid method needs a lot more probes to be precise, but
+it is faster for a given number of probes because it uses sequential memory access.</p>
+<p><code>options</code> can contain one or more of the following strings:</p>
+<ul>
+<li><code>"covariance"</code>: Compute covariance instead of correlation.</li>
+<li><code>"normalize volume"</code>: Normalizes the distribution using the volume fraction</li>
+<li><code>"normalize volume^2"</code>: Normalizes the distribution using the square of the volume fraction</li>
+</ul>
+<p>Without any of the option strings given, the output has <code>N</code> values, with <code>N</code> the number of phases
+in the image. Element <code>i</code> gives the probability of two points at a given distance both hitting
+phase number <code>i</code>. When normalized using the <code>"normalize volume"</code> option, the probability given is
+that of the second point hitting phase <code>i</code>, given that the first point hits phase <code>i</code>. This normalization
+is computed by dividing all values (distances) for element <code>i</code> by the volume fraction of phase <code>i</code>
+(which is given by the estimated probability at distance equal to 0). When normalized using the
+<code>"normalize volume^2"</code> option, the values given are expected to tends towards 1, as the square of the
+volume fraction of phase <code>i</code> is the probability of two random points hitting phase <code>i</code>.</p>
+<p>These values are read from the output <code>distribution</code> by <code>distribution[distance].Y(i)</code>, and the
+corresponding distance in physical units is given by <code>distribution[distance].X()</code>. If <code>object</code> does not
+have a pixel size, its pixel sizes are not isotropic, or have no physical units, then the distances given
+are in pixels. <code>distance</code> runs from 0 to <code>length</code> (inclusive).</p>
+<p>With the <code>"covariance"</code> option, the output distribution has <code>N</code>&times;<code>N</code> values. The element at
+<code>(i,j)</code> gives the probability for two points at a given distance to land on phases <code>i</code> and <code>j</code>
+respectively. The value for <code>(i,j)</code> will be identical to that for <code>(j,i)</code>. The values at the diagonal
+will correspond to the pair correlation as described above. The rest of the elements are for the
+cases where the two points fall in different phases. Normalization breaks the symmetry, since each
+column <code>i</code> is normalized by the volume fraction for phase <code>i</code>. That is, <code>(i,j)</code> will give the probability
+that the second point, at a given distance, will hit phase <code>j</code> given that the first point hits phase <code>i</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-ProbabilisticPairCorrelation-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL-dip-StringSet-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ProbabilisticPairCorrelation-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL-dip-StringSet-CL" class="m-doc-self">dip::<wbr />ProbabilisticPairCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; phases,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 1000000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {})</span></span>
+            </h3>
+            <p>Estimates the probabilistic pair correlation function of the different phases in <code>phases</code>.</p>
+<p><code>phases</code> is a real-valued image of a floating-point type, with one or more channels (tensor elements).
+Each channel represents the probability per pixel of one of the phases.
+The function assumes, but does not check, that these values are with the [0,1] range, and add up to
+1 or less.</p>
+<p>All other parameters are as in <a href="analysis.html#dip-PairCorrelation-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL-dip-StringSet-CL"><code>dip::PairCorrelation</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Semivariogram-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Semivariogram-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />Semivariogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 1000000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM)</span></span>
+            </h3>
+            <p>Estimates the expected value of half the square difference between field values at a distance <code>d</code>.</p>
+<p>The input image <code>in</code> must be scalar and real-valued. An isotropic semivariogram is computed as a function
+of the distance, which is varied from 0 to <code>length</code> (in pixels). Therefore, the field in <code>in</code> is assumed isotropic
+and stationary.</p>
+<p>By definition, the semivariogram is zero at the origin (at zero distance). If there is no spatial correlation,
+the semivariogram is constant for non-zero distance. The magnitude of the jump at the origin is called nugget.
+The value of the semivariogram in the limit of the distance to infinity is the variance of the field; this
+value is called the sill. The distance at which the sill is reached (or, more robustly, the distance at which
+0.95 times the sill is reached) is called range, and provides a meaningful description of the field.</p>
+<p>Optionally a <code>mask</code> image can be provided to select which pixels in <code>in</code> should be used to estimate the
+semivariogram.</p>
+<p><code>probes</code> specifies how many random point pairs should be drawn to estimate the semivariogram.
+<code>length</code> specifies the maximum pair distance in pixels.
+The semivariogram can be estimated using a random sampling method (<code>sampling</code> is <code>"random"</code>), or a grid sampling
+method (<code>"grid"</code>). For grid sampling, <code>probes</code> can be 0, in which case all possible pairs along all image
+axes are used. Otherwise, the grid covers a subset of points, with all possible pairs along all image axes;
+the actual number of pairs is approximate. In general, the grid method needs a lot more probes to be precise,
+but it is faster for a given number of probes because it uses sequential memory access.</p>
+<p>The output <a href="dip-Distribution.html"><code>dip::Distribution</code></a> has <em>x</em> samples given in physical units. However, if <code>in</code> does not
+have a pixel size, its pixel sizes are not isotropic, or have no physical units, then the distances given
+are in pixels.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>G. Matheron, &ldquo;Principles of geostatistics&rdquo;, Economic Geology 58(8):1246, 1963.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-ChordLength-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ChordLength-dip-Image-CL-dip-Image-CL-dip-uint--dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />ChordLength</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; object,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> probes = 100000,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sampling = S::RANDOM)</span></span>
+            </h3>
+            <p>Estimates the chord length distribution of the different phases in <code>object</code>.</p>
+<p>If <code>object</code> is a binary image, the image is a regarded as a two-phase image.
+In case <code>object</code> is of an unsigned integer type, the image is regarded as a labeled image,
+with each integer value encoding a phase (note that 0 is included here).</p>
+<p>Optionally a <code>mask</code> image can be provided to select which pixels in <code>object</code>
+should be used for the estimation.</p>
+<p><code>probes</code> specifies how many random lines should be drawn to estimate the distribution.
+<code>length</code> specifies the maximum chord length in pixels.
+The chord length distribution can be estimated using a random sampling method (<code>sampling</code> is
+<code>"random"</code>), or a grid sampling method (<code>"grid"</code>). For grid sampling, <code>probes</code> can be 0,
+in which case all lines along all image axes are used. Otherwise, the grid covers
+a subset of lines; the actual number of lines is approximate. In general, the grid method
+needs a lot more probes to be precise, but it is faster for a given number of probes because
+it uses sequential memory access.</p>
+<p>The output has <code>N</code> values, with <code>N</code> the number of phases in the image. Element <code>i</code> gives the
+probability of a chord of length <code>len</code> pixels within phase number <code>i</code>. The chord length is the
+length of an intersection of a line with the phase.
+These values are read from the output <code>distribution</code> by <code>distribution[len].Y(i)</code>, and the
+corresponding length in physical units is given by <code>distribution[len].X()</code>. If <code>object</code> does not
+have a pixel size, its pixel sizes are not isotropic, or have no physical units, then the distances given
+are in pixels. <code>len</code> runs from 0 to <code>length</code> (inclusive).</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-DistanceDistribution-dip-Image-CL-dip-Image-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-DistanceDistribution-dip-Image-CL-dip-Image-CL-dip-uint-" class="m-doc-self">dip::<wbr />DistanceDistribution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; object,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; region,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 100)</span></span>
+            </h3>
+            <p>Computes the distribution of distances to the background of <code>region</code> for the different phases in <code>object</code>.</p>
+<p>If <code>object</code> is a binary image, the image is a regarded as a two-phase image.
+In case <code>object</code> is of an unsigned integer type, the image is regarded as a labeled image,
+with each integer value encoding a phase (note that 0 is included here).</p>
+<p>The <code>region</code> image is a binary image, the distances to its background will be computed.
+If <code>region</code> is a labeled image, the distances to the zero-valued pixels will be computed.
+These distances will take the pixels sizes of <code>region</code> into account. If <code>region</code> does not
+have pixels sizes, those of <code>object</code> will be used instead.</p>
+<p>The output <a href="dip-Distribution.html"><code>dip::Distribution</code></a> has <em>x</em> value increments given by the pixel size. That is,
+the distribution has one sample per pixel. <code>length</code> is the length of the distribution, and
+thus limits the distances taken into account.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Granulometry-dip-Image-CL-dip-Image-CL-std-vector<dfloat>-CL-dip-String-CL-dip-String-CL-dip-StringSet-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Granulometry-dip-Image-CL-dip-Image-CL-std-vector<dfloat>-CL-dip-String-CL-dip-String-CL-dip-StringSet-CL" class="m-doc-self">dip::<wbr />Granulometry</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              std::vector&lt;dfloat&gt; const&amp; scales = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = "isotropic",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {})</span></span>
+            </h3>
+            <p>Computes the granulometric function for an image</p>
+<p>The granulometry yields a volume-weighted, grey-value&ndash;weighted, cumulative distribution of object sizes.
+It can be used to obtain a size distribution of the image without attempting to segment and separate
+individual objects. It is computed by a series of openings or closings at different scales. The result
+at each scale is integrated (summed). The obtained series of values is scaled such that the value for
+scale 0 is 0, and for scale infinity is 1.</p>
+<p>The derivative of the cumulative distribution is a volume-weighted and grey-value&ndash;weighted distribution of
+object sizes. See <a href="dip-Distribution.html#dip-Distribution-Differentiate"><code>dip::Distribution::Differentiate</code></a>.</p>
+<p>Grey-value&ndash;weighted means that objects with a larger grey-value contrast will be weighted more heavily.
+Ensuring a uniform grey-value contrast to prevent this characteristic from affecting the estimated size
+distribution.</p>
+<p>Volume-weighted means that objects are weighted by their volume (area in 2D). By dividing the distribution
+(note: not the cumulative distribution) by the volume corresponding to each scale, it is possible to
+approximate a count-based distribution.</p>
+<p>This function implements various granulometries, to be specified through the parameters <code>type</code>, <code>polarity</code>
+and <code>options</code>. The following <code>type</code> values specify the shapes of the structuring element (SE), which determines
+the measurement type:</p>
+<ul>
+<li><code>"isotropic"</code>: An isotropic SE leads to a size distribution dictated by the width of objects.</li>
+<li><code>"length"</code>: A line SE leads to a size distribution dictated by the length of objects. We use (constrained)
+  path openings or closings (see Luengo, 2010).</li>
+</ul>
+<p>The <code>polarity</code> flag determines whether it is white objects on a black background (<code>"opening"</code>) or black objects
+on a white background (<code>"closing"</code>) that are being analyzed.</p>
+<p>The <code>options</code> parameter can contain a set of flags that modify how the operations are applied. The allowed flags
+differ depending on the <code>type</code> flag.</p>
+<ul>
+<li>
+<p>For <code>"isotropic"</code> granulometries:</p>
+<ul>
+<li><code>"reconstruction"</code>: uses openings or closings by reconstruction instead of structural openings or closings.
+  This leads to objects not being broken up in the same way. Objects need to be clearly separated spatially
+  for this to work.</li>
+<li><code>"shifted"</code>: uses sub-pixel shifted isotropic structuring elements. This allows a finer sampling of the
+  scale axis (see Luengo et al., 2007). Ignored for images with more than 3 dimensions.</li>
+<li><code>"interpolate"</code>: interpolates by a factor up to 8x for smaller scales, attempting to avoid SE diameters
+  smaller than 8. This improves precision of the result for small scales (see Luengo et al., 2007).</li>
+<li><code>"subsample"</code>: subsamples for larger scales, such that the largest SE diameter is 64. This speeds up
+  computation, at the expense of precision.</li>
+</ul>
+</li>
+<li>
+<p>For <code>"length"</code> granulometries:</p>
+<ul>
+<li><code>"unconstrained"</code>: by default, we use constrained path openings or closings, which improves the precision
+  of the measurement, but is a little bit more expensive (see Luengo, 2010). This option causes the use
+  of normal path openings or closings.</li>
+<li><code>"robust"</code>: applies path openings or closings in such a way that they are less sensitive to noise.</li>
+</ul>
+</li>
+</ul>
+<p><code>scales</code> defaults to a series of 12 values geometrically spaced by <code>sqrt(2)</code>, and starting at <code>sqrt(2)</code>. <code>scales</code>
+are in pixels, the image&rsquo;s pixel size is not taken into account.</p>
+<p><code>in</code> must be scalar and real-valued. <code>mask</code> must have the same sizes, and limits the region
+in which objects are measured.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>C.L. Luengo Hendriks, G.M.P. van Kempen and L.J. van Vliet, &ldquo;Improving the accuracy of isotropic granulometries&rdquo;,
+  Pattern Recognition Letters 28(7):865-872, 2007.</li>
+<li>C.L. Luengo Hendriks, &ldquo;Constrained and dimensionality-independent path openings&rdquo;,
+  IEEE Transactions on Image Processing 19(6):1587–1595, 2010.</li>
+</ul>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-FractalDimension-dip-Image-CL-dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-FractalDimension-dip-Image-CL-dip-dfloat-" class="m-doc-self">dip::<wbr />FractalDimension</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> eta = 0.5)</span></span>
+            </h3>
+            <p>Estimates the fractal dimension of the binary image <code>in</code> the sliding box method.</p>
+<p>The sliding box method is an enhancement of the classical box counting method that counts many more boxes
+at each scale, and therefore is more precise. By sliding the box one pixel at a time, it is also not affected
+by partial boxes (i.e. the boxes at the right and bottom edge of the image that do not fit within the image
+domain). The counts are computed in an efficient manner, which makes it similar in complexity to counting
+only the set of tessellating boxes.</p>
+<p>The smallest scale used is a box size of 1, and the largest scale is at most half the smallest image size (i.e.
+<code>min(width,height)/2</code>. In between, scales grow exponentially with a factor <code>1+eta</code>. Thus, if <code>eta</code> is 1,
+then each scale uses boxes double the size of the previous scale, and if <code>eta</code> is smaller then the steps are
+smaller and more scales are generated.</p>
+<p>The image <code>in</code> must be scalar and binary, and typically is applied to an edge map of objects.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

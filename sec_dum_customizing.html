@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DIPimage User Manual &raquo; Customizing the DIPimage Environment | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="sec_dum_functions.html" />
+  <link rel="next" href="sec_dum_mex_files.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dipimage_user_manual.html"><em>DIPimage</em> User Manual</a> &raquo;</span>
+          Customizing the <em>DIPimage</em> Environment
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#sec_dum_customizing_figure_windows">Figure windows</a></li>
+            <li><a href="#sec_dum_customizing_gui">Graphical user interface</a></li>
+            <li>
+              <a href="#sec_dum_customizing_adding">Adding functions to the GUI</a>
+              <ul>
+                <li><a href="#sec_dum_customizing_param_image"><code>'image'</code></a></li>
+                <li><a href="#sec_dum_customizing_measurement"><code>'measurement'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_dataset"><code>'dataset'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_array"><code>'array'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_measureid"><code>'measureid'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_option"><code>'option'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_optionarray"><code>'optionarray'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_cellarray"><code>'cellarray'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_infile"><code>'infile'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_outfile"><code>'outfile'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_indir"><code>'indir'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_handle"><code>'handle'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_string"><code>'string'</code></a></li>
+                <li><a href="#sec_dum_customizing_param_boolean"><code>'boolean'</code></a></li>
+              </ul>
+            </li>
+            <li><a href="#sec_dum_customizing_dipinit">Initialization file</a></li>
+            <li>
+              <a href="#sec_dum_customizing_dippref">Other settings</a>
+              <ul>
+                <li><a href="#sec_dum_customizing_dippref_binarydisplaycolor">BinaryDisplayColor</a></li>
+                <li><a href="#sec_dum_customizing_dippref_bringtofrontondisplay">BringToFrontOnDisplay</a></li>
+                <li><a href="#sec_dum_customizing_dippref_cheapsqueeze">CheapSqueeze</a></li>
+                <li><a href="#sec_dum_customizing_dippref_complexmappingdisplay">ComplexMappingDisplay</a></li>
+                <li><a href="#sec_dum_customizing_dippref_currentimagefiledir">CurrentImageFileDir</a></li>
+                <li><a href="#sec_dum_customizing_dippref_currentimagesavedir">CurrentImageSaveDir</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultactionstate">DefaultActionState</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultcolormap">DefaultColorMap</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultcomplexmapping">DefaultComplexMapping</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultfigureheight">DefaultFigureHeight</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultfigurewidth">DefaultFigureWidth</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultglobalstretch">DefaultGlobalStretch</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultmappingmode">DefaultMappingMode</a></li>
+                <li><a href="#sec_dum_customizing_dippref_defaultslicing">DefaultSlicing</a></li>
+                <li><a href="#sec_dum_customizing_dippref_displayfunction">DisplayFunction</a></li>
+                <li><a href="#sec_dum_customizing_dippref_displaytofigure">DisplayToFigure</a></li>
+                <li><a href="#sec_dum_customizing_dippref_enablekeyboar">EnableKeyboard</a></li>
+                <li><a href="#sec_dum_customizing_dippref_filewritewarning">FileWriteWarning</a></li>
+                <li><a href="#sec_dum_customizing_dippref_ftoption">FtOption</a></li>
+                <li><a href="#sec_dum_customizing_dippref_gamma">Gamma</a></li>
+                <li><a href="#sec_dum_customizing_dippref_gammagrey">GammaGrey</a></li>
+                <li><a href="#sec_dum_customizing_dippref_imagefilepath">ImageFilePath</a></li>
+                <li><a href="#sec_dum_customizing_dippref_imagesizelimit">ImageSizeLimit</a></li>
+                <li><a href="#sec_dum_customizing_dippref_keepdatatype">KeepDataType</a></li>
+                <li><a href="#sec_dum_customizing_dippref_numberofthreads">NumberOfThreads</a></li>
+                <li><a href="#sec_dum_customizing_dippref_putincommandwindow">PutInCommandWindow</a></li>
+                <li><a href="#sec_dum_customizing_dippref_respectvisibility">RespectVisibility</a></li>
+                <li><a href="#sec_dum_customizing_dippref_truesize">TrueSize</a></li>
+                <li><a href="#sec_dum_customizing_dippref_usermanuallocation">UserManualLocation</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<h2 id="sec_dum_customizing_figure_windows">Figure windows</h2>
+<p>The single most important thing that can be customized in the <em>DIPimage</em>
+environment is the way that images are displayed to figure windows. It
+is possible to link a variable name with a figure handle, such that that
+variable is always displayed in that same window. If a variable is not
+linked to any window, a new one will be opened to display it. The
+command <code>dipfig</code> is used to create these links (see
+<a href="sec_dum_functions.html#sec_dum_functions_dipfig">Creating, linking and clearing figure windows: <code>dipfig</code> and <code>dipclf</code></a>).</p>
+<h2 id="sec_dum_customizing_gui">Graphical user interface</h2>
+<p>The <em>DIPimage</em> toolbox contains a GUI with a menu system for easy calling
+of toolbox functions. It is not necessary to use this GUI, but it is the
+easy way of finding the functions defined in the toolbox (see
+<a href="sec_dum_functions.html#sec_dum_functions_dipimage">The GUI: <code>dipimage</code></a>). The menu structure can be modified at will,
+see <a href="sec_dum_customizing.html#sec_dum_customizing_adding">Adding functions to the GUI</a> for instructions.</p>
+<p>The <em>DIPimage</em> GUI will call the <code>dipinit</code> command when starting. It
+initializes the working environment. See
+<a href="sec_dum_customizing.html#sec_dum_customizing_dipinit">Initialization file</a>.</p>
+<p>Another thing that can be customized in the GUI is whether the command
+it executes should be printed to <em>MATLAB</em>&lsquo;s command window. This is useful
+for copying and pasting the command being executed to some script or
+function. It is on by default, and can be switched off by typing</p>
+<div class="m-code"><pre><span></span><span class="n">dipsetpref</span><span class="p">(</span><span class="s">&#39;PutInCommandWindow&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="sec_dum_customizing_adding">Adding functions to the GUI</h2>
+<p>To add a function to the GUI, it must be on the MATLAB path, and you must
+make information about it available to the GUI.
+The second requirement is accomplished by writing a function <code>localdipmenus</code>.
+The function should be defined by itself in a file called <code>localdipmenus.m</code> and
+be somewhere on the MATLAB path. See <code>help addpath</code> to learn about the MATLAB
+path. <code>localdipmenus</code> is defined as follows:</p>
+<div class="m-code"><pre><span></span><span class="k">function</span><span class="w"> </span>[menulist,funclist] <span class="p">=</span><span class="w"> </span><span class="nf">localdipmenus</span><span class="p">(</span>menulist<span class="p">)</span><span class="w"></span>
+
+<span class="n">menulist</span> <span class="p">=</span> <span class="p">[</span><span class="n">menulist</span><span class="p">;{</span><span class="s">&#39;My Menu&#39;</span><span class="p">,{</span><span class="s">&#39;myfunction&#39;</span><span class="p">}}];</span>
+<span class="n">I</span> <span class="p">=</span> <span class="n">strcmp</span><span class="p">(</span><span class="s">&#39;Restoration&#39;</span><span class="p">,</span><span class="n">menulist</span><span class="p">(:,</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">menulist</span><span class="p">(</span><span class="n">I</span><span class="p">,:)</span> <span class="p">=</span> <span class="p">[];</span> <span class="c">% remove the &#39;Restoration&#39; menu</span>
+<span class="n">I</span> <span class="p">=</span> <span class="n">strcmp</span><span class="p">(</span><span class="s">&#39;readtimeseries&#39;</span><span class="p">,</span><span class="n">menulist</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">});</span>
+<span class="n">menulist</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="n">I</span><span class="p">)</span> <span class="p">=</span> <span class="p">[];</span> <span class="c">% remove the &#39;readtimeseries&#39; function from the first menu</span>
+
+<span class="n">funclist</span> <span class="p">=</span> <span class="n">containers</span><span class="p">.</span><span class="n">Map</span><span class="p">(</span><span class="s">&#39;KeyType&#39;</span><span class="p">,</span><span class="s">&#39;char&#39;</span><span class="p">,</span><span class="s">&#39;ValueType&#39;</span><span class="p">,</span><span class="s">&#39;any&#39;</span><span class="p">);</span>
+<span class="n">funclist</span><span class="p">(</span><span class="s">&#39;myfunction&#39;</span><span class="p">)</span> <span class="p">=</span> <span class="n">struct</span><span class="p">(</span><span class="k">...</span>
+   <span class="s">&#39;display&#39;</span><span class="p">,</span><span class="s">&#39;My Function&#39;</span><span class="p">,</span><span class="k">...</span>
+   <span class="s">&#39;inparams&#39;</span><span class="p">,</span><span class="n">struct</span><span class="p">(</span><span class="s">&#39;description&#39;</span><span class="p">,{</span><span class="s">&#39;Parameter 1&#39;</span><span class="p">,</span><span class="s">&#39;Parameter 2&#39;</span><span class="p">},</span><span class="k">...</span>
+                     <span class="s">&#39;type&#39;</span><span class="p">,</span>       <span class="p">{</span><span class="s">&#39;image&#39;</span><span class="p">,</span>      <span class="s">&#39;array&#39;</span><span class="p">},</span><span class="k">...</span>
+                     <span class="s">&#39;constraint&#39;</span><span class="p">,</span> <span class="p">{{</span><span class="s">&#39;real&#39;</span><span class="p">},</span>     <span class="p">[]},</span><span class="k">...</span>
+                     <span class="s">&#39;default&#39;</span><span class="p">,</span>    <span class="p">{</span><span class="s">&#39;a&#39;</span><span class="p">,</span>          <span class="mf">3.7</span><span class="p">}),</span><span class="k">...</span>
+   <span class="s">&#39;outparams&#39;</span><span class="p">,{{</span><span class="s">&#39;Output image&#39;</span><span class="p">}});</span>
+</pre></div>
+
+<p>There are two things happening in this function:</p>
+<p>1- The variable <code>menulist</code> is being edited. It defines what the menu structure
+   in the GUI looks like. You can add menus, add items to menus, as well as
+   remove items and menus. You can even ignore the input <code>menulist</code> and
+   create one from scratch. See the function <code>dipmenus</code> for the definition of
+   the default <code>menulist</code> structure. In the code above, we added a menu
+   called &ldquo;My Menu&rdquo;, which contains a single command, <code>myfunction</code>. <code>myfunction</code>
+   must be a function on the MATLAB path.</p>
+<p>2- A map object is created that contains a single entry for <code>myfunction</code>. This
+   map will be added to the default map defined in <code>dipmenus</code>, which provides
+   information about all the <em>DIPimage</em> functions in the GUI menu. The structure
+   assigned to the <code>myfunction</code> entry in the map is rather complex. We describe
+   it in detail below.</p>
+<p>The cell array <code>menulist</code> has two columns. The left column gives the names of
+the menus, the right column contains cell arrays with the function names and menu
+names that are to be put under each menu. Names in the right column that start
+with <code>#</code> are menu names, and put the corresponding menu as a sub-menu at that
+point. A string <code>'-'</code> inserts a menu separator at that point.
+See the code for <code>dipmenus</code> to see how it is defined.</p>
+<p>The structure that describes the input and output parameters of a function
+contains three values:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>display</code></td>
+<td>Name for the function in the menu (string)</td>
+</tr>
+<tr>
+<td><code>inparams</code></td>
+<td>Structure array with input parameters</td>
+</tr>
+<tr>
+<td><code>outparams</code></td>
+<td>Structure array with output parameters</td>
+</tr>
+</tbody>
+</table>
+<p>Both <code>inparams</code> and <code>outparams</code> are optional, if not provided the function does
+not accept input or output parameters.</p>
+<p><code>paramlist.outparams</code> is a cell array with strings that describe the output
+parameters</p>
+<p><code>paramlist.inparams</code> is a struct array that defines the input parameters,
+and contains the following fields for each parameter:</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>description</code></td>
+<td>Description to show the user (string).</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Expected data type (string).</td>
+</tr>
+<tr>
+<td><code>constraint</code></td>
+<td>Meaning depends on the parameter type.</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>Default value to use if the parameter is not given.</td>
+</tr>
+</tbody>
+</table>
+<p>Each parameter type produces different controls in the GUI. Recognized
+types are listed below. Please examine the <code>dipmenus</code> function to learn
+more about this structure.</p>
+<h3 id="sec_dum_customizing_param_image"><code>'image'</code></h3>
+<p>An object of type <code>dip_image</code>. The GUI presents an edit box where you can
+type any expression. Furthermore, a right-click in this edit box brings
+up a list with variables of class <code>dip_image</code> defined in the base
+workspace.</p>
+<p><code>constraint</code> is used to specify the type of image
+expected. It determines which images are shown in the right-click
+menu for the control. It is a cell array containing the following optional
+components:</p>
+<ul>
+<li>
+<p>A two-element vector <code>[m,n]</code> defining the allowed image dimensionalities.
+   <code>m</code> is the lowest dimensionality and <code>n</code> is the highest dimensionality
+   allowed. The expressions <code>0</code> and <code>[]</code> map to <code>[0,Inf]</code>, meaning any
+   dimensionality is OK. Any scalar <code>m</code> maps to <code>[m,m]</code>, meaning only images
+   with <code>m</code> dimensions are allowed. If not given, <code>[0,Inf]</code> is presumed.
+   For example, to limit your function to 2D and 3D images, use <code>[2,3]</code>.</p>
+</li>
+<li>
+<p>A set of strings defining the allowed image types:
+   <code>'scalar'</code> (requires <code>isscalar</code> to be <code>true</code>), <code>'vector'</code> (<code>isvector</code> is
+   <code>true</code>), <code>'color'</code> (<code>iscolor</code> is <code>true</code>), or <code>'tensor'</code> or <code>'array'</code>
+   (any <code>dip_image</code> object is OK). <code>'tensor'</code> is the default.</p>
+</li>
+<li>
+<p>A set of strings defining the allowed data types.
+   Allowed are any combination of <code>dip_image</code> data types (see
+   <a href="sec_dum_dip_image.html#sec_dum_dip_image_creating">Creating a <code>dip_image</code> object</a>) as well as the data type aliases defined in
+   the table below. <code>'all'</code> is the default.</p>
+<table class="m-table">
+<thead>
+<tr>
+<th>Data type alias</th>
+<th>Maps to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'any'</code></td>
+<td><code>'complex'</code> + <code>bin</code></td>
+</tr>
+<tr>
+<td><code>'complex'</code></td>
+<td><code>'real'</code> + <code>scomplex</code> + <code>dcomplex</code></td>
+</tr>
+<tr>
+<td><code>'noncomplex'</code></td>
+<td><code>'real'</code> + <code>bin</code></td>
+</tr>
+<tr>
+<td><code>'real'</code></td>
+<td><code>'float'</code> + <code>'integer'</code></td>
+</tr>
+<tr>
+<td><code>'int'</code> or <code>'integer'</code></td>
+<td><code>'signed'</code> + <code>'unsigned'</code></td>
+</tr>
+<tr>
+<td><code>'float'</code></td>
+<td><code>sfloat</code> + <code>dfloat</code></td>
+</tr>
+<tr>
+<td><code>'sint'</code> or <code>'signed'</code></td>
+<td><code>sint8</code> + <code>sint16</code> + <code>sint32</code> + <code>sint64</code></td>
+</tr>
+<tr>
+<td><code>'uint'</code> or <code>'unsigned'</code></td>
+<td><code>uint8</code> + <code>uint16</code> + <code>uint32</code> + <code>uint64</code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>Note that the numeric vector defining the dimensionality must come first
+if present. The other elements are all strings, and can be presented in
+any order.</p>
+<p><code>default</code> is a string to be evaluated in the base workspace (therefore,
+you can use any expression with names of variables in the base
+workspace). The toolbox typically uses letters such as <code>'a'</code> or <code>'b'</code> as
+a default value for an image, under the assumption that these letters
+are used to store images. But it is also possible to specify something like
+<code>'[1,1,1;1,1,1;1,1,1]'</code> as a default image (as does the function <code>convolve</code>).</p>
+<h3 id="sec_dum_customizing_measurement"><code>'measurement'</code></h3>
+<p>An object of type <code>dip_measurement</code>. This input is treated the same as
+one of type <code>'image'</code>, except that <code>constraint</code> is not
+used; set it to <code>[]</code> to avoid problems if this value becomes
+significant in the future.</p>
+<h3 id="sec_dum_customizing_param_dataset"><code>'dataset'</code></h3>
+<p>An object of type <code>dataset</code> (from PRTOOLS). This input is treated the
+same as one of type <code>'image'</code>, except that <code>constraint</code> is not
+used; set it to <code>[]</code> to avoid problems if this value becomes
+significant in the future.</p>
+<h3 id="sec_dum_customizing_param_array"><code>'array'</code></h3>
+<p>An array of doubles. <code>constraint</code> is not used; set it to <code>[]</code> to avoid
+problems if this value becomes significant in the future.</p>
+<p>The type <code>anytypearray</code> is identical, but does not convert numeric data
+to doubles, allowing numeric arrays of other types (integer, float, etc).</p>
+<h3 id="sec_dum_customizing_param_measureid"><code>'measureid'</code></h3>
+<p>A measurement ID in a <code>dip_measurement</code> object.</p>
+<p><code>constraint</code> is a positive integer that points to a parameter of type
+<code>'measurement'</code> (note that counting starts at 1). The GUI shows, in a
+drop-down list, all measurement IDs present in the referenced object.</p>
+<p><code>default</code> is ignored. The default is always the first
+measurement in the <code>dip_measurement</code> object.</p>
+<h3 id="sec_dum_customizing_param_option"><code>'option'</code></h3>
+<p>A value (numerical or string) selected from a list. The GUI presents a
+drop-down list with options to choose from.</p>
+<p><code>constraint</code> is a <code>cell</code> array with possible options, for example:</p>
+<ul>
+<li>
+<p><code>{1,2,3,4}</code></p>
+</li>
+<li>
+<p><code>{'rectangular','elliptic','parabolic'}</code></p>
+</li>
+</ul>
+<p><code>default</code> is any one value from the list.</p>
+<h3 id="sec_dum_customizing_param_optionarray"><code>'optionarray'</code></h3>
+<p>A <code>cell</code> array (with numbers or strings) selected from a list. The GUI
+presents an edit box with a button. Pressing the button brings up a
+dialog box that allows selecting one or more items from a list.</p>
+<p><code>constraint</code> is as in <code>'option'</code>. <code>default</code> is a <code>cell</code> array with values
+from the list, or a single value.</p>
+<h3 id="sec_dum_customizing_param_cellarray"><code>'cellarray'</code></h3>
+<p>A <code>cell</code> array (with arbitrary cell content). <code>constraint</code> is
+ignored. <code>default</code> must be a cellarray.</p>
+<h3 id="sec_dum_customizing_param_infile"><code>'infile'</code></h3>
+<p>The name of an existing file (for input). The GUI presents an edit box
+and a button that, when pressed, presents an &ldquo;Open&hellip;&rdquo; dialog box.</p>
+<p><code>constraint</code> is a string containing the mask for the file name,
+and <code>default</code> is a string with the default file name.</p>
+<h3 id="sec_dum_customizing_param_outfile"><code>'outfile'</code></h3>
+<p>The name of a file (for output). The GUI presents an edit box and a
+button that, when pressed, presents an &ldquo;Save as&hellip;&rdquo; dialog box. See the
+comments for <code>'infile'</code>.</p>
+<h3 id="sec_dum_customizing_param_indir"><code>'indir'</code></h3>
+<p>The GUI presents an edit box and a button that, when pressed, presents
+an &ldquo;Select a directory &hellip;&rdquo; dialog box. <code>constraint</code> is ignored,
+<code>default</code> gives the default directory.</p>
+<h3 id="sec_dum_customizing_param_handle"><code>'handle'</code></h3>
+<p>The handle of a figure window created by <code>dipshow</code>. The GUI shows a
+drop-down list with the titles of all figure windows that fit the
+description. Right-clicking the control shows a context menu with the
+option to reload the control, which can be used when new windows were
+created after the dialog box was displayed.</p>
+<p><code>constraint</code> is a <code>cell</code> array with strings that specify the type of
+figure window required. All figure windows that satisfy any of the
+strings are valid. Examples are:</p>
+<ul>
+<li>
+<p><code>{'1D','2D','3D'}</code> : either one-, two- or three-dimensional displays.</p>
+</li>
+<li>
+<p><code>{'Color','Grey','Binary'}</code> : either color, grey-value or binary
+  displays.</p>
+</li>
+<li>
+<p><code>{'1D_Color','2D_Grey'}</code> : either 1D color or 2D grey-value
+  displays.</p>
+</li>
+</ul>
+<p>An empty array means that any window created by <code>dipshow</code> is acceptable.
+Note that these strings are not case-sensitive. It is, however,
+important that the order shown here is maintained. No window will
+satisfy the string <code>'Binary_2D'</code>, for example, but <code>'2D_Binary'</code> is
+valid.</p>
+<p><code>default</code> is ignored. The default value is always <code>gcf</code> (the current figure).</p>
+<h3 id="sec_dum_customizing_param_string"><code>'string'</code></h3>
+<p>Any string. <code>constraint</code> is ignored. <code>default</code> must be a string.</p>
+<h3 id="sec_dum_customizing_param_boolean"><code>'boolean'</code></h3>
+<p>The value <code>true</code> or <code>false</code>. The GUI presents a drop-down box with the words
+&ldquo;yes&rdquo; and &ldquo;no&rdquo;. <code>constraint</code> is ignored. <code>default</code> should
+be a scalar value (<code>true</code>, <code>false</code>, <code>0</code> or <code>1</code>), or <code>yes</code> or <code>no</code>.</p>
+<h2 id="sec_dum_customizing_dipinit">Initialization file</h2>
+<p>The <em>DIPimage</em> GUI will call the <code>dipinit</code> command when starting. It
+initializes the working environment, setting up figure windows and the
+like. You can also call it yourself, to return the windows to their
+starting positions. You can edit this file to suit your need (or you can
+create a local copy, making sure that it sits on the <em>MATLAB</em> path before
+the original one; this is recommended in multi-user systems). Since it
+is a script, not a function, it can initialize some variables if you
+like. It can also be used to position the <em>DIPimage</em> GUI to the place of
+your liking:</p>
+<div class="m-code"><pre><span></span><span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;ShowHiddenHandles&#39;</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">)</span>
+<span class="n">h</span> <span class="p">=</span> <span class="n">findobj</span><span class="p">(</span><span class="s">&#39;tag&#39;</span><span class="p">,</span><span class="s">&#39;DIPimage_Main_Window&#39;</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;Position&#39;</span><span class="p">,[</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&#39;ShowHiddenHandles&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="sec_dum_customizing_dippref">Other settings</h2>
+<p>Other settings are available through the <code>dipsetpref</code> command (see
+<a href="sec_dum_functions.html#sec_dum_functions_dippref">Toolbox preferences: <code>dipsetpref</code> and <code>dipgetpref</code></a>). They are listed below:</p>
+<h3 id="sec_dum_customizing_dippref_binarydisplaycolor">BinaryDisplayColor</h3>
+<p><em>Value</em>: 3x1 array of floats between 0 and 1</p>
+<p><em>Default</em>: <code>[1 0 0]</code></p>
+<p>This specifies the color used to display the object pixels in a binary
+image. Be default they are red, out of historical reasons. Some people
+prefer a different color, such as white (<code>[1 1 1]</code>) or green (<code>[0 1 0]</code>).</p>
+<h3 id="sec_dum_customizing_dippref_bringtofrontondisplay">BringToFrontOnDisplay</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'on'</code></p>
+<p>This setting controls whether <code>dipshow</code> brings a window to the front
+when displaying a new image, or updating an old one.</p>
+<h3 id="sec_dum_customizing_dippref_cheapsqueeze">CheapSqueeze</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'on'</code></p>
+<p>This setting affects the behavior of the <code>squeeze</code> method of <code>dip_image</code> objects.
+When set to <code>'off'</code>, it mimics the behavior of <em>DIPimage 2</em>,
+possibly incurring a data copy. See <a href="sec_dum_dip_image.html#sec_dum_dip_image_reshape">A note on the reshape and squeeze methods</a>.</p>
+<h3 id="sec_dum_customizing_dippref_complexmappingdisplay">ComplexMappingDisplay</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>'x+iy'</code></p>
+<p>This only affects display of complex images in <code>dipshow</code>. When using the [<em>Pixel
+testing</em>]{} mode in the image display window, the pixel value can be
+displayed as real and imaginary components (<code>'x+iy'</code>), or as magnitude
+and phase components(<code>'r/phi'</code>).</p>
+<h3 id="sec_dum_customizing_dippref_currentimagefiledir">CurrentImageFileDir</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>"</code></p>
+<p>This setting stores the directory last visited by the file selection
+dialog boxes of <code>readim</code>, <code>readtimeseries</code> and <code>writeim</code>. It
+is used by these functions to open the file selection dialog box in the
+directory you last used.</p>
+<h3 id="sec_dum_customizing_dippref_currentimagesavedir">CurrentImageSaveDir</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>"</code></p>
+<p>This setting stores the directory last visited by the file selection
+dialog box of the &ldquo;Save display&hellip;&rdquo; option of the &ldquo;File&rdquo; menu of the
+figure windows. It is used to open the file selection dialog box in the
+directory you last used. An empty string means that the current
+directory is to be used.</p>
+<h3 id="sec_dum_customizing_dippref_defaultactionstate">DefaultActionState</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>'diptest'</code></p>
+<p>This is the action mode that will be enabled by <code>dipshow</code> when
+displaying an image to a new window, or to a window with a mode not
+compatible with the image being displayed. Possible values are <code>'none'</code>,
+<code>'diptest'</code>, <code>'dipzoom'</code> and <code>'dipstep'</code>. See
+<a href="sec_dum_figurewindows.html#sec_dum_figurewindows_mouse">Using the mouse in figure windows</a>.</p>
+<h3 id="sec_dum_customizing_dippref_defaultcolormap">DefaultColorMap</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>'grey'</code></p>
+<p>This is the colormap that will be used by <code>dipshow</code> when displaying an
+image to a new window. Possible values are <code>'grey'</code>, <code>'periodic'</code>,
+<code>'saturation'</code>, <code>'zerobased'</code> and <code>'labels'</code>. See
+<a href="sec_dum_functions.html#sec_dum_functions_dipmapping">Figure window support: <code>dipmapping</code></a> and <a href="sec_dum_figurewindows.html#sec_dum_figurewindows_menus">The figure window menus</a>.</p>
+<h3 id="sec_dum_customizing_dippref_defaultcomplexmapping">DefaultComplexMapping</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>'abs'</code></p>
+<p>This is the complex mapping mode that will be enabled by <code>dipshow</code> when
+displaying an image to a new window, or to a window with a mode not
+compatible with the image being displayed. Possible values are <code>'abs'</code>,
+<code>'phase'</code>, <code>'real'</code> and <code>'imag'</code>. See <a href="sec_dum_functions.html#sec_dum_functions_dipmapping">Figure window support: <code>dipmapping</code></a> and <a href="sec_dum_figurewindows.html#sec_dum_figurewindows_menus">The figure window menus</a>.</p>
+<h3 id="sec_dum_customizing_dippref_defaultfigureheight">DefaultFigureHeight</h3>
+<p><em>Value</em>: integer</p>
+<p><em>Default</em>: <code>256</code></p>
+<p>This value determines the height of a window created by <code>dipshow</code> or
+<code>dipfig</code>, unless a size is explicitly given.</p>
+<h3 id="sec_dum_customizing_dippref_defaultfigurewidth">DefaultFigureWidth</h3>
+<p><em>Value</em>: integer</p>
+<p><em>Default</em>: <code>256</code></p>
+<p>This value determines the width of a window created by <code>dipshow</code> or
+<code>dipfig</code>, unless a size is explicitly given.</p>
+<h3 id="sec_dum_customizing_dippref_defaultglobalstretch">DefaultGlobalStretch</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'off'</code></p>
+<p>Set this option if you want global stretching for 3D/4D images on by
+default in <code>dipshow</code>. See <a href="sec_dum_functions.html#sec_dum_functions_dipmapping">Figure window support: <code>dipmapping</code></a> and <a href="sec_dum_figurewindows.html#sec_dum_figurewindows_menus">The figure window menus</a>.</p>
+<h3 id="sec_dum_customizing_dippref_defaultmappingmode">DefaultMappingMode</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>'normal'</code></p>
+<p>This is the mapping mode that will be enabled by <code>dipshow</code> when
+displaying an image to a new window, or to a window with a mode not
+compatible with the image being displayed. Possible values are <code>'lin'</code>,
+<code>'percentile'</code>, <code>'log'</code>, <code>'base'</code>, <code>'angle'</code> and <code>'orientation'</code>. See
+<a href="sec_dum_functions.html#sec_dum_functions_dipmapping">Figure window support: <code>dipmapping</code></a> and <a href="sec_dum_figurewindows.html#sec_dum_figurewindows_menus">The figure window menus</a>.</p>
+<h3 id="sec_dum_customizing_dippref_defaultslicing">DefaultSlicing</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>'xy'</code></p>
+<p>Sets the direction in which 3D/4D volumes are sliced by default in <code>dipshow</code>.
+Possible values are <code>'xy'</code>, <code>'xz'</code>, <code>'yz'</code>, <code>'xt'</code>, <code>'yt'</code> and <code>'zt'</code>.
+But if you select one of the options with <code>t</code>, 3D images cannot be displayed.
+See <a href="sec_dum_functions.html#sec_dum_functions_dipmapping">Figure window support: <code>dipmapping</code></a> and <a href="sec_dum_figurewindows.html#sec_dum_figurewindows_menus">The figure window menus</a>.</p>
+<h3 id="sec_dum_customizing_dippref_displayfunction">DisplayFunction</h3>
+<p><em>Value</em>: <code>'dipshow'</code>, <code>'viewslice'</code> or <code>'view5d'</code></p>
+<p><em>Default</em>: <code>'dipshow'</code></p>
+<p>This option selects how images are shown to a figure window when the command
+does not end with a semicolon. <code>dipshow</code> is the default method, yielding
+well-integrated display windows. See <a href="sec_dum_figurewindows.html">Figure Windows</a> for more
+information on these figure windows.</p>
+<p>Many of the settings described in this section apply only to the figure windows
+created by <code>dipshow</code>, not to the two alternatives described below.
+Similarly, <a href="sec_dum_functions.html#sec_dum_functions_dipfig"><code>dipfig</code></a>,
+<a href="sec_dum_functions.html#sec_dum_functions_diptruesize"><code>diptruesize</code></a>,
+<a href="sec_dum_functions.html#sec_dum_functions_diptest"><code>diptest</code></a>, etc. only apply to figure windows
+created by <code>dipshow</code>, as do the interactive tools described in
+<a href="sec_dum_functions.html#sec_dum_functions_dipcrop">Interactive tools: <code>dipgetcoords</code>, <code>diproi</code>, et al.</a>.</p>
+<p><code>viewslice</code> is an alternate method. It uses the <em>DIPviewer</em> tool. This tool has
+no limitations to what type of images can be shown (i.e. it can show images
+with more than 4 dimensions, as well as tensor images). However, programmatic
+interaction with the figure windows is limited to basic window manipulation and
+updating the image.
+See <a href="viewer.html#viewer_ui">the DIPviewer documentation</a> for more information on how
+to interact with these figure windows.</p>
+<p><code>view5d</code> is yet another alternate method. It uses Rainer Heintzmann&rsquo;s
+View5D Java applet, which needs to be installed separately. See <code>help view5d</code>
+for instructions on installation.
+See <a href="http://www.nanoimaging.de/View5D/">the tool&rsquo;s documentation</a>
+for instructions and tutorials. The applet allows updating the image
+shown, and a series of methods of the Java object can be invoked to
+programmatically control some aspects of the figure window.</p>
+<h3 id="sec_dum_customizing_dippref_displaytofigure">DisplayToFigure</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'on'</code></p>
+<p>When this setting is <code>'on'</code>, the <code>display</code> method of the <code>dip_image</code>
+object sends the image data to a figure window. When it is <code>'off'</code>,
+<code>disp</code> is called instead. The display method is called when a <em>MATLAB</em>
+command does not end with a semicolon.
+See <a href="sec_dum_dip_image.html#sec_dum_dip_image_displaying">Displaying <code>dip_image</code> objects</a> for more information on this behavior.</p>
+<h3 id="sec_dum_customizing_dippref_enablekeyboar">EnableKeyboard</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'on'</code></p>
+<p>If you set this value to <code>'off'</code>, the keyboard will be disabled when
+displaying an image with <code>dipshow</code>. This is useful for Windows machines, on which the
+figure window will get keyboard focus when displaying an image. This can
+be annoying when you want to continue typing. Enable the keyboard
+callback for a figure window using the appropriate menu item under
+&ldquo;Actions&rdquo;.</p>
+<h3 id="sec_dum_customizing_dippref_filewritewarning">FileWriteWarning</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'off'</code></p>
+<p>If you set this to <code>'on'</code> everything you write a non-standard TIFF image
+in terms of byte depth or compression a warning will be displayed on the
+screen. This is useful as many image viewers cannot read anything but
+<code>uint8</code> uncompressed images (e.g. the standard Windows image TIFF
+viewer).</p>
+<h3 id="sec_dum_customizing_dippref_ftoption">FtOption</h3>
+<p><em>Value</em>: <code>''</code>, <code>'symmetric'</code>, <code>'corner'</code> or <code>'fast'</code></p>
+<p><em>Default</em>: <code>''</code></p>
+<p>This preference defines one option that will be added to the <code>options</code> input
+argument to <code>ft</code> and <code>ift</code>. Set this to <code>'symmetric'</code> to ensure that
+all subsequent calls to <code>ft</code> and <code>ift</code> will use the symmetric  normalization,
+and therefore behave like in <em>DIPimage 2</em>.</p>
+<h3 id="sec_dum_customizing_dippref_gamma">Gamma</h3>
+<aside class="m-note m-info">
+<h4>Attention</h4>
+<p>This setting is not currently used.</p>
+</aside>
+<p><em>Value</em>: 3x1 array of floats</p>
+<p><em>Default</em>: <code>[1 1 1]</code></p>
+<p>These parameters control the display of all colour images shown by
+<code>dipshow</code>. If the values are different from unity a gamma correction is
+applied before displaying any image. The different values control the
+behaviour for the Red, Green and Blue channel respectively.</p>
+<h3 id="sec_dum_customizing_dippref_gammagrey">GammaGrey</h3>
+<aside class="m-note m-info">
+<h4>Attention</h4>
+<p>This setting is not currently used.</p>
+</aside>
+<p><em>Value</em>: float</p>
+<p><em>Default</em>: <code>1</code></p>
+<p>Similar to <code>'Gamma'</code>, but only for grey-value images. This parameter
+controls the display of all grey-value images shown by <code>dipshow</code>. If the
+value is different from unity a gamma correction is applied before
+displaying any image.</p>
+<h3 id="sec_dum_customizing_dippref_imagefilepath">ImageFilePath</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: <code>"</code></p>
+<p>This setting stores the path used to find image files. The functions
+<code>readim</code>, <code>readtiff</code>, <code>readics</code> and <code>readtimeseries</code> look for a file first in the
+current directory, and then in each of the directories given by this
+option, unless the filename already contains a path. On UNIX and Linux
+systems, directories are separated by a colon (<code>:</code>), on Windows systems
+by a semicolon (<code>;</code>).</p>
+<h3 id="sec_dum_customizing_dippref_imagesizelimit">ImageSizeLimit</h3>
+<p><em>Value</em>: integer</p>
+<p><em>Default</em>: <code>4096</code></p>
+<p>This is the maximum size of an image automatically displayed through
+<code>display</code>. If any of the sizes of an image is larger, you will need to
+display it manually using <code>dipshow</code> or <code>viewslice</code>. The reason behind this behavior is
+that such an image is most likely to be created accidentally, and not
+meant for display anyway. For example, <code>a(a&gt;10)</code> returns a 1D image with
+all pixel values of <code>a</code> larger than 10; this is very useful, but not
+interesting to look at. For a large <code>a</code> (such as a 3D image), the
+display of the resulting 1D image might require a lot of memory.</p>
+<h3 id="sec_dum_customizing_dippref_keepdatatype">KeepDataType</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'off'</code></p>
+<p>By default, <em>DIPimage</em> performs arithmetic computations in a floating-point type
+(either single or double precision depending on the types of the input). The
+output image is always of the type used in the computations.</p>
+<p>Setting this option to <code>'on'</code> causes these arithmetic operations to be more
+conservative with memory usage. If one of the operands is a single-pixel image
+(as is the case in <code>img + 1</code>), the type of the other image is used, except if
+the single-pixel image is complex, in which case a complex output image must be produced.
+Otherwise, a type is chosen that can hold values from both input types. Typically this means
+the larger of the two types is chosen, but when signed and unsigned integers are
+mixed, a larger type can result.</p>
+<p>The function <code>resample</code> also responds to this setting, see <code>help resample</code>.</p>
+<h3 id="sec_dum_customizing_dippref_numberofthreads">NumberOfThreads</h3>
+<p><em>Value</em>: integer</p>
+<p><em>Default</em>: usually the number of cores in your system, or the value
+given by the <code>OMP_NUM_THREAD</code> environment variable.</p>
+<p>The number of threads used for computation by <em>DIPlib</em>. This does not
+affect the computations performed by <em>MATLAB</em> itself.</p>
+<h3 id="sec_dum_customizing_dippref_putincommandwindow">PutInCommandWindow</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'on'</code></p>
+<p>This option causes commands that are executed from the <em>DIPimage</em> GUI to
+be printed to the command window. This makes it possible to copy and
+paste commands being executed to a <em>MATLAB</em> script.</p>
+<h3 id="sec_dum_customizing_dippref_respectvisibility">RespectVisibility</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'off'</code></p>
+<p>By default, <code>dipshow</code> hides a window while it prepares for displaying a
+new image, then makes it visible again. This speeds up the process, and
+removes flickering. Setting <code>'RespectVisibility'</code> to <code>'on'</code> the window
+remains visible if it was visible (some flickering might occur), and
+hidden if it was hidden.</p>
+<h3 id="sec_dum_customizing_dippref_truesize">TrueSize</h3>
+<p><em>Value</em>: <code>'on'</code> or <code>'off'</code></p>
+<p><em>Default</em>: <code>'on'</code></p>
+<p>This setting controls whether <code>diptruesize</code> is called after an image is
+displayed to a figure window with <code>dipshow</code> (see <a href="sec_dum_functions.html#sec_dum_functions_diptruesize">Figure window support: <code>diptruesize</code></a>).</p>
+<h3 id="sec_dum_customizing_dippref_usermanuallocation">UserManualLocation</h3>
+<p><em>Value</em>: string</p>
+<p><em>Default</em>: The location where this manual is installed.</p>
+<p>This setting stores the location of the <em>DIPimage</em> User Manual (a PDF
+file). You can change it to point to wherever you keep a local copy of the
+PDF file. A link on the Help menu of the <em>DIPimage</em> GUI is affected by this
+setting.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="sec_dum_functions.html" class="m-doc">&laquo; Toolbox Functions</a> | <a href="dipimage_user_manual.html" class="m-doc"><em>DIPimage</em> User Manual</a> | <a href="sec_dum_mex_files.html" class="m-doc">Writing MEX-files that use <em>DIPlib</em> &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

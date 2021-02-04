@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Display &raquo; DIPviewer module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="display.html">Display</a> &raquo;</span>
+          <em>DIPviewer</em> <span class="m-thin">module</span>        </h1>
+        <p>Interactive image display.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#viewer_introduction">Introduction</a></li>
+            <li>
+              <a href="#viewer_ui">User interface</a>
+              <ul>
+                <li><a href="#viewer_main_window">Main visualization window</a></li>
+                <li><a href="#viewer_control_panel">Control panel</a></li>
+                <li><a href="#viewer_histogram">Histogram</a></li>
+                <li><a href="#viewer_status_bar">Status bar</a></li>
+                <li>
+                  <a href="#interaction">Interaction</a>
+                  <ul>
+                    <li><a href="#interaction_tensor">Tensor elements</a></li>
+                    <li><a href="#interaction_slices">Slices</a></li>
+                    <li><a href="#interaction_labels">Slice labels</a></li>
+                    <li><a href="#interaction_histogram">Histogram</a></li>
+                    <li><a href="#interaction_status_bar">Status bar</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#viewer_example">Usage example</a></li>
+          </ul>
+        </div>
+<h2 id="viewer_introduction">Introduction</h2>
+<p><em>DIPlib</em> includes an <em>OpenGL</em>-based image viewer to help in the visualization
+of intermediate results. Its main purpose is as a debugging tool. It exists
+in its own library, which must be linked separately if used. The
+viewer contains two main classes</p>
+<ol>
+<li><a href="dip-viewer-ImageViewer.html"><code>dip::viewer::ImageViewer</code></a>, to visualize 2D 8-bit RGB images</li>
+<li><a href="dip-viewer-SliceViewer.html"><code>dip::viewer::SliceViewer</code></a>, to visualize 2D slices of nD (tensor) images</li>
+</ol>
+<p>More than one viewer can be active at the same time, and the separate
+windows are managed by a primitive window manager. Two libraries are
+supported for window management:</p>
+<ol>
+<li>
+<p><strong>GLUT</strong> (<a href="dip-viewer-GLUTManager.html"><code>dip::viewer::GLUTManager</code></a>):
+   The venerable <em>OpenGL Utility Toolkit</em>, in the form of
+   <a href="http://freeglut.sourceforge.net"><em>FreeGLUT</em></a>.</p>
+</li>
+<li>
+<p><strong>GLFW</strong> (<a href="dip-viewer-GLFWManager.html"><code>dip::viewer::GLFWManager</code></a>):
+   <a href="http://www.glfw.org/"><em>GLFW</em></a> is more modern than <em>GLUT</em>, and better supported
+   by MacOS. Its disadvantage is that it requires the user to poll an event handler
+   from the main thread of the program, something that is baked into the MacOS
+   <em>Cocoa</em> framework.</p>
+</li>
+</ol>
+<p>To use the <a href="dip-viewer-ImageViewer.html"><code>dip::viewer::ImageViewer</code></a>, the image must first be converted to 8-bit RGB,
+for example using the <a href="dip-ImageDisplay.html"><code>dip::ImageDisplay</code></a> class. It does not have a user
+interface, and just shows the image.</p>
+<h2 id="viewer_ui">User interface</h2>
+<p><img alt="SliceViewer showing the chromo3d.ics test image" class="m-image" src="viewer.png"></p>
+<p><a href="dip-viewer-SliceViewer.html"><code>dip::viewer::SliceViewer</code></a> is more elaborate. Its user interface consists of four
+main parts: The main visualization window, the control panel, the histogram,
+and the status bar.</p>
+<h3 id="viewer_main_window">Main visualization window</h3>
+<p>The main visualization window on the left shows three projections,
+  nominally XY, XZ and YZ. The upper left corner visualizes the different
+  tensor elements.</p>
+<h3 id="viewer_control_panel">Control panel</h3>
+<p>The control panel allows the user to select different ways of visualizing
+  the image. It consists of four lists of options:</p>
+<ol>
+<li>
+<p><em>Color space</em>, being</p>
+<ul>
+<li><em>SPA</em>: image color space; this disregards the mapping.</li>
+<li><em>RGB</em>: RGB color space, from any 3 tensor elements.</li>
+<li><em>GRY</em>: Single grey value.</li>
+<li><em>SEQ</em>: Single value mapped to a sequential blue-yellow colormap.</li>
+<li><em>DIV</em>: Single value mapped to a divergent blue-red colormap. Use for symmetric mappings.</li>
+<li><em>CYC</em>: Single value mapped to a cyclic colormap. Use for angles.</li>
+<li><em>LBL</em>: Single value mapped to sequentially disparate colors. Use for labels.</li>
+</ul>
+</li>
+<li>
+<p><em>Mapping</em>, being</p>
+<ul>
+<li><em>0-1</em>: Unit values.</li>
+<li><em>ANG</em>: Data between [-&pi;, &pi;].</li>
+<li><em>255</em>: 8-bit data.</li>
+<li><em>LIN</em>: Linear interpolation between the global minimum and maximum values.</li>
+<li><em>SYM</em>: Linear interpolation that is symmetric around 0.</li>
+<li><em>LOG</em>: Logarithmic mapping.</li>
+</ul>
+</li>
+<li>
+<p><em>Complex mapping</em>, being</p>
+<ul>
+<li><em>REA</em>: Real part.</li>
+<li><em>IMG</em>: Imaginary part.</li>
+<li><em>MAG</em>: Magnitude.</li>
+<li><em>PHA</em>: Phase.</li>
+</ul>
+</li>
+<li>
+<p><em>Projection</em>, being</p>
+<ul>
+<li><em>SLC</em>: Single slice around operating point.</li>
+<li><em>MIN</em>: Minimum over dimensions perpendicular to slice.</li>
+<li><em>MEA</em>: Mean over dimensions perpendicular to slice.</li>
+<li><em>MAX</em>: Maximum over dimensions perpendicular to slice.</li>
+</ul>
+</li>
+</ol>
+<h3 id="viewer_histogram">Histogram</h3>
+<p>The histogram shows both the frequency of intensities (100 bins between
+  global minimum and maximum values), as well as the minimum and maximum
+  values themselves. The colorbar left of the histogram shows how these
+  values are mapped in the main visualization window. Changing the mapping
+  in the control panel does not change the histogram extents, but does
+  change the colorbar.</p>
+<p>The histogram also indicates the value of the operating point and the
+  current mapping range.</p>
+<h3 id="viewer_status_bar">Status bar</h3>
+<p>The status bar gives the current pixel value, and shows option values
+  after you change them.</p>
+<h3 id="interaction">Interaction</h3>
+<p>Interaction occurs mainly within the main visualization window, and depends
+on where it occurs:</p>
+<h4 id="interaction_tensor">Tensor elements</h4>
+<p>Within the tensor visualization subwindow, left-clicking selects the
+tensor element to visualize. If the RGB color space is chosen,
+left-clicking allocates the next available color (R, G or B) until three
+elements have been selected. Left-clicking on an already selected element
+deselects it.</p>
+<h4 id="interaction_slices">Slices</h4>
+<p>Left-clicking in a slice changes the operating point for the visualized
+dimension(s). If slice projection is used, this will also affect the
+slices that are being visualized in the other projections.</p>
+<p>Shift-left-dragging sets the projection ROI. The ROI edge closest to the
+cursor is selected to be moved. This is only available when minimum, mean,
+or maximum projection is used.</p>
+<p>Middle-dragging gives some limited control over the relative sizes of the
+three projections.</p>
+<p>Right-dragging moves the slice, which is convenient when zooming in.</p>
+<p>Scroll wheel zooms in and out, centering in the current cursor position.
+Zooming in on the ancillary windows (nominal XZ and YZ) only zooms the Z
+dimension relatively.</p>
+<h4 id="interaction_labels">Slice labels</h4>
+<p>Right-clicking on a slice label changes the visualized dimension for that
+projection. In the special case of selecting &lsquo;-&lsquo;, a 1D slice is shown.
+Note that the horizontal dimensions of the nominal XY and XZ slices are
+necessarily the same, as are the vertical dimensions of the nominal XY and
+YZ slices.</p>
+<p>Zooming near the slice labels only zooms that dimension.</p>
+<h4 id="interaction_histogram">Histogram</h4>
+<p>Left-dragging in the histogram changes the mapping range limits.</p>
+<h4 id="interaction_status_bar">Status bar</h4>
+<p>To the right of the status bar is the Link indicator, which can be used to link
+to other windows. Simply click the indicator in the source window, and
+then in the destination window. Operating point, zoom and offset will then be
+shared between the windows. Right-click to unlink.</p>
+<p>There are also a few keyboard shortcuts:</p>
+<ul>
+<li>
+<p><strong class="m-label m-warning">D</strong> and <strong class="m-label m-warning">A</strong>:
+  Step through the first image dimension.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">S</strong> and <strong class="m-label m-warning">W</strong>:
+  Step through the second image dimension.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">N</strong> and <strong class="m-label m-warning">P</strong>:
+  Step through the third image dimension.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">F</strong> and <strong class="m-label m-warning">B</strong>:
+  Step through the fourth image dimension.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">1</strong> through <strong class="m-label m-warning">0</strong>:
+  Select tensor element (first element is leftmost).</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">Ctrl</strong> + <strong class="m-label m-warning">1</strong>:
+  Sets a 1:1 image pixel to screen pixel zoom for all dimensions.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">Ctrl</strong> + <strong class="m-label m-warning">F</strong>:
+  Sets the image to fill the screen area, but maintaining the XY aspect
+  ratio. The zoom of non-visualized dimensions is reset to 1.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">Ctrl</strong> + <strong class="m-label m-warning">L</strong>:
+  Sets linear mapping between global minimum and maximum values.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">Ctrl</strong> + <strong class="m-label m-warning">N</strong>:
+  Creates a linked clone of the current viewer. Convenient when wanting to
+  display different tensor elements, mappings, etc.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">Ctrl</strong> + <strong class="m-label m-warning">R</strong>:
+  Resets the projection ROI.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">Ctrl</strong> + <strong class="m-label m-warning">W</strong>:
+  Closes the current window.</p>
+</li>
+<li>
+<p><strong class="m-label m-warning">Ctrl</strong> + <strong class="m-label m-warning">Shift</strong> + <strong class="m-label m-warning">W</strong>:
+  Closes all windows.</p>
+</li>
+</ul>
+<h2 id="viewer_example">Usage example</h2>
+<p>The viewer is most easily used through the <a href="dip-viewer.html"><code>dip::viewer</code></a> namespace. Simply
+call</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">viewer</span><span class="o">::</span><span class="n">Show</span><span class="p">(</span> <span class="n">image</span> <span class="p">);</span>
+</pre></div>
+
+<p>after including <a href="file--dipviewer-h.html">dipviewer.h</a> to show an image in the slice viewer. After
+all images have been shown this way, you can call</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">viewer</span><span class="o">::</span><span class="n">Spin</span><span class="p">();</span>
+</pre></div>
+
+<p>to enable mouse interaction. If you wish to continue your program, you must
+instead call</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">viewer</span><span class="o">::</span><span class="n">Draw</span><span class="p">();</span>
+</pre></div>
+
+<p>periodically. Make sure to call <a href="dipviewer.html#dip-viewer-Spin"><code>dip::viewer::Spin</code></a> when you&rsquo;re done to
+ensure a clean exit.</p>
+<p>See <code>examples/cpp/viewer.cpp</code> for a usage example of the full interface.</p>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

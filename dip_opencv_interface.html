@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interfaces &raquo; DIPlib-OpenCV interface module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#22272e" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="interfaces.html">Interfaces</a> &raquo;</span>
+          <em>DIPlib</em>-<em>OpenCV</em> interface <span class="m-thin">module</span>          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--dip_opencv_interface-h.html">"dip_opencv_interface.h"</a></div>
+        </h1>
+        <p>Functions to convert images to and from <em>OpenCV</em>.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#dip_opencv_limitations">Limitations</a></li>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#namespaces">Namespaces</a></li>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+<p>The <a href="dip_opencv.html"><code>dip_opencv</code></a> namespace defines the functions needed to convert between <em>OpenCV</em> <code>cv::Mat</code> objects and <em>DIPlib</em>
+<a href="dip-Image.html"><code>dip::Image</code></a> objects.</p>
+<p>We define a class <a href="dip_opencv-ExternalInterface.html"><code>dip_opencv::ExternalInterface</code></a> so that output images from <em>DIPlib</em> can yield an <em>OpenCV</em> image.
+The function <a href="dip_opencv_interface.html#dip_opencv-MatToDip-cv-Mat-CL-bool-"><code>dip_opencv::MatToDip</code></a> encapsulates (maps) an <em>OpenCV</em> image in a <em>DIPlib</em> image;
+<a href="dip_opencv_interface.html#dip_opencv-DipToMat-dip-Image-CL"><code>dip_opencv::DipToMat</code></a> does the opposite, mapping a <em>DIPlib</em> image as an <em>OpenCV</em> image.</p>
+<h2 id="dip_opencv_limitations">Limitations</h2>
+<p><em>OpenCV</em> is more limited in how the pixel data is stored, and consequently not all <em>DIPlib</em> images can
+be mapped as an <em>OpenCV</em> image. These are the limitations:</p>
+<ul>
+<li>
+<p>The maximum number of channels in <em>OpenCV</em> is <code>CV_CN_MAX</code> (equal to 512 in my copy). <em>DIPlib</em> tensor elements are
+  mapped to channels, but the tensor shape is lost. The tensor stride must be 1.</p>
+</li>
+<li>
+<p><em>OpenCV</em> recognizes the following types (depths): 8-bit and 16-bit signed and unsigned ints, 32-bit signed ints,
+  and 32-bit and 64-bit floats. Thus, <a href="pixeltypes.html#dip-DT_UINT32"><code>dip::DT_UINT32</code></a> cannot be mapped. We choose to map it to 32-bit signed
+  ints, with the potential problem that the upper half of the unsigned range is mapped to negative values
+  (all modern systems use two&rsquo;s complement). <a href="pixeltypes.html#dip-DT_BIN"><code>dip::DT_BIN</code></a> is mapped to an 8-bit unsigned integer, see the note
+  below. 64-bit integer images cannot be mapped and throw an exception.</p>
+</li>
+<li>
+<p>Complex pixel values are mapped to <code>CV_32FC2</code> or <code>CV_64FC2</code> &ndash; a 2-channel float <code>cv::Mat</code> array. Consequently,
+  complex-valued tensor images cannot be mapped.</p>
+</li>
+<li>
+<p><code>cv::Mat</code> objects can store arrays of any dimensionality larger than 2, but <em>OpenCV</em> functionality
+  is mostly limited to 2D images. Therefore, we only map 2D <a href="dip-Image.html"><code>dip::Image</code></a> objects in a <code>cv::Mat</code> array.
+  0D or 1D images will have singleton dimensions appended to force them to be 2D.</p>
+</li>
+<li>
+<p>In <em>OpenCV</em>, the image rows must be contiguous (i.e. the x-stride must be equal to the number of tensor
+  elements), and the y-stride must be positive. This matches <em>DIPlib</em>&lsquo;s default, but if the <a href="dip-Image.html"><code>dip::Image</code></a> object
+  has strides that don&rsquo;t match <em>OpenCV</em>&lsquo;s requirement (e.g. after extracting a non-contiguous subset of pixels,
+  or calling <a href="dip-Image.html#dip-Image-Mirror-dip-uint-"><code>dip::Image::Mirror</code></a> or <a href="dip-Image.html#dip-Image-Rotation90-dip-sint--dip-uint--dip-uint-"><code>dip::Image::Rotation90</code></a>), an exception will be thrown. Use
+  <a href="dip-Image.html#dip-Image-ForceNormalStrides"><code>dip::Image::ForceNormalStrides</code></a> to copy the image into a suitable order for mapping. Alternatively, use
+  <a href="dip_opencv_interface.html#dip_opencv-CopyDipToMat-dip-Image-CL"><code>dip_opencv::CopyDipToMat</code></a>.</p>
+</li>
+</ul>
+<aside class="m-note m-info">
+<h4>Attention</h4>
+<p><em>OpenCV</em> does not know a binary image type, and uses an 8-bit unsigned integer with values 0 and 255
+where a binary image is intended. This clashes with <em>DIPlib</em>&lsquo;s binary type, which is of the same size but is
+expected to contain only 0 and 1 values. The functions <a href="dip_opencv_interface.html#dip_opencv-FixBinaryImageForDip-dip-Image-L"><code>dip_opencv::FixBinaryImageForDip</code></a> and
+<a href="dip_opencv_interface.html#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L"><code>dip_opencv::FixBinaryImageForOpenCv</code></a> fix up binary images for processing in either library.</p>
+</aside>
+        <section id="namespaces">
+          <h2>Namespaces</h2>
+          <dl class="m-doc">
+            <dt>namespace <a href="dip_opencv.html" class="m-doc">dip_opencv</a></dt>
+            <dd>The <code>dip_opencv</code> namespace contains the interface between <em>OpenCV 2</em> (or later) and <em>DIPlib</em>.</dd>
+          </dl>
+        </section>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+            <dt>
+              class <a href="dip_opencv-ExternalInterface.html" class="m-doc">dip_opencv::<wbr />ExternalInterface</a>
+            </dt>
+            <dd>This class is the <a href="dip-ExternalInterface.html"><code>dip::ExternalInterface</code></a> for the <em>OpenCV</em> interface.</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-MatToDip-cv-Mat-CL-bool-" class="m-doc">dip_opencv::<wbr />MatToDip</a>(</span><span class="m-doc-wrap">cv::Mat const&amp; mat,
+              bool forceUnsigned = false) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Creates a <em>DIPlib</em> image around an <em>OpenCV</em> <code>cv::Mat</code>, without taking ownership of the data.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-DipToMat-dip-Image-CL" class="m-doc">dip_opencv::<wbr />DipToMat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img) -&gt; cv::Mat</span>
+            </dt>
+            <dd>Creates an <em>OpenCV</em> <code>cv::Mat</code> object around a <em>DIPlib</em> image, without taking ownership of the data.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-CopyDipToMat-dip-Image-CL" class="m-doc">dip_opencv::<wbr />CopyDipToMat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img) -&gt; cv::Mat</span>
+            </dt>
+            <dd>Creates an <em>OpenCV</em> <code>cv::Mat</code> object from a <em>DIPlib</em> image by copy.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip_opencv-FixBinaryImageForDip-dip-Image-L" class="m-doc">dip_opencv::<wbr />FixBinaryImageForDip</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img)</span>
+            </dt>
+            <dd>Fixes the binary image <code>img</code> to match expectations of <em>DIPlib</em> (i.e. only the bottom bit is used).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L" class="m-doc">dip_opencv::<wbr />FixBinaryImageForOpenCv</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img)</span>
+            </dt>
+            <dd>Fixes the binary image <code>img</code> to match expectations of <em>OpenCV</em> (i.e. all bits have the same value).</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip_opencv-MatToDip-cv-Mat-CL-bool-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip_opencv-MatToDip-cv-Mat-CL-bool-" class="m-doc-self">dip_opencv::<wbr />MatToDip</a>(</span><span class="m-doc-wrap">cv::Mat const&amp; mat,
+              bool forceUnsigned = false)</span></span>
+            </h3>
+            <p>Creates a <em>DIPlib</em> image around an <em>OpenCV</em> <code>cv::Mat</code>, without taking ownership of the data.</p>
+<p>This function maps a <code>cv::Mat</code> object to a <a href="dip-Image.html"><code>dip::Image</code></a> object.
+The <code>dip::Image</code> object will point to the data in the <code>cv::Mat</code>, which must continue existing until the
+<code>dip::Image</code> is deleted or stripped. The output <code>dip::Image</code> is protected to prevent accidental reforging,
+unprotect it using <a href="dip-Image.html#dip-Image-Protect-bool-"><code>dip::Image::Protect</code></a>.</p>
+<p>An empty <code>cv::Mat</code> produces a non-forged <a href="dip-Image.html"><code>dip::Image</code></a>.</p>
+<p>If the <em>OpenCV</em> image <code>mat</code> has depth <code>CV_32S</code> (32-bit signed integer), and <code>forceUnsigned</code> is <code>true</code>, then
+the output <a href="dip-Image.html"><code>dip::Image</code></a> will be of type <a href="pixeltypes.html#dip-DT_UINT32"><code>dip::DT_UINT32</code></a>, instead of <a href="pixeltypes.html#dip-DT_SINT32"><code>dip::DT_SINT32</code></a>.</p>
+<p>For a &ldquo;binary&rdquo; <em>OpenCV</em> image (these are images of type <code>CV_8U</code> with pixel values of 0 and 255), the mapped
+<em>DIPlib</em> image is of type <a href="pixeltypes.html#dip-DT_UINT8"><code>dip::DT_UINT8</code></a>, because this function cannot know if the input <code>mat</code> was used as
+an 8-bit unsigned integer image or as a binary image. The simplest way to obtain a binary <em>DIPlib</em> image is
+to threshold the output of <code>MatToDip</code>. However, this leads to an image that doesn&rsquo;t share the data segment
+with the original <code>mat</code>:</p>
+<div class="m-code"><pre><span></span><span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">bin_mat</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">threshold</span><span class="p">(...);</span>                 <span class="c1">// This is a &quot;binary&quot; OpenCV image</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">bin_dip</span> <span class="o">=</span> <span class="n">dip_opencv</span><span class="o">::</span><span class="n">MatToDip</span><span class="p">(</span> <span class="n">bin_mat</span> <span class="p">);</span> <span class="c1">// This is a dip::DT_UINT8 DIPlib image, not dip::DT_BIN</span>
+<span class="n">bin_dip</span> <span class="o">=</span> <span class="n">bin_dip</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+<p>There currently is no simple solution to creating a <a href="pixeltypes.html#dip-DT_BIN"><code>dip::DT_BIN</code></a> image that encapsulates the data from a
+<code>cv::Mat</code> image. However, one can encapsulate the data of a binary <a href="dip-Image.html"><code>dip::Image</code></a> in a <code>cv::Mat</code>, see the example
+in <a href="dip_opencv_interface.html#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L"><code>dip_opencv::FixBinaryImageForOpenCv</code></a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip_opencv-DipToMat-dip-Image-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">cv::Mat
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip_opencv-DipToMat-dip-Image-CL" class="m-doc-self">dip_opencv::<wbr />DipToMat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img)</span></span>
+            </h3>
+            <p>Creates an <em>OpenCV</em> <code>cv::Mat</code> object around a <em>DIPlib</em> image, without taking ownership of the data.</p>
+<p>This function maps a <a href="dip-Image.html"><code>dip::Image</code></a> object to a <code>cv::Mat</code> object.
+The <code>cv::Mat</code> object will point to the data in the <code>dip::Image</code>, which must continue existing until the
+<code>cv::Mat</code> is deleted.</p>
+<p>A non-forged <a href="dip-Image.html"><code>dip::Image</code></a> produces an empty <code>cv::Mat</code>.</p>
+<p>There are many limitations to the images that can be mapped by a <code>cv::Mat</code>, see the description in the
+documentation to the module: <a href="dip_opencv_interface.html"><em>DIPlib</em>-<em>OpenCV</em> interface</a>. You can also use <a href="dip_opencv_interface.html#dip_opencv-CopyDipToMat-dip-Image-CL"><code>dip_opencv::CopyDipToMat</code></a> instead.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip_opencv-CopyDipToMat-dip-Image-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">cv::Mat
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip_opencv-CopyDipToMat-dip-Image-CL" class="m-doc-self">dip_opencv::<wbr />CopyDipToMat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img)</span></span>
+            </h3>
+            <p>Creates an <em>OpenCV</em> <code>cv::Mat</code> object from a <em>DIPlib</em> image by copy.</p>
+<p>A non-forged <a href="dip-Image.html"><code>dip::Image</code></a> produces an empty <code>cv::Mat</code>.</p>
+<p>If the image has more than two dimensions, or is a complex-valued tensor image, no copy can be made;
+an exception will be thrown.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip_opencv-FixBinaryImageForDip-dip-Image-L"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip_opencv-FixBinaryImageForDip-dip-Image-L" class="m-doc-self">dip_opencv::<wbr />FixBinaryImageForDip</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img)</span></span>
+            </h3>
+            <p>Fixes the binary image <code>img</code> to match expectations of <em>DIPlib</em> (i.e. only the bottom bit is used).</p>
+<p>The input image is expected to be binary. See <a href="dip_opencv_interface.html#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L"><code>dip_opencv::FixBinaryImageForOpenCv</code></a> for a use case.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip_opencv-FixBinaryImageForOpenCv-dip-Image-L"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L" class="m-doc-self">dip_opencv::<wbr />FixBinaryImageForOpenCv</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img)</span></span>
+            </h3>
+            <p>Fixes the binary image <code>img</code> to match expectations of <em>OpenCV</em> (i.e. all bits have the same value).</p>
+<p>The input image is expected to be binary. The data segment for the image is modified such that it is no
+longer useful for use in <em>DIPlib</em>, but becomes useful for use in <em>OpenCV</em>.</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">bin_dip</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Threshold</span><span class="p">(...);</span>          <span class="c1">// This is a DIPlib binary image</span>
+<span class="n">cv</span><span class="o">::</span><span class="n">Mat</span> <span class="n">bin_mat</span> <span class="o">=</span> <span class="n">dip_opencv</span><span class="o">::</span><span class="n">DipToMat</span><span class="p">(</span> <span class="n">bin_dip</span> <span class="p">);</span> <span class="c1">// This is an OpenCV CV_8U image with values 0 and 1</span>
+<span class="c1">// use bin_dip with DIPlib functions here...</span>
+<span class="n">dip_opencv</span><span class="o">::</span><span class="n">FixBinaryImageForOpenCv</span><span class="p">(</span> <span class="n">bin_dip</span> <span class="p">);</span>    <span class="c1">// Now both bin_dip and bin_mat have values 0 and 255</span>
+<span class="c1">// use bin_mat with OpenCV functions here...</span>
+<span class="n">dip_opencv</span><span class="o">::</span><span class="n">FixBinaryImageForDip</span><span class="p">(</span> <span class="n">bin_dip</span> <span class="p">);</span>       <span class="c1">// Now both bin_dip and bin_mat have values 0 and 1</span>
+<span class="c1">// use bin_dip with DIPlib functions here...</span>
+</pre></div>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
