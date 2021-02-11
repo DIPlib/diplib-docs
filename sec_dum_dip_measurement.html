@@ -72,14 +72,14 @@ object in the image, and the returned value is an object of type
 <p>The dot operator is used to extract the values corresponding to a single
 measurement. The array returned is of type <code>double</code>.</p>
 <p>For example,</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">(</span><span class="mi">11</span><span class="p">:</span><span class="mi">15</span><span class="p">).</span><span class="n">Size</span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">(</span><span class="mi">11</span><span class="p">:</span><span class="mi">15</span><span class="p">).</span><span class="n">Size</span><span class="w"></span>
 </pre></div>
 
 <p>will return a <code>double</code> array with five elements, being the sizes for
 objects number 11 through 15. Note that element 11 doesn&rsquo;t need to be
 placed 11th in the list of measurements. If only objects starting at 10
 were measured, the above example would be equivalent to</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>since <code>msr.Size</code> returns a <code>double</code> array, whose second element would be
@@ -119,7 +119,7 @@ don&rsquo;t match, an error is generated.</p>
 <p>In some cases, objects in different images have the same labels. These
 need to be changed before concatenation is possible. This is done by the
 following syntax:</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">id</span> <span class="p">=</span> <span class="mi">51</span><span class="p">:</span><span class="mi">73</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">51</span><span class="p">:</span><span class="mi">73</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>The length of the array assigned to the IDs must have the same number of
@@ -129,15 +129,15 @@ of the same objects. For example, one might measure the average grey
 value on all three channels of an RGB image. To join these measurements
 into a single object, it is possible to add a prefix to the names of the
 measurements:</p>
-<div class="m-code"><pre><span></span><span class="n">msr1</span><span class="p">.</span><span class="n">prefix</span> <span class="p">=</span> <span class="s">&#39;red_&#39;</span><span class="p">;</span>
-<span class="n">msr2</span><span class="p">.</span><span class="n">prefix</span> <span class="p">=</span> <span class="s">&#39;green_&#39;</span><span class="p">;</span>
-<span class="n">msr3</span><span class="p">.</span><span class="n">prefix</span> <span class="p">=</span> <span class="s">&#39;blue_&#39;</span><span class="p">;</span>
-<span class="n">msr</span> <span class="p">=</span> <span class="p">[</span><span class="n">msr1</span><span class="p">,</span><span class="n">msr2</span><span class="p">,</span><span class="n">msr3</span><span class="p">];</span>
+<div class="m-code"><pre><span></span><span class="n">msr1</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;red_&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">msr2</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;green_&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">msr3</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;blue_&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">msr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">msr1</span><span class="p">,</span><span class="n">msr2</span><span class="p">,</span><span class="n">msr3</span><span class="p">];</span><span class="w"></span>
 </pre></div>
 
 <p>Note that this prefix cannot be changed, only added to. For example,</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">prefix</span> <span class="p">=</span> <span class="s">&#39;A&#39;</span><span class="p">;</span>
-<span class="n">msr</span><span class="p">.</span><span class="n">prefix</span> <span class="p">=</span> <span class="s">&#39;B&#39;</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="n">msr</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;B&#39;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>causes the measurements in <code>msr</code> to have names like <code>'BASize'</code>.</p>

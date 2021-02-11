@@ -69,7 +69,7 @@ result.</p>
 some rice grains, then analyze these measurements.</p>
 <h2 id="sec_dum_gettingstarted_gui">Starting the GUI</h2>
 <p>Type the following command at the <em>MATLAB</em> prompt:</p>
-<div class="m-code"><pre><span></span><span class="n">dipimage</span>
+<div class="m-code"><pre><span></span><span class="n">dipimage</span><span class="w"></span>
 </pre></div>
 
 <p>This should start the <em>DIPimage</em> GUI. A new window appears to the top-left
@@ -96,14 +96,14 @@ then press the &ldquo;Execute&rdquo; button. Two things should happen:</p>
     command window:</p>
 </li>
 </ol>
-<div class="m-code"><pre><span></span><span class="gp">&gt;&gt; </span><span class="n">a</span> <span class="p">=</span> <span class="n">readim</span><span class="p">(</span><span class="s">&#39;c:\dip\share\images\rice.tif&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="gp">&gt;&gt; </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readim</span><span class="p">(</span><span class="s">&#39;c:\dip\share\images\rice.tif&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="go">Displayed in figure 1</span>
 </pre></div>
 
 <p>This is to show you that the same would have happened if you would have
 typed that command directly yourself, without using the GUI. Try typing
 this command:</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">readim</span><span class="p">(</span><span class="s">&#39;rice&#39;</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readim</span><span class="p">(</span><span class="s">&#39;rice&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>The same image should be loaded into the same variable, and again
@@ -116,7 +116,7 @@ current directory or in any of the directories specified by the
 <code>ImageFilePath</code> setting (see <a href="sec_dum_customizing.html#sec_dum_customizing_dippref">Other settings</a>).</p>
 <p>To avoid having the image displayed in a window automatically, add a
 semicolon to the end of the command:</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">readim</span><span class="p">(</span><span class="s">&#39;rice&#39;</span><span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readim</span><span class="p">(</span><span class="s">&#39;rice&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <h2 id="sec_dum_gettingstarted_preprocessing">Pre-processing the image</h2>
@@ -131,7 +131,7 @@ such that the objects are removed and the background shading is left.
 Try different settings until you are satisfied with the result.</p>
 <p>Once we have the background image, we can subtract it from the original
 image. It is very easy to do arithmetic with images in <em>MATLAB</em>. Type</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">bg</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bg</span><span class="w"></span>
 </pre></div>
 
 <p>The new image should be displayed to a figure window, but it looks very
@@ -154,14 +154,14 @@ windows.</p>
 that distinguishes the grains of rice from the background. To find it,
 we can examine the histogram of the image. Choose &ldquo;Histogram&rdquo; on the
 &ldquo;Statistics&rdquo; menu, or type</p>
-<div class="m-code"><pre><span></span><span class="n">diphist</span><span class="p">(</span><span class="n">a</span><span class="p">,[])</span>
+<div class="m-code"><pre><span></span><span class="n">diphist</span><span class="p">(</span><span class="n">a</span><span class="p">,[])</span><span class="w"></span>
 </pre></div>
 
 <p>The graph shows two peaks, one for the background, one for the objects.
 Find a value in between for the threshold. To do the segmentation,
 compare all pixel values with the threshold, which can be done in this
 way:</p>
-<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">20</span>
+<div class="m-code"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="w"></span>
 </pre></div>
 
 <p>This results in a binary image (logical image, containing values of
@@ -177,8 +177,8 @@ the image. We can do this using a binary operation. Find and execute the
 same as the <code>bpropagation</code> function, with an empty image as a seed
 image, and the edge condition set to 1. To create an empty seed image
 use the <code>newim</code> function. Thus, these two commands are equivalent:</p>
-<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">bpropagation</span><span class="p">(</span><span class="n">newim</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="s">&#39;bin&#39;</span><span class="p">),</span><span class="n">b</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">b</span> <span class="p">=</span> <span class="n">brmedgeobjs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bpropagation</span><span class="p">(</span><span class="n">newim</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="s">&#39;bin&#39;</span><span class="p">),</span><span class="n">b</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">brmedgeobjs</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <h2 id="sec_dum_gettingstarted_measuring">Measuring</h2>
@@ -194,7 +194,7 @@ values to see how the objects are labeled.</p>
 (<code>'Size'</code>) and the Feret diameters (<code>'Feret'</code>), which are the largest
 and smallest diameters, and the diameter perpendicular to the smallest
 diameter.</p>
-<div class="m-code"><pre><span></span><span class="n">data</span> <span class="p">=</span> <span class="n">measure</span><span class="p">(</span><span class="n">lab</span><span class="p">,[],{</span><span class="s">&#39;Size&#39;</span><span class="p">,</span><span class="s">&#39;Feret&#39;</span><span class="p">});</span>
+<div class="m-code"><pre><span></span><span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">measure</span><span class="p">(</span><span class="n">lab</span><span class="p">,[],{</span><span class="s">&#39;Size&#39;</span><span class="p">,</span><span class="s">&#39;Feret&#39;</span><span class="p">});</span><span class="w"></span>
 </pre></div>
 
 <p><code>measure</code> returns an object of type <code>dip_measurement</code>, which is
@@ -206,8 +206,8 @@ containing all the Feret diameters, and <code>data(1).Feret</code> are the Feret
 diameters for object number 1.</p>
 <p>To extract the measurements done on all objects and put them in an
 array, type</p>
-<div class="m-code"><pre><span></span><span class="n">feret</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">Feret</span><span class="p">;</span>
-<span class="n">sz</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">Size</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">feret</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Feret</span><span class="p">;</span><span class="w"></span>
+<span class="n">sz</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">Size</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>This gives us arrays with the measured data. <em>MATLAB</em> allows all kinds of
@@ -216,13 +216,13 @@ the mean grain area.</p>
 <p>We will use <code>scatter</code> to find some correlation between the diameters and
 the area of the grains. Let&rsquo;s start by plotting the length of the grains
 against their width:</p>
-<div class="m-code"><pre><span></span><span class="n">figure</span><span class="p">;</span>
-<span class="n">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span>
+<div class="m-code"><pre><span></span><span class="n">figure</span><span class="p">;</span><span class="w"></span>
+<span class="n">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 
 <p>Apparently, they are mostly unrelated. Let&rsquo;s try a relation between the
 length and the surface area:</p>
-<div class="m-code"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">sz</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">sz</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>These appear to be more related, but, of course, the area also depends
@@ -250,24 +250,24 @@ we know that the area is <span class="m-math"><svg style="width: 3.471em; height
 </g>
 </svg></span>. Let&rsquo;s plot the
 calculated area against the measured area:</p>
-<div class="m-code"><pre><span></span><span class="n">calc</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">4</span> <span class="o">*</span> <span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span> <span class="o">.*</span> <span class="n">feret</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">scatter</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span><span class="n">calc</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">calc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">pi</span><span class="o">/</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">feret</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">scatter</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span><span class="n">calc</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>Wow! That is a linear relation. We can add a line along the diagonal to
 see how much the ratio differs from 1 (the other commands are to make
 the figure look prettier):</p>
-<div class="m-code"><pre><span></span><span class="n">hold</span> <span class="s">on</span>
-<span class="n">plot</span><span class="p">([</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],[</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],</span><span class="s">&#39;k--&#39;</span><span class="p">)</span>
-<span class="n">axis</span> <span class="s">equal</span>
-<span class="n">box</span> <span class="s">on</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;object area   (pixels^2)&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;\pi{\cdot}a{\cdot}b   (pixels^2)&#39;</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="w"></span>
+<span class="n">plot</span><span class="p">([</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],[</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],</span><span class="s">&#39;k--&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">axis</span><span class="w"> </span><span class="s">equal</span><span class="w"></span>
+<span class="n">box</span><span class="w"> </span><span class="s">on</span><span class="w"></span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;object area   (pixels^2)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;\pi{\cdot}a{\cdot}b   (pixels^2)&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p><img alt="Graph produced by code above" class="m-image" src="rice_graph.png"></p>
 <p>The actual slope can be computed by:</p>
-<div class="m-code"><pre><span></span><span class="n">f</span> <span class="p">=</span> <span class="n">sz</span><span class="o">\</span><span class="n">calc</span>
+<div class="m-code"><pre><span></span><span class="n">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sz</span><span class="o">\</span><span class="n">calc</span><span class="w"></span>
 </pre></div>
 
 <p>(this is the lest-squares solution to the linear equation <code>sz*f = calc</code>).</p>

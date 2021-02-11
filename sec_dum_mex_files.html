@@ -149,7 +149,7 @@ as well as the <em>DIPimage</em> MEX-files in
 <h2 id="sec_dum_mex_files_mex">Compiling a MEX-file</h2>
 <p>To compile a MEX-file like the one shown in the previous section, save it for example
 as <code>myfunction.cpp</code>, and use the <code>dipmex</code> function in <em>MATLAB</em>:</p>
-<div class="m-code"><pre><span></span><span class="n">dipmex</span> <span class="s">myfunction.cpp</span>
+<div class="m-code"><pre><span></span><span class="n">dipmex</span><span class="w"> </span><span class="s">myfunction.cpp</span><span class="w"></span>
 </pre></div>
 
 <p>This function simply calls the <code>mex</code> function, adding arguments to allow the compiler
@@ -160,12 +160,12 @@ that you build the library yourself. <code>mex -setup C++</code> should be used 
 <em>MATLAB</em>&lsquo;s <code>mex</code> command to use the right compiler.</p>
 <p>The result of the <code>dipmex</code> command above is a MEX-file called <code>myfunction</code>. You can
 call it like any other <em>MATLAB</em> function:</p>
-<div class="m-code"><pre><span></span><span class="n">img</span> <span class="p">=</span> <span class="n">myfunction</span><span class="p">;</span>  <span class="c">% it has no input arguments</span>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">myfunction</span><span class="p">;</span><span class="w">  </span><span class="c">% it has no input arguments</span><span class="w"></span>
 </pre></div>
 
 <p>If your MEX-file needs more source files and/or libraries, simply add them to the
 <code>dipmex</code> command. You can also add <a href="https://www.mathworks.com/help/matlab/ref/mex.html">other arguments for <code>mex</code></a> here:</p>
-<div class="m-code"><pre><span></span><span class="n">dipmex</span> <span class="s">myfunction.cpp</span> <span class="s">other_source.cpp</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">me</span><span class="o">/</span><span class="n">mylibs</span><span class="o">/</span><span class="n">libstuff</span><span class="p">.</span><span class="n">a</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">me</span><span class="o">/</span><span class="n">mylibs</span><span class="o">/</span>
+<div class="m-code"><pre><span></span><span class="n">dipmex</span><span class="w"> </span><span class="s">myfunction.cpp</span><span class="w"> </span><span class="s">other_source.cpp</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">me</span><span class="o">/</span><span class="n">mylibs</span><span class="o">/</span><span class="n">libstuff</span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">me</span><span class="o">/</span><span class="n">mylibs</span><span class="o">/</span><span class="w"></span>
 </pre></div>
 
 <p>The MEX-file will always have as name the name of the first source file in the list,

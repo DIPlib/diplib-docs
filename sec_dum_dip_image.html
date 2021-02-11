@@ -177,7 +177,7 @@ specifying the data type easier.</p>
 </tbody>
 </table>
 <p>For example,</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">dip_image</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s">&#39;sfloat&#39;</span><span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dip_image</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s">&#39;sfloat&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>will convert the data in <code>a</code> to <code>single</code> (4-byte) floats before creating
@@ -190,14 +190,14 @@ its behavior.</p>
 convert the <code>dip_image</code> object to a <em>MATLAB</em> array of the specified class.</p>
 <p>There are also some commands to create an image from scratch. <code>newim</code> is
 equivalent to the <code>zeros</code> function, but returns a <code>dip_image</code> object.</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">newim</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newim</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>creates an image with 256x256 pixels set to zero. An additional
 parameter (as in the table above) can be used to specify the
 data type of the new image. The default is <code>'sfloat'</code>. If <code>b</code> is an
 object of type <code>dip_image</code>, then</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">newim</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newim</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>creates an image of the same size (this is the same as
@@ -205,7 +205,7 @@ object of type <code>dip_image</code>, then</p>
 create an image containing the coordinates of its pixels, and can be
 used in formulas that need them. For example, <code>rr([256,256])&lt;64</code> creates a
 binary image with a disk of radius 64. The expression</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="p">(</span><span class="n">yy</span><span class="p">(</span><span class="s">&#39;corner&#39;</span><span class="p">))</span><span class="o">*</span><span class="nb">sin</span><span class="p">((</span><span class="n">xx</span><span class="p">(</span><span class="s">&#39;corner&#39;</span><span class="p">))</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">300</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">yy</span><span class="p">(</span><span class="s">&#39;corner&#39;</span><span class="p">))</span><span class="o">*</span><span class="nb">sin</span><span class="p">((</span><span class="n">xx</span><span class="p">(</span><span class="s">&#39;corner&#39;</span><span class="p">))</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">300</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>generates a nice test pattern with increasing frequency along the
@@ -243,11 +243,11 @@ operations return binary images. Binary operations on non-binary images
 treat any non-zero value in those images as true and zero as false. For
 example, to do a threshold we do not need a special function, since we
 have the relational operators:</p>
-<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>A double threshold would be (note <em>MATLAB</em>&lsquo;s operator precedence):</p>
-<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">200</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>When the two images in the operation do not have the same number of
@@ -434,13 +434,13 @@ dimensions, whereas <code>squeeze(a(:,:,2))</code> is a 2D image.</p>
 <p>Any numeric type can be assigned into a <code>dip_image</code> object, without
 changing the image data type (that is, the element assigned into the
 image is converted to the image data type). For example,</p>
-<div class="m-code"><pre><span></span><span class="n">b</span><span class="p">(:,</span><span class="mi">0</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">b</span><span class="p">(:,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>sets the top row of the image in <code>b</code> to 0. Note that indexing
 expressions can become as complicated as you like. For example, to
 sub-sample the image by a factor 3, we could write</p>
-<div class="m-code"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Instead of using full indexing (indexing each dimension separately), it
@@ -482,12 +482,12 @@ objects (<span class="m-math"><svg style="width: 8.012em; height: 1.077em; verti
 <p>Finally, it is also possible to index using a mask image. Any binary
 image (or logical array) can be used as mask, but it must be of the same
 size as the image into which is being indexed. For example,</p>
-<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>sets all pixels in <code>a</code>, where <code>m</code> is one, to zero. A very common
 expression is of the form</p>
-<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>(which sets all negative pixels to zero).</p>
@@ -506,7 +506,7 @@ a matrix (2-rank tensor), etc. In <em>DIPimage</em> (and <em>DIPlib</em>) we cur
 limit the tensor rank to 2, simply because we never came across a use
 for higher-rank tensor images.</p>
 <p>The function <code>newtensorim</code> creates a new tensor image filled with zeros:</p>
-<div class="m-code"><pre><span></span><span class="n">A</span> <span class="p">=</span> <span class="n">newtensorim</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">])</span>
+<div class="m-code"><pre><span></span><span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newtensorim</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">])</span><span class="w"></span>
 </pre></div>
 
 <p>creates a 2-by-2 tensor image of 256 by 256 pixels.</p>
@@ -521,9 +521,9 @@ identically to the <code>.*</code> operator for scalar images, actually applies
 a matrix multiplication between each corresponding pair of pixels. For
 example, the following code applies a matrix multiplication to the
 2-vector image <code>b</code>, yielding a 2-by-2 matrix image <code>c</code>:</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="n">readim</span><span class="p">(</span><span class="s">&#39;trui&#39;</span><span class="p">);</span>
-<span class="n">b</span> <span class="p">=</span> <span class="n">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>      <span class="c">% yields a 2-vector</span>
-<span class="n">c</span> <span class="p">=</span> <span class="n">b</span> <span class="o">*</span> <span class="n">b</span><span class="o">&#39;</span>           <span class="c">% yields a 2-by-2 matrix</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readim</span><span class="p">(</span><span class="s">&#39;trui&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">      </span><span class="c">% yields a 2-vector</span><span class="w"></span>
+<span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="o">&#39;</span><span class="w">           </span><span class="c">% yields a 2-by-2 matrix</span><span class="w"></span>
 </pre></div>
 
 <p>The pixels of a tensor image can be indexed like a normal image,
@@ -549,8 +549,8 @@ requested, or the last pixel of the image is requested). The solution we
 have adopted is to always assume round braces (<code>()</code>). Never use <code>end</code>
 within curly braces (<code>{}</code>). You can use <code>tensorsize</code> or <code>numtensorel</code>
 to compute indices from the end for tensor indexing:</p>
-<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">{</span><span class="k">end</span><span class="p">};</span>             <span class="c">% doesn&#39;t work!</span>
-<span class="n">a</span><span class="p">{</span><span class="n">numtensorel</span><span class="p">(</span><span class="n">a</span><span class="p">)};</span>  <span class="c">% returns the last tensor component</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="p">{</span><span class="k">end</span><span class="p">};</span><span class="w">             </span><span class="c">% doesn&#39;t work!</span><span class="w"></span>
+<span class="n">a</span><span class="p">{</span><span class="n">numtensorel</span><span class="p">(</span><span class="n">a</span><span class="p">)};</span><span class="w">  </span><span class="c">% returns the last tensor component</span><span class="w"></span>
 </pre></div>
 
 <p>Note here that the image <code>c</code> above is a special type of matrix image:
@@ -624,7 +624,7 @@ are to be interpreted. A color image must have more than one channel, so
 the tensor image that represents it should have at least two components.
 Use the <code>colorspace</code> function to add this color space information to a
 tensor image:</p>
-<div class="m-code"><pre><span></span><span class="n">C</span> <span class="p">=</span> <span class="n">colorspace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s">&#39;RGB&#39;</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">C</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">colorspace</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="s">&#39;RGB&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>A color space is any string recognized by the system. See <code>help colorspace</code>
@@ -640,12 +640,12 @@ converting the pixel values themselves, change first to a
 color-space-less tensor image, and then to the final color space.</p>
 <p>The function <code>joinchannels</code> combines two or more images into a color
 image using the specified color space:</p>
-<div class="m-code"><pre><span></span><span class="n">C</span> <span class="p">=</span> <span class="n">joinchannels</span><span class="p">(</span><span class="s">&#39;RGB&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">C</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">joinchannels</span><span class="p">(</span><span class="s">&#39;RGB&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>The function <code>newcolorim</code> creates a new color image of the given
 color space, filled with zeros:</p>
-<div class="m-code"><pre><span></span><span class="n">C</span> <span class="p">=</span> <span class="n">newcolorim</span><span class="p">([</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">],</span><span class="s">&#39;RGB&#39;</span><span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">C</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newcolorim</span><span class="p">([</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">],</span><span class="s">&#39;RGB&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>All operations that are defined for tensor images can be applied to
@@ -732,10 +732,10 @@ applying <code>reshape</code> (or <code>squeeze</code>, which applies a <code>re
 dimensions) would change the pixels accessed at a given linear index, which is
 counter-intuitive. For example, in the following program <code>a</code> and <code>b</code> are
 different values:</p>
-<div class="m-code"><pre><span></span><span class="n">img</span> <span class="p">=</span> <span class="n">dip_image</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
-<span class="n">a</span> <span class="p">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-<span class="n">img</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">orig</span><span class="p">,[</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span>
-<span class="n">b</span> <span class="p">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dip_image</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span><span class="w"></span>
+<span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
+<span class="n">img</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">orig</span><span class="p">,[</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p><em>DIPimage 3</em> changed this behavior, such that <code>reshape</code> and <code>squeeze</code> are
@@ -800,7 +800,7 @@ maximum over <code>a(i,:,:)</code>.</p>
 projection functions all take a mask image as an optional second argument.
 The projection is taken only over those pixels selected by the mask. For
 example,</p>
-<div class="m-code"><pre><span></span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="m-code"><pre><span></span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>computes the mean projection along the first dimension (x axis), but only
