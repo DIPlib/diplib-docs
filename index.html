@@ -47,68 +47,32 @@
         <h1>
           About <em>DIPlib 3</em>
         </h1>
-        <div class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li><a href="#main_introduction">Introduction</a></li>
-            <li><a href="#main_modules">Modules, interfaces and bindings</a></li>
-          </ul>
-        </div>
-<h2 id="main_introduction">Introduction</h2>
-<p>The purpose of the <em>DIPlib</em> project is to provide a one-stop library and
-development environment for quantitative image analysis, be it applied
-to microscopy, radiology, astronomy, or anything in between.</p>
-<p>There are other image processing/analysis libraries available, some of
-them hugely popular. Why do we keep investing time in developing and
-improving <em>DIPlib</em>? The short answer is that we believe <em>DIPlib</em> offers
-things that are not available elsewhere. The library is built on the
-following three principles:</p>
-<ol>
-<li>
-<p><strong>Precision</strong></p>
-<p>We implement the most precise known methods, and output often defaults to
-floating-point samples. The purpose of these algorithms is quantification,
-not approximation.</p>
-</li>
-<li>
-<p><strong>Ease of use</strong></p>
-<p>We use modern C++ features to provide a simple and intuitive interface
-to algorithms, with expressive syntax, default values, and little
-boiler-plate code required from the user. There is no need to be aware of
-an image&rsquo;s data type to use the algorithms effectively.</p>
-<p>Furthermore, developing an image analysis program involves a lot of trial-and-error,
-rapid prototyping approaches are applicable: the edit-compile-run loop
-should be quick. We aim for short compile times with pre-compiled algorithms
-and few public templates.</p>
-</li>
-<li>
-<p><strong>Efficiency</strong></p>
-<p>We implement the most efficient known algorithms, as long as they don&rsquo;t
-compromise precision. Ease-of-use features might also incur a slight overhead
-in execution times. The library can be used in high-throughput quantitative analysis
-pipelines, but is not designed for real-time video processing.</p>
-</li>
-</ol>
-<p>Algorithms in <em>DIPlib</em> typically accept input images of any data type (though,
-of course, some algorithms are specific to binary images, or cannot handle
-complex images, etc.) and any number of dimensions (algorithms that are limited to
-one specific dimensionality typically show so in their name). The image data
-type and dimensionality do not need to be known at compile time. Images can
-have pixels that are vectors or matrices, for some examples on how this
-relates to the three points above, see <a href="why_tensors.html">Why tensors?</a>.</p>
+<h2>Introduction</h2>
+<p><em>DIPlib</em> is an extensive C++ library for quantitative image analysis. It:</p>
+<ul>
+<li>contains hundreds of image processing and analysis algorithms,</li>
+<li>is designed for precision foremost,</li>
+<li>tries to be fast, but is not meant for real-time video processing,</li>
+<li>is easy to use, providing a simple an intuitive interface to algorithms,</li>
+<li>allows for writing programs that don&rsquo;t know at compile time what the data
+  type or number of dimensions of the image to be processed are,</li>
+<li>reduces the edit-compile-run loop compared to other image processing libraries,</li>
+<li>makes it easy to express complex mathematical computations in code,
+  see <a href="why_tensors.html">Why tensors?</a>.</li>
+</ul>
 <p>There are many other unique things about <em>DIPlib</em>, we encourage you to
 explore the documentation to learn more about it. A good place to start
 are the following documentation pages:</p>
 <ul>
 <li>The <a href="dip-Image.html"><code>dip::Image</code></a> class, everything else revolves around it.</li>
 <li>All functionality is categorized into <a href="modules.html">modules</a>.</li>
+<li>The <a href="https://github.com/DIPlib/diplib/tree/master/examples"><code>examples/</code></a>
+  directory in the repository, which contains simple C++ programs that demonstrate
+  how to use various features of the library.</li>
 <li><a href="using_iterators.html">Using iterators to implement filters</a>, in case existing algorithms are not sufficient.</li>
 <li><a href="design.html"><em>DIPlib</em> 3 design decisions</a>, might help understand the library architecture.</li>
 </ul>
-<p>See also the <a href="https://github.com/DIPlib/diplib/tree/master/examples"><code>examples/</code></a>
-directory for a series of simple C++ programs that demonstrate how to use
-various features of the library.</p>
-<h2 id="main_modules">Modules, interfaces and bindings</h2>
+<h2>Modules, interfaces and bindings</h2>
 <p>Currently, <em>DIPlib 3</em> has interfaces or bindings to the following packages:</p>
 <ul>
 <li>
@@ -137,7 +101,7 @@ various features of the library.</p>
 </ul>
 <p>The <em>DIPlib</em> project further contains these additional modules:</p>
 <ul>
-<li><em>DIPviewer</em>: <a href="viewer.html"><em>DIPviewer</em></a> is an interactive image display utility.</li>
+<li><a href="dipviewer.html"><em>DIPviewer</em></a>: an interactive image display utility.</li>
 </ul>
       </div>
     </div>
