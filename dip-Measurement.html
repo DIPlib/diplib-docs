@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -65,11 +65,11 @@
             </li>
           </ul>
         </div>
-<p>A newly constructed <code>Measurement</code> will accept calls to <code>AddFeature</code>, and
-<code>AddObjectIDs</code>. Once the object is set up with all objects and features needed, a call
-to <code>Forge</code> creates the data segment necessary to hold all those measurements. Once
+<p>A newly constructed <code>Measurement</code> is raw, and will accept calls to <a href="dip-Measurement.html#dip-Measurement-AddFeature-dip-String-CL-Feature-ValueInformationArray-CL"><code>AddFeature</code></a>, <a href="dip-Measurement.html#dip-Measurement-SetObjectIDs-dip-UnsignedArray-"><code>SetObjectIDs</code></a>,
+<a href="dip-Measurement.html#dip-Measurement-AddObjectID-dip-uint-"><code>AddObjectID</code></a> and <a href="dip-Measurement.html#dip-Measurement-AddObjectIDs-dip-UnsignedArray-CL"><code>AddObjectIDs</code></a>. Once the object is set up with all objects and features needed,
+a call to <code>Forge</code> creates the data segment necessary to hold all those measurements. Once
 forged, it is no longer possible to add features or objects. As with a <a href="dip-Image.html"><code>dip::Image</code></a>,
-the method <code>IsForged</code> can be used to test if the object has been forged.</p>
+the method <a href="dip-Measurement.html#dip-Measurement-IsForged-C"><code>IsForged</code></a> can be used to test if the object has been forged.</p>
 <p>A forged <code>Measurement</code> can be read from in various ways, and a writable pointer to the
 data can be obtained. As with the <a href="dip-Image.html"><code>dip::Image</code></a> class, data pointers are always writable,
 even if the object is const-qualified. This simplifies the code, at the expense of opening
@@ -110,7 +110,7 @@ and iterate over the values within a cell group:</p>
 
 <p>A <code>Measurement</code> with zero object IDs will never be forged, it is possible to call <code>Forge</code> on it, but
 nothing will happen. For such an object, it is possible to index with a feature name, and iterate over
-the features (column groups). However, each of the columns will be empty, such that <code>FirstObject</code>
+the features (column groups). However, each of the columns will be empty, such that <a href="dip-Measurement.html#dip-Measurement-FirstObject-C"><code>FirstObject</code></a>
 returns an invalid iterator (evaluates to <code>false</code>). This means that, given a <code>Measurement</code> obtained
 from an empty image, one can iterate as usual over features and over objects, without needing to write
 a special test for the case of an image without objects.</p>
@@ -155,20 +155,25 @@ view over a specific object.</dd>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-AddFeature-dip-String-CL-Feature-ValueInformationArray-CL" class="m-doc-self">AddFeature</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name,
               <a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">Feature::ValueInformationArray</a> const&amp; values)</span>
             </dt>
-            <dd>Adds a feature to a non-forged <code>Measurement</code> object.</dd>
+            <dd>Adds a feature to a raw <code>Measurement</code> object.</dd>
             <dt id="dip-Measurement-EnsureFeature-dip-String-CL-Feature-ValueInformationArray-CL">
               <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-EnsureFeature-dip-String-CL-Feature-ValueInformationArray-CL" class="m-doc-self">EnsureFeature</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name,
               <a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">Feature::ValueInformationArray</a> const&amp; values)</span>
             </dt>
-            <dd>Adds a feature to a non-forged <code>Measurement</code> object if it is not already there.</dd>
+            <dd>Adds a feature to a raw <code>Measurement</code> object if it is not already there.</dd>
+            <dt id="dip-Measurement-SetObjectIDs-dip-UnsignedArray-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-SetObjectIDs-dip-UnsignedArray-" class="m-doc-self">SetObjectIDs</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> objectIDs)</span>
+            </dt>
+            <dd>Replaces existing objectID array with a new one. The <code>Measurement</code> object must be raw.</dd>
             <dt id="dip-Measurement-AddObjectID-dip-uint-">
               <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-AddObjectID-dip-uint-" class="m-doc-self">AddObjectID</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> objectID)</span>
             </dt>
-            <dd>Adds object IDs to a non-forged <code>Measurement</code> object.</dd>
+            <dd>Adds an object ID to a raw <code>Measurement</code> object.
+It is not efficient to use this function in a loop.</dd>
             <dt id="dip-Measurement-AddObjectIDs-dip-UnsignedArray-CL">
               <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-AddObjectIDs-dip-UnsignedArray-CL" class="m-doc-self">AddObjectIDs</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs)</span>
             </dt>
-            <dd>Adds object IDs to a non-forged <code>Measurement</code> object.</dd>
+            <dd>Adds object IDs to a raw <code>Measurement</code> object.</dd>
             <dt id="dip-Measurement-Forge">
               <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-Forge" class="m-doc-self">Forge</a>(</span><span class="m-doc-wrap">)</span>
             </dt>

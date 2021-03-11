@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org">DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -57,6 +57,7 @@
             <li><a href="#design_const_correctness">Const correctness</a></li>
             <li><a href="#design_frameworks">Frameworks</a></li>
             <li><a href="#design_multithreading">Multithreading</a></li>
+            <li><a href="#design_ranges">Ranges for indexing</a></li>
           </ul>
         </div>
 <p>This page gives reasons behind some of the design choices of <em>DIPlib 3</em>.
@@ -127,7 +128,8 @@ methods.</p>
 properties, not pixel data (with the exception of <a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>dip::Image::Copy</code></a> and
 <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a>). Filters and other algorithms that manipulate image data are
 always functions or function objects.</p>
-<p>We use function objects sparingly in <em>DIPlib</em>. <em>ITK</em>, for example, has taken
+<p>We use function objects sparingly in <em>DIPlib</em>.
+<a href="https://itk.org"><em>ITK</em></a>, for example, has taken
 the object-oriented approach to an extreme, where each algorithm is encapsulated
 in an object, and parameters to the algorithm are set through object methods.
 This leads to very verbose code that is not readable. For example, compare the
@@ -138,17 +140,19 @@ version of that that ignores <em>ITK</em>&lsquo;s templates and processing pipel
 <span class="n">gauss</span><span class="p">.</span><span class="n">SetSigma</span><span class="p">(</span> <span class="n">FloatArray</span><span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">);</span>
 <span class="n">gauss</span><span class="p">.</span><span class="n">Execute</span><span class="p">();</span>
 <span class="n">outim</span> <span class="o">=</span> <span class="n">gauss</span><span class="p">.</span><span class="n">GetOutput</span><span class="p">();</span>
+</pre></div>
 
-<span class="n">outim</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">image</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">outim</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">image</span><span class="p">,</span> <span class="n">FloatArray</span><span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">);</span>
 </pre></div>
 
 <h2 id="design_dynamic_types">Compile-time vs run-time pixel type identification</h2>
 <p><em>DIPlib</em> uses run-time identification of an image&rsquo;s pixel type, and functions
 dispatch internally to the appropriate sub-function. These sub-functions are
 generated at compile time through templates</p>
-<p>The alternative, seen in most C++ image analysis libraries (<em>ITK</em>, <em>Vigra</em>,
-<em>CImg</em>, etc.), is to define the image class, as well as most functions, as
-templates. The user declares an image having a specific data type (and dimensionality),
+<p>The alternative, seen in most C++ image analysis libraries (<a href="https://itk.org"><em>ITK</em></a>,
+<a href="http://ukoethe.github.io/vigra/"><em>Vigra</em></a>, <a href="https://cimg.eu"><em>CImg</em></a>, etc.),
+is to define the image class, as well as most functions, as templates.
+The user declares an image having a specific data type (and dimensionality),
 and the compiler then creates an image class with that data type for the pixels, as well
 as instances of all functions called with this image as input. This takes time.
 Compiling even a trivial program that uses <em>CImg</em> takes a minute, rather than a
@@ -161,7 +165,7 @@ up in the application executable, rather than in an independent library file
 an (even slightly) general image analysis program: you need to write code that
 allows the user of your program to select the image data type, and write code
 that does all the right dispatching depending on the data type (see, for example,
-the <em>SimpleITK</em> interface to <em>ITK</em>). Alternatively,
+the <a href="https://simpleitk.org"><em>SimpleITK</em></a> interface to <em>ITK</em>). Alternatively,
 you have to restrict the data type to one choice. A library is meant to take
 away work from the programmer using the library, so it is logical that <em>DIPlib</em>
 should allow all data types and do the dispatching as necessary. After all,
@@ -286,8 +290,10 @@ lambda. However, the syntax using a derived class with a virtual function is som
 simpler and more straight-forward, and thus more accessible. This was the main reason
 for us to choose the approach we chose.</p>
 <h2 id="design_multithreading">Multithreading</h2>
-<p>We use <em>OpenMP</em> for multithreading, mostly because it seems (to me) easier to use
-than Intel&rsquo;s <em>Threading Building Blocks</em> (<em>TBB</em>). <em>TBB</em> does not require special
+<p>We use <a href="https://www.openmp.org"><em>OpenMP</em></a> for multithreading, mostly because it seems
+(to me) easier to use than
+<a href="https://www.threadingbuildingblocks.org/docs/help/index.htm">Intel&rsquo;s <em>Threading Building Blocks</em></a>
+(<em>TBB</em>). <em>TBB</em> does not require special
 compiler support, but all modern compilers support <em>OpenMP</em> (except that XCode&rsquo;s CLang
 on MacOS doesn&rsquo;t come with the <em>OpenMP</em> library, which needs to be installed separately).
 The GNU Compiler Collection has very good support for <em>OpenMP</em>, and is available on
@@ -316,6 +322,49 @@ and double or worse the time spent on the filtering. <em>DIPlib 2</em> did not h
 any such logic, always started threads within the frameworks, and consequently
 behaved poorly with very small images. This system is intended to overcome that
 problem.</p>
+<h2 id="design_ranges">Ranges for indexing</h2>
+<p>There two common ways to define ranges for indexing, either the end index is included or not. For example,
+in MATLAB the end index is included, in Python it is excluded. Some languages such as Ruby and Scala allow
+the user to choose between the two. <em>DIPlib</em> uses <a href="dip-Range.html"><code>dip::Range</code></a> to represent a range for indexing. These
+ranges include the end index.</p>
+<p>On Stack Overflow one sees quite a few errors and cases of confusion in Python because the end index is not included
+in the range. Similar errors in MATLAB are highly uncommon. I think that this is because in English (and many,
+if not all, other languages too) when one counts from a to b, the b is included in the count. This is a strong
+argument in favor of including the end index: it is less confusing to the novice programmer.</p>
+<p>There are <a href="https://stackoverflow.com/q/11364533/7328782">no strong</a> <a href="https://stackoverflow.com/q/4504662/7328782">arguments</a>
+as to why it should be excluded. The argument typically offered is that <code>array[a:b]</code> in Python has <code>b - a</code> elements,
+rather than <code>b - a + 1</code> as would be the case if the end index were included, and this is prettier and thus better.
+Also, <code>array[a:b] + array[b:c] == array[a:c]</code>, whereas in MATLAB one would have to write <code>array(a:b-1)</code>
+and <code>array(b:c)</code> to split <code>array[a:c]</code>; this is again an argument of aesthetics. The only technical argument is that,
+by excluding the upper bound, it is possible to index zero elements, <code>array[1:1]</code>; however, in MATLAB this is also
+possible, <code>array(1:0)</code>, so this argument is again not meaningful.</p>
+<p>Nonetheless, MATLAB’s end index being included is paired with indexing starting at 1, such that the range <code>1:n</code> has
+<code>n</code> elements, just like Python’s <code>range(0, n)</code>. There are very few examples where indexing starts at 0 but includes
+the end index.</p>
+<p>In <em>DIPlib</em> indexing starts at 0, so the logical solution would be for <code>dip::Range( a, b )</code> to exclude <code>b</code>, following
+Python’s logic, which also starts indexing at 0. But this leads to certain difficulties when using negative indices
+to count from the end.</p>
+<p>For example, in Python, <code>array[a:]</code> is all elements from <code>a</code> to the end of the array, whereas <code>array[a,-1]</code> is all
+elements from <code>a</code> to the second to last element. In C++ we cannot copy that syntax, we cannot write <code>dip::Range( a, )</code>.
+So if the end index is not included in the array, then there is no way to express a range that includes the last index.
+The same is true for reverse ranges that end in the first array element. There is no number before 0 that can be
+used to indicate &ldquo;one element before the first one&rdquo;, since -1 means the last element of the array.</p>
+<p>This particular issue lead to the decision to include the end index in the range, at the risk of doing things
+differently. There are two positive side-effects to this decision:</p>
+<ul>
+<li>
+<p>Ranges that include the end index are more intuitive, as mentioned above.</p>
+</li>
+<li>
+<p>It is not possible to create an empty range. <code>dip::Range( 4, 4 )</code> is one element, and <code>dip::Range( 4, 3 )</code> is two
+  elements, in reverse. By not allowing empty ranges, we can be sure that indexing an image using a range will produce
+  a valid view.</p>
+</li>
+</ul>
+<p>In C++ it is common to write loops as <code>for( ii = 0; ii &lt; n; ++ii )</code>, and the end iterator always points to one past
+the end of the range. But the <code>dip::Range</code> start and stop values are not meant to be used directly in loops,
+they are meant for the user to communicate ranges to library functions. <code>dip::Range</code> has <code>begin()</code> and <code>end()</code>
+functions for use in loops. Therefore, this aspect should not cause confusion.</p>
       </div>
     </div>
   </div>
