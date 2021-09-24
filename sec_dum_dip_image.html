@@ -9,14 +9,14 @@
   <link rel="prev" href="sec_dum_gettingstarted.html" />
   <link rel="next" href="sec_dum_dip_measurement.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -213,6 +213,10 @@ x-axis, and increasing amplitude along the y-axis. All these functions
 have 256x256 pixels as the default output size, and allow as a parameter
 either the size of an image, or an image whose size is to be copied. For
 example, <code>a*xx(a)</code> is an image multiplied by its x-coordinates.</p>
+<p>When calling a <em>DIPimage</em> function that expects a <code>dip_image</code> object as input,
+but using a numeric array as input instead, the array is silently converted
+to a <code>dip_image</code> object as if calling <code>dip_image(argument)</code>. This behavior is
+slightly different for arithmetic operations, see <a href="sec_dum_dip_image.html#sec_dum_dip_image_tensors">Tensor images</a>.</p>
 <h2 id="sec_dum_dip_image_displaying">Displaying <code>dip_image</code> objects</h2>
 <p>When a <em>MATLAB</em> command does not end with a semicolon, the display method
 is called for the resulting values, if any. This method defaults to
@@ -522,7 +526,7 @@ a matrix multiplication between each corresponding pair of pixels. For
 example, the following code applies a matrix multiplication to the
 2-vector image <code>b</code>, yielding a 2-by-2 matrix image <code>c</code>:</p>
 <div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readim</span><span class="p">(</span><span class="s">&#39;trui&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">      </span><span class="c">% yields a 2-vector</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w">      </span><span class="c">% yields a 2-vector</span><span class="w"></span>
 <span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="o">&#39;</span><span class="w">           </span><span class="c">% yields a 2-by-2 matrix</span><span class="w"></span>
 </pre></div>
 
@@ -530,7 +534,7 @@ example, the following code applies a matrix multiplication to the
 returning a new tensor image. It can also be indexed using curly
 braces (<code>{}</code>) to select one or more tensor elements (channels). Indexing
 into the tensor dimension is identical to indexing into a <em>MATLAB</em>
-matrix: the first index goes down, and indices start at 0. For
+matrix: the first index goes down, and indices start at 1. For
 example, <code>c{1,1}</code> is a scalar image with the first tensor element of
 each matrix in the image <code>c</code>.
 A single index uses linear indexing: <code>c{1}</code> also is the first tensor element.</p>
@@ -617,6 +621,15 @@ following table. See <a href="sec_dum_dip_image.html#sec_dum_dip_image_overloade
 </tr>
 </tbody>
 </table>
+<p>Arithmetic operations between an image and a small numeric matrix cause this
+matrix to be converted to a 0D tensor image (a single pixel with a matrix
+as value), instead of a small scalar image. This mode is triggered by matrices
+with up to 5-by-5 elements. For example,</p>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">readim</span><span class="p">(</span><span class="s">&#39;trui&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">gradient</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">                 </span><span class="c">% yields a 2-vector</span><span class="w"></span>
+<span class="n">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="o">&#39;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="nb">cosd</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span><span class="w"> </span><span class="nb">sind</span><span class="p">(</span><span class="mi">30</span><span class="p">)]</span><span class="w">   </span><span class="c">% yields a scalar</span><span class="w"></span>
+</pre></div>
+
 <h2 id="sec_dum_dip_image_color">Color images</h2>
 <p>A color image is represented in a <code>dip_image</code> object by a tensor image
 with some extra information on the color space in which the pixel values
@@ -732,7 +745,7 @@ applying <code>reshape</code> (or <code>squeeze</code>, which applies a <code>re
 dimensions) would change the pixels accessed at a given linear index, which is
 counter-intuitive. For example, in the following program <code>a</code> and <code>b</code> are
 different values:</p>
-<div class="m-code"><pre><span></span><span class="n">img</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dip_image</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dip_image</span><span class="p">(</span><span class="nb">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span><span class="w"></span>
 <span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
 <span class="n">img</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">orig</span><span class="p">,[</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span><span class="w"></span>
 <span class="n">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">img</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w"></span>
@@ -800,7 +813,7 @@ maximum over <code>a(i,:,:)</code>.</p>
 projection functions all take a mask image as an optional second argument.
 The projection is taken only over those pixels selected by the mask. For
 example,</p>
-<div class="m-code"><pre><span></span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>computes the mean projection along the first dimension (x axis), but only

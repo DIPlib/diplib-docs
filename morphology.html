@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -159,6 +159,13 @@
             </dt>
             <dd>A morphological smoothing filter</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MorphologicalSharpening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalSharpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>A morphological sharpening filter</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-MultiScaleMorphologicalGradient-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL-dip-StringArray-CL" class="m-doc">dip::<wbr />MultiScaleMorphologicalGradient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> upperSize = 9,
@@ -199,6 +206,15 @@
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
             <dd>Applies the rank-max opening, an opening that is somewhat robust to noise.</dd>
+            <dt id="dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL" class="m-doc-self">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL)</span>
+            </dt>
+            <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-UpperSkeleton2D-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL" class="m-doc">dip::<wbr />UpperSkeleton2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
@@ -237,6 +253,13 @@
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
             </dt>
             <dd>Computes the H-Maxima filtered image</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImposeMinima-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">dip::<wbr />ImposeMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
+            </dt>
+            <dd>Impose minima.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Leveling-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">dip::<wbr />Leveling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
@@ -354,14 +377,16 @@ has &ldquo;hit&rdquo;, &ldquo;miss&rdquo; and &ldquo;don&rsquo;t care&rdquo; val
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span></span>
             </h3>
             <p>Applies the dilation.</p>
-<p><code>se</code> defines the structuring element.</p>
+<p><code>se</code> defines the structuring element, see <a href="dip-StructuringElement.html"><code>dip::StructuringElement</code></a> for options and details.</p>
 <p><code>boundaryCondition</code> determines the boundary conditions. See <a href="boundary.html#dip-BoundaryCondition"><code>dip::BoundaryCondition</code></a>.
 The default value, and most meaningful one, is <code>"add min"</code>, but any value can be used.
-For the rectangular, fast line and periodic line structuring elements, no boundary condition
+For the rectangular, diamond, fast line and periodic line structuring elements, no boundary condition
 causes the filter to not read outside the image bounds. This is equivalent to <code>"add min"</code>.</p>
+<p><code>in</code> must be a scalar image, and not complex-valued. In particular, <code>in</code> can be binary; this function
+is more efficient than <a href="binary.html#dip-BinaryDilation-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryDilation</code></a>.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
-<p><a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a>, <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a>, <a href="morphology.html#dip-RankFilter-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-uint--dip-String-CL-dip-StringArray-CL"><code>dip::RankFilter</code></a></p>
+<p><a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a>, <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a>, <a href="morphology.html#dip-RankFilter-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-uint--dip-String-CL-dip-StringArray-CL"><code>dip::RankFilter</code></a>, <a href="binary.html#dip-IsotropicDilation-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::IsotropicDilation</code></a></p>
 </aside>
           </div></section>
           <section class="m-doc-details" id="dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><div>
@@ -373,14 +398,16 @@ causes the filter to not read outside the image bounds. This is equivalent to <c
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span></span>
             </h3>
             <p>Applies the erosion with a standard structuring element.</p>
-<p><code>se</code> defines the structuring element.</p>
+<p><code>se</code> defines the structuring element. See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for details and warnings.</p>
 <p><code>boundaryCondition</code> determines the boundary conditions. See <a href="boundary.html#dip-BoundaryCondition"><code>dip::BoundaryCondition</code></a>.
 The default value, and most meaningful one, is <code>"add max"</code>, but any value can be used.
-For the rectangular, fast line and periodic line structuring elements, no boundary condition
+For the rectangular, diamond, fast line and periodic line structuring elements, no boundary condition
 causes the filter to not read outside the image bounds. This is equivalent to <code>"add max"</code>.</p>
+<p><code>in</code> must be a scalar image, and not complex-valued. In particular, <code>in</code> can be binary; this function
+is more efficient than <a href="binary.html#dip-BinaryErosion-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryErosion</code></a>.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
-<p><a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a>, <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a>, <a href="morphology.html#dip-RankFilter-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-uint--dip-String-CL-dip-StringArray-CL"><code>dip::RankFilter</code></a></p>
+<p><a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a>, <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a>, <a href="morphology.html#dip-RankFilter-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-uint--dip-String-CL-dip-StringArray-CL"><code>dip::RankFilter</code></a>, <a href="binary.html#dip-IsotropicErosion-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::IsotropicErosion</code></a></p>
 </aside>
           </div></section>
           <section class="m-doc-details" id="dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><div>
@@ -392,16 +419,18 @@ causes the filter to not read outside the image bounds. This is equivalent to <c
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span></span>
             </h3>
             <p>Applies the closing with a standard structuring element.</p>
-<p><code>se</code> defines the structuring element.</p>
+<p><code>se</code> defines the structuring element. See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for details and warnings.</p>
 <p><code>boundaryCondition</code> determines the boundary conditions. See <a href="boundary.html#dip-BoundaryCondition"><code>dip::BoundaryCondition</code></a>.
 Meaningful values for the closing are <code>"add max"</code> and <code>"add min"</code>, but any value can
 be used. The default empty array causes the function to use <code>"add min"</code> with the dilation
 and <code>"add max"</code> with the erosion, equivalent to ignoring what&rsquo;s outside the image.
-For the rectangular, fast line and periodic line structuring elements, no boundary condition
+For the rectangular, diamond, fast line and periodic line structuring elements, no boundary condition
 causes the filter to not read outside the image bounds.</p>
+<p><code>in</code> must be a scalar image, and not complex-valued. In particular, <code>in</code> can be binary; this function
+is more efficient than <a href="binary.html#dip-BinaryClosing-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryClosing</code></a>.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
-<p><a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a>, <a href="morphology.html#dip-RankMinClosing-dip-Image-CL-dip-Image-L-dip-StructuringElement--dip-uint--dip-StringArray-CL"><code>dip::RankMinClosing</code></a></p>
+<p><a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a>, <a href="morphology.html#dip-RankMinClosing-dip-Image-CL-dip-Image-L-dip-StructuringElement--dip-uint--dip-StringArray-CL"><code>dip::RankMinClosing</code></a>, <a href="binary.html#dip-IsotropicClosing-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::IsotropicClosing</code></a></p>
 </aside>
           </div></section>
           <section class="m-doc-details" id="dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><div>
@@ -413,16 +442,18 @@ causes the filter to not read outside the image bounds.</p>
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span></span>
             </h3>
             <p>Applies the opening with a standard structuring element.</p>
-<p><code>se</code> defines the structuring element.</p>
+<p><code>se</code> defines the structuring element. See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for details and warnings.</p>
 <p><code>boundaryCondition</code> determines the boundary conditions. See <a href="boundary.html#dip-BoundaryCondition"><code>dip::BoundaryCondition</code></a>.
 Meaningful values for the opening are <code>"add max"</code> and <code>"add min"</code>, but any value can
 be used. The default empty array causes the function to use <code>"add min"</code> with the dilation
 and <code>"add max"</code> with the erosion, equivalent to ignoring what&rsquo;s outside the image.
-For the rectangular, fast line and periodic line structuring elements, no boundary condition
+For the rectangular, diamond, fast line and periodic line structuring elements, no boundary condition
 causes the filter to not read outside the image bounds.</p>
+<p><code>in</code> must be a scalar image, and not complex-valued. In particular, <code>in</code> can be binary; this function
+is more efficient than <a href="binary.html#dip-BinaryOpening-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryOpening</code></a>.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
-<p><a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a>, <a href="morphology.html#dip-RankMaxOpening-dip-Image-CL-dip-Image-L-dip-StructuringElement--dip-uint--dip-StringArray-CL"><code>dip::RankMaxOpening</code></a></p>
+<p><a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a>, <a href="morphology.html#dip-RankMaxOpening-dip-Image-CL-dip-Image-L-dip-StructuringElement--dip-uint--dip-StringArray-CL"><code>dip::RankMaxOpening</code></a>, <a href="binary.html#dip-IsotropicOpening-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::IsotropicOpening</code></a></p>
 </aside>
           </div></section>
           <section class="m-doc-details" id="dip-Tophat-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-String-CL-dip-String-CL-dip-StringArray-CL"><div>
@@ -450,8 +481,7 @@ indicate objects are darker than the background.</p>
 <p>The standard top-hat is defined as the <code>Opening( in ) - in</code>. This is the operation obtained
 with the default values.</p>
 <p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
-See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> and/or <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> for a description
-of these parameters.</p>
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters.</p>
           </div></section>
           <section class="m-doc-details" id="dip-MorphologicalThreshold-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-String-CL-dip-StringArray-CL"><div>
             <h3>
@@ -472,8 +502,7 @@ These can be chosen through the <code>edgeType</code> parameter.</p>
 <li><code>"both"</code> or <code>"dynamic"</code>: all edges produce equal response.</li>
 </ul>
 <p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
-See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> and/or <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> for a description
-of these parameters.</p>
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters.</p>
           </div></section>
           <section class="m-doc-details" id="dip-MorphologicalGist-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-String-CL-dip-StringArray-CL"><div>
             <h3>
@@ -494,8 +523,7 @@ two complementary morphological operators and the original image.</p>
 <li><code>"both"</code> or <code>"dynamic"</code>: all edges produce equal response.</li>
 </ul>
 <p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
-See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> and/or <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> for a description
-of these parameters.</p>
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters.</p>
           </div></section>
           <section class="m-doc-details" id="dip-MorphologicalRange-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-String-CL-dip-StringArray-CL"><div>
             <h3>
@@ -516,8 +544,7 @@ operations. These can be chosen through the <code>edgeType</code> parameter.</p>
 <li><code>"both"</code> or <code>"dynamic"</code>: all edges produce equal response.</li>
 </ul>
 <p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
-See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> and/or <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> for a description
-of these parameters.</p>
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters.</p>
           </div></section>
           <section class="m-doc-details" id="dip-MorphologicalGradientMagnitude-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><div>
             <h3>
@@ -553,8 +580,7 @@ operations. These can be chosen through the <code>edgeType</code> parameter.</p>
 <p>If <code>sign</code> is <code>"unsigned"</code>, <code>Lee</code> computes the absolute edge strength. <code>sign</code> can also be <code>"signed"</code>
 to compute the signed edge strength.</p>
 <p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
-See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> and/or <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> for a description
-of these parameters.</p>
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters.</p>
           </div></section>
           <section class="m-doc-details" id="dip-MorphologicalSmoothing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-String-CL-dip-StringArray-CL"><div>
             <h3>
@@ -566,8 +592,8 @@ of these parameters.</p>
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span></span>
             </h3>
             <p>A morphological smoothing filter</p>
-<p>Implements a morphological smoothing based on the sequence of two complementary morphological
-operations. These can be chosen through the <code>polarity</code> parameter.</p>
+<p>Implements a morphological smoothing based on the sequence of an opening and a closing. Their order
+can be chosen through the <code>polarity</code> parameter.</p>
 <p><code>polarity</code> can be one of:</p>
 <ul>
 <li><code>"open-close"</code>: applies the opening first, then the closing.</li>
@@ -575,8 +601,21 @@ operations. These can be chosen through the <code>polarity</code> parameter.</p>
 <li><code>"average"</code>: computes the average of the result of the first two modes.</li>
 </ul>
 <p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
-See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> and/or <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> for a description
-of these parameters.</p>
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters..</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-MorphologicalSharpening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MorphologicalSharpening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL" class="m-doc-self">dip::<wbr />MorphologicalSharpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span></span>
+            </h3>
+            <p>A morphological sharpening filter</p>
+<p>Implements a morphological sharpening based on selecting per pixel the result of the dilation or erosion,
+whichever is closest to the input image.</p>
+<p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters..</p>
           </div></section>
           <section class="m-doc-details" id="dip-MultiScaleMorphologicalGradient-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-String-CL-dip-StringArray-CL"><div>
             <h3>
@@ -613,8 +652,7 @@ and <code>"add max"</code> with the erosion, equivalent to ignoring what&rsquo;s
 </pre></div>
 
 <p><code>se</code> defines the structuring element, and <code>boundaryCondition</code> the boundary conditions.
-See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a>, <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a>, <a href="morphology.html#dip-Opening-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Opening</code></a> and/or <a href="morphology.html#dip-Closing-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Closing</code></a> for a description
-of these parameters.</p>
+See <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> for a description of these parameters.</p>
           </div></section>
           <section class="m-doc-details" id="dip-RankFilter-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-uint--dip-String-CL-dip-StringArray-CL"><div>
             <h3>
@@ -999,20 +1037,27 @@ If this is an issue, consider adding one pixel on each side of your image.</p>
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::DILATION)</span></span>
             </h3>
             <p>Reconstruction by dilation or erosion, also known as inf-reconstruction and sup-reconstruction</p>
-<p>Iteratively dilates (erodes) the image <code>marker</code> such that it remains lower (higher) than <code>in</code> everywhere, until
-stability. This is implemented with an efficient priority-queue&ndash;based method. <code>direction</code> indicates which of
-the two operations to apply (<code>"dilation"</code> or <code>"erosion"</code>).</p>
+<p>This function has the same effect as iteratively dilating (eroding) the image <code>marker</code> such that it remains lower
+(higher) than <code>in</code> everywhere, until stability. However, this is implemented with a much more efficiently.
+<code>direction</code> indicates which of the two operations to apply (<code>"dilation"</code> or <code>"erosion"</code>).</p>
 <p><code>out</code> will have the data type of <code>in</code>, and <code>marker</code> will be cast to that same type (with clamping to the target
 range, see <a href="dip-Image.html#dip-Convert-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Convert</code></a>).</p>
 <p>See <a href="concepts.html#connectivity">Connectivity</a> for information on the connectivity parameter.</p>
-<p>For binary images, <a href="binary.html#dip-BinaryPropagation-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryPropagation</code></a> is always faster. That function additionally allows limiting
-the number of reconstruction steps, and supports alternating connectivity, which yields a more isotropic result
-when limiting the number of reconstruction steps.</p>
+<p>The algorithm implemented is a hybrid between the method proposed by Vincent (a forward raster scan, followed
+by a backward raster scan, followed by a LIFO queue propagation method), and that proposed by Robinson and Whelan
+(a priority queue method). We implement the forward and backward scan, and follow it by a priority queue propagation.
+The priority queue method has the advantage of visiting each pixels exactly once.</p>
+<p>For binary images, <a href="binary.html#dip-BinaryPropagation-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint--dip-String-CL"><code>dip::BinaryPropagation</code></a> is more flexible. That function additionally allows choosing a
+boundary condition, allows limiting the number of reconstruction steps, and supports alternating connectivity,
+which yields a more isotropic result when limiting the number of reconstruction steps.
+However, this function is faster.</p>
 <p>This functions is used by <a href="morphology.html#dip-LimitedMorphologicalReconstruction-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat--dip-uint--dip-String-CL"><code>dip::LimitedMorphologicalReconstruction</code></a>, <a href="morphology.html#dip-HMinima-dip-Image-CL-dip-Image-L-dip-dfloat--dip-uint-"><code>dip::HMinima</code></a>, <a href="morphology.html#dip-HMaxima-dip-Image-CL-dip-Image-L-dip-dfloat--dip-uint-"><code>dip::HMaxima</code></a>,
 <a href="morphology.html#dip-Leveling-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><code>dip::Leveling</code></a>, <a href="morphology.html#dip-OpeningByReconstruction-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-uint--dip-StringArray-CL"><code>dip::OpeningByReconstruction</code></a>, <a href="morphology.html#dip-ClosingByReconstruction-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-uint--dip-StringArray-CL"><code>dip::ClosingByReconstruction</code></a></p>
 <aside class="m-note m-default">
 <h4>Literature</h4>
 <ul>
+<li>L. Vincent, &ldquo;Morphological grayscale reconstruction in image analysis: applications and efficient algorithms&rdquo;,
+  IEEE Transactions on Image Processing 2(2):176-201, 1993.</li>
 <li>K. Robinson and P.F. Whelan, &ldquo;Efficient morphological reconstruction: a downhill filter&rdquo;, Pattern Recognition
   Letters 25:1759-1767, 2004.</li>
 </ul>
@@ -1031,7 +1076,8 @@ when limiting the number of reconstruction steps.</p>
             <p>Reconstruction by dilation or erosion, but with a limited reach.</p>
 <p>Performs the same function as <a href="morphology.html#dip-MorphologicalReconstruction-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::MorphologicalReconstruction</code></a>, but limiting the
 reach of the operation to <code>maxDistance</code> pixels. This is an Euclidean distance, and
-determines the zone of influence of each value in <code>marker</code>.</p>
+determines the zone of influence of each value in <code>marker</code>. The limited reach is
+accomplished by updating <code>in</code>, rather than counting propagation steps.</p>
 <p>See <a href="morphology.html#dip-MorphologicalReconstruction-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::MorphologicalReconstruction</code></a> for the meaning of the rest of the parameters,
 and more information about the algorithm.</p>
           </div></section>
@@ -1069,6 +1115,25 @@ and more information about the algorithm.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
 <p><a href="morphology.html#dip-MorphologicalReconstruction-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::MorphologicalReconstruction</code></a>, <a href="segmentation.html#dip-Maxima-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::Maxima</code></a>, <a href="morphology.html#dip-HMinima-dip-Image-CL-dip-Image-L-dip-dfloat--dip-uint-"><code>dip::HMinima</code></a></p>
+</aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-ImposeMinima-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ImposeMinima-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />ImposeMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span></span>
+            </h3>
+            <p>Impose minima.</p>
+<p>Regions in <code>marker</code> will be the only local minima in <code>in</code>: <code>dip::Minima( dip::ImposeMinima( a, b )) == b</code>, for any <code>a</code>.</p>
+<p>The image <code>in</code> will be modified such that the regions marked by <code>marker</code> obtain the lowest possible value for the
+given data type, and any other local minima in <code>in</code> are filled in to become plateaus. Minimum imposition is typically
+applied in conjunction with the watershed to reduce the number of regions created. The function <a href="segmentation.html#dip-SeededWatershed-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-StringSet-CL"><code>dip::SeededWatershed</code></a>
+has a similar result, but obtained in a different way, to applying <code>dip::Watershed</code> to the output of <code>ImposeMinima</code>.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="morphology.html#dip-MorphologicalReconstruction-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::MorphologicalReconstruction</code></a>, <a href="segmentation.html#dip-Minima-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::Minima</code></a>, <a href="segmentation.html#dip-Watershed-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-StringSet-"><code>dip::Watershed</code></a>, <a href="segmentation.html#dip-SeededWatershed-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-StringSet-CL"><code>dip::SeededWatershed</code></a></p>
 </aside>
           </div></section>
           <section class="m-doc-details" id="dip-Leveling-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><div>
@@ -1316,8 +1381,8 @@ the algorithm for our fast watershed (<code>"fast"</code> mode to <a href="segme
 The volume closing is the dual operation.</p>
 <p>Comparing to the area opening, which removes peaks by the area of their support, this function removes peaks by
 the volume being removed. The difference of the opening with the input image, in the case of the area opening,
-is a series of peaks surrounded by zero-valued pixels, who all have at most <code>filterSize</code> pixels.
-In the case of the volume opening, these peaks all have an integral of at most <code>filterSize</code>.</p>
+is a series of peaks, each of which less than <code>filterSize</code> pixels, surrounded by zero-valued pixels.
+In the case of the volume opening, these peaks all have an integral (sum of pixel values) of less than <code>filterSize</code>.</p>
 <p><code>in</code> must be scalar and real-valued. Binary images are not allowed.</p>
 <p><code>mask</code> restricts the image regions used for the operation.</p>
 <p><code>connectivity</code> determines what a connected component is. See <a href="concepts.html#connectivity">Connectivity</a> for information on the
@@ -1526,7 +1591,8 @@ the difference of the erosion with <code>hit</code> and the dilation with <code>
 <li>If <code>in == dilation(in,miss) &amp;&amp; erosion(in,hit) &gt; in</code>: <code>out = erosion(in,hit) - in</code>.</li>
 <li>Otherwise: <code>out = 0</code>.</li>
 </ul>
-<p>Note that the two SEs must be disjoint. If one pixel is set in both SEs, the output will be all zeros.</p>
+<p>Note that the two structuring elements must be disjoint. If one pixel is set in both structuring elements,
+the output will be all zeros.</p>
 <p>See also <a href="binary.html#dip-SupGenerating-dip-Image-CL-dip-Image-L-dip-Interval-CL-dip-String-CL"><code>dip::SupGenerating</code></a> for a function specific to binary images.</p>
 <aside class="m-note m-default">
 <h4>Literature</h4>

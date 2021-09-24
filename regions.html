@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -112,6 +112,17 @@
               <a href="dip-Metric.html" class="m-doc">dip::Metric</a> const&amp; metric = {S::CHAMFER,2})</span>
             </dt>
             <dd>Grow labeled regions with a speed function given by a grey-value image.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SplitRegions-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">dip::<wbr />SplitRegions</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
+            </dt>
+            <dd>Ensures a gap between regions with unequal labels.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetLabelBoundingBox-dip-Image-CL-dip-uint-" class="m-doc">dip::<wbr />GetLabelBoundingBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> objectID) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
+            </dt>
+            <dd>Returns the bounding box for all pixels with label <code>objectID</code> in the labeled or binary image <code>label</code>.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-RegionAdjacencyGraph-dip-Image-CL-dip-String-CL" class="m-doc">dip::<wbr />RegionAdjacencyGraph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching") -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
@@ -268,8 +279,37 @@ by default. See <a href="distance.html#dip-GreyWeightedDistanceTransform-dip-Ima
 grey-weighted distance is computed.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
-<p><a href="regions.html#dip-GrowRegions-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint-"><code>dip::GrowRegions</code></a>, <a href="segmentation.html#dip-SeededWatershed-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-StringSet-CL"><code>dip::SeededWatershed</code></a></p>
+<p><a href="regions.html#dip-GrowRegions-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-sint--dip-uint-"><code>dip::GrowRegions</code></a>, <a href="distance.html#dip-GreyWeightedDistanceTransform-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-Metric--dip-String-CL"><code>dip::GreyWeightedDistanceTransform</code></a>, <a href="segmentation.html#dip-SeededWatershed-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-StringSet-CL"><code>dip::SeededWatershed</code></a></p>
 </aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-SplitRegions-dip-Image-CL-dip-Image-L-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SplitRegions-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />SplitRegions</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span></span>
+            </h3>
+            <p>Ensures a gap between regions with unequal labels.</p>
+<p>In the output image, no two regions will be connected according to <code>connectivity</code>. <code>out</code> is of the same
+type as <code>label</code>, which must be an unsigned integer type, and scalar.</p>
+<p>To create a one-pixel gap between regions, regions must shrink, and they must shrink unequally. If all regions
+were to shrink equally, we would create a two-pixel gap. This function chooses to be biased towards larger-valued
+labels: where two objects touch, the lower-valued region shrinks.</p>
+<p>This function works by finding pixels that have a neighbor with a larger value, and setting these pixels to
+zero (the background label).</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-GetLabelBoundingBox-dip-Image-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GetLabelBoundingBox-dip-Image-CL-dip-uint-" class="m-doc-self">dip::<wbr />GetLabelBoundingBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> objectID)</span></span>
+            </h3>
+            <p>Returns the bounding box for all pixels with label <code>objectID</code> in the labeled or binary image <code>label</code>.</p>
+<p><code>label</code> must be a labeled image (of type unsigned integer) or binary, and must be scalar and have at least
+one dimension.</p>
+<p>In the case of a binary image, <code>objectID</code> should be 1 or 0, no other values are possible in a binary image.</p>
+<p>When no pixels with the value <code>objectID</code> exist in the image, the output <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a> will be an
+empty array. Otherwise, it will have as many <a href="dip-Range.html"><code>dip::Range</code></a> elements as dimensions are in the image.</p>
           </div></section>
           <section class="m-doc-details" id="dip-RegionAdjacencyGraph-dip-Image-CL-dip-String-CL"><div>
             <h3>

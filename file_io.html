@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -180,6 +180,25 @@ pixel data.</dd>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80)</span>
             </dt>
             <dd>Writes <code>image</code> as a JPEG file.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadNPY-dip-Image-L-dip-String-CL" class="m-doc">dip::<wbr />ImageReadNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads a numeric array from the NumPy NPY file <code>filename</code> and puts it in <code>out</code>.</dd>
+            <dt id="dip-ImageReadNPYInfo-dip-String-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadNPYInfo-dip-String-CL" class="m-doc-self">dip::<wbr />ImageReadNPYInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads array information (size and data type) from the NumPy NPY file <code>filename</code>, without reading the actual
+pixel data.</dd>
+            <dt id="dip-ImageIsNPY-dip-String-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsNPY-dip-String-CL" class="m-doc-self">dip::<wbr />ImageIsNPY</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file <code>filename</code> is a NPY file.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteNPY-dip-Image-CL-dip-String-CL" class="m-doc">dip::<wbr />ImageWriteNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename)</span>
+            </dt>
+            <dd>Writes <code>image</code> as a numeric array to a NumPy NPY file.</dd>
             <dt id="dip-FileGetExtensionPosition-dip-String-CL">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-FileGetExtensionPosition-dip-String-CL" class="m-doc-self">dip::<wbr />FileGetExtensionPosition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; String::size_type</span>
             </dt>
@@ -492,7 +511,7 @@ color image to the sRGB color space before saving as TIFF.</p>
 <p>Pixel sizes, if in units of length, will set the pixels per centimeter value in the TIFF file.</p>
 <p>The samples of <code>image</code> are written directly to the TIFF file, no matter what their data type is. Complex data
 are not supported by the TIFF format, but all binary, integer and floating-point types are. However, if the type
-us not binary, 8-bit or 16-bit unsigned integer, many TIFF readers will not recognize the format. If the image
+is not binary, 8-bit or 16-bit unsigned integer, many TIFF readers will not recognize the format. If the image
 needs to be read by other software, it is recommended to convert the image to <a href="pixeltypes.html#dip-DT_UINT8"><code>dip::DT_UINT8</code></a> before saving as
 TIFF.</p>
 <p>If <code>filename</code> does not have an extension, &ldquo;.tif&rdquo; will be added. Overwrites any other file with the same name.</p>
@@ -539,6 +558,37 @@ be applied.</p>
 <p><code>jpegLevel</code> determines the amount of compression applied. <code>jpegLevel</code> is an integer between 1 and 100, with
 increasing numbers yielding larger files and fewer compression artifacts.</p>
           </div></section>
+          <section class="m-doc-details" id="dip-ImageReadNPY-dip-Image-L-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ImageReadNPY-dip-Image-L-dip-String-CL" class="m-doc-self">dip::<wbr />ImageReadNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename)</span></span>
+            </h3>
+            <p>Reads a numeric array from the NumPy NPY file <code>filename</code> and puts it in <code>out</code>.</p>
+<p>The function tries to open <code>filename</code> as given first, and if that fails, it appends &ldquo;.npy&rdquo; to the
+name and tries again.</p>
+<p>Only NPY files that contain a numeric array are supported, and only version 1.0 NPY files can be read
+(note that NumPy only writes later version files for more complex non-numeric arrays).</p>
+<p>Following the handling of PyDIP, the Python bindings, we reverse the indexing of the array, such that
+the NumPy array&rsquo;s first index is the y axis as the second index is the x axis (this is how 2D arrays are
+treated everywhere in Python). We generalize this to arbitrary dimensions by reversing the indices.
+A standard C-order NumPy array this way translates to a DIPlib image with <a href="concepts.html#normal_strides">Normal strides</a>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-ImageWriteNPY-dip-Image-CL-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ImageWriteNPY-dip-Image-CL-dip-String-CL" class="m-doc-self">dip::<wbr />ImageWriteNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename)</span></span>
+            </h3>
+            <p>Writes <code>image</code> as a numeric array to a NumPy NPY file.</p>
+<p><code>image</code> must be scalar, use <a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>dip::Image::TensorToSpatial</code></a> to save a tensor image. Any data type is allowed.
+Metadata (e.g. pixel sizes) are not stored.</p>
+<p>If <code>filename</code> does not have an extension, &ldquo;.npy&rdquo; will be added. Overwrites any other file with the same name.</p>
+<p>Following the handling of PyDIP, the Python bindings, we reverse the indexing of the array, such that
+the NumPy array&rsquo;s first index is the y axis as the second index is the x axis (this is how 2D arrays are
+treated everywhere in Python). We generalize this to arbitrary dimensions by reversing the indices.
+A DIPlib image with <a href="concepts.html#normal_strides">Normal strides</a> is thus translated to a NumPy array with standard C-order.</p>
+          </div></section>
           <section class="m-doc-details" id="dip-ImageRead-dip-Image-L-dip-String-CL-dip-String-"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a>
@@ -553,6 +603,7 @@ increasing numbers yielding larger files and fewer compression artifacts.</p>
 <li><code>"ics"</code>: The file is an ICS file, use <a href="file_io.html#dip-ImageReadICS-dip-Image-L-dip-String-CL-dip-RangeArray-CL-dip-Range-CL-dip-String-CL"><code>dip::ImageReadICS</code></a>.</li>
 <li><code>"tiff"</code>: The file is a TIFF file, use <a href="file_io.html#dip-ImageReadTIFF-dip-Image-L-dip-String-CL-dip-Range--dip-RangeArray-CL-dip-Range-CL-dip-String-CL"><code>dip::ImageReadTIFF</code></a>. Reads only the first image plane.</li>
 <li><code>"jpeg"</code>: The file is a JPEG file, use <a href="file_io.html#dip-ImageReadJPEG-dip-Image-L-dip-String-CL"><code>dip::ImageReadJPEG</code></a>.</li>
+<li><code>"npy"</code>: The file is a NumPy NPY file, use <a href="file_io.html#dip-ImageReadNPY-dip-Image-L-dip-String-CL"><code>dip::ImageReadNPY</code></a>.</li>
 <li><code>"bioformats"</code>: Use <a href="dipjavaio.html#dip-javaio-ImageReadJavaIO-dip-Image-L-dip-String-CL-dip-String-CL"><code>dip::javaio::ImageReadJavaIO</code></a> to read the file with the <em>Bio-Formats</em> library.</li>
 <li><code>""</code>: Select the format by looking at the file name extension or the file&rsquo;s first few bytes. This is the default.</li>
 </ul>
@@ -578,6 +629,7 @@ if not using <em>CMake</em>).</p>
 <li><code>"icsv1"</code>: Create an ICS version 1 file, use <a href="file_io.html#dip-ImageWriteICS-dip-Image-CL-dip-String-CL-dip-StringArray-CL-dip-uint--dip-StringSet-CL"><code>dip::ImageWriteICS</code></a>.</li>
 <li><code>"tiff"</code>: Create a TIFF file, use <a href="file_io.html#dip-ImageWriteTIFF-dip-Image-CL-dip-String-CL-dip-String-CL-dip-uint-"><code>dip::ImageWriteTIFF</code></a>.</li>
 <li><code>"jpeg"</code>: Create a JPEG file, use <a href="file_io.html#dip-ImageWriteJPEG-dip-Image-CL-dip-String-CL-dip-uint-"><code>dip::ImageWriteJPEG</code></a>.</li>
+<li><code>"npy"</code>: Create a NumPy NPY file, use <a href="file_io.html#dip-ImageWriteNPY-dip-Image-CL-dip-String-CL"><code>dip::ImageWriteNPY</code></a>.</li>
 <li><code>""</code>: Select the format by looking at the file name extension. If no extension is
   present, it defaults to ICS version 2. This is the default.</li>
 </ul>
@@ -589,6 +641,7 @@ Complex data is not supported, other data types are. But note that images other 
 integer lead to files that are not recognized by most readers.</p>
 <p>The JPEG format can store 2D images. Tensor images are always tagged as sRGB. Most metadata will be lost.
 Image data is converted to 8-bit unsigned integer, without scaling.</p>
+<p>The NPY format stores raw pixel data for a scalar image. Tensor images cannot be written. All metadata will be lost.</p>
 <p><code>compression</code> determines the compression method used when writing the pixel data. It can be one of the
 following strings:</p>
 <ul>
@@ -596,7 +649,7 @@ following strings:</p>
 <li><code>""</code>: gzip compression (default). TIFF files with gzip compression are not universally recognized.</li>
 <li><code>"LZW"</code>, <code>"PackBits"</code>, <code>"JPEG"</code>: compression formats supported only by the TIFF format.</li>
 </ul>
-<p>For the JPEG format, <code>compression</code> is ignored.</p>
+<p>For the JPEG and NPY formats, <code>compression</code> is ignored.</p>
 <p>Use the filetype-specific functions directly for more control over how the image is written. See those
 functions for more information about the file types and how images are written to them.</p>
           </div></section>

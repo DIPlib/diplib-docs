@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -54,12 +54,13 @@
             <li><a href="#pum_display">Displaying images</a></li>
             <li><a href="#pum_indexing">Indexing into images</a></li>
             <li><a href="#pum_testing">Testing image validity</a></li>
+            <li><a href="#pum_numpy">Mixing <em>NumPy</em> arrays and <em>DIPlib</em> images</a></li>
           </ul>
         </div>
 <p>Currently, most functionality in the <em>PyDIP</em> module is directly mirrored from the
 <em>DIPlib</em> library. That is, function names and signatures are mostly identical to
 those in <em>DIPlib</em>. Please see the documentation for <em>DIPlib</em> to learn how to use
-these functions. Type \m_class{m-label m-warning} <strong>t</strong> here to bring up a search
+these functions. Type <strong class="m-label m-warning">T</strong> here to bring up a search
 dialog box where you can find functions by name.</p>
 <p>To install the package from PyPI, use</p>
 <div class="m-code"><pre><span></span>pip install diplib
@@ -177,6 +178,37 @@ returns a copy of the data, but an assignment form is also available:</p>
 <h2 id="pum_testing">Testing image validity</h2>
 <p>Instead of <code>IsForged()</code>, use <code>IsEmpty()</code> to test if an image is forged.</p>
 <p>Functions that expect an image interpret <code>None</code> as an empty (non-forged) image.</p>
+<h2 id="pum_numpy">Mixing <em>NumPy</em> arrays and <em>DIPlib</em> images</h2>
+<p>A NumPy array can be passed instead of an image to any <em>DIPlib</em> function. In fact, any Python object
+that uses the buffer interface implicitly casts to an image. The reverse is also true: NumPy treats
+<em>DIPlib</em> images as an array, you can call any <em>NumPy</em> function on an image. However, some code that
+accepts a <em>NumPy</em> array calls methods of the array, which would not be defined for a <em>DIPlib</em> image.
+For example,</p>
+<div class="m-code"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>          <span class="c1"># OK</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">((</span><span class="mi">11</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>              <span class="c1"># OK</span>
+<span class="n">img</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>                 <span class="c1"># error! np.array method not defined for dip.Image</span>
+<span class="n">img</span><span class="o">.</span><span class="n">shape</span>                 <span class="c1"># error! np.array property not defined for dip.Image</span>
+</pre></div>
+
+<p>One can &ldquo;cast&rdquo; from a <em>NumPy</em> array to a <em>DIPlib</em> image and back:</p>
+<div class="m-code"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+</pre></div>
+
+<p>The image and the array point to the same memory in these two cases: modifying values in the one cause
+the other to see the modified values as well</p>
+<p>The mapping from images to arrays causes the indexes to be reversed: The first array index corresponds
+to the last image index, and vice versa. If an image is indexed as <code>img[x,y,z]</code>, the corresponding
+array is indexed as <code>array[z,y,x]</code>. 2D <em>NumPy</em> arrays are typically interpreted with the first dimension
+being vertical (y) and the second horizontal (x). This is how they are printed to the console, and how
+<code>pyplot.imshow</code> displays them as images. Preserving the indexing order between <em>DIPlib</em> and <em>NumPy</em> would
+therefore cause 2D images to be shown transposed by other Python tools. Furthermore, by reversing the
+indexing, we map an image with normal strides to an array in <em>NumPy</em>&lsquo;s standard C-ordering.
+The following evaluates to <code>True</code>:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="p">)</span><span class="o">.</span><span class="n">HasNormalStrides</span><span class="p">()</span>
+</pre></div>
       </div>
     </div>
   </div>

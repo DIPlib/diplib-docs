@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -66,7 +66,7 @@ image to a form suitable for display.</p>
           </ul>
         </div>
 <p>An object is created for a particular image; the image cannot be replaced. Different display options can then
-be set. When the <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>Output</code></a> method is called, a 1D or 2D, grey-value or RGB, UINT8 image is
+be set. When the <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> method is called, a 1D or 2D, grey-value or RGB, UINT8 image is
 prepared for display. A const reference to this image is returned. The image is updated every time the
 <code>Output</code> method is called, not when display options are set. The display options are designed to be
 settable by a user using the image display window.</p>
@@ -142,27 +142,27 @@ improve display.</p>
             <dt id="dip-ImageDisplay-MapSinglePixel-Image-Pixel-CL">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-MapSinglePixel-Image-Pixel-CL" class="m-doc-self">MapSinglePixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; input) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
             </dt>
-            <dd>Puts a single pixel through the same mapping the image will go through to become <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>Output</code></a>.</dd>
+            <dd>Puts a single pixel through the same mapping the image will go through to become <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>.</dd>
             <dt id="dip-ImageDisplay-OutIsDirty-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-OutIsDirty-C" class="m-doc-self">OutIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
-            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>Output</code></a> will yield a different result from the previous one.
+            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different result from the previous one.
 That is, the display needs to be redrawn.</dd>
             <dt id="dip-ImageDisplay-SliceIsDirty-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-SliceIsDirty-C" class="m-doc-self">SliceIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
-            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>Output</code></a> will yield a different slice</dd>
+            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different slice</dd>
             <dt id="dip-ImageDisplay-SizeIsDirty-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-SizeIsDirty-C" class="m-doc-self">SizeIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
-            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>Output</code></a> will yield an output of a different size. That is,
+            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield an output of a different size. That is,
 the slicing direction has changed, and this yields a change in sizes.</dd>
             <dt id="dip-ImageDisplay-Pixel-dip-uint--dip-uint-">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Pixel-dip-uint--dip-uint-" class="m-doc-self">Pixel</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y = 0) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
             </dt>
             <dd>Gets input image intensities at a given 2D point (automatically finds corresponding nD location).
-In case of a 1D <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>Output</code></a>, <code>y</code> is ignored.</dd>
+In case of a 1D <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>, <code>y</code> is ignored.</dd>
             <dt id="dip-ImageDisplay-SetDirection-dip-uint--dip-uint-">
               <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetDirection-dip-uint--dip-uint-" class="m-doc-self">SetDirection</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim1,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim2)</span>
@@ -226,7 +226,7 @@ Has no effect for binary images.</dd>
             <dt id="dip-ImageDisplay-GetOrthogonal-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetOrthogonal-C" class="m-doc-self">GetOrthogonal</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
             </dt>
-            <dd>Returns the array of dimensions orthogonal to those returned by <a href="dip-ImageDisplay.html#dip-ImageDisplay-GetDirection-C"><code>GetDirection</code></a>. These are the
+            <dd>Returns the array of dimensions orthogonal to those returned by <a href="dip-ImageDisplay.html#dip-ImageDisplay-GetDirection-C"><code>dip::ImageDisplay::GetDirection</code></a>. These are the
 dimensions not displayed.</dd>
             <dt id="dip-ImageDisplay-GetCoordinates-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetCoordinates-C" class="m-doc-self">GetCoordinates</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
@@ -384,7 +384,7 @@ mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;r
                 <tr>
                   <td><a href="#dip-ImageDisplay-MappingMode-MANUAL" class="m-doc-self" id="dip-ImageDisplay-MappingMode-MANUAL">MANUAL</a> = 0</td>
                   <td>
-                  <a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits"><code>Limits</code></a> are used as-is
+                  <a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits"><code>dip::ImageDisplay::Limits</code></a> are used as-is
                   </td>
                 </tr>
                 <tr>
@@ -447,7 +447,7 @@ output image.</p>
             </h3>
             <p>Retrieves a reference to the raw slice image.</p>
 <p>This function also causes an update of the slice if the projection changed. The raw slice image contains
-the input data for the what is shown in <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>Output</code></a>.</p>
+the input data for the what is shown in <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>.</p>
           </div></section>
           <section class="m-doc-details" id="dip-ImageDisplay-Output"><div>
             <h3>

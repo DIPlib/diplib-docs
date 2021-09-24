@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -129,7 +129,7 @@ with 1 million pixels and 3 samples per pixel has a total of 3 million samples.<
 <p>If the tensor is 0D (a single sample), the image is a standard grey-value image
 (which we refer to as scalar image). A 1D tensor (a vector) can be used to represent
 color images (e.g. an RGB image has three samples per pixel), but also for example
-the image gradient (see <a href="linear.html#dip-Gradient-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray-CL-dip-dfloat-"><code>dip::Gradient</code></a>). With a 2D tensor (a matrix) it is possible
+the image gradient (see <a href="linear.html#dip-Gradient-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray--dip-dfloat-"><code>dip::Gradient</code></a>). With a 2D tensor (a matrix) it is possible
 to represent concepts such as the Hessian and the structure tensor (see <a href="why_tensors.html">Why tensors?</a>).
 For example, the Hessian of a 3D image has 9 samples per pixel. For more details
 on how tensor elements are stored, see the section on <a href="dip-Image.html#tensors">Tensor images</a>.</p>
@@ -141,10 +141,10 @@ All the image&rsquo;s samples must have the same type.</p>
 determined and changed at runtime, they are not fixed at compile time.
 An <code>Image</code> object has two states: <strong>raw</strong> and <strong>forged</strong>. When an image is
 <strong>raw</strong>, it has no associated data segment. In the raw state, all image
-properties can be changed. The <a href="dip-Image.html#dip-Image-Forge"><code>Forge</code></a> method allocates the data
+properties can be changed. The <a href="dip-Image.html#dip-Image-Forge"><code>dip::Image::Forge</code></a> method allocates the data
 segment (the memory block that holds the pixel values). Once the image
 is <strong>forged</strong>, its properties are fixed. It is possible to call the
-<a href="dip-Image.html#dip-Image-Strip"><code>Strip</code></a> method to revert to the raw state. The reason behind this
+<a href="dip-Image.html#dip-Image-Strip"><code>dip::Image::Strip</code></a> method to revert to the raw state. The reason behind this
 dynamic image structure is that it allows flexibility: one can read the
 data in a file without knowing what the file&rsquo;s data type is going to
 be; the file reading function can adjust the <code>Image</code> object&rsquo;s data type
@@ -156,7 +156,7 @@ the data types of images.</p>
 <h2 id="strides">Strides</h2>
 <p>For maximum flexibility in the relationship between image coordinates
 and how the samples are stored in memory, a <code>dip::Image</code> object specifies a
-<strong>stride</strong> array (<a href="dip-Image.html#dip-Image-Strides-C"><code>Strides</code></a>). This array indicates, for each
+<strong>stride</strong> array (<a href="dip-Image.html#dip-Image-Strides-C"><code>dip::Image::Strides</code></a>). This array indicates, for each
 dimension, how many samples to skip to get to the neighboring pixel in the
 given dimension.
 For example, to go from a pixel at coordinates (<code>x</code>,<code>y</code>) to the neighbor
@@ -205,7 +205,7 @@ encapsulated by an <code>Image</code> object. For example, <em>MATLAB</em> store
 with columns contiguous in memory, requiring <code>strides[1] == 1</code>.</p>
 <p>All routines in the library support images with arbitrary strides.</p>
 <p>The various elements of a tensor are also accessed through a stride,
-which can be obtained through <a href="dip-Image.html#dip-Image-TensorStride-C"><code>TensorStride</code></a>. Even for a 2D
+which can be obtained through <a href="dip-Image.html#dip-Image-TensorStride-C"><code>dip::Image::TensorStride</code></a>. Even for a 2D
 tensor, all tensor elements can be visited using a single stride value.
 See the section <a href="dip-Image.html#tensors">Tensor images</a> for more information on accessing tensor
 elements. And see the section <a href="dip-Image.html#pointers">On pixel coordinates, indices, offsets and data pointers</a> for more information about
@@ -214,31 +214,31 @@ on the default strides.</p>
 <h2 id="tensors">Tensor images</h2>
 <p>A tensor image (generalization of the vector and matrix image) has a tensor
 for each pixel. A tensor collects all samples corresponding to the same spatial
-location into a specific shape. <a href="dip-Image.html#dip-Image-TensorElements-C"><code>TensorElements</code></a> indicates how
+location into a specific shape. <a href="dip-Image.html#dip-Image-TensorElements-C"><code>dip::Image::TensorElements</code></a> indicates how
 many samples per pixel the image has.</p>
 <p>A tensor image is stored into a single memory block. In the same way that
 strides indicate how to skip from one pixel to another (as described in the
-section <a href="dip-Image.html#strides">Strides</a>), the <a href="dip-Image.html#dip-Image-TensorStride-C"><code>TensorStride</code></a> indicates how to skip
+section <a href="dip-Image.html#strides">Strides</a>), the <a href="dip-Image.html#dip-Image-TensorStride-C"><code>dip::Image::TensorStride</code></a> indicates how to skip
 from one tensor element to another. This allows e.g. a multi-channel image to
 be stored as either interleaved per pixel, per line or per plane, and as long
 as an algorithm uses the strides, it does not need to know how the channels
 are interleaved.</p>
 <p>All tensor elements are stored as if they composed a single spatial dimension.
 Therefore, it is possible to change the image such that the tensor elements
-form a new spatial dimension (<a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>TensorToSpatial</code></a>), or such that one
-spatial dimension is converted to a tensor (<a href="dip-Image.html#dip-Image-SpatialToTensor-dip-uint--dip-uint--dip-uint-"><code>SpatialToTensor</code></a>),
+form a new spatial dimension (<a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>dip::Image::TensorToSpatial</code></a>), or such that one
+spatial dimension is converted to a tensor (<a href="dip-Image.html#dip-Image-SpatialToTensor-dip-uint--dip-uint--dip-uint-"><code>dip::Image::SpatialToTensor</code></a>),
 without moving the samples. It is also possible to change the shape of the
-tensor without moving data (<a href="dip-Image.html#dip-Image-ReshapeTensorAsVector"><code>ReshapeTensorAsVector</code></a>,
-<a href="dip-Image.html#dip-Image-Transpose"><code>Transpose</code></a>).</p>
+tensor without moving data (<a href="dip-Image.html#dip-Image-ReshapeTensorAsVector"><code>dip::Image::ReshapeTensorAsVector</code></a>,
+<a href="dip-Image.html#dip-Image-Transpose"><code>dip::Image::Transpose</code></a>).</p>
 <p>The shape of the tensor is represented by the enumerator <a href="dip-Tensor.html#dip-Tensor-Shape"><code>dip::Tensor::Shape</code></a>
-(obtained through <a href="dip-Image.html#dip-Image-TensorShape-C"><code>TensorShape</code></a>).
+(obtained through <a href="dip-Image.html#dip-Image-TensorShape-C"><code>dip::Image::TensorShape</code></a>).
 The chosen way of storing tensor elements allows us, for example, to store
 a symmetric 2D tensor such as the Hessian matrix without repeating the
 repeating the duplicated values. We also have a specific shape for diagonal
 matrices and triangular matrices.</p>
 <h2 id="pointers">On pixel coordinates, indices, offsets and data pointers</h2>
 <p>Given</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img</span><span class="p">(</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">18</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT16</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">18</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT16</span> <span class="p">);</span>
 </pre></div>
 
 <p>Then <a href="dip-Image.html#dip-Image-Origin-C"><code>img.Origin()</code></a> is a <code>void*</code> pointer to
@@ -312,18 +312,18 @@ between the index and the offset is non-trivial. One can determine the
 coordinates corresponding to an index through
 <a href="dip-Image.html#dip-Image-IndexToCoordinates-dip-uint--C"><code>img.IndexToCoordinates( index )</code></a>,
 which then leads to an offset or a pointer.
-The function <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>At</code></a> with a scalar argument uses linear indices, and
+The function <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>dip::Image::At</code></a> with a scalar argument uses linear indices, and
 consequently is not efficient for images with dimensionality of 2 or more.</p>
 <p>Oftentimes it is possible to determine a <strong>simple stride</strong> that will allow you to
 access every pixel in an image. When an image is a view into another image,
 this is not necessarily possible, but any default image (i.e. with <a href="concepts.html#normal_strides">Normal strides</a>)
 has this possibility. This simple stride allows one to view the image as a
-1D image. The function <a href="dip-Image.html#dip-Image-Flatten"><code>Flatten</code></a> will create this 1D image (without
+1D image. The function <a href="dip-Image.html#dip-Image-Flatten"><code>dip::Image::Flatten</code></a> will create this 1D image (without
 copying any data, if there exists such a simple stride). Walking along this
 one dimension will, however, not necessarily access the pixels in the same order
 as given by the linear index. This order is only consistent if the image has
-normal strides. See <a href="dip-Image.html#dip-Image-HasNormalStrides-C"><code>HasNormalStrides</code></a>,
-<a href="dip-Image.html#dip-Image-HasSimpleStride-C"><code>HasSimpleStride</code></a>, <a href="dip-Image.html#dip-Image-GetSimpleStrideAndOrigin-C"><code>GetSimpleStrideAndOrigin</code></a>.</p>
+normal strides. See <a href="dip-Image.html#dip-Image-HasNormalStrides-C"><code>dip::Image::HasNormalStrides</code></a>,
+<a href="dip-Image.html#dip-Image-HasSimpleStride-C"><code>dip::Image::HasSimpleStride</code></a>, <a href="dip-Image.html#dip-Image-GetSimpleStrideAndOrigin-C"><code>dip::Image::GetSimpleStrideAndOrigin</code></a>.</p>
 <p>To walk along all pixels in an arbitrary image (i.e. arbitrary dimensionality
 and strides) in the order given by the linear index, use the <strong>image iterators</strong>
 defined in <a href="file--diplib--iterators-h.html">diplib/iterators.h</a>
@@ -346,7 +346,7 @@ no plans for framework functionality to support priority queue algorithms,
 if you figure out how to make such a function generic enough please contribute!</p>
 <p>For images with more than one sample per pixel, the above discussion shows
 only how to access the first sample in each pixel. Coordinates always indicate
-a pixel, and therefore <a href="dip-Image.html#dip-Image-Offset-dip-UnsignedArray-CL-dip-IntegerArray-CL-dip-UnsignedArray-CL"><code>Offset</code></a> always gives the offset to the
+a pixel, and therefore <a href="dip-Image.html#dip-Image-Offset-dip-UnsignedArray-CL-dip-IntegerArray-CL-dip-UnsignedArray-CL"><code>dip::Image::Offset</code></a> always gives the offset to the
 first sample of a pixel. The other samples can be accessed by adding
 <code>n * img.TensorStride()</code> to the offset, where <code>n</code> is the tensor element. Tensor
 elements are then accessed in a specific order, depending on the shape of the
@@ -363,15 +363,15 @@ the two following images are the same:</p>
 <span class="n">img1</span><span class="p">.</span><span class="n">SetTensorSizes</span><span class="p">(</span> <span class="mi">1</span> <span class="p">);</span>
 <span class="n">img1</span><span class="p">.</span><span class="n">Forge</span><span class="p">();</span>
 
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img2</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsingedArray</span><span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img2</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsingedArray</span><span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span> <span class="p">);</span>
 </pre></div>
 
 <p>The first method is more flexible, as it allows to set all properties
 before forging the image (such as strides).
 Note that the created image has uninitialized pixel data. You can use the
-<a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>Fill</code></a> method to set all pixels to a specific value.</p>
+<a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> method to set all pixels to a specific value.</p>
 <p>To create a new image with same sizes and tensor shape as another one,
-use the <a href="dip-Image.html#dip-Image-Similar-C"><code>Similar</code></a> method:</p>
+use the <a href="dip-Image.html#dip-Image-Similar-C"><code>dip::Image::Similar</code></a> method:</p>
 <div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img2</span> <span class="o">=</span> <span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">();</span>
 </pre></div>
 
@@ -381,8 +381,8 @@ argument can be used to specify the data type of the new image:</p>
 </pre></div>
 
 <p>Both methods copy all image properties, including the strides array and the
-external interface; see <a href="dip-Image.html#dip-Image-CopyProperties-dip-Image-CL"><code>CopyProperties</code></a>.</p>
-<p>A similar method is <a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>ReForge</code></a>, which modifies the properties of
+external interface; see <a href="dip-Image.html#dip-Image-CopyProperties-dip-Image-CL"><code>dip::Image::CopyProperties</code></a>.</p>
+<p>A similar method is <a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>dip::Image::ReForge</code></a>, which modifies the properties of
 an image and creates a new data segment if the old one is of the wrong size
 to support the new properties. In function, these three sets of statements
 are equivalent:</p>
@@ -398,15 +398,15 @@ are equivalent:</p>
 <p>However, <code>ReForge</code> might not strip and forge if it is not necessary
 (also, it does not use the source image&rsquo;s strides), and so
 is the recommended way of modifying an image to match another one.
-<a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>ReForge</code></a> has two other forms that can be useful, see the
+<a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>dip::Image::ReForge</code></a> has two other forms that can be useful, see the
 documentation.</p>
 <p>Lastly, it is possible to create a 0D image (an image with a single pixel)
 with the constructor that takes a scalar value (integer, float or complex),
 or an initializer list containing scalar values of the same type. With the
 initializer list, the image will be a vector image with as many samples
 as elements in the initializer list:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img1</span><span class="p">(</span> <span class="mi">10</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img2</span><span class="p">(</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img1</span><span class="p">(</span> <span class="mi">10</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img2</span><span class="p">(</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">);</span>
 </pre></div>
 
 <p>The assignment operator creates a copy of the image, but does not actually
@@ -425,7 +425,7 @@ for how to write image filters that are robust against images with shared
 data. However, if the image assigned into is protected or has an external
 interface set, a data copy might be triggered, see <a href="dip-Image.html#protect">The &ldquo;protect&rdquo; flag</a> and
 <a href="dip-Image.html#external_interface">Define an image&rsquo;s allocator</a>.</p>
-<p><a href="dip-Image.html#dip-Image-QuickCopy-C"><code>QuickCopy</code></a> can be used here if the image copy does not need any of
+<p><a href="dip-Image.html#dip-Image-QuickCopy-C"><code>dip::Image::QuickCopy</code></a> can be used here if the image copy does not need any of
 the image metadata (color space and pixel size). The overhead of copying
 the metadata information is small, but we often use this function
 internally when the input image to a function needs to be reshaped for
@@ -439,12 +439,12 @@ processing, but we do not want to modify the input image itself:</p>
 the new image share data with the input image. The following three statements
 all invoke the copy constructor:</p>
 <div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img3</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img3</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
 <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img4</span> <span class="o">=</span> <span class="n">img1</span><span class="p">;</span>
 </pre></div>
 
 <p>To make a copy of an image with its own copy of the data segment, use the
-<a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>Copy</code></a> method:</p>
+<a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>dip::Image::Copy</code></a> method:</p>
 <div class="m-code"><pre><span></span><span class="n">img2</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
 </pre></div>
 
@@ -454,7 +454,7 @@ all invoke the copy constructor:</p>
 
 <p>In both cases, <code>img2</code> will be identical to <code>img1</code>, with identical pixel values,
 and with its own data segment.</p>
-<p>When the <a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>Copy</code></a> method is used on a forged image, it is expected to
+<p>When the <a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>dip::Image::Copy</code></a> method is used on a forged image, it is expected to
 be of the same size as the image to be copied. Pixel values will be copied to
 the existing data segment, casting to the target image&rsquo;s data type with clamping
 (see <a href="file--diplib--library--clamp_cast-h.html">diplib/library/clamp_cast.h</a>):</p>
@@ -466,13 +466,13 @@ the existing data segment, casting to the target image&rsquo;s data type with cl
 <div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Convert</span><span class="p">(</span> <span class="n">img1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span> <span class="p">);</span>
 </pre></div>
 
-<p>The <a href="dip-Image.html#dip-Image-Convert-dip-DataType-"><code>Convert</code></a> method, as opposed to the <a href="dip-Image.html#dip-Convert-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Convert</code></a> function, converts
+<p>The <a href="dip-Image.html#dip-Image-Convert-dip-DataType-"><code>dip::Image::Convert</code></a> method, as opposed to the <a href="dip-Image.html#dip-Convert-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Convert</code></a> function, converts
 the image itself to a new data type. This process creates a new data segment if
 the data type is of different size, and works in place if the data type is of the
 same size (e.g. <a href="pixeltypes.html#dip-DT_SINT32"><code>dip::DT_SINT32</code></a> and <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a> have the same size, as do
 <a href="pixeltypes.html#dip-DT_DFLOAT"><code>dip::DT_DFLOAT</code></a> and <a href="pixeltypes.html#dip-DT_SCOMPLEX"><code>dip::DT_SCOMPLEX</code></a>). However, if the data segment is shared,
 it will never work in place, as that could cause important problems.</p>
-<p>Assigning a constant to an image is equivalent to calling the <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>Fill</code></a>
+<p>Assigning a constant to an image is equivalent to calling the <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a>
 method, writing that constant to each sample in the image. The constant is
 cast to the image&rsquo;s data type with saturation (see <a href="pixeltypes.html#dip-clamp_cast-T-SourceType-"><code>dip::clamp_cast</code></a>). Note that
 the image must be forged:</p>
@@ -603,13 +603,13 @@ three elements are actually stored, with indices 0 and 1 representing the two di
 elements, and index 2 representing the two identical off-diagonal elements. See
 <a href="dip-Tensor.html"><code>dip::Tensor</code></a> for information on how the tensor is stored.</p>
 <p>To extract multiple tensor elements one can use a <a href="dip-Range.html"><code>dip::Range</code></a> to index. Other useful
-methods here are <a href="dip-Image.html#dip-Image-Diagonal-C"><code>Diagonal</code></a>, <a href="dip-Image.html#dip-Image-TensorRow-dip-uint--C"><code>TensorRow</code></a> and
-<a href="dip-Image.html#dip-Image-TensorColumn-dip-uint--C"><code>TensorColumn</code></a>, which all yield a vector image.</p>
-<p>The methods <a href="dip-Image.html#dip-Image-Real-C"><code>Real</code></a> and <a href="dip-Image.html#dip-Image-Imaginary-C"><code>Imaginary</code></a> are somewhat related to these
+methods here are <a href="dip-Image.html#dip-Image-Diagonal-C"><code>dip::Image::Diagonal</code></a>, <a href="dip-Image.html#dip-Image-TensorRow-dip-uint--C"><code>dip::Image::TensorRow</code></a> and
+<a href="dip-Image.html#dip-Image-TensorColumn-dip-uint--C"><code>dip::Image::TensorColumn</code></a>, which all yield a vector image.</p>
+<p>The methods <a href="dip-Image.html#dip-Image-Real-C"><code>dip::Image::Real</code></a> and <a href="dip-Image.html#dip-Image-Imaginary-C"><code>dip::Image::Imaginary</code></a> are somewhat related to these
 last three methods in that they return a view over a subset of the data, except that
 they reference only the real or imaginary component of the complex sample values.</p>
 <h3 id="pixel_indexing">Single-pixel indexing</h3>
-<p>Some forms of the function <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>At</code></a> extract a single pixel from the image. It has different
+<p>Some forms of the function <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>dip::Image::At</code></a> extract a single pixel from the image. It has different
 forms, accepting either a <a href="supporttypes.html#dip-UnsignedArray"><code>dip::UnsignedArray</code></a> representing the coordinates of the pixel,
 one to three indices for 1D to 3D images, or a (linear) index to the pixel. The latter
 form is less efficient because the linear index needs to be translated to coordinates,
@@ -627,7 +627,7 @@ values in the image:</p>
 <div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">)</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
 </pre></div>
 
-<p>The single-pixel forms of <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>At</code></a> have an alternative, templated form. In that
+<p>The single-pixel forms of <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>dip::Image::At</code></a> have an alternative, templated form. In that
 form, they return a <a href="dip-Image-CastPixel-T.html"><code>dip::Image::CastPixel</code></a> instead, which is identical to a
 <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a>, but implicitly casts to any chosen type. Thus:</p>
 <div class="m-code"><pre><span></span><span class="kt">int</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>             <span class="c1">// Does not compile, no implicit conversion to `int`.</span>
@@ -640,7 +640,7 @@ of that type. However, the object itself is not tied to the type, and it is stil
 to access (read or write) the pixel as other types. For example, this code will print
 &ldquo;( 1.0, -3.0 )&rdquo; to the standard output, the template argument to <code>At</code> has no influence
 on the results:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SCOMPLEX</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SCOMPLEX</span> <span class="p">);</span>
 <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">uint8</span> <span class="o">&gt;</span><span class="p">(</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">43</span> <span class="p">)</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">dcomplex</span><span class="p">{</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">-3.0</span> <span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">sint32</span> <span class="o">&gt;</span><span class="p">(</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">43</span> <span class="p">);</span>
 </pre></div>
@@ -666,7 +666,7 @@ The indexing described here is a convenient way to read a particular value in a
 data-type agnostic way. To access all pixels in a data-type agnostic way, use the
 <a href="dip-GenericImageIterator-T.html"><code>dip::GenericImageIterator</code></a>.</p>
 <h3 id="regular_indexing">Regular indexing (windows, ROI processing, subsampling)</h3>
-<p>The function <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>At</code></a> is also used for creating views that represent a subset of
+<p>The function <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>dip::Image::At</code></a> is also used for creating views that represent a subset of
 pixels. In this form, it accepts a set of <a href="dip-Range.html"><code>dip::Range</code></a> objects, or a <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a>,
 representing regular pixel intervals along each dimension through a start, stop and
 step value. That is, a range indicates a portion of an image line, with optional
@@ -692,9 +692,9 @@ results:</p>
 <span class="n">image</span><span class="p">[</span> <span class="mi">1</span> <span class="p">].</span><span class="n">At</span><span class="p">(</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">},</span> <span class="p">{</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">);</span>
 </pre></div>
 
-<p>The method <a href="dip-Image.html#dip-Image-Cropped-dip-UnsignedArray-CL-Option-CropLocation--C"><code>Cropped</code></a> is a convenience function to extract a view to a
+<p>The method <a href="dip-Image.html#dip-Image-Cropped-dip-UnsignedArray-CL-Option-CropLocation--C"><code>dip::Image::Cropped</code></a> is a convenience function to extract a view to a
 rectangular widow of a given size and with a given anchor (image center or corner).
-The <a href="dip-Image.html#dip-Image-Pad-dip-UnsignedArray-CL-Option-CropLocation--C"><code>Pad</code></a> method does the opposite operation, but creates a new image and
+The <a href="dip-Image.html#dip-Image-Pad-dip-UnsignedArray-CL-Option-CropLocation--C"><code>dip::Image::Pad</code></a> method does the opposite operation, but creates a new image and
 copies the data over.</p>
 <h3 id="irregular_indexing">Irregular indexing (mask image, arbitrary set of pixels)</h3>
 <p>An arbitrary subset of pixels can be indexed in three ways, using one of:</p>
@@ -703,8 +703,8 @@ copies the data over.</p>
 <li>a list of pixel coordinates</li>
 <li>a list of linear indices into the image</li>
 </ul>
-<p>The first two forms are again available through the <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>At</code></a> method, the
-third one through the <a href="dip-Image.html#dip-Image-AtIndices-dip-UnsignedArray-CL-C"><code>AtIndices</code></a> method (since the input argument would
+<p>The first two forms are again available through the <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>dip::Image::At</code></a> method, the
+third one through the <a href="dip-Image.html#dip-Image-AtIndices-dip-UnsignedArray-CL-C"><code>dip::Image::AtIndices</code></a> method (since the input argument would
 not be distinguishable from indexing a single pixel through its coordinates). As with
 regular indexing, the returned object is a <a href="dip-Image-View.html"><code>dip::Image::View</code></a>, which can be assigned
 to to change the referenced pixels. But as opposed to regular indexing, when cast
@@ -727,58 +727,58 @@ moving samples around in memory. These functions accomplish their goal simply
 by modifying the sizes and strides arrays, and the tensor representation
 values. Thus, they are very cheap. All of these functions modify the object
 directly, and return a reference so that they can be chained.</p>
-<p>For example, <a href="dip-Image.html#dip-Image-Rotation90-dip-sint--dip-uint--dip-uint-"><code>Rotation90</code></a> rotates the image in 90 degree increments
-by mirroring and swapping dimensions. More generic methods are <a href="dip-Image.html#dip-Image-Mirror-dip-uint-"><code>Mirror</code></a>,
-and <a href="dip-Image.html#dip-Image-SwapDimensions-dip-uint--dip-uint-"><code>SwapDimensions</code></a>. <a href="dip-Image.html#dip-Image-PermuteDimensions-dip-UnsignedArray-CL"><code>PermuteDimensions</code></a> reorders the
+<p>For example, <a href="dip-Image.html#dip-Image-Rotation90-dip-sint--dip-uint--dip-uint-"><code>dip::Image::Rotation90</code></a> rotates the image in 90 degree increments
+by mirroring and swapping dimensions. More generic methods are <a href="dip-Image.html#dip-Image-Mirror-dip-uint-"><code>dip::Image::Mirror</code></a>,
+and <a href="dip-Image.html#dip-Image-SwapDimensions-dip-uint--dip-uint-"><code>dip::Image::SwapDimensions</code></a>. <a href="dip-Image.html#dip-Image-PermuteDimensions-dip-UnsignedArray-CL"><code>dip::Image::PermuteDimensions</code></a> reorders the
 image&rsquo;s dimensions, an optionally adds or removes singleton dimensions. Singleton
 dimensions are dimensions with a size of 1, and can be added or removed without
 affecting the data layout in memory.</p>
 <p>Several of these methods are meant to manipulate singleton dimensions.
-<a href="dip-Image.html#dip-Image-AddSingleton-dip-uint-"><code>AddSingleton</code></a> and <a href="dip-Image.html#dip-Image-Squeeze-dip-UnsignedArray-L"><code>Squeeze</code></a> add and remove singleton
-dimensions. <a href="dip-Image.html#dip-Image-ExpandDimensionality-dip-uint-"><code>ExpandDimensionality</code></a> adds singleton dimensions at the
+<a href="dip-Image.html#dip-Image-AddSingleton-dip-uint-"><code>dip::Image::AddSingleton</code></a> and <a href="dip-Image.html#dip-Image-Squeeze-dip-UnsignedArray-L"><code>dip::Image::Squeeze</code></a> add and remove singleton
+dimensions. <a href="dip-Image.html#dip-Image-ExpandDimensionality-dip-uint-"><code>dip::Image::ExpandDimensionality</code></a> adds singleton dimensions at the
 end to increase the number of image dimensions. It is also possible to expand
 singleton dimensions so they no longer are singleton, by replicating the data
 along that dimensions, again without physically replicating or modifying the
 data in memory. See <a href="dip-Image.html#singleton_expansion">Singleton expansion</a>. The methods
-<a href="dip-Image.html#dip-Image-ExpandSingletonDimension-dip-uint--dip-uint-"><code>ExpandSingletonDimension</code></a>, <a href="dip-Image.html#dip-Image-ExpandSingletonDimensions-dip-UnsignedArray-CL"><code>ExpandSingletonDimensions</code></a>
-and <a href="dip-Image.html#dip-Image-ExpandSingletonTensor-dip-uint-"><code>ExpandSingletonTensor</code></a> are used for this.
-<a href="dip-Image.html#dip-Image-UnexpandSingletonDimensions"><code>UnexpandSingletonDimensions</code></a> does the opposite operation.</p>
-<p>The method <a href="dip-Image.html#dip-Image-StandardizeStrides"><code>StandardizeStrides</code></a> undoes all rotation, mirroring,
+<a href="dip-Image.html#dip-Image-ExpandSingletonDimension-dip-uint--dip-uint-"><code>dip::Image::ExpandSingletonDimension</code></a>, <a href="dip-Image.html#dip-Image-ExpandSingletonDimensions-dip-UnsignedArray-CL"><code>dip::Image::ExpandSingletonDimensions</code></a>
+and <a href="dip-Image.html#dip-Image-ExpandSingletonTensor-dip-uint-"><code>dip::Image::ExpandSingletonTensor</code></a> are used for this.
+<a href="dip-Image.html#dip-Image-UnexpandSingletonDimensions"><code>dip::Image::UnexpandSingletonDimensions</code></a> does the opposite operation.</p>
+<p>The method <a href="dip-Image.html#dip-Image-StandardizeStrides"><code>dip::Image::StandardizeStrides</code></a> undoes all rotation, mirroring,
 dimension reordering, and singleton expansion, by making all strides positive
 and sorting them from smallest to largest. It also removes singleton dimensions
-(as <a href="dip-Image.html#dip-Image-Squeeze-dip-UnsignedArray-L"><code>Squeeze</code></a>).
-The <a href="dip-Image.html#dip-Image-Flatten"><code>Flatten</code></a> method converts the image to 1D (though if the image
+(as <a href="dip-Image.html#dip-Image-Squeeze-dip-UnsignedArray-L"><code>dip::Image::Squeeze</code></a>).
+The <a href="dip-Image.html#dip-Image-Flatten"><code>dip::Image::Flatten</code></a> method converts the image to 1D (though if the image
 does not have contiguous data, it will have to be copied to form a 1D image).
-<a href="dip-Image.html#dip-Image-FlattenAsMuchAsPossible"><code>FlattenAsMuchAsPossible</code></a> does the same thing, but never copies.
+<a href="dip-Image.html#dip-Image-FlattenAsMuchAsPossible"><code>dip::Image::FlattenAsMuchAsPossible</code></a> does the same thing, but never copies.
 If the data is not contiguous, the image will not be 1D, though it will hopefully
-have fewer dimensions than before the method call. <a href="dip-Image.html#dip-Image-SplitDimension-dip-uint--dip-uint-"><code>SplitDimension</code></a>
+have fewer dimensions than before the method call. <a href="dip-Image.html#dip-Image-SplitDimension-dip-uint--dip-uint-"><code>dip::Image::SplitDimension</code></a>
 splits a dimension into two.</p>
 <p>A group of methods manipulate the image&rsquo;s tensor shape:
-<a href="dip-Image.html#dip-Image-ReshapeTensor-dip-uint--dip-uint-"><code>ReshapeTensor</code></a> requires the target tensor shape to have as many
+<a href="dip-Image.html#dip-Image-ReshapeTensor-dip-uint--dip-uint-"><code>dip::Image::ReshapeTensor</code></a> requires the target tensor shape to have as many
 tensor elements as the image already has. For example, a 3-vector image can be
-converted into a 2x2 symmetric tensor image. <a href="dip-Image.html#dip-Image-ReshapeTensorAsVector"><code>ReshapeTensorAsVector</code></a> and
-<a href="dip-Image.html#dip-Image-ReshapeTensorAsDiagonal"><code>ReshapeTensorAsDiagonal</code></a> turn the image into the given tensor shapes.
-The <a href="dip-Image.html#dip-Image-Transpose"><code>Transpose</code></a> method belongs in this set, though it has a mathematical
+converted into a 2x2 symmetric tensor image. <a href="dip-Image.html#dip-Image-ReshapeTensorAsVector"><code>dip::Image::ReshapeTensorAsVector</code></a> and
+<a href="dip-Image.html#dip-Image-ReshapeTensorAsDiagonal"><code>dip::Image::ReshapeTensorAsDiagonal</code></a> turn the image into the given tensor shapes.
+The <a href="dip-Image.html#dip-Image-Transpose"><code>dip::Image::Transpose</code></a> method belongs in this set, though it has a mathematical
 meaning. <code>Transpose</code> changes the row-major matrix into a column-major matrix and
 vice-versa, thereby transposing the tensor.</p>
 <p>It is also possible to turn the tensor dimension into a spatial dimension and
-back, using <a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>TensorToSpatial</code></a> and <a href="dip-Image.html#dip-Image-SpatialToTensor-dip-uint--dip-uint--dip-uint-"><code>SpatialToTensor</code></a>.
+back, using <a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>dip::Image::TensorToSpatial</code></a> and <a href="dip-Image.html#dip-Image-SpatialToTensor-dip-uint--dip-uint--dip-uint-"><code>dip::Image::SpatialToTensor</code></a>.
 Turning the tensor dimension into a spatial dimension can be useful for example
 to apply the same operation to all samples in a vector image: it is easier to loop
 over a scalar image with a single <a href="dip-ImageIterator-T.html"><code>dip::ImageIterator</code></a> loop than to loop over a
 tensor image using a double loop over pixels and over tensor elements.</p>
-<p>Similar in purpose and function to <a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>TensorToSpatial</code></a> are functions
+<p>Similar in purpose and function to <a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>dip::Image::TensorToSpatial</code></a> are functions
 that split the complex-valued samples into two floating-point&ndash;valued samples,
 and present these as either a new spatial dimension, or the tensor dimension:
-<a href="dip-Image.html#dip-Image-SplitComplex-dip-uint-"><code>SplitComplex</code></a>, and <a href="dip-Image.html#dip-Image-SplitComplexToTensor"><code>SplitComplexToTensor</code></a>. The inverse
-operation is accomplished with <a href="dip-Image.html#dip-Image-MergeComplex-dip-uint-"><code>MergeComplex</code></a> and
-<a href="dip-Image.html#dip-Image-MergeTensorToComplex"><code>MergeTensorToComplex</code></a>.</p>
+<a href="dip-Image.html#dip-Image-SplitComplex-dip-uint-"><code>dip::Image::SplitComplex</code></a>, and <a href="dip-Image.html#dip-Image-SplitComplexToTensor"><code>dip::Image::SplitComplexToTensor</code></a>. The inverse
+operation is accomplished with <a href="dip-Image.html#dip-Image-MergeComplex-dip-uint-"><code>dip::Image::MergeComplex</code></a> and
+<a href="dip-Image.html#dip-Image-MergeTensorToComplex"><code>dip::Image::MergeTensorToComplex</code></a>.</p>
 <h2 id="protect">The &ldquo;protect&rdquo; flag</h2>
-<p>An image carries a &ldquo;protect&rdquo; flag. When set, the <a href="dip-Image.html#dip-Image-Strip"><code>Strip</code></a> function
+<p>An image carries a &ldquo;protect&rdquo; flag. When set, the <a href="dip-Image.html#dip-Image-Strip"><code>dip::Image::Strip</code></a> function
 throws an exception. That is, when the flag is set, the data segment cannot
 be stripped (freed) or reforged (reallocated). Furthermore, when the protect
 flag is set, the assignment operator will perform a deep copy. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img1</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img1</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
 <span class="n">img1</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
 <span class="c1">//img1.Strip();  // Throws!</span>
 <span class="n">img1</span> <span class="o">=</span> <span class="n">img2</span><span class="p">;</span>     <span class="c1">// Equivalent to: `img1.Copy( img2 )`.</span>
@@ -825,11 +825,11 @@ and will throw an error if the wrong output data type is requested.</p>
 <p>When an image object is marked <code>const</code>, the compiler will prevent modifications
 to it, it cannot be assigned to, and it cannot be used as the output argument
 to a filter function. However, the <a href="dip-Image.html#indexing">indexing operators</a>, the copy
-assignment operator, and <a href="dip-Image.html#dip-Image-QuickCopy-C"><code>QuickCopy</code></a> all allow the user to make
+assignment operator, and <a href="dip-Image.html#dip-Image-QuickCopy-C"><code>dip::Image::QuickCopy</code></a> all allow the user to make
 a non-const object that points to the same data, making it possible to
 modify the pixel values of a const image (see <a href="design.html#design_const_correctness">Const correctness</a>
 for our reasons to allow this). Because of that, it did not really make sense
-either to have <a href="dip-Image.html#dip-Image-Data-C"><code>Data</code></a>, <a href="dip-Image.html#dip-Image-Origin-C"><code>Origin</code></a>, and <a href="dip-Image.html#dip-Image-Pointer-dip-sint--C"><code>Pointer</code></a>
+either to have <a href="dip-Image.html#dip-Image-Data-C"><code>dip::Image::Data</code></a>, <a href="dip-Image.html#dip-Image-Origin-C"><code>dip::Image::Origin</code></a>, and <a href="dip-Image.html#dip-Image-Pointer-dip-sint--C"><code>dip::Image::Pointer</code></a>
 return const pointers when applied to a const image.</p>
 <p>Thus, there is nothing prevent you from modifying the pixel values of a const image.
 However, none of the functions in <em>DIPlib</em> will do so. A const image (usually
@@ -880,7 +880,7 @@ sample-wise multiplication. Other operators are sample-wise by definition (inclu
 the division, which is not really defined for tensors).</p>
 <h2 id="color">Color images</h2>
 <p>A color image is a vector image where each vector element represents a color
-channel. <a href="dip-Image.html#dip-Image-SetColorSpace-dip-String-CL"><code>SetColorSpace</code></a> assigns a string into the image object that
+channel. <a href="dip-Image.html#dip-Image-SetColorSpace-dip-String-"><code>dip::Image::SetColorSpace</code></a> assigns a string into the image object that
 flags it as a color image. The string identifies the color space. An empty string
 indicates that the image is not a color image.</p>
 <p>There are no checks made when
@@ -954,10 +954,10 @@ case when the result of <em>DIPlib</em> functions will be passed to another
 imaging library, or to an interpreted language.</p>
 </li>
 </ol>
-<p>In both cases, <a href="dip-Image.html#dip-Image-IsExternalData-C"><code>IsExternalData</code></a> returns true.</p>
+<p>In both cases, <a href="dip-Image.html#dip-Image-IsExternalData-C"><code>dip::Image::IsExternalData</code></a> returns true.</p>
 <p>Note that when the image needs to be reforged (sizes and/or data type do not
 match what is required for output by some function), but the data segment is
-of the correct size, <a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>ReForge</code></a> would typically re-use the data
+of the correct size, <a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>dip::Image::ReForge</code></a> would typically re-use the data
 segment if it is not shared with another image. However, when the data segment
 is external, it is always reforged.</p>
 <h3 id="use_external_data">Create an image around existing data</h3>
@@ -966,12 +966,12 @@ data segment (i.e. pixel buffer), and image sizes and strides, and creates a new
 image that references that data. The only requirement is that all pixels are
 aligned on boundaries given by the size of the sample data type. That is,
 <em>DIPlib</em> strides are not in bytes but in samples. The resulting image is identical
-to any other image in all respects, except the behavior of <a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>ReForge</code></a>,
+to any other image in all respects, except the behavior of <a href="dip-Image.html#dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><code>dip::Image::ReForge</code></a>,
 as mentioned in the previous paragraph.</p>
 <p>For example, in this bit of code we take the data of a <code>std::vector</code> and build an
 image around it, which we can use as both an input or an output image:</p>
 <div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">(</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span> <span class="c1">// existing data</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img</span><span class="p">(</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span>
    <span class="n">NonOwnedRefToDataSegment</span><span class="p">(</span> <span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="p">),</span>
    <span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span>    <span class="c1">// origin</span>
    <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="p">,</span> <span class="c1">// dataType</span>
@@ -991,7 +991,7 @@ In the example below, we do the same as above, but we transfer ownership of the
 <code>std::vector</code> to the image. When the image goes out of scope (or is reallocated) the
 <code>std::vector</code> is deleted:</p>
 <div class="m-code"><pre><span></span><span class="k">auto</span> <span class="n">src</span> <span class="o">=</span> <span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span> <span class="c1">// existing data</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img</span><span class="p">(</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span>
    <span class="n">dip</span><span class="o">::</span><span class="n">DataSegment</span><span class="p">{</span> <span class="n">src</span> <span class="p">},</span> <span class="c1">// transfer ownership of the data</span>
    <span class="n">src</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">(),</span>   <span class="c1">// origin</span>
    <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="p">,</span> <span class="c1">// dataType</span>
@@ -1001,7 +1001,7 @@ In the example below, we do the same as above, but we transfer ownership of the
 <span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">img</span> <span class="p">);</span> <span class="c1">// Apply Gaussian filter, output is written to a different data segment.</span>
 </pre></div>
 
-<p>After the call to <a href="linear.html#dip-Gauss-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-UnsignedArray-CL-dip-String--dip-StringArray-CL-dip-dfloat-"><code>dip::Gauss</code></a>, <code>*src</code> no longer exists. <code>dip::Gauss</code> has reforged
+<p>After the call to <a href="linear.html#dip-Gauss-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-UnsignedArray--dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::Gauss</code></a>, <code>*src</code> no longer exists. <code>dip::Gauss</code> has reforged
 <code>img</code> to be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>, triggering the deletion of object pointed to
 by <code>src</code>.</p>
 <p>Another form of the constructor simplifies the above in the case where ownership is not
@@ -1010,7 +1010,7 @@ with sizes, and optionally the number of tensor elements (channels). The strides
 assumed to be normal (see <a href="concepts.html#normal_strides">Normal strides</a>).
 The data pointer must be of any of the allowed data types:</p>
 <div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">(</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span> <span class="c1">// existing data</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img</span><span class="p">(</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span>
    <span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span>    <span class="c1">// origin</span>
    <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">}</span>   <span class="c1">// sizes</span>
 <span class="p">);</span>
@@ -1025,7 +1025,7 @@ protected, a new data segment will be allocated. This means that the output of t
 function call will not be written into the buffer we had provided.</p>
 <p>Instead we can define an allocator class, derived from <a href="dip-ExternalInterface.html"><code>dip::ExternalInterface</code></a>,
 and assign a pointer to an object of the allocator class to an image using
-<a href="dip-Image.html#dip-Image-SetExternalInterface-dip-ExternalInterface-P"><code>SetExternalInterface</code></a>. When that image is forged or reforged,
+<a href="dip-Image.html#dip-Image-SetExternalInterface-dip-ExternalInterface-P"><code>dip::Image::SetExternalInterface</code></a>. When that image is forged or reforged,
 the <a href="dip-ExternalInterface.html#dip-ExternalInterface-AllocateData-void-PL-dip-DataType--dip-UnsignedArray-CL-dip-IntegerArray-L-dip-Tensor-CL-dip-sint-L"><code>dip::ExternalInterface::AllocateData</code></a> method is called. This method is
 free to allocate whatever objects it needs, and sets the image&rsquo;s origin pointer
 and strides (much like in the previous section). As before, it is possible to
@@ -1044,7 +1044,7 @@ Additionally, these images behave differently when reforged,
 <a href="dip-Image.html#external_data_segment">as mentioned above</a>.</p>
 <p>The example below is a simple external interface that allocates data using a
 <code>std::vector</code>. The <code>AllocateData</code> method returns without setting the <code>origin</code>,
-indicating to the calling <a href="dip-Image.html#dip-Image-Forge"><code>Forge</code></a> function that it cannot allocate
+indicating to the calling <a href="dip-Image.html#dip-Image-Forge"><code>dip::Image::Forge</code></a> function that it cannot allocate
 such an image. <code>Forge</code> will then allocate the data itself. If you prefer the
 forging to fail, simply throw an exception.</p>
 <div class="m-code"><pre><span></span><span class="k">class</span> <span class="nc">VectorInterface</span> <span class="o">:</span> <span class="k">public</span> <span class="n">dip</span><span class="o">::</span><span class="n">ExternalInterface</span> <span class="p">{</span>
@@ -1085,8 +1085,8 @@ and is accomplished by setting the image&rsquo;s size in that dimension to
 the expected value, and the corresponding stride to 0 (again, no data are
 physically copied). This will cause an algorithm to read the same value,
 no matter how many steps it takes along this dimension. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img1</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span> <span class="p">}</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img2</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img1</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span> <span class="p">}</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img2</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">);</span>
 <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img3</span> <span class="o">=</span> <span class="n">img1</span> <span class="o">+</span> <span class="n">img2</span><span class="p">;</span>
 </pre></div>
 
@@ -1199,8 +1199,8 @@ and raw (it has no data segment).</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-NumberOfSamples-C" class="m-doc-self">NumberOfSamples</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Get the number of samples.</dd>
-            <dt id="dip-Image-SetSizes-dip-UnsignedArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetSizes-dip-UnsignedArray-CL" class="m-doc-self">SetSizes</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; d)</span>
+            <dt id="dip-Image-SetSizes-dip-UnsignedArray-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetSizes-dip-UnsignedArray-" class="m-doc-self">SetSizes</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> d)</span>
             </dt>
             <dd>Set the image sizes. The image must be raw.</dd>
             </dl>
@@ -1220,8 +1220,8 @@ and raw (it has no data segment).</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-TensorStride-C" class="m-doc-self">TensorStride</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
             </dt>
             <dd>Get the tensor stride.</dd>
-            <dt id="dip-Image-SetStrides-dip-IntegerArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetStrides-dip-IntegerArray-CL" class="m-doc-self">SetStrides</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; s)</span>
+            <dt id="dip-Image-SetStrides-dip-IntegerArray-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetStrides-dip-IntegerArray-" class="m-doc-self">SetStrides</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> s)</span>
             </dt>
             <dd>Set the strides array. The image must be raw.</dd>
             <dt id="dip-Image-SetTensorStride-dip-sint-">
@@ -1352,8 +1352,8 @@ the product of the elements in the array returned by TensorSizes.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-IsColor-C" class="m-doc-self">IsColor</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>Returns true if the image is in color, false if the image is grey-valued.</dd>
-            <dt id="dip-Image-SetColorSpace-dip-String-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetColorSpace-dip-String-CL" class="m-doc-self">SetColorSpace</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; cs)</span>
+            <dt id="dip-Image-SetColorSpace-dip-String-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetColorSpace-dip-String-" class="m-doc-self">SetColorSpace</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> cs)</span>
             </dt>
             <dd>Sets the image&rsquo;s color space name. This causes the image to be a color image,
 but will cause errors to occur (eventually, not immediately) if the number of tensor elements
@@ -1379,8 +1379,8 @@ does not match the expected number of channels for the given color space.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-PixelSize-dip-uint--C" class="m-doc-self">PixelSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim) const -&gt; <a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a></span>
             </dt>
             <dd>Get the pixels&rsquo; size along the given dimension in physical units.</dd>
-            <dt id="dip-Image-SetPixelSize-dip-PixelSize-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetPixelSize-dip-PixelSize-CL" class="m-doc-self">SetPixelSize</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; ps)</span>
+            <dt id="dip-Image-SetPixelSize-dip-PixelSize-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetPixelSize-dip-PixelSize-" class="m-doc-self">SetPixelSize</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> ps)</span>
             </dt>
             <dd>Set the pixels&rsquo; size in physical units.</dd>
             <dt id="dip-Image-SetPixelSize-dip-uint--dip-PhysicalQuantity-">
@@ -1752,9 +1752,9 @@ stride to 0.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Rotation90-dip-sint--dip-uint-" class="m-doc">Rotation90</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Rotates the image by <code>n</code> times 90 degrees, in the plane perpendicular to dimension <code>axis</code>.</dd>
+            <dd>Rotates the 3D image by <code>n</code> times 90 degrees, in the plane perpendicular to dimension <code>axis</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Rotation90-dip-sint-" class="m-doc">Rotation90</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Rotation90-dip-sint-" class="m-doc">Rotation90</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n = 1) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
             <dd>Rotates the image by <code>n</code> times 90 degrees, in the x-y plane.</dd>
             <dt>
@@ -2054,6 +2054,10 @@ and has mostly the same properties.</dd>
             </dt>
             <dd>Converts the image to another data type.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SwapBytesInSample" class="m-doc">SwapBytesInSample</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Swaps bytes in each sample, converting from little endian to big endian or vice versa.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Image-ExpandTensor" class="m-doc">ExpandTensor</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Expands the image&rsquo;s tensor, such that the tensor representation is a column-major matrix.</dd>
@@ -2289,7 +2293,7 @@ an initializer list by itself will be considered a pixel, see the constructor be
             <p>Create a 0-D image with the data type, tensor shape, and values of <code>pixel</code>.</p>
 <p>Note that <code>pixel</code> can be created through an initializer list. Thus, the following
 is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">image</span><span class="p">(</span> <span class="p">{</span> <span class="mf">10.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mf">10.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span> <span class="p">}</span> <span class="p">);</span>
 </pre></div>
 
 <p>The image in the example above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>.</p>
@@ -2303,7 +2307,7 @@ is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
             <p>Create a 0-D image with data type <code>dt</code>, and tensor shape and values of <code>pixel</code>.</p>
 <p>Note that <code>pixel</code> can be created through an initializer list. Thus, the following
 is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">},</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">},</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
 </pre></div>
 
 <p>The image in the example above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>.</p>
@@ -2316,8 +2320,8 @@ is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
             <p>Create a 0-D image with the data type and value of <code>sample</code>.</p>
 <p>Note that <code>sample</code> can be created by implicit cast from any numeric value. Thus, the following
 are valid ways of creating a 0-D image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">image</span><span class="p">(</span> <span class="mf">10.0f</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">complex_image</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">dcomplex</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">));</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="mf">10.0f</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">complex_image</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">dcomplex</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">));</span>
 </pre></div>
 
 <p>The images in the examples above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a> and <a href="pixeltypes.html#dip-DT_DCOMPLEX"><code>dip::DT_DCOMPLEX</code></a>.</p>
@@ -2331,7 +2335,7 @@ are valid ways of creating a 0-D image:</p>
             <p>Create a 0-D image with data type <code>dt</code> and value of <code>sample</code>.</p>
 <p>Note that <code>sample</code> can be created by implicit cast from any numeric value. Thus, the following
 is a valid way of creating a 0-D image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">image</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
 </pre></div>
 
 <p>The image in the example above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>.</p>
@@ -2343,7 +2347,7 @@ is a valid way of creating a 0-D image:</p>
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt = DT_SFLOAT) <span class="m-label m-info">explicit</span></span></span>
             </h3>
             <p>Create a 0-D vector image with data type <code>dt</code>, and values of <code>values</code>.</p>
-<p>Note that if <code>values</code> is specified as an initializer list, the constructor <a href="dip-Image.html#dip-Image-Image-dip-Image-Pixel-CL"><code>Image( Pixel const&amp; )</code></a>
+<p>Note that if <code>values</code> is specified as an initializer list, the constructor <a href="dip-Image.html#dip-Image-Image-dip-Image-Pixel-CL"><code>dip::Image::Image</code></a>
 is called instead.</p>
 <p>Note also that this constructor is specifically with a <code>FloatArray</code>. If the array is of type
 <code>UnsignedArray</code>, a different constructor will be called, and the array will be interpreted as image
@@ -2638,6 +2642,8 @@ sample in this image might change a different sample in <code>other</code>.
 An image with an overlapping view of an input image cannot be used as output to a
 filter, as it might change input data that still needs to be used. Use this function
 to test whether to use the existing data segment or allocate a new one.</p>
+<p>Note that this function returns false if the two images offer the same view of
+the same data segment.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
 <p><a href="dip-Image.html#dip-Image-SharesData-dip-Image-CL-C"><code>dip::Image::SharesData</code></a>, <a href="dip-Image.html#dip-Image-Aliases-dip-Image-CL-C"><code>dip::Image::Aliases</code></a>, <a href="dip-Image.html#dip-Image-IsIdenticalView-dip-Image-CL-C"><code>dip::Image::IsIdenticalView</code></a></p>
@@ -3086,7 +3092,7 @@ over by one. <code>Size( dim )</code> must be evenly divisible by <code>size</co
 thrown if this is not the case.</p>
 <p>After this call, the image will have the same number of pixels, stored identically (no copy is made),
 but one more dimension. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">21</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">21</span> <span class="p">}</span> <span class="p">);</span>
 <span class="n">image</span><span class="p">.</span><span class="n">SplitDimension</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span> <span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">Sizes</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// should print { 43, 32, 16, 21 }</span>
 </pre></div>
@@ -3272,7 +3278,8 @@ axes will be mirrored.</p>
             </h3>
             <p>Rotates the image by <code>n</code> times 90 degrees, in the plane defined by dimensions
 <code>dimension1</code> and <code>dimension2</code>.</p>
-<p>The image must be forged. The data will never be copied (i.e. this is a quick and cheap operation).</p>
+<p>The image must be forged, and have at least two dimensions.
+The data will never be copied (i.e. this is a quick and cheap operation).</p>
 <p>The rotation occurs in the direction of positive angles, as defined in the image coordinate system.
 That is, if <code>dimension1</code> is 0 (x-axis) and <code>dimension2</code> is 1 (y-axis), and considering the y-axis is
 positive in the down direction, then the rotation happens in clockwise direction. A negative
@@ -3284,14 +3291,14 @@ value for <code>n</code> inverts the direction of rotation.</p>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Image-Rotation90-dip-sint--dip-uint-" class="m-doc-self">Rotation90</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis)</span></span>
             </h3>
-            <p>Rotates the image by <code>n</code> times 90 degrees, in the plane perpendicular to dimension <code>axis</code>.</p>
+            <p>Rotates the 3D image by <code>n</code> times 90 degrees, in the plane perpendicular to dimension <code>axis</code>.</p>
 <p>The image must be forged and have three dimensions. The data will never be copied
 (i.e. this is a quick and cheap operation).</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-Rotation90-dip-sint-"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Image-Rotation90-dip-sint-" class="m-doc-self">Rotation90</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n)</span></span>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Image-Rotation90-dip-sint-" class="m-doc-self">Rotation90</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n = 1)</span></span>
             </h3>
             <p>Rotates the image by <code>n</code> times 90 degrees, in the x-y plane.</p>
 <p>The image must be forged. The data will never be copied (i.e. this is a quick and cheap operation).</p>
@@ -3676,7 +3683,10 @@ values are converted to non-complex values by taking the absolute
 value.</p>
 <p>If <code>this</code> is not forged, or its sizes or number of tensor elements don&rsquo;t
 match those of <code>src</code>, then <code>this</code> will be forged or reforged to match <code>src</code>,
-and then the data from <code>src</code> will be copied over.</p>
+and then the data from <code>src</code> will be copied over. <code>this</code> will retain its
+external interface, if it has one, and not inherit that of <code>src</code>.
+Strides will be copied only if the data is contiguous, and any external interface
+allows those strides.</p>
 <p><code>src</code> must be forged.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-Copy-C"><div>
@@ -3709,6 +3719,15 @@ If the data segment is replaced, strides are set to normal.</p>
 <p><a href="dip-Image.html#dip-Image-ReinterpretCast-dip-DataType-"><code>dip::Image::ReinterpretCast</code></a>, <a href="dip-Image.html#dip-Image-ReinterpretCastToSignedInteger"><code>dip::Image::ReinterpretCastToSignedInteger</code></a>, <a href="dip-Image.html#dip-Image-ReinterpretCastToUnsignedInteger"><code>dip::Image::ReinterpretCastToUnsignedInteger</code></a></p>
 </aside>
           </div></section>
+          <section class="m-doc-details" id="dip-Image-SwapBytesInSample"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Image-SwapBytesInSample" class="m-doc-self">SwapBytesInSample</a>(</span><span class="m-doc-wrap">)</span></span>
+            </h3>
+            <p>Swaps bytes in each sample, converting from little endian to big endian or vice versa.</p>
+<p>This process works for any data type with more than one byte per sample. For 8-bit integer imgaes and binary
+images, nothing is node. The modification will affect all images with shared data. The image must be forged.</p>
+          </div></section>
           <section class="m-doc-details" id="dip-Image-ExpandTensor"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
@@ -3731,7 +3750,7 @@ This can happen only if there is an external interface.</p>
 <p>The image must be forged.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
-<p><a href="dip-Image.html#dip-Image-HasNormalStrides-C"><code>dip::Image::HasNormalStrides</code></a>, <a href="dip-Image.html#dip-Image-ForceContiguousData"><code>dip::Image::ForceContiguousData</code></a></p>
+<p><a href="dip-Image.html#dip-Image-HasNormalStrides-C"><code>dip::Image::HasNormalStrides</code></a>, <a href="dip-Image.html#dip-Image-ForceContiguousData"><code>dip::Image::ForceContiguousData</code></a>, <a href="dip-Image.html#dip-Image-StandardizeStrides"><code>dip::Image::StandardizeStrides</code></a></p>
 </aside>
           </div></section>
           <section class="m-doc-details" id="dip-Image-ForceContiguousData"><div>

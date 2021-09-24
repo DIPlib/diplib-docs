@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -117,6 +117,10 @@ options for each histogram dimension.</dd>
               <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> const&amp; configuration)</span>
             </dt>
             <dd>Create a 1D histogram around existing data. No ownership is transferred.</dd>
+            <dt id="dip-Histogram-Histogram">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram" class="m-doc-self">Histogram</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd>The default-initialized histogram is empty and can only be assigned to.</dd>
             </dl>
         </section>
         <section id="nested-classes">
@@ -140,7 +144,7 @@ options for each histogram dimension.</dd>
               using <a href="#dip-Histogram-ConfigurationArray" class="m-doc-self">ConfigurationArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::Histogram::Configuration&gt;</a>
 
             </dt>
-            <dd>An array of <a href="dip-Histogram-Configuration.html"><code>Configuration</code></a> objects, one per histogram dimension.</dd>
+            <dd>An array of <a href="dip-Histogram-Configuration.html"><code>dip::Histogram::Configuration</code></a> objects, one per histogram dimension.</dd>
             </dl>
         </section>
         <section id="function-members">
@@ -150,6 +154,10 @@ options for each histogram dimension.</dd>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Histogram-swap-dip-Histogram-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; other)</span>
             </dt>
             <dd>Swaps <code>this</code> and <code>other</code>.</dd>
+            <dt id="dip-Histogram-IsInitialized-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-IsInitialized-C" class="m-doc-self">IsInitialized</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns false for a default-initialized histogram.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Copy-C" class="m-doc">Copy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
@@ -396,8 +404,8 @@ is not represented in the histogram.</p>
 <p><code>output</code> is a scalar image with data type <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>, containing the histogram
 bin values.</p>
 <p>This function is particularly interesting when applied to a histogram resulting from clustering
-algorithms such as <a href="histograms.html#dip-KMeansClustering-dip-Histogram-CL-dip-uint-"><code>dip::KMeansClustering( dip::Histogram const&amp;, dip::uint )</code></a> or
-<a href="histograms.html#dip-MinimumVariancePartitioning-dip-Histogram-CL-dip-uint-"><code>dip::MinimumVariancePartitioning( dip::Histogram const&amp;, dip::uint )</code></a>.</p>
+algorithms such as <a href="histograms.html#dip-KMeansClustering-dip-Histogram-CL-dip-uint-"><code>dip::KMeansClustering</code></a> or
+<a href="histograms.html#dip-MinimumVariancePartitioning-dip-Histogram-CL-dip-uint-"><code>dip::MinimumVariancePartitioning</code></a>.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Histogram-Cumulative"><div>
             <h3>

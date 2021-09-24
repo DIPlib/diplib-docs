@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -114,7 +114,7 @@
             <p>Frangi vessel detector, single scale (Hessian based)</p>
 <p>Frangi&rsquo;s vesselness measure is based on the eigenvalues of the Hessian matrix. The core concept is that
 one eigenvalue must be significantly smaller than the others for a local region to resemble a line.</p>
-<p><code>sigmas</code> are used for the computation of the Hessian (which uses Gaussian gradients, see <a href="linear.html#dip-Hessian-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray-CL-dip-dfloat-"><code>dip::Hessian</code></a>),
+<p><code>sigmas</code> are used for the computation of the Hessian (which uses Gaussian gradients, see <a href="linear.html#dip-Hessian-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray--dip-dfloat-"><code>dip::Hessian</code></a>),
 and determine the scale. To detect wider vessels, increase <code>sigmas</code>.</p>
 <p><code>parameters</code> are the two (<em>&beta;</em> and <em>c</em> in 2D) or three (<em>&alpha;</em>, <em>&beta;</em> and <em>c</em> in 3D) thresholds used
 in the method. An empty array indicates the default values (<code>{0.5, 15}</code> in 2D and <code>{0.5, 0.5, 500}</code> in 3D).</p>
@@ -126,9 +126,9 @@ other dimensionalities.</p>
 <p>The complete multi-scale vessel detector simply applies this function at multiple scales and takes the maximum
 response at each scale. Even though the original paper didn&rsquo;t mention this, best results are obtained when
 scaling the input image with the square of the sigma:</p>
-<div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">scales</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span> <span class="p">};</span>
+<div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="kt">double</span> <span class="o">&gt;</span> <span class="n">scales</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span> <span class="p">};</span>
 <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">FrangiVesselness</span><span class="p">(</span> <span class="n">in</span> <span class="o">*</span> <span class="p">(</span> <span class="n">scales</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="n">scales</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">),</span> <span class="p">{</span> <span class="n">scales</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">}</span> <span class="p">);</span>
-<span class="k">for</span><span class="p">(</span> <span class="kt">size_t</span> <span class="n">ii</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">ii</span> <span class="o">&lt;</span> <span class="n">scales</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">ii</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">for</span><span class="p">(</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">ii</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">ii</span> <span class="o">&lt;</span> <span class="n">scales</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">ii</span> <span class="p">)</span> <span class="p">{</span>
    <span class="n">dip</span><span class="o">::</span><span class="n">Supremum</span><span class="p">(</span> <span class="n">out</span><span class="p">,</span>  <span class="n">dip</span><span class="o">::</span><span class="n">FrangiVesselness</span><span class="p">(</span> <span class="n">in</span> <span class="o">*</span> <span class="p">(</span> <span class="n">scales</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="o">*</span> <span class="n">scales</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="p">),</span> <span class="p">{</span> <span class="n">scales</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="p">}</span> <span class="p">),</span> <span class="n">out</span> <span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
@@ -179,7 +179,7 @@ background (<code>"black"</code>). <code>in</code> must be scalar, real-valued, 
 <p>This is a different approach to detecting lines based on the Hessian matrix (2nd order derivatives) compared
 to Frangi&rsquo;s vesselness measure (<a href="detection_lines.html#dip-FrangiVesselness-dip-Image-CL-dip-Image-L-dip-FloatArray-CL-dip-FloatArray--dip-String-CL-dip-StringArray-CL"><code>dip::FrangiVesselness</code></a>). It is perfectly isotropic, but has some response
 also to edges, especially in 2D.</p>
-<p><code>sigmas</code> are used for the computation of the Hessian (which uses Gaussian gradients, see <a href="linear.html#dip-Hessian-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray-CL-dip-dfloat-"><code>dip::Hessian</code></a>),
+<p><code>sigmas</code> are used for the computation of the Hessian (which uses Gaussian gradients, see <a href="linear.html#dip-Hessian-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray--dip-dfloat-"><code>dip::Hessian</code></a>),
 and determine the scale. To detect wider lines, increase <code>sigmas</code>.</p>
 <p><code>polarity</code> indicates whether to look for light lines on a dark background (<code>"white"</code>) or dark lines on a light
 background (<code>"black"</code>). <code>in</code> must be scalar, real-valued, and either 2D or 3D.</p>

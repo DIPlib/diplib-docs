@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -74,7 +74,8 @@
           <h2>Functions</h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetOptimalDFTSize-size_t-" class="m-doc">dip::<wbr />GetOptimalDFTSize</a>(</span><span class="m-doc-wrap">size_t size0) -&gt; size_t</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetOptimalDFTSize-std-size_t--bool-" class="m-doc">dip::<wbr />GetOptimalDFTSize</a>(</span><span class="m-doc-wrap">std::size_t size0,
+              bool larger = true) -&gt; std::size_t</span>
             </dt>
             <dd>Returns a size equal or larger to <code>size0</code> that is efficient for our DFT implementation.</dd>
             <dt>
@@ -85,10 +86,11 @@
             </dt>
             <dd>Computes the forward and inverse Fourier Transform</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-OptimalFourierTransformSize-dip-uint-" class="m-doc">dip::<wbr />OptimalFourierTransformSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-OptimalFourierTransformSize-dip-uint--dip-String-CL" class="m-doc">dip::<wbr />OptimalFourierTransformSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; which = "larger") -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
-            <dd>Returns the next higher multiple of {2, 3, 5}. The largest value that can be returned is 2125764000
-(smaller than 2<sup>31</sup>-1, the largest possible value of an <code>int</code> on most platforms).</dd>
+            <dd>Returns the next larger (or smaller) multiple of {2, 3, 5}, an image of this size is more
+efficient for FFT computations.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-RieszTransform-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-BooleanArray-" class="m-doc">dip::<wbr />RieszTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -111,22 +113,24 @@
           <h2>Variables</h2>
           <dl class="m-doc">
             <dt>
-            size_t const <a href="#dip-maximumDFTSize" class="m-doc">dip::<wbr />maximumDFTSize</a> <span class="m-label m-flat m-primary">constexpr</span>
+            std::size_t const <a href="#dip-maximumDFTSize" class="m-doc">dip::<wbr />maximumDFTSize</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd>The largest size supported by the DFT (both the internal code and FFTW use <code>int</code> for sizes).</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="dip-GetOptimalDFTSize-size_t-"><div>
+          <section class="m-doc-details" id="dip-GetOptimalDFTSize-std-size_t--bool-"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">size_t
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GetOptimalDFTSize-size_t-" class="m-doc-self">dip::<wbr />GetOptimalDFTSize</a>(</span><span class="m-doc-wrap">size_t size0)</span></span>
+              <span class="m-doc-wrap-bumper">std::size_t
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GetOptimalDFTSize-std-size_t--bool-" class="m-doc-self">dip::<wbr />GetOptimalDFTSize</a>(</span><span class="m-doc-wrap">std::size_t size0,
+              bool larger = true)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--dft-h.html">"diplib/dft.h"</a></div>
             </h3>
             <p>Returns a size equal or larger to <code>size0</code> that is efficient for our DFT implementation.</p>
+<p>Set <code>larger</code> to false to return a size equal or smaller instead.</p>
 <p>Returns 0 if <code>size0</code> is too large for our DFT implementation.</p>
-<p>Prefer to use <a href="transform.html#dip-OptimalFourierTransformSize-dip-uint-"><code>dip::OptimalFourierTransformSize</code></a> in your applications, it will throw an error if
+<p>Prefer to use <a href="transform.html#dip-OptimalFourierTransformSize-dip-uint--dip-String-CL"><code>dip::OptimalFourierTransformSize</code></a> in your applications, it will throw an error if
 the transform size is too large.</p>
           </div></section>
           <section class="m-doc-details" id="dip-FourierTransform-dip-Image-CL-dip-Image-L-dip-StringSet-CL-dip-BooleanArray-"><div>
@@ -189,14 +193,21 @@ uses <code>int</code> internally to represent sizes, and therefore has a more st
 that this limit refers to the size of one image dimension, not to the total number of pixels in the image.</p>
 </aside>
           </div></section>
-          <section class="m-doc-details" id="dip-OptimalFourierTransformSize-dip-uint-"><div>
+          <section class="m-doc-details" id="dip-OptimalFourierTransformSize-dip-uint--dip-String-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-OptimalFourierTransformSize-dip-uint-" class="m-doc-self">dip::<wbr />OptimalFourierTransformSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size)</span></span>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-OptimalFourierTransformSize-dip-uint--dip-String-CL" class="m-doc-self">dip::<wbr />OptimalFourierTransformSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; which = "larger")</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--transform-h.html">"diplib/transform.h"</a></div>
             </h3>
-            <p>Returns the next higher multiple of {2, 3, 5}. The largest value that can be returned is 2125764000
+            <p>Returns the next larger (or smaller) multiple of {2, 3, 5}, an image of this size is more
+efficient for FFT computations.</p>
+<p>The largest value that can be returned is 2125764000
 (smaller than 2<sup>31</sup>-1, the largest possible value of an <code>int</code> on most platforms).</p>
+<p>By default, <code>which</code> is <code>"larger"</code>, in which case it returns the next larger value. Set it
+to <code>"smaller"</code> to obtain the next smaller value instead.</p>
+<p>Pad an image with zeros to the next larger size or crop the image to the next smaller size to
+improve FFT performance.</p>
           </div></section>
           <section class="m-doc-details" id="dip-RieszTransform-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-BooleanArray-"><div>
             <h3>
@@ -326,7 +337,7 @@ differently smoothed images.</p>
 <p>Summing the output image along its last dimension will yield the input image:</p>
 <div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img</span> <span class="o">=</span> <span class="p">...;</span>
 <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">swt</span> <span class="o">=</span> <span class="n">StationaryWaveletTransform</span><span class="p">(</span> <span class="n">img</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">BooleanArray</span> <span class="n">process</span><span class="p">(</span> <span class="n">swt</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">(),</span> <span class="nb">false</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">BooleanArray</span> <span class="nf">process</span><span class="p">(</span> <span class="n">swt</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">(),</span> <span class="nb">false</span> <span class="p">);</span>
 <span class="n">process</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 <span class="n">img</span> <span class="o">==</span> <span class="n">dip</span><span class="p">.</span><span class="n">Sum</span><span class="p">(</span> <span class="n">swt</span><span class="p">,</span> <span class="p">{},</span> <span class="n">process</span> <span class="p">).</span><span class="n">Squeeze</span><span class="p">();</span>
 </pre></div>
@@ -336,7 +347,7 @@ differently smoothed images.</p>
           <h2>Variable documentation</h2>
           <section class="m-doc-details" id="dip-maximumDFTSize"><div>
             <h3>
-              size_t const <a href="#dip-maximumDFTSize" class="m-doc-self">dip::<wbr />maximumDFTSize</a> <span class="m-label m-primary">constexpr</span>
+              std::size_t const <a href="#dip-maximumDFTSize" class="m-doc-self">dip::<wbr />maximumDFTSize</a> <span class="m-label m-primary">constexpr</span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--dft-h.html">"diplib/dft.h"</a></div>
             </h3>
             <p>The largest size supported by the DFT (both the internal code and FFTW use <code>int</code> for sizes).</p>

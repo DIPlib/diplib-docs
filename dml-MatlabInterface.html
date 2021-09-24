@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -72,7 +72,7 @@ used as the output to a function:</p>
 <p>This configures the images <code>img_out0</code> and <code>img_out1</code> such that, when they are
 forged later on, an <code>mxArray</code> structure will be created to hold the pixel data.
 <code>mxArray</code> is <em>MATLAB</em>&lsquo;s representation of arrays.
-To return those images back to <em>MATLAB</em>, use <a href="dip_matlab_interface.html#dml-GetArray-dip-Image-CL-bool-"><code>dml::GetArray(dip::Image const&amp;, bool)</code></a>, which returns
+To return those images back to <em>MATLAB</em>, use <a href="dip_matlab_interface.html#dml-GetArray-dip-Image-CL-bool-"><code>dml::GetArray</code></a>, which returns
 the <code>mxArray</code> created when the image was forged:</p>
 <div class="m-code"><pre><span></span><span class="n">plhs</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">=</span> <span class="n">dm</span><span class="o">::</span><span class="n">GetArray</span><span class="p">(</span> <span class="n">img_out0</span> <span class="p">);</span>
 <span class="n">plhs</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">=</span> <span class="n">dm</span><span class="o">::</span><span class="n">GetArray</span><span class="p">(</span> <span class="n">img_out1</span> <span class="p">);</span>
@@ -151,7 +151,7 @@ deleter functor. It also adjusts strides to match the <code>mxArray</code> stora
             </h3>
             <p>Constructs a <a href="dip-Image.html"><code>dip::Image</code></a> object with the external interface set so that,
 when forged, a <em>MATLAB</em> <code>mxArray</code> will be allocated to hold the samples.</p>
-<p>Use <a href="dip_matlab_interface.html#dml-GetArray-dip-Image-CL-bool-"><code>dml::GetArray(dip::Image const&amp;, bool)</code></a> to obtain the <code>mxArray</code> and assign
+<p>Use <a href="dip_matlab_interface.html#dml-GetArray-dip-Image-CL-bool-"><code>dml::GetArray</code></a> to obtain the <code>mxArray</code> and assign
 it as a <code>lhs</code> argument to your MEX-file.</p>
           </div></section>
         </section>

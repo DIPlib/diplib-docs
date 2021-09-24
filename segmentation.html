@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -97,14 +97,15 @@
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags)</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
             </dt>
             <dd>Computes the compact watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL" class="m-doc">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-Random-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL" class="m-doc">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,
@@ -146,11 +147,18 @@
             </dt>
             <dd>Marks local maxima.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-Random-L-dip-uint-" class="m-doc">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+            </dt>
+            <dd>Applies k-means clustering to an image, yielding <code>nClusters</code> labeled regions.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
             </dt>
-            <dd>Applies k-means clustering to an image, yielding <code>nClusters</code> labeled regions.</dd>
+            <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-MinimumVariancePartitioning-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">dip::<wbr />MinimumVariancePartitioning</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -263,14 +271,24 @@ and the histogram of <code>in</code>.</dd>
             </dt>
             <dd>Detect edges in the grey-value image by finding salient ridges in the gradient magnitude</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Superpixels-dip-Image-CL-dip-Image-L-dip-Random-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL" class="m-doc">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
+            </dt>
+            <dd>Generates superpixels (oversegmentation)</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Superpixels-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL" class="m-doc">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "CW",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
             </dt>
-            <dd>Generates superpixels (oversegmentation)</dd>
+            <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
           </dl>
         </section>
         <section>
@@ -373,18 +391,24 @@ information on the connectivity parameter.</p>
 </li>
 <li>
 <p><code>"fast"</code> or <code>"correct"</code>: determines which algorithm is used:</p>
+<ul>
+<li>
+<p><code>"fast"</code> (the default) is an algorithm that takes a few shortcuts, but usually manages to produce good results
+  any way. One shortcut leads to all border pixels being marked as watershed lines. It is possible
+  to extend the image by one pixel before processing to circumvent this. The other shortcut means
+  that plateaus are not handled correctly. A plateau is a region in the image where pixels have
+  exactly the same value. This is usually seen as watershed lines not running through the middle of
+  the plateaus, instead being shifted to one side. Adding a little bit of noise to the image, and
+  setting <code>maxDepth</code> to the range of the noise, usually improves the results in these cases
+  a little bit.</p>
 </li>
-<li><code>"fast"</code> (the default) is an algorithm that takes a few shortcuts, but usually manages to produce good results
-    any way. One shortcut leads to all border pixels being marked as watershed lines. It is possible
-    to extend the image by one pixel before processing to circumvent this. The other shortcut means
-    that plateaus are not handled correctly. A plateau is a region in the image where pixels have
-    exactly the same value. This is usually seen as watershed lines not running through the middle of
-    the plateaus, instead being shifted to one side. Adding a little bit of noise to the image, and
-    setting <code>maxDepth</code> to the range of the noise, usually improves the results in these cases
-    a little bit.</li>
-<li><code>"correct"</code> is an algorithm that first finds the local minima through <a href="segmentation.html#dip-Minima-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::Minima</code></a> (or maxima if
-    <code>"high first"</code> is set), and then applies <a href="segmentation.html#dip-SeededWatershed-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-StringSet-CL"><code>dip::SeededWatershed</code></a>. This always produces correct results,
-    but is significantly slower.</li>
+<li>
+<p><code>"correct"</code> is an algorithm that first finds the local minima through <a href="segmentation.html#dip-Minima-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::Minima</code></a> (or maxima if
+  <code>"high first"</code> is set), and then applies <a href="segmentation.html#dip-SeededWatershed-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-StringSet-CL"><code>dip::SeededWatershed</code></a>. This always produces correct results,
+  but is significantly slower.</p>
+</li>
+</ul>
+</li>
 </ul>
 <p>The on-line region merging works as follows: When two regions first meet, a decision is
 made on whether to keep the regions separate (and thus put a watershed pixel at that point),
@@ -461,9 +485,9 @@ additions:</p>
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags)</span></span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
             </h3>
             <p>Computes the compact watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>.</p>
@@ -490,11 +514,12 @@ on the connectivity parameter.</p>
 </ul>
 </aside>
           </div></section>
-          <section class="m-doc-details" id="dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL"><div>
+          <section class="m-doc-details" id="dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-Random-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL" class="m-doc-self">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-StochasticWatershed-dip-Image-CL-dip-Image-L-dip-Random-L-dip-uint--dip-uint--dip-dfloat--dip-String-CL" class="m-doc-self">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,
@@ -630,11 +655,12 @@ pixels and plateaus are set. If <code>output</code> is <code>"labels"</code>, th
 <p><a href="segmentation.html#dip-Minima-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL"><code>dip::Minima</code></a>, <a href="segmentation.html#dip-WatershedMaxima-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-String-CL"><code>dip::WatershedMaxima</code></a>, <a href="segmentation.html#dip-WatershedMinima-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-dfloat--dip-uint--dip-String-CL"><code>dip::WatershedMinima</code></a></p>
 </aside>
           </div></section>
-          <section class="m-doc-details" id="dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-uint-"><div>
+          <section class="m-doc-details" id="dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-Random-L-dip-uint-"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-Random-L-dip-uint-" class="m-doc-self">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
             </h3>
@@ -649,6 +675,16 @@ suck in local minima. Repeating the clustering several times and picking the bes
 (e.g. determined by times each cluster center is found) can be necessary.</p>
 <p>The returned <a href="supporttypes.html#dip-CoordinateArray"><code>dip::CoordinateArray</code></a> contains the cluster centers.
 Element <code>i</code> in this array corresponds to label <code>i+1</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-KMeansClustering-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+            </h3>
+            <p>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</p>
           </div></section>
           <section class="m-doc-details" id="dip-MinimumVariancePartitioning-dip-Image-CL-dip-Image-L-dip-uint-"><div>
             <h3>
@@ -686,8 +722,7 @@ Element <code>i</code> in this array corresponds to label <code>i+1</code>.</p>
 but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>If <code>nThresholds</code> is 1, then <code>out</code> is a binary image. With more thresholds, the output image is labeled.</p>
 <p>The output array contains the thresholds used.</p>
-<p>See <a href="histograms.html#dip-IsodataThreshold-dip-Histogram-CL-dip-uint-"><code>dip::IsodataThreshold</code></a>
-for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-IsodataThreshold-dip-Histogram-CL-dip-uint-"><code>dip::IsodataThreshold</code></a> for more information on the algorithm used.</p>
           </div></section>
           <section class="m-doc-details" id="dip-OtsuThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><div>
             <h3>
@@ -701,8 +736,7 @@ for more information on the algorithm used.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>Returns the threshold value used.</p>
-<p>See <a href="histograms.html#dip-OtsuThreshold-dip-Histogram-CL"><code>dip::OtsuThreshold</code></a>
-for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-OtsuThreshold-dip-Histogram-CL"><code>dip::OtsuThreshold</code></a> for more information on the algorithm used.</p>
           </div></section>
           <section class="m-doc-details" id="dip-MinimumErrorThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><div>
             <h3>
@@ -716,8 +750,7 @@ for more information on the algorithm used.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>Returns the threshold value used.</p>
-<p>See <a href="histograms.html#dip-MinimumErrorThreshold-dip-Histogram-CL"><code>dip::MinimumErrorThreshold</code></a>
-for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-MinimumErrorThreshold-dip-Histogram-CL"><code>dip::MinimumErrorThreshold</code></a> for more information on the algorithm used.</p>
           </div></section>
           <section class="m-doc-details" id="dip-GaussianMixtureModelThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><div>
             <h3>
@@ -734,8 +767,7 @@ Model to the histogram of <code>in</code>.</p>
 algorithm is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>If <code>nThresholds</code> is 1, then <code>out</code> is a binary image. With more thresholds, the output image is labeled.</p>
 <p>The output array contains the thresholds used.</p>
-<p>See <a href="histograms.html#dip-GaussianMixtureModelThreshold-dip-Histogram-CL-dip-uint-"><code>dip::GaussianMixtureModelThreshold</code></a>
-for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-GaussianMixtureModelThreshold-dip-Histogram-CL-dip-uint-"><code>dip::GaussianMixtureModelThreshold</code></a> for more information on the algorithm used.</p>
           </div></section>
           <section class="m-doc-details" id="dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><div>
             <h3>
@@ -750,8 +782,7 @@ and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>Returns the threshold value used.</p>
-<p>See <a href="histograms.html#dip-TriangleThreshold-dip-Histogram-CL"><code>dip::TriangleThreshold</code></a>
-for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-TriangleThreshold-dip-Histogram-CL"><code>dip::TriangleThreshold</code></a> for more information on the algorithm used.</p>
           </div></section>
           <section class="m-doc-details" id="dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><div>
             <h3>
@@ -766,8 +797,7 @@ for more information on the algorithm used.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>Returns the threshold value used.</p>
-<p>See <a href="histograms.html#dip-BackgroundThreshold-dip-Histogram-CL-dip-dfloat-"><code>dip::BackgroundThreshold</code></a>
-for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-BackgroundThreshold-dip-Histogram-CL-dip-dfloat-"><code>dip::BackgroundThreshold</code></a> for more information on the algorithm used.</p>
           </div></section>
           <section class="m-doc-details" id="dip-VolumeThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><div>
             <h3>
@@ -887,14 +917,14 @@ the threshold value. The threshold is applied to the image as a whole, you can c
 
 <p><code>method</code> can be one of:</p>
 <ul>
-<li>&ldquo;isodata&rdquo;: see <a href="segmentation.html#dip-IsodataThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><code>dip::IsodataThreshold</code></a>.</li>
-<li>&ldquo;otsu&rdquo;: see <a href="segmentation.html#dip-OtsuThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::OtsuThreshold</code></a>. This is the default method</li>
-<li>&ldquo;minerror&rdquo;: see <a href="segmentation.html#dip-MinimumErrorThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::MinimumErrorThreshold</code></a>.</li>
-<li>&ldquo;gmm&rdquo;: see <a href="segmentation.html#dip-GaussianMixtureModelThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><code>dip::GaussianMixtureModelThreshold</code></a>.</li>
-<li>&ldquo;triangle&rdquo;: see <a href="segmentation.html#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::TriangleThreshold</code></a>.</li>
-<li>&ldquo;background&rdquo;: see <a href="segmentation.html#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::BackgroundThreshold</code></a>.</li>
-<li>&ldquo;volume&rdquo;: see <a href="segmentation.html#dip-VolumeThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::VolumeThreshold</code></a>.</li>
-<li>&ldquo;fixed&rdquo;: see <a href="segmentation.html#dip-FixedThreshold-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-dfloat--dip-String-CL"><code>dip::FixedThreshold</code></a>.
+<li><code>"isodata"</code>: see <a href="segmentation.html#dip-IsodataThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><code>dip::IsodataThreshold</code></a>.</li>
+<li><code>"otsu"</code>: see <a href="segmentation.html#dip-OtsuThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::OtsuThreshold</code></a>. This is the default method.</li>
+<li><code>"minerror"</code>: see <a href="segmentation.html#dip-MinimumErrorThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::MinimumErrorThreshold</code></a>&rdquo;.</li>
+<li><code>"gmm"</code>: see <a href="segmentation.html#dip-GaussianMixtureModelThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><code>dip::GaussianMixtureModelThreshold</code></a>.</li>
+<li><code>"triangle"</code>: see <a href="segmentation.html#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::TriangleThreshold</code></a>.</li>
+<li><code>"background"</code>: see <a href="segmentation.html#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::BackgroundThreshold</code></a>.</li>
+<li><code>"volume"</code>: see <a href="segmentation.html#dip-VolumeThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::VolumeThreshold</code></a>.</li>
+<li><code>"fixed"</code>: see <a href="segmentation.html#dip-FixedThreshold-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-dfloat--dip-String-CL"><code>dip::FixedThreshold</code></a>.
   The default parameter value is 128.</li>
 </ul>
 <p>If <code>parameter</code> is <a href="numeric.html#dip-infinity"><code>dip::infinity</code></a>, the default parameter value for the method will be used.</p>
@@ -935,7 +965,7 @@ determining the ellipsoid with the same second order central moments as the obje
             </h3>
             <p>Detect edges in the grey-value image by finding salient ridges in the gradient magnitude</p>
 <p>The Canny edge detector finds the ridges in the gradient magnitude of <code>in</code>, which correspond to the
-edges in the image. The gradient magnitude (see <a href="linear.html#dip-GradientMagnitude-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray-CL-dip-dfloat-"><code>dip::GradientMagnitude</code></a>) is computed using
+edges in the image. The gradient magnitude (see <a href="linear.html#dip-GradientMagnitude-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-String-CL-dip-StringArray-CL-dip-BooleanArray--dip-dfloat-"><code>dip::GradientMagnitude</code></a>) is computed using
 Gaussian derivatives, with a sigma of <code>sigma</code>. The found ridges are pruned to remove the less
 salient edges (see <a href="nonlinear.html#dip-NonMaximumSuppression-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL"><code>dip::NonMaximumSuppression</code></a>). Next, a threshold <code>t1</code> is computed such that
 the <code>1 - upper</code> fraction of pixels with the highest gradient magnitude are kept. A second threshold,
@@ -964,14 +994,15 @@ only applied in 2D and 3D, since <a href="binary.html#dip-EuclideanSkeleton-dip-
 </ul>
 </aside>
           </div></section>
-          <section class="m-doc-details" id="dip-Superpixels-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL"><div>
+          <section class="m-doc-details" id="dip-Superpixels-dip-Image-CL-dip-Image-L-dip-Random-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Superpixels-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL" class="m-doc-self">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Superpixels-dip-Image-CL-dip-Image-L-dip-Random-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL" class="m-doc-self">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "CW",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
             </h3>
@@ -1010,6 +1041,19 @@ segmentation, such as CIE Lab.</p>
   22<sup>nd</sup> International Conference on Pattern Recognition, Stockholm, 2014, pp. 996-1001.</li>
 </ul>
 </aside>
+          </div></section>
+          <section class="m-doc-details" id="dip-Superpixels-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Superpixels-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-String-CL-dip-StringSet-CL" class="m-doc-self">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+            </h3>
+            <p>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</p>
           </div></section>
         </section>
       </div>

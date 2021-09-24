@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -184,6 +184,10 @@ in an arbitrary number of dimensions.</dd>
             </dt>
             <dd>Specifically for classes in a inheritance hierarchy and that must be passed across the
 executable/shared library interface.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_NODISCARD" class="m-doc">DIP_NODISCARD</a></span>
+            </dt>
+            <dd>If your compiler supports it, adds <code>[[nodiscard]]</code> to a function definition.</dd>
           </dl>
         </section>
         <section>
@@ -284,8 +288,13 @@ number of CPU cores otherwise.</p>
 <p>Note that parallelized algorithms only spawn multiple threads for the computation if the amount of work
 to be done is large enough to compensate for the overhead of spawning threads.</p>
 <p>If <code>nThreads</code> is 1, disables multithreading within <em>DIPlib</em>. Usually it is more beneficial to manage multithreading
-at a higher level, for example by processing multiple images at the same time. If yo do so, set <code>nThreads</code> to 1.</p>
+at a higher level, for example by processing multiple images at the same time. If you do so, set <code>nThreads</code> to 1.
+Furthermore, it seems that calling multithreaded <em>DIPlib</em> functions from within an OpenMP parallel section
+doesn&rsquo;t work, so within an OpenMP parallel section you should always set <code>nThreads</code> to 1.</p>
 <p>If <code>nThreads</code> is 0, resets the maximum number of threads to the default value.</p>
+<p>Note that this number is thread-local, meaning it only applies to the current thread from which this
+function is called. For every newly spawned thread, the maximum number of threads is the default as described
+above, not the value manually set prior to spawning the thread.</p>
 <p>If <em>DIPlib</em> was compiled without <em>OpenMP</em> support, this function does nothing.</p>
           </div></section>
           <section class="m-doc-details" id="dip-GetNumberOfThreads"><div>
@@ -295,8 +304,8 @@ at a higher level, for example by processing multiple images at the same time. I
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--multithreading-h.html">"diplib/multithreading.h"</a></div>
             </h3>
             <p>Gets the maximum number of threads that can be used in computations.</p>
-<p>Returns the value given in the last call to <a href="infrastructure.html#dip-SetNumberOfThreads-dip-uint-"><code>dip::SetNumberOfThreads</code></a>, or the default maximum value if that
-function was never called.</p>
+<p>Returns the value given in the last call to <a href="infrastructure.html#dip-SetNumberOfThreads-dip-uint-"><code>dip::SetNumberOfThreads</code></a> within the current thread,
+or the default maximum value if that function was never called within the current thread.</p>
 <p>If <em>DIPlib</em> was compiled without <em>OpenMP</em> support, this function always returns 1.</p>
           </div></section>
         </section>
@@ -343,6 +352,24 @@ as <code>std::exception</code>), or trying to export a class that contains membe
 (such as a <a href="supporttypes.html#dip-String"><code>dip::String</code></a>, a.k.a. <code>std::string</code>), causes compiler warnings. It seems that currently
 it is considered best practice to not export such classes. The Windows run-time linker always
 maps local classes to those in the shared library, even when they are not exported.</p>
+          </div></section>
+          <section class="m-doc-details" id="macro--DIP_NODISCARD"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_NODISCARD" class="m-doc-self">DIP_NODISCARD</a></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib-h.html">"diplib.h"</a></div>
+            </h3>
+            <p>If your compiler supports it, adds <code>[[nodiscard]]</code> to a function definition.</p>
+<p><code>[[nodiscard]]</code> will produce a compile-time warning if the function return value is discarded.
+This should pick up some programming errors, especially in cases where a different overload is
+picked by the compiler than expected by the programmer. For example:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Mean</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="p">{},</span> <span class="n">out</span> <span class="p">);</span> <span class="c1">// OK, picks main function</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Mean</span><span class="p">(</span> <span class="n">in</span> <span class="p">);</span>    <span class="c1">// OK, picks alternate overload</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Mean</span><span class="p">(</span> <span class="n">in</span><span class="p">,</span> <span class="n">out</span> <span class="p">);</span>     <span class="c1">// warns, picks alternate overload and output is discarded</span>
+</pre></div>
+
+<p>The third line will warn because the compiler picks the <code>dip::Mean( in, mask )</code> overload that returns the
+result image, rather than the intended main function <code>dip::Mean( in, mask, out )</code> that puts the result in
+the existing <code>out</code> image.</p>
           </div></section>
         </section>
       </div>

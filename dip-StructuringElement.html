@@ -7,14 +7,14 @@
   <link rel="icon" href="DIP_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -75,17 +75,39 @@ floating-point array with the size along each dimension.
 These are the valid shape strings, and the corresponding meaning of the size array:</p>
 <ul>
 <li>
-<p><code>"rectangular"</code>, <code>"elliptic"</code>, and <code>"diamond"</code>: these are unit circles in different metrics. The
-  size array corresponds to the diameter in that metric. <code>"elliptic"</code> is the default shape,
-  because it is isotropic, but it also is the slowest to compute. Both <code>"elliptic"</code> and <code>"diamond"</code>
-  structuring elements always are symmetric. That is, their origin is centered on a pixel.
-  The pixels included in the shape are those at most half of the diameter away from the origin.
-  For the <code>"rectangular"</code> structuring element, a box with integer sizes is always generated,
-  but the box can be even in size also, meaning that the origin is in between pixels.
+<p><code>"elliptic"</code>: the isotropic flat structuring element, and the default shape. The size array gives the
+  diameter along each dimension. It is always symmetric. That is, the origin is centered on a pixel.
+  The pixels included in the disk or ellipse are those less than half of the diameter away from the origin.
+  It is implemented through a relatively efficient algorithm that scales with the diameter, not the number
+  of pixels covered. Rectangular, elliptic and octagonal structuring elements are much faster, especially
+  for larger sizes.
+  Any size array element that is smaller than 2 causes that dimension to not be processed.</p>
+</li>
+<li>
+<p><code>"rectangular"</code>: the unit circle in a chessboard metric. The size array gives the diameter (or rather the
+  side lengths). The rectangle can have even sizes, in which case it is not symmetric around the origin pixel.
+  This structuring element is implemented with a one-dimensional pass along each image dimension.
+  This decomposition makes this a highly efficient structuring element, with computation times that are
+  independent of the size.
   Any size array element that is smaller or equal to 1 causes that dimension to not be processed.</p>
 </li>
 <li>
-<p><code>"octagonal"</code>: an approximation to the ellipse in 2D only.</p>
+<p><code>"diamond"</code>: the unit circles in a city-block metric. The size array gives the diameter (the extent along
+  each image axis). Like the ellipse, it is always symmetric. That is, the origin is centered on a pixel.
+  If all sizes are equal, then this structuring element is decomposed into a unit diamond and 2 diagonal
+  lines, for a 2D diamond. In this case, computation times that are independent of the size, like
+  for the rectangle. However, for smaller diamonds, the decomposition is different: a unit diamond is applied
+  repeatedly; this yielding faster computation times. If any size is different from the others, or if the
+  diamond has more than two dimensions, then the same algorithm as for the elliptic structuring element is used.
+  Any size array element that is smaller than 2 causes that dimension to not be processed.</p>
+</li>
+<li>
+<p><code>"octagonal"</code>: a fast approximation to the ellipse. Octagons (in 2D) are decomposed into a rectangle
+  and a diamond, each one implemented as described above. This makes the octagonal structuring element
+  more expensive than either the diamond or rectangle, but still computable in constant time independent
+  of the diameter. We generalize this structuring element to arbitrary number of dimensions simply by
+  applying those two smaller structuring elements in succession. In 3D this leads to a rhombicuboctahedron.
+  Any size array element that is smaller than 2 causes that dimension to not be processed.</p>
 </li>
 <li>
 <p><code>"parabolic"</code>: the parabolic structuring element is the morphological equivalent to the Gaussian

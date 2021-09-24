@@ -9,14 +9,14 @@
   <link rel="prev" href="sec_dum_installing.html" />
   <link rel="next" href="sec_dum_dip_image.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#22272e" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 <body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.0.0" class="m-thin">version 3.0.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -216,13 +216,13 @@ the mean grain area.</p>
 <p>We will use <code>scatter</code> to find some correlation between the diameters and
 the area of the grains. Let&rsquo;s start by plotting the length of the grains
 against their width:</p>
-<div class="m-code"><pre><span></span><span class="n">figure</span><span class="p">;</span><span class="w"></span>
-<span class="n">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">figure</span><span class="p">;</span><span class="w"></span>
+<span class="nb">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
 </pre></div>
 
 <p>Apparently, they are mostly unrelated. Let&rsquo;s try a relation between the
 length and the surface area:</p>
-<div class="m-code"><pre><span></span><span class="n">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">sz</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">scatter</span><span class="p">(</span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">sz</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>These appear to be more related, but, of course, the area also depends
@@ -251,18 +251,18 @@ we know that the area is <span class="m-math"><svg style="width: 3.471em; height
 </svg></span>. Let&rsquo;s plot the
 calculated area against the measured area:</p>
 <div class="m-code"><pre><span></span><span class="n">calc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">pi</span><span class="o">/</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">feret</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">.*</span><span class="w"> </span><span class="n">feret</span><span class="p">(:,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="n">scatter</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span><span class="n">calc</span><span class="p">)</span><span class="w"></span>
+<span class="nb">scatter</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span><span class="n">calc</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p>Wow! That is a linear relation. We can add a line along the diagonal to
 see how much the ratio differs from 1 (the other commands are to make
 the figure look prettier):</p>
-<div class="m-code"><pre><span></span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="w"></span>
-<span class="n">plot</span><span class="p">([</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],[</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],</span><span class="s">&#39;k--&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="n">axis</span><span class="w"> </span><span class="s">equal</span><span class="w"></span>
-<span class="n">box</span><span class="w"> </span><span class="s">on</span><span class="w"></span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;object area   (pixels^2)&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;\pi{\cdot}a{\cdot}b   (pixels^2)&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">([</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],[</span><span class="mi">180</span><span class="p">,</span><span class="mi">360</span><span class="p">],</span><span class="s">&#39;k--&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">axis</span><span class="w"> </span><span class="n">equal</span><span class="w"></span>
+<span class="nb">box</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;object area   (pixels^2)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;\pi{\cdot}a{\cdot}b   (pixels^2)&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 <p><img alt="Graph produced by code above" class="m-image" src="rice_graph.png"></p>
