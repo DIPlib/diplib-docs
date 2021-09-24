@@ -88,6 +88,11 @@ with.</p>
 But you can only add one of them to your <em>MATLAB</em> path.</p>
 <h2 id="sec_dum_installing_windows">Windows installation</h2>
 <h3 id="sec_dum_installing_windows_bindist">Installation from binary distribution</h3>
+<aside class="m-note m-frame">
+<h4>Not the latest release</h4>
+<p>We don&rsquo;t have a way to consistently produce a <em>DIPimage</em> binary distribution with
+every release, so the binaries available are rather old.</p>
+</aside>
 <p>To install <em>DIPimage</em>, simply run the installation program and follow the
 directions in it. The tool will tell you to start <em>MATLAB</em> and type the
 command</p>
@@ -103,11 +108,11 @@ starts up, to contain the <code>run</code> command above. The script <code>start
 executed automatically every time <em>MATLAB</em> starts.</p>
 <h3 id="sec_dum_installing_windows_source">Installation from source</h3>
 <p>Clone the git repository (or download a ZIP file) from
-<a href="https://github.com/DIPlib/diplib">GitHub</a>. The file <code>README_Windows.md</code>
+<a href="https://github.com/DIPlib/diplib">GitHub</a>. The file <code>INSTALL_Windows.md</code>
 in the root of the repository contains step-by-step instructions to
 build <em>DIPimage</em>, including how to obtain the necessary tools and
 dependencies. You can also
-<a href="https://github.com/DIPlib/diplib/blob/master/README_Windows.md">read the instructions online</a>.</p>
+<a href="https://github.com/DIPlib/diplib/blob/master/INSTALL_Windows.md">read the instructions online</a>.</p>
 <p>Once all the binaries are compiled, start <em>MATLAB</em> and type:</p>
 <div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;C:\dip\share\DIPimage&#39;</span><span class="p">)</span><span class="w"></span>
 <span class="nb">setenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">,[</span><span class="s">&#39;C:\dip\bin&#39;</span><span class="p">,</span><span class="s">&#39;;&#39;</span><span class="p">,</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">)]);</span><span class="w"></span>
@@ -125,21 +130,27 @@ to.</p>
 <p>Clone the git repository (or download a ZIP file) from
 <a href="https://github.com/DIPlib/diplib">GitHub</a>. You will require a C++14
 compiler (GCC and Clang are available on all platforms), and CMake.</p>
-<p>The root directory of the git repository has a
-<a href="https://github.com/DIPlib/diplib/blob/master/README.md">README.md</a> file
-that gives some directions on compiling. In principle this should suffice:</p>
-<div class="m-code"><pre><span></span>mkdir target
-<span class="nb">cd</span> target
-cmake /path/to/git/repository/root
+<p>The root directory of the git repository has an
+<a href="https://github.com/DIPlib/diplib/blob/master/INSTALL_Linux.md">INSTALL_Linux.md</a> file
+that gives detailed directions on compiling, including how to get the required build tools
+and optional dependencies. In principle it should suffice to open a terminal and type
+the following commands:</p>
+<div class="m-code"><pre><span></span>git clone https://github.com/DIPlib/diplib.git
+mkdir diplib/target
+<span class="nb">cd</span> diplib/target
+cmake ..
 make -j install
 </pre></div>
 
 <p>If you wish to install <em>DIPimage</em> in your home directory instead of <code>/usr</code>,
-the CMake command could be:</p>
-<div class="m-code"><pre><span></span>cmake /path/to/git/repository/root -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/home/uname
+the <code>cmake</code> command could be:</p>
+<div class="m-code"><pre><span></span>cmake .. -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>
 </pre></div>
 
-<p>Note that you need to have <em>MATLAB</em> installed on the build machine to build <em>DIPimage</em>.</p>
+<p>Note that you need to have <em>MATLAB</em> installed on the build machine to build <em>DIPimage</em>.
+If CMake cannot find your <em>MATLAB</em> installation, add <code>-DMatlab_ROOT_DIR=/path/to/matlab</code>
+to the CMake command line. You can get the <em>MATLAB</em> root directory by typing <code>matlabroot</code>
+at the <em>MATLAB</em> command prompt.</p>
 <p>Once all the binaries are compiled, start <em>MATLAB</em> and type:</p>
 <div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/usr/local/share/DIPimage&#39;</span><span class="p">)</span><span class="w"></span>
 </pre></div>
@@ -154,14 +165,12 @@ the CMake command could be:</p>
 <h3 id="sec_dum_installing_macos_bindist">Installation from binary distribution</h3>
 <aside class="m-note m-frame">
 <h4>Not yet available</h4>
-<p>This might be a bundle, or a drag-drop disk image. A different option could be a Homebrew formula.</p>
+<p>This might be a bundle, a drag-drop disk image, or even a Homebrew formula. We don&rsquo;t know yet!</p>
 </aside>
 <h3 id="sec_dum_installing_macos_source">Installation from source</h3>
-<p>Building from source under MacOS is identical to Linux, see the directions
-in <a href="sec_dum_installing.html#sec_dum_installing_linux_source">Installation from source</a>. The file <code>README_MacOS.md</code> in the root of the repository
-contains step-by-step instructions to build <em>DIPimage</em>, including how to obtain
-the necessary tools and dependencies. You can also
-<a href="https://github.com/DIPlib/diplib/blob/master/README_MacOS.md">read the instructions online</a>.</p>
+<p>Building from source under macOS is very similar to Linux, see the directions
+in <a href="sec_dum_installing.html#sec_dum_installing_linux_source">Installation from source</a>, but refer to the file
+<a href="https://github.com/DIPlib/diplib/blob/master/INSTALL_MacOS.md">INSTALL_MacOS.md</a> instead.</p>
         <div class="m-note m-dim m-thin m-text-center"><a href="sec_dum_introduction.html" class="m-doc">&laquo; Introduction</a> | <a href="dipimage_user_manual.html" class="m-doc"><em>DIPimage</em> User Manual</a> | <a href="sec_dum_gettingstarted.html" class="m-doc">Getting Started &raquo;</a></div>
       </div>
     </div>
