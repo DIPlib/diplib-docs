@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>dip namespace | DIPlib | a library for quantitative image analysis</title>
   <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
-  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -319,6 +319,10 @@ image to a form suitable for display.</dd>
             </dt>
             <dd>A data structure with information about an image file.</dd>
             <dt>
+              class <a href="dip-FreeTypeTool.html" class="m-doc">FreeTypeTool</a>
+            </dt>
+            <dd>Class used to draw text using a specified font file (TTF, OTF, etc).</dd>
+            <dt>
               struct <a href="generation_test.html#dip-TestObjectParams" class="m-doc">TestObjectParams</a>
             </dt>
             <dd>Describes the parameters for a test object, used by <a href="generation_test.html#dip-TestObject-dip-Image-L-dip-TestObjectParams-CL-dip-Random-L"><code>dip::TestObject</code></a>.</dd>
@@ -459,7 +463,7 @@ in an arbitrary number of dimensions.</dd>
             <h2>Aliases</h2>
             <dl class="m-doc">
             <dt>
-              using <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc">DataTypeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::DataType&gt;</a>
+              using <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc">DataTypeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array to hold data types</dd>
@@ -484,13 +488,13 @@ in an arbitrary number of dimensions.</dd>
             </dt>
             <dd>An array of const image references</dd>
             <dt>
-              using <a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">PhysicalQuantityArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::PhysicalQuantity&gt;</a>
+              using <a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">PhysicalQuantityArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array to hold physical quantities, such as a pixel&rsquo;s size.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator</a> = <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;const T&gt;</a>
+              using <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator</a> = <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a>
 
             </dt>
             <dd>A const iterator to iterate over samples in a tensor, or pixels on an image line.</dd>
@@ -571,63 +575,63 @@ in an arbitrary number of dimensions.</dd>
             <dd>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-DT_LABEL"><code>dip::DT_LABEL</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType</a> = typename detail::FloatTypeCalculator&lt;std::remove_cv_t&lt;std::remove_reference_t&lt;T&gt;&gt;&gt;::type
+              using <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType</a> = dip::detail::FloatTypeCalculator
 
             </dt>
             <dd>The type to use in calculations when a floating-point type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestFloat-dip-DataType-"><code>dip::DataType::SuggestFloat</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-DoubleType-T" class="m-doc">DoubleType</a> = typename detail::DoubleTypeCalculator&lt;std::remove_cv_t&lt;std::remove_reference_t&lt;T&gt;&gt;&gt;::type
+              using <a href="pixeltypes.html#dip-DoubleType-T" class="m-doc">DoubleType</a> = dip::detail::DoubleTypeCalculator
 
             </dt>
             <dd>The double precision floating point type (real or complex) to use when computing large sums of any input type. Matches <a href="dip-DataType.html#dip-DataType-SuggestDouble-dip-DataType-"><code>dip::DataType::SuggestDouble</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-ComplexType-T" class="m-doc">ComplexType</a> = typename detail::ComplexTypeCalculator&lt;std::remove_cv_t&lt;std::remove_reference_t&lt;T&gt;&gt;&gt;::type
+              using <a href="pixeltypes.html#dip-ComplexType-T" class="m-doc">ComplexType</a> = dip::detail::ComplexTypeCalculator
 
             </dt>
             <dd>The type to use in calculations when a complex type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestComplex-dip-DataType-"><code>dip::DataType::SuggestComplex</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-FlexType-T" class="m-doc">FlexType</a> = typename detail::FlexTypeCalculator&lt;std::remove_cv_t&lt;std::remove_reference_t&lt;T&gt;&gt;&gt;::type
+              using <a href="pixeltypes.html#dip-FlexType-T" class="m-doc">FlexType</a> = dip::detail::FlexTypeCalculator
 
             </dt>
             <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlex-dip-DataType-"><code>dip::DataType::SuggestFlex</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-FlexBinType-T" class="m-doc">FlexBinType</a> = typename detail::FlexBinTypeCalculator&lt;std::remove_cv_t&lt;std::remove_reference_t&lt;T&gt;&gt;&gt;::type
+              using <a href="pixeltypes.html#dip-FlexBinType-T" class="m-doc">FlexBinType</a> = dip::detail::FlexBinTypeCalculator
 
             </dt>
             <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlexBin-dip-DataType-"><code>dip::DataType::SuggestFlexBin</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-AbsType-T" class="m-doc">AbsType</a> = typename detail::AbsTypeCalculator&lt;std::remove_cv_t&lt;std::remove_reference_t&lt;T&gt;&gt;&gt;::type
+              using <a href="pixeltypes.html#dip-AbsType-T" class="m-doc">AbsType</a> = dip::detail::AbsTypeCalculator
 
             </dt>
             <dd>The type to use for the output of abs operations. Matches <a href="dip-DataType.html#dip-DataType-SuggestAbs-dip-DataType-"><code>dip::DataType::SuggestAbs</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-RealType-T" class="m-doc">RealType</a> = typename detail::RealTypeCalculator&lt;std::remove_cv_t&lt;std::remove_reference_t&lt;T&gt;&gt;&gt;::type
+              using <a href="pixeltypes.html#dip-RealType-T" class="m-doc">RealType</a> = dip::detail::RealTypeCalculator
 
             </dt>
             <dd>The type to use in calculations when a real-valued type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestReal-dip-DataType-"><code>dip::DataType::SuggestReal</code></a>.</dd>
             <dt>
-              using <a href="supporttypes.html#dip-IntegerArray" class="m-doc">IntegerArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::sint&gt;</a>
+              using <a href="supporttypes.html#dip-IntegerArray" class="m-doc">IntegerArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array to hold strides, filter sizes, etc.</dd>
             <dt>
-              using <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">UnsignedArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::uint&gt;</a>
+              using <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">UnsignedArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array to hold dimensions, dimension lists, etc.</dd>
             <dt>
-              using <a href="supporttypes.html#dip-FloatArray" class="m-doc">FloatArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::dfloat&gt;</a>
+              using <a href="supporttypes.html#dip-FloatArray" class="m-doc">FloatArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array to hold filter parameters.</dd>
             <dt>
-              using <a href="supporttypes.html#dip-BooleanArray" class="m-doc">BooleanArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;bool&gt;</a>
+              using <a href="supporttypes.html#dip-BooleanArray" class="m-doc">BooleanArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array used as a dimension selector.</dd>
@@ -657,7 +661,7 @@ in an arbitrary number of dimensions.</dd>
             </dt>
             <dd>A collection of strings, used to specify multiple independent options</dd>
             <dt>
-              using <a href="dip-Range.html#dip-RangeArray" class="m-doc">RangeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::Range&gt;</a>
+              using <a href="dip-Range.html#dip-RangeArray" class="m-doc">RangeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array of ranges</dd>
@@ -672,27 +676,27 @@ in an arbitrary number of dimensions.</dd>
             </dt>
             <dd>An array of intervals.</dd>
             <dt>
-              using <a href="boundary.html#dip-BoundaryConditionArray" class="m-doc">BoundaryConditionArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::BoundaryCondition&gt;</a>
+              using <a href="boundary.html#dip-BoundaryConditionArray" class="m-doc">BoundaryConditionArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array to hold boundary conditions.</dd>
             <dt>
-              using <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">VertexFloat</a> = <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;dip::dfloat&gt;</a>
+              using <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">VertexFloat</a> = <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
 
             </dt>
             <dd>A vertex with floating-point coordinates</dd>
             <dt>
-              using <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">VertexInteger</a> = <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;dip::sint&gt;</a>
+              using <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">VertexInteger</a> = <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
 
             </dt>
             <dd>A vertex with integer coordinates</dd>
             <dt>
-              using <a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">BoundingBoxFloat</a> = <a href="dip-BoundingBox-T.html" class="m-doc">BoundingBox&lt;dip::dfloat&gt;</a>
+              using <a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">BoundingBoxFloat</a> = <a href="dip-BoundingBox-T.html" class="m-doc">dip::BoundingBox</a>
 
             </dt>
             <dd>A bounding box with floating-point coordinates</dd>
             <dt>
-              using <a href="dip-BoundingBox-T.html#dip-BoundingBoxInteger" class="m-doc">BoundingBoxInteger</a> = <a href="dip-BoundingBox-T.html" class="m-doc">BoundingBox&lt;dip::sint&gt;</a>
+              using <a href="dip-BoundingBox-T.html#dip-BoundingBoxInteger" class="m-doc">BoundingBoxInteger</a> = <a href="dip-BoundingBox-T.html" class="m-doc">dip::BoundingBox</a>
 
             </dt>
             <dd>A bounding box with integer coordinates</dd>
@@ -729,13 +733,13 @@ detected by <a href="detection_circles.html#dip-RadonTransformCircles-dip-Image-
             <dd>Pointer to an interpolation function. Only use pointers returned by <a href="geometry.html#dip-PrepareResampleAtUnchecked-dip-Image-CL-dip-String-CL"><code>dip::PrepareResampleAtUnchecked</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="dip-LineIterator-T.html#dip-ConstLineIterator-T" class="m-doc">ConstLineIterator</a> = <a href="dip-LineIterator-T.html" class="m-doc">LineIterator&lt;const T&gt;</a>
+              using <a href="dip-LineIterator-T.html#dip-ConstLineIterator-T" class="m-doc">ConstLineIterator</a> = <a href="dip-LineIterator-T.html" class="m-doc">dip::LineIterator</a>
 
             </dt>
             <dd>A const iterator to iterate over all pixels of an image line.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">ConstImageIterator</a> = <a href="dip-ImageIterator-T.html" class="m-doc">ImageIterator&lt;const T&gt;</a>
+              using <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">ConstImageIterator</a> = <a href="dip-ImageIterator-T.html" class="m-doc">dip::ImageIterator</a>
 
             </dt>
             <dd>A const iterator to iterate over all pixels of an image, or all lines of an image.</dd>
@@ -782,20 +786,20 @@ detected by <a href="detection_circles.html#dip-RadonTransformCircles-dip-Image-
             <dd>Casts a value of any pixel type to any other pixel type, clamping it to the destination range.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="dip-DimensionArray-T.html#dip-sortIndices-T-DimensionArray<typename DimensionArray<T>-size_type>-L-DimensionArray<T>-CL" class="m-doc">sortIndices</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;typename DimensionArray&lt;T&gt;::size_type&gt;</a>&amp; indices,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; data)</span>
+              <span class="m-doc-wrap-bumper">void <a href="dip-DimensionArray-T.html#dip-sortIndices-T-DimensionArray<typename DimensionArray<T>-size_type>-L-DimensionArray<T>-CL" class="m-doc">sortIndices</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>&amp; indices,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; data)</span>
             </dt>
             <dd>Sorts the <code>indices</code> array with indices into the <code>data</code> array, from smallest to largest. The sort is stable.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-SquareDistance-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">SquareDistance</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; v2) -&gt; double</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-SquareDistance-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">SquareDistance</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; v1,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; v2) -&gt; double</span>
             </dt>
             <dd>Computes the Square Euclidean distance between two points.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-Distance-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">Distance</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; v2) -&gt; double</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-Distance-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">Distance</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; v1,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; v2) -&gt; double</span>
             </dt>
             <dd>Computes the Square Euclidean distance between two points.</dd>
             <dt>
@@ -826,18 +830,18 @@ with different origin, strides and size.</dd>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>dip::Image::Copy</code></a> method.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-dip-Image-L" class="m-doc">Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">Image::View</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-dip-Image-L" class="m-doc">Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">dip::Image::View</a> const&amp; src,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>dip::Image::Copy</code></a> method.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-dip-Image-CL-Image-View-L" class="m-doc">Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
-              <a href="dip-Image-View.html" class="m-doc">Image::View</a>&amp; dest)</span>
+              <a href="dip-Image-View.html" class="m-doc">dip::Image::View</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image-View.html#dip-Image-View-Copy-dip-Image-View-CL"><code>dip::Image::View::Copy</code></a> method.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-Image-View-L" class="m-doc">Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">Image::View</a> const&amp; src,
-              <a href="dip-Image-View.html" class="m-doc">Image::View</a>&amp; dest)</span>
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-Image-View-L" class="m-doc">Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">dip::Image::View</a> const&amp; src,
+              <a href="dip-Image-View.html" class="m-doc">dip::Image::View</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image-View.html#dip-Image-View-Copy-dip-Image-View-CL"><code>dip::Image::View::Copy</code></a> method.</dd>
             <dt>
@@ -1022,189 +1026,238 @@ standard deviation <code>s</code> and mean <code>m</code> from minus infinity to
             <dd>Computes the volume of an <code>n</code>-dimensional hypersphere with radius <code>r</code>.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SymmetricEigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SymmetricEigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vectors = nullptr)</span>
             </dt>
             <dd>Finds the eigenvalues and eigenvectors of a symmetric, real-valued matrix.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SymmetricEigenDecomposition2-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SymmetricEigenDecomposition2</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+              <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SymmetricEigenDecomposition2-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SymmetricEigenDecomposition2</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vectors = nullptr)</span>
             </dt>
             <dd>Finds the eigenvalues and eigenvectors of a 2x2 symmetric, real-valued matrix.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SymmetricEigenDecomposition3-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SymmetricEigenDecomposition3</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+              <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SymmetricEigenDecomposition3-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SymmetricEigenDecomposition3</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vectors = nullptr)</span>
             </dt>
             <dd>Finds the eigenvalues and eigenvectors of a 3x3 symmetric, real-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-LargestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">LargestEigenvector</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vector)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vector)</span>
             </dt>
             <dd>Finds the largest eigenvector of a symmetric, real-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SmallestEigenvector-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SmallestEigenvector</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vector)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vector)</span>
             </dt>
             <dd>Finds the smallest eigenvector of a symmetric, real-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SymmetricEigenDecompositionPacked-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SymmetricEigenDecompositionPacked</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> lambdas,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> vectors = nullptr)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vectors = nullptr)</span>
             </dt>
             <dd>Finds the eigenvalues and eigenvectors of a symmetric, real-valued matrix, where only the unique values are given.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">EigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> lambdas,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> vectors = nullptr)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vectors = nullptr)</span>
             </dt>
             <dd>Finds the eigenvalues and eigenvectors of a square, real-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-EigenDecomposition-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">EigenDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> lambdas,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> vectors = nullptr)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> lambdas,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> vectors = nullptr)</span>
             </dt>
             <dd>Finds the eigenvalues and eigenvectors of a square, complex-valued matrix.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Sum-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">Sum</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; T</span>
             </dt>
             <dd>Computes the sum of the values of a vector.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-SumAbsSquare-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">SumAbsSquare</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a></span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">dip::FloatType</a></span>
             </dt>
             <dd>Computes the sum of the square of the values of a vector.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Product-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">Product</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; T</span>
             </dt>
             <dd>Computes the product of the values of a vector.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Norm-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">Norm</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a></span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">dip::FloatType</a></span>
             </dt>
             <dd>Computes the norm of a vector.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-SquareNorm-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">SquareNorm</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">FloatType&lt;T&gt;</a></span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">dip::FloatType</a></span>
             </dt>
             <dd>Computes the square norm of a vector.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Determinant-dip-uint--ConstSampleIterator<dip-dfloat>-" class="m-doc">Determinant</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Computes the determinant of a square, real-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Determinant-dip-uint--ConstSampleIterator<dip-dcomplex>-" class="m-doc">Determinant</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input) -&gt; <a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a></span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; <a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a></span>
             </dt>
             <dd>Computes the determinant of a square, complex-valued matrix.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-DeterminantDiagonal-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">DeterminantDiagonal</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; T</span>
             </dt>
             <dd>Computes the determinant of a diagonal matrix.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Trace-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">Trace</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; T</span>
             </dt>
             <dd>Computes the trace of a square matrix.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-TraceDiagonal-T-dip-uint--ConstSampleIterator<T>-" class="m-doc">TraceDiagonal</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;T&gt;</a> input) -&gt; T</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; T</span>
             </dt>
             <dd>Computes the trace of a diagonal matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">SingularValueDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> U = nullptr,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> V = nullptr)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> U = nullptr,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> V = nullptr)</span>
             </dt>
             <dd>Computes the &ldquo;thin&rdquo; singular value decomposition of a real-valued matrix</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-SingularValueDecomposition-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">SingularValueDecomposition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> U = nullptr,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> V = nullptr)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> U = nullptr,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> V = nullptr)</span>
             </dt>
             <dd>Computes the &ldquo;thin&rdquo; singular value decomposition of a complex-valued matrix</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-Inverse-dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">Inverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output)</span>
             </dt>
             <dd>Computes the inverse of a square, real-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-Inverse-dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>-" class="m-doc">Inverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output)</span>
             </dt>
             <dd>Computes the inverse of a square, complex-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-dfloat-" class="m-doc">PseudoInverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-7)</span>
             </dt>
             <dd>Computes the Moore-Penrose pseudo-inverse of a real-valued matrix, using the Jacobi SVD decomposition.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-PseudoInverse-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>--SampleIterator<dip-dcomplex>--dip-dfloat-" class="m-doc">PseudoInverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dcomplex&gt;</a> output,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-7)</span>
             </dt>
             <dd>Computes the Moore-Penrose pseudo-inverse of a complex-valued matrix, using the Jacobi SVD decomposition.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>-" class="m-doc">Rank</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> input) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Computes the rank of a real-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-Rank-dip-uint--dip-uint--ConstSampleIterator<dip-dcomplex>-" class="m-doc">Rank</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dcomplex&gt;</a> input) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> input) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Computes the rank of a complex-valued matrix.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="numeric.html#dip-Solve-dip-uint--dip-uint--ConstSampleIterator<dip-dfloat>--ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>-" class="m-doc">Solve</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> m,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> A,
-              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> b,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> output)</span>
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> A,
+              <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> b,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output)</span>
             </dt>
             <dd>Solves a system of real-valued equations, using the Jacobi SVD decomposition.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-uint--dip-uint--dip-uint--Option-Periodicity-" class="m-doc">GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">ConstSampleIterator&lt;dip::dfloat&gt;</a> data,
-              <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;dip::dfloat&gt;</a> responsibilities,
+              <span class="m-doc-wrap-bumper">auto <a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator<dip-dfloat>--SampleIterator<dip-dfloat>--dip-uint--dip-uint--dip-uint--Option-Periodicity-" class="m-doc">GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> data,
+              <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> responsibilities,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIter = 20,
-              <a href="numeric.html#dip-Option-Periodicity" class="m-doc">Option::Periodicity</a> periodicity = Option::Periodicity::NOT_PERIODIC) -&gt; std::vector&lt;GaussianParameters&gt;</span>
+              <a href="numeric.html#dip-Option-Periodicity" class="m-doc">dip::Option::Periodicity</a> periodicity = Option::Periodicity::NOT_PERIODIC) -&gt; std::vector&lt;GaussianParameters&gt;</span>
             </dt>
             <dd>Determines the parameters for a Gaussian Mixture Model.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Add-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">Add</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Adds two images, sample-wise, with singleton expansion, and using saturated arithmetic.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Subtract-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">Subtract</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Subtracts two images, sample-wise, with singleton expansion, and using saturated arithmetic.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Multiply-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">Multiply</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Multiplies two images, pixel-wise, with singleton expansion, and using saturated arithmetic.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-MultiplySampleWise-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">MultiplySampleWise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Multiplies two images, sample-wise, with singleton expansion, and using saturated arithmetic.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-MultiplyConjugate-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">MultiplyConjugate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Multiplies two images with complex conjugation, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Divide-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">Divide</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Divides two images, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-SafeDivide-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">SafeDivide</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Divides two images, sample-wise, with singleton expansion. Tests for division by zero, filling in 0 instead.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Modulo-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">Modulo</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
@@ -1213,15 +1266,90 @@ standard deviation <code>s</code> and mean <code>m</code> from minus infinity to
             </dt>
             <dd>Computes the modulo of two images, sample-wise, with singleton expansion.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Power-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-" class="m-doc">Power</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+            </dt>
+            <dd>Elevates <code>lhs</code> to the power of <code>rhs</code>, sample-wise, with singleton expansion.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Invert-dip-Image-CL-dip-Image-L" class="m-doc">Invert</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
             <dd>Inverts each sample of the input image, yielding an image of the same type.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-And-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">And</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Bit-wise AND of two integer images, or logical AND of two binary images, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Or-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">Or</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Bit-wise OR of two integer images, or logical OR of two binary images, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Xor-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">Xor</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Bit-wise XOR of two integer images, or logical XOR of two binary images, sample-wise, with singleton expansion.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Not-dip-Image-CL-dip-Image-L" class="m-doc">Not</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
             <dd>Bit-wise NOT of an integer image, or logical NOT of a binary image, sample-wise.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-Equal-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">Equal</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Equality comparison, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-NotEqual-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">NotEqual</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Inequality comparison, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-Lesser-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">Lesser</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Inequality comparison, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-Greater-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">Greater</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Inequality comparison, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-NotGreater-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">NotGreater</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Inequality comparison, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-NotLesser-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">NotLesser</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Inequality comparison, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-InRange-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">InRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>In-range ternary comparison, sample-wise, with singleton expansion.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-OutOfRange-dip-Image-CL-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">OutOfRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Out-of-range ternary comparison, sample-wise, with singleton expansion.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="pixeltypes.html#dip-PixelIsInfinity-T-TPI-" class="m-doc">PixelIsInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
@@ -1234,7 +1362,7 @@ standard deviation <code>s</code> and mean <code>m</code> from minus infinity to
             <dd>A templated function to check for negative infinity, which works also for integer types (always returning false)</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ArrayUseParameter-T-DimensionArray<T>-L-dip-uint--T-" class="m-doc">ArrayUseParameter</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a>&amp; array,
+              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ArrayUseParameter-T-DimensionArray<T>-L-dip-uint--T-" class="m-doc">ArrayUseParameter</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>&amp; array,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims,
               T defaultValue = {})</span>
             </dt>
@@ -1819,7 +1947,7 @@ pixels. Note that <a href="binary.html#dip-GetSinglePixels-dip-Image-CL-dip-Imag
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="boundary.html#dip-ReadPixelWithBoundaryCondition-dip-Image-CL-dip-IntegerArray--dip-BoundaryConditionArray-CL" class="m-doc">ReadPixelWithBoundaryCondition</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img,
               <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> coords,
-              <a href="boundary.html#dip-BoundaryConditionArray" class="m-doc">dip::BoundaryConditionArray</a> const&amp; bc) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <a href="boundary.html#dip-BoundaryConditionArray" class="m-doc">dip::BoundaryConditionArray</a> const&amp; bc) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Returns a pixel with a copy of the sample values at <code>coords</code>.</dd>
             <dt>
@@ -1827,7 +1955,7 @@ pixels. Note that <a href="binary.html#dip-GetSinglePixels-dip-Image-CL-dip-Imag
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> borderSizes,
               <a href="boundary.html#dip-BoundaryConditionArray" class="m-doc">dip::BoundaryConditionArray</a> const&amp; boundaryCondition = {},
-              <a href="boundary.html#dip-Option-ExtendImageFlags" class="m-doc">Option::ExtendImageFlags</a> options = {})</span>
+              <a href="boundary.html#dip-Option-ExtendImageFlags" class="m-doc">dip::Option::ExtendImageFlags</a> options = {})</span>
             </dt>
             <dd>Extends the image <code>in</code> by <code>borderSizes</code> along each dimension.</dd>
             <dt>
@@ -1859,57 +1987,57 @@ pixels. Note that <a href="binary.html#dip-GetSinglePixels-dip-Image-CL-dip-Imag
             <dd>Fills the pixels outside a region in the image using a boundary condition.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Norm-T-Vertex<T>-CL" class="m-doc">Norm</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Norm-T-Vertex<T>-CL" class="m-doc">Norm</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>The norm of the vector <code>v</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-NormSquare-T-Vertex<T>-CL" class="m-doc">NormSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-NormSquare-T-Vertex<T>-CL" class="m-doc">NormSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>The square of the norm of the vector <code>v</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Distance-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">Distance</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Distance-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">Distance</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>The norm of the vector <code>v2-v1</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-DistanceSquare-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">DistanceSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-DistanceSquare-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">DistanceSquare</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>The square norm of the vector <code>v2-v1</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Angle-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">Angle</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-Angle-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">Angle</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>The angle of the vector <code>v2-v1</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-CrossProduct-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">CrossProduct</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-CrossProduct-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">CrossProduct</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Compute the z component of the cross product of vectors <code>v1</code> and <code>v2</code></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-ParallelogramSignedArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">ParallelogramSignedArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-ParallelogramSignedArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">ParallelogramSignedArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Compute the z component of the cross product of vectors <code>v2-v1</code> and <code>v3-v1</code></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">TriangleArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">TriangleArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Compute the area of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code></dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleHeight-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">TriangleHeight</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v2,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleHeight-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">TriangleHeight</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Compute the height of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>, with <code>v3</code> the tip</dd>
             <dt>
@@ -2039,7 +2167,7 @@ pixels. Note that <a href="binary.html#dip-GetSinglePixels-dip-Image-CL-dip-Imag
               <span class="m-doc-wrap-bumper">void <a href="display.html#dip-Overlay-dip-Image-CL-dip-Image-CL-dip-Image-L-Image-Pixel-CL" class="m-doc">Overlay</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; overlay,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; color = {255,0,0})</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; color = {255,0,0})</span>
             </dt>
             <dd>Adds a colored overlay to the image <code>in</code>, yielding an RGB image.</dd>
             <dt>
@@ -2220,7 +2348,7 @@ pixel data.</dd>
             <dd>Adds the given extension to the file name, replacing any existing extension.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-SetBorder-dip-Image-L-Image-Pixel-CL-dip-UnsignedArray-CL" class="m-doc">SetBorder</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {0},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {0},
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {1})</span>
             </dt>
             <dd>Sets the pixels at the border of <code>out</code> to <code>value</code>.</dd>
@@ -2235,21 +2363,21 @@ pixel data.</dd>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawLine-dip-Image-L-dip-UnsignedArray-CL-dip-UnsignedArray-CL-Image-Pixel-CL-dip-String-CL" class="m-doc">DrawLine</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; start,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; end,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; blend = S::ASSIGN)</span>
             </dt>
             <dd>Draws a Bresenham line in an image.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawLines-dip-Image-L-dip-CoordinateArray-CL-Image-Pixel-CL-dip-String-CL" class="m-doc">DrawLines</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> const&amp; points,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; blend = S::ASSIGN)</span>
             </dt>
             <dd>Draws a series of Bresenham lines in an image.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawPolygon2D-dip-Image-L-dip-Polygon-CL-Image-Pixel-CL-dip-String-CL" class="m-doc">DrawPolygon2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a> const&amp; polygon,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED)</span>
             </dt>
             <dd>Draws a polygon in a 2D image.</dd>
@@ -2257,27 +2385,27 @@ pixel data.</dd>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawEllipsoid-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-Image-Pixel-CL" class="m-doc">DrawEllipsoid</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1})</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
             </dt>
             <dd>Draws a solid ellipsoid in an image.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawDiamond-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-Image-Pixel-CL" class="m-doc">DrawDiamond</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1})</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
             </dt>
             <dd>Draws a solid diamond in an image.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawBox-dip-Image-L-dip-FloatArray-CL-dip-FloatArray-CL-Image-Pixel-CL" class="m-doc">DrawBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1})</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
             </dt>
             <dd>Draws a solid box (rectangle) in an image.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawBandlimitedPoint-dip-Image-L-dip-FloatArray--Image-Pixel-CL-dip-FloatArray--dip-dfloat-" class="m-doc">DrawBandlimitedPoint</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
             </dt>
@@ -2286,7 +2414,7 @@ pixel data.</dd>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawBandlimitedLine-dip-Image-L-dip-FloatArray--dip-FloatArray--Image-Pixel-CL-dip-dfloat--dip-dfloat-" class="m-doc">DrawBandlimitedLine</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> start,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> end,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
             </dt>
@@ -2295,7 +2423,7 @@ pixel data.</dd>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawBandlimitedBall-dip-Image-L-dip-dfloat--dip-FloatArray--Image-Pixel-CL-dip-String-CL-dip-dfloat--dip-dfloat-" class="m-doc">DrawBandlimitedBall</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> diameter,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
@@ -2305,16 +2433,37 @@ pixel data.</dd>
               <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawBandlimitedBox-dip-Image-L-dip-FloatArray--dip-FloatArray--Image-Pixel-CL-dip-String-CL-dip-dfloat--dip-dfloat-" class="m-doc">DrawBandlimitedBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sizes,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
             </dt>
             <dd>Draws an approximately bandlimited box (rectangle) in an image, using Gaussian profiles.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-BlendBandlimitedMask-dip-Image-L-dip-Image-CL-dip-Image-CL-dip-IntegerArray-" class="m-doc">BlendBandlimitedMask</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; value = dip::Image({255}),
+              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> pos = {})</span>
+            </dt>
+            <dd>Blends <code>value</code> into <code>out</code> at position <code>pos</code>, according to <code>mask</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="generation_drawing.html#dip-DrawText-dip-Image-L-dip-String-CL-dip-FloatArray--Image-Pixel-CL-dip-dfloat--dip-String-CL" class="m-doc">DrawText</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; text,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> orientation = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; align = S::LEFT)</span>
+            </dt>
+            <dd>Draws text with the built-in, fixed-sized glyphs.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="generation_drawing.html#dip-DrawText-dip-String-CL-dip-dfloat-" class="m-doc">DrawText</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; text,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> orientation = 0) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Alternate version of the function above that returns a new image tightly cropped around the rendered text.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_test.html#dip-GaussianEdgeClip-dip-Image-CL-dip-Image-L-Image-Pixel-CL-dip-dfloat--dip-dfloat-" class="m-doc">GaussianEdgeClip</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
             </dt>
@@ -2322,7 +2471,7 @@ pixel data.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="generation_test.html#dip-GaussianLineClip-dip-Image-CL-dip-Image-L-Image-Pixel-CL-dip-dfloat--dip-dfloat-" class="m-doc">GaussianLineClip</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; value = {1},
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
             </dt>
@@ -2696,14 +2845,14 @@ image as a series of scalar images.</dd>
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; coordinates,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; fill = {0})</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0})</span>
             </dt>
             <dd>Finds the values of the image at sub-pixel locations <code>coordinates</code> by interpolation.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="geometry.html#dip-ResampleAt-dip-Image-CL-dip-FloatArray-CL-dip-String-CL-Image-Pixel-CL" class="m-doc">ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; fill = {0}) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Identical to the previous function with the same name, but for a single point.</dd>
             <dt>
@@ -2714,7 +2863,7 @@ image as a series of scalar images.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="geometry.html#dip-ResampleAtUnchecked-dip-Image-CL-dip-FloatArray-CL-dip-InterpolationFunctionPointer-" class="m-doc">ResampleAtUnchecked</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates,
-              <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a> function) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a> function) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Similar to <a href="geometry.html#dip-ResampleAt-dip-Image-CL-dip-Image-L-dip-FloatCoordinateArray-CL-dip-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>, but optimized for repeated calls using the same parameters.
 <code>function</code> comes from <code>PrepareResampleAtUnchecked</code>. <code>fill</code> is always 0.</dd>
@@ -2723,7 +2872,7 @@ image as a series of scalar images.</dd>
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; map,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; fill = {0})</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0})</span>
             </dt>
             <dd>Resamples an image with sub-pixel locations specified by a coordinate map.</dd>
             <dt>
@@ -2960,7 +3109,7 @@ histogram as similar as possible to <code>example</code>.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-PerObjectHistogram-dip-Image-CL-dip-Image-CL-dip-Image-CL-Histogram-Configuration--dip-String-CL-dip-String-CL" class="m-doc">PerObjectHistogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
-              <a href="dip-Histogram-Configuration.html" class="m-doc">Histogram::Configuration</a> configuration = {},
+              <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> configuration = {},
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FRACTION,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; background = S::EXCLUDE) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
             </dt>
@@ -3318,6 +3467,233 @@ or uncertain data.</dd>
             </dt>
             <dd>Modifies the image such that its histogram is as similar as possible to <code>example</code>.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-FlushToZero-dip-Image-CL-dip-Image-L" class="m-doc">FlushToZero</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Flushes <a href="https://en.wikipedia.org/wiki/Denormal_number">denormal</a> sample values to zero.
+Denormal floating-point values can slow down computation.
+Only defined for floating-point types, the output is the same type.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Round-dip-Image-CL-dip-Image-L" class="m-doc">Round</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the nearest integer to each sample (rounds).
+Only defined for floating-point types, the output is the same type.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Ceil-dip-Image-CL-dip-Image-L" class="m-doc">Ceil</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the smallest integer larger or equal to each sample (rounds up).
+Only defined for floating-point types, the output is the same type.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Floor-dip-Image-CL-dip-Image-L" class="m-doc">Floor</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the largest integer smaller or equal to each sample (rounds down).
+Only defined for floating-point types, the output is the same type.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Truncate-dip-Image-CL-dip-Image-L" class="m-doc">Truncate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the truncated value of each sample (rounds towards zero).
+Only defined for floating-point types, the output is the same type.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Fraction-dip-Image-CL-dip-Image-L" class="m-doc">Fraction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the fractional value of each sample (<code>out = in - dip::Truncate(in)</code>).
+Only defined for floating-point types, the output is the same type.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Reciprocal-dip-Image-CL-dip-Image-L" class="m-doc">Reciprocal</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the reciprocal of each sample: <code>out = in == 0 ? 0 : 1/in</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Square-dip-Image-CL-dip-Image-L" class="m-doc">Square</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the square of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Sqrt-dip-Image-CL-dip-Image-L" class="m-doc">Sqrt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the square root of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Exp-dip-Image-CL-dip-Image-L" class="m-doc">Exp</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the base e exponent (natural exponential) of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Exp2-dip-Image-CL-dip-Image-L" class="m-doc">Exp2</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the base 2 exponent of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Exp10-dip-Image-CL-dip-Image-L" class="m-doc">Exp10</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the base 10 exponent of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Ln-dip-Image-CL-dip-Image-L" class="m-doc">Ln</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the natural logarithm (base e logarithm) of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Log2-dip-Image-CL-dip-Image-L" class="m-doc">Log2</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the base 2 logarithm of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Log10-dip-Image-CL-dip-Image-L" class="m-doc">Log10</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the base 10 logarithm of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Sin-dip-Image-CL-dip-Image-L" class="m-doc">Sin</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the sine of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Cos-dip-Image-CL-dip-Image-L" class="m-doc">Cos</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the cosine of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Tan-dip-Image-CL-dip-Image-L" class="m-doc">Tan</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the tangent of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Asin-dip-Image-CL-dip-Image-L" class="m-doc">Asin</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the arc sine of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Acos-dip-Image-CL-dip-Image-L" class="m-doc">Acos</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the arc cosine of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Atan-dip-Image-CL-dip-Image-L" class="m-doc">Atan</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the arc tangent of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Sinh-dip-Image-CL-dip-Image-L" class="m-doc">Sinh</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the hyperbolic sine of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Cosh-dip-Image-CL-dip-Image-L" class="m-doc">Cosh</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the hyperbolic cosine of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Tanh-dip-Image-CL-dip-Image-L" class="m-doc">Tanh</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the hyperbolic tangent of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-BesselJ0-dip-Image-CL-dip-Image-L" class="m-doc">BesselJ0</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the Bessel functions of the first kind of each sample, of order alpha = 0.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-BesselJ1-dip-Image-CL-dip-Image-L" class="m-doc">BesselJ1</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the Bessel functions of the first kind of each sample, of order alpha = 1.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-BesselJN-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">BesselJN</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> alpha)</span>
+            </dt>
+            <dd>Computes the Bessel functions of the first kind of each sample, of order <code>alpha</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-BesselY0-dip-Image-CL-dip-Image-L" class="m-doc">BesselY0</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the Bessel functions of the second kind of each sample, of order alpha = 0.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-BesselY1-dip-Image-CL-dip-Image-L" class="m-doc">BesselY1</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the Bessel functions of the second kind of each sample, of order alpha = 1.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-BesselYN-dip-Image-CL-dip-Image-L-dip-uint-" class="m-doc">BesselYN</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> alpha)</span>
+            </dt>
+            <dd>Computes the Bessel functions of the second kind of each sample, of order <code>alpha</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-LnGamma-dip-Image-CL-dip-Image-L" class="m-doc">LnGamma</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the natural logarithm of the gamma function of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Erf-dip-Image-CL-dip-Image-L" class="m-doc">Erf</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the error function of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Erfc-dip-Image-CL-dip-Image-L" class="m-doc">Erfc</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the complementary error function of each sample.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_trigonometric.html#dip-Sinc-dip-Image-CL-dip-Image-L" class="m-doc">Sinc</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Computes the sinc function of each sample. <span class="m-math"><svg style="width: 8.880em; height: 1.095em; vertical-align: -0.241em;" viewBox="0 -8.54 88.8 10.95">
+<title>
+\(\mathrm{sinc}(x) = \sin(x)/x\)
+</title>
+<defs>
+<path id='eq73-g1-61' d='M6.57-3.93V-4.6H.48V-3.93H6.57ZM6.57-1.51V-2.18H.48V-1.51H6.57Z'/>
+<path id='eq73-g7-71' d='M4.95-1.23L4.79-1.32C4.69-1.2 4.63-1.14 4.53-1C4.25-.64 4.12-.52 3.97-.52C3.8-.52 3.69-.68 3.61-1.01C3.59-1.12 3.57-1.18 3.56-1.2C3.28-2.32 3.13-2.97 3.13-3.14C3.66-4.06 4.09-4.59 4.3-4.59C4.37-4.59 4.48-4.55 4.59-4.49C4.73-4.41 4.81-4.38 4.92-4.38C5.16-4.38 5.32-4.56 5.32-4.81C5.32-5.07 5.12-5.25 4.84-5.25C4.31-5.25 3.87-4.82 3.04-3.55L2.91-4.2C2.74-5.01 2.61-5.25 2.29-5.25C2.01-5.25 1.63-5.16 .89-4.91L.76-4.86L.81-4.68L1.01-4.73C1.24-4.79 1.38-4.81 1.48-4.81C1.77-4.81 1.85-4.7 2.01-3.99L2.36-2.53L1.38-1.13C1.13-.77 .91-.56 .77-.56C.7-.56 .58-.6 .46-.67C.31-.75 .19-.79 .08-.79C-.15-.79-.32-.61-.32-.37C-.32-.06-.1 .13 .27 .13S.79 .02 1.38-.69L2.45-2.1L2.81-.67C2.97-.05 3.12 .13 3.5 .13C3.95 .13 4.26-.15 4.95-1.23Z'/>
+<path id='eq73-g4-157' d='M.74 2.3H1.36L4.74-8.42H4.12L.74 2.3Z'/>
+<path id='eq73-g4-185' d='M3.51-8.54C1.79-7.42 .57-5.49 .57-3.06C.57-.85 1.83 1.39 3.48 2.41L3.62 2.22C2.05 .98 1.6-.46 1.6-3.1C1.6-5.74 2.08-7.11 3.62-8.35L3.51-8.54Z'/>
+<path id='eq73-g4-186' d='M.45-8.54L.35-8.35C1.88-7.11 2.37-5.74 2.37-3.1C2.37-.46 1.92 .98 .35 2.22L.49 2.41C2.13 1.39 3.39-.85 3.39-3.06C3.39-5.49 2.18-7.42 .45-8.54Z'/>
+<path id='eq73-g11-99' d='M4.91-1.75L4.74-1.86C4.17-1.02 3.74-.74 3.06-.74C1.97-.74 1.21-1.69 1.21-3.06C1.21-4.3 1.87-5.13 2.83-5.13C3.26-5.13 3.42-5 3.54-4.56L3.61-4.3C3.7-3.95 3.92-3.75 4.18-3.75C4.49-3.75 4.74-3.98 4.74-4.25C4.74-4.92 3.91-5.48 2.91-5.48C2.35-5.48 1.77-5.26 1.3-4.87C.66-4.34 .3-3.51 .3-2.53C.3-.99 1.24 .12 2.56 .12C3.07 .12 3.53-.05 3.93-.38C4.29-.67 4.53-1.01 4.91-1.75Z'/>
+<path id='eq73-g11-105' d='M3.01 0V-.18C2.23-.24 2.13-.36 2.13-1.21V-5.44L2.08-5.48L.24-4.82V-4.65L.33-4.66C.48-4.68 .63-4.69 .74-4.69C1.02-4.69 1.13-4.5 1.13-3.98V-1.21C1.13-.36 1.01-.23 .19-.18V0H3.01ZM2.24-7.53C2.24-7.86 1.98-8.13 1.63-8.13C1.3-8.13 1.02-7.86 1.02-7.53C1.02-7.18 1.3-6.92 1.63-6.92C1.98-6.92 2.24-7.18 2.24-7.53Z'/>
+<path id='eq73-g11-110' d='M5.78 0V-.18C5.19-.24 5.05-.38 5.05-.96V-3.69C5.05-4.81 4.53-5.48 3.64-5.48C3.1-5.48 2.73-5.28 1.92-4.51V-5.46L1.83-5.48C1.25-5.26 .85-5.13 .19-4.94V-4.74C.26-4.78 .38-4.79 .51-4.79C.85-4.79 .95-4.61 .95-4.03V-1.07C.95-.39 .82-.23 .21-.18V0H2.74V-.18C2.13-.23 1.95-.37 1.95-.8V-4.14C2.53-4.68 2.79-4.82 3.18-4.82C3.76-4.82 4.05-4.45 4.05-3.67V-1.18C4.05-.43 3.89-.23 3.3-.18V0H5.78Z'/>
+<path id='eq73-g11-115' d='M4.14-1.41C4.14-2 3.87-2.39 3.14-2.82L1.86-3.59C1.52-3.78 1.35-4.07 1.35-4.39C1.35-4.88 1.72-5.2 2.26-5.2C2.94-5.2 3.3-4.81 3.57-3.74H3.75L3.7-5.36H3.57L3.55-5.34C3.44-5.25 3.43-5.24 3.38-5.24C3.31-5.24 3.19-5.26 3.06-5.32C2.81-5.42 2.54-5.47 2.25-5.47C1.27-5.47 .61-4.87 .61-4C.61-3.33 .99-2.87 2-2.29L2.69-1.89C3.11-1.66 3.31-1.37 3.31-1C3.31-.48 2.93-.14 2.32-.14C1.5-.14 1.08-.6 .81-1.81H.62V.05H.77C.86-.07 .91-.1 1.05-.1C1.18-.1 1.31-.07 1.6 0C1.93 .07 2.23 .12 2.48 .12C3.38 .12 4.14-.57 4.14-1.41Z'/>
+</defs>
+<g id='eq73-page1'>
+<use x='0' y='0' xlink:href='#eq73-g11-115'/>
+<use x='4.65' y='0' xlink:href='#eq73-g11-105'/>
+<use x='7.97' y='0' xlink:href='#eq73-g11-110'/>
+<use x='13.95' y='0' xlink:href='#eq73-g11-99'/>
+<use x='19.86' y='0' xlink:href='#eq73-g4-185'/>
+<use x='24.32' y='0' xlink:href='#eq73-g7-71'/>
+<use x='30.2' y='0' xlink:href='#eq73-g4-186'/>
+<use x='38.1' y='0' xlink:href='#eq73-g1-61'/>
+<use x='48.5' y='0' xlink:href='#eq73-g11-115'/>
+<use x='53.15' y='0' xlink:href='#eq73-g11-105'/>
+<use x='56.48' y='0' xlink:href='#eq73-g11-110'/>
+<use x='63.05' y='0' xlink:href='#eq73-g4-185'/>
+<use x='67.51' y='0' xlink:href='#eq73-g7-71'/>
+<use x='73.4' y='0' xlink:href='#eq73-g4-186'/>
+<use x='77.98' y='0' xlink:href='#eq73-g4-157'/>
+<use x='83.48' y='0' xlink:href='#eq73-g7-71'/>
+</g>
+</svg></span>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-IsNotANumber-dip-Image-CL-dip-Image-L" class="m-doc">IsNotANumber</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>True for each pixel that is NaN.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-IsInfinite-dip-Image-CL-dip-Image-L" class="m-doc">IsInfinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>True for each pixel that is positive or negative infinity.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="math_comparison.html#dip-IsFinite-dip-Image-CL-dip-Image-L" class="m-doc">IsFinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>True for each pixel that is not NaN nor infinity.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="math_arithmetic.html#dip-Abs-dip-Image-CL-dip-Image-L" class="m-doc">Abs</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
@@ -3638,7 +4014,7 @@ real-valued.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="measurement.html#dip-ObjectToMeasurement-dip-Image-CL-dip-Image-L-Measurement-IteratorFeature-CL" class="m-doc">ObjectToMeasurement</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues)</span>
+              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues)</span>
             </dt>
             <dd>Paints each object with the selected measurement feature values.</dd>
             <dt>
@@ -3648,44 +4024,52 @@ real-valued.</dd>
             </dt>
             <dd>Writes a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> structure to a CSV file.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Minimum-Measurement-IteratorFeature-CL" class="m-doc">Minimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Minimum-Measurement-IteratorFeature-CL" class="m-doc">Minimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">dip::Measurement::ValueType</a></span>
             </dt>
             <dd>Returns the smallest feature value in the first column of <code>featureValues</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Maximum-Measurement-IteratorFeature-CL" class="m-doc">Maximum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Maximum-Measurement-IteratorFeature-CL" class="m-doc">Maximum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">dip::Measurement::ValueType</a></span>
             </dt>
             <dd>Returns the largest feature value in the first column of <code>featureValues</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Percentile-Measurement-IteratorFeature-CL-dip-dfloat-" class="m-doc">Percentile</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">Measurement::ValueType</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Percentile-Measurement-IteratorFeature-CL-dip-dfloat-" class="m-doc">Percentile</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile) -&gt; <a href="dip-Measurement.html#dip-Measurement-ValueType" class="m-doc">dip::Measurement::ValueType</a></span>
             </dt>
             <dd>Returns the <code>percentile</code> feature value in the first column of <code>featureValues</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Median-Measurement-IteratorFeature-CL" class="m-doc">Median</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Median-Measurement-IteratorFeature-CL" class="m-doc">Median</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Returns the median feature value in the first column of <code>featureValues</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Mean-Measurement-IteratorFeature-CL" class="m-doc">Mean</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-Mean-Measurement-IteratorFeature-CL" class="m-doc">Mean</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Returns the mean feature value in the first column of <code>featureValues</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-MaximumAndMinimum-Measurement-IteratorFeature-CL" class="m-doc">MaximumAndMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-MaximumAndMinimum-Measurement-IteratorFeature-CL" class="m-doc">MaximumAndMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a></span>
             </dt>
             <dd>Returns the maximum and minimum feature values in the first column of <code>featureValues</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-SampleStatistics-Measurement-IteratorFeature-CL" class="m-doc">SampleStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-SampleStatistics-Measurement-IteratorFeature-CL" class="m-doc">SampleStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a></span>
             </dt>
             <dd>Returns the first four central moments of the feature values in the first column of <code>featureValues</code>.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-ObjectMinimum-Measurement-IteratorFeature-CL" class="m-doc">ObjectMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the object ID with the smallest feature value in the first column of <code>featureValues</code>.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-ObjectMaximum-Measurement-IteratorFeature-CL" class="m-doc">ObjectMaximum</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the object ID with the largest feature value in the first column of <code>featureValues</code>.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-BeerLambertMapping-dip-Image-CL-dip-Image-L-Image-Pixel-CL" class="m-doc">BeerLambertMapping</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; background)</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; background)</span>
             </dt>
             <dd>Applies a logarithmic mapping to a transmittance image to obtain an absorbance image</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-InverseBeerLambertMapping-dip-Image-CL-dip-Image-L-Image-Pixel-CL" class="m-doc">InverseBeerLambertMapping</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; background = {255})</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; background = {255})</span>
             </dt>
             <dd>Applies an exponential mapping to an absorbance image to obtain a transmittance image</dd>
             <dt>
@@ -4406,7 +4790,7 @@ lowest <code>weight</code>.</dd>
             <dd>Construct a graph for the given labeled image.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="regions.html#dip-RegionAdjacencyGraph-dip-Image-CL-Measurement-IteratorFeature-CL-dip-String-CL" class="m-doc">RegionAdjacencyGraph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
-              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues,
+              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching") -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
             </dt>
             <dd>Construct a graph for the given labeled image.</dd>
@@ -5080,84 +5464,84 @@ efficient for FFT computations.</dd>
 is written.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3D%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3D%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Compares two arrays, returns true only if they have the same size and contain the same values.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%21%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%21%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Compares two arrays, returns true if they have different size and/or contain different values.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Compares two arrays, returns true only if they have the same size and all <code>lhs</code> elements are larger
 than all <code>rhs</code> elements.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Compares two arrays, returns true only if they have the same size and all <code>lhs</code> elements are smaller
 than all <code>rhs</code> elements.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Compares two arrays, returns true only if they have the same size and all <code>lhs</code> elements are larger
 or equal than all <code>rhs</code> elements.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C%3D-T-DimensionArray<T>-CL-DimensionArray<T>-CL" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Compares two arrays, returns true only if they have the same size and all <code>lhs</code> elements are smaller
 or equal than all <code>rhs</code> elements.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3D%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;bool&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3D%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a></span>
             </dt>
             <dd>Compares an array to a scalar, returns a boolean array.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%21%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;bool&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%21%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a></span>
             </dt>
             <dd>Compares an array to a scalar, returns a boolean array.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;bool&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a></span>
             </dt>
             <dd>Compares an array to a scalar, returns a boolean array.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;bool&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a></span>
             </dt>
             <dd>Compares an array to a scalar, returns a boolean array.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;bool&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3E%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a></span>
             </dt>
             <dd>Compares an array to a scalar, returns a boolean array.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;bool&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C%3D-T-DimensionArray<T>-CL-T-CL" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a></span>
             </dt>
             <dd>Compares an array to a scalar, returns a boolean array.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-DimensionArray-T.html#dip-operator%3C%3C-T-std-ostream-L-DimensionArray<T>-CL" class="m-doc">operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
-              <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;T&gt;</a> const&amp; array) -&gt; std::ostream&amp;</span>
+              <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; array) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Writes the array to a stream</dd>
             <dt>
@@ -5168,96 +5552,96 @@ or equal than all <code>rhs</code> elements.</dd>
 information about the image is printed.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Sample.html#dip-operator%3C%3C-std-ostream-L-Image-Sample-CL" class="m-doc">operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
-              <a href="dip-Image-Sample.html" class="m-doc">Image::Sample</a> const&amp; sample) -&gt; std::ostream&amp;</span>
+              <a href="dip-Image-Sample.html" class="m-doc">dip::Image::Sample</a> const&amp; sample) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Image-Sample.html"><code>dip::Image::Sample</code></a> to <code>std::cout</code> or any other stream.
 It is printed like any numeric value of the same type.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2B-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2B-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Arithmetic operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Arithmetic operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2A-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2A-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Arithmetic operator, tensor multiplication.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2F-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2F-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Arithmetic operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%25-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator%</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%25-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator%</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Arithmetic operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%26-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator&</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%26-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator&</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Bit-wise operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%7C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator|</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%7C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator|</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Bit-wise operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%5E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator^</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%5E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator^</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Bit-wise operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Unary operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator~-Image-Pixel-CL" class="m-doc">operator~</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator~-Image-Pixel-CL" class="m-doc">operator~</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Bit-wise unary operator operator.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21-Image-Pixel-CL" class="m-doc">operator!</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21-Image-Pixel-CL" class="m-doc">operator!</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Boolean unary operator, element-wise.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3D%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3D%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21%3D-T-Image-Pixel-CL-T-CL" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21%3D-T-Image-Pixel-CL-T-CL" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
               T const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Comparison operator, equivalent to <code>!(lhs==rhs)</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
             </dt>
             <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C%3C-std-ostream-L-Image-Pixel-CL" class="m-doc">operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
-              <a href="dip-Image-Pixel.html" class="m-doc">Image::Pixel</a> const&amp; pixel) -&gt; std::ostream&amp;</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; pixel) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> to <code>std::cout</code> or any other stream.
 It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&rdquo;.</dd>
@@ -5266,25 +5650,25 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%2B-T-T1-CL-T2-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap">T1 const&amp; lhs,
               T2 const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Arithmetic operator, calls <a href="#dip-Add-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Add</code></a>.</dd>
+            <dd>Arithmetic operator, calls <a href="math_arithmetic.html#dip-Add-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Add</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T1, typename T2, typename &lt;SFINAE&gt; = T1&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator--T-T1-CL-T2-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap">T1 const&amp; lhs,
               T2 const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Arithmetic operator, calls <a href="#dip-Subtract-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Subtract</code></a>.</dd>
+            <dd>Arithmetic operator, calls <a href="math_arithmetic.html#dip-Subtract-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Subtract</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T1, typename T2, typename &lt;SFINAE&gt; = T1&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%2A-T-T1-CL-T2-CL" class="m-doc">operator*</a>(</span><span class="m-doc-wrap">T1 const&amp; lhs,
               T2 const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Arithmetic operator, calls <a href="#dip-Multiply-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Multiply</code></a>.</dd>
+            <dd>Arithmetic operator, calls <a href="math_arithmetic.html#dip-Multiply-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Multiply</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T1, typename T2, typename &lt;SFINAE&gt; = T1&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%2F-T-T1-CL-T2-CL" class="m-doc">operator/</a>(</span><span class="m-doc-wrap">T1 const&amp; lhs,
               T2 const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Arithmetic operator, calls <a href="#dip-Divide-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Divide</code></a>.</dd>
+            <dd>Arithmetic operator, calls <a href="math_arithmetic.html#dip-Divide-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Divide</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T1, typename T2, typename &lt;SFINAE&gt; = T1&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%25-T-T1-CL-T2-CL" class="m-doc">operator%</a>(</span><span class="m-doc-wrap">T1 const&amp; lhs,
@@ -5296,19 +5680,19 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%26-T-dip-Image-CL-T-CL" class="m-doc">operator&</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Bit-wise and logical operator, calls <a href="#dip-And-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::And</code></a>.</dd>
+            <dd>Bit-wise and logical operator, calls <a href="math_arithmetic.html#dip-And-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::And</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%7C-T-dip-Image-CL-T-CL" class="m-doc">operator|</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Bit-wise and logical operator, calls <a href="#dip-Or-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Or</code></a>.</dd>
+            <dd>Bit-wise and logical operator, calls <a href="math_arithmetic.html#dip-Or-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Or</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%5E-T-dip-Image-CL-T-CL" class="m-doc">operator^</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Bit-wise and logical operator, calls <a href="#dip-Xor-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Xor</code></a>.</dd>
+            <dd>Bit-wise and logical operator, calls <a href="math_arithmetic.html#dip-Xor-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Xor</code></a>.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator--dip-Image-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
@@ -5326,85 +5710,85 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%2B%3D-T-dip-Image-L-T-CL" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Compound assignment operator.</dd>
+            <dd>Compound assignment operator, calls <a href="math_arithmetic.html#dip-Add-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Add</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator-%3D-T-dip-Image-L-T-CL" class="m-doc">operator-=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Compound assignment operator.</dd>
+            <dd>Compound assignment operator, calls <a href="math_arithmetic.html#dip-Subtract-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Subtract</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%2A%3D-T-dip-Image-L-T-CL" class="m-doc">operator*=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Compound assignment operator.</dd>
+            <dd>Compound assignment operator, calls <a href="math_arithmetic.html#dip-Multiply-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Multiply</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%2F%3D-T-dip-Image-L-T-CL" class="m-doc">operator/=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Compound assignment operator.</dd>
+            <dd>Compound assignment operator, calls <a href="math_arithmetic.html#dip-Divide-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Divide</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%25%3D-T-dip-Image-L-T-CL" class="m-doc">operator%=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Compound assignment operator.</dd>
+            <dd>Compound assignment operator, calls <a href="math_arithmetic.html#dip-Modulo-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Modulo</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%26%3D-T-dip-Image-L-T-CL" class="m-doc">operator&=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Bit-wise compound assignment operator.</dd>
+            <dd>Bit-wise compound assignment operator, calls <a href="math_arithmetic.html#dip-And-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::And</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%7C%3D-T-dip-Image-L-T-CL" class="m-doc">operator|=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Bit-wise compound assignment operator.</dd>
+            <dd>Bit-wise compound assignment operator, calls <a href="math_arithmetic.html#dip-Or-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Or</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_arithmetic.html#dip-operator%5E%3D-T-dip-Image-L-T-CL" class="m-doc">operator^=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
-            <dd>Bit-wise compound assignment operator.</dd>
+            <dd>Bit-wise compound assignment operator, calls <a href="math_arithmetic.html#dip-Xor-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Xor</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_comparison.html#dip-operator%3D%3D-T-dip-Image-CL-T-CL" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="#dip-Equal-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Equal</code></a>.</dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Equal-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Equal</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_comparison.html#dip-operator%21%3D-T-dip-Image-CL-T-CL" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="#dip-NotEqual-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::NotEqual</code></a>.</dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotEqual-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::NotEqual</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_comparison.html#dip-operator%3C-T-dip-Image-CL-T-CL" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="#dip-Lesser-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Lesser</code></a>.</dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Lesser-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Lesser</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_comparison.html#dip-operator%3E-T-dip-Image-CL-T-CL" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="#dip-Greater-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Greater</code></a>.</dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Greater-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::Greater</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_comparison.html#dip-operator%3C%3D-T-dip-Image-CL-T-CL" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="#dip-NotGreater-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::NotGreater</code></a>.</dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotGreater-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::NotGreater</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="math_comparison.html#dip-operator%3E%3D-T-dip-Image-CL-T-CL" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="#dip-NotLesser-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::NotLesser</code></a>.</dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotLesser-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::NotLesser</code></a>.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="physical_dimensions.html#dip-operator%2A-dip-Units--dip-Units-CL" class="m-doc">operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html" class="m-doc">dip::Units</a> lhs,
               <a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; rhs) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
@@ -5482,14 +5866,14 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
             <dd>Writes the pixel sizes array to a stream</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename I, typename &lt;SFINAE&gt;&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-SampleIterator-T.html#dip-operator%2B-T-SampleIterator<T>--I-" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;T&gt;</a> it,
-              I n) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-SampleIterator-T.html#dip-operator%2B-T-SampleIterator<T>--I-" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> it,
+              I n) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
             </dt>
             <dd>Add integer to a sample iterator</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename I, typename &lt;SFINAE&gt;&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-SampleIterator-T.html#dip-operator--T-SampleIterator<T>--I-" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;T&gt;</a> it,
-              I n) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">SampleIterator&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-SampleIterator-T.html#dip-operator--T-SampleIterator<T>--I-" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> it,
+              I n) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
             </dt>
             <dd>Subtract integer from a sample iterator</dd>
             <dt>
@@ -5539,14 +5923,14 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
             <dd>Combine two accumulators</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%3D%3D-T-Vertex<T>--Vertex<T>-" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v1,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v2) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%3D%3D-T-Vertex<T>--Vertex<T>-" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v1,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v2) -&gt; bool</span>
             </dt>
             <dd>Compare two vertices</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--Vertex<T>-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> lhs,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--Vertex<T>-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
             <dd>Add two vertices together, with identical types</dd>
             <dt>
@@ -5561,8 +5945,8 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
             <dd>Add two vertices together, where the LHS is integer and the RHS is floating-point</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--Vertex<T>-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> lhs,
-              <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--Vertex<T>-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
             <dd>Subtract two vertices from each other</dd>
             <dt>
@@ -5577,26 +5961,26 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
             <dd>Subtract two vertices from each other, where the LHS is integer and the RHS is floating-point</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename S&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--S-" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
-              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--S-" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
+              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
             <dd>Add a vertex and a constant</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename S&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--S-" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
-              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--S-" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
+              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
             <dd>Subtract a vertex and a constant</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2A-T-Vertex<T>--dip-dfloat-" class="m-doc">operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2A-T-Vertex<T>--dip-dfloat-" class="m-doc">operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
             <dd>Multiply a vertex and a constant</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2F-T-Vertex<T>--dip-dfloat-" class="m-doc">operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a> v,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">Vertex&lt;T&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2F-T-Vertex<T>--dip-dfloat-" class="m-doc">operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
             <dd>Divide a vertex by a constant</dd>
             <dt>
@@ -5625,15 +6009,21 @@ It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&
             </dt>
             <dd>Decrement an image slice iterator by <code>n</code>, but never moves the iterator to before the first slide</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator%2B-dip-Histogram--dip-Histogram-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator%2B-dip-Histogram-CL-dip-Histogram-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Adds two histograms.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator--dip-Histogram--dip-Histogram-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator--dip-Histogram-CL-dip-Histogram-CL" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Subtracts two histograms.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Distribution.html#dip-operator%3C%3C-std-ostream-L-dip-Histogram-CL" class="m-doc">operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram) -&gt; std::ostream&amp;</span>
+            </dt>
+            <dd>You can output a <a href="dip-Histogram.html"><code>dip::Histogram</code></a> to <code>std::cout</code> or any other stream. Some
+information about the histogram is printed.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="measurement.html#dip-operator%2B-dip-Measurement-CL-dip-Measurement-CL" class="m-doc">operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; lhs,
               <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; rhs) -&gt; <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a></span>

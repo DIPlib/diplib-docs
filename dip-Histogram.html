@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>dip::Histogram class | DIPlib | a library for quantitative image analysis</title>
   <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
-  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -99,7 +99,7 @@ parameter instead of an array.</dd>
             <dd>A version of the constructor that takes two scalar input images, and constructs their joint histogram
 (a 2D histogram, equal to the one obtained if the two images were the two channels of a tensor image).</dd>
             <dt>
-              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Measurement-IteratorFeature-CL-dip-Histogram-ConfigurationArray-" class="m-doc">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues,
+              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Measurement-IteratorFeature-CL-dip-Histogram-ConfigurationArray-" class="m-doc">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,
               <a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {}) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>The constructor takes an <code>IteratorFeature</code> of a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object, and configuration
@@ -141,7 +141,7 @@ options for each histogram dimension.</dd>
             </dt>
             <dd>Type of histogram bins. See <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</dd>
             <dt id="dip-Histogram-ConfigurationArray">
-              using <a href="#dip-Histogram-ConfigurationArray" class="m-doc-self">ConfigurationArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">DimensionArray&lt;dip::Histogram::Configuration&gt;</a>
+              using <a href="#dip-Histogram-ConfigurationArray" class="m-doc-self">ConfigurationArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
 
             </dt>
             <dd>An array of <a href="dip-Histogram-Configuration.html"><code>dip::Histogram::Configuration</code></a> objects, one per histogram dimension.</dd>
@@ -216,8 +216,8 @@ options for each histogram dimension.</dd>
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> z_value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
             </dt>
             <dd>Gets the bin for {<code>x_value</code>, <code>y_value</code>, <code>z_value</code>} in a 3D histogram</dd>
-            <dt id="dip-Histogram-Bin-dip-FloatArray--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dip-FloatArray--C" class="m-doc-self">Bin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            <dt id="dip-Histogram-Bin-dip-FloatArray-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dip-FloatArray-CL-C" class="m-doc-self">Bin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
             </dt>
             <dd>Gets the bin for <code>value</code> in an nD histogram</dd>
             <dt id="dip-Histogram-At-dip-uint--C">
@@ -244,11 +244,11 @@ options for each histogram dimension.</dd>
             </dt>
             <dd>Get the image that holds the bin counts. The image is always scalar and of type <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</dd>
             <dt id="dip-Histogram-begin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-begin-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">ConstImageIterator&lt;dip::Histogram::CountType&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-begin-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a></span>
             </dt>
             <dd>Returns an iterator to the first bin</dd>
             <dt id="dip-Histogram-end-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-end-C" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">ConstImageIterator&lt;dip::Histogram::CountType&gt;</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-end-C" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a></span>
             </dt>
             <dd>Returns an end iterator</dd>
             <dt id="dip-Histogram-Origin-C">
@@ -294,13 +294,13 @@ bin with all the previous ones.</dd>
             <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_COUNT" class="m-doc-self">dip::<wbr />DT_COUNT</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd>Data type of histogram bins. See <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>.</dd>
-            <dt id="dip-operator%2B-dip-Histogram--dip-Histogram-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-dip-Histogram--dip-Histogram-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> lhs,
+            <dt id="dip-operator%2B-dip-Histogram-CL-dip-Histogram-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-dip-Histogram-CL-dip-Histogram-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Adds two histograms.</dd>
-            <dt id="dip-operator--dip-Histogram--dip-Histogram-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--dip-Histogram--dip-Histogram-CL" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> lhs,
+            <dt id="dip-operator--dip-Histogram-CL-dip-Histogram-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--dip-Histogram-CL-dip-Histogram-CL" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Subtracts two histograms.</dd>
@@ -324,7 +324,7 @@ values for <code>input</code> are chosen based on its data type (see <a href="di
           <section class="m-doc-details" id="dip-Histogram-Histogram-Measurement-IteratorFeature-CL-dip-Histogram-ConfigurationArray-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Measurement-IteratorFeature-CL-dip-Histogram-ConfigurationArray-" class="m-doc-self">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">Measurement::IteratorFeature</a> const&amp; featureValues,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Measurement-IteratorFeature-CL-dip-Histogram-ConfigurationArray-" class="m-doc-self">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,
               <a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {}) <span class="m-label m-info">explicit</span></span></span>
             </h3>
             <p>The constructor takes an <code>IteratorFeature</code> of a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object, and configuration
@@ -440,6 +440,15 @@ by summing over all dimensions except <code>dim</code>, and is equivalent to the
 kernel of size <code>2 * std::ceil( 3 * sigma ) + 1</code> bins. See <a href="linear.html#dip-GaussFIR-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-UnsignedArray--dip-StringArray-CL-dip-dfloat-"><code>dip::GaussFIR</code></a> for information on the smoothing
 operation applied. <code>sigma</code> defaults to 1.</p>
 <p>The histogram is extended by <code>std::ceil( 3 * sigma )</code> below and above the original bounds.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Histogram-operator%2B%3D-dip-Histogram-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Histogram-operator%2B%3D-dip-Histogram-CL" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; other)</span></span>
+            </h3>
+            <p>Adds a histogram to *this. <code>other</code> must have identical properties.</p>
+<p>Adding multiple histograms together can be useful, for example, when accumulating pixel values
+from multiple images, or in multiple threads.</p>
           </div></section>
         </section>
       </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Display &raquo; DIPviewer module | DIPlib | a library for quantitative image analysis</title>
   <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
-  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -212,6 +212,8 @@ YZ slices.</p>
 <h4 id="interaction_histogram">Histogram</h4>
 <p>Left-dragging in the histogram changes the mapping range limits.</p>
 <h4 id="interaction_status_bar">Status bar</h4>
+<p>If the status bar is displaying the current operating point, using the
+scroll wheel on the coordinates will step through the appropriate dimension.</p>
 <p>To the right of the status bar is the Link indicator, which can be used to link
 to other windows. Simply click the indicator in the source window, and
 then in the destination window. Operating point, zoom and offset will then be
@@ -422,7 +424,7 @@ ensure a clean exit.</p>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-" class="m-doc">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
               double offset,
               double scale,
-              <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">ViewingOptions::Mapping</a> mapping) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Maps an image grey-value onto [0,255]</dd>
             <dt>
@@ -433,7 +435,7 @@ ensure a clean exit.</p>
             <dd>Maps an image grey-value onto [0,255]</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-to_string-T-dip-DimensionArray<T>-" class="m-doc">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray&lt;T&gt;</a> array) -&gt; std::string</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-to_string-T-dip-DimensionArray<T>-" class="m-doc">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> array) -&gt; std::string</span>
             </dt>
             <dd>String conversion for <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a></dd>
             <dt>
@@ -582,7 +584,7 @@ at an appropriate time after calling <a href="dipviewer.html#dip-viewer-Show-dip
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-" class="m-doc-self">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
               double offset,
               double scale,
-              <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">ViewingOptions::Mapping</a> mapping)</span></span>
+              <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping)</span></span>
             </h3>
             <p>Maps an image grey-value onto [0,255]</p>
           </div></section>
@@ -605,7 +607,7 @@ at an appropriate time after calling <a href="dipviewer.html#dip-viewer-Show-dip
                 template&lt;typename T&gt;
               </div>
               <span class="m-doc-wrap-bumper">std::string
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-viewer-to_string-T-dip-DimensionArray<T>-" class="m-doc-self">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray&lt;T&gt;</a> array)</span></span>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-viewer-to_string-T-dip-DimensionArray<T>-" class="m-doc-self">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> array)</span></span>
             </h3>
             <p>String conversion for <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a></p>
           </div></section>

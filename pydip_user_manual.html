@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>PyDIP User Manual | DIPlib | a library for quantitative image analysis</title>
   <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
-  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -123,17 +123,21 @@ can be changed for example as follows:</p>
 </pre></div>
 
 <p>Type <code>help(dip.Show)</code> in Python to learn about many more options.</p>
-<p>If <a href="dipviewer.html"><em>DIPviewer</em></a> is installed, its functionality will be in the <code>diplib.viewer</code>
-namespace. Use <code>dip.viewer.Show(img)</code>. Depending on the backend used, it
+<p>If <a href="dipviewer.html"><em>DIPviewer</em></a> is installed, its functionality will be in the <code>dip.viewer</code>
+namespace. Use <code>img.ShowSlice()</code> for convenience. Depending on the backend used, it
 will be necessary to do <code>dip.viewer.Spin()</code> to interact with the created
 window. <code>Spin()</code> interrupts the interactive session until all <em>DIPviewer</em>
 windows have been closed. Even when <code>Spin()</code> is not needed to interact
 with the windows, it should be run before closing the Python session to
 avoid a series of error messages. Alternatively, periodically call
 <code>dip.viewer.Draw()</code>.
-<code>dip.viewer.Show()</code> has additional parameters
-that can be used to set viewing options; type <code>help(dip.viewer.Show)</code> for details.
-It also returns an object that can be used for further interaction.</p>
+<code>dip.Image.ShowSlice</code> and <code>dip.viewer.Show()</code> have additional parameters
+that can be used to set viewing options. They also return an object that can be used for further interaction:</p>
+<div class="m-code"><pre><span></span><span class="n">wdw</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">ShowSlice</span><span class="p">(</span><span class="s1">&#39;Window title&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="s1">&#39;unit&#39;</span><span class="p">,</span> <span class="n">lut</span><span class="o">=</span><span class="s1">&#39;sequential&#39;</span><span class="p">)</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">Spin</span><span class="p">()</span>
+</pre></div>
+
+<p>Type <code>help(dip.viewer.Show)</code> for details.</p>
 <h2 id="pum_indexing">Indexing into images</h2>
 <p>Indexing into a <code>dip.Image</code> object works as it does for other array types in
 Python:</p>
@@ -176,7 +180,8 @@ returns a copy of the data, but an assignment form is also available:</p>
 </pre></div>
 
 <h2 id="pum_testing">Testing image validity</h2>
-<p>Instead of <code>IsForged()</code>, use <code>IsEmpty()</code> to test if an image is forged.</p>
+<p>You can use either <code>IsForged()</code> or <code>IsEmpty()</code> to test if an image is forged.
+<code>IsEmpty()</code> is the opposite of <code>IsForged()</code>, and returns <code>True</code> if this image is not forged.</p>
 <p>Functions that expect an image interpret <code>None</code> as an empty (non-forged) image.</p>
 <h2 id="pum_numpy">Mixing <em>NumPy</em> arrays and <em>DIPlib</em> images</h2>
 <p>A NumPy array can be passed instead of an image to any <em>DIPlib</em> function. In fact, any Python object

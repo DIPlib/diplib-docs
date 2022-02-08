@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>dml namespace | DIPlib | a library for quantitative image analysis</title>
   <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
-  <link rel="icon" href="DIP_logo_32.png" type="image/png" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIP_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.1.0" class="m-thin">version 3.1.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -105,6 +105,10 @@ is a short vector (up to 5 elements) or a small matrix (up to 5x5 elements) it w
               <span class="m-doc-wrap-bumper">auto <a href="dip_matlab_interface.html#dml-IsVector-mxArray-CP" class="m-doc">IsVector</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
             </dt>
             <dd>True if empty or a one-dimensional array</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip_matlab_interface.html#dml-IsString-mxArray-CP" class="m-doc">IsString</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
+            </dt>
+            <dd>True if <code>mx</code> is a string (char vector or string class)</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="dip_matlab_interface.html#dml-GetUnsigned-mxArray-CP" class="m-doc">GetUnsigned</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
@@ -223,7 +227,7 @@ If <code>mx</code> is empty, all dimensions are to be processed.</dd>
             <dd>Convert a complex floating-point number from <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a> to <code>mxArray</code> by copy.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip_matlab_interface.html#dml-GetArray-T-dip-DimensionArray<T>-CL" class="m-doc">GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray&lt;T&gt;</a> const&amp; in) -&gt; mxArray*</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip_matlab_interface.html#dml-GetArray-T-dip-DimensionArray<T>-CL" class="m-doc">GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a numeric array from <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a> to <code>mxArray</code> by copy. Works for
 <a href="supporttypes.html#dip-UnsignedArray"><code>dip::UnsignedArray</code></a>, <a href="supporttypes.html#dip-IntegerArray"><code>dip::IntegerArray</code></a> and <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a>.</dd>
