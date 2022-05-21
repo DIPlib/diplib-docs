@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -88,7 +88,7 @@ an object of the <a href="dip-Measurement.html"><code>dip::Measurement</code></a
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               struct <a href="dip-Vertex-T.html" class="m-doc">dip::<wbr />Vertex</a>
             </dt>
-            <dd>Encodes a location in a 2D image</dd>
+            <dd>Encodes a location in a 2D image.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               struct <a href="dip-BoundingBox-T.html" class="m-doc">dip::<wbr />BoundingBox</a>
@@ -103,10 +103,10 @@ an object of the <a href="dip-Measurement.html"><code>dip::Measurement</code></a
             </dt>
             <dd>A polygon with floating-point vertices.</dd>
             <dt>
-              class <a href="dip-ConvexHull.html" class="m-doc">dip::<wbr />ConvexHull</a>
+              struct <a href="dip-ConvexHull.html" class="m-doc">dip::<wbr />ConvexHull</a>
             </dt>
-            <dd>A convex hull is a convex polygon. It can be constructed from a <a href="dip-Polygon.html"><code>dip::Polygon</code></a>, and a const reference
-to the underlying <code>dip::Polygon</code> object can be obtained. It is guaranteed clockwise.</dd>
+            <dd>A convex hull is a convex polygon. It can be constructed from a simple <a href="dip-Polygon.html"><code>dip::Polygon</code></a>,
+and is guaranteed clockwise.</dd>
             <dt>
               struct <a href="dip-ChainCode.html" class="m-doc">dip::<wbr />ChainCode</a>
             </dt>
@@ -164,7 +164,7 @@ to the underlying <code>dip::Polygon</code> object can be obtained. It is guaran
               using <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::<wbr />VertexFloat</a> = <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
 
             </dt>
-            <dd>A vertex with floating-point coordinates</dd>
+            <dd>A vertex with floating-point coordinates.</dd>
             <dt>
               using <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::<wbr />VertexInteger</a> = <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
 
@@ -174,17 +174,17 @@ to the underlying <code>dip::Polygon</code> object can be obtained. It is guaran
               using <a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">dip::<wbr />BoundingBoxFloat</a> = <a href="dip-BoundingBox-T.html" class="m-doc">dip::BoundingBox</a>
 
             </dt>
-            <dd>A bounding box with floating-point coordinates</dd>
+            <dd>A bounding box with floating-point coordinates.</dd>
             <dt>
               using <a href="dip-BoundingBox-T.html#dip-BoundingBoxInteger" class="m-doc">dip::<wbr />BoundingBoxInteger</a> = <a href="dip-BoundingBox-T.html" class="m-doc">dip::BoundingBox</a>
 
             </dt>
-            <dd>A bounding box with integer coordinates</dd>
+            <dd>A bounding box with integer coordinates.</dd>
             <dt>
               using <a href="dip-ChainCode.html#dip-ChainCodeArray" class="m-doc">dip::<wbr />ChainCodeArray</a> = std::vector&lt;ChainCode&gt;
 
             </dt>
-            <dd>A collection of object contours</dd>
+            <dd>A collection of object contours.</dd>
             <dt>
               using <a href="dip-Feature-Information.html#dip-Feature-InformationArray" class="m-doc">dip::<wbr />Feature::<wbr />InformationArray</a> = std::vector&lt;Information&gt;
 
@@ -253,28 +253,28 @@ in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</d
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-CrossProduct-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />CrossProduct</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Compute the z component of the cross product of vectors <code>v1</code> and <code>v2</code></dd>
+            <dd>Compute the z component of the cross product of vectors <code>v1</code> and <code>v2</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-ParallelogramSignedArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />ParallelogramSignedArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Compute the z component of the cross product of vectors <code>v2-v1</code> and <code>v3-v1</code></dd>
+            <dd>Compute the z component of the cross product of vectors <code>v2-v1</code> and <code>v3-v1</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />TriangleArea</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Compute the area of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code></dd>
+            <dd>Compute the area of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-TriangleHeight-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL" class="m-doc">dip::<wbr />TriangleHeight</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Compute the height of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>, with <code>v3</code> the tip</dd>
+            <dd>Compute the height of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>, with <code>v3</code> the tip.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-GetImageChainCodes-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-" class="m-doc">dip::<wbr />GetImageChainCodes</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs = {},
@@ -346,63 +346,95 @@ in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</d
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%3D%3D-T-Vertex<T>--Vertex<T>-" class="m-doc">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v1,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v2) -&gt; bool</span>
             </dt>
-            <dd>Compare two vertices</dd>
+            <dd>Compare two vertices.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--Vertex<T>-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
-            <dd>Add two vertices together, with identical types</dd>
+            <dd>Add two vertices together, with identical types.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-dip-VertexFloat--dip-VertexInteger-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
               <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
             </dt>
-            <dd>Add two vertices together, where the LHS is floating-point and the RHS is integer</dd>
+            <dd>Add two vertices together, where the LHS is floating-point and the RHS is integer.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-dip-VertexInteger-CL-dip-VertexFloat-" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
               <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
             </dt>
-            <dd>Add two vertices together, where the LHS is integer and the RHS is floating-point</dd>
+            <dd>Add two vertices together, where the LHS is integer and the RHS is floating-point.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--Vertex<T>-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
-            <dd>Subtract two vertices from each other</dd>
+            <dd>Subtract two vertices from each other.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--dip-VertexFloat--dip-VertexInteger-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
               <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
             </dt>
-            <dd>Subtract two vertices from each other, where the LHS is floating-point and the RHS is integer</dd>
+            <dd>Subtract two vertices from each other, where the LHS is floating-point and the RHS is integer.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--dip-VertexInteger-CL-dip-VertexFloat-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
               <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
             </dt>
-            <dd>Subtract two vertices from each other, where the LHS is integer and the RHS is floating-point</dd>
+            <dd>Subtract two vertices from each other, where the LHS is integer and the RHS is floating-point.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename S&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2B-T-Vertex<T>--S-" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
+              S t) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
-            <dd>Add a vertex and a constant</dd>
+            <dd>Add a vertex and a constant.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T, typename S&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator--T-Vertex<T>--S-" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              S n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
+              S t) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
-            <dd>Subtract a vertex and a constant</dd>
+            <dd>Subtract a vertex and a constant.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2A-T-Vertex<T>--dip-dfloat-" class="m-doc">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> s) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
-            <dd>Multiply a vertex and a constant</dd>
+            <dd>Multiply a vertex and a constant, scaling isotropically.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2A-T-Vertex<T>--Vertex<T>-CL" class="m-doc">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
+            </dt>
+            <dd>Multiply a vertex by another vertex, scaling anisotropically.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2A-dip-VertexFloat--dip-VertexInteger-CL" class="m-doc">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
+              <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Multiply a vertex by another vertex, scaling anisotropically, where the LHS is floating-point and the RHS is integer.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2A-dip-VertexInteger-CL-dip-VertexFloat-CL" class="m-doc">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
+              <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Multiply a vertex by another vertex, scaling anisotropically, where the LHS is integer and the RHS is floating-point.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2F-T-Vertex<T>--dip-dfloat-" class="m-doc">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> s) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
             </dt>
-            <dd>Divide a vertex by a constant</dd>
+            <dd>Divide a vertex by a constant, scaling isotropically.</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2F-T-Vertex<T>--Vertex<T>-CL" class="m-doc">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a></span>
+            </dt>
+            <dd>Divide a vertex by another vertex, scaling anisotropically.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2F-dip-VertexFloat--dip-VertexInteger-CL" class="m-doc">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
+              <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Divide a vertex by another vertex, scaling anisotropically, where the LHS is floating-point and the RHS is integer.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Vertex-T.html#dip-operator%2F-dip-VertexInteger-CL-dip-VertexFloat-CL" class="m-doc">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
+              <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; rhs) -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Divide a vertex by another vertex, scaling anisotropically, where the LHS is integer and the RHS is floating-point.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-dip-Measurement-CL-dip-Measurement-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; lhs,
               <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; rhs) -&gt; <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a></span>
@@ -474,7 +506,7 @@ representation of the tabular data in it.</dd>
 
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>A vertex with floating-point coordinates</p>
+            <p>A vertex with floating-point coordinates.</p>
           </div></section>
                       <section class="m-doc-details" id="dip-VertexInteger"><div>
             <h3>
@@ -490,7 +522,7 @@ representation of the tabular data in it.</dd>
 
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>A bounding box with floating-point coordinates</p>
+            <p>A bounding box with floating-point coordinates.</p>
           </div></section>
                       <section class="m-doc-details" id="dip-BoundingBoxInteger"><div>
             <h3>
@@ -498,7 +530,7 @@ representation of the tabular data in it.</dd>
 
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>A bounding box with integer coordinates</p>
+            <p>A bounding box with integer coordinates.</p>
           </div></section>
                       <section class="m-doc-details" id="dip-ChainCodeArray"><div>
             <h3>
@@ -506,7 +538,7 @@ representation of the tabular data in it.</dd>
 
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>A collection of object contours</p>
+            <p>A collection of object contours.</p>
           </div></section>
                       <section class="m-doc-details" id="dip-Feature-InformationArray"><div>
             <h3>
@@ -655,7 +687,7 @@ in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</p
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-CrossProduct-T-Vertex<T>-CL-Vertex<T>-CL" class="m-doc-self">dip::<wbr />CrossProduct</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v1,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2)</span></span>
             </h3>
-            <p>Compute the z component of the cross product of vectors <code>v1</code> and <code>v2</code></p>
+            <p>Compute the z component of the cross product of vectors <code>v1</code> and <code>v2</code>.</p>
           </div></section>
           <section class="m-doc-details" id="dip-ParallelogramSignedArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL"><div>
             <h3>
@@ -668,7 +700,7 @@ in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</p
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3)</span></span>
             </h3>
-            <p>Compute the z component of the cross product of vectors <code>v2-v1</code> and <code>v3-v1</code></p>
+            <p>Compute the z component of the cross product of vectors <code>v2-v1</code> and <code>v3-v1</code>.</p>
           </div></section>
           <section class="m-doc-details" id="dip-TriangleArea-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL"><div>
             <h3>
@@ -681,7 +713,7 @@ in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</p
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3)</span></span>
             </h3>
-            <p>Compute the area of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code></p>
+            <p>Compute the area of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>.</p>
           </div></section>
           <section class="m-doc-details" id="dip-TriangleHeight-T-Vertex<T>-CL-Vertex<T>-CL-Vertex<T>-CL"><div>
             <h3>
@@ -694,7 +726,7 @@ in a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object.</p
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v2,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; v3)</span></span>
             </h3>
-            <p>Compute the height of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>, with <code>v3</code> the tip</p>
+            <p>Compute the height of the triangle formed by vertices <code>v1</code>, <code>v2</code> and <code>v3</code>, with <code>v3</code> the tip.</p>
           </div></section>
           <section class="m-doc-details" id="dip-GetImageChainCodes-dip-Image-CL-dip-UnsignedArray-CL-dip-uint-"><div>
             <h3>
@@ -745,10 +777,10 @@ The <a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeatur
 as values are in the feature.</p>
 <p><code>out</code> will be of type <code>DT_SFLOAT</code>. To change the data type, set the data type of <code>out</code> and set its protect
 flag before calling this function:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span><span class="p">;</span>
-<span class="n">out</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT32</span> <span class="p">);</span>
-<span class="n">out</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
-<span class="n">ObjectToMeasurement</span><span class="p">(</span> <span class="n">label</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">featureValues</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+<span class="n">out</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT32</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">out</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span><span class="w"></span>
+<span class="n">ObjectToMeasurement</span><span class="p">(</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="n">featureValues</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
           </div></section>
           <section class="m-doc-details" id="dip-MeasurementWriteCSV-dip-Measurement-CL-dip-String-CL-dip-StringSet-CL"><div>
@@ -903,7 +935,7 @@ the feature value.</p>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%3D%3D-T-Vertex<T>--Vertex<T>-" class="m-doc-self">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v1,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v2)</span></span>
             </h3>
-            <p>Compare two vertices</p>
+            <p>Compare two vertices.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator%2B-T-Vertex<T>--Vertex<T>-CL"><div>
             <h3>
@@ -915,7 +947,7 @@ the feature value.</p>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2B-T-Vertex<T>--Vertex<T>-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs)</span></span>
             </h3>
-            <p>Add two vertices together, with identical types</p>
+            <p>Add two vertices together, with identical types.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator%2B-dip-VertexFloat--dip-VertexInteger-CL"><div>
             <h3>
@@ -924,7 +956,7 @@ the feature value.</p>
               <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>Add two vertices together, where the LHS is floating-point and the RHS is integer</p>
+            <p>Add two vertices together, where the LHS is floating-point and the RHS is integer.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator%2B-dip-VertexInteger-CL-dip-VertexFloat-"><div>
             <h3>
@@ -933,7 +965,7 @@ the feature value.</p>
               <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> rhs)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>Add two vertices together, where the LHS is integer and the RHS is floating-point</p>
+            <p>Add two vertices together, where the LHS is integer and the RHS is floating-point.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator--T-Vertex<T>--Vertex<T>-CL"><div>
             <h3>
@@ -945,7 +977,7 @@ the feature value.</p>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator--T-Vertex<T>--Vertex<T>-CL" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
               <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs)</span></span>
             </h3>
-            <p>Subtract two vertices from each other</p>
+            <p>Subtract two vertices from each other.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator--dip-VertexFloat--dip-VertexInteger-CL"><div>
             <h3>
@@ -954,7 +986,7 @@ the feature value.</p>
               <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>Subtract two vertices from each other, where the LHS is floating-point and the RHS is integer</p>
+            <p>Subtract two vertices from each other, where the LHS is floating-point and the RHS is integer.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator--dip-VertexInteger-CL-dip-VertexFloat-CL"><div>
             <h3>
@@ -963,7 +995,7 @@ the feature value.</p>
               <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; rhs)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
             </h3>
-            <p>Subtract two vertices from each other, where the LHS is integer and the RHS is floating-point</p>
+            <p>Subtract two vertices from each other, where the LHS is integer and the RHS is floating-point.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator%2B-T-Vertex<T>--S-"><div>
             <h3>
@@ -973,9 +1005,9 @@ the feature value.</p>
               </div>
               <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2B-T-Vertex<T>--S-" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              S n)</span></span>
+              S t)</span></span>
             </h3>
-            <p>Add a vertex and a constant</p>
+            <p>Add a vertex and a constant.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator--T-Vertex<T>--S-"><div>
             <h3>
@@ -985,9 +1017,9 @@ the feature value.</p>
               </div>
               <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator--T-Vertex<T>--S-" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              S n)</span></span>
+              S t)</span></span>
             </h3>
-            <p>Subtract a vertex and a constant</p>
+            <p>Subtract a vertex and a constant.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator%2A-T-Vertex<T>--dip-dfloat-"><div>
             <h3>
@@ -997,9 +1029,39 @@ the feature value.</p>
               </div>
               <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2A-T-Vertex<T>--dip-dfloat-" class="m-doc-self">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n)</span></span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> s)</span></span>
             </h3>
-            <p>Multiply a vertex and a constant</p>
+            <p>Multiply a vertex and a constant, scaling isotropically.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-operator%2A-T-Vertex<T>--Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2A-T-Vertex<T>--Vertex<T>-CL" class="m-doc-self">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs)</span></span>
+            </h3>
+            <p>Multiply a vertex by another vertex, scaling anisotropically.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-operator%2A-dip-VertexFloat--dip-VertexInteger-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2A-dip-VertexFloat--dip-VertexInteger-CL" class="m-doc-self">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
+              <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>Multiply a vertex by another vertex, scaling anisotropically, where the LHS is floating-point and the RHS is integer.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-operator%2A-dip-VertexInteger-CL-dip-VertexFloat-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2A-dip-VertexInteger-CL-dip-VertexFloat-CL" class="m-doc-self">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
+              <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; rhs)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>Multiply a vertex by another vertex, scaling anisotropically, where the LHS is integer and the RHS is floating-point.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator%2F-T-Vertex<T>--dip-dfloat-"><div>
             <h3>
@@ -1009,9 +1071,39 @@ the feature value.</p>
               </div>
               <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
                 </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2F-T-Vertex<T>--dip-dfloat-" class="m-doc-self">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> v,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> n)</span></span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> s)</span></span>
             </h3>
-            <p>Divide a vertex by a constant</p>
+            <p>Divide a vertex by a constant, scaling isotropically.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-operator%2F-T-Vertex<T>--Vertex<T>-CL"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2F-T-Vertex<T>--Vertex<T>-CL" class="m-doc-self">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> lhs,
+              <a href="dip-Vertex-T.html" class="m-doc">dip::Vertex</a> const&amp; rhs)</span></span>
+            </h3>
+            <p>Divide a vertex by another vertex, scaling anisotropically.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-operator%2F-dip-VertexFloat--dip-VertexInteger-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2F-dip-VertexFloat--dip-VertexInteger-CL" class="m-doc-self">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> lhs,
+              <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; rhs)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>Divide a vertex by another vertex, scaling anisotropically, where the LHS is floating-point and the RHS is integer.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-operator%2F-dip-VertexInteger-CL-dip-VertexFloat-CL"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%2F-dip-VertexInteger-CL-dip-VertexFloat-CL" class="m-doc-self">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> const&amp; lhs,
+              <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; rhs)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></div>
+            </h3>
+            <p>Divide a vertex by another vertex, scaling anisotropically, where the LHS is integer and the RHS is floating-point.</p>
           </div></section>
           <section class="m-doc-details" id="dip-operator%2B-dip-Measurement-CL-dip-Measurement-CL"><div>
             <h3>
@@ -1030,18 +1122,18 @@ is picked. If both have a non-NaN value, the one of the <code>lhs</code> argumen
 actually added together!). This process insures that it is possible to add multiple sets of measurements
 (across different objects and different features) together, without worrying about the order that
 they are added together:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">label1</span> <span class="o">=</span> <span class="p">...</span> <span class="c1">// one image with objects 1-10</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">label2</span> <span class="o">=</span> <span class="p">...</span> <span class="c1">// one image with objects 11-20</span>
-<span class="k">auto</span> <span class="n">set1</span> <span class="o">=</span> <span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span> <span class="n">label1</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">Size</span><span class="sc">&#39;,&#39;</span><span class="n">Center</span><span class="err">&#39;</span><span class="p">}</span> <span class="p">);</span>
-<span class="k">auto</span> <span class="n">set2</span> <span class="o">=</span> <span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span> <span class="n">label2</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">Size</span><span class="sc">&#39;,&#39;</span><span class="n">Center</span><span class="err">&#39;</span><span class="p">}</span> <span class="p">);</span>
-<span class="k">auto</span> <span class="n">set3</span> <span class="o">=</span> <span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span> <span class="n">label1</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">Feret</span><span class="sc">&#39;,&#39;</span><span class="n">Radius</span><span class="err">&#39;</span><span class="p">}</span> <span class="p">);</span>
-<span class="k">auto</span> <span class="n">set4</span> <span class="o">=</span> <span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span> <span class="n">label2</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">Feret</span><span class="sc">&#39;,&#39;</span><span class="n">Radius</span><span class="err">&#39;</span><span class="p">}</span> <span class="p">);</span>
-<span class="k">auto</span> <span class="n">sum1</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">+</span> <span class="n">set2</span><span class="p">;</span> <span class="c1">// Size and Center features for objects 1-20</span>
-<span class="k">auto</span> <span class="n">sum2</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">+</span> <span class="n">set3</span><span class="p">;</span> <span class="c1">// Size, Center, Feret and Radius features for objects 1-10</span>
-<span class="k">auto</span> <span class="n">sumA</span> <span class="o">=</span> <span class="p">(</span><span class="n">set1</span> <span class="o">+</span> <span class="n">set2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">set3</span> <span class="o">+</span> <span class="n">set4</span><span class="p">);</span> <span class="c1">// All features for all objects</span>
-<span class="k">auto</span> <span class="n">sumB</span> <span class="o">=</span> <span class="p">(</span><span class="n">set1</span> <span class="o">+</span> <span class="n">set3</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">set2</span> <span class="o">+</span> <span class="n">set4</span><span class="p">);</span> <span class="c1">// Idem</span>
-<span class="k">auto</span> <span class="n">sumC</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">+</span> <span class="n">set2</span> <span class="o">+</span> <span class="n">set3</span> <span class="o">+</span> <span class="n">set4</span><span class="p">;</span>     <span class="c1">// Idem</span>
-<span class="k">auto</span> <span class="n">sumD</span> <span class="o">=</span> <span class="n">set1</span> <span class="o">+</span> <span class="n">set4</span> <span class="o">+</span> <span class="n">set3</span> <span class="o">+</span> <span class="n">set2</span><span class="p">;</span>     <span class="c1">// Idem</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">label1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="c1">// one image with objects 1-10</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">label2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="c1">// one image with objects 11-20</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">set1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span><span class="w"> </span><span class="n">label1</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="n">Size</span><span class="sc">&#39;,&#39;</span><span class="n">Center</span><span class="err">&#39;</span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">set2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span><span class="w"> </span><span class="n">label2</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="n">Size</span><span class="sc">&#39;,&#39;</span><span class="n">Center</span><span class="err">&#39;</span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">set3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span><span class="w"> </span><span class="n">label1</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="n">Feret</span><span class="sc">&#39;,&#39;</span><span class="n">Radius</span><span class="err">&#39;</span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">set4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurementTool</span><span class="p">.</span><span class="n">Measure</span><span class="p">(</span><span class="w"> </span><span class="n">label2</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{</span><span class="err">&#39;</span><span class="n">Feret</span><span class="sc">&#39;,&#39;</span><span class="n">Radius</span><span class="err">&#39;</span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sum1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set2</span><span class="p">;</span><span class="w"> </span><span class="c1">// Size and Center features for objects 1-20</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sum2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set3</span><span class="p">;</span><span class="w"> </span><span class="c1">// Size, Center, Feret and Radius features for objects 1-10</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sumA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">set1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">set3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set4</span><span class="p">);</span><span class="w"> </span><span class="c1">// All features for all objects</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sumB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">set1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">set2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set4</span><span class="p">);</span><span class="w"> </span><span class="c1">// Idem</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sumC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set4</span><span class="p">;</span><span class="w">     </span><span class="c1">// Idem</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">sumD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">set2</span><span class="p">;</span><span class="w">     </span><span class="c1">// Idem</span>
 </pre></div>
           </div></section>
           <section class="m-doc-details" id="dip-operator%3C%3C-std-ostream-L-dip-Measurement-CL"><div>

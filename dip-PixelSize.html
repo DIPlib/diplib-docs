@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -203,6 +203,10 @@ size.</dd>
             </dt>
             <dd>Swaps two dimensions.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Reverse-dip-uint-" class="m-doc">Reverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d)</span>
+            </dt>
+            <dd>Reverses the dimensions, assuming that there are <code>d</code> dimensions.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Permute-dip-UnsignedArray-CL" class="m-doc">Permute</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; order)</span>
             </dt>
             <dd>Permutes dimensions according to <code>order</code>, such that, after the call, <code>Get(ii)</code> returns the value
@@ -246,10 +250,28 @@ is 0 for that dimension.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-IsPhysical-C" class="m-doc-self">IsPhysical</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>Tests to see if the pixel size is physical (i.e. has known physical units).</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-SameUnits-C" class="m-doc">SameUnits</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the units are the same (and physical) for all dimensions. Note that the prefix</dd>
             <dt id="dip-PixelSize-Product-dip-uint--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-Product-dip-uint--C" class="m-doc-self">Product</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d) const -&gt; <a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a></span>
             </dt>
             <dd>Multiplies together the sizes for the first <code>d</code> dimensions.</dd>
+            <dt id="dip-PixelSize-UnitLength-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-UnitLength-C" class="m-doc-self">UnitLength</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a></span>
+            </dt>
+            <dd>Returns the scale and units to use for length measurements. Equal to the size of a pixel if it is
+isotropic, or 1 px otherwise.</dd>
+            <dt id="dip-PixelSize-UnitSize-dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-UnitSize-dip-uint--C" class="m-doc-self">UnitSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d) const -&gt; <a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a></span>
+            </dt>
+            <dd>Returns the scale and units to use for size (area/volume) measurements. Equal to the product of the pixel
+sizes if that product is physical, or 1 px<sup>d</sup> otherwise.</dd>
+            <dt id="dip-PixelSize-ForcePhysical">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-ForcePhysical" class="m-doc-self">ForcePhysical</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Any dimension that is not a physical dimension will be set to 1 px.</dd>
             <dt id="dip-PixelSize-ApproximatelyEquals-dip-PixelSize-CL-dip-uint--double--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-ApproximatelyEquals-dip-PixelSize-CL-dip-uint--double--C" class="m-doc-self">ApproximatelyEquals</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; rhs,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims,
@@ -300,6 +322,15 @@ Cannot be used to write to the array, see <code>Set</code>.</dd>
         </section>
         <section>
           <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-PixelSize-Reverse-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-Reverse-dip-uint-" class="m-doc-self">Reverse</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d)</span></span>
+            </h3>
+            <p>Reverses the dimensions, assuming that there are <code>d</code> dimensions.</p>
+<p>With this call, dimension 0 becomes dimension <code>d-1</code>, dimension 1 becomes dimension <code>d-2</code>,
+etc. and dimension <code>d-1</code> becomes dimension 0.</p>
+          </div></section>
           <section class="m-doc-details" id="dip-PixelSize-Permute-dip-UnsignedArray-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
@@ -308,6 +339,14 @@ Cannot be used to write to the array, see <code>Set</code>.</dd>
             <p>Permutes dimensions according to <code>order</code>, such that, after the call, <code>Get(ii)</code> returns the value
 that <code>Get(order[ii])</code> returned before the call.</p>
 <p>The values for any dimension not indexed by <code>order</code> will be lost.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-PixelSize-SameUnits-C"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-SameUnits-C" class="m-doc-self">SameUnits</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Tests to see if the units are the same (and physical) for all dimensions. Note that the prefix</p>
+<p>(thousands scaling) is considered part of the units.</p>
           </div></section>
         </section>
       </div>

@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -64,12 +64,13 @@ See <a href="regions.html">Labeled regions</a>.</p>
           <h2>Functions</h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="regions.html#dip-Label-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-uint--dip-StringArray-" class="m-doc">dip::<wbr />Label</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; binary,
+              <span class="m-doc-wrap-bumper">auto <a href="regions.html#dip-Label-dip-Image-CL-dip-Image-L-dip-uint--dip-uint--dip-uint--dip-StringArray--dip-String-CL" class="m-doc">dip::<wbr />Label</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; binary,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> minSize = 0,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> boundaryCondition = {}) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> boundaryCondition = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::ALL) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Labels the connected components in a binary image</dd>
             <dt>
@@ -118,6 +119,12 @@ See <a href="regions.html">Labeled regions</a>.</p>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
             </dt>
             <dd>Ensures a gap between regions with unequal labels.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="regions.html#dip-MakeRegionsConvex2D-dip-Image-CL-dip-Image-L-dip-String-CL" class="m-doc">dip::<wbr />MakeRegionsConvex2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED)</span>
+            </dt>
+            <dd>Make each object a single, convex shape.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="regions.html#dip-GetLabelBoundingBox-dip-Image-CL-dip-uint-" class="m-doc">dip::<wbr />GetLabelBoundingBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> objectID) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>

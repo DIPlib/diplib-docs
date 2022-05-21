@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -903,7 +903,7 @@ the largest singular value, will be set to zero in the inverse.</p>
               <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> output)</span></span>
             </h3>
             <p>Solves a system of real-valued equations, using the Jacobi SVD decomposition.</p>
-<p>Solves <span class="m-math"><svg style="width: 3.360em; height: 0.827em; vertical-align: -0.013em;" viewBox=".29 -8.13 33.6 8.27">
+<p>Solves <span class="m-math"><svg style="width: 3.360em; height: 0.827em;" viewBox=".29 -8.13 33.6 8.27">
 <title>
 \(A x = b\)
 </title>
@@ -936,9 +936,9 @@ The unknown <code>x</code> will have <code>n</code> values, and will be written 
             <p>Determines the parameters for a Gaussian Mixture Model.</p>
 <p><code>data</code> is an iterator (or pointer) to the first of <code>size</code> samples of a GMM (not random samples drawn
 from such a distribution, but rather samples of a function representing the distribution).
-<code>numberOfGaussians</code> Gaussians will be fitted to it using the Expectation Maximization (EM) procedure.
-The parameters are initialized deterministically, the means are distributed equally over the domain and
-the sigma and amplitude are set to 1.</p>
+<code>numberOfGaussians</code> Gaussians will be fitted to it using the Expectation Maximization (EM) procedure.</p>
+<p>The parameters are initialized deterministically, the means are distributed equally over the domain,
+the sigma are all set to the distance between means, and the amplitude are set to 1.</p>
 <p><code>responsibilities</code> optionally points to a buffer of size <code>size * numberOfGaussians</code> that will be used
 internally. If set to <code>nullptr</code> or a default-initialized iterator, a buffer will be allocated internally.
 Use this parameter when repeatedly calling this function to avoid memory allocations.</p>

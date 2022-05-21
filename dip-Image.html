@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -163,9 +163,9 @@ For example, to go from a pixel at coordinates (<code>x</code>,<code>y</code>) t
 at coordinates (<code>x+1</code>,<code>y</code>), you would need to increment the data pointer
 with <code>strides[0]</code>. In a 2D image, the pixel at coordinates (<code>x</code>,<code>y</code>) can be
 reached by (assuming <a href="pixeltypes.html#dip-DT_UINT8"><code>dip::DT_UINT8</code></a> data type):</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">uint8</span><span class="o">*</span> <span class="n">origin</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">();</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">IntegerArray</span> <span class="n">strides</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">Strides</span><span class="p">();</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">uint8</span> <span class="n">value</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span> <span class="n">origin</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">strides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span> <span class="o">*</span> <span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">uint8</span><span class="o">*</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">();</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">IntegerArray</span><span class="w"> </span><span class="n">strides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">Strides</span><span class="p">();</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">uint8</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">strides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>This concept naturally scales with image dimensionality. Strides can be
@@ -238,27 +238,27 @@ repeating the duplicated values. We also have a specific shape for diagonal
 matrices and triangular matrices.</p>
 <h2 id="pointers">On pixel coordinates, indices, offsets and data pointers</h2>
 <p>Given</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">18</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT16</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT16</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Then <a href="dip-Image.html#dip-Image-Origin-C"><code>img.Origin()</code></a> is a <code>void*</code> pointer to
 the first pixel (or rather the first sample of in the image).
 This pointer needs to be cast to the type given by
 <a href="dip-Image.html#dip-Image-DataType-C">img.DataType()</a> to be used, as in:</p>
-<div class="m-code"><pre><span></span><span class="p">(</span><span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="o">*</span><span class="p">)</span><span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="p">(</span><span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="o">*</span><span class="p">)</span><span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>A pixel&rsquo;s <strong>offset</strong> is the number of samples to move away from the origin
 to access that pixel:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="o">*</span><span class="p">)</span><span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">();</span>
-<span class="n">ptr</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="o">*</span><span class="p">)</span><span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">();</span><span class="w"></span>
+<span class="n">ptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>Alternatively, it is possible to compute the pixel&rsquo;s pointer without casting
 to the right data type (this leads to a more generic algorithm) by using the
 <a href="dip-DataType.html#dip-DataType-SizeOf-C"><code>dip::DataType::SizeOf</code></a> operator (we cast to <a href="pixeltypes.html#dip-uint8"><code>dip::uint8</code></a> pointer to do
 pointer arithmetic in bytes):</p>
-<div class="m-code"><pre><span></span><span class="p">(</span><span class="n">dip</span><span class="o">::</span><span class="n">uint8</span><span class="o">*</span><span class="p">)</span><span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">()</span> <span class="o">+</span> <span class="n">offset</span> <span class="o">*</span> <span class="n">img</span><span class="p">.</span><span class="n">DataType</span><span class="p">().</span><span class="n">SizeOf</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="p">(</span><span class="n">dip</span><span class="o">::</span><span class="n">uint8</span><span class="o">*</span><span class="p">)</span><span class="n">img</span><span class="p">.</span><span class="n">Origin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">DataType</span><span class="p">().</span><span class="n">SizeOf</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 
 <p>This computation is performed by
@@ -266,11 +266,11 @@ pointer arithmetic in bytes):</p>
 <p>Note that the offset is a signed integer, and can be negative, because strides
 can be negative also.
 The offset is computed from coordinates using the image&rsquo;s strides:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span> <span class="n">coords</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">sint</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">uint</span> <span class="n">ii</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">ii</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">();</span> <span class="o">++</span><span class="n">ii</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="n">offset</span> <span class="o">+=</span> <span class="n">coords</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">*</span> <span class="n">img</span><span class="p">.</span><span class="n">Stride</span><span class="p">(</span> <span class="n">ii</span> <span class="p">);</span>
-<span class="p">}</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="w"> </span><span class="n">coords</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">sint</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">uint</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">ii</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">offset</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">coords</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">Stride</span><span class="p">(</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
 <p>This computation is performed by
@@ -293,14 +293,14 @@ to indicate a pixel inside the image domain.</p>
 monotonically as one moves from one pixel to the next, first along dimension 0,
 then along dimension 1, etc. The index computed from a pixel&rsquo;s coordinates is
 as follows:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span> <span class="n">coords</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">uint</span> <span class="n">dd</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">();</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">uint</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span><span class="p">(</span> <span class="n">dd</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="o">--</span><span class="n">dd</span><span class="p">;</span>
-  <span class="n">index</span> <span class="o">*=</span> <span class="n">img</span><span class="p">.</span><span class="n">Size</span><span class="p">(</span> <span class="n">dd</span> <span class="p">);</span>
-  <span class="n">index</span> <span class="o">+=</span> <span class="n">coords</span><span class="p">[</span><span class="n">dd</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="w"> </span><span class="n">coords</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">uint</span><span class="w"> </span><span class="n">dd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">();</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">uint</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="n">dd</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="o">--</span><span class="n">dd</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">index</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">Size</span><span class="p">(</span><span class="w"> </span><span class="n">dd</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">index</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">coords</span><span class="p">[</span><span class="n">dd</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
 <p>This computation is performed by <a href="dip-Image.html#dip-Image-Index-dip-UnsignedArray-CL-dip-UnsignedArray-CL"><code>img.Index( coords )</code></a>.
@@ -328,11 +328,11 @@ normal strides. See <a href="dip-Image.html#dip-Image-HasNormalStrides-C"><code>
 and strides) in the order given by the linear index, use the <strong>image iterators</strong>
 defined in <a href="file--diplib--iterators-h.html">diplib/iterators.h</a>
 (see <a href="using_iterators.html">Using iterators to implement filters</a>):</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">ImageIterator</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">uint16</span> <span class="o">&gt;</span> <span class="n">it</span><span class="p">(</span> <span class="n">img</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">uint16</span> <span class="n">ii</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">do</span> <span class="p">{</span>
-  <span class="o">*</span><span class="n">it</span> <span class="o">=</span> <span class="n">ii</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">while</span><span class="p">(</span> <span class="o">++</span><span class="n">it</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">ImageIterator</span><span class="o">&lt;</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">uint16</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="o">*</span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ii</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="o">++</span><span class="n">it</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The functionality in the <a href="dip-Framework.html"><code>dip::Framework</code></a> namespace is the recommended way of
@@ -357,13 +357,13 @@ element.</p>
 <p>To create a new image with specific properties, one can either set each of
 the properties individually, or use one of the constructors. For example,
 the two following images are the same:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img1</span><span class="p">;</span>
-<span class="n">img1</span><span class="p">.</span><span class="n">SetSizes</span><span class="p">(</span> <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">}</span> <span class="p">);</span>
-<span class="n">img1</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span> <span class="p">);</span>
-<span class="n">img1</span><span class="p">.</span><span class="n">SetTensorSizes</span><span class="p">(</span> <span class="mi">1</span> <span class="p">);</span>
-<span class="n">img1</span><span class="p">.</span><span class="n">Forge</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img1</span><span class="p">;</span><span class="w"></span>
+<span class="n">img1</span><span class="p">.</span><span class="n">SetSizes</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">img1</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">img1</span><span class="p">.</span><span class="n">SetTensorSizes</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">img1</span><span class="p">.</span><span class="n">Forge</span><span class="p">();</span><span class="w"></span>
 
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img2</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsingedArray</span><span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span> <span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img2</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsingedArray</span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The first method is more flexible, as it allows to set all properties
@@ -372,12 +372,12 @@ Note that the created image has uninitialized pixel data. You can use the
 <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> method to set all pixels to a specific value.</p>
 <p>To create a new image with same sizes and tensor shape as another one,
 use the <a href="dip-Image.html#dip-Image-Similar-C"><code>dip::Image::Similar</code></a> method:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img2</span> <span class="o">=</span> <span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 
 <p>Again, the new image will have uninitialized pixel data. An optional second
 argument can be used to specify the data type of the new image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img2</span> <span class="o">=</span> <span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SCOMPLEX</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SCOMPLEX</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Both methods copy all image properties, including the strides array and the
@@ -386,13 +386,13 @@ external interface; see <a href="dip-Image.html#dip-Image-CopyProperties-dip-Ima
 an image and creates a new data segment if the old one is of the wrong size
 to support the new properties. In function, these three sets of statements
 are equivalent:</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">();</span><span class="w"></span>
 
-<span class="n">img2</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span>
-<span class="n">img2</span><span class="p">.</span><span class="n">CopyProperties</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
-<span class="n">img2</span><span class="p">.</span><span class="n">Forge</span><span class="p">();</span>
+<span class="n">img2</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span><span class="w"></span>
+<span class="n">img2</span><span class="p">.</span><span class="n">CopyProperties</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">img2</span><span class="p">.</span><span class="n">Forge</span><span class="p">();</span><span class="w"></span>
 
-<span class="n">img2</span><span class="p">.</span><span class="n">ReForge</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
+<span class="n">img2</span><span class="p">.</span><span class="n">ReForge</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>However, <code>ReForge</code> might not strip and forge if it is not necessary
@@ -405,14 +405,14 @@ with the constructor that takes a scalar value (integer, float or complex),
 or an initializer list containing scalar values of the same type. With the
 initializer list, the image will be a vector image with as many samples
 as elements in the initializer list:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img1</span><span class="p">(</span> <span class="mi">10</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img2</span><span class="p">(</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img1</span><span class="p">(</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img2</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The assignment operator creates a copy of the image, but does not actually
 copy the data. Instead, the new copy will share the data segment with the
 original image:</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">img1</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>Both <code>img1</code> and <code>img2</code> point at the same data, meaning that changing one
@@ -430,26 +430,26 @@ the image metadata (color space and pixel size). The overhead of copying
 the metadata information is small, but we often use this function
 internally when the input image to a function needs to be reshaped for
 processing, but we do not want to modify the input image itself:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">img1</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span>
-<span class="n">tmp</span><span class="p">.</span><span class="n">Squeeze</span><span class="p">();</span>
-<span class="p">...</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span><span class="w"></span>
+<span class="n">tmp</span><span class="p">.</span><span class="n">Squeeze</span><span class="p">();</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
 </pre></div>
 
 <p>The copy constructor behaves the same way as the assignment operator, making
 the new image share data with the input image. The following three statements
 all invoke the copy constructor:</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img3</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img4</span> <span class="o">=</span> <span class="n">img1</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img3</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>To make a copy of an image with its own copy of the data segment, use the
 <a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>dip::Image::Copy</code></a> method:</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>or equivalently the <a href="dip-Image.html#dip-Copy-dip-Image-CL-dip-Image-L"><code>dip::Copy</code></a> function:</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Copy</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Copy</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>In both cases, <code>img2</code> will be identical to <code>img1</code>, with identical pixel values,
@@ -458,12 +458,12 @@ and with its own data segment.</p>
 be of the same size as the image to be copied. Pixel values will be copied to
 the existing data segment, casting to the target image&rsquo;s data type with clamping
 (see <a href="file--diplib--library--clamp_cast-h.html">diplib/library/clamp_cast.h</a>):</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span> <span class="p">);</span>
-<span class="n">img2</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span> <span class="n">img1</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="p">.</span><span class="n">Similar</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">img2</span><span class="p">.</span><span class="n">Copy</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Or equivalently:</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Convert</span><span class="p">(</span> <span class="n">img1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Convert</span><span class="p">(</span><span class="w"> </span><span class="n">img1</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The <a href="dip-Image.html#dip-Image-Convert-dip-DataType-"><code>dip::Image::Convert</code></a> method, as opposed to the <a href="dip-Image.html#dip-Convert-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Convert</code></a> function, converts
@@ -476,15 +476,15 @@ it will never work in place, as that could cause important problems.</p>
 method, writing that constant to each sample in the image. The constant is
 cast to the image&rsquo;s data type with saturation (see <a href="pixeltypes.html#dip-clamp_cast-T-SourceType-"><code>dip::clamp_cast</code></a>). Note that
 the image must be forged:</p>
-<div class="m-code"><pre><span></span><span class="n">img1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">img2</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">img1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="n">img2</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Additionally, one can assign an initializer list to an image. The list should
 have one element for each tensor element. Each pixel in the image will then
 be set to the tensor values in the initializer list:</p>
-<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">10</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
-<span class="n">img2</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">};</span>
+<div class="m-code"><pre><span></span><span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">img2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 </pre></div>
 
 <p><code>img2</code> will have all pixels set to the same vector <code>[ 1, 2, 3, 4 ]</code>.</p>
@@ -554,22 +554,22 @@ section.</p>
 <p>The result of an indexing operation can be used as input image to functions, but
 not as output image: output images are taken by reference, which cannot bind a temporary.
 Thus, the following does not compile:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">in</span><span class="p">[</span> <span class="mi">0</span> <span class="p">],</span> <span class="n">out</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">);</span> <span class="c1">// Does not compile.</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="n">out</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Does not compile.</span>
 </pre></div>
 
 <p>The output image must always be a <code>dip::Image</code> object with a name (i.e. a variable of type <code>dip::Image</code>):</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span> <span class="mi">0</span> <span class="p">];</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">in</span><span class="p">[</span> <span class="mi">0</span> <span class="p">],</span> <span class="n">channel</span> <span class="p">);</span> <span class="c1">// Writes to `out` (assuming `channel` has the expected properties).</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">out</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Writes to `out` (assuming `channel` has the expected properties).</span>
 </pre></div>
 
 <p>Do note that some indexing operations, when cast to a <code>dip::Image</code>, cause pixels to be copied, and
 hence cannot be used to write into the original image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">channel</span> <span class="o">=</span> <span class="n">out</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">);</span>      <span class="c1">// `mask` here is a binary image.</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Threshold</span><span class="p">(</span> <span class="n">in</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">),</span> <span class="n">channel</span> <span class="p">);</span> <span class="c1">// Warning! `out` is not modified.</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">);</span><span class="w">      </span><span class="c1">// `mask` here is a binary image.</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Threshold</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Warning! `out` is not modified.</span>
 </pre></div>
 
 <p>Instead, copy the result of the operation directly into the result of the indexing operation:</p>
-<div class="m-code"><pre><span></span><span class="n">out</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Threshold</span><span class="p">(</span> <span class="n">in</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">));</span> <span class="c1">// This does incur an extra copy.</span>
+<div class="m-code"><pre><span></span><span class="n">out</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Threshold</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">));</span><span class="w"> </span><span class="c1">// This does incur an extra copy.</span>
 </pre></div>
 
 </aside>
@@ -578,23 +578,23 @@ hence cannot be used to write into the original image:</p>
 we have delegated the C++ indexing operator (<code>[]</code>) to the task of extracting a
 tensor component from an image (remember that a color channel is a tensor component).
 For example:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">red</span> <span class="o">=</span> <span class="n">colorIm</span><span class="p">[</span> <span class="mi">0</span> <span class="p">];</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colorIm</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
 </pre></div>
 
 <p>For a two-dimensional matrix it is possible to index using two values in an array:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span> <span class="o">=</span> <span class="n">tensorIm</span><span class="p">[</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="p">}</span> <span class="p">];</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tensorIm</span><span class="p">[</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
 </pre></div>
 
 <p>The indexing operation, as explained above, returns a <a href="dip-Image-View.html"><code>dip::Image::View</code></a> object,
 which can be assigned to to modify the referenced pixels:</p>
-<div class="m-code"><pre><span></span><span class="n">colorIm</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">=</span> <span class="n">colorIm</span><span class="p">[</span> <span class="mi">1</span> <span class="p">];</span>
+<div class="m-code"><pre><span></span><span class="n">colorIm</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colorIm</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
 </pre></div>
 
 <p>When cast back to an image, the image created shares the pixels with the original image,
 meaning that it is possible to write to a channel in this way:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">blueChannel</span> <span class="o">=</span> <span class="n">colorIm</span><span class="p">[</span> <span class="mi">2</span> <span class="p">];</span>
-<span class="n">blueChannel</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>                         <span class="c1">// Prevent `dip::Gauss` from reforging this image.</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">blueChannel</span><span class="p">,</span> <span class="n">blueChannel</span><span class="p">,</span> <span class="p">{</span> <span class="mi">4</span> <span class="p">}</span> <span class="p">);</span> <span class="c1">// Modifies `colorIm`.</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">blueChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">colorIm</span><span class="p">[</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="n">blueChannel</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span><span class="w">                         </span><span class="c1">// Prevent `dip::Gauss` from reforging this image.</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">blueChannel</span><span class="p">,</span><span class="w"> </span><span class="n">blueChannel</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Modifies `colorIm`.</span>
 </pre></div>
 
 <p>Note that the single-index version of the tensor indexing uses linear indexing into
@@ -615,24 +615,24 @@ one to three indices for 1D to 3D images, or a (linear) index to the pixel. The 
 form is less efficient because the linear index needs to be translated to coordinates,
 as the linear index is not necessarily related to the order in which pixels are stored
 in memory.</p>
-<div class="m-code"><pre><span></span><span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">5</span> <span class="p">);</span>                           <span class="c1">// Indexes pixel at coordinate 5</span>
-<span class="n">image2D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>                       <span class="c1">// Indexes the pixel at coordinates (0, 10)</span>
-<span class="n">image2D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">}</span> <span class="p">);</span> <span class="c1">// Indexes the pixel at coordinates (0, 10)</span>
-<span class="n">image2D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">20</span> <span class="p">);</span>                          <span class="c1">// Indexes the pixel with linear index 20</span>
+<div class="m-code"><pre><span></span><span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">);</span><span class="w">                           </span><span class="c1">// Indexes pixel at coordinate 5</span>
+<span class="n">image2D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span><span class="w">                       </span><span class="c1">// Indexes the pixel at coordinates (0, 10)</span>
+<span class="n">image2D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Indexes the pixel at coordinates (0, 10)</span>
+<span class="n">image2D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="p">);</span><span class="w">                          </span><span class="c1">// Indexes the pixel with linear index 20</span>
 </pre></div>
 
 <p>These forms result in an object of type <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a>. The object contains a
 reference to the original image pixels, so writing to the reference changes the pixel
 values in the image:</p>
-<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">)</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>The single-pixel forms of <a href="dip-Image.html#dip-Image-At-dip-UnsignedArray-CL-C"><code>dip::Image::At</code></a> have an alternative, templated form. In that
 form, they return a <a href="dip-Image-CastPixel-T.html"><code>dip::Image::CastPixel</code></a> instead, which is identical to a
 <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a>, but implicitly casts to any chosen type. Thus:</p>
-<div class="m-code"><pre><span></span><span class="kt">int</span> <span class="n">v1</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>             <span class="c1">// Does not compile, no implicit conversion to `int`.</span>
-<span class="kt">int</span> <span class="n">v2</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span> <span class="kt">int</span> <span class="o">&gt;</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>      <span class="c1">// OK</span>
-<span class="kt">int</span> <span class="n">v3</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">).</span><span class="n">As</span><span class="o">&lt;</span> <span class="kt">int</span> <span class="o">&gt;</span><span class="p">();</span> <span class="c1">// Same as `v2`.</span>
+<div class="m-code"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span><span class="w">             </span><span class="c1">// Does not compile, no implicit conversion to `int`.</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">v2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span><span class="w">      </span><span class="c1">// OK</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">v3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// Same as `v2`.</span>
 </pre></div>
 
 <p>This implicit cast makes its use a little simpler in a setting combined with numbers
@@ -640,15 +640,15 @@ of that type. However, the object itself is not tied to the type, and it is stil
 to access (read or write) the pixel as other types. For example, this code will print
 &ldquo;( 1.0, -3.0 )&rdquo; to the standard output, the template argument to <code>At</code> has no influence
 on the results:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SCOMPLEX</span> <span class="p">);</span>
-<span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">uint8</span> <span class="o">&gt;</span><span class="p">(</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">43</span> <span class="p">)</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">dcomplex</span><span class="p">{</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">-3.0</span> <span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span> <span class="n">dip</span><span class="o">::</span><span class="n">sint32</span> <span class="o">&gt;</span><span class="p">(</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">43</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">image</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SCOMPLEX</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">uint8</span><span class="w"> </span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">dcomplex</span><span class="p">{</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-3.0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="o">&lt;</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">sint32</span><span class="w"> </span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Tensor and spatial indexing can be combined in either order, but the results are
 not identical:</p>
-<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">)[</span> <span class="mi">1</span> <span class="p">];</span>
-<span class="n">image</span><span class="p">[</span> <span class="mi">1</span> <span class="p">].</span><span class="n">At</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">)[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="n">image</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">].</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The first line above uses <code>[]</code> to index into the <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> object, yielding
@@ -671,9 +671,9 @@ pixels. In this form, it accepts a set of <a href="dip-Range.html"><code>dip::Ra
 representing regular pixel intervals along each dimension through a start, stop and
 step value. That is, a range indicates a portion of an image line, with optional
 subsampling. For example, indexing into a 1D image:</p>
-<div class="m-code"><pre><span></span><span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span> <span class="mi">5</span> <span class="p">}</span> <span class="p">);</span>        <span class="c1">// Indexes pixel at coordinate 5</span>
-<span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">}</span> <span class="p">);</span>    <span class="c1">// Indexes the first 11 pixels</span>
-<span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">);</span> <span class="c1">// Indexes every second pixel</span>
+<div class="m-code"><pre><span></span><span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w">        </span><span class="c1">// Indexes pixel at coordinate 5</span>
+<span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w">    </span><span class="c1">// Indexes the first 11 pixels</span>
+<span class="n">image1D</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Indexes every second pixel</span>
 </pre></div>
 
 <p>Note that negative values index from the end, without needing to know the exact
@@ -683,13 +683,13 @@ For more than 3 dimensions, use a <a href="dip-Range.html#dip-RangeArray"><code>
 <p>As is the case with the <code>[]</code> indexing, these operations yield a <a href="dip-Image-View.html"><code>dip::Image::View</code></a> that
 can be assigned to to change the referenced pixels; and when cast back to a <code>dip::Image</code>,
 yields an image that shares data with the original image. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">},</span> <span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">)</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Range</span><span class="p">{</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>Tensor and spatial indexing can be combined in either order, with identical
 results:</p>
-<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">},</span> <span class="p">{</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">)[</span> <span class="mi">1</span> <span class="p">];</span>
-<span class="n">image</span><span class="p">[</span> <span class="mi">1</span> <span class="p">].</span><span class="n">At</span><span class="p">(</span> <span class="p">{</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="p">},</span> <span class="p">{</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="n">image</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">].</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The method <a href="dip-Image.html#dip-Image-Cropped-dip-UnsignedArray-CL-Option-CropLocation--C"><code>dip::Image::Cropped</code></a> is a convenience function to extract a view to a
@@ -712,13 +712,13 @@ back to a <code>dip::Image</code>, the operation results in a 1D image with a co
 values. Thus, once cast back to an <code>Image</code>, pixels are no longer shared and can
 be modified without affecting the original image. This is by necessity, as the <code>Image</code>
 object cannot reference samples that are not stored in memory on a regular grid.</p>
-<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span> <span class="o">=</span> <span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">);</span>
-<span class="n">out</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span> <span class="c1">// Careful! Does not affect `image`.</span>
+<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">out</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Careful! Does not affect `image`.</span>
 </pre></div>
 
 <p>Another typical example:</p>
-<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">)</span> <span class="o">=</span> <span class="n">otherImage</span><span class="p">.</span><span class="n">At</span><span class="p">(</span> <span class="n">mask</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">image</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">otherImage</span><span class="p">.</span><span class="n">At</span><span class="p">(</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <h2 id="reshaping">Reshaping</h2>
@@ -778,10 +778,10 @@ operation is accomplished with <a href="dip-Image.html#dip-Image-MergeComplex-di
 throws an exception. That is, when the flag is set, the data segment cannot
 be stripped (freed) or reforged (reallocated). Furthermore, when the protect
 flag is set, the assignment operator will perform a deep copy. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img1</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
-<span class="n">img1</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img1</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">img1</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span><span class="w"></span>
 <span class="c1">//img1.Strip();  // Throws!</span>
-<span class="n">img1</span> <span class="o">=</span> <span class="n">img2</span><span class="p">;</span>     <span class="c1">// Equivalent to: `img1.Copy( img2 )`.</span>
+<span class="n">img1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img2</span><span class="p">;</span><span class="w">     </span><span class="c1">// Equivalent to: `img1.Copy( img2 )`.</span>
 </pre></div>
 
 <p>The protect flag has two purposes:</p>
@@ -799,19 +799,19 @@ all these functions an additional input argument to specify the data type for
 the output image. Instead, if the output image has the protect flag set, these
 functions will not modify its data type. Thus, you can set the output image&rsquo;s
 data type, protect it, and receive the result of the filter in that data type:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img</span> <span class="o">=</span> <span class="p">...</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">out</span><span class="p">;</span>
-<span class="n">out</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SINT16</span> <span class="p">);</span>
-<span class="n">out</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="p">{</span> <span class="mi">4</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">out</span><span class="p">;</span><span class="w"></span>
+<span class="n">out</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SINT16</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">out</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 <span class="c1">// `out` is forged with correct sizes to receive filter result, and as 16-bit integer.</span>
 </pre></div>
 
 <p>This is especially suitable for in-place operations where we want to receive the
 output in the same data segment as the input:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img</span> <span class="o">=</span> <span class="p">...</span>
-<span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="p">{</span> <span class="mi">4</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>If the filter is called with a protected, forged image as output, as is the case
@@ -840,13 +840,13 @@ can all be performed using operators, but there are also functions defined
 that perform the same function with more flexibility. See <a href="math_arithmetic.html">Arithmetic operators</a>
 and <a href="math_comparison.html">Comparison operators</a> for a full list of these functions.</p>
 <p>For example, to add two images <code>a</code> and <code>b</code>, one can simply do:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>But it is also possible to control the output image by using the <a href="math_arithmetic.html#dip-Add-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Add</code></a>
 function:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">c</span><span class="p">;</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Add</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SINT32</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Add</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SINT32</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The fourth argument specifies the data type of the output image. The computation
@@ -858,17 +858,17 @@ unsigned integer format will yield 255, there is no dropping of the higher-order
 bit as in standard C++ arithmetic.</p>
 <p>As is true for most image processing functions in <em>DIPlib</em> (see <a href="design.html#design_function_signatures">Function signatures</a>),
 the statement above is identical to</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">c</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Add</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SINT32</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Add</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SINT32</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>However, the former version allows for writing to already-allocated memory space
 in image <code>c</code>, or to an image with an external interface (see <a href="dip-Image.html#external_interface">Define an image&rsquo;s allocator</a>).</p>
 <p>For in-place addition, use</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Add</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">DataType</span><span class="p">()</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Add</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">DataType</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>or simply</p>
-<div class="m-code"><pre><span></span><span class="n">a</span> <span class="o">+=</span> <span class="n">b</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>All dyadic operations (arithmetic, logical, comparison) perform <a href="dip-Image.html#singleton_expansion">Singleton expansion</a>.
@@ -919,8 +919,8 @@ size in a particular dimension is not set, it is always presumed to be of size 1
 <p>The <code>dip::Image::PhysicalToPixels</code> method converts a filter size in physical
   units to one in pixels, suitable to pass to a filtering function. For example,
   to apply a filter with a sigma of 1 micron to an image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">PhysicalQuantityArray</span> <span class="n">fsz_phys</span><span class="p">{</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">dip</span><span class="o">::</span><span class="n">PhysicalQuantity</span><span class="o">::</span><span class="n">Micrometer</span><span class="p">()</span> <span class="p">};</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Filter</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">img</span><span class="p">.</span><span class="n">PhysicalToPixels</span><span class="p">(</span> <span class="n">fsz_phys</span> <span class="p">));</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">PhysicalQuantityArray</span><span class="w"> </span><span class="n">fsz_phys</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">PhysicalQuantity</span><span class="o">::</span><span class="n">Micrometer</span><span class="p">()</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">PhysicalToPixels</span><span class="p">(</span><span class="w"> </span><span class="n">fsz_phys</span><span class="w"> </span><span class="p">));</span><span class="w"></span>
 </pre></div>
 
 </li>
@@ -928,8 +928,8 @@ size in a particular dimension is not set, it is always presumed to be of size 1
 <p>The <code>dip::Image::PixelsToPhysical</code> method converts coordinates in pixels to
   coordinates in physical units. For example, to determine the position in
   physical units of a pixel w.r.t. the top left pixel:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">FloatArray</span> <span class="n">pos_pix</span><span class="p">{</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">24</span> <span class="p">};</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">PhysicalQuantityArray</span> <span class="n">pos_phys</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">PixelsToPhysical</span><span class="p">(</span> <span class="n">pos_pix</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">FloatArray</span><span class="w"> </span><span class="n">pos_pix</span><span class="p">{</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">PhysicalQuantityArray</span><span class="w"> </span><span class="n">pos_phys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">PixelsToPhysical</span><span class="p">(</span><span class="w"> </span><span class="n">pos_pix</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 </li>
@@ -970,16 +970,16 @@ to any other image in all respects, except the behavior of <a href="dip-Image.ht
 as mentioned in the previous paragraph.</p>
 <p>For example, in this bit of code we take the data of a <code>std::vector</code> and build an
 image around it, which we can use as both an input or an output image:</p>
-<div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">(</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span> <span class="c1">// existing data</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span>
-   <span class="n">NonOwnedRefToDataSegment</span><span class="p">(</span> <span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="p">),</span>
-   <span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span>    <span class="c1">// origin</span>
-   <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="p">,</span> <span class="c1">// dataType</span>
-   <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span>  <span class="c1">// sizes</span>
-   <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span> <span class="p">}</span>     <span class="c1">// strides</span>
-<span class="p">);</span>
-<span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>          <span class="c1">// Prevent `dip::Gauss` from reallocating its output image.</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">img</span> <span class="p">);</span> <span class="c1">// Apply Gaussian filter, output is written to input array.</span>
+<div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">(</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// existing data</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">NonOwnedRefToDataSegment</span><span class="p">(</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">()</span><span class="w"> </span><span class="p">),</span><span class="w"></span>
+<span class="w">   </span><span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w">    </span><span class="c1">// origin</span>
+<span class="w">   </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="p">,</span><span class="w"> </span><span class="c1">// dataType</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">// sizes</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// strides</span>
+<span class="p">);</span><span class="w"></span>
+<span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span><span class="w">          </span><span class="c1">// Prevent `dip::Gauss` from reallocating its output image.</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Apply Gaussian filter, output is written to input array.</span>
 </pre></div>
 
 <p>The first argument to this constructor is a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> object, which is just
@@ -990,15 +990,15 @@ function (as in the example above), indicating that ownership is not to be trans
 In the example below, we do the same as above, but we transfer ownership of the
 <code>std::vector</code> to the image. When the image goes out of scope (or is reallocated) the
 <code>std::vector</code> is deleted:</p>
-<div class="m-code"><pre><span></span><span class="k">auto</span> <span class="n">src</span> <span class="o">=</span> <span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span> <span class="c1">// existing data</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span>
-   <span class="n">dip</span><span class="o">::</span><span class="n">DataSegment</span><span class="p">{</span> <span class="n">src</span> <span class="p">},</span> <span class="c1">// transfer ownership of the data</span>
-   <span class="n">src</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">(),</span>   <span class="c1">// origin</span>
-   <span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="p">,</span> <span class="c1">// dataType</span>
-   <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">},</span>  <span class="c1">// sizes</span>
-   <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span> <span class="p">}</span>     <span class="c1">// strides</span>
-<span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span> <span class="n">img</span><span class="p">,</span> <span class="n">img</span> <span class="p">);</span> <span class="c1">// Apply Gaussian filter, output is written to a different data segment.</span>
+<div class="m-code"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// existing data</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">dip</span><span class="o">::</span><span class="n">DataSegment</span><span class="p">{</span><span class="w"> </span><span class="n">src</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// transfer ownership of the data</span>
+<span class="w">   </span><span class="n">src</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">(),</span><span class="w">   </span><span class="c1">// origin</span>
+<span class="w">   </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="p">,</span><span class="w"> </span><span class="c1">// dataType</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">},</span><span class="w">  </span><span class="c1">// sizes</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// strides</span>
+<span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// Apply Gaussian filter, output is written to a different data segment.</span>
 </pre></div>
 
 <p>After the call to <a href="linear.html#dip-Gauss-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-UnsignedArray--dip-String-CL-dip-StringArray-CL-dip-dfloat-"><code>dip::Gauss</code></a>, <code>*src</code> no longer exists. <code>dip::Gauss</code> has reforged
@@ -1009,11 +1009,11 @@ transferred. It takes two or three input arguments: a pointer to the data and an
 with sizes, and optionally the number of tensor elements (channels). The strides are
 assumed to be normal (see <a href="concepts.html#normal_strides">Normal strides</a>).
 The data pointer must be of any of the allowed data types:</p>
-<div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span> <span class="n">src</span><span class="p">(</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span> <span class="c1">// existing data</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img</span><span class="p">(</span>
-   <span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span>    <span class="c1">// origin</span>
-   <span class="p">{</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span> <span class="p">}</span>   <span class="c1">// sizes</span>
-<span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="n">src</span><span class="p">(</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// existing data</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img</span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">src</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w">    </span><span class="c1">// origin</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// sizes</span>
+<span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <h3 id="external_interface">Define an image&rsquo;s allocator</h3>
@@ -1047,26 +1047,26 @@ Additionally, these images behave differently when reforged,
 indicating to the calling <a href="dip-Image.html#dip-Image-Forge"><code>dip::Image::Forge</code></a> function that it cannot allocate
 such an image. <code>Forge</code> will then allocate the data itself. If you prefer the
 forging to fail, simply throw an exception.</p>
-<div class="m-code"><pre><span></span><span class="k">class</span> <span class="nc">VectorInterface</span> <span class="o">:</span> <span class="k">public</span> <span class="n">dip</span><span class="o">::</span><span class="n">ExternalInterface</span> <span class="p">{</span>
-   <span class="k">public</span><span class="o">:</span>
-      <span class="k">virtual</span> <span class="n">dip</span><span class="o">::</span><span class="n">DataSegment</span> <span class="n">AllocateData</span><span class="p">(</span>
-            <span class="kt">void</span><span class="o">*&amp;</span> <span class="n">origin</span><span class="p">,</span>
-            <span class="n">dip</span><span class="o">::</span><span class="n">DataType</span> <span class="n">datatype</span><span class="p">,</span>
-            <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">sizes</span><span class="p">,</span>
-            <span class="n">dip</span><span class="o">::</span><span class="n">IntegerArray</span><span class="o">&amp;</span> <span class="n">strides</span><span class="p">,</span>
-            <span class="n">dip</span><span class="o">::</span><span class="n">Tensor</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">tensor</span><span class="p">,</span>
-            <span class="n">dip</span><span class="o">::</span><span class="n">sint</span><span class="o">&amp;</span> <span class="n">tstride</span>
-      <span class="p">)</span> <span class="k">override</span> <span class="p">{</span>
-         <span class="k">if</span><span class="p">((</span> <span class="n">sizes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">||</span> <span class="p">(</span> <span class="o">!</span><span class="n">tensor</span><span class="p">.</span><span class="n">IsScalar</span><span class="p">()</span> <span class="p">))</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span> <span class="c1">// We do not want to handle such images.</span>
-         <span class="p">}</span>
-         <span class="k">auto</span> <span class="n">data</span> <span class="o">=</span> <span class="k">new</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">&gt;</span><span class="p">(</span> <span class="n">sizes</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="n">sizes</span><span class="p">[</span> <span class="mi">1</span> <span class="p">],</span> <span class="mi">0</span> <span class="p">);</span>
-         <span class="n">origin</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>
-         <span class="n">strides</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sizes</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">};</span>
-         <span class="n">tstride</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-         <span class="k">return</span> <span class="n">dip</span><span class="o">::</span><span class="n">DataSegment</span><span class="p">{</span> <span class="n">data</span> <span class="p">};</span>
-      <span class="p">}</span>
-<span class="p">}</span>
+<div class="m-code"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">VectorInterface</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">ExternalInterface</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">      </span><span class="k">virtual</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DataSegment</span><span class="w"> </span><span class="n">AllocateData</span><span class="p">(</span><span class="w"></span>
+<span class="w">            </span><span class="kt">void</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">origin</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">dip</span><span class="o">::</span><span class="n">DataType</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sizes</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">dip</span><span class="o">::</span><span class="n">IntegerArray</span><span class="o">&amp;</span><span class="w"> </span><span class="n">strides</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">dip</span><span class="o">::</span><span class="n">Tensor</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">tensor</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="n">dip</span><span class="o">::</span><span class="n">sint</span><span class="o">&amp;</span><span class="w"> </span><span class="n">tstride</span><span class="w"></span>
+<span class="w">      </span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="p">((</span><span class="w"> </span><span class="n">sizes</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">tensor</span><span class="p">.</span><span class="n">IsScalar</span><span class="p">()</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// We do not want to handle such images.</span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="w">         </span><span class="k">auto</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">&gt;</span><span class="p">(</span><span class="w"> </span><span class="n">sizes</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sizes</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">         </span><span class="n">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">data</span><span class="p">();</span><span class="w"></span>
+<span class="w">         </span><span class="n">strides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sizes</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">         </span><span class="n">tstride</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="k">return</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DataSegment</span><span class="p">{</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
 <p>See the source code to <a href="dml-MatlabInterface.html"><code>dml::MatlabInterface</code></a> for a more realistic example
@@ -1085,9 +1085,9 @@ and is accomplished by setting the image&rsquo;s size in that dimension to
 the expected value, and the corresponding stride to 0 (again, no data are
 physically copied). This will cause an algorithm to read the same value,
 no matter how many steps it takes along this dimension. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img1</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">60</span> <span class="p">}</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">img2</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">img3</span> <span class="o">=</span> <span class="n">img1</span> <span class="o">+</span> <span class="n">img2</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img1</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">img2</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="p">{</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">img2</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p>Here, the dimension array for <code>img2</code> will be extended to <code>{ 50, 30, 1 }</code>
@@ -1166,14 +1166,14 @@ and raw (it has no data segment).</dd>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nTensorElements = 1)</span>
             </dt>
             <dd>Create an image around existing data. No ownership is transferred.</dd>
-            <dt id="dip-Image-Similar-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Similar-C" class="m-doc-self">Similar</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Similar-C" class="m-doc">Similar</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Create a new forged image similar to <code>this</code>. The data is not copied, and left uninitialized.</dd>
-            <dt id="dip-Image-Similar-dip-DataType--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Similar-dip-DataType--C" class="m-doc-self">Similar</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            <dd>Create a new forged image similar to <code>this</code>. The data is not copied.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Similar-dip-DataType--C" class="m-doc">Similar</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Create a new forged image similar to <code>this</code>, but with different data type. The data is not copied, and left uninitialized.</dd>
+            <dd>Create a new forged image similar to <code>this</code>, but with different data type. The data is not copied.</dd>
             </dl>
         </section>
         <section id="group--Sizes">
@@ -1194,11 +1194,11 @@ and raw (it has no data segment).</dd>
             <dt id="dip-Image-NumberOfPixels-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-NumberOfPixels-C" class="m-doc-self">NumberOfPixels</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
-            <dd>Get the number of pixels.</dd>
+            <dd>Get the number of pixels. Works also for a raw image, using current values of sizes.</dd>
             <dt id="dip-Image-NumberOfSamples-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-NumberOfSamples-C" class="m-doc-self">NumberOfSamples</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
-            <dd>Get the number of samples.</dd>
+            <dd>Get the number of samples. Works also for a raw image, using current values of sizes and tensor elements.</dd>
             <dt id="dip-Image-SetSizes-dip-UnsignedArray-">
               <span class="m-doc-wrap-bumper">void <a href="#dip-Image-SetSizes-dip-UnsignedArray-" class="m-doc-self">SetSizes</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> d)</span>
             </dt>
@@ -1674,6 +1674,10 @@ element at coordinates (0,0,0,&hellip;). The image must be forged.</dd>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim2) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
             <dd>Swap dimensions d1 and d2. This is a simplified version of <code>PermuteDimensions</code>.</dd>
+            <dt id="dip-Image-ReverseDimensions">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-ReverseDimensions" class="m-doc-self">ReverseDimensions</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
+            </dt>
+            <dd>Reverses the dimensions, such that indexing switches from (x,y,z) to (z,y,x).</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Image-Flatten" class="m-doc">Flatten</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
             </dt>
@@ -2094,6 +2098,11 @@ shares data.</dd>
             </dt>
             <dd>Returns a FloatArray containing the sample values of the first pixel in the image.
 For a complex-valued image, the modulus (absolute value) is returned.</dd>
+            <dt id="dip-Image-Mask-dip-Image-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Image-Mask-dip-Image-CL" class="m-doc-self">Mask</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask)</span>
+            </dt>
+            <dd>Sets all pixels not in <code>mask</code> to zero. <code>img.Mask(mask)</code> is equivalent to <code>img.At(~mask).Fill(0)</code>, but
+without creating an intermediate copy of <code>mask</code>. Can also be expressed as <code>img *= mask</code>.</dd>
             </dl>
         </section>
         <section id="nested-classes">
@@ -2278,6 +2287,8 @@ In this case, <code>rhs</code> will not be modified.</p>
             <p>Forged image of given sizes and data type. The data is left uninitialized.</p>
 <p>Note that to call this constructor with a single parameter, you need to explicitly type the parameter,
 an initializer list by itself will be considered a pixel, see the constructor below.</p>
+<p>The data segment is not initialized, use <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> to set it to constant
+value.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-Image-dip-Image-Pixel-CL"><div>
             <h3>
@@ -2287,7 +2298,7 @@ an initializer list by itself will be considered a pixel, see the constructor be
             <p>Create a 0-D image with the data type, tensor shape, and values of <code>pixel</code>.</p>
 <p>Note that <code>pixel</code> can be created through an initializer list. Thus, the following
 is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mf">10.0f</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="mf">0.0f</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">image</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">10.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The image in the example above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>.</p>
@@ -2301,7 +2312,7 @@ is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
             <p>Create a 0-D image with data type <code>dt</code>, and tensor shape and values of <code>pixel</code>.</p>
 <p>Note that <code>pixel</code> can be created through an initializer list. Thus, the following
 is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">},</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">image</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The image in the example above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>.</p>
@@ -2314,8 +2325,8 @@ is a valid way of creating a 0-D tensor image with 3 tensor components:</p>
             <p>Create a 0-D image with the data type and value of <code>sample</code>.</p>
 <p>Note that <code>sample</code> can be created by implicit cast from any numeric value. Thus, the following
 are valid ways of creating a 0-D image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="mf">10.0f</span> <span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">complex_image</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">dcomplex</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">));</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">image</span><span class="p">(</span><span class="w"> </span><span class="mf">10.0f</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">complex_image</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">dcomplex</span><span class="p">(</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">));</span><span class="w"></span>
 </pre></div>
 
 <p>The images in the examples above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a> and <a href="pixeltypes.html#dip-DT_DCOMPLEX"><code>dip::DT_DCOMPLEX</code></a>.</p>
@@ -2329,7 +2340,7 @@ are valid ways of creating a 0-D image:</p>
             <p>Create a 0-D image with data type <code>dt</code> and value of <code>sample</code>.</p>
 <p>Note that <code>sample</code> can be created by implicit cast from any numeric value. Thus, the following
 is a valid way of creating a 0-D image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">image</span><span class="p">(</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT_SFLOAT</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The image in the example above will be of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>.</p>
@@ -2401,6 +2412,24 @@ function to create an image around const data, and then write to that data. Use 
 const data only as input images!</p>
 </aside>
           </div></section>
+          <section class="m-doc-details" id="dip-Image-Similar-C"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Image-Similar-C" class="m-doc-self">Similar</a>(</span><span class="m-doc-wrap">) const</span></span>
+            </h3>
+            <p>Create a new forged image similar to <code>this</code>. The data is not copied.</p>
+<p>The data segment is not initialized, use <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> to set it to constant
+value.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Image-Similar-dip-DataType--C"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Image-Similar-dip-DataType--C" class="m-doc-self">Similar</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt) const</span></span>
+            </h3>
+            <p>Create a new forged image similar to <code>this</code>, but with different data type. The data is not copied.</p>
+<p>The data segment is not initialized, use <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> to set it to constant
+value.</p>
+          </div></section>
           <section class="m-doc-details" id="dip-Image-HasContiguousData-C"><div>
             <h3>
               <span class="m-doc-wrap-bumper">bool
@@ -2461,9 +2490,9 @@ dimensions, the tensor dimension must still be accessed separately.</p>
             <p>Return a single stride to walk through all pixels and pointer to the start of the data.</p>
 <p>If this is not possible, the function returns <code>nullptr</code> for the pointer.
 Note that this only tests spatial dimensions, the tensor dimension must still be accessed separately.</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">sint</span> <span class="n">stride</span><span class="p">;</span>
-<span class="kt">void</span><span class="o">*</span> <span class="n">origin</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span> <span class="n">stride</span><span class="p">,</span> <span class="n">origin</span> <span class="p">)</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">GetSimpleStrideAndOrigin</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">sint</span><span class="w"> </span><span class="n">stride</span><span class="p">;</span><span class="w"></span>
+<span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">origin</span><span class="p">;</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="w"> </span><span class="n">stride</span><span class="p">,</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">GetSimpleStrideAndOrigin</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 
 <p>The <code>stride</code> returned is always positive.</p>
@@ -2498,17 +2527,17 @@ various images.</p>
             <p>Get the pixels&rsquo; size in physical units, by reference, allowing to modify it at will.</p>
 <p>There are other <code>Image</code> methods that can be used to modify the pixel size, and might be
 simpler. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">()</span> <span class="o">=</span> <span class="n">ps</span><span class="p">;</span>                   <span class="n">img</span><span class="p">.</span><span class="n">SetPixelSize</span><span class="p">(</span><span class="n">ps</span><span class="p">);</span>
-<span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">Set</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">sz</span><span class="p">);</span>            <span class="n">img</span><span class="p">.</span><span class="n">SetPixelSize</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">sz</span><span class="p">);</span>
-<span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">Clear</span><span class="p">();</span>                <span class="n">img</span><span class="p">.</span><span class="n">ResetPixelSize</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">;</span><span class="w">                   </span><span class="n">img</span><span class="p">.</span><span class="n">SetPixelSize</span><span class="p">(</span><span class="n">ps</span><span class="p">);</span><span class="w"></span>
+<span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">Set</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">sz</span><span class="p">);</span><span class="w">            </span><span class="n">img</span><span class="p">.</span><span class="n">SetPixelSize</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="n">sz</span><span class="p">);</span><span class="w"></span>
+<span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">Clear</span><span class="p">();</span><span class="w">                </span><span class="n">img</span><span class="p">.</span><span class="n">ResetPixelSize</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 
 <p>Also for querying the pixel size there are several <code>Image</code> methods:</p>
-<div class="m-code"><pre><span></span><span class="n">pq</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">()[</span><span class="n">dim</span><span class="p">];</span>              <span class="n">pq</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">(</span><span class="n">dim</span><span class="p">);</span>
-<span class="n">bd</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">IsDefined</span><span class="p">();</span>       <span class="n">bd</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">HasPixelSize</span><span class="p">();</span>
-<span class="n">bi</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">IsIsotropic</span><span class="p">();</span>     <span class="n">bi</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">IsIsotropic</span><span class="p">();</span>
-<span class="n">ar</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">AspectRatio</span><span class="p">(</span><span class="n">img</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">());</span>
-                                        <span class="n">ar</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">AspectRatio</span><span class="p">();</span>
+<div class="m-code"><pre><span></span><span class="n">pq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">()[</span><span class="n">dim</span><span class="p">];</span><span class="w">              </span><span class="n">pq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">(</span><span class="n">dim</span><span class="p">);</span><span class="w"></span>
+<span class="n">bd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">IsDefined</span><span class="p">();</span><span class="w">       </span><span class="n">bd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">HasPixelSize</span><span class="p">();</span><span class="w"></span>
+<span class="n">bi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">IsIsotropic</span><span class="p">();</span><span class="w">     </span><span class="n">bi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">IsIsotropic</span><span class="p">();</span><span class="w"></span>
+<span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">PixelSize</span><span class="p">().</span><span class="n">AspectRatio</span><span class="p">(</span><span class="n">img</span><span class="p">.</span><span class="n">Dimensionality</span><span class="p">());</span><span class="w"></span>
+<span class="w">                                        </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">AspectRatio</span><span class="p">();</span><span class="w"></span>
 </pre></div>
           </div></section>
           <section class="m-doc-details" id="dip-Image-CopyNonDataProperties-dip-Image-CL"><div>
@@ -2691,6 +2720,8 @@ leads to an image that has <a href="concepts.html#normal_strides">Normal strides
 external interface is registered for this image, that interface
 may create whatever strides are suitable, may honor or not the
 existing stride array, and may or may not produce normal strides.</p>
+<p>The data segment is not initialized, use <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> to set it to constant
+value.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-ReForge-dip-Image-CL-Option-AcceptDataTypeChange-"><div>
             <h3>
@@ -2714,6 +2745,8 @@ old data type, and no exception will be thrown if this data type
 is different from <code>dt</code>. Note that other properties much still match
 if <code>this</code> was forged. Thus, this flag allows <code>this</code> to control the
 data type of the image, ignoring any requested data type here.</p>
+<p>The data segment is not initialized, use <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> to set it to constant
+value.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-ReForge-dip-Image-CL-dip-DataType--Option-AcceptDataTypeChange-"><div>
             <h3>
@@ -2738,6 +2771,8 @@ old data type, and no exception will be thrown if this data type
 is different from <code>dt</code>. Note that other properties much still match
 if <code>this</code> was forged. Thus, this flag allows <code>this</code> to control the
 data type of the image, ignoring any requested data type here.</p>
+<p>The data segment is not initialized, use <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> to set it to constant
+value.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-ReForge-dip-UnsignedArray-CL-dip-uint--dip-DataType--Option-AcceptDataTypeChange-"><div>
             <h3>
@@ -2762,6 +2797,8 @@ old data type, and no exception will be thrown if this data type
 is different from <code>dt</code>. Note that other properties much still match
 if <code>this</code> was forged. Thus, this flag allows <code>this</code> to control the
 data type of the image, ignoring any requested data type here.</p>
+<p>The data segment is not initialized, use <a href="dip-Image.html#dip-Image-Fill-dip-Image-Pixel-CL"><code>dip::Image::Fill</code></a> to set it to constant
+value.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-Protect-bool-"><div>
             <h3>
@@ -2772,9 +2809,9 @@ data type of the image, ignoring any requested data type here.</p>
 <p>A protected image cannot be stripped or reforged. See <a href="dip-Image.html#protect">The &ldquo;protect&rdquo; flag</a> for more information.</p>
 <p>Returns the old setting. This can be used as follows to temporarily
 protect an image:</p>
-<div class="m-code"><pre><span></span><span class="kt">bool</span> <span class="n">wasProtected</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
-<span class="p">[...]</span> <span class="c1">// do your thing</span>
-<span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">(</span> <span class="n">wasProtected</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">wasProtected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span><span class="w"></span>
+<span class="p">[...]</span><span class="w"> </span><span class="c1">// do your thing</span>
+<span class="n">img</span><span class="p">.</span><span class="n">Protect</span><span class="p">(</span><span class="w"> </span><span class="n">wasProtected</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <aside class="m-note m-default">
@@ -3086,9 +3123,9 @@ over by one. <code>Size( dim )</code> must be evenly divisible by <code>size</co
 thrown if this is not the case.</p>
 <p>After this call, the image will have the same number of pixels, stored identically (no copy is made),
 but one more dimension. For example:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="nf">image</span><span class="p">(</span> <span class="p">{</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">21</span> <span class="p">}</span> <span class="p">);</span>
-<span class="n">image</span><span class="p">.</span><span class="n">SplitDimension</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span> <span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">image</span><span class="p">.</span><span class="n">Sizes</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span> <span class="c1">// should print { 43, 32, 16, 21 }</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">image</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"> </span><span class="mi">512</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">image</span><span class="p">.</span><span class="n">SplitDimension</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">Sizes</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// should print { 43, 32, 16, 21 }</span>
 </pre></div>
 
 <aside class="m-note m-default">
@@ -3352,12 +3389,12 @@ such that linear indices match storage order.</p>
 image dimensions that were reversed.</p>
 <p>The non-static <code>Image</code> method with the same name uses this function to standardize the strides of
 the image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span> <span class="n">order</span><span class="p">;</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">sint</span> <span class="n">offset</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span> <span class="n">order</span><span class="p">,</span> <span class="n">offset</span> <span class="p">)</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="o">::</span><span class="n">StandardizeStrides</span><span class="p">(</span> <span class="n">strides</span><span class="p">,</span> <span class="n">sizes</span> <span class="p">);</span>
-<span class="n">origin</span> <span class="o">=</span> <span class="n">origin</span> <span class="o">+</span> <span class="n">offset</span><span class="p">;</span>
-<span class="n">sizes</span> <span class="o">=</span> <span class="n">sizes</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span> <span class="n">order</span> <span class="p">);</span>
-<span class="n">strides</span> <span class="o">=</span> <span class="n">strides</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span> <span class="n">order</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="w"> </span><span class="n">order</span><span class="p">;</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">sint</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">tie</span><span class="p">(</span><span class="w"> </span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="o">::</span><span class="n">StandardizeStrides</span><span class="p">(</span><span class="w"> </span><span class="n">strides</span><span class="p">,</span><span class="w"> </span><span class="n">sizes</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">origin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span><span class="w"></span>
+<span class="n">sizes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sizes</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">strides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strides</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p><code>sizes</code> and <code>strides</code> are assumed to be of the same length, this is not tested for.</p>
@@ -3864,8 +3901,12 @@ repeated for each dimension. For empty arrays, <code>origin</code> defaults to a
 <code>sizes</code> to <code>src.Sizes() - origin</code>, and <code>spacing</code> to all ones. These defaults
 make it easy to crop pixels from one side of the image, to subsample the image,
 etc. For example, the following code subsamples by a factor 2 in each dimension:</p>
-<div class="m-code"><pre><span></span><span class="n">DefineROI</span><span class="p">(</span> <span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">DefineROI</span><span class="p">(</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
+
+<p>If <code>dest</code> is protected, or has an external interface set that is different from
+<code>src</code>&lsquo;s, then the pixel data will be copied over. Otherwise, <code>dest</code> will share
+data with <code>src</code>.</p>
           </div></section>
           <section class="m-doc-details" id="dip-CopyFrom-dip-Image-CL-dip-Image-L-dip-Image-CL"><div>
             <h3>

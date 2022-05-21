@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -195,17 +195,19 @@ of the partitions.</dd>
             <dd>Thresholds the image <code>in</code> using <code>nThresholds</code> thresholds, determined by fitting a Gaussian Mixture
 Model to the histogram of <code>in</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-" class="m-doc">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Thresholds the image <code>in</code> using the chord method (a.k.a. skewed bi-modality, maximum distance to triangle),
 and the histogram of <code>in</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-" class="m-doc">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat-" class="m-doc">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Thresholds the image <code>in</code> using the unimodal background-symmetry method, and the histogram of <code>in</code>.</dd>
             <dt>
@@ -769,12 +771,13 @@ algorithm is applied, but the threshold is applied to the whole image. <code>in<
 <p>The output array contains the thresholds used.</p>
 <p>See <a href="histograms.html#dip-GaussianMixtureModelThreshold-dip-Histogram-CL-dip-uint-"><code>dip::GaussianMixtureModelThreshold</code></a> for more information on the algorithm used.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><div>
+          <section class="m-doc-details" id="dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L" class="m-doc-self">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-" class="m-doc-self">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
             </h3>
             <p>Thresholds the image <code>in</code> using the chord method (a.k.a. skewed bi-modality, maximum distance to triangle),
@@ -782,22 +785,25 @@ and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>Returns the threshold value used.</p>
-<p>See <a href="histograms.html#dip-TriangleThreshold-dip-Histogram-CL"><code>dip::TriangleThreshold</code></a> for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-TriangleThreshold-dip-Histogram-CL-dip-dfloat-"><code>dip::TriangleThreshold</code></a> for more information on the algorithm used and the <code>sigma</code>
+parameter.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><div>
+          <section class="m-doc-details" id="dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat-"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-" class="m-doc-self">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat-" class="m-doc-self">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0)</span></span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0)</span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
             </h3>
             <p>Thresholds the image <code>in</code> using the unimodal background-symmetry method, and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
 <p>Returns the threshold value used.</p>
-<p>See <a href="histograms.html#dip-BackgroundThreshold-dip-Histogram-CL-dip-dfloat-"><code>dip::BackgroundThreshold</code></a> for more information on the algorithm used.</p>
+<p>See <a href="histograms.html#dip-BackgroundThreshold-dip-Histogram-CL-dip-dfloat--dip-dfloat-"><code>dip::BackgroundThreshold</code></a> for more information on the algorithm used and  the
+<code>sigma</code> parameter.</p>
           </div></section>
           <section class="m-doc-details" id="dip-VolumeThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><div>
             <h3>
@@ -831,7 +837,7 @@ image of the same type as the input image is produced, with the pixels set to ei
 <code>out = ( in &gt;= threshold ) ? foreground : background</code>.</p>
 <p><code>in</code> must be real-valued, each tensor element is thresholded independently.</p>
 <p>Note that, for the &ldquo;binary&rdquo; output case, it might be easier to write:</p>
-<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">in</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">threshold</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <aside class="m-note m-default">
@@ -858,7 +864,7 @@ default).</p>
 <p>If <code>output</code> is not <code>"binary"</code>, an image of the same type as the input image is produced, with the pixels
 set to either <code>foreground</code> or <code>background</code>. In other words, on a pixel-per-pixel basis the following is
 applied:</p>
-<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">(</span> <span class="n">lowerBound</span> <span class="o">&lt;=</span> <span class="n">in</span> <span class="o">&amp;&amp;</span> <span class="n">in</span> <span class="o">&lt;=</span> <span class="n">upperBound</span> <span class="p">)</span> <span class="o">?</span> <span class="nl">foreground</span> <span class="p">:</span> <span class="n">background</span>
+<div class="m-code"><pre><span></span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lowerBound</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">upperBound</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">foreground</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">background</span><span class="w"></span>
 </pre></div>
 
 <p><code>in</code> must be real-valued, each tensor element is thresholded independently.</p>
@@ -911,8 +917,8 @@ not be as expected if thresholds are not sorted.</p>
 <p>This function computes an optimal threshold value for <code>in</code> using <code>method</code>, and applies it. Returns the found
 threshold value. <code>in</code> must be scalar and real-valued. <code>mask</code> can optionally select the pixels used to determine
 the threshold value. The threshold is applied to the image as a whole, you can combine it with the mask afterwards:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">bin</span> <span class="o">=</span> <span class="n">dip</span><span class="o">::</span><span class="n">Threshold</span><span class="p">(</span> <span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="s">&quot;otsu&quot;</span> <span class="p">);</span>
-<span class="n">bin</span> <span class="o">&amp;=</span> <span class="n">mask</span><span class="p">;</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">bin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Threshold</span><span class="p">(</span><span class="w"> </span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;otsu&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">bin</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="n">mask</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 <p><code>method</code> can be one of:</p>
@@ -921,8 +927,8 @@ the threshold value. The threshold is applied to the image as a whole, you can c
 <li><code>"otsu"</code>: see <a href="segmentation.html#dip-OtsuThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::OtsuThreshold</code></a>. This is the default method.</li>
 <li><code>"minerror"</code>: see <a href="segmentation.html#dip-MinimumErrorThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::MinimumErrorThreshold</code></a>&rdquo;.</li>
 <li><code>"gmm"</code>: see <a href="segmentation.html#dip-GaussianMixtureModelThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint-"><code>dip::GaussianMixtureModelThreshold</code></a>.</li>
-<li><code>"triangle"</code>: see <a href="segmentation.html#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L"><code>dip::TriangleThreshold</code></a>.</li>
-<li><code>"background"</code>: see <a href="segmentation.html#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::BackgroundThreshold</code></a>.</li>
+<li><code>"triangle"</code>: see <a href="segmentation.html#dip-TriangleThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::TriangleThreshold</code></a>.</li>
+<li><code>"background"</code>: see <a href="segmentation.html#dip-BackgroundThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat-"><code>dip::BackgroundThreshold</code></a>.</li>
 <li><code>"volume"</code>: see <a href="segmentation.html#dip-VolumeThreshold-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-dfloat-"><code>dip::VolumeThreshold</code></a>.</li>
 <li><code>"fixed"</code>: see <a href="segmentation.html#dip-FixedThreshold-dip-Image-CL-dip-Image-L-dip-dfloat--dip-dfloat--dip-dfloat--dip-String-CL"><code>dip::FixedThreshold</code></a>.
   The default parameter value is 128.</li>

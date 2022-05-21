@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -149,16 +149,16 @@ when output images are also input images. The resource handler takes
 care of moving the data blocks from the temporary images to the output
 images when the function ends. With the current design of shared pointers
 to the data, this is no longer necessary. Say a function is called with</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="n">A</span><span class="p">;</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Filter</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">params</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"></span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Then the function <code>dip::Filter()</code> does this:</p>
-<div class="m-code"><pre><span></span><span class="kt">void</span> <span class="nf">dip::Filter</span><span class="p">(</span> <span class="k">const</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">in_c</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span> <span class="p">{</span>
-   <span class="n">Image</span> <span class="n">in</span> <span class="o">=</span> <span class="n">in_c</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span>
-   <span class="n">out</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span>
-   <span class="c1">// do more processing ...</span>
-<span class="p">}</span>
+<div class="m-code"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">dip::Filter</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="o">&amp;</span><span class="n">in_c</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="o">&amp;</span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">Image</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in_c</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="n">out</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// do more processing ...</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
 <p>What happens here is that the new image <code>in</code> is a copy of the input image, <code>A</code>,
@@ -171,14 +171,14 @@ image <code>A</code> in the caller&rsquo;s space, available for modifying.</p>
 changed during processing. So if the function cannot work in place, it should
 always test for aliasing of image data, and strip/forge the output image if
 necessary:</p>
-<div class="m-code"><pre><span></span><span class="kt">void</span> <span class="nf">dip::Filter</span><span class="p">(</span> <span class="k">const</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">in_c</span><span class="p">,</span> <span class="n">dip</span><span class="o">::</span><span class="n">Image</span> <span class="o">&amp;</span><span class="n">out</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span> <span class="p">{</span>
-   <span class="n">Image</span> <span class="n">in</span> <span class="o">=</span> <span class="n">in_c</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span>
-   <span class="k">if</span><span class="p">(</span> <span class="n">in</span><span class="p">.</span><span class="n">Aliases</span><span class="p">(</span> <span class="n">out</span> <span class="p">))</span> <span class="p">{</span>
-      <span class="n">out</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span>       <span class="c1">// Force out to not point at data we still need</span>
-   <span class="p">}</span>
-   <span class="n">out</span><span class="p">.</span><span class="n">ReForge</span><span class="p">(</span> <span class="p">...</span> <span class="p">);</span>   <span class="c1">// create new data segment for output</span>
-   <span class="c1">// do more processing ...</span>
-<span class="p">}</span>
+<div class="m-code"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">dip::Filter</span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="o">&amp;</span><span class="n">in_c</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="o">&amp;</span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">Image</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in_c</span><span class="p">.</span><span class="n">QuickCopy</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="n">Aliases</span><span class="p">(</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">out</span><span class="p">.</span><span class="n">Strip</span><span class="p">();</span><span class="w">       </span><span class="c1">// Force out to not point at data we still need</span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="n">out</span><span class="p">.</span><span class="n">ReForge</span><span class="p">(</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">);</span><span class="w">   </span><span class="c1">// create new data segment for output</span>
+<span class="w">   </span><span class="c1">// do more processing ...</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
 <p>Note that the <a href="dip-Framework.html"><code>dip::Framework</code></a> functions take care of this.</p>

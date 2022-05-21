@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.2.0" class="m-thin">version 3.2.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -138,13 +138,13 @@
 <p>This macro is useful for building a stack trace. If you want a stack trace, each function must catch <a href="dip-Error.html"><code>dip::Error</code></a>,
 add its name to the stack trace, and re-throw the exception.</p>
 <p>You can use this macro as follows:</p>
-<div class="m-code"><pre><span></span><span class="k">try</span> <span class="p">{</span>
-   <span class="c1">// some DIPlib functions that might throw here</span>
-<span class="p">}</span>
-<span class="k">catch</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">Error</span><span class="o">&amp;</span> <span class="n">e</span> <span class="p">)</span> <span class="p">{</span>
-   <span class="n">DIP_ADD_STACK_TRACE</span><span class="p">(</span> <span class="n">e</span> <span class="p">);</span>
-   <span class="k">throw</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="m-code"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// some DIPlib functions that might throw here</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">catch</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Error</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">DIP_ADD_STACK_TRACE</span><span class="p">(</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">   </span><span class="k">throw</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 
 <p>The <a href="error.html#macro--DIP_START_STACK_TRACE"><code>DIP_START_STACK_TRACE</code></a>, <a href="error.html#macro--DIP_END_STACK_TRACE"><code>DIP_END_STACK_TRACE</code></a> and <a href="error.html#macro--DIP_STACK_TRACE_THIS"><code>DIP_STACK_TRACE_THIS</code></a> macros help build this code.
@@ -172,9 +172,9 @@ consistency or detect bugs in the code.</p>
 <p>To build a stack trace, some library functions catch <em>DIPlib</em> exceptions, add their name and other info to it,
 then re-throw. To simplify this mechanism and make it easier to future changes, this macro and its partner
 <a href="error.html#macro--DIP_END_STACK_TRACE"><code>DIP_END_STACK_TRACE</code></a> are used by these library functions. Use then as follows:</p>
-<div class="m-code"><pre><span></span><span class="n">DIP_START_STACK_TRACE</span>
-   <span class="c1">// some DIPlib functions that might throw here</span>
-<span class="n">DIP_END_STACK_TRACE</span>
+<div class="m-code"><pre><span></span><span class="n">DIP_START_STACK_TRACE</span><span class="w"></span>
+<span class="w">   </span><span class="c1">// some DIPlib functions that might throw here</span>
+<span class="n">DIP_END_STACK_TRACE</span><span class="w"></span>
 </pre></div>
 
 <p>This expands to the exact same code as shown under <a href="error.html#macro--DIP_ADD_STACK_TRACE"><code>DIP_ADD_STACK_TRACE</code></a>, but with an additional <code>catch</code>
@@ -196,13 +196,13 @@ trace does incur some runtime cost.</p>
             <p>Encapsulates a statement in a try/catch block that builds a stack trace when an exception is thrown.</p>
 <p>To build a stack trace, some library functions catch <em>DIPlib</em> exceptions, add their name and other info to it,
 then re-throw. This macro helps by catching and re-throwing exceptions thrown within a single statement:</p>
-<div class="m-code"><pre><span></span><span class="n">DIP_STACK_TRACE_THIS</span><span class="p">(</span> <span class="n">dip</span><span class="o">::</span><span class="n">FunctionCall</span><span class="p">()</span> <span class="p">);</span>
+<div class="m-code"><pre><span></span><span class="n">DIP_STACK_TRACE_THIS</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">FunctionCall</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>This expands to:</p>
-<div class="m-code"><pre><span></span><span class="n">DIP_START_STACK_TRACE</span>
-   <span class="nf">dip::FunctionCall</span><span class="p">();</span>
-<span class="n">DIP_END_STACK_TRACE</span>
+<div class="m-code"><pre><span></span><span class="n">DIP_START_STACK_TRACE</span><span class="w"></span>
+<span class="w">   </span><span class="nf">dip::FunctionCall</span><span class="p">();</span><span class="w"></span>
+<span class="n">DIP_END_STACK_TRACE</span><span class="w"></span>
 </pre></div>
 
 <p>See <a href="error.html#macro--DIP_START_STACK_TRACE"><code>DIP_START_STACK_TRACE</code></a> for more information.</p>
