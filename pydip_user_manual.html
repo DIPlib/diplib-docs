@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -234,6 +234,14 @@ This means that the <em>NumPy</em> indexing order will be preserved, images will
 This has several surprising results, for example the direction of all angles is reversed, with
 positive angles being counter-clockwise instead of clockwise. This option is intended to make it
 easier to mix <em>DIPlib</em> functions into code that also uses e.g. <em>scikit-image</em>.</p>
+<p>When casting a tensor image to a <em>NumPy</em> array, the tensor dimension will become the last array dimension.
+When casting a <em>NumPy</em> array to a <em>DIPlib</em> image, there is no information about which dimension, if
+any, is the tensor dimension. By default the following heuristic is used: if the array has more than
+two dimensions, and if the smaller of the last or the first array dimension has no more than 4 elements,
+then that dimension will be the tensor dimension. The tensor will have a column vector shape (this is the
+default tensor shape in <em>DIPlib</em>). The threshold of 4 was picked because it will handle correctly all color
+images. This threshold can be adjusted using <code>dip.SetTensorConversionThreshold()</code>. If set to 0, all arrays
+will be converted to a scalar image.</p>
       </div>
     </div>
   </div>

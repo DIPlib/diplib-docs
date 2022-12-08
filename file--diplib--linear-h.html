@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -98,12 +98,13 @@ See <a href="linear.html">Linear filters</a>.</p>
             </dt>
             <dd>Applies a convolution with a filter kernel (PSF) that is separable.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-ConvolveFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />ConvolveFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-ConvolveFT-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-String-CL-dip-String-CL-dip-StringArray-CL" class="m-doc">dip::<wbr />ConvolveFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; filter,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filterRepresentation = S::SPATIAL,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL)</span>
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
             <dd>Applies a convolution with a filter kernel (PSF) by multiplication in the Fourier domain.</dd>
             <dt>
@@ -113,6 +114,14 @@ See <a href="linear.html">Linear filters</a>.</p>
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
             <dd>Applies a convolution with a filter kernel (PSF) by direct implementation of the convolution sum.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Convolution-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-String-CL-dip-StringArray-CL" class="m-doc">dip::<wbr />Convolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; filter,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies a convolution with a filter kernel (PSF).</dd>
             <dt>
               <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Uniform-dip-Image-CL-dip-Image-L-dip-Kernel-CL-dip-StringArray-CL" class="m-doc">dip::<wbr />Uniform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -130,11 +139,13 @@ See <a href="linear.html">Linear filters</a>.</p>
             </dt>
             <dd>Finite impulse response implementation of the Gaussian filter and its derivatives</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GaussFT-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-UnsignedArray--dip-dfloat-" class="m-doc">dip::<wbr />GaussFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GaussFT-dip-Image-CL-dip-Image-L-dip-FloatArray--dip-UnsignedArray--dip-dfloat--dip-String-CL-dip-String-CL" class="m-doc">dip::<wbr />GaussFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL)</span>
             </dt>
             <dd>Fourier implementation of the Gaussian filter and its derivatives</dd>
             <dt>

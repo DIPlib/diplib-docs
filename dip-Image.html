@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -1859,6 +1859,20 @@ a tensor. The image must be scalar and forged.</dd>
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; cropLocation) const -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
             </dt>
             <dd>Returns the <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a> indexing data that corresponds to the result of <a href="dip-Image.html#dip-Image-Crop-dip-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a>.</dd>
+            <dt id="dip-Image-CropWindow-dip-UnsignedArray-CL-dip-UnsignedArray-CL-Option-CropLocation-">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Image-CropWindow-dip-UnsignedArray-CL-dip-UnsignedArray-CL-Option-CropLocation-" class="m-doc-self">CropWindow</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; imageSizes,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; windowSizes,
+              <a href="supporttypes.html#dip-Option-CropLocation" class="m-doc">dip::Option::CropLocation</a> cropLocation = Option::CropLocation::CENTER) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
+            </dt>
+            <dd>Returns the <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a> indexing data that corresponds to the result of <a href="dip-Image.html#dip-Image-Crop-dip-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a>,
+for an image of size <code>imageSizes</code>.</dd>
+            <dt id="dip-Image-CropWindow-dip-UnsignedArray-CL-dip-UnsignedArray-CL-dip-String-CL">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Image-CropWindow-dip-UnsignedArray-CL-dip-UnsignedArray-CL-dip-String-CL" class="m-doc-self">CropWindow</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; imageSizes,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; windowSizes,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; cropLocation) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
+            </dt>
+            <dd>Returns the <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a> indexing data that corresponds to the result of <a href="dip-Image.html#dip-Image-Crop-dip-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a>,
+for an image of size <code>imageSizes</code>.</dd>
             </dl>
         </section>
         <section id="group--Indexing%20without%20data%20copy">
@@ -3529,8 +3543,8 @@ safer to use than <a href="dip-Image.html#dip-Image-ReinterpretCast-dip-DataType
 <code>cropLocation</code> parameter. The default is <a href="supporttypes.html#dip-Option-CropLocation-CENTER"><code>dip::Option::CropLocation::CENTER</code></a>, which
 maintains the origin pixel (as defined in <a href="transform.html#dip-FourierTransform-dip-Image-CL-dip-Image-L-dip-StringSet-CL-dip-BooleanArray-"><code>dip::FourierTransform</code></a> and other other places)
 at the origin of the output image.</p>
-<p><a href="dip-Image.html#dip-Image-Pad-dip-UnsignedArray-CL-dip-Image-Pixel-CL-Option-CropLocation--C"><code>dip::Image::Pad</code></a> does the inverse operation. <a href="dip-Image.html#dip-Image-Cropped-dip-UnsignedArray-CL-Option-CropLocation--C"><code>dip::Image::Cropped</code></a> does the same
-thing, but without modifying <code>this</code>, and returning a <a href="dip-Image-View.html"><code>dip::Image::View</code></a>.</p>
+<p><a href="dip-Image.html#dip-Image-Cropped-dip-UnsignedArray-CL-Option-CropLocation--C"><code>dip::Image::Cropped</code></a> does the same thing, but returning a <a href="dip-Image-View.html"><code>dip::Image::View</code></a> instead
+of modifying <code>this</code>. <a href="dip-Image.html#dip-Image-Pad-dip-UnsignedArray-CL-dip-Image-Pixel-CL-Option-CropLocation--C"><code>dip::Image::Pad</code></a> does the inverse operation.</p>
 <p>The image must be forged.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-Crop-dip-UnsignedArray-CL-dip-String-CL"><div>
@@ -3540,31 +3554,31 @@ thing, but without modifying <code>this</code>, and returning a <a href="dip-Ima
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; cropLocation)</span></span>
             </h3>
             <p>Reduces the size of the image by cropping off the borders.</p>
-<p>This is an overloaded version of the function above, meant for use from bindings in other languages. The
-string <code>cropLocation</code> is translated to one of the <a href="supporttypes.html#dip-Option-CropLocation"><code>dip::Option::CropLocation</code></a> values as follows:</p>
+<p>This is an overloaded version of the function above. The string <code>cropLocation</code> is translated
+to one of the <a href="supporttypes.html#dip-Option-CropLocation"><code>dip::Option::CropLocation</code></a> values as follows:</p>
 <table class="m-table">
 <thead>
 <tr>
-<th><code>CropLocation</code> constant</th>
 <th>String</th>
+<th><code>CropLocation</code> constant</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>CENTER</code></td>
-<td>&ldquo;center&rdquo;</td>
+<td><code>"center"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-CENTER"><code>dip::Option::CropLocation::CENTER</code></a></td>
 </tr>
 <tr>
-<td><code>MIRROR_CENTER</code></td>
-<td>&ldquo;mirror center&rdquo;</td>
+<td><code>"mirror center"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-MIRROR_CENTER"><code>dip::Option::CropLocation::MIRROR_CENTER</code></a></td>
 </tr>
 <tr>
-<td><code>TOP_LEFT</code></td>
-<td>&ldquo;top left&rdquo;</td>
+<td><code>"top left"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-TOP_LEFT"><code>dip::Option::CropLocation::TOP_LEFT</code></a></td>
 </tr>
 <tr>
-<td><code>BOTTOM_RIGHT</code></td>
-<td>&ldquo;bottom right&rdquo;</td>
+<td><code>"bottom right"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-BOTTOM_RIGHT"><code>dip::Option::CropLocation::BOTTOM_RIGHT</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -3620,8 +3634,8 @@ trivial operation; prefer to use the version of this function that uses coordina
 <code>cropLocation</code> parameter. The default is <a href="supporttypes.html#dip-Option-CropLocation-CENTER"><code>dip::Option::CropLocation::CENTER</code></a>, which
 maintains the origin pixel (as defined in <a href="transform.html#dip-FourierTransform-dip-Image-CL-dip-Image-L-dip-StringSet-CL-dip-BooleanArray-"><code>dip::FourierTransform</code></a> and other other places)
 at the origin of the output image.</p>
-<p><a href="dip-Image.html#dip-Image-Pad-dip-UnsignedArray-CL-dip-Image-Pixel-CL-Option-CropLocation--C"><code>dip::Image::Pad</code></a> does the inverse operation. <a href="dip-Image.html#dip-Image-Crop-dip-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a> does the same thing, but modifies
-the image directly instead of returning a view.</p>
+<p><a href="dip-Image.html#dip-Image-Crop-dip-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a> does the same thing, but modifies the image directly instead of returning a view.
+<a href="dip-Image.html#dip-Image-Pad-dip-UnsignedArray-CL-dip-Image-Pixel-CL-Option-CropLocation--C"><code>dip::Image::Pad</code></a> does the inverse operation.</p>
 <p>The image must be forged.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-Cropped-dip-UnsignedArray-CL-dip-String-CL-C"><div>
@@ -3631,31 +3645,31 @@ the image directly instead of returning a view.</p>
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; cropLocation) const</span></span>
             </h3>
             <p>Extracts a subset of pixels from an image.</p>
-<p>This is an overloaded version of the function above, meant for use from bindings in other languages. The
-string <code>cropLocation</code> is translated to one of the <a href="supporttypes.html#dip-Option-CropLocation"><code>dip::Option::CropLocation</code></a> values as follows:</p>
+<p>This is an overloaded version of the function above. The string <code>cropLocation</code> is translated
+to one of the <a href="supporttypes.html#dip-Option-CropLocation"><code>dip::Option::CropLocation</code></a> values as follows:</p>
 <table class="m-table">
 <thead>
 <tr>
-<th><code>CropLocation</code> constant</th>
 <th>String</th>
+<th><code>CropLocation</code> constant</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>CENTER</code></td>
 <td><code>"center"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-CENTER"><code>dip::Option::CropLocation::CENTER</code></a></td>
 </tr>
 <tr>
-<td><code>MIRROR_CENTER</code></td>
 <td><code>"mirror center"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-MIRROR_CENTER"><code>dip::Option::CropLocation::MIRROR_CENTER</code></a></td>
 </tr>
 <tr>
-<td><code>TOP_LEFT</code></td>
 <td><code>"top left"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-TOP_LEFT"><code>dip::Option::CropLocation::TOP_LEFT</code></a></td>
 </tr>
 <tr>
-<td><code>BOTTOM_RIGHT</code></td>
 <td><code>"bottom right"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-BOTTOM_RIGHT"><code>dip::Option::CropLocation::BOTTOM_RIGHT</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -3688,7 +3702,8 @@ which maintains the origin pixel (as defined in <a href="transform.html#dip-Four
 at the origin of the output image.</p>
 <p>The object is not modified, a new image is created, with identical properties, but of the requested
 size.</p>
-<p><a href="dip-Image.html#dip-Image-Crop-dip-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a> does the inverse operation. See also <a href="boundary.html#dip-ExtendImage-dip-Image-CL-dip-Image-L-dip-UnsignedArray--dip-BoundaryConditionArray-CL-Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a>.</p>
+<p><a href="boundary.html#dip-ExtendImageToSize-dip-Image-CL-dip-Image-L-dip-UnsignedArray-CL-Option-CropLocation--dip-BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImageToSize</code></a> does the same thing, but filling the new regions according to a boundary
+condition. <a href="dip-Image.html#dip-Image-Crop-dip-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a> does the inverse operation.</p>
 <p>The image must be forged.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Image-Pad-dip-UnsignedArray-CL-dip-Image-Pixel-CL-dip-String-CL-C"><div>
@@ -3699,31 +3714,31 @@ size.</p>
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; cropLocation) const</span></span>
             </h3>
             <p>Extends the image by padding with <code>value</code>.</p>
-<p>This is an overloaded version of the function above, meant for use from bindings in other languages. The
-string <code>cropLocation</code> is translated to one of the <a href="supporttypes.html#dip-Option-CropLocation"><code>dip::Option::CropLocation</code></a> values as follows:</p>
+<p>This is an overloaded version of the function above. The string <code>cropLocation</code> is translated
+to one of the <a href="supporttypes.html#dip-Option-CropLocation"><code>dip::Option::CropLocation</code></a> values as follows:</p>
 <table class="m-table">
 <thead>
 <tr>
-<th><code>CropLocation</code> constant</th>
 <th>String</th>
+<th><code>CropLocation</code> constant</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>CENTER</code></td>
 <td><code>"center"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-CENTER"><code>dip::Option::CropLocation::CENTER</code></a></td>
 </tr>
 <tr>
-<td><code>MIRROR_CENTER</code></td>
 <td><code>"mirror center"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-MIRROR_CENTER"><code>dip::Option::CropLocation::MIRROR_CENTER</code></a></td>
 </tr>
 <tr>
-<td><code>TOP_LEFT</code></td>
 <td><code>"top left"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-TOP_LEFT"><code>dip::Option::CropLocation::TOP_LEFT</code></a></td>
 </tr>
 <tr>
-<td><code>BOTTOM_RIGHT</code></td>
 <td><code>"bottom right"</code></td>
+<td><a href="supporttypes.html#dip-Option-CropLocation-BOTTOM_RIGHT"><code>dip::Option::CropLocation::BOTTOM_RIGHT</code></a></td>
 </tr>
 </tbody>
 </table>
@@ -3941,7 +3956,8 @@ truncated, as applicable, and complex values are converted to non-complex values
             <p>Copies samples over from <code>src</code> to <code>dest</code>, expanding the tensor so it&rsquo;s a standard, column-major matrix.</p>
 <p>If the tensor representation in <code>src</code> is one of those that do not save symmetric or zero values, to save space,
 a new data segment will be allocated for <code>dest</code>, where the tensor representation is a column-major matrix
-(<code>dest</code> will have <a href="dip-Tensor.html#dip-Tensor-HasNormalOrder-C"><code>dip::Tensor::HasNormalOrder</code></a> be true). Otherwise, <code>dest</code> will share the data segment with <code>src</code>.
+(<code>dest</code> will have <a href="dip-Tensor.html#dip-Tensor-HasNormalOrder-C"><code>dip::Tensor::HasNormalOrder</code></a> be true). Otherwise, <code>dest</code> will share the data segment with <code>src</code>
+(unless it&rsquo;s protected or has an external interface, in which case data must be copied).
 This function simplifies manipulating tensors by normalizing their storage.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>

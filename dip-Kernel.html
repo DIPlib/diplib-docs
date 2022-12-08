@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -88,12 +88,13 @@ size that is smaller or equal to 1 causes the kernel to not have an extent along
 the nearest integer), as well as the direction of the line. A negative value for one dimension means
 that the line runs from high to low along that dimension. The line will always run from one corner of
 the bounding box to the opposite corner, and run through the origin.</p>
-<p>To define a kernel through an image, provide a binary image. The &ldquo;on&rdquo; or &ldquo;true&rdquo; pixels form
+<p>To define a kernel through an image, provide a scalar binary image. The &ldquo;on&rdquo; or &ldquo;true&rdquo; pixels form
 the kernel. Note that, for most filters, the image is directly used as neighborhood (i.e. no
 mirroring is applied). As elsewhere, the origin of the kernel is in the middle of the image,
 and on the pixel to the right of the center in case of an even-sized image. If the image
-is a grey-value image, then all pixels with a finite value form the kernel. The kernel then
-has the given weights associated to each pixel.</p>
+is a scalar grey-value image, then all pixels with a finite value form the kernel. The kernel then
+has the given weights associated to each pixel. After calling <a href="dip-Kernel.html#dip-Kernel-IgnoreZeros"><code>dip::Kernel::IgnoreZeros</code></a>, all pixels
+with a finite, non-zero value form the kernel.</p>
 <p>See dip::StructuringElement, dip::NeighborList, dip::PixelTable</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
@@ -162,6 +163,10 @@ parameter for all dimensions. A second argument specifies the shape.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-IsMirrored-C" class="m-doc-self">IsMirrored</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>True if kernel is mirrored</dd>
+            <dt id="dip-Kernel-IgnoreZeros">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Kernel-IgnoreZeros" class="m-doc-self">IgnoreZeros</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Causes zeros in the kernel image to be ignored when creating a <a href="dip-PixelTable.html"><code>dip::PixelTable</code></a>.</dd>
             <dt id="dip-Kernel-PixelTable-dip-uint--dip-uint--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-PixelTable-dip-uint--dip-uint--C" class="m-doc-self">PixelTable</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim) const -&gt; <a href="dip-PixelTable.html" class="m-doc">dip::PixelTable</a></span>
@@ -206,6 +211,10 @@ kernel on the edge pixels of the image, given an image of size <code>imsz</code>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-HasWeights-C" class="m-doc-self">HasWeights</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>Tests to see if the kernel has weights</dd>
+            <dt id="dip-Kernel-HasComplexWeights-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-HasComplexWeights-C" class="m-doc-self">HasComplexWeights</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the kernel has complex weights</dd>
             <dt id="dip-Kernel-NumberOfPixels-dip-uint--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-NumberOfPixels-dip-uint--C" class="m-doc-self">NumberOfPixels</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>

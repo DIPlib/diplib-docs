@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Building &raquo; CMake configuration | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="build_dependencies.html" />
+  <link rel="next" href="building_linux.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="building_diplib.html">Building</a> &raquo;</span>
+          <em>CMake</em> configuration
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#cmake_targets">Available targets</a></li>
+            <li><a href="#cmake_variables"><em>CMake</em> variables</a></li>
+          </ul>
+        </div>
+<h2 id="cmake_targets">Available targets</h2>
+<ul>
+<li><code>DIP</code>:           builds the <em>DIPlib</em> library</li>
+<li><code>DIPviewer</code>:     builds the <em>DIPviewer</em> module (plus the <em>DIPlib</em> library)</li>
+<li><code>DIPjavaio</code>:     builds the <em>DIPjavaio</em> module (plus the <em>DIPlib</em> library)</li>
+<li><code>PyDIP</code>:         builds the <em>PyDIP</em> Python module (includes the <code>DIP</code>, <code>DIPviewer</code> and <code>DIPjavaio</code> targets)</li>
+<li><code>dipview</code>:       builds the standalone <code>dipview</code> image viewer program</li>
+<li><code>dipviewjava</code>:   builds the <em>DIPjavaio</em>-enabled standalone <code>dipviewjava</code> image viewer program</li>
+<li><code>all</code>: (default) builds all of the targets above that were configured</li>
+<li><code>install</code>:       builds <code>all</code> and installs everything except <em>PyDIP</em></li>
+<li><code>check</code>:         builds the <code>unit_tests</code> program and runs it</li>
+<li><code>check_memory</code>:  builds the <code>unit_tests</code> program and runs it under <code>valgrind</code></li>
+<li><code>apidoc</code>:        builds all the HTML documentation</li>
+<li><code>examples</code>:      builds the example programs</li>
+<li><code>package</code>:       creates a distributable package for <code>install</code> [note: not fully functional]</li>
+<li><code>bdist_wheel</code>:   builds a Python wheel for <em>PyDIP</em></li>
+<li><code>pip_install</code>:   builds and installs a Python wheel for <em>PyDIP</em></li>
+<li><code>pip_uninstall</code>: uninstalls <em>PyDIP</em></li>
+</ul>
+<p>The <code>apidoc</code> target requires that <a href="https://crisluengo.github.io/doxpp/"><em>dox++</em></a> is available,
+the target will not be available if it is not; this target will fail to build if additional tools are not installed.
+See <a href="building_documentation.html">Building the <em>DIPlib</em> documentation</a> for details.</p>
+<p>The <code>pip_install</code> target requires the <em>DIPlib</em> libraries to already be installed, so always run the <code>install</code> target
+first.</p>
+<h2 id="cmake_variables"><em>CMake</em> variables</h2>
+<p>These variables can be set on the <code>cmake</code> command line with <code>-D&lt;variable&gt;=&lt;value&gt;</code>.
+Alternatively, set them in the <em>CMake</em> GUI.</p>
+<p>Important <em>CMake</em> variables controlling the build of <em>DIPlib</em>:</p>
+<ul>
+<li><code>CMAKE_INSTALL_PREFIX</code>: Choose an install location for all the components except <em>PyDIP</em>. A directory
+    structure will be created, including the POSIX-standard <code>lib</code>, <code>include</code> and <code>share</code> directores.</li>
+<li><code>CMAKE_BUILD_TYPE</code>: Set to <code>Release</code> (default), <code>Debug</code> or <code>Sanitize</code> (GCC or Clang only). On Windows this is
+    ignored, choose the build type in <em>MSVC</em>.</li>
+<li><code>DIP_SHARED_LIBRARY</code>: <code>On</code> (default) or <code>Off</code>. Leave <code>On</code> to build a shared <em>DIPlib</em> library, set to <code>Off</code>
+    to build a static <em>DIPlib</em> library. Note that <em>DIPimage</em> and <em>PyDIP</em> require a shared library.</li>
+<li><code>CMAKE_C_COMPILER</code>: Specify a C compiler for the dependencies <em>libics</em>, <em>LibTIFF</em>, <em>libjpeg</em> and <em>zlib</em>.</li>
+<li><code>CMAKE_CXX_COMPILER</code>: Specify a C++ compiler. The system&rsquo;s default C and C++ compilers are used by default.</li>
+<li><code>CMAKE_CXX_FLAGS</code>: Specify additional C++ compiler flags. For example, with GCC or Clang you could set this
+    to <code>"-march=native"</code> to optimize the build for the current machine.</li>
+<li><code>DIP_ENABLE_STACK_TRACE</code>: <code>On</code> (default) or <code>Off</code>. In <em>DIPlib</em>, exceptions generate a stack trace,
+    which you might want to disable in some circumstances.</li>
+<li><code>DIP_ENABLE_ASSERT</code>: <code>On</code> or <code>Off</code> (default). Typically one would enable asserts in debug builds only.</li>
+<li><code>DIP_ENABLE_DOCTEST</code>: <code>On</code> (default) or <code>Off</code>. The unit tests are embedded in <em>DIPlib</em> code through <em>doctest</em>,
+    and will end up in the library unless disabled.</li>
+<li><code>DIP_ENABLE_MULTITHREADING</code>: <code>On</code> (default) or <code>Off</code>. <em>DIPlib</em> uses <em>OpenMP</em> for multithreading if available
+    on the system.</li>
+<li><code>DIP_ENABLE_ICS</code>: <code>On</code> (default) or <code>Off</code>. Enable support for the ICS file format using the included <em>libics</em> library.</li>
+<li><code>DIP_ENABLE_TIFF</code>: <code>On</code> (default) or <code>Off</code>. Enable support for the TIFF file format using the included <em>LibTIFF</em> library.</li>
+<li><code>DIP_ENABLE_JPEG</code>: <code>On</code> (default) or <code>Off</code>. Enable support for the JPEG file format using the included <em>libjpeg</em> library.</li>
+<li><code>DIP_ENABLE_ZLIB</code>: <code>On</code> (default) or <code>Off</code>. Enable support for ZIP (deflate) compression in the ICS and TIFF file formats using the included <em>zlib</em> library.</li>
+<li><code>DIP_ENABLE_FFTW</code>: <code>On</code> or <code>Off</code> (default). Enable the use of the <em>FFTW3</em> library, if available.</li>
+<li><code>DIP_ENABLE_FREETYPE</code>: <code>On</code> or <code>Off</code> (default). Enable the use of the <em>FreeType2</em> library, if available.</li>
+<li><code>DIP_ENABLE_UNICODE</code>: <code>On</code> (default) or <code>Off</code>. Enable support for UTF-8 strings within <em>DIPlib</em>.</li>
+<li><code>DIP_ALWAYS_128_PRNG</code>: <code>On</code> or <code>Off</code> (default). If <code>On</code>, use the 128-bit PRNG code even if 128-bit integers are not natively supported.</li>
+</ul>
+<p>Controlling the build of <em>DIPviewer</em>:</p>
+<ul>
+<li><code>DIP_BUILD_DIPVIEWER</code>: <code>On</code> (default) or <code>Off</code>. Choose whether to build and install the <em>DIPviewer</em> module, if
+    its dependencies are available.</li>
+</ul>
+<p>Controlling the build of <em>DIPjavaio</em>:</p>
+<ul>
+<li><code>DIP_BUILD_JAVAIO</code>: <code>On</code> (default) or <code>Off</code>. Choose whether to build and install the <em>DIPjavaio</em> module,
+    if its dependencies are available.</li>
+<li><code>JAVA_HOME</code>: Set the path to the JDK to use.</li>
+<li><code>BIOFORMATS_JAR</code>: Set the path to the Bio-Formats JAR file (<code>bioformats_package.jar</code>).</li>
+</ul>
+<p>Controlling the build of <em>DIPimage</em>:</p>
+<ul>
+<li><code>DIP_BUILD_DIPIMAGE</code>: <code>On</code> (default) or <code>Off</code>. Choose whether to build and install the <em>DIPimage</em> toolbox,
+    if <em>MATLAB</em> is available.</li>
+<li><code>Matlab_ROOT_DIR</code>: Set the path of the <em>MATLAB</em> installation to compile <em>DIPimage</em> against.</li>
+</ul>
+<p>Controlling the build of <em>PyDIP</em>:</p>
+<ul>
+<li><code>DIP_BUILD_PYDIP</code>: <code>On</code> (default) or <code>Off</code>. Choose whether to build the <em>PyDIP</em> package, if <em>Python</em> is available.</li>
+<li><code>PYBIND11_PYTHON_VERSION</code>: Set the Python version to build <em>PyDIP</em> against (e.g. set to <code>3.10</code>).</li>
+<li><code>PYTHON_EXECUTABLE</code>: Set the path to the Python binary, in case it is not on the path and <em>Pybind11</em> can&rsquo;t find it.</li>
+<li><code>DIP_PYDIP_WHEEL_INCLUDE_LIBS</code>: <code>On</code> or <code>Off</code> (default). Include the <em>DIPlib</em> libraries in the <em>PyDIP</em> wheel.
+    Turn on for binary distribution, keep off for personal builds.</li>
+</ul>
+<p>Some of these options might not be available on your system. For example, if you don&rsquo;t have
+<em>MATLAB</em> installed, the <code>DIP_BUILD_DIPIMAGE</code> option will not be defined. In this case, setting
+it to <code>Off</code> will yield a warning message when running <em>CMake</em>.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="build_dependencies.html" class="m-doc">&laquo; Dependencies</a> | <a href="building_diplib.html" class="m-doc">Building</a> | <a href="building_linux.html" class="m-doc">Building the <em>DIPlib</em> project on Linux &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

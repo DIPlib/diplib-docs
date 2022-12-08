@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.3.0" class="m-thin">version 3.3.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -64,7 +64,7 @@
             </li>
           </ul>
         </div>
-<p>The matrix is real, symmetric, positive semidefinite. See <a href="dip-Polygon.html#dip-Polygon-CovarianceMatrix-dip-VertexFloat-CL-C"><code>dip::Polygon::CovarianceMatrix</code></a>
+<p>The matrix is real, symmetric, positive semidefinite. See <a href="#dip-Polygon-CovarianceMatrix-dip-VertexFloat-CL-C"><code>dip::Polygon::CovarianceMatrix</code></a>
 for how to create a covariance matrix.</p>
 <p>The elements stored are <code>xx</code>, <code>xy</code> and <code>yy</code>, with <code>xx</code> the top-left element, and <code>xy</code> both
 the off-diagonal elements, which are equal by definition.</p>
@@ -79,6 +79,12 @@ the off-diagonal elements, which are equal by definition.</p>
               <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix-dip-VertexFloat-" class="m-doc-self">CovarianceMatrix</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> v) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>Construct a covariance matrix as the outer product of a vector and itself.</dd>
+            <dt id="dip-CovarianceMatrix-CovarianceMatrix-dip-dfloat--dip-dfloat--dip-dfloat-">
+              <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix-dip-dfloat--dip-dfloat--dip-dfloat-" class="m-doc-self">CovarianceMatrix</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> xx,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> yy,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> xy) <span class="m-label m-flat m-info">explicit</span> </span>
+            </dt>
+            <dd>Construct a covariance matrix with the three components.</dd>
             </dl>
         </section>
         <section id="nested-classes">
@@ -126,8 +132,8 @@ This is a positive scalar if v is non-zero, because C (this matrix) is positive 
               <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Eig-C" class="m-doc-self">Eig</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix-Eigenvalues.html" class="m-doc">dip::CovarianceMatrix::Eigenvalues</a></span>
             </dt>
             <dd>Compute eigenvalues of matrix.</dd>
-            <dt id="dip-CovarianceMatrix-Ellipse-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Ellipse-C" class="m-doc-self">Ellipse</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html#dip-CovarianceMatrix-EllipseParameters" class="m-doc">dip::CovarianceMatrix::EllipseParameters</a></span>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Ellipse-bool--C" class="m-doc">Ellipse</a>(</span><span class="m-doc-wrap">bool solid = false) const -&gt; <a href="dip-CovarianceMatrix.html#dip-CovarianceMatrix-EllipseParameters" class="m-doc">dip::CovarianceMatrix::EllipseParameters</a></span>
             </dt>
             <dd>Compute parameters of ellipse with same covariance matrix.</dd>
           </dl>
@@ -189,6 +195,20 @@ This is a positive scalar if v is non-zero, because C (this matrix) is positive 
                 </tr>
               </tbody>
             </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-CovarianceMatrix-Ellipse-bool--C"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="dip-CovarianceMatrix.html#dip-CovarianceMatrix-EllipseParameters" class="m-doc">dip::CovarianceMatrix::EllipseParameters</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-Ellipse-bool--C" class="m-doc-self">Ellipse</a>(</span><span class="m-doc-wrap">bool solid = false) const</span></span>
+            </h3>
+            <p>Compute parameters of ellipse with same covariance matrix.</p>
+<p>If <code>solid</code> is <code>false</code> (default), then it is assumed that the covariance matrix corresponds to an ellipse
+shell (e.g. obtained through <a href="dip-Polygon.html#dip-Polygon-CovarianceMatrixVertices-dip-VertexFloat-CL-C"><code>dip::Polygon::CovarianceMatrixVertices</code></a>). This is the default for
+backwards-compatibility. If <code>true</code>, the covariance matrix corresponds to a solid ellipse (e.g. obtained
+though <a href="dip-Polygon.html#dip-Polygon-CovarianceMatrixSolid-dip-VertexFloat-CL-C"><code>dip::Polygon::CovarianceMatrixSolid</code></a>).</p>
           </div></section>
         </section>
       </div>
