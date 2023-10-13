@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -93,7 +93,7 @@ will be written to this file, in the same manner as that they are echoed
 to the command line. When finished, select the same menu item again (its
 text will have changed to &ldquo;Stop recording macro&rdquo;). Typing the macro name
 on the command line:</p>
-<div class="m-code"><pre><span></span><span class="n">macro</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">macro</span>
 </pre></div>
 
 <p>will execute all recorded commands again. It is possible to append
@@ -108,7 +108,7 @@ statement that returns a <code>dip_image</code> object (see <a href="sec_dum_dip
 An optional second argument indicates the
 display range required, and allows more flexibility than the options in
 the &ldquo;Display&rdquo; menu. The general form for <code>dipshow</code> is:</p>
-<div class="m-code"><pre><span></span><span class="n">dipshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">range</span><span class="p">,</span><span class="n">colmap</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">range</span><span class="p">,</span><span class="n">colmap</span><span class="p">)</span>
 </pre></div>
 
 <p>where <code>range</code> is either a grey-value range that should be displayed, or
@@ -134,8 +134,8 @@ and produces a colormap that gives each integer value a distinct color.</p>
 <p>The string <code>'log'</code> causes the image to be stretched logarithmically.
 <code>'base'</code> is a linear stretch that fixes the value 0 to a 50% grey value.</p>
 <p>Examples:</p>
-<div class="m-code"><pre><span></span><span class="n">dipshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s">&#39;lin&#39;</span><span class="p">,</span><span class="nb">summer</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span><span class="w"></span>
-<span class="n">dipshow</span><span class="p">(</span><span class="n">a</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="p">],</span><span class="s">&#39;periodic&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s">&#39;lin&#39;</span><span class="p">,</span><span class="nb">summer</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+<span class="n">dipshow</span><span class="p">(</span><span class="n">a</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">180</span><span class="p">],</span><span class="s">&#39;periodic&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>If the input argument is a color image, it will be converted to RGB for
@@ -146,7 +146,7 @@ function (see <a href="sec_dum_functions.html#sec_dum_functions_dipfig">Creating
 registered, a new figure window is opened for the image. To overrule
 this behavior, it is possible to specify a figure handle in the
 parameter list of <code>dipshow</code>:</p>
-<div class="m-code"><pre><span></span><span class="n">dipshow</span><span class="p">(</span><span class="nb">handle</span><span class="p">,</span><span class="nb">image</span><span class="p">,</span><span class="s">&#39;lin&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipshow</span><span class="p">(</span><span class="nb">handle</span><span class="p">,</span><span class="nb">image</span><span class="p">,</span><span class="s">&#39;lin&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>Finally, an optional argument allows you to overrule the default setting
@@ -162,7 +162,7 @@ mapping. All menu items under the &ldquo;Mappings&rdquo; menu are equivalent to 
 call to <code>dipmapping</code>. In a single command, you can combine one setting
 for each of the four categories: range, colormap, complex-to-real
 mapping, the slicing direction and the global stretching for 3D images.</p>
-<div class="m-code"><pre><span></span><span class="n">dipmapping</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">range</span><span class="p">,</span><span class="n">colmap</span><span class="p">,</span><span class="n">torealstr</span><span class="p">,</span><span class="n">slicingstr</span><span class="p">,</span><span class="n">globalstr</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipmapping</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">range</span><span class="p">,</span><span class="n">colmap</span><span class="p">,</span><span class="n">torealstr</span><span class="p">,</span><span class="n">slicingstr</span><span class="p">,</span><span class="n">globalstr</span><span class="p">)</span>
 </pre></div>
 
 <p>changes the mapping settings for the image in the figure window with
@@ -171,7 +171,7 @@ order is irrelevant. <code>range</code> can be any value as described for <code>
 in <a href="sec_dum_functions.html#sec_dum_functions_dipshow">The <code>dipshow</code> function</a>: a two-value numeric array or a string.
 <code>colmap</code> can contain any of the strings described for <code>dipshow</code>, but not
 a colormap. To specify a custom colormap, use</p>
-<div class="m-code"><pre><span></span><span class="n">dipmapping</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;colormap&#39;</span><span class="p">,</span><span class="nb">summer</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipmapping</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;colormap&#39;</span><span class="p">,</span><span class="nb">summer</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
 </pre></div>
 
 <p><code>torealstr</code> can be one of <code>'abs'</code>, <code>'real'</code>, <code>'imag'</code> or <code>'phase'</code>.</p>
@@ -191,7 +191,7 @@ displayed with an aspect ratio of 1:1, each pixel occupying one screen
 pixel. An argument gives the zoom factor. For example, <code>200</code> would make
 the image twice as large on the screen, but with the 1-to-1 aspect
 ratio:</p>
-<div class="m-code"><pre><span></span><span class="n">diptruesize</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">diptruesize</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 
 <p><code>diptruesize('off')</code> causes the image to fill the figure window,
@@ -214,7 +214,7 @@ is possible to link a variable name with a figure handle, such that that
 variable is always displayed in that same window. If a variable is not
 linked to any window, a new one will be opened to display it. The
 command</p>
-<div class="m-code"><pre><span></span><span class="n">dipfig</span><span class="w"> </span><span class="s">a</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipfig</span><span class="w"> </span><span class="s">a</span>
 </pre></div>
 
 <p>opens a new figure window and links it to the variable named <code>a</code>.
@@ -223,8 +223,8 @@ be send to that window. If the window is closed, it will be opened again
 to display the variable. It is possible to link more than one variable
 to the same window, like in the next example (which uses the functional
 form):</p>
-<div class="m-code"><pre><span></span><span class="n">h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dipfig</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="n">dipfig</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dipfig</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">dipfig</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>Finally, there is a special variable name, <code>'other'</code>, that creates a
@@ -233,7 +233,7 @@ to have many windows linked to this special name, and they will be used
 alternately. Creating a window for <code>'other'</code> avoids the opening of new
 windows for &lsquo;unregistered&rsquo; variables.</p>
 <p>To remove the links, type</p>
-<div class="m-code"><pre><span></span><span class="n">dipfig</span><span class="w"> </span><span class="o">-</span><span class="n">unlink</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipfig</span><span class="w"> </span><span class="o">-</span><span class="n">unlink</span>
 </pre></div>
 
 <p>Unlinking only a specific variable is not implemented.</p>
@@ -248,21 +248,21 @@ combine numeric handles and variable names).</p>
 <p>All toolbox preferences are stored in memory, and are only accessible
 through the <code>dipsetpref</code> and <code>dipgetpref</code> functions. They are listed in
 <a href="sec_dum_customizing.html#sec_dum_customizing_dippref">Other settings</a>.</p>
-<div class="m-code"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dipgetpref</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dipgetpref</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">);</span>
 </pre></div>
 
 <p>retrieves the value of the named preference. Two special forms print all
 current preferences and all factory settings to the command window:</p>
-<div class="m-code"><pre><span></span><span class="n">dipgetpref</span><span class="w"></span>
-<span class="s">dipgetpref</span><span class="w"> </span><span class="s">factory</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipgetpref</span>
+<span class="s">dipgetpref</span><span class="w"> </span><span class="s">factory</span>
 </pre></div>
 
 <p>Setting a preference is similar:</p>
-<div class="m-code"><pre><span></span><span class="n">dipsetpref</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipsetpref</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 
 <p>Furthermore, it is possible to set many preferences at once:</p>
-<div class="m-code"><pre><span></span><span class="n">dipsetpref</span><span class="p">(</span><span class="s">&#39;name1&#39;</span><span class="p">,</span><span class="n">value1</span><span class="p">,</span><span class="s">&#39;name2&#39;</span><span class="p">,</span><span class="n">value2</span><span class="p">,</span><span class="s">&#39;name3&#39;</span><span class="p">,</span><span class="n">value3</span><span class="p">,</span><span class="k">...</span><span class="c">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipsetpref</span><span class="p">(</span><span class="s">&#39;name1&#39;</span><span class="p">,</span><span class="n">value1</span><span class="p">,</span><span class="s">&#39;name2&#39;</span><span class="p">,</span><span class="n">value2</span><span class="p">,</span><span class="s">&#39;name3&#39;</span><span class="p">,</span><span class="n">value3</span><span class="p">,</span><span class="k">...</span><span class="c">)</span>
 </pre></div>
 
 <h2 id="sec_dum_functions_dipcrop">Interactive tools: <code>dipgetcoords</code>, <code>diproi</code>, et al.</h2>
@@ -284,7 +284,7 @@ until the right mouse button is clicked over the image.</p>
 <p>The largest part of the toolbox is made out of the image processing
 functions. Most of them are listed in the menu system of the GUI, and
 all are listed by typing</p>
-<div class="m-code"><pre><span></span><span class="nb">help</span><span class="w"> </span><span class="n">DIPimage</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">help</span><span class="w"> </span><span class="n">DIPimage</span>
 </pre></div>
 
 <p>The usage of each function can be retrieved through the <code>help</code> command

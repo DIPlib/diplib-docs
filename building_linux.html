@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -78,48 +78,48 @@ instructions for Ubuntu.</p>
 window. If you&rsquo;re using Linux we&rsquo;ll assume you know where to find this.</p>
 <h2 id="linux_init">Installing build tools and dependencies on Ubuntu</h2>
 <p>Type the following command in your shell:</p>
-<div class="m-code"><pre><span></span>sudo apt install build-essential cmake git
+<div class="m-code"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>git
 </pre></div>
 
 <p>This will install all the required tools. Depending on your version of Ubuntu, you might
 have a compiler that is too old to correctly build <em>DIPlib</em>. To see which version
 of <em>GCC</em> you have, type:</p>
-<div class="m-code"><pre><span></span>g++ --version
+<div class="m-code"><pre><span></span>g++<span class="w"> </span>--version
 </pre></div>
 
 <p>You want to see at least version 5.4, but later versions would be better. If your
 version of <em>GCC</em> is older, you will need to manually install a newer version.</p>
 <p>If you want to compile <em>DIPviewer</em>, you need to install <code>freeglut</code> as well:</p>
-<div class="m-code"><pre><span></span>sudo apt install freeglut3-dev
+<div class="m-code"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>freeglut3-dev
 </pre></div>
 
 <p>To compile the documentation yourself (note that the compiled documentation can be found
 online), you need <em>dox++</em>. See <a href="building_documentation.html">Building the <em>DIPlib</em> documentation</a> for details.</p>
 <p>Finally, even if the <code>python3</code> program is already installed, you might need to
 install the <em>Python 3</em> header files and static library:</p>
-<div class="m-code"><pre><span></span>sudo apt install python3-dev
+<div class="m-code"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-dev
 </pre></div>
 
 <h2 id="linux_git">Cloning the repository</h2>
 <p>Next, get the source repository from <em>GitHub</em>:</p>
-<div class="m-code"><pre><span></span>mkdir ~/src
-<span class="nb">cd</span> ~/src
-git clone https://github.com/DIPlib/diplib.git
+<div class="m-code"><pre><span></span>mkdir<span class="w"> </span>~/src
+<span class="nb">cd</span><span class="w"> </span>~/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DIPlib/diplib.git
 </pre></div>
 
 <p>This creates a directory <code>src/diplib</code> in your home directory.</p>
 <h2 id="linux_build">Building</h2>
 <p>To build, run <code>cmake</code> and <code>make</code> from a build directory:</p>
-<div class="m-code"><pre><span></span>mkdir ~/src/diplib/target
-<span class="nb">cd</span> ~/src/diplib/target
-cmake ..
-make -j check
-make -j install
+<div class="m-code"><pre><span></span>mkdir<span class="w"> </span>~/src/diplib/target
+<span class="nb">cd</span><span class="w"> </span>~/src/diplib/target
+cmake<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="w"> </span>check
+make<span class="w"> </span>-j<span class="w"> </span>install
 </pre></div>
 
 <p>This will install to <code>/usr/local</code>. If you prefer to install elsewhere, change the
 <code>CMAKE_INSTALL_PREFIX</code>. For example:</p>
-<div class="m-code"><pre><span></span>cmake .. -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>
 </pre></div>
 
 <p>This will install <em>DIPlib</em>, <em>DIPviewer</em>, <em>DIPjavaio</em>, <em>DIPimage</em> and the documentation
@@ -129,7 +129,7 @@ and that your chosen dependencies were found. See <a href="building_cmake.html#c
 <em>CMake</em> options to manually specify paths and configure your build.</p>
 <p><em>PyDIP</em> is installed separately through <code>pip</code>. Once the <code>install</code> target has finished building
 and installing, run</p>
-<div class="m-code"><pre><span></span>make pip_install
+<div class="m-code"><pre><span></span>make<span class="w"> </span>pip_install
 </pre></div>
 
 <p>Note that it is necessary to install the <em>DIPlib</em> libraries before running the <code>pip_install</code> target.</p>
@@ -140,6 +140,8 @@ computer, and possibly not work at all.</p>
 <p>If you build a static version of the <em>DIPlib</em> library, <em>DIPimage</em> and <em>PyDIP</em> will not work
 correctly.</p>
 <h2 id="linux_bioformats">Enabling <em>Bio-Formats</em></h2>
+<p>If building only <em>DIPimage</em> (the <em>MATLAB</em> toolbox), skip this section and instead follow the directions
+you can read when you do <code>help readim</code> in <em>MATLAB</em> after installation.</p>
 <p>First, make sure you have the <em>Java 8 SDK</em> (<em>JDK 8</em>) installed, you can obtain it from the
 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle website</a> for commercial
 purposes, or from <a href="https://jdk.java.net">jdk.java.net</a> for an open-source build. Next, download
@@ -152,7 +154,7 @@ These two should be listed together, but the <em>JNI</em> output is only produce
 <code>CMakeCache.txt</code> file to run <code>cmake</code> fresh and see all its output.</p>
 <p>If the version of <em>JNI</em> found is not the one in the <em>JDK</em>, or if it is not found at all, add <code>-DJAVA_HOME=&lt;path&gt;</code>
 to the <code>cmake</code> command line:</p>
-<div class="m-code"><pre><span></span>cmake .. -DBIOFORMATS_JAR<span class="o">=</span><span class="nv">$HOME</span>/java/bioformats_package.jar -DJAVA_HOME<span class="o">=</span>/opt/jvm/java-8-oracle
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>..<span class="w"> </span>-DBIOFORMATS_JAR<span class="o">=</span><span class="nv">$HOME</span>/java/bioformats_package.jar<span class="w"> </span>-DJAVA_HOME<span class="o">=</span>/opt/jvm/java-8-oracle
 </pre></div>
 
 <p>Note that these arguments to <code>cmake</code> must be combined with the arguments mentioned earlier, into a single,
@@ -160,18 +162,18 @@ long command line argument.</p>
 <h2 id="linux_dipimage">Using <em>DIPimage</em></h2>
 <p>Once the <code>install</code> target has finished building and installing the toolbox, start
 <em>MATLAB</em>. Type the following command:</p>
-<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/Users/&lt;name&gt;/dip/share/DIPimage&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/Users/&lt;name&gt;/dip/share/DIPimage&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>This will make the toolbox available (replace <code>/Users/&lt;name&gt;/dip</code> with the
 actual path you installed to).</p>
 <p>To get started using <em>DIPimage</em>, read the <a href="dipimage_user_manual.html"><em>DIPimage</em> User Manual</a>,
 and look through the help, starting at</p>
-<div class="m-code"><pre><span></span><span class="nb">help</span><span class="w"> </span><span class="n">DIPimage</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">help</span><span class="w"> </span><span class="n">DIPimage</span>
 </pre></div>
 
 <p>Or start the GUI:</p>
-<div class="m-code"><pre><span></span><span class="n">dipimage</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipimage</span>
 </pre></div>
 
 <p>If you see error messages such as</p>
@@ -192,7 +194,7 @@ compiler versions are compatible with each version of <em>MATLAB</em>. This list
 that version of <em>MATLAB</em>, and a few older releases. That is, their solution to this issue is to tell customers to use
 only those specific versions of <em>GCC</em> to build MEX-files. If you do want to follow <em>MATLAB</em>&lsquo;s recommendation, then
 install one of the supported compilers, and add tell CMake about them using the following command:</p>
-<div class="m-code"><pre><span></span>cmake . -DCMAKE_C_COMPILER<span class="o">=</span>gcc-9 -DCMAKE_CXX_COMPILER<span class="o">=</span>g++-9
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>.<span class="w"> </span>-DCMAKE_C_COMPILER<span class="o">=</span>gcc-9<span class="w"> </span>-DCMAKE_CXX_COMPILER<span class="o">=</span>g++-9
 </pre></div>
 
 <p>(replacing <code>gcc-9</code> and <code>g++-9</code> with the actual names of the compiler installed). Then rebuild the whole project.</p>

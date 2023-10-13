@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -315,7 +315,7 @@
 the mean pixel value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the mean projection along the processing dimensions. To get the mean value of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Mean</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Mean</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>If <code>mode</code> is <code>"directional"</code>, the data in <code>in</code> are assumed to be angles, and directional statistics are used.
@@ -337,7 +337,7 @@ For directional statistics, the input must be floating point.</p>
 the sum of pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the sum projection along the processing dimensions. To get the sum of all pixel values in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Sum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Sum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>If <code>mask</code> is forged, only those pixels selected by the mask image are used.</p>
@@ -356,7 +356,7 @@ image:</p>
 the product of pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the product projection along the processing dimensions. To get the product of all pixel values in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">GeometricMean</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">GeometricMean</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the geometric mean is computed for each element independently.</p>
@@ -376,7 +376,7 @@ image:</p>
 the product of pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the product projection along the processing dimensions. To get the product of all pixel values in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Product</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Product</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the product is computed for each element independently.</p>
@@ -396,7 +396,7 @@ image:</p>
 the mean absolute pixel value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the mean absolute projection along the processing dimensions. To get the mean absolute value of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MeanAbs</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MeanAbs</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>If <code>mask</code> is forged, only those pixels selected by the mask image are used.</p>
@@ -415,7 +415,7 @@ image:</p>
 the sum absolute pixel value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the sum absolute projection along the processing dimensions. To get the sum absolute value of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">SumAbs</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">SumAbs</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>If <code>mask</code> is forged, only those pixels selected by the mask image are used.</p>
@@ -434,7 +434,7 @@ image:</p>
 the mean square pixel value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the mean square projection along the processing dimensions. To get the mean square value of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MeanSquare</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MeanSquare</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently.</p>
@@ -454,7 +454,7 @@ image:</p>
 the sum square pixel value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the sum square projection along the processing dimensions. To get the sum square value of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">SumSquare</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">SumSquare</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently.</p>
@@ -474,7 +474,7 @@ image:</p>
 the mean square pixel value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the mean square projection along the processing dimensions. To get the mean square modulus value of all
 pixels in the image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MeanSquareModulus</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MeanSquareModulus</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently. If <code>img</code> is complex, <code>out</code> is of the
@@ -495,7 +495,7 @@ corresponding floating-point type. For other input data types, this function is 
 the sum square pixel value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the sum square projection along the processing dimensions. To get the sum square modulus value of all
 pixels in the image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">SumSquareModulus</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">SumSquareModulus</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently. If <code>img</code> is complex, <code>out</code> is of the
@@ -517,7 +517,7 @@ corresponding floating-point type. For other input data types, this function is 
 the variance of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the variance projection along the processing dimensions. To get the variance of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Variance</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Variance</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>If <code>mode</code> is <code>"fast"</code>, a simplistic method to compute variance is used; this method can result in catastrophic
@@ -545,7 +545,7 @@ directional statistics it must be floating point.</p>
 the standard deviation of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the standard deviation projection along the processing dimensions. To get the standard deviation of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">StandardDeviation</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">StandardDeviation</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>If <code>mode</code> is <code>"fast"</code>, a simplistic method to compute standard deviation is used; this method can result in
@@ -572,7 +572,7 @@ directional statistics it must be floating point.</p>
 the maximum of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the maximum projection along the processing dimensions. To get the maximum of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Maximum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Maximum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently. Input must be not complex.</p>
@@ -597,7 +597,7 @@ image:</p>
 the minimum of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the minimum projection along the processing dimensions. To get the minimum of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Minimum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Minimum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently. Input must be not complex.</p>
@@ -622,7 +622,7 @@ image:</p>
 the maximum of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the maximum projection along the processing dimensions. To get the maximum of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Maximum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Maximum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently.</p>
@@ -642,7 +642,7 @@ image:</p>
 the minimum of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the minimum projection along the processing dimensions. To get the minimum of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Minimum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Minimum</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently.</p>
@@ -663,7 +663,7 @@ image:</p>
 the <code>percentile</code> percentile of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the percentile projection along the processing dimensions. To get the 30<sup>th</sup> percentile of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Percentile</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="mf">30.0</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Percentile</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="mf">30.0</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently. Input must be not complex.</p>
@@ -687,7 +687,7 @@ image:</p>
 the median (50<sup>th</sup> percentile) of the pixel values. Otherwise, the output has as many dimensions as elements
 in <code>process</code> that are <code>false</code>, and equals the median projection along the processing dimensions. To get the
 median of all pixels in the image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Median</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Median</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently. Input must be not complex.</p>
@@ -709,14 +709,14 @@ median of all pixels in the image:</p>
             <p>Computes the median absolute deviation (MAD)</p>
 <p>The MAD is a measure of statistical dispersion. It can be used as a robust estimate of the standard deviation.
 For normally distributed data, the standard deviation equals <code>1.4826 * MAD</code>. It is computed as if by</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Median</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Abs</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Median</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">)));</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Median</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Abs</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Median</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">)));</span>
 </pre></div>
 
 <p>If <code>process</code> is an empty array, all dimensions are processed, and a 0D output image is generated containing
 the MAD of the pixel values. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the MAD projection along the processing dimensions. To get the MAD of all pixels in the
 image:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MedianAbsoluteDeviation</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">MedianAbsoluteDeviation</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently. Input must be not complex.</p>
@@ -740,7 +740,7 @@ image:</p>
 a boolean value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the &ldquo;all&rdquo; projection along the processing dimensions. To test if all the pixels in the image are
 non-zero:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">All</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">All</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently.</p>
@@ -759,7 +759,7 @@ non-zero:</p>
 a boolean value. Otherwise, the output has as many dimensions as elements in <code>process</code> that are <code>false</code>,
 and equals the &ldquo;any&rdquo; projection along the processing dimensions. To test if any pixel in the image is
 non-zero:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Any</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Any</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="p">).</span><span class="n">As</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">&gt;</span><span class="p">();</span>
 </pre></div>
 
 <p>For tensor images, the result is computed for each element independently.</p>

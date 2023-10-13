@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -108,6 +108,9 @@ version of <em>GLFW</em>. Extract the ZIP file and note the location.</p>
 <p>Download <a href="https://www.openmicroscopy.org/bio-formats/downloads">the <em>Bio-Formats</em> library</a>.
 Put it somewhere sensible and note the location. The same location (as well as the
 library installation path) will be used to find it during execution.</p>
+<p>If building only <em>DIPimage</em> (the <em>MATLAB</em> toolbox), you don&rsquo;t need to download <em>Bio-Formats</em>
+before building; instead follow the directions you can read when you do <code>help readim</code> in <em>MATLAB</em>
+after installation.</p>
 </li>
 </ul>
 <aside class="m-note m-info">
@@ -147,13 +150,15 @@ directory for the first parameter, and &ldquo;lib-vc2015\glfw3.lib&rdquo; for th
 </li>
 <li>
 <p>If <code>DIP_BUILD_DIPVIEWER_JAVA</code> is not on the list but <code>DIP_BUILD_DIPVIEWER</code> is, you
-don&rsquo;t have <em>MATLAB</em> installed, you are building 32-bit binaries or the <em>Java SDK</em> could not
+don&rsquo;t have <em>MATLAB</em> installed, you are building 32-bit binaries, or the <em>Java SDK</em> could not
 be found. This is only necessary if you want to use the <code>viewslice</code> command from <em>DIPimage</em>.</p>
 </li>
 <li>
 <p>If <code>BIOFORMATS_JAR</code> is not on the list, the <em>Java SDK</em> could not be found. If it is,
 point it to the &ldquo;bioformats_package.jar&rdquo; you downloaded earlier. This is only necessary if
-you want to import image formats that are not directly supported by <em>DIPlib</em>.</p>
+you want to import image formats that are not directly supported by <em>DIPlib</em>, and only
+for <em>Python</em> and C++ (<em>MATLAB</em> uses the <em>Bio-Formats</em> package differently, see <code>help readim</code>
+after installation).</p>
 </li>
 <li>
 <p>If using a version of <em>MSVC</em> older than the 2019 edition, set both <code>DIP_ENABLE_UNICODE</code>
@@ -178,7 +183,7 @@ To additionally install <em>PyDIP</em>, use the <code>pip_install</code> target 
 to run the <code>INSTALL</code> target first).</p>
 <p>In the tool bar, make sure that &ldquo;Release&rdquo; and &ldquo;x64&rdquo; are selected (or x86 if you want to
 build 32-bit binaries). Right-click on <code>INSTALL</code> and select &ldquo;Build&rdquo;.</p>
-<p>If everything works correctly, you will have:</p>
+<p>If everything works correctly, you will have (depending on which options were enabled during configuration):</p>
 <ul>
 <li>
 <p><code>C:\Users\&lt;name&gt;\DIPlib\bin</code>: <code>DIP.dll</code>, as well as <code>DIPviewer.dll</code>,
@@ -201,19 +206,19 @@ building your own C++ programs using <em>DIPlib</em>.</p>
 <h2 id="windows_dipimage">Using <em>DIPimage</em></h2>
 <p>Once the <code>INSTALL</code> target has finished building and installing the toolbox, start
 <em>MATLAB</em>. Type the following commands:</p>
-<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;C:\Users\&lt;name&gt;\DIPlib\share\DIPimage&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="nb">setenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">,[</span><span class="s">&#39;C:\Users\&lt;name&gt;\DIPlib\bin&#39;</span><span class="p">,</span><span class="s">&#39;;&#39;</span><span class="p">,</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">)]);</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;C:\Users\&lt;name&gt;\DIPlib\share\DIPimage&#39;</span><span class="p">)</span>
+<span class="nb">setenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">,[</span><span class="s">&#39;C:\Users\&lt;name&gt;\DIPlib\bin&#39;</span><span class="p">,</span><span class="s">&#39;;&#39;</span><span class="p">,</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">)]);</span>
 </pre></div>
 
 <p>This will make the toolbox available (replace <code>C:\Users\&lt;name&gt;\DIPlib</code> with the
 actual path you installed to).</p>
 <p>To get started using <em>DIPimage</em>, read the <a href="dipimage_user_manual.html"><em>DIPimage</em> User Manual</a>,
 and look through the help, starting at</p>
-<div class="m-code"><pre><span></span><span class="nb">help</span><span class="w"> </span><span class="n">DIPimage</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">help</span><span class="w"> </span><span class="n">DIPimage</span>
 </pre></div>
 
 <p>Or start the GUI:</p>
-<div class="m-code"><pre><span></span><span class="n">dipimage</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">dipimage</span>
 </pre></div>
 
 <h2 id="windows_pydip">Using <em>PyDIP</em></h2>

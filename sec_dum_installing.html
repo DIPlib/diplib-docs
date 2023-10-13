@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -96,7 +96,7 @@ every release, so the binaries available are rather old.</p>
 <p>To install <em>DIPimage</em>, simply run the installation program and follow the
 directions in it. The tool will tell you to start <em>MATLAB</em> and type the
 command</p>
-<div class="m-code"><pre><span></span><span class="nb">run</span><span class="p">(</span><span class="s">&#39;C:\Program Files\dip\dipstart.m&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">run</span><span class="p">(</span><span class="s">&#39;C:\Program Files\dip\dipstart.m&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>where <code>C:\Program Files\dip\</code> is the directory to which you installed
@@ -114,8 +114,8 @@ build <em>DIPimage</em>, including how to obtain the necessary tools and
 dependencies. You can also
 <a href="https://github.com/DIPlib/diplib/blob/master/INSTALL_Windows.md">read the instructions online</a>.</p>
 <p>Once all the binaries are compiled, start <em>MATLAB</em> and type:</p>
-<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;C:\dip\share\DIPimage&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="nb">setenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">,[</span><span class="s">&#39;C:\dip\bin&#39;</span><span class="p">,</span><span class="s">&#39;;&#39;</span><span class="p">,</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">)]);</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;C:\dip\share\DIPimage&#39;</span><span class="p">)</span>
+<span class="nb">setenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">,[</span><span class="s">&#39;C:\dip\bin&#39;</span><span class="p">,</span><span class="s">&#39;;&#39;</span><span class="p">,</span><span class="nb">getenv</span><span class="p">(</span><span class="s">&#39;PATH&#39;</span><span class="p">)]);</span>
 </pre></div>
 
 <p>assuming that <code>C:\dip\</code> was the root directory where the binaries were installed
@@ -135,16 +135,16 @@ compiler (GCC and Clang are available on all platforms), and CMake.</p>
 that gives detailed directions on compiling, including how to get the required build tools
 and optional dependencies. In principle it should suffice to open a terminal and type
 the following commands:</p>
-<div class="m-code"><pre><span></span>git clone https://github.com/DIPlib/diplib.git
-mkdir diplib/target
-<span class="nb">cd</span> diplib/target
-cmake ..
-make -j install
+<div class="m-code"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DIPlib/diplib.git
+mkdir<span class="w"> </span>diplib/target
+<span class="nb">cd</span><span class="w"> </span>diplib/target
+cmake<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="w"> </span>install
 </pre></div>
 
 <p>If you wish to install <em>DIPimage</em> in your home directory instead of <code>/usr</code>,
 the <code>cmake</code> command could be:</p>
-<div class="m-code"><pre><span></span>cmake .. -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>
 </pre></div>
 
 <p>Note that you need to have <em>MATLAB</em> installed on the build machine to build <em>DIPimage</em>.
@@ -152,11 +152,11 @@ If CMake cannot find your <em>MATLAB</em> installation, add <code>-DMatlab_ROOT_
 to the CMake command line. You can get the <em>MATLAB</em> root directory by typing <code>matlabroot</code>
 at the <em>MATLAB</em> command prompt.</p>
 <p>Once all the binaries are compiled, start <em>MATLAB</em> and type:</p>
-<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/usr/local/share/DIPimage&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/usr/local/share/DIPimage&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>or:</p>
-<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/home/uname/share/DIPimage&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/home/uname/share/DIPimage&#39;</span><span class="p">)</span>
 </pre></div>
 
 <p>depending on where <em>DIPimage</em> was installed to.</p>

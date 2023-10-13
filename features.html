@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -54,13 +54,14 @@
               <a href="#size_features">Size features</a>
               <ul>
                 <li><a href="#size_features_Size">Size</a></li>
-                <li><a href="#size_features_CartesianBox">CartesianBox</a></li>
-                <li><a href="#size_features_Minimum">Minimum</a></li>
-                <li><a href="#size_features_Maximum">Maximum</a></li>
+                <li><a href="#size_features_SolidArea">SolidArea</a></li>
                 <li><a href="#size_features_Perimeter">Perimeter</a></li>
                 <li><a href="#size_features_SurfaceArea">SurfaceArea</a></li>
+                <li><a href="#size_features_Minimum">Minimum</a></li>
+                <li><a href="#size_features_Maximum">Maximum</a></li>
+                <li><a href="#size_features_CartesianBox">CartesianBox</a></li>
                 <li><a href="#size_features_Feret">Feret</a></li>
-                <li><a href="#size_features_SolidArea">SolidArea</a></li>
+                <li><a href="#shape_features_Radius">Radius</a></li>
                 <li><a href="#size_features_ConvexArea">ConvexArea</a></li>
                 <li><a href="#size_features_ConvexPerimeter">ConvexPerimeter</a></li>
               </ul>
@@ -69,7 +70,6 @@
               <a href="#shape_features">Shape features</a>
               <ul>
                 <li><a href="#shape_features_AspectRatioFeret">AspectRatioFeret</a></li>
-                <li><a href="#shape_features_Radius">Radius</a></li>
                 <li><a href="#shape_features_P2A">P2A</a></li>
                 <li><a href="#shape_features_Roundness">Roundness</a></li>
                 <li><a href="#shape_features_Circularity">Circularity</a></li>
@@ -137,19 +137,13 @@ it is not possible to use pixel units (e.g. &ldquo;1.0 px x 1.2 px&rdquo;).</p>
 of pixels is multiplied by the area of each pixel to give an unbiased estimate of the
 object&rsquo;s area (2D), volume (3D), or hyper-volume (nD).</p>
 <p>This value is reported in physical units, anisotropic pixels are taken into account.</p>
-<h3 id="size_features_CartesianBox">CartesianBox</h3>
-<p>The sizes of the smallest box around the object that is aligned with the grid axes.
-There is one value per image dimension. The size is in pixels or in physical units if known.</p>
-<h3 id="size_features_Minimum">Minimum</h3>
-<p>The smallest index along each dimension to a pixel within the object. This
-corresponds to the top-left corner of the cartesian bounding box. There is one value per
-image dimension. If the image has a known pixel size, the values represent the distances
-to the lower image edge along each dimension.</p>
-<h3 id="size_features_Maximum">Maximum</h3>
-<p>The largest index along each dimension to a pixel within the object. This
-corresponds to the bottom-right corner of the cartesian bounding box. There is one value per
-image dimension. If the image has a known pixel size, the values represent the distances
-to the lower image edge along each dimension.</p>
+<h3 id="size_features_SolidArea">SolidArea</h3>
+<p>Computes the area of the object ignoring any holes. It uses the object&rsquo;s chain code
+and the <a href="dip-ChainCode.html#dip-ChainCode-Area-C"><code>dip::ChainCode::Area</code></a> method.</p>
+<p>Note that the chain code measures work only for 2D images, and expect objects to be a single
+connected component. If multiple connected components have the same label, only the first
+connected component found for that label will be measured.</p>
+<p>This value is reported in physical units, anisotropic pixels are taken into account.</p>
 <h3 id="size_features_Perimeter">Perimeter</h3>
 <p>Computes the length of the object perimeter using the object&rsquo;s chain code, using
 <a href="dip-ChainCode.html#dip-ChainCode-Length-dip-String-CL-C"><code>dip::ChainCode::Length</code></a>. By default, if the object touches the image edge, only the portion
@@ -172,6 +166,19 @@ and will include all surfaces in the measurement, including those of holes.</p>
 <li>J.C. Mullikin and P.W. Verbeek, &ldquo;Surface area estimation of digitized planes,&rdquo; Bioimaging 1(1):6-16, 1993.</li>
 </ul>
 </aside>
+<h3 id="size_features_Minimum">Minimum</h3>
+<p>The smallest index along each dimension to a pixel within the object. This
+corresponds to the top-left corner of the cartesian bounding box. There is one value per
+image dimension. If the image has a known pixel size, the values represent the distances
+to the lower image edge along each dimension.</p>
+<h3 id="size_features_Maximum">Maximum</h3>
+<p>The largest index along each dimension to a pixel within the object. This
+corresponds to the bottom-right corner of the cartesian bounding box. There is one value per
+image dimension. If the image has a known pixel size, the values represent the distances
+to the lower image edge along each dimension.</p>
+<h3 id="size_features_CartesianBox">CartesianBox</h3>
+<p>The sizes of the smallest box around the object that is aligned with the grid axes.
+There is one value per image dimension. The size is in pixels or in physical units if known.</p>
 <h3 id="size_features_Feret">Feret</h3>
 <p>Computes the maximum and minimum object diameters from the object&rsquo;s convex hull, using
 <a href="dip-ConvexHull.html#dip-ConvexHull-Feret-C"><code>dip::ConvexHull::Feret</code></a>. The convex hull is computed from the chain code using <a href="dip-ChainCode.html#dip-ChainCode-ConvexHull-C"><code>dip::ChainCode::ConvexHull</code></a>.</p>
@@ -191,31 +198,6 @@ connected component found for that label will be measured.</p>
 <p>The first three values are reported in physical units, but only for isotropic (square) pixels
 (otherwise the pixel sizes are ignored). The last two values are reported in radian, assuming
 isotropic pixels.</p>
-<h3 id="size_features_SolidArea">SolidArea</h3>
-<p>Computes the area of the object ignoring any holes. It uses the object&rsquo;s chain code
-and the <a href="dip-ChainCode.html#dip-ChainCode-Area-C"><code>dip::ChainCode::Area</code></a> method.</p>
-<p>Note that the chain code measures work only for 2D images, and expect objects to be a single
-connected component. If multiple connected components have the same label, only the first
-connected component found for that label will be measured.</p>
-<p>This value is reported in physical units, anisotropic pixels are taken into account.</p>
-<h3 id="size_features_ConvexArea">ConvexArea</h3>
-<p>The area of the convex hull of the object. The convex hull is computed from the chain code
-using <a href="dip-ChainCode.html#dip-ChainCode-ConvexHull-C"><code>dip::ChainCode::ConvexHull</code></a>.</p>
-<p>Note that the chain code measures work only for 2D images, and expect objects to be a single
-connected component. If multiple connected components have the same label, only the first
-connected component found for that label will be measured.</p>
-<p>This value is reported in physical units, anisotropic pixels are taken into account.</p>
-<h3 id="size_features_ConvexPerimeter">ConvexPerimeter</h3>
-<p>The perimeter of the convex hull. The convex hull is computed from the chain code.</p>
-<p>Note that the chain code measures work only for 2D images, and expect objects to be a single
-connected component. If multiple connected components have the same label, only the first
-connected component found for that label will be measured.</p>
-<p>This value is reported in physical units, but only for isotropic (square) pixels. For
-anisotropic pixels, the length is reported in pixels, ignoring pixel sizes.</p>
-<h2 id="shape_features">Shape features</h2>
-<h3 id="shape_features_AspectRatioFeret">AspectRatioFeret</h3>
-<p>The ratio <code>PerpMin</code>/<code>Min</code>, two of the values returned by the <a href="features.html#size_features_Feret">Feret</a> feature.</p>
-<p>This feature ignores pixel sizes, isotropic pixels are assumed.</p>
 <h3 id="shape_features_Radius">Radius</h3>
 <p>Statistics on the radius of the object, computed from the chain code using
 <a href="dip-ChainCode.html#dip-ChainCode-Polygon-C"><code>dip::ChainCode::Polygon</code></a> and <a href="dip-Polygon.html#dip-Polygon-RadiusStatistics-C"><code>dip::Polygon::RadiusStatistics</code></a>.</p>
@@ -234,6 +216,24 @@ distances it computes four values:</p>
 <p>Note that the centroid does not necessarily lie within the object.</p>
 <p>These values are reported in physical units, but only for isotropic (square) pixels. For
 anisotropic pixels, lengths are reported in pixels, ignoring pixel sizes.</p>
+<h3 id="size_features_ConvexArea">ConvexArea</h3>
+<p>The area of the convex hull of the object. The convex hull is computed from the chain code
+using <a href="dip-ChainCode.html#dip-ChainCode-ConvexHull-C"><code>dip::ChainCode::ConvexHull</code></a>.</p>
+<p>Note that the chain code measures work only for 2D images, and expect objects to be a single
+connected component. If multiple connected components have the same label, only the first
+connected component found for that label will be measured.</p>
+<p>This value is reported in physical units, anisotropic pixels are taken into account.</p>
+<h3 id="size_features_ConvexPerimeter">ConvexPerimeter</h3>
+<p>The perimeter of the convex hull. The convex hull is computed from the chain code.</p>
+<p>Note that the chain code measures work only for 2D images, and expect objects to be a single
+connected component. If multiple connected components have the same label, only the first
+connected component found for that label will be measured.</p>
+<p>This value is reported in physical units, but only for isotropic (square) pixels. For
+anisotropic pixels, the length is reported in pixels, ignoring pixel sizes.</p>
+<h2 id="shape_features">Shape features</h2>
+<h3 id="shape_features_AspectRatioFeret">AspectRatioFeret</h3>
+<p>The ratio <code>PerpMin</code>/<code>Min</code>, two of the values returned by the <a href="features.html#size_features_Feret">Feret</a> feature.</p>
+<p>This feature ignores pixel sizes, isotropic pixels are assumed.</p>
 <h3 id="shape_features_P2A">P2A</h3>
 <p>Computes:</p>
 <ul>

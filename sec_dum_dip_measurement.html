@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -72,14 +72,14 @@ object in the image, and the returned value is an object of type
 <p>The dot operator is used to extract the values corresponding to a single
 measurement. The array returned is of type <code>double</code>.</p>
 <p>For example,</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">(</span><span class="mi">11</span><span class="p">:</span><span class="mi">15</span><span class="p">).</span><span class="n">Size</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">(</span><span class="mi">11</span><span class="p">:</span><span class="mi">15</span><span class="p">).</span><span class="n">Size</span>
 </pre></div>
 
 <p>will return a <code>double</code> array with five elements, being the sizes for
 objects number 11 through 15. Note that element 11 doesn&rsquo;t need to be
 placed 11th in the list of measurements. If only objects starting at 10
 were measured, the above example would be equivalent to</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 
 <p>since <code>msr.Size</code> returns a <code>double</code> array, whose second element would be
@@ -119,7 +119,7 @@ don&rsquo;t match, an error is generated.</p>
 <p>In some cases, objects in different images have the same labels. These
 need to be changed before concatenation is possible. This is done by the
 following syntax:</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">51</span><span class="p">:</span><span class="mi">73</span><span class="p">;</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">51</span><span class="p">:</span><span class="mi">73</span><span class="p">;</span>
 </pre></div>
 
 <p>The length of the array assigned to the IDs must have the same number of
@@ -129,15 +129,15 @@ of the same objects. For example, one might measure the average grey
 value on all three channels of an RGB image. To join these measurements
 into a single object, it is possible to add a prefix to the names of the
 measurements:</p>
-<div class="m-code"><pre><span></span><span class="n">msr1</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;red_&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="n">msr2</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;green_&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="n">msr3</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;blue_&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="n">msr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">msr1</span><span class="p">,</span><span class="n">msr2</span><span class="p">,</span><span class="n">msr3</span><span class="p">];</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">msr1</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;red_&#39;</span><span class="p">;</span>
+<span class="n">msr2</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;green_&#39;</span><span class="p">;</span>
+<span class="n">msr3</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;blue_&#39;</span><span class="p">;</span>
+<span class="n">msr</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">msr1</span><span class="p">,</span><span class="n">msr2</span><span class="p">,</span><span class="n">msr3</span><span class="p">];</span>
 </pre></div>
 
 <p>Note that this prefix cannot be changed, only added to. For example,</p>
-<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="n">msr</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;B&#39;</span><span class="p">;</span><span class="w"></span>
+<div class="m-code"><pre><span></span><span class="n">msr</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;A&#39;</span><span class="p">;</span>
+<span class="n">msr</span><span class="p">.</span><span class="n">prefix</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;B&#39;</span><span class="p">;</span>
 </pre></div>
 
 <p>causes the measurements in <code>msr</code> to have names like <code>'BASize'</code>.</p>

@@ -15,7 +15,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.0" class="m-thin">version 3.4.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -67,17 +67,17 @@ the documentation on Windows, if you manage to get that done, please write down 
 instructions below.</p>
 <h2 id="apidoc_dependencies">Installing the dependencies</h2>
 <p><em>Python 3</em> can be installed on Ubuntu with</p>
-<div class="m-code"><pre><span></span>sudo apt install python3
+<div class="m-code"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3
 </pre></div>
 
 <p>and on macOS with</p>
-<div class="m-code"><pre><span></span>brew install python3 python3-pip
+<div class="m-code"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
 </pre></div>
 
 <p>We have built the documentation with <em>Python</em> 3.6 and 3.9, it is unknown if versions older
 than 3.6 will work.</p>
 <p>Once <em>Python</em> is installed, install the required packages:</p>
-<div class="m-code"><pre><span></span>pip3 install clang jinja2 markdown markdown-headdown mdx_math_svg Pygments
+<div class="m-code"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>clang<span class="w"> </span>jinja2<span class="w"> </span>markdown<span class="w"> </span>markdown-headdown<span class="w"> </span>mdx_math_svg<span class="w"> </span>Pygments
 </pre></div>
 
 <p>Finally, install <em>LaTeX</em>. Ubuntu has a <em>LaTeX</em> package, but we recommend <a href="https://tug.org/texlive/"><em>TeX Live</em></a>.
@@ -94,14 +94,14 @@ and together take up nearly half the downloaded bytes. Do turn on the option &ld
 directories&rdquo;, which is off by default. If you don&rsquo;t want to install the &ldquo;full scheme&rdquo; (which installs
 all packages), you might have to separately install a few of the packages needed by the tool that
 renders equations using <em>LaTeX</em>:</p>
-<div class="m-code"><pre><span></span>tlmgr install standalone preview ucs xkeyval currfile filehook newtx fontaxes xstring
+<div class="m-code"><pre><span></span>tlmgr<span class="w"> </span>install<span class="w"> </span>standalone<span class="w"> </span>preview<span class="w"> </span>ucs<span class="w"> </span>xkeyval<span class="w"> </span>currfile<span class="w"> </span>filehook<span class="w"> </span>newtx<span class="w"> </span>fontaxes<span class="w"> </span>xstring
 </pre></div>
 
 <h2 id="apidoc_doxpp">Installing <em>dox++</em></h2>
 <p>This tool can be installed anywhere. For the purposes of these instructions, we will put it into <code>/opt/</code>,
 but you can put it in your home directory as well. All that is needed is cloning the repository:</p>
-<div class="m-code"><pre><span></span><span class="nb">cd</span> /opt
-git clone https://github.com/crisluengo/doxpp.git
+<div class="m-code"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/opt
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/crisluengo/doxpp.git
 </pre></div>
 
 <p>This will create the directory <code>/opt/doxpp/</code>, containing the two executables <code>dox++parse</code> and <code>dox++html</code>.
@@ -109,7 +109,7 @@ We will need to tell <em>CMake</em> where to find these tools.</p>
 <h2 id="apidoc_cmake">Configuring <em>CMake</em></h2>
 <p>To set up <em>CMake</em> to build the documentation, we need to tell it where the <em>dox++</em> programs are. From
 your <em>DIPlib</em> build directory,</p>
-<div class="m-code"><pre><span></span>cmake . -DDOXPP_PARSE_EXECUTABLE<span class="o">=</span>/opt/doxpp/dox++parse -DDOXPP_HTML_EXECUTABLE<span class="o">=</span>/opt/doxpp/dox++html
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>.<span class="w"> </span>-DDOXPP_PARSE_EXECUTABLE<span class="o">=</span>/opt/doxpp/dox++parse<span class="w"> </span>-DDOXPP_HTML_EXECUTABLE<span class="o">=</span>/opt/doxpp/dox++html
 </pre></div>
 
 <p>(obviously substitute your <em>dox++</em> path where it says <code>/opt/doxpp</code>).</p>
@@ -120,7 +120,7 @@ your <em>DIPlib</em> build directory,</p>
 <p>(or something similar, depending on the chosen installation path.)</p>
 <h2 id="apidoc_building">Building the documentation</h2>
 <p>Once everything is set up, the documentation is build with</p>
-<div class="m-code"><pre><span></span>make apidoc
+<div class="m-code"><pre><span></span>make<span class="w"> </span>apidoc
 </pre></div>
 
 <p>from the <em>DIPlib</em> build directory.</p>
@@ -130,7 +130,7 @@ will be cached, such that subsequent builds of the documentation are faster.</p>
 <p>If there are errors produced during the rendering of the equations, a long <em>LaTeX</em> output will be shown. This
 output should point out which <em>LaTeX</em> package is missing. If you used <em>TeX Live</em> to install <em>LaTeX</em>, use its
 package manager to install the missing package and try building again:</p>
-<div class="m-code"><pre><span></span>tlmgr install &lt;package name&gt;
+<div class="m-code"><pre><span></span>tlmgr<span class="w"> </span>install<span class="w"> </span>&lt;package<span class="w"> </span>name&gt;
 </pre></div>
 
 <p>Other errors are not fatal. Some errors even are irrelevant because they relate to non-documented
