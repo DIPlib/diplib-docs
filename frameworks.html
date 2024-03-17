@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.2" class="m-thin">version 3.4.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -67,13 +67,13 @@
 <p>The various frameworks implement iterating over image pixels, giving access to a single pixel, a whole image line,
 or a pixel&rsquo;s neighborhood. The programmer needs to define a function that loops over one dimension. The framework
 will call this function repeatedly to process all the image&rsquo;s lines, thereby freeing the programmer from
-implementing loops over multiple dimensions. This process allows most of <em>DIPlib</em>&lsquo;s filters to be dimensionality
+implementing loops over multiple dimensions. This process allows most of <em>DIPlib</em>&rsquo;s filters to be dimensionality
 independent, with little effort from the programmer. See <a href="design.html#design_frameworks">Frameworks</a>.</p>
 <p>There are three frameworks that represent three different types of image processing functions:</p>
 <ul>
-<li>The Scan framework, to process individual pixels across multiple input and output images: <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>.</li>
-<li>The Separable framework, to apply separable filters: <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</li>
-<li>The Full framework, to apply non-separable filters: <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a>.</li>
+<li>The Scan framework, to process individual pixels across multiple input and output images: <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a>.</li>
+<li>The Separable framework, to apply separable filters: <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</li>
+<li>The Full framework, to apply non-separable filters: <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a>.</li>
 </ul>
         <section id="namespaces">
           <h2>Namespaces</h2>
@@ -88,16 +88,16 @@ independent, with little effort from the programmer. See <a href="design.html#de
             <dt>
               struct <a href="#dip-Framework-ScanBuffer" class="m-doc">dip::<wbr />Framework::<wbr />ScanBuffer</a>
             </dt>
-            <dd>Structure that holds information about input or output pixel buffers for the <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>
+            <dd>Structure that holds information about input or output pixel buffers for the <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a>
 callback function object.</dd>
             <dt>
               struct <a href="#dip-Framework-ScanLineFilterParameters" class="m-doc">dip::<wbr />Framework::<wbr />ScanLineFilterParameters</a>
             </dt>
-            <dd>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>.</dd>
+            <dd>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a>.</dd>
             <dt>
               class <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::<wbr />Framework::<wbr />ScanLineFilter</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
-            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>.</dd>
+            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a>.</dd>
             <dt>
               <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> N, typename TPI, typename F&gt;</div>
               class <a href="dip-Framework-VariadicScanLineFilter-T.html" class="m-doc">dip::<wbr />Framework::<wbr />VariadicScanLineFilter</a>
@@ -107,28 +107,28 @@ callback function object.</dd>
               struct <a href="#dip-Framework-SeparableBuffer" class="m-doc">dip::<wbr />Framework::<wbr />SeparableBuffer</a>
             </dt>
             <dd>Structure that holds information about input or output pixel buffers
-for the <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a> callback function object.</dd>
+for the <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a> callback function object.</dd>
             <dt>
               struct <a href="#dip-Framework-SeparableLineFilterParameters" class="m-doc">dip::<wbr />Framework::<wbr />SeparableLineFilterParameters</a>
             </dt>
-            <dd>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</dd>
+            <dd>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</dd>
             <dt>
               class <a href="dip-Framework-SeparableLineFilter.html" class="m-doc">dip::<wbr />Framework::<wbr />SeparableLineFilter</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
-            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</dd>
+            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</dd>
             <dt>
               struct <a href="#dip-Framework-FullBuffer" class="m-doc">dip::<wbr />Framework::<wbr />FullBuffer</a>
             </dt>
             <dd>Structure that holds information about input or output pixel buffers
-for the <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a> callback function object.</dd>
+for the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a> callback function object.</dd>
             <dt>
               struct <a href="#dip-Framework-FullLineFilterParameters" class="m-doc">dip::<wbr />Framework::<wbr />FullLineFilterParameters</a>
             </dt>
-            <dd>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a>.</dd>
+            <dd>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a>.</dd>
             <dt>
               class <a href="dip-Framework-FullLineFilter.html" class="m-doc">dip::<wbr />Framework::<wbr />FullLineFilter</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
-            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a>.</dd>
+            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a>.</dd>
           </dl>
         </section>
         <section id="alias-members">
@@ -155,16 +155,16 @@ for the <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip
           <h2>Enums</h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Framework-ScanOption" class="m-doc">dip::<wbr />Framework::<wbr />ScanOption</a>: int{ </span><span class="m-doc-wrap"><a href="#dip-Framework-ScanOption-NoMultiThreading" class="m-doc">NoMultiThreading</a>,
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Framework-ScanOption" class="m-doc">dip::<wbr />Framework::<wbr />ScanOption</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Framework-ScanOption-NoMultiThreading" class="m-doc">NoMultiThreading</a>,
               <a href="#dip-Framework-ScanOption-NeedCoordinates" class="m-doc">NeedCoordinates</a>,
               <a href="#dip-Framework-ScanOption-TensorAsSpatialDim" class="m-doc">TensorAsSpatialDim</a>,
               <a href="#dip-Framework-ScanOption-ExpandTensorInBuffer" class="m-doc">ExpandTensorInBuffer</a>,
               <a href="#dip-Framework-ScanOption-NoSingletonExpansion" class="m-doc">NoSingletonExpansion</a>,
               <a href="#dip-Framework-ScanOption-NotInPlace" class="m-doc">NotInPlace</a> }</span>
             </dt>
-            <dd>Defines options to the <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> function.</dd>
+            <dd>Defines options to the <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> function.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Framework-SeparableOption" class="m-doc">dip::<wbr />Framework::<wbr />SeparableOption</a>: int{ </span><span class="m-doc-wrap"><a href="#dip-Framework-SeparableOption-NoMultiThreading" class="m-doc">NoMultiThreading</a>,
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Framework-SeparableOption" class="m-doc">dip::<wbr />Framework::<wbr />SeparableOption</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Framework-SeparableOption-NoMultiThreading" class="m-doc">NoMultiThreading</a>,
               <a href="#dip-Framework-SeparableOption-AsScalarImage" class="m-doc">AsScalarImage</a>,
               <a href="#dip-Framework-SeparableOption-ExpandTensorInBuffer" class="m-doc">ExpandTensorInBuffer</a>,
               <a href="#dip-Framework-SeparableOption-UseOutputBorder" class="m-doc">UseOutputBorder</a>,
@@ -174,49 +174,49 @@ for the <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip
               <a href="#dip-Framework-SeparableOption-CanWorkInPlace" class="m-doc">CanWorkInPlace</a>,
               <a href="#dip-Framework-SeparableOption-UseRealComponentOfOutput" class="m-doc">UseRealComponentOfOutput</a> }</span>
             </dt>
-            <dd>Defines options to the <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a> function.</dd>
+            <dd>Defines options to the <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a> function.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Framework-FullOption" class="m-doc">dip::<wbr />Framework::<wbr />FullOption</a>: int{ </span><span class="m-doc-wrap"><a href="#dip-Framework-FullOption-NoMultiThreading" class="m-doc">NoMultiThreading</a>,
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Framework-FullOption" class="m-doc">dip::<wbr />Framework::<wbr />FullOption</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Framework-FullOption-NoMultiThreading" class="m-doc">NoMultiThreading</a>,
               <a href="#dip-Framework-FullOption-AsScalarImage" class="m-doc">AsScalarImage</a>,
               <a href="#dip-Framework-FullOption-ExpandTensorInBuffer" class="m-doc">ExpandTensorInBuffer</a>,
               <a href="#dip-Framework-FullOption-BorderAlreadyExpanded" class="m-doc">BorderAlreadyExpanded</a> }</span>
             </dt>
-            <dd>Defines options to the <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a> function.</dd>
+            <dd>Defines options to the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a> function.</dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-SingletonExpandedSize-dip-UnsignedArray-L-dip-UnsignedArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>&amp; size1,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-SingletonExpandedSize-UnsignedArray-L-UnsignedArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>&amp; size1,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; size2)</span>
             </dt>
             <dd>Determines the singleton-expanded size as a combination of the two sizes.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-SingletonExpandedSize-dip-ImageConstRefArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-SingletonExpandedSize-ImageConstRefArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
             </dt>
             <dd>Determines if images can be singleton-expanded to the same size, and what that size would be.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-SingletonExpandedSize-dip-ImageArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-SingletonExpandedSize-ImageArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
             </dt>
             <dd>Determines if images can be singleton-expanded to the same size, and what that size would be.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-SingletonExpendedTensorElements-dip-ImageArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpendedTensorElements</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-SingletonExpendedTensorElements-ImageArray-CL" class="m-doc">dip::<wbr />Framework::<wbr />SingletonExpendedTensorElements</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Determines if tensors in images can be singleton-expanded to the same size, and what that size would be.</dd>
-            <dt id="dip-Framework-OptimalProcessingDim-dip-Image-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-OptimalProcessingDim-dip-Image-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />OptimalProcessingDim</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dt id="dip-Framework-OptimalProcessingDim-Image-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-OptimalProcessingDim-Image-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />OptimalProcessingDim</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Determines the best processing dimension, which is the one with the smallest stride, except if that
 dimension is very small and there&rsquo;s a longer dimension.</dd>
-            <dt id="dip-Framework-OptimalProcessingDim-dip-Image-CL-dip-UnsignedArray-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-OptimalProcessingDim-dip-Image-CL-dip-UnsignedArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />OptimalProcessingDim</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+            <dt id="dip-Framework-OptimalProcessingDim-Image-CL-UnsignedArray-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-OptimalProcessingDim-Image-CL-UnsignedArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />OptimalProcessingDim</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; kernelSizes) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Determines the best processing dimension as above, but giving preference to a dimension where
 <code>kernelSizes</code> is large also.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />Scan</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />Scan</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
               <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a>&amp; out,
               <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc">dip::DataTypeArray</a> const&amp; inBufferTypes,
               <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc">dip::DataTypeArray</a> const&amp; outBufferTypes,
@@ -226,24 +226,24 @@ dimension is very small and there&rsquo;s a longer dimension.</dd>
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span>
             </dt>
             <dd>Framework for pixel-based processing of images.</dd>
-            <dt id="dip-Framework-ScanSingleOutput-dip-Image-L-dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanSingleOutput-dip-Image-L-dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanSingleOutput</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+            <dt id="dip-Framework-ScanSingleOutput-Image-L-DataType--ScanLineFilter-L-ScanOptions-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanSingleOutput-Image-L-DataType--ScanLineFilter-L-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanSingleOutput</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> bufferType,
               <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::Framework::ScanLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span>
             </dt>
-            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> with one output image, which is already forged.
+            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> with one output image, which is already forged.
 The <code>lineFilter</code> will be called with an output buffer of type <code>bufferType</code>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanSingleInput-dip-Image-CL-dip-Image-CL-dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />ScanSingleInput</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanSingleInput-Image-CL-Image-CL-DataType--ScanLineFilter-L-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />ScanSingleInput</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_mask,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> bufferType,
               <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::Framework::ScanLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span>
             </dt>
-            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and a mask image, and no output image.</dd>
+            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and a mask image, and no output image.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanMonadic-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-uint--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />ScanMonadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanMonadic-Image-CL-Image-L-DataType--DataType--dip-uint--ScanLineFilter-L-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />ScanMonadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> bufferTypes,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outImageType,
@@ -251,9 +251,9 @@ The <code>lineFilter</code> will be called with an output buffer of type <code>b
               <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::Framework::ScanLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span>
             </dt>
-            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and one output image.</dd>
+            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and one output image.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanDyadic-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />ScanDyadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ScanDyadic-Image-CL-Image-CL-Image-L-DataType--DataType--DataType--ScanLineFilter-L-ScanOptions-" class="m-doc">dip::<wbr />Framework::<wbr />ScanDyadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> inBufferType,
@@ -262,7 +262,7 @@ The <code>lineFilter</code> will be called with an output buffer of type <code>b
               <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::Framework::ScanLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span>
             </dt>
-            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> with two input images and one output image.</dd>
+            <dd>Calls <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> with two input images and one output image.</dd>
             <dt id="dip-Framework-NewMonadicScanLineFilter-T-F-CL-dip-uint-">
               <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-NewMonadicScanLineFilter-T-F-CL-dip-uint-" class="m-doc-self">dip::<wbr />Framework::<wbr />NewMonadicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
@@ -292,7 +292,7 @@ See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::
             <dd>Support for quickly defining tetradic operators (4 input images, 1 output image).
 See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-" class="m-doc">dip::<wbr />Framework::<wbr />Separable</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-" class="m-doc">dip::<wbr />Framework::<wbr />Separable</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> bufferType,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outImageType,
@@ -304,7 +304,7 @@ See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::
             </dt>
             <dd>Framework for separable filtering of images.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-OneDimensionalLineFilter-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-uint--dip-BoundaryCondition--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-" class="m-doc">dip::<wbr />Framework::<wbr />OneDimensionalLineFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-OneDimensionalLineFilter-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--dip-uint--BoundaryCondition--SeparableLineFilter-L-SeparableOptions-" class="m-doc">dip::<wbr />Framework::<wbr />OneDimensionalLineFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> inBufferType,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outBufferType,
@@ -315,10 +315,10 @@ See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::
               <a href="dip-Framework-SeparableLineFilter.html" class="m-doc">dip::Framework::SeparableLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-SeparableOptions" class="m-doc">dip::Framework::SeparableOptions</a> opts = {})</span>
             </dt>
-            <dd>Framework for filtering of image lines. This is a version of <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a> that works along one
+            <dd>Framework for filtering of image lines. This is a version of <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a> that works along one
 dimension only.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-" class="m-doc">dip::<wbr />Framework::<wbr />Full</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-" class="m-doc">dip::<wbr />Framework::<wbr />Full</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> inBufferType,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outBufferType,
@@ -338,7 +338,7 @@ dimension only.</dd>
             <h3>
               struct <a href="#dip-Framework-ScanBuffer" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanBuffer</a>
             </h3>
-            <p>Structure that holds information about input or output pixel buffers for the <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>
+            <p>Structure that holds information about input or output pixel buffers for the <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a>
 callback function object.</p>
 <p>The length of the buffer is given in a separate argument to the line filter. Depending on the arguments given to the
 framework function, you might assume that <code>tensorLength</code> is always 1, and consequently ignore also <code>tensorStride</code>.</p>
@@ -380,8 +380,8 @@ framework function, you might assume that <code>tensorLength</code> is always 1,
             <h3>
               struct <a href="#dip-Framework-ScanLineFilterParameters" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanLineFilterParameters</a>
             </h3>
-            <p>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a>.</p>
-<p>We have put all the parameters to the line filter <a href="dip-Framework-ScanLineFilter.html#dip-Framework-ScanLineFilter-Filter-dip-Framework-ScanLineFilterParameters-CL"><code>dip::Framework::ScanLineFilter::Filter</code></a> into
+            <p>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a>.</p>
+<p>We have put all the parameters to the line filter <a href="dip-Framework-ScanLineFilter.html#dip-Framework-ScanLineFilter-Filter-ScanLineFilterParameters-CL"><code>dip::Framework::ScanLineFilter::Filter</code></a> into
 a single struct to simplify writing those functions.</p>
 <p>Note that <code>dimension</code> and <code>position</code> are within the images that have had their tensor dimension
 converted to spatial dimension, if <a href="frameworks.html#dip-Framework-ScanOption-TensorAsSpatialDim"><code>dip::Framework::ScanOption::TensorAsSpatialDim</code></a> was given and at least
@@ -449,7 +449,7 @@ That is, <code>position</code> will have one more element than the original imag
               struct <a href="#dip-Framework-SeparableBuffer" class="m-doc-self">dip::<wbr />Framework::<wbr />SeparableBuffer</a>
             </h3>
             <p>Structure that holds information about input or output pixel buffers
-for the <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a> callback function object.</p>
+for the <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a> callback function object.</p>
 <p>The length of the buffer is given in a separate argument to the line filter. Depending on the arguments given to the
 framework function, you might assume that <code>tensorLength</code> is always 1, and consequently ignore also <code>tensorStride</code>.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
@@ -504,8 +504,8 @@ framework function, you might assume that <code>tensorLength</code> is always 1,
             <h3>
               struct <a href="#dip-Framework-SeparableLineFilterParameters" class="m-doc-self">dip::<wbr />Framework::<wbr />SeparableLineFilterParameters</a>
             </h3>
-            <p>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</p>
-<p>We have put all the parameters to the line filter <a href="dip-Framework-SeparableLineFilter.html#dip-Framework-SeparableLineFilter-Filter-dip-Framework-SeparableLineFilterParameters-CL"><code>dip::Framework::SeparableLineFilter::Filter</code></a> into
+            <p>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</p>
+<p>We have put all the parameters to the line filter <a href="dip-Framework-SeparableLineFilter.html#dip-Framework-SeparableLineFilter-Filter-SeparableLineFilterParameters-CL"><code>dip::Framework::SeparableLineFilter::Filter</code></a> into
 a single struct to simplify writing those functions.</p>
 <p>Note that <code>dimension</code> and <code>position</code> are within the images that have had their tensor dimension converted to
 spatial dimension, if <a href="frameworks.html#dip-Framework-SeparableOption-AsScalarImage"><code>dip::Framework::SeparableOption::AsScalarImage</code></a> was given and the input is not scalar.
@@ -580,7 +580,7 @@ in the original image(s).</p>
               struct <a href="#dip-Framework-FullBuffer" class="m-doc-self">dip::<wbr />Framework::<wbr />FullBuffer</a>
             </h3>
             <p>Structure that holds information about input or output pixel buffers
-for the <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a> callback function object.</p>
+for the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a> callback function object.</p>
 <p>Depending on the arguments given to the framework function, you might assume that
 <code>tensorLength</code> is always 1, and consequently ignore also <code>tensorStride</code>.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
@@ -621,8 +621,8 @@ for the <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip
             <h3>
               struct <a href="#dip-Framework-FullLineFilterParameters" class="m-doc-self">dip::<wbr />Framework::<wbr />FullLineFilterParameters</a>
             </h3>
-            <p>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a>.</p>
-<p>We have put all the parameters to the line filter <a href="dip-Framework-FullLineFilter.html#dip-Framework-FullLineFilter-Filter-dip-Framework-FullLineFilterParameters-CL"><code>dip::Framework::FullLineFilter::Filter</code></a> into
+            <p>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a>.</p>
+<p>We have put all the parameters to the line filter <a href="dip-Framework-FullLineFilter.html#dip-Framework-FullLineFilter-Filter-FullLineFilterParameters-CL"><code>dip::Framework::FullLineFilter::Filter</code></a> into
 a single struct to simplify writing those functions.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Variables</th><th></th></tr></thead>
@@ -684,9 +684,9 @@ a single struct to simplify writing those functions.</p>
           <h2>Enum documentation</h2>
           <section class="m-doc-details" id="dip-Framework-ScanOption"><div>
             <h3>
-              enum class <a href="#dip-Framework-ScanOption" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanOption</a>: int
+              enum class <a href="#dip-Framework-ScanOption" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanOption</a>: uint8
             </h3>
-            <p>Defines options to the <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> function.</p>
+            <p>Defines options to the <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> function.</p>
 <p>Implicitly casts to <a href="frameworks.html#dip-Framework-ScanOptions"><code>dip::Framework::ScanOptions</code></a>. Combine constants together with the <code>+</code> operator.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
@@ -732,9 +732,9 @@ a single struct to simplify writing those functions.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Framework-SeparableOption"><div>
             <h3>
-              enum class <a href="#dip-Framework-SeparableOption" class="m-doc-self">dip::<wbr />Framework::<wbr />SeparableOption</a>: int
+              enum class <a href="#dip-Framework-SeparableOption" class="m-doc-self">dip::<wbr />Framework::<wbr />SeparableOption</a>: uint8
             </h3>
-            <p>Defines options to the <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a> function.</p>
+            <p>Defines options to the <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a> function.</p>
 <p>Implicitly casts to <a href="frameworks.html#dip-Framework-SeparableOptions"><code>dip::Framework::SeparableOptions</code></a>. Combine constants together with the <code>+</code> operator.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
@@ -798,9 +798,9 @@ a single struct to simplify writing those functions.</p>
           </div></section>
           <section class="m-doc-details" id="dip-Framework-FullOption"><div>
             <h3>
-              enum class <a href="#dip-Framework-FullOption" class="m-doc-self">dip::<wbr />Framework::<wbr />FullOption</a>: int
+              enum class <a href="#dip-Framework-FullOption" class="m-doc-self">dip::<wbr />Framework::<wbr />FullOption</a>: uint8
             </h3>
-            <p>Defines options to the <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a> function.</p>
+            <p>Defines options to the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a> function.</p>
 <p>Implicitly casts to <a href="frameworks.html#dip-Framework-FullOptions"><code>dip::Framework::FullOptions</code></a>. Combine constants together with the <code>+</code> operator.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
@@ -826,7 +826,7 @@ a single struct to simplify writing those functions.</p>
                 <tr>
                   <td><a href="#dip-Framework-FullOption-BorderAlreadyExpanded" class="m-doc-self" id="dip-Framework-FullOption-BorderAlreadyExpanded">BorderAlreadyExpanded</a> = 3</td>
                   <td>
-                  The input image already has expanded boundaries (see <a href="boundary.html#dip-ExtendImage-dip-Image-CL-dip-Image-L-dip-UnsignedArray--dip-BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a>, use <code>"masked"</code> option).
+                  The input image already has expanded boundaries (see <a href="boundary.html#dip-ExtendImage-Image-CL-Image-L-UnsignedArray--BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a>, use <code>"masked"</code> option).
                   </td>
                 </tr>
               </tbody>
@@ -835,10 +835,10 @@ a single struct to simplify writing those functions.</p>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="dip-Framework-SingletonExpandedSize-dip-UnsignedArray-L-dip-UnsignedArray-CL"><div>
+          <section class="m-doc-details" id="dip-Framework-SingletonExpandedSize-UnsignedArray-L-UnsignedArray-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpandedSize-dip-UnsignedArray-L-dip-UnsignedArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>&amp; size1,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpandedSize-UnsignedArray-L-UnsignedArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>&amp; size1,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; size2)</span></span>
             </h3>
             <p>Determines the singleton-expanded size as a combination of the two sizes.</p>
@@ -846,32 +846,32 @@ a single struct to simplify writing those functions.</p>
 if such expansion is possible, and what the resulting sizes would be. <code>size1</code> is adjusted. An exception is thrown
 if the singleton expansion is not possible.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-SingletonExpandedSize-dip-ImageConstRefArray-CL"><div>
+          <section class="m-doc-details" id="dip-Framework-SingletonExpandedSize-ImageConstRefArray-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpandedSize-dip-ImageConstRefArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in)</span></span>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpandedSize-ImageConstRefArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in)</span></span>
             </h3>
             <p>Determines if images can be singleton-expanded to the same size, and what that size would be.</p>
 <p>Singleton dimensions (size==1) can be expanded to a larger size by setting their stride to 0. This change can be
 performed without modifying the data segment. If image dimensions differ such that singleton expansion cannot make
-them all the same size, an exception is thrown. Use <a href="dip-Image.html#dip-Image-ExpandSingletonDimensions-dip-UnsignedArray-CL"><code>dip::Image::ExpandSingletonDimensions</code></a> to apply the
+them all the same size, an exception is thrown. Use <a href="dip-Image.html#dip-Image-ExpandSingletonDimensions-UnsignedArray-CL"><code>dip::Image::ExpandSingletonDimensions</code></a> to apply the
 transform to one image.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-SingletonExpandedSize-dip-ImageArray-CL"><div>
+          <section class="m-doc-details" id="dip-Framework-SingletonExpandedSize-ImageArray-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpandedSize-dip-ImageArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in)</span></span>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpandedSize-ImageArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpandedSize</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in)</span></span>
             </h3>
             <p>Determines if images can be singleton-expanded to the same size, and what that size would be.</p>
 <p>Singleton dimensions (size==1) can be expanded to a larger size by setting their stride to 0. This change can be
 performed without modifying the data segment. If image dimensions differ such that singleton expansion cannot make
-them all the same size, an exception is thrown. Use <a href="dip-Image.html#dip-Image-ExpandSingletonDimensions-dip-UnsignedArray-CL"><code>dip::Image::ExpandSingletonDimensions</code></a> to apply the
+them all the same size, an exception is thrown. Use <a href="dip-Image.html#dip-Image-ExpandSingletonDimensions-UnsignedArray-CL"><code>dip::Image::ExpandSingletonDimensions</code></a> to apply the
 transform to one image.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-SingletonExpendedTensorElements-dip-ImageArray-CL"><div>
+          <section class="m-doc-details" id="dip-Framework-SingletonExpendedTensorElements-ImageArray-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpendedTensorElements-dip-ImageArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpendedTensorElements</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in)</span></span>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-SingletonExpendedTensorElements-ImageArray-CL" class="m-doc-self">dip::<wbr />Framework::<wbr />SingletonExpendedTensorElements</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; in)</span></span>
             </h3>
             <p>Determines if tensors in images can be singleton-expanded to the same size, and what that size would be.</p>
 <p>The tensors must all be of the same size, or of size 1. The tensors with size 1 are singletons, and can be
@@ -879,10 +879,10 @@ expended to the size of the others by setting their stride to 0. This change can
 the data segment. If singleton expansion cannot make them all the same size, an exception is thrown.
 Use <a href="dip-Image.html#dip-Image-ExpandSingletonTensor-dip-uint-"><code>dip::Image::ExpandSingletonTensor</code></a> to apply the transform to one image.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><div>
+          <section class="m-doc-details" id="dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />Scan</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />Scan</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
               <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a>&amp; out,
               <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc">dip::DataTypeArray</a> const&amp; inBufferTypes,
               <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc">dip::DataTypeArray</a> const&amp; outBufferTypes,
@@ -947,25 +947,25 @@ option. the <code>SetNumberOfThreads</code> method to <code>lineFilter</code> wi
 <code>dip::Framework::Scan</code> has determined how many threads will be used in the scan, even if
 <a href="frameworks.html#dip-Framework-ScanOption-NoMultiThreading"><code>dip::Framework::ScanOption::NoMultiThreading</code></a> was specified.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-ScanSingleInput-dip-Image-CL-dip-Image-CL-dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><div>
+          <section class="m-doc-details" id="dip-Framework-ScanSingleInput-Image-CL-Image-CL-DataType--ScanLineFilter-L-ScanOptions-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-ScanSingleInput-dip-Image-CL-dip-Image-CL-dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanSingleInput</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-ScanSingleInput-Image-CL-Image-CL-DataType--ScanLineFilter-L-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanSingleInput</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; c_mask,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> bufferType,
               <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::Framework::ScanLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span></span>
             </h3>
-            <p>Calls <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and a mask image, and no output image.</p>
+            <p>Calls <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and a mask image, and no output image.</p>
 <p>If <code>mask</code> is forged, it is expected to be a scalar image of type <a href="pixeltypes.html#dip-DT_BIN"><code>dip::DT_BIN</code></a>, and of size compatible with <code>in</code>.
 <code>mask</code> is singleton-expanded to the size of <code>in</code>, but not the other way around. Its pointer will be passed to
 <code>lineFilter</code> directly, without copies to change its data type. Thus, <code>inBuffer[ 1 ].buffer</code> is of type <code>bin*</code>,
 not of type <code>bufferType</code>.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-ScanMonadic-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-uint--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><div>
+          <section class="m-doc-details" id="dip-Framework-ScanMonadic-Image-CL-Image-L-DataType--DataType--dip-uint--ScanLineFilter-L-ScanOptions-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-ScanMonadic-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-uint--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanMonadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-ScanMonadic-Image-CL-Image-L-DataType--DataType--dip-uint--ScanLineFilter-L-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanMonadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> bufferTypes,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outImageType,
@@ -973,14 +973,14 @@ not of type <code>bufferType</code>.</p>
               <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::Framework::ScanLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span></span>
             </h3>
-            <p>Calls <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and one output image.</p>
+            <p>Calls <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> with one input image and one output image.</p>
 <p><code>bufferTypes</code> is the type for both the input and output buffer. The output image will be reforged to have the
 same sizes as the input image, and <code>nTensorElements</code> and <code>outImageType</code>.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-ScanDyadic-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><div>
+          <section class="m-doc-details" id="dip-Framework-ScanDyadic-Image-CL-Image-CL-Image-L-DataType--DataType--DataType--ScanLineFilter-L-ScanOptions-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-ScanDyadic-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanDyadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-ScanDyadic-Image-CL-Image-CL-Image-L-DataType--DataType--DataType--ScanLineFilter-L-ScanOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />ScanDyadic</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> inBufferType,
@@ -989,7 +989,7 @@ same sizes as the input image, and <code>nTensorElements</code> and <code>outIma
               <a href="dip-Framework-ScanLineFilter.html" class="m-doc">dip::Framework::ScanLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-ScanOptions" class="m-doc">dip::Framework::ScanOptions</a> opts = {})</span></span>
             </h3>
-            <p>Calls <a href="frameworks.html#dip-Framework-Scan-dip-ImageConstRefArray-CL-dip-ImageRefArray-L-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-DataTypeArray-CL-dip-UnsignedArray-CL-dip-Framework-ScanLineFilter-L-dip-Framework-ScanOptions-"><code>dip::Framework::Scan</code></a> with two input images and one output image.</p>
+            <p>Calls <a href="frameworks.html#dip-Framework-Scan-ImageConstRefArray-CL-ImageRefArray-L-DataTypeArray-CL-DataTypeArray-CL-DataTypeArray-CL-UnsignedArray-CL-ScanLineFilter-L-ScanOptions-"><code>dip::Framework::Scan</code></a> with two input images and one output image.</p>
 <p>It handles some of the work for dyadic (binary) operators related to matching up tensor dimensions in the input image.</p>
 <p>Input tensors are expected to match, but a scalar is expanded to the size of the other tensor.
 The output tensor will be of the same size as the input tensors, its shape will match the input shape if one image
@@ -1000,10 +1000,10 @@ to <code>opts</code>, so don&rsquo;t set these values yourself. This means that 
 scalars (the tensor can be converted to a spatial dimension) or full, column-major tensors of equal size.
 Do not specify <a href="frameworks.html#dip-Framework-ScanOption-NoSingletonExpansion"><code>dip::Framework::ScanOption::NoSingletonExpansion</code></a> in <code>opts</code>.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><div>
+          <section class="m-doc-details" id="dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />Separable</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />Separable</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> bufferType,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outImageType,
@@ -1091,10 +1091,10 @@ as an option. the <code>SetNumberOfThreads</code> method to <code>lineFilter</co
 when <code>dip::Framework::Separable</code> has determined how many threads will be used in the processing, even if
 <a href="frameworks.html#dip-Framework-SeparableOption-NoMultiThreading"><code>dip::Framework::SeparableOption::NoMultiThreading</code></a> was specified.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-OneDimensionalLineFilter-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-uint--dip-BoundaryCondition--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><div>
+          <section class="m-doc-details" id="dip-Framework-OneDimensionalLineFilter-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--dip-uint--BoundaryCondition--SeparableLineFilter-L-SeparableOptions-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-OneDimensionalLineFilter-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-uint--dip-BoundaryCondition--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />OneDimensionalLineFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-OneDimensionalLineFilter-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--dip-uint--BoundaryCondition--SeparableLineFilter-L-SeparableOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />OneDimensionalLineFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> inBufferType,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outBufferType,
@@ -1105,10 +1105,10 @@ when <code>dip::Framework::Separable</code> has determined how many threads will
               <a href="dip-Framework-SeparableLineFilter.html" class="m-doc">dip::Framework::SeparableLineFilter</a>&amp; lineFilter,
               <a href="frameworks.html#dip-Framework-SeparableOptions" class="m-doc">dip::Framework::SeparableOptions</a> opts = {})</span></span>
             </h3>
-            <p>Framework for filtering of image lines. This is a version of <a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a> that works along one
+            <p>Framework for filtering of image lines. This is a version of <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a> that works along one
 dimension only.</p>
 <p>Here we describe only the differences with <code>dip::Framework::Separable</code>. If it is not described here, refer to
-<a href="frameworks.html#dip-Framework-Separable-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-BooleanArray--dip-UnsignedArray--dip-BoundaryConditionArray--dip-Framework-SeparableLineFilter-L-dip-Framework-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</p>
+<a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a>.</p>
 <p>The input and output buffers can be of different types, <code>inBufferType</code> and  <code>outBufferType</code> determine these
 two types. Note that this would not be possible in the separable framework function: the output of one
 pass is the input to the next pass, so the data types of input and output must be the same.</p>
@@ -1116,10 +1116,10 @@ pass is the input to the next pass, so the data types of input and output must b
 the filter will be applied along. Both <code>border</code> and <code>boundaryCondition</code> are scalars instead of arrays, and
 apply to <code>processingDimension</code>.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><div>
+          <section class="m-doc-details" id="dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />Full</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />Full</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> inBufferType,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outBufferType,
@@ -1147,7 +1147,7 @@ output image.</p>
 <p>Tensors are passed to <code>lineFilter</code> as vectors, if the shape is important, store this information in <code>lineFilter</code>.
 <code>nTensorElements</code> gives the number of tensor elements for the output image. These are created as standard vectors,
 unless the input image has the same number of tensor elements, in which case that tensor shape is copied.
-The calling function can reshape the tensors after the call to <a href="frameworks.html#dip-Framework-Full-dip-Image-CL-dip-Image-L-dip-DataType--dip-DataType--dip-DataType--dip-uint--dip-BoundaryConditionArray-CL-dip-Kernel-CL-dip-Framework-FullLineFilter-L-dip-Framework-FullOptions-"><code>dip::Framework::Full</code></a>. It is not necessary nor
+The calling function can reshape the tensors after the call to <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a>. It is not necessary nor
 enforced that the tensors for each image (both input and output) are the same, the calling function is to make
 sure the tensors satisfy whatever constraints.</p>
 <p>However, if the option <a href="frameworks.html#dip-Framework-FullOption-AsScalarImage"><code>dip::Framework::FullOption::AsScalarImage</code></a> is given, then the line filter is called for
@@ -1172,7 +1172,7 @@ The pixel pointed to by the <code>buffer</code> pointer is the first pixel on th
 the framework using the <code>boundaryCondition</code> values. The <code>boundaryCondition</code> vector can be empty, in which case
 the default boundary condition value is used.</p>
 <p>If the option <a href="frameworks.html#dip-Framework-FullOption-BorderAlreadyExpanded"><code>dip::Framework::FullOption::BorderAlreadyExpanded</code></a> is given, then the input image is presumed
-to have been expanded using the function <a href="boundary.html#dip-ExtendImage-dip-Image-CL-dip-Image-L-dip-UnsignedArray--dip-BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a> (specify the option <code>"masked"</code>). That is, it is
+to have been expanded using the function <a href="boundary.html#dip-ExtendImage-Image-CL-Image-L-UnsignedArray--BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a> (specify the option <code>"masked"</code>). That is, it is
 possible to read outside the image bounds within an area given by the size of <code>kernel</code>. If the tensor doesn&rsquo;t need
 to be expanded, and the image data type matches the buffer data type, then the input image will not be copied.
 In this case, a new data segment will always be allocated for the output image. That is, the operation cannot

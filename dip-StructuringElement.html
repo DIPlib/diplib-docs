@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.2" class="m-thin">version 3.4.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -161,7 +161,7 @@ to exclude them from the structuring element (the result would be the same by se
 a value lower than the range of the input image, but the algorithm should be more efficient if
 those pixels are excluded).</p>
 <p>Note that the image is directly used as neighborhood (i.e. no mirroring is applied).
-That is, <a href="morphology.html#dip-Dilation-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Dilation</code></a> and <a href="morphology.html#dip-Erosion-dip-Image-CL-dip-Image-L-dip-StructuringElement-CL-dip-StringArray-CL"><code>dip::Erosion</code></a> will use the same neighborhood. Their composition only
+That is, <a href="morphology.html#dip-Dilation-Image-CL-Image-L-StructuringElement-CL-StringArray-CL"><code>dip::Dilation</code></a> and <a href="morphology.html#dip-Erosion-Image-CL-Image-L-StructuringElement-CL-StringArray-CL"><code>dip::Erosion</code></a> will use the same neighborhood. Their composition only
 leads to an opening or a closing if the structuring element is symmetric. For non-symmetric structuring
 element images, you need to mirror it in one of the two function calls:</p>
 <div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
@@ -181,7 +181,7 @@ the right of the center in case of an even-sized image.</p>
 <p>There are various different ways of applying dilations, erosions, openings and closings with line
 structuring elements. The <a href="dip-StructuringElement.html"><code>dip::StructuringElement</code></a> class accepts five different strings each
 providing a different definition of the line structuring element. Further, there is also the
-<a href="morphology.html#dip-PathOpening-dip-Image-CL-dip-Image-CL-dip-Image-L-dip-uint--dip-String-CL-dip-StringSet-CL"><code>dip::PathOpening</code></a> function, which provides path openings and closings. Here we describe the five
+<a href="morphology.html#dip-PathOpening-Image-CL-Image-CL-Image-L-dip-uint--String-CL-StringSet-CL"><code>dip::PathOpening</code></a> function, which provides path openings and closings. Here we describe the five
 different line structuring elements implemented in <em>DIPlib</em>.</p>
 <ul>
 <li>
@@ -251,24 +251,24 @@ Predicting which implementation of the line will be faster for a given situation
               <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>The default structuring element is a disk with a diameter of 7 pixels.</dd>
-            <dt id="dip-StructuringElement-StructuringElement-dip-String-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape)</span>
+            <dt id="dip-StructuringElement-StructuringElement-String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape)</span>
             </dt>
             <dd>A string implicitly converts to a structuring element, it is interpreted as a shape.</dd>
-            <dt id="dip-StructuringElement-StructuringElement-dip-FloatArray--dip-String-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-FloatArray--dip-String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> params,
+            <dt id="dip-StructuringElement-StructuringElement-FloatArray--String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-FloatArray--String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> params,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC)</span>
             </dt>
             <dd>A <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> implicitly converts to a structuring element, it is interpreted as the
 parameter of the SE for all dimensions. A second argument specifies the shape.</dd>
-            <dt id="dip-StructuringElement-StructuringElement-dip-dfloat--dip-String-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-dfloat--dip-String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> param,
+            <dt id="dip-StructuringElement-StructuringElement-dfloat--String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dfloat--String-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> param,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC)</span>
             </dt>
             <dd>A floating-point value implicitly converts to a structuring element, it is interpreted as the
 parameter of the SE along each dimension. A second argument specifies the shape.</dd>
-            <dt id="dip-StructuringElement-StructuringElement-dip-Image-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-dip-Image-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image)</span>
+            <dt id="dip-StructuringElement-StructuringElement-Image-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-StructuringElement-StructuringElement-Image-CL" class="m-doc-self">StructuringElement</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image)</span>
             </dt>
             <dd>An image implicitly converts to a structuring element.</dd>
             </dl>
@@ -277,7 +277,7 @@ parameter of the SE along each dimension. A second argument specifies the shape.
           <h2>Enums</h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-StructuringElement-ShapeCode" class="m-doc">ShapeCode</a>: int{ </span><span class="m-doc-wrap"><a href="#dip-StructuringElement-ShapeCode-RECTANGULAR" class="m-doc">RECTANGULAR</a>,
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-StructuringElement-ShapeCode" class="m-doc">ShapeCode</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-StructuringElement-ShapeCode-RECTANGULAR" class="m-doc">RECTANGULAR</a>,
               <a href="#dip-StructuringElement-ShapeCode-ELLIPTIC" class="m-doc">ELLIPTIC</a>,
               <a href="#dip-StructuringElement-ShapeCode-DIAMOND" class="m-doc">DIAMOND</a>,
               <a href="#dip-StructuringElement-ShapeCode-OCTAGONAL" class="m-doc">OCTAGONAL</a>,
@@ -307,8 +307,8 @@ parameter of the SE along each dimension. A second argument specifies the shape.
               <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-Kernel-C" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a></span>
             </dt>
             <dd>Converts the Structuring element into a kernel</dd>
-            <dt id="dip-StructuringElement-Params-dip-UnsignedArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-Params-dip-UnsignedArray-CL-C" class="m-doc-self">Params</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; imsz) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            <dt id="dip-StructuringElement-Params-UnsignedArray-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-StructuringElement-Params-UnsignedArray-CL-C" class="m-doc-self">Params</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; imsz) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
             <dd>Retrieves the size array, adjusted to an image of size <code>imsz</code>.</dd>
             <dt id="dip-StructuringElement-Params-C">
@@ -333,7 +333,7 @@ parameter of the SE along each dimension. A second argument specifies the shape.
             <h2>Enum documentation</h2>
           <section class="m-doc-details" id="dip-StructuringElement-ShapeCode"><div>
             <h3>
-              enum class <a href="#dip-StructuringElement-ShapeCode" class="m-doc-self">ShapeCode</a>: int
+              enum class <a href="#dip-StructuringElement-ShapeCode" class="m-doc-self">ShapeCode</a>: uint8
             </h3>
             <p>Possible shapes of a structuring element</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">

@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.2" class="m-thin">version 3.4.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -72,7 +72,7 @@ the tensor shape is lost. Note that the tensor stride must always be 1. Use <a h
 fix the tensor stride for mapping. Alternatively, use <a href="dip_vigra_interface.html#dip_vigra-CopyDipToVigra-T-dip-Image-CL"><code>dip_vigra::CopyDipToVigra</code></a>.</p>
 <p><em>Vigra</em> seems to prefer to use the 8-bit unsigned integer type for binary images. These are always converted to
 <a href="pixeltypes.html#dip-DT_UINT8"><code>dip::DT_UINT8</code></a> images, as the code here cannot distinguish between binary and non-binary images.
-Use <a href="dip-Image.html#dip-Convert-dip-Image-CL-dip-Image-L-dip-DataType-"><code>dip::Convert</code></a> to cast the resulting image to binary.</p>
+Use <a href="dip-Image.html#dip-Convert-Image-CL-Image-L-dip-DataType-"><code>dip::Convert</code></a> to cast the resulting image to binary.</p>
 <p>Because <em>Vigra</em> defines image properties through template parameters (data type and dimensionality), it is
 not possible to write a non-templated function that creates a <code>vigra::MultiArray</code> object. Consequently, a
 <a href="dip-ExternalInterface.html"><code>dip::ExternalInterface</code></a> would be very limited in usefulness, so we don&rsquo;t define one. The <em>DIPlib-Vigra</em>
@@ -153,7 +153,7 @@ if the data type doesn&rsquo;t match (or you don&rsquo;t know in advance what da
 will have) or if the tensor stride is not 1.</p>
 <p>Note that it is required to set the two template parameters, and that the <code>Dimensionality</code> must match
 the <code>dip::Image</code> object at runtime. If the <code>PixelType</code> doesn&rsquo;t match, the sample values will be converted
-in the same way that <a href="dip-Image.html#dip-Image-Copy-dip-Image-CL"><code>dip::Image::Copy</code></a> does.</p>
+in the same way that <a href="dip-Image.html#dip-Image-Copy-Image-CL"><code>dip::Image::Copy</code></a> does.</p>
           </div></section>
         </section>
       </div>

@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.2" class="m-thin">version 3.4.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -49,7 +49,7 @@
 <span class="m-thin"><a href="measurement.html" class="m-doc">Measurement</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib--measurement-h.html">"diplib/measurement.h"</a></span>          </div>
 
           <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>Measurement <span class="m-thin">class</span>        </h1>
-        <p>Contains measurement results, as obtained through <a href="dip-MeasurementTool.html#dip-MeasurementTool-Measure-dip-Image-CL-dip-Image-CL-dip-StringArray--dip-UnsignedArray-CL-dip-uint--C"><code>dip::MeasurementTool::Measure</code></a>.</p>
+        <p>Contains measurement results, as obtained through <a href="dip-MeasurementTool.html#dip-MeasurementTool-Measure-Image-CL-Image-CL-StringArray--UnsignedArray-CL-dip-uint--C"><code>dip::MeasurementTool::Measure</code></a>.</p>
         <div class="m-block m-default">
           <h3>Contents</h3>
           <ul>
@@ -65,8 +65,8 @@
             </li>
           </ul>
         </div>
-<p>A newly constructed <code>Measurement</code> is raw, and will accept calls to <a href="dip-Measurement.html#dip-Measurement-AddFeature-dip-String-CL-Feature-ValueInformationArray-CL"><code>dip::Measurement::AddFeature</code></a>, <a href="dip-Measurement.html#dip-Measurement-SetObjectIDs-dip-UnsignedArray-"><code>dip::Measurement::SetObjectIDs</code></a>,
-<a href="dip-Measurement.html#dip-Measurement-AddObjectID-dip-uint-"><code>dip::Measurement::AddObjectID</code></a> and <a href="dip-Measurement.html#dip-Measurement-AddObjectIDs-dip-UnsignedArray-CL"><code>dip::Measurement::AddObjectIDs</code></a>. Once the object is set up with all objects and features needed,
+<p>A newly constructed <code>Measurement</code> is raw, and will accept calls to <a href="dip-Measurement.html#dip-Measurement-AddFeature-String-CL-Feature-ValueInformationArray-CL"><code>dip::Measurement::AddFeature</code></a>, <a href="dip-Measurement.html#dip-Measurement-SetObjectIDs-UnsignedArray-"><code>dip::Measurement::SetObjectIDs</code></a>,
+<a href="dip-Measurement.html#dip-Measurement-AddObjectID-dip-uint-"><code>dip::Measurement::AddObjectID</code></a> and <a href="dip-Measurement.html#dip-Measurement-AddObjectIDs-UnsignedArray-CL"><code>dip::Measurement::AddObjectIDs</code></a>. Once the object is set up with all objects and features needed,
 a call to <code>Forge</code> creates the data segment necessary to hold all those measurements. Once
 forged, it is no longer possible to add features or objects. As with a <a href="dip-Image.html"><code>dip::Image</code></a>,
 the method <a href="dip-Measurement.html#dip-Measurement-IsForged-C"><code>dip::Measurement::IsForged</code></a> can be used to test if the object has been forged.</p>
@@ -151,18 +151,18 @@ view over a specific object.</dd>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-            <dt id="dip-Measurement-AddFeature-dip-String-CL-Feature-ValueInformationArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-AddFeature-dip-String-CL-Feature-ValueInformationArray-CL" class="m-doc-self">AddFeature</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name,
+            <dt id="dip-Measurement-AddFeature-String-CL-Feature-ValueInformationArray-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-AddFeature-String-CL-Feature-ValueInformationArray-CL" class="m-doc-self">AddFeature</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name,
               <a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">dip::Feature::ValueInformationArray</a> const&amp; values)</span>
             </dt>
             <dd>Adds a feature to a raw <code>Measurement</code> object.</dd>
-            <dt id="dip-Measurement-EnsureFeature-dip-String-CL-Feature-ValueInformationArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-EnsureFeature-dip-String-CL-Feature-ValueInformationArray-CL" class="m-doc-self">EnsureFeature</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name,
+            <dt id="dip-Measurement-EnsureFeature-String-CL-Feature-ValueInformationArray-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-EnsureFeature-String-CL-Feature-ValueInformationArray-CL" class="m-doc-self">EnsureFeature</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name,
               <a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">dip::Feature::ValueInformationArray</a> const&amp; values)</span>
             </dt>
             <dd>Adds a feature to a raw <code>Measurement</code> object if it is not already there.</dd>
-            <dt id="dip-Measurement-SetObjectIDs-dip-UnsignedArray-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-SetObjectIDs-dip-UnsignedArray-" class="m-doc-self">SetObjectIDs</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> objectIDs)</span>
+            <dt id="dip-Measurement-SetObjectIDs-UnsignedArray-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-SetObjectIDs-UnsignedArray-" class="m-doc-self">SetObjectIDs</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> objectIDs)</span>
             </dt>
             <dd>Replaces existing objectID array with a new one. The <code>Measurement</code> object must be raw.</dd>
             <dt id="dip-Measurement-AddObjectID-dip-uint-">
@@ -170,8 +170,8 @@ view over a specific object.</dd>
             </dt>
             <dd>Adds an object ID to a raw <code>Measurement</code> object.
 It is not efficient to use this function in a loop.</dd>
-            <dt id="dip-Measurement-AddObjectIDs-dip-UnsignedArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-AddObjectIDs-dip-UnsignedArray-CL" class="m-doc-self">AddObjectIDs</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs)</span>
+            <dt id="dip-Measurement-AddObjectIDs-UnsignedArray-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Measurement-AddObjectIDs-UnsignedArray-CL" class="m-doc-self">AddObjectIDs</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs)</span>
             </dt>
             <dd>Adds object IDs to a raw <code>Measurement</code> object.</dd>
             <dt id="dip-Measurement-Forge">
@@ -211,12 +211,12 @@ The table must be forged.</dd>
             </dt>
             <dd>The total number of data values in the table, equal to the product of <code>NumberOfValues</code>
 and <code>NumberOfObjects</code>.</dd>
-            <dt id="dip-Measurement-FeatureExists-dip-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-FeatureExists-dip-String-CL-C" class="m-doc-self">FeatureExists</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; bool</span>
+            <dt id="dip-Measurement-FeatureExists-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-FeatureExists-String-CL-C" class="m-doc-self">FeatureExists</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; bool</span>
             </dt>
             <dd>True if the feature is available in <code>this</code>.</dd>
-            <dt id="dip-Measurement-FeatureIndex-dip-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-FeatureIndex-dip-String-CL-C" class="m-doc-self">FeatureIndex</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dt id="dip-Measurement-FeatureIndex-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-FeatureIndex-String-CL-C" class="m-doc-self">FeatureIndex</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Finds the index into the <a href="dip-Measurement.html#dip-Measurement-Features-C"><code>dip::Measurement::Features</code></a> array for the given feature.</dd>
             <dt id="dip-Measurement-Features-C">
@@ -227,12 +227,12 @@ and <code>NumberOfObjects</code>.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-NumberOfFeatures-C" class="m-doc-self">NumberOfFeatures</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the number of features</dd>
-            <dt id="dip-Measurement-ValueIndex-dip-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-ValueIndex-dip-String-CL-C" class="m-doc-self">ValueIndex</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dt id="dip-Measurement-ValueIndex-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-ValueIndex-String-CL-C" class="m-doc-self">ValueIndex</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
-            <dd>Finds the index into the <a href="dip-Measurement.html#dip-Measurement-Values-dip-String-CL-C"><code>dip::Measurement::Values</code></a> array for the first value of the given feature.</dd>
-            <dt id="dip-Measurement-Values-dip-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-Values-dip-String-CL-C" class="m-doc-self">Values</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">dip::Feature::ValueInformationArray</a></span>
+            <dd>Finds the index into the <a href="dip-Measurement.html#dip-Measurement-Values-String-CL-C"><code>dip::Measurement::Values</code></a> array for the first value of the given feature.</dd>
+            <dt id="dip-Measurement-Values-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-Values-String-CL-C" class="m-doc-self">Values</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">dip::Feature::ValueInformationArray</a></span>
             </dt>
             <dd>Returns an array with names and units for each of the values for the feature.
 (Note: data are copied to output array, this is not a trivial function).</dd>
@@ -244,8 +244,8 @@ and <code>NumberOfObjects</code>.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-NumberOfValues-C" class="m-doc-self">NumberOfValues</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the total number of feature values</dd>
-            <dt id="dip-Measurement-NumberOfValues-dip-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-NumberOfValues-dip-String-CL-C" class="m-doc-self">NumberOfValues</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dt id="dip-Measurement-NumberOfValues-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-NumberOfValues-String-CL-C" class="m-doc-self">NumberOfValues</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the number of values for the given feature</dd>
             <dt id="dip-Measurement-ObjectExists-dip-uint--C">
@@ -277,8 +277,8 @@ and <code>NumberOfObjects</code>.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-operator%5B%5D-dip-uint--C" class="m-doc-self">operator[]</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> objectID) const -&gt; <a href="dip-Measurement-IteratorObject.html" class="m-doc">dip::Measurement::IteratorObject</a></span>
             </dt>
             <dd>Creates and iterator (view) to the given object. The table must be forged.</dd>
-            <dt id="dip-Measurement-operator%5B%5D-dip-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-operator%5B%5D-dip-String-CL-C" class="m-doc-self">operator[]</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a></span>
+            <dt id="dip-Measurement-operator%5B%5D-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Measurement-operator%5B%5D-String-CL-C" class="m-doc-self">operator[]</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) const -&gt; <a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a></span>
             </dt>
             <dd>Creates and iterator (view) to the given feature</dd>
           </dl>
@@ -286,8 +286,8 @@ and <code>NumberOfObjects</code>.</dd>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-            <dt id="dip-operator%3C%3C-std-ostream-L-dip-Measurement-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-dip-Measurement-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+            <dt id="dip-operator%3C%3C-std-ostream-L-Measurement-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-Measurement-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> const&amp; measurement) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> to <code>std::cout</code> or any other stream to produce a human-readable

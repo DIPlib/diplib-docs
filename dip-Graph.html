@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.2" class="m-thin">version 3.4.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -82,7 +82,7 @@ is the vertex index.</p>
 is in the range [0,<code>nVertices</code>]. <code>nEdges</code> is the expected number of edges for each vertex, and is used
 to reserve space for them.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper"><a href="#dip-Graph-Graph-dip-Image-CL-dip-uint--dip-String-CL" class="m-doc">Graph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <span class="m-doc-wrap-bumper"><a href="#dip-Graph-Graph-Image-CL-dip-uint--String-CL" class="m-doc">Graph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; weights = "difference")</span>
             </dt>
@@ -141,50 +141,50 @@ to reserve space for them.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-Edges-C" class="m-doc-self">Edges</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;Edge&gt; const&amp;</span>
             </dt>
             <dd>Gets the set of edges in the graph. The weights of the edges are mutable, they can be directly modified.</dd>
-            <dt id="dip-Graph-OtherVertex-dip-Graph-EdgeIndex--dip-Graph-VertexIndex--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-OtherVertex-dip-Graph-EdgeIndex--dip-Graph-VertexIndex--C" class="m-doc-self">OtherVertex</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge,
+            <dt id="dip-Graph-OtherVertex-EdgeIndex--VertexIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-OtherVertex-EdgeIndex--VertexIndex--C" class="m-doc-self">OtherVertex</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge,
               <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> vertex) const -&gt; <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a></span>
             </dt>
             <dd>Finds the index to the vertex that is joined to the vertex with index <code>vertex</code> through the edge with
 index <code>edge</code>.</dd>
-            <dt id="dip-Graph-EdgeWeight-dip-Graph-EdgeIndex--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-EdgeWeight-dip-Graph-EdgeIndex--C" class="m-doc-self">EdgeWeight</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>&amp;</span>
+            <dt id="dip-Graph-EdgeWeight-EdgeIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-EdgeWeight-EdgeIndex--C" class="m-doc-self">EdgeWeight</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>&amp;</span>
             </dt>
             <dd>Returns a reference to the weight of the edge with index <code>edge</code>. This value is mutable even
 if the graph is <code>const</code>.</dd>
-            <dt id="dip-Graph-EdgeIndices-dip-Graph-VertexIndex--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-EdgeIndices-dip-Graph-VertexIndex--C" class="m-doc-self">EdgeIndices</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) const -&gt; <a href="dip-Graph.html#dip-Graph-EdgeList" class="m-doc">dip::Graph::EdgeList</a> const&amp;</span>
+            <dt id="dip-Graph-EdgeIndices-VertexIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-EdgeIndices-VertexIndex--C" class="m-doc-self">EdgeIndices</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) const -&gt; <a href="dip-Graph.html#dip-Graph-EdgeList" class="m-doc">dip::Graph::EdgeList</a> const&amp;</span>
             </dt>
             <dd>Get the indices to the edges that join vertex <code>v</code>.</dd>
-            <dt id="dip-Graph-VertexValue-dip-Graph-VertexIndex--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-VertexValue-dip-Graph-VertexIndex--C" class="m-doc-self">VertexValue</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>&amp;</span>
+            <dt id="dip-Graph-VertexValue-VertexIndex--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-VertexValue-VertexIndex--C" class="m-doc-self">VertexValue</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>&amp;</span>
             </dt>
             <dd>Returns a reference to the value of the vertex <code>v</code>. This value is mutable even if the graph is <code>const</code>.</dd>
-            <dt id="dip-Graph-AddEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-AddEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-" class="m-doc-self">AddEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
+            <dt id="dip-Graph-AddEdge-VertexIndex--VertexIndex--dfloat-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-AddEdge-VertexIndex--VertexIndex--dfloat-" class="m-doc-self">AddEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
               <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v2,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight)</span>
             </dt>
             <dd>Add an edge between vertices <code>v1</code> and <code>v2</code>, with weight <code>weight</code>. If the edge already exists,
 update the weight of the edge to be <code>weight</code>.</dd>
-            <dt id="dip-Graph-AddEdgeSumWeight-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-AddEdgeSumWeight-dip-Graph-VertexIndex--dip-Graph-VertexIndex--dip-dfloat-" class="m-doc-self">AddEdgeSumWeight</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
+            <dt id="dip-Graph-AddEdgeSumWeight-VertexIndex--VertexIndex--dfloat-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-AddEdgeSumWeight-VertexIndex--VertexIndex--dfloat-" class="m-doc-self">AddEdgeSumWeight</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
               <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v2,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight)</span>
             </dt>
             <dd>Add an edge between vertices <code>v1</code> and <code>v2</code>, with weight <code>weight</code>. If the edge already exists,
 update the weight of the edge by adding <code>weight</code> to the existing weight.</dd>
-            <dt id="dip-Graph-DeleteEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-DeleteEdge-dip-Graph-VertexIndex--dip-Graph-VertexIndex-" class="m-doc-self">DeleteEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
+            <dt id="dip-Graph-DeleteEdge-VertexIndex--VertexIndex-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-DeleteEdge-VertexIndex--VertexIndex-" class="m-doc-self">DeleteEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v1,
               <a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v2)</span>
             </dt>
             <dd>Delete the edge between vertices <code>v1</code> and <code>v2</code>.</dd>
-            <dt id="dip-Graph-DeleteEdge-dip-Graph-EdgeIndex-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-DeleteEdge-dip-Graph-EdgeIndex-" class="m-doc-self">DeleteEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge)</span>
+            <dt id="dip-Graph-DeleteEdge-EdgeIndex-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Graph-DeleteEdge-EdgeIndex-" class="m-doc-self">DeleteEdge</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-EdgeIndex" class="m-doc">dip::Graph::EdgeIndex</a> edge)</span>
             </dt>
             <dd>Delete the edge <code>edge</code>.</dd>
-            <dt id="dip-Graph-Neighbors-dip-Graph-VertexIndex-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-Neighbors-dip-Graph-VertexIndex-" class="m-doc-self">Neighbors</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) -&gt; std::vector&lt;VertexIndex&gt;</span>
+            <dt id="dip-Graph-Neighbors-VertexIndex-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Graph-Neighbors-VertexIndex-" class="m-doc-self">Neighbors</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html#dip-Graph-VertexIndex" class="m-doc">dip::Graph::VertexIndex</a> v) -&gt; std::vector&lt;VertexIndex&gt;</span>
             </dt>
             <dd>Returns a list of indices to neighboring vertices. The list is created. <code>EdgeIndices</code> is
 a more efficient, but less convenient, function.</dd>
@@ -233,10 +233,10 @@ a more efficient, but less convenient, function.</dd>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="dip-Graph-Graph-dip-Image-CL-dip-uint--dip-String-CL"><div>
+          <section class="m-doc-details" id="dip-Graph-Graph-Image-CL-dip-uint--String-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper">
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Graph-Graph-dip-Image-CL-dip-uint--dip-String-CL" class="m-doc-self">Graph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Graph-Graph-Image-CL-dip-uint--String-CL" class="m-doc-self">Graph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; weights = "difference")</span></span>
             </h3>

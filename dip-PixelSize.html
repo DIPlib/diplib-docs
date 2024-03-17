@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.1" class="m-thin">version 3.4.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.2" class="m-thin">version 3.4.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -75,7 +75,7 @@ are assigned the same value as dimension <em>N-1</em>, then dimension <em>N+K</e
 the new value, and all subsequent dimensions will implicitly have the same value.</p>
 <p>Thus, it is important to know how many elements are set in the array to know
 how any modifications will affect it.</p>
-<p>However, <a href="dip-PixelSize.html#dip-PixelSize-SwapDimensions-dip-uint--dip-uint-"><code>dip::PixelSize::SwapDimensions</code></a>, <a href="dip-PixelSize.html#dip-PixelSize-InsertDimension-dip-uint--dip-PhysicalQuantity-"><code>dip::PixelSize::InsertDimension</code></a> and
+<p>However, <a href="dip-PixelSize.html#dip-PixelSize-SwapDimensions-dip-uint--dip-uint-"><code>dip::PixelSize::SwapDimensions</code></a>, <a href="dip-PixelSize.html#dip-PixelSize-InsertDimension-dip-uint--PhysicalQuantity-"><code>dip::PixelSize::InsertDimension</code></a> and
 <a href="dip-PixelSize.html#dip-PixelSize-EraseDimension-dip-uint-"><code>dip::PixelSize::EraseDimension</code></a> will expand the array
 by one element before modifying the last element in the array. This prevents the
 implicit elements after the defined ones to be modified. For example, inserting
@@ -99,12 +99,12 @@ are dimensionless units, see <a href="dip-Units.html"><code>dip::Units</code></a
             </dt>
             <dd>By default, an image has no physical dimensions. The pixel size is given
 as &ldquo;1 pixel&rdquo;.</dd>
-            <dt id="dip-PixelSize-PixelSize-dip-PhysicalQuantity-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-PixelSize-dip-PhysicalQuantity-CL" class="m-doc-self">PixelSize</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a> const&amp; m)</span>
+            <dt id="dip-PixelSize-PixelSize-PhysicalQuantity-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-PixelSize-PhysicalQuantity-CL" class="m-doc-self">PixelSize</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a> const&amp; m)</span>
             </dt>
             <dd>Create an isotropic pixel size based on a physical quantity.</dd>
-            <dt id="dip-PixelSize-PixelSize-dip-PhysicalQuantityArray-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-PixelSize-dip-PhysicalQuantityArray-CL" class="m-doc-self">PixelSize</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> const&amp; m)</span>
+            <dt id="dip-PixelSize-PixelSize-PhysicalQuantityArray-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-PixelSize-PhysicalQuantityArray-CL" class="m-doc-self">PixelSize</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> const&amp; m)</span>
             </dt>
             <dd>Create a pixel size based on an array of physical quantities.</dd>
             </dl>
@@ -116,19 +116,19 @@ as &ldquo;1 pixel&rdquo;.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-Get-dip-uint--C" class="m-doc-self">Get</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d) const -&gt; <a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a></span>
             </dt>
             <dd>Returns the pixel size for the given dimension.</dd>
-            <dt id="dip-PixelSize-Set-dip-uint--dip-PhysicalQuantity-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Set-dip-uint--dip-PhysicalQuantity-" class="m-doc-self">Set</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d,
+            <dt id="dip-PixelSize-Set-dip-uint--PhysicalQuantity-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Set-dip-uint--PhysicalQuantity-" class="m-doc-self">Set</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d,
               <a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a> m)</span>
             </dt>
             <dd>Sets the pixel size in the given dimension. Note that
 any subsequent dimension, if not explicitly set, will have the same
 size.</dd>
-            <dt id="dip-PixelSize-Set-dip-PhysicalQuantity-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Set-dip-PhysicalQuantity-CL" class="m-doc-self">Set</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a> const&amp; m)</span>
+            <dt id="dip-PixelSize-Set-PhysicalQuantity-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Set-PhysicalQuantity-CL" class="m-doc-self">Set</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a> const&amp; m)</span>
             </dt>
             <dd>Sets the isotropic pixel size in all dimensions.</dd>
-            <dt id="dip-PixelSize-Set-dip-PhysicalQuantityArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Set-dip-PhysicalQuantityArray-CL" class="m-doc-self">Set</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> const&amp; m)</span>
+            <dt id="dip-PixelSize-Set-PhysicalQuantityArray-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Set-PhysicalQuantityArray-CL" class="m-doc-self">Set</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> const&amp; m)</span>
             </dt>
             <dd>Sets a non-isotropic pixel size.</dd>
             <dt id="dip-PixelSize-SetNanometers-dip-uint--dip-dfloat-">
@@ -185,8 +185,8 @@ size.</dd>
               <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Scale-dip-dfloat-" class="m-doc-self">Scale</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> s)</span>
             </dt>
             <dd>Scales the pixel size isotropically.</dd>
-            <dt id="dip-PixelSize-Scale-dip-FloatArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Scale-dip-FloatArray-CL" class="m-doc-self">Scale</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; s)</span>
+            <dt id="dip-PixelSize-Scale-FloatArray-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Scale-FloatArray-CL" class="m-doc-self">Scale</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; s)</span>
             </dt>
             <dd>Scales the pixel size non-isotropically in all dimensions, where defined.</dd>
             <dt id="dip-PixelSize-Invert-dip-uint-">
@@ -207,12 +207,12 @@ size.</dd>
             </dt>
             <dd>Reverses the dimensions, assuming that there are <code>d</code> dimensions.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Permute-dip-UnsignedArray-CL" class="m-doc">Permute</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; order)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-Permute-UnsignedArray-CL" class="m-doc">Permute</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; order)</span>
             </dt>
             <dd>Permutes dimensions according to <code>order</code>, such that, after the call, <code>Get(ii)</code> returns the value
 that <code>Get(order[ii])</code> returned before the call.</dd>
-            <dt id="dip-PixelSize-InsertDimension-dip-uint--dip-PhysicalQuantity-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-InsertDimension-dip-uint--dip-PhysicalQuantity-" class="m-doc-self">InsertDimension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d,
+            <dt id="dip-PixelSize-InsertDimension-dip-uint--PhysicalQuantity-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-InsertDimension-dip-uint--PhysicalQuantity-" class="m-doc-self">InsertDimension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> d,
               <a href="dip-PhysicalQuantity.html" class="m-doc">dip::PhysicalQuantity</a> m = 1)</span>
             </dt>
             <dd>Inserts a dimension, undefined by default.</dd>
@@ -272,22 +272,22 @@ sizes if that product is physical, or 1 px<sup>d</sup> otherwise.</dd>
               <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-ForcePhysical" class="m-doc-self">ForcePhysical</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Any dimension that is not a physical dimension will be set to 1 px.</dd>
-            <dt id="dip-PixelSize-ApproximatelyEquals-dip-PixelSize-CL-dip-uint--double--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-ApproximatelyEquals-dip-PixelSize-CL-dip-uint--double--C" class="m-doc-self">ApproximatelyEquals</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; rhs,
+            <dt id="dip-PixelSize-ApproximatelyEquals-PixelSize-CL-dip-uint--double--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-ApproximatelyEquals-PixelSize-CL-dip-uint--double--C" class="m-doc-self">ApproximatelyEquals</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; rhs,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims,
               double tolerance = 1e-6) const -&gt; bool</span>
             </dt>
             <dd>Compares two pixels for the first <code>nDims</code> dimensions, magnitudes are compared with a relative tolerance of <code>tolerance</code></dd>
-            <dt id="dip-PixelSize-ToPixels-dip-PhysicalQuantityArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-ToPixels-dip-PhysicalQuantityArray-CL-C" class="m-doc-self">ToPixels</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> const&amp; in) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            <dt id="dip-PixelSize-ToPixels-PhysicalQuantityArray-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-ToPixels-PhysicalQuantityArray-CL-C" class="m-doc-self">ToPixels</a>(</span><span class="m-doc-wrap"><a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> const&amp; in) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
             <dd>Converts physical units to pixels.</dd>
-            <dt id="dip-PixelSize-ToPhysical-dip-FloatArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-ToPhysical-dip-FloatArray-CL-C" class="m-doc-self">ToPhysical</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; in) const -&gt; <a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a></span>
+            <dt id="dip-PixelSize-ToPhysical-FloatArray-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-ToPhysical-FloatArray-CL-C" class="m-doc-self">ToPhysical</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; in) const -&gt; <a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a></span>
             </dt>
             <dd>Converts pixels to meters.</dd>
-            <dt id="dip-PixelSize-swap-dip-PixelSize-L">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-swap-dip-PixelSize-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a>&amp; other)</span>
+            <dt id="dip-PixelSize-swap-PixelSize-L">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelSize-swap-PixelSize-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Swaps the values of <code>this</code> and <code>other</code>.</dd>
           </dl>
@@ -300,12 +300,12 @@ sizes if that product is physical, or 1 px<sup>d</sup> otherwise.</dd>
             </dt>
             <dd>Returns the pixel size for the given dimension.
 Cannot be used to write to the array, see <code>Set</code>.</dd>
-            <dt id="dip-PixelSize-operator%3D%3D-dip-PixelSize-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-operator%3D%3D-dip-PixelSize-CL-C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; rhs) const -&gt; bool</span>
+            <dt id="dip-PixelSize-operator%3D%3D-PixelSize-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-operator%3D%3D-PixelSize-CL-C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; rhs) const -&gt; bool</span>
             </dt>
             <dd>Compares two pixel sizes, magnitudes are compared with a 10<sup>-6</sup> relative tolerance</dd>
-            <dt id="dip-PixelSize-operator%21%3D-dip-PixelSize-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-operator%21%3D-dip-PixelSize-CL-C" class="m-doc-self">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; rhs) const -&gt; bool</span>
+            <dt id="dip-PixelSize-operator%21%3D-PixelSize-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelSize-operator%21%3D-PixelSize-CL-C" class="m-doc-self">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; rhs) const -&gt; bool</span>
             </dt>
             <dd>Compares two pixel sizes, magnitudes are compared with a 10<sup>-6</sup> relative tolerance</dd>
           </dl>
@@ -313,8 +313,8 @@ Cannot be used to write to the array, see <code>Set</code>.</dd>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-            <dt id="dip-operator%3C%3C-std-ostream-L-dip-PixelSize-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-dip-PixelSize-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+            <dt id="dip-operator%3C%3C-std-ostream-L-PixelSize-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-PixelSize-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; ps) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Writes the pixel sizes array to a stream</dd>
@@ -331,10 +331,10 @@ Cannot be used to write to the array, see <code>Set</code>.</dd>
 <p>With this call, dimension 0 becomes dimension <code>d-1</code>, dimension 1 becomes dimension <code>d-2</code>,
 etc. and dimension <code>d-1</code> becomes dimension 0.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-PixelSize-Permute-dip-UnsignedArray-CL"><div>
+          <section class="m-doc-details" id="dip-PixelSize-Permute-UnsignedArray-CL"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-Permute-dip-UnsignedArray-CL" class="m-doc-self">Permute</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; order)</span></span>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-PixelSize-Permute-UnsignedArray-CL" class="m-doc-self">Permute</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; order)</span></span>
             </h3>
             <p>Permutes dimensions according to <code>order</code>, such that, after the call, <code>Get(ii)</code> returns the value
 that <code>Get(order[ii])</code> returned before the call.</p>
