@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transforms &raquo; Low-level transform support module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.0" class="m-thin">version 3.5.0</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="transform.html">Transforms</a> &raquo;</span>
+          Low-level transform support <span class="m-thin">module</span>          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib--dft-h.html">"diplib/dft.h"</a></div>
+        </h1>
+        <p>Low-level functionality for computing the Discrete Fourier Transform.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#variable-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              class <a href="dip-DFT-T.html" class="m-doc">dip::<wbr />DFT</a>
+            </dt>
+            <dd>An object that encapsulates the Discrete Fourier Transform (DFT).</dd>
+            <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              class <a href="dip-RDFT-T.html" class="m-doc">dip::<wbr />RDFT</a>
+            </dt>
+            <dd>An object that encapsulates the real-valued Discrete Fourier Transform (DFT).</dd>
+          </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+            <dt id="dip-Option-DFTOptions">
+              using <a href="#dip-Option-DFTOptions" class="m-doc-self">dip::<wbr />Option::<wbr />DFTOptions</a> = dip::detail::Options
+
+            </dt>
+            <dd>Determines working mode for <a href="dip-DFT-T.html"><code>dip::DFT</code></a> and <a href="dip-RDFT-T.html"><code>dip::RDFT</code></a>. Combines multiple <a href="transform_lowlevel.html#dip-Option-DFTOption"><code>dip::Option::DFTOption</code></a> values,.</dd>
+            </dl>
+        </section>
+        <section id="enum-members">
+          <h2>Enums</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Option-DFTOption" class="m-doc">dip::<wbr />Option::<wbr />DFTOption</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Option-DFTOption-InPlace" class="m-doc">InPlace</a>,
+              <a href="#dip-Option-DFTOption-TrashInput" class="m-doc">TrashInput</a>,
+              <a href="#dip-Option-DFTOption-Aligned" class="m-doc">Aligned</a> }</span>
+            </dt>
+            <dd>Determines working mode for <a href="dip-DFT-T.html"><code>dip::DFT</code></a> and <a href="dip-RDFT-T.html"><code>dip::RDFT</code></a>.</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetOptimalDFTSize-dip-uint--bool--dip-uint-" class="m-doc">dip::<wbr />GetOptimalDFTSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size0,
+              bool larger = true,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxFactor = 5) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns a size equal or larger to <code>size0</code> that is efficient for the DFT implementation.
+The value returned is a product of small primes.</dd>
+            <dt id="dip-MaxFactor-bool-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MaxFactor-bool-" class="m-doc-self">dip::<wbr />MaxFactor</a>(</span><span class="m-doc-wrap">bool complex = true) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>The <code>maxFactor</code> parameter for <a href="transform_lowlevel.html#dip-GetOptimalDFTSize-dip-uint--bool--dip-uint-"><code>dip::GetOptimalDFTSize</code></a>. <code>complex</code> determines whether the transform to
+be computed is complex-to-complex or not.</dd>
+          </dl>
+        </section>
+        <section id="variable-members">
+          <h2>Variables</h2>
+          <dl class="m-doc">
+            <dt id="dip-maximumDFTSize">
+            <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> const <a href="#dip-maximumDFTSize" class="m-doc-self">dip::<wbr />maximumDFTSize</a>
+            </dt>
+            <dd>The largest size supported by <a href="dip-DFT-T.html"><code>dip::DFT</code></a> and <a href="transform.html#dip-FourierTransform-Image-CL-Image-L-StringSet-CL-BooleanArray-"><code>dip::FourierTransform</code></a>. Is equal to 2<sup>31</sup>-1 when using FFTW,
+or 2<sup>64</sup>-1 when using PocketFFT.</dd>
+            <dt id="dip-usingFFTW">
+            bool const <a href="#dip-usingFFTW" class="m-doc-self">dip::<wbr />usingFFTW</a>
+            </dt>
+            <dd>Is <code>true</code> if <code>dip::DFT</code> and <code>dip::RDFT</code> use the FFTW library, or false if they use PocketFFT.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="dip-Option-DFTOption"><div>
+            <h3>
+              enum class <a href="#dip-Option-DFTOption" class="m-doc-self">dip::<wbr />Option::<wbr />DFTOption</a>: uint8
+            </h3>
+            <p>Determines working mode for <a href="dip-DFT-T.html"><code>dip::DFT</code></a> and <a href="dip-RDFT-T.html"><code>dip::RDFT</code></a>.</p>
+<p>Implicitly casts to <a href="transform_lowlevel.html#dip-Option-DFTOptions"><code>dip::Option::DFTOptions</code></a>. Combine constants together with the <code>+</code> operator.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#dip-Option-DFTOption-InPlace" class="m-doc-self" id="dip-Option-DFTOption-InPlace">InPlace</a> = 0</td>
+                  <td>
+                  Work in place, the input and output buffers are the same.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Option-DFTOption-TrashInput" class="m-doc-self" id="dip-Option-DFTOption-TrashInput">TrashInput</a> = 1</td>
+                  <td>
+                  Allowed to trash the input buffer, we don&rsquo;t need to preserve it.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Option-DFTOption-Aligned" class="m-doc-self" id="dip-Option-DFTOption-Aligned">Aligned</a> = 2</td>
+                  <td>
+                  Both buffers are aligned to 16-byte boundaries.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-GetOptimalDFTSize-dip-uint--bool--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GetOptimalDFTSize-dip-uint--bool--dip-uint-" class="m-doc-self">dip::<wbr />GetOptimalDFTSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size0,
+              bool larger = true,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxFactor = 5)</span></span>
+            </h3>
+            <p>Returns a size equal or larger to <code>size0</code> that is efficient for the DFT implementation.
+The value returned is a product of small primes.</p>
+<p>Set <code>larger</code> to false to return a size equal or smaller instead.</p>
+<p><code>maxFactor</code> should be 5, 7 or 11, and gives the largest integer that should be considered a &ldquo;small prime&rdquo;.
+When using FFTW, set <code>maxFactor</code> to 7, as by default it works most efficiently for sizes that can be factored
+into primes smaller or equal to 7. When using PocketFFT, set it to 5 for complex-to-real or real-to-complex
+transforms, and to 11 for complex-to-complex transforms. See <a href="transform_lowlevel.html#dip-MaxFactor-bool-"><code>dip::MaxFactor</code></a>.</p>
+<p>If there is no suitable size that the implementation can use (see <a href="transform_lowlevel.html#dip-maximumDFTSize"><code>dip::maximumDFTSize</code></a>), this function
+will return 0.</p>
+<p>Prefer to use <a href="transform.html#dip-OptimalFourierTransformSize-dip-uint--dip-String-CL-dip-String-CL"><code>dip::OptimalFourierTransformSize</code></a> in your applications, it will throw an error if
+the transform size is too large, and determines <code>maxFactor</code> for you.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

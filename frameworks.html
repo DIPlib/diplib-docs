@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.3" class="m-thin">version 3.4.3</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.0" class="m-thin">version 3.5.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -129,6 +129,10 @@ for the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--D
               class <a href="dip-Framework-FullLineFilter.html" class="m-doc">dip::<wbr />Framework::<wbr />FullLineFilter</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
             <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a>.</dd>
+            <dt>
+              class <a href="dip-Framework-ProjectionFunction.html" class="m-doc">dip::<wbr />Framework::<wbr />ProjectionFunction</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>Prototype line filter for <a href="frameworks.html#dip-Framework-Projection-Image-CL-Image-CL-Image-L-DataType--BooleanArray--ProjectionFunction-L-ProjectionOptions-"><code>dip::Framework::Projection</code></a>.</dd>
           </dl>
         </section>
         <section id="alias-members">
@@ -149,6 +153,11 @@ for the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--D
 
             </dt>
             <dd>Combines any number of <a href="frameworks.html#dip-Framework-FullOption"><code>dip::Framework::FullOption</code></a> constants together.</dd>
+            <dt id="dip-Framework-ProjectionOptions">
+              using <a href="#dip-Framework-ProjectionOptions" class="m-doc-self">dip::<wbr />Framework::<wbr />ProjectionOptions</a> = dip::detail::Options
+
+            </dt>
+            <dd>Combines any number of <a href="frameworks.html#dip-Framework-ProjectionOption"><code>dip::Framework::ProjectionOption</code></a> constants together.</dd>
             </dl>
         </section>
         <section id="enum-members">
@@ -182,6 +191,10 @@ for the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--D
               <a href="#dip-Framework-FullOption-BorderAlreadyExpanded" class="m-doc">BorderAlreadyExpanded</a> }</span>
             </dt>
             <dd>Defines options to the <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a> function.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Framework-ProjectionOption" class="m-doc">dip::<wbr />Framework::<wbr />ProjectionOption</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Framework-ProjectionOption-NoMultiThreading" class="m-doc">NoMultiThreading</a> }</span>
+            </dt>
+            <dd>Defines options to the <a href="frameworks.html#dip-Framework-Projection-Image-CL-Image-CL-Image-L-DataType--BooleanArray--ProjectionFunction-L-ProjectionOptions-"><code>dip::Framework::Projection</code></a> function.</dd>
           </dl>
         </section>
         <section id="function-members">
@@ -330,6 +343,16 @@ dimension only.</dd>
               <a href="frameworks.html#dip-Framework-FullOptions" class="m-doc">dip::Framework::FullOptions</a> opts = {})</span>
             </dt>
             <dd>Framework for filtering of images with an arbitrary shape neighborhood.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-Projection-Image-CL-Image-CL-Image-L-DataType--BooleanArray--ProjectionFunction-L-ProjectionOptions-" class="m-doc">dip::<wbr />Framework::<wbr />Projection</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outImageType,
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process,
+              <a href="dip-Framework-ProjectionFunction.html" class="m-doc">dip::Framework::ProjectionFunction</a>&amp; projectionFunction,
+              <a href="frameworks.html#dip-Framework-ProjectionOptions" class="m-doc">dip::Framework::ProjectionOptions</a> opts = {})</span>
+            </dt>
+            <dd>Framework for projecting one or more dimensions of an image.</dd>
           </dl>
         </section>
         <section>
@@ -832,6 +855,24 @@ a single struct to simplify writing those functions.</p>
               </tbody>
             </table>
           </div></section>
+          <section class="m-doc-details" id="dip-Framework-ProjectionOption"><div>
+            <h3>
+              enum class <a href="#dip-Framework-ProjectionOption" class="m-doc-self">dip::<wbr />Framework::<wbr />ProjectionOption</a>: uint8
+            </h3>
+            <p>Defines options to the <a href="frameworks.html#dip-Framework-Projection-Image-CL-Image-CL-Image-L-DataType--BooleanArray--ProjectionFunction-L-ProjectionOptions-"><code>dip::Framework::Projection</code></a> function.</p>
+<p>Implicitly casts to <a href="frameworks.html#dip-Framework-ProjectionOptions"><code>dip::Framework::ProjectionOptions</code></a>. Combine constants together with the <code>+</code> operator.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#dip-Framework-ProjectionOption-NoMultiThreading" class="m-doc-self" id="dip-Framework-ProjectionOption-NoMultiThreading">NoMultiThreading</a> = 0</td>
+                  <td>
+                  Do not call the projection function simultaneously from multiple threads (it is not thread safe).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
         </section>
         <section>
           <h2>Function documentation</h2>
@@ -943,7 +984,7 @@ the output without invalidating the input for that same pixel. In this case, giv
 do not alias the input buffers.</p>
 <p><code>dip::Framework::Scan</code> will process the image using multiple threads, so <code>lineFilter</code> will be called from multiple
 threads simultaneously. If it is not thread safe, specify <a href="frameworks.html#dip-Framework-ScanOption-NoMultiThreading"><code>dip::Framework::ScanOption::NoMultiThreading</code></a> as an
-option. the <code>SetNumberOfThreads</code> method to <code>lineFilter</code> will be called once before the processing starts, when
+option. The <code>SetNumberOfThreads</code> method to <code>lineFilter</code> will be called once before the processing starts, when
 <code>dip::Framework::Scan</code> has determined how many threads will be used in the scan, even if
 <a href="frameworks.html#dip-Framework-ScanOption-NoMultiThreading"><code>dip::Framework::ScanOption::NoMultiThreading</code></a> was specified.</p>
           </div></section>
@@ -1087,7 +1128,7 @@ applied completely in place, without any temporary images. For this to be possib
 and the input image data type must all be the same.</p>
 <p><code>dip::Framework::Separable</code> will process the image using multiple threads, so <code>lineFilter</code> will be called from
 multiple threads simultaneously. If it is not thread safe, specify <a href="frameworks.html#dip-Framework-SeparableOption-NoMultiThreading"><code>dip::Framework::SeparableOption::NoMultiThreading</code></a>
-as an option. the <code>SetNumberOfThreads</code> method to <code>lineFilter</code> will be called once before the processing starts,
+as an option. The <code>SetNumberOfThreads</code> method to <code>lineFilter</code> will be called once before the processing starts,
 when <code>dip::Framework::Separable</code> has determined how many threads will be used in the processing, even if
 <a href="frameworks.html#dip-Framework-SeparableOption-NoMultiThreading"><code>dip::Framework::SeparableOption::NoMultiThreading</code></a> was specified.</p>
           </div></section>
@@ -1185,8 +1226,45 @@ Use <code>pixelTable.Dimensionality()</code> to determine how many of the elemen
 buffer without invalidating the input buffer, even when the filter is being applied in-place.</p>
 <p><code>dip::Framework::Full</code> will process the image using multiple threads, so <code>lineFilter</code> will be called from multiple
 threads simultaneously. If it is not thread safe, specify <a href="frameworks.html#dip-Framework-FullOption-NoMultiThreading"><code>dip::Framework::FullOption::NoMultiThreading</code></a> as an
-option. the <code>SetNumberOfThreads</code> method to <code>lineFilter</code> will be called once before the processing starts, when
+option. The <code>SetNumberOfThreads</code> method to <code>lineFilter</code> will be called once before the processing starts, when
 <code>dip::Framework::Full</code> has determined how many threads will be used in the scan, even if
+<a href="frameworks.html#dip-Framework-FullOption-NoMultiThreading"><code>dip::Framework::FullOption::NoMultiThreading</code></a> was specified.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-Framework-Projection-Image-CL-Image-CL-Image-L-DataType--BooleanArray--ProjectionFunction-L-ProjectionOptions-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Framework-Projection-Image-CL-Image-CL-Image-L-DataType--BooleanArray--ProjectionFunction-L-ProjectionOptions-" class="m-doc-self">dip::<wbr />Framework::<wbr />Projection</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> outImageType,
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process,
+              <a href="dip-Framework-ProjectionFunction.html" class="m-doc">dip::Framework::ProjectionFunction</a>&amp; projectionFunction,
+              <a href="frameworks.html#dip-Framework-ProjectionOptions" class="m-doc">dip::Framework::ProjectionOptions</a> opts = {})</span></span>
+            </h3>
+            <p>Framework for projecting one or more dimensions of an image.</p>
+<p><code>process</code> determines which dimensions of the input image <code>in</code> will be collapsed. <code>out</code> will have the
+same dimensionality as <code>in</code>, but the dimensions that are <code>true</code> in <code>process</code> will have a size of 1
+(i.e. be singleton dimensions); the remaining dimensions will be of the same size as in <code>in</code>.</p>
+<p>The function object <code>projectionFunction</code> is called for each sub-image that projects onto a single sample.
+Each tensor element is processed independently, and so the sub-image is always a scalar image.
+For example, when computing the sum over the entire image, the <code>projectionFunction</code> is called once for
+each tensor element, with a scalar image the size of the full input image as input. When computing the
+sum over image rows, the <code>projectionFunction</code> is called once for each tensor element and each row of the
+image, with a scalar image the size of one image row.</p>
+<p>The projection function cannot make any assumptions about contiguous data or input dimensionality. The
+input will be transformed such that it has as few dimensions as possible, just to make the looping inside
+the projection function more efficient.</p>
+<p>The output image <code>out</code> (unless protected) will be resized to match the required output size,
+and its type will be set to that specified by <code>outImageType</code>. A protected output image must have
+the correct size, otherwise an exception will be thrown, but can have a different data type.</p>
+<p>The output sample in the projection function will always be of type <code>outImageType</code>, even if the output
+image cannot be converted to that type (in which case the framework function will take care of casting
+each output value generated by the projection function to the output type).</p>
+<p><code>dip::Framework::Projection</code> will process the image using multiple threads, so <code>projectionFunction</code>
+will be called from multiple threads simultaneously. If it is not thread safe, specify
+<a href="frameworks.html#dip-Framework-ProjectionOption-NoMultiThreading"><code>dip::Framework::ProjectionOption::NoMultiThreading</code></a> as an option. The <code>SetNumberOfThreads</code>
+method to <code>projectionFunction</code> will be called once before the processing starts, when
+<code>dip::Framework::Projection</code> has determined how many threads will be used in the scan, even if
 <a href="frameworks.html#dip-Framework-FullOption-NoMultiThreading"><code>dip::Framework::FullOption::NoMultiThreading</code></a> was specified.</p>
           </div></section>
         </section>

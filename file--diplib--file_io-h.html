@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.3" class="m-thin">version 3.4.3</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.0" class="m-thin">version 3.5.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -68,6 +68,18 @@ See <a href="file_io.html">File I/O</a>.</p>
               struct <a href="file_io.html#dip-FileInformation" class="m-doc">dip::<wbr />FileInformation</a>
             </dt>
             <dd>A data structure with information about an image file.</dd>
+            <dt>
+              class <a href="dip-OutputBuffer.html" class="m-doc">dip::<wbr />OutputBuffer</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>A pure virtual base class for output buffers.</dd>
+            <dt>
+              class <a href="dip-SimpleOutputBuffer.html" class="m-doc">dip::<wbr />SimpleOutputBuffer</a>
+            </dt>
+            <dd>A simple output buffer implementation.</dd>
+            <dt>
+              class <a href="dip-FixedOutputBuffer.html" class="m-doc">dip::<wbr />FixedOutputBuffer</a>
+            </dt>
+            <dd>An output buffer implementation that cannot be resized.</dd>
           </dl>
         </section>
         <section id="function-members">
@@ -186,10 +198,17 @@ pixel data.</dd>
             </dt>
             <dd>Writes <code>image</code> as a JPEG file.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">void <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-OutputBuffer-L-dip-uint-" class="m-doc">dip::<wbr />ImageWriteJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="dip-OutputBuffer.html" class="m-doc">dip::OutputBuffer</a>&amp; buffer,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80)</span>
+            </dt>
+            <dd>Encodes <code>image</code> as a JPEG file and writes it to a user-created buffer.
+See <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-"><code>dip::ImageWriteJPEG</code></a> for details.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWriteJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80) -&gt; std::vector&lt;dip::uint8&gt;</span>
             </dt>
-            <dd>Writes <code>image</code> as a JPEG-encoded buffer.
+            <dd>Encodes <code>image</code> as a JPEG file and writes it to a buffer that is returned.
 See <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-"><code>dip::ImageWriteJPEG</code></a> for details.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="file_io.html#dip-ImageReadPNG-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadPNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -218,21 +237,30 @@ pixel data. See <a href="file_io.html#dip-ImageReadPNG-Image-L-String-CL"><code>
             <dd>Reads image information and metadata from the PNG-encoded buffer, without reading the actual
 pixel data.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">void <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-uint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <span class="m-doc-wrap-bumper">void <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> compressionLevel = 6,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL},
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0)</span>
             </dt>
             <dd>Writes <code>image</code> as a PNG file.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="file_io.html#dip-ImageWritePNG-Image-CL-dip-uint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> compressionLevel = 6,
+              <span class="m-doc-wrap-bumper">void <a href="file_io.html#dip-ImageWritePNG-Image-CL-OutputBuffer-L-dip-sint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="dip-OutputBuffer.html" class="m-doc">dip::OutputBuffer</a>&amp; buffer,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0)</span>
+            </dt>
+            <dd>Encodes <code>image</code> as a PNG file and writes it to a user-created buffer.
+See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-"><code>dip::ImageWritePNG</code></a> for details.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="file_io.html#dip-ImageWritePNG-Image-CL-dip-sint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL},
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0) -&gt; std::vector&lt;dip::uint8&gt;</span>
             </dt>
-            <dd>Writes <code>image</code> as a PNG-encoded buffer.
-See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-uint--StringSet-CL-dip-uint-"><code>dip::ImageWritePNG</code></a> for details.</dd>
+            <dd>Encodes <code>image</code> as a PNG file and writes it to a buffer that is returned.
+See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-"><code>dip::ImageWritePNG</code></a> for details.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="file_io.html#dip-ImageReadNPY-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>

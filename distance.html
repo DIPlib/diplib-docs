@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.3" class="m-thin">version 3.4.3</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.0" class="m-thin">version 3.5.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -206,10 +206,13 @@ everywhere.</p>
 through those pixels that are set in <code>mask</code>. Pixels not set in mask will have either a value of 0 or infinity
 in the output, depending on whether <code>bin</code> was set or not. If <code>mask</code> is not forged, paths are not constrained.
 If <code>mask</code> is forged, it must be of the same sizes as <code>bin</code> and <code>grey</code>, and be binary and scalar.</p>
-<p>Computed distances use the pixel sizes (ignoring any units). To compute distances in pixels, reset the pixel
-size (<a href="dip-Image.html#dip-Image-ResetPixelSize"><code>dip::Image::ResetPixelSize</code></a>). Note that, when pixels sizes are correctly set, this function handles
-anisotropic sampling densities correctly. Pixel sizes are taken from <code>grey</code>, and if it doesn&rsquo;t have pixel
-sizes, they are taken from <code>bin</code>. Both images must not have pixel sizes for the algorithm to use pixel units.</p>
+<p>Note that if both <code>grey</code> and <code>mask</code> are not forged, the output will be an approximation to the Euclidean
+distance transform. Prefer to use <a href="distance.html#dip-EuclideanDistanceTransform-Image-CL-Image-L-String-CL-String-CL"><code>dip::EuclideanDistanceTransform</code></a> in this case, as it&rsquo;s much faster and can
+produce exact Euclidean distances.</p>
+<p>The output distances are computed taking pixel sizes into account (ignoring any units). This means that this
+function will correctly handle anisotropic sampling densities. Pixel sizes are taken from <code>grey</code>, and if it
+doesn&rsquo;t have pixel sizes, they are taken from <code>bin</code>. To compute distances in pixels, reset the pixel
+size (<a href="dip-Image.html#dip-Image-ResetPixelSize"><code>dip::Image::ResetPixelSize</code></a>) of both images.</p>
 <p>This function uses one of two algorithms: the fast marching algorithm (Sethian, 1996), or a simpler propagation
 algorithm that uses a chamfer metric (after work by Verwer and Strasters). <code>metric</code> is used only in the latter
 case. <code>mode</code> selects the algorithm used and what output is produced:</p>
@@ -219,20 +222,13 @@ case. <code>mode</code> selects the algorithm used and what output is produced:<
 <li><code>"length"</code> also uses the chamfer metric algorithm, but outputs the length of the optimal path, rather
   than the integral along the path.</li>
 </ul>
-<p>The chamfer metric is defined by the parameter <code>metric</code>. Any metric can be given, but a 3x3 or 5x5 chamfer metric
-is recommended for unbiased distances. See <a href="dip-Metric.html"><code>dip::Metric</code></a> for more information. If the <code>metric</code> doesn&rsquo;t have a
-pixel size set, but either <code>grey</code> or <code>bin</code> have a pixel size defined, then that pixel size will be added to the
-metric (the pixel size in <code>grey</code> will have precedence over the one in <code>bin</code> if they both have one defined). To
-avoid the use of any pixel size, define <code>metric</code> with a pixel size of 1. The magnitudes of the pixel sizes are
-used, ignoring any units.</p>
-<p>With the fast marching algorithm, the pixel size in either <code>grey</code> or <code>bin</code> will be used to weight distances. The
-magnitudes of the pixel sizes are used, ignoring any units.</p>
 <p>The fast marching algorithm approximates Euclidean distances. It yields the most isotropic result, though it
-is biased. The chamfer metric algorithm uses the metric as specified by <code>metric</code>, which could be, for example,
-<code>dip::Metric("city")</code>. The metrics <code>dip::Metric("chamfer", 3)</code> or <code>dip::Metric("chamfer", 5)</code> are to be preferred,
-as they produce unbiased distances (with octagonal and dodecagonal unit circles, respectively).
-The larger neighborhood produces more precise distances than the smaller neighborhood.</p>
-<p>The chamfer metric algorithm is a little faster than the fast marching algorithm,
+is biased.</p>
+<p>The chamfer metric is defined by the parameter <code>metric</code>. Any metric can be given, but <code>dip::Metric("chamfer", 1)</code>
+or <code>dip::Metric("chamfer", 2)</code> are to be preferred, as they produce unbiased distances (with octagonal and
+dodecagonal unit circles, respectively). See <a href="dip-Metric.html"><code>dip::Metric</code></a> for more information. If the <code>metric</code> has a
+pixel size set, it will overrule any pixel sizes in <code>grey</code> and <code>bin</code>.
+The chamfer metric algorithm is a little faster than the fast marching algorithm,
 with smaller neighborhoods being faster than larger neighborhoods.</p>
 <aside class="m-note m-default">
 <h4>Literature</h4>

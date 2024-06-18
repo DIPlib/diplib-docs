@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.3" class="m-thin">version 3.4.3</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.0" class="m-thin">version 3.5.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -64,30 +64,48 @@
             </li>
           </ul>
         </div>
-<p>Note that if <code>mode == Mode::COMPUTE_BINS</code>, <code>binSize</code> will be adjusted so that a whole number of bins
-fits between the bounds. If <code>binSize</code> was set to zero or a negative value, and the input image is of
-any integer type, then <code>binSize</code> will be computed to be an integer power of two, and such that there
-are no more than 256 bins in the histogram.</p>
-<p>Any illegal values in the configuration will silently be replaced with the default values.</p>
 <p>Constructors exist to set different subsets of the configuration; write upper bound and bin size
 as a floating point number so the right constructor can be selected (they differ in the location
 of the integer value). For example, note the difference between the following constructor calls,
-where <code>10</code> indicates 10 bins, <code>10.0</code> indicates the upper bound, and <code>1.0</code> indicates the bin size:</p>
-<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Histogram</span><span class="o">::</span><span class="n">Configuration</span><span class="w"> </span><span class="nf">conf1</span><span class="p">(</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">);</span>
-<span class="n">dip</span><span class="o">::</span><span class="n">Histogram</span><span class="o">::</span><span class="n">Configuration</span><span class="w"> </span><span class="nf">conf1</span><span class="p">(</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span>
+where <code>10</code> indicates 10 bins, <code>100.0</code> indicates the upper bound, and <code>1.0</code> indicates the bin size:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Histogram</span><span class="o">::</span><span class="n">Configuration</span><span class="w"> </span><span class="nf">conf1</span><span class="p">(</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Histogram</span><span class="o">::</span><span class="n">Configuration</span><span class="w"> </span><span class="nf">conf1</span><span class="p">(</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">);</span>
 <span class="n">dip</span><span class="o">::</span><span class="n">Histogram</span><span class="o">::</span><span class="n">Configuration</span><span class="w"> </span><span class="nf">conf2</span><span class="p">(</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 
 <p>An additional constructor takes a <a href="dip-DataType.html"><code>dip::DataType</code></a>, and selects appropriate values for an image of the
-given data type:</p>
+given data type; see <a href="dip-Histogram-Configuration.html#dip-Histogram-Configuration-Configuration-DataType-"><code>dip::Histogram::Configuration::Configuration</code></a>.</p>
+<p>The functions <a href="dip-Histogram.html#dip-Histogram-OptimalConfiguration"><code>dip::Histogram::OptimalConfiguration</code></a> and <a href="dip-Histogram.html#dip-Histogram-OptimalConfigurationWithFullRange"><code>dip::Histogram::OptimalConfigurationWithFullRange</code></a> create configurations
+that are expected to be robust for arbitrary data. They choose the bin size based on the Freedman&ndash;Diaconis
+rule. The former chooses histogram bounds to exclude only extreme outliers, the latter always includes the
+full range. Note that including the full range can potentially lead to an extremely large histogram.</p>
+<p>Here are the rules followed to complete the configuration given:</p>
 <ul>
-<li>For 8-bit images, the histogram has 256 bins, one for each possible input value.</li>
-<li>For other integer-valued images, the histogram has up to 256 bins, stretching from the lowest value
-  in the image to the highest, and with bin size a power of two. This is the simplest way of correctly
-  handling data from 10-bit, 12-bit and 16-bit sensors that can put data in the lower or the upper bits
-  of the 16-bit words, and will handle other integer data correctly as well.</li>
-<li>For floating-point images, the histogram always has 256 bins, stretching from the lowest value in the
-  image to the highest.</li>
+<li>
+<p>Any illegal values in the configuration will silently be replaced with the default values.</p>
+</li>
+<li>
+<p>For integer images, the bin size and bounds will be forced to integer values.</p>
+</li>
+<li>
+<p>For integer images, if <code>mode == Mode::COMPUTE_BINSIZE</code>, the upper bound will be adjusted so that a whole
+  number of integer-sized bins fit within the bounds.</p>
+</li>
+<li>
+<p>If <code>mode == Mode::COMPUTE_BINS</code>, the bin size is adjusted to that a whole number of bins fit within
+  the given bounds. Except for integer images, where the bin size must be an integer as well. In this case,
+  the upper bound is adjusted instead.</p>
+</li>
+<li>
+<p>If <code>mode == Mode::COMPUTE_BINS</code>, <code>binSize</code> was set to zero or a negative value, and the input image is of
+  an integer type, then <code>binSize</code> will be computed to be an integer power of two, and such that there
+  are no more than 256 bins in the histogram.</p>
+</li>
+<li>
+<p>For integer images, if the bin centers are not whole numbers, the bounds are shifted down by half
+  to make the bin centers whole numbers. This should not affect the computed histogram, but make the display
+  prettier.</p>
+</li>
 </ul>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
@@ -126,8 +144,8 @@ given data type:</p>
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> binSize)</span>
             </dt>
             <dd>A constructor takes a lower bound, the number of bins and the bin size. The upper bound is computed.</dd>
-            <dt id="dip-Histogram-Configuration-Configuration-DataType-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Configuration-Configuration-DataType-" class="m-doc-self">Configuration</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> dataType) <span class="m-label m-flat m-info">explicit</span> </span>
+            <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Configuration-Configuration-DataType-" class="m-doc">Configuration</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> dataType) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>A constructor takes an image data type, yielding a default histogram configuration for that data type.</dd>
             </dl>
@@ -135,13 +153,15 @@ given data type:</p>
         <section id="enum-members">
           <h2>Enums</h2>
           <dl class="m-doc">
-            <dt id="dip-Histogram-Configuration-Mode">
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Histogram-Configuration-Mode" class="m-doc-self">Mode</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Histogram-Configuration-Mode-COMPUTE_BINSIZE" class="m-doc">COMPUTE_BINSIZE</a>,
+            <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Histogram-Configuration-Mode" class="m-doc">Mode</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Histogram-Configuration-Mode-COMPUTE_BINSIZE" class="m-doc">COMPUTE_BINSIZE</a>,
               <a href="#dip-Histogram-Configuration-Mode-COMPUTE_BINS" class="m-doc">COMPUTE_BINS</a>,
               <a href="#dip-Histogram-Configuration-Mode-COMPUTE_LOWER" class="m-doc">COMPUTE_LOWER</a>,
-              <a href="#dip-Histogram-Configuration-Mode-COMPUTE_UPPER" class="m-doc">COMPUTE_UPPER</a> }</span>
+              <a href="#dip-Histogram-Configuration-Mode-COMPUTE_UPPER" class="m-doc">COMPUTE_UPPER</a>,
+              <a href="#dip-Histogram-Configuration-Mode-ESTIMATE_BINSIZE" class="m-doc">ESTIMATE_BINSIZE</a>,
+              <a href="#dip-Histogram-Configuration-Mode-ESTIMATE_BINSIZE_AND_LIMITS" class="m-doc">ESTIMATE_BINSIZE_AND_LIMITS</a> }</span>
             </dt>
-            <dd>Which of the four values to compute based on the other three</dd>
+            <dd>How to complete the configuration</dd>
           </dl>
         </section>
         <section id="function-members">
@@ -193,6 +213,75 @@ given data type:</p>
             </dt>
             <dd>If set, pixels outside of the histogram bounds are not counted.</dd>
            </dl>
+        </section>
+        <section>
+            <h2>Enum documentation</h2>
+          <section class="m-doc-details" id="dip-Histogram-Configuration-Mode"><div>
+            <h3>
+              enum class <a href="#dip-Histogram-Configuration-Mode" class="m-doc-self">Mode</a>: uint8
+            </h3>
+            <p>How to complete the configuration</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><a href="#dip-Histogram-Configuration-Mode-COMPUTE_BINSIZE" class="m-doc-self" id="dip-Histogram-Configuration-Mode-COMPUTE_BINSIZE">COMPUTE_BINSIZE</a> = 0</td>
+                  <td>
+                  Compute <code>binSize</code> from the other three values
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Histogram-Configuration-Mode-COMPUTE_BINS" class="m-doc-self" id="dip-Histogram-Configuration-Mode-COMPUTE_BINS">COMPUTE_BINS</a> = 1</td>
+                  <td>
+                  Compute <code>nBins</code> from the other three values
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Histogram-Configuration-Mode-COMPUTE_LOWER" class="m-doc-self" id="dip-Histogram-Configuration-Mode-COMPUTE_LOWER">COMPUTE_LOWER</a> = 2</td>
+                  <td>
+                  Compute <code>lowerBound</code> from the other three values
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Histogram-Configuration-Mode-COMPUTE_UPPER" class="m-doc-self" id="dip-Histogram-Configuration-Mode-COMPUTE_UPPER">COMPUTE_UPPER</a> = 3</td>
+                  <td>
+                  Compute <code>upperBound</code> from the other three values
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Histogram-Configuration-Mode-ESTIMATE_BINSIZE" class="m-doc-self" id="dip-Histogram-Configuration-Mode-ESTIMATE_BINSIZE">ESTIMATE_BINSIZE</a> = 4</td>
+                  <td>
+                  Choose <code>binSize</code> using the Freedman&ndash;Diaconis rule, then compute <code>nBins</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#dip-Histogram-Configuration-Mode-ESTIMATE_BINSIZE_AND_LIMITS" class="m-doc-self" id="dip-Histogram-Configuration-Mode-ESTIMATE_BINSIZE_AND_LIMITS">ESTIMATE_BINSIZE_AND_LIMITS</a> = 5</td>
+                  <td>
+                  Like <code>ESTIMATE_BINSIZE</code>, but also determines the lower and upper limits
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+          <section class="m-doc-details" id="dip-Histogram-Configuration-Configuration-DataType-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Configuration-Configuration-DataType-" class="m-doc-self">Configuration</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> dataType) <span class="m-label m-info">explicit</span></span></span>
+            </h3>
+            <p>A constructor takes an image data type, yielding a default histogram configuration for that data type.</p>
+<ul>
+<li>For 8-bit images, the histogram has 256 bins, one for each possible input value.</li>
+<li>For other integer-valued images, the histogram has up to 256 bins, stretching from the lowest value
+  in the image to the highest, and with bin size a power of two. This is the simplest way of correctly
+  handling data from 10-bit, 12-bit and 16-bit sensors that can put data in the lower or the upper bits
+  of the 16-bit words, and will handle other integer data correctly as well.</li>
+<li>For floating-point images, the histogram always has 256 bins, stretching from the lowest value in the
+  image to the highest.</li>
+</ul>
+          </div></section>
         </section>
       </div>
     </div>

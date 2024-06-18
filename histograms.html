@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.3" class="m-thin">version 3.4.3</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.0" class="m-thin">version 3.5.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -127,6 +127,12 @@ percentile, see <code>dip::MarginalPercentile</code> for details.</dd>
             </dt>
             <dd>Calculates the entropy, in bits, of an image from its histogram <code>in</code>.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GaussianMixtureModel-Histogram-CL-dip-uint--dip-uint-" class="m-doc">dip::<wbr />GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIter = 20) -&gt; std::vector&lt;GaussianParameters&gt;</span>
+            </dt>
+            <dd>Determines the parameters for a Gaussian Mixture Model fitted to the histogram <code>in</code>.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-IsodataThreshold-Histogram-CL-dip-uint-" class="m-doc">dip::<wbr />IsodataThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
@@ -145,7 +151,7 @@ and the image&rsquo;s histogram <code>in</code>.</dd>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
             <dd>Determines a set of <code>nThresholds</code> thresholds by modeling the histogram with a Gaussian Mixture Model,
-fitting the model using the Expectation Maximization procedure, and choosing the optimal Bayes thresholds.</dd>
+and choosing the optimal Bayes thresholds.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-TriangleThreshold-Histogram-CL-dfloat-" class="m-doc">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
@@ -237,24 +243,24 @@ elements are stored in a symmetric tensor image (see <a href="dip-Tensor.html#di
 \(\frac{1}{2}n(n+1)\)
 </title>
 <defs>
-<use id='eq116-g11-49' xlink:href='#eq116-g8-49' transform='scale(1.36)'/>
-<path id='eq116-g1-184' d='M2.97-3.41H.36V-2.62H2.97V0H3.75V-2.62H6.36V-3.41H3.75V-6.03H2.97V-3.41Z'/>
-<path id='eq116-g1-185' d='M3.51-8.54C1.79-7.42 .57-5.49 .57-3.06C.57-.85 1.83 1.39 3.48 2.41L3.62 2.22C2.05 .98 1.6-.46 1.6-3.1C1.6-5.74 2.08-7.11 3.62-8.35L3.51-8.54Z'/>
-<path id='eq116-g1-186' d='M.45-8.54L.35-8.35C1.88-7.11 2.37-5.74 2.37-3.1C2.37-.46 1.92 .98 .35 2.22L.49 2.41C2.13 1.39 3.39-.85 3.39-3.06C3.39-5.49 2.18-7.42 .45-8.54Z'/>
-<path id='eq116-g4-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
-<path id='eq116-g8-49' d='M3.44 0V-.13C2.75-.14 2.61-.23 2.61-.65V-5.89L2.54-5.9L.97-5.11V-4.99C1.07-5.03 1.17-5.07 1.21-5.08C1.36-5.14 1.51-5.18 1.6-5.18C1.78-5.18 1.86-5.05 1.86-4.77V-.81C1.86-.52 1.79-.32 1.65-.24C1.52-.17 1.4-.14 1.03-.13V0H3.44Z'/>
-<path id='eq116-g8-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+<use id='eq118-g11-49' xlink:href='#eq118-g8-49' transform='scale(1.36)'/>
+<path id='eq118-g1-184' d='M2.97-3.41H.36V-2.62H2.97V0H3.75V-2.62H6.36V-3.41H3.75V-6.03H2.97V-3.41Z'/>
+<path id='eq118-g1-185' d='M3.51-8.54C1.79-7.42 .57-5.49 .57-3.06C.57-.85 1.83 1.39 3.48 2.41L3.62 2.22C2.05 .98 1.6-.46 1.6-3.1C1.6-5.74 2.08-7.11 3.62-8.35L3.51-8.54Z'/>
+<path id='eq118-g1-186' d='M.45-8.54L.35-8.35C1.88-7.11 2.37-5.74 2.37-3.1C2.37-.46 1.92 .98 .35 2.22L.49 2.41C2.13 1.39 3.39-.85 3.39-3.06C3.39-5.49 2.18-7.42 .45-8.54Z'/>
+<path id='eq118-g4-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
+<path id='eq118-g8-49' d='M3.44 0V-.13C2.75-.14 2.61-.23 2.61-.65V-5.89L2.54-5.9L.97-5.11V-4.99C1.07-5.03 1.17-5.07 1.21-5.08C1.36-5.14 1.51-5.18 1.6-5.18C1.78-5.18 1.86-5.05 1.86-4.77V-.81C1.86-.52 1.79-.32 1.65-.24C1.52-.17 1.4-.14 1.03-.13V0H3.44Z'/>
+<path id='eq118-g8-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
 </defs>
-<g id='eq116-page1'>
-<use x='1.2' y='-4.71' xlink:href='#eq116-g8-49'/>
+<g id='eq118-page1'>
+<use x='1.2' y='-4.71' xlink:href='#eq118-g8-49'/>
 <rect x='1.2' y='-3.41' height='.67' width='4.38'/>
-<use x='1.2' y='4.12' xlink:href='#eq116-g8-50'/>
-<use x='6.83' y='0' xlink:href='#eq116-g4-61'/>
-<use x='13.57' y='0' xlink:href='#eq116-g1-185'/>
-<use x='18.08' y='0' xlink:href='#eq116-g4-61'/>
-<use x='26.87' y='0' xlink:href='#eq116-g1-184'/>
-<use x='36.27' y='0' xlink:href='#eq116-g11-49'/>
-<use x='42.25' y='0' xlink:href='#eq116-g1-186'/>
+<use x='1.2' y='4.12' xlink:href='#eq118-g8-50'/>
+<use x='6.83' y='0' xlink:href='#eq118-g4-61'/>
+<use x='13.57' y='0' xlink:href='#eq118-g1-185'/>
+<use x='18.08' y='0' xlink:href='#eq118-g4-61'/>
+<use x='26.87' y='0' xlink:href='#eq118-g1-184'/>
+<use x='36.27' y='0' xlink:href='#eq118-g11-49'/>
+<use x='42.25' y='0' xlink:href='#eq118-g1-186'/>
 </g>
 </svg></span>
 elements (with <span class="m-math"><svg style="width: 0.565em; height: 0.536em; vertical-align: -0.011em; " viewBox=".06 -5.25 5.65 5.36">
@@ -262,10 +268,10 @@ elements (with <span class="m-math"><svg style="width: 0.565em; height: 0.536em;
 \(n\)
 </title>
 <defs>
-<path id='eq117-g1-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
+<path id='eq119-g1-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
 </defs>
-<g id='eq117-page1'>
-<use x='.06' y='0' xlink:href='#eq117-g1-61'/>
+<g id='eq119-page1'>
+<use x='.06' y='0' xlink:href='#eq119-g1-61'/>
 </g>
 </svg></span> the histogram dimensionality), with the diagonal matrix elements stored first, and the
 off-diagonal elements after. For a 2D histogram, the three elements are <em>xx</em>, <em>yy</em>, and <em>xy</em>.</p>
@@ -326,6 +332,24 @@ with the lowest linear index.</p>
             </h3>
             <p>Calculates the entropy, in bits, of an image from its histogram <code>in</code>.</p>
 <p><code>in</code> must be a 1D histogram. The number of bins determines the precision for the result.</p>
+          </div></section>
+          <section class="m-doc-details" id="dip-GaussianMixtureModel-Histogram-CL-dip-uint--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">std::vector&lt;GaussianParameters&gt;
+                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-GaussianMixtureModel-Histogram-CL-dip-uint--dip-uint-" class="m-doc-self">dip::<wbr />GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIter = 20)</span></span>
+            </h3>
+            <p>Determines the parameters for a Gaussian Mixture Model fitted to the histogram <code>in</code>.</p>
+<p><code>numberOfGaussians</code> Gaussians will be fitted to the histogram using the Expectation Maximization (EM) procedure.</p>
+<p>The parameters are initialized deterministically, the means are distributed equally over the domain,
+the sigma are all set to the distance between means, and the amplitude are set to 1.</p>
+<p><code>maxIter</code> sets how many iterations are run. There is currently no other stopping criterion.</p>
+<p>The output is sorted by amplitude, most important component first.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator&lt;dfloat&gt;--SampleIterator&lt;dfloat&gt;--dip-uint--dip-uint--dip-uint--Option-Periodicity-"><code>dip::GaussianMixtureModel</code></a></p>
+</aside>
           </div></section>
           <section class="m-doc-details" id="dip-IsodataThreshold-Histogram-CL-dip-uint-"><div>
             <h3>
@@ -393,7 +417,7 @@ lowest error measure is returned.</p>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1)</span></span>
             </h3>
             <p>Determines a set of <code>nThresholds</code> thresholds by modeling the histogram with a Gaussian Mixture Model,
-fitting the model using the Expectation Maximization procedure, and choosing the optimal Bayes thresholds.</p>
+and choosing the optimal Bayes thresholds.</p>
 <p>The algorithm fits a mixture of <code>nThresholds + 1</code> Gaussians to the 1D histogram, and returns the thresholds
 in between the fitted Gaussians that minimize the Bayes error (if possible). Note that the sum of a narrow
 Gaussian and an overlapping broad Gaussian would typically yield two thresholds (dividing space into three
@@ -401,7 +425,7 @@ regions, the middle one belonging to the narrow Gaussian and the other two to th
 routine instead always returns a single threshold in between each of the Gaussian means.</p>
 <aside class="m-note m-default">
 <h4>See also</h4>
-<p><a href="numeric.html#dip-GaussianMixtureModel-ConstSampleIterator&lt;dfloat&gt;--SampleIterator&lt;dfloat&gt;--dip-uint--dip-uint--dip-uint--Option-Periodicity-"><code>dip::GaussianMixtureModel</code></a></p>
+<p><a href="histograms.html#dip-GaussianMixtureModel-Histogram-CL-dip-uint--dip-uint-"><code>dip::GaussianMixtureModel</code></a></p>
 </aside>
           </div></section>
           <section class="m-doc-details" id="dip-TriangleThreshold-Histogram-CL-dfloat-"><div>

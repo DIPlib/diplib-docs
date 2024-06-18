@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.4.3" class="m-thin">version 3.4.3</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.0" class="m-thin">version 3.5.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -54,7 +54,9 @@
             <li><a href="#pum_display">Displaying images</a></li>
             <li><a href="#pum_indexing">Indexing into images</a></li>
             <li><a href="#pum_testing">Testing image validity</a></li>
+            <li><a href="#pum_operators">Operators applied to images</a></li>
             <li><a href="#pum_numpy">Mixing <em>NumPy</em> arrays and <em>DIPlib</em> images</a></li>
+            <li><a href="#pum_dipjavaio"><em>DIPjavaio</em>, or how to use <em>Bio-Formats</em></a></li>
           </ul>
         </div>
 <p>Currently, most functionality in the <em>PyDIP</em> module is directly mirrored from the
@@ -95,15 +97,15 @@ a Python binding, with the following exceptions:</p>
   A scalar is accepted as a one-element list.</p>
 </li>
 <li>
-<p><code>dip::StringArray</code>: pass a list of strings (<code>['foo','bar']</code>).</p>
+<p><code>dip::StringArray</code>: pass a list of strings (<code>['foo', 'bar']</code>).</p>
 </li>
 <li>
-<p><code>dip::StringSet</code>: pass a dictionary (<code>{'foo','bar'}</code>).</p>
+<p><code>dip::StringSet</code>: pass a set of strings (<code>{'foo', 'bar'}</code>).</p>
 </li>
 </ul>
 <p>By using named arguments, it is quite simple to set only needed arguments, and
 leave all others with their default values. All arguments that have a default
-value in C++ also have a default value in Python.</p>
+value in C++ have the same default value in Python.</p>
 <h2 id="pum_display">Displaying images</h2>
 <p>The class <code>dip.Image</code> has a method <code>Show()</code>. There is an identical function
 <code>dip.Show()</code>. They display an image to the current <em>matplotlib</em> window, if
@@ -156,7 +158,7 @@ Python:</p>
 </pre></div>
 
 <p>Unlike in <em>DIPlib</em>, the square brackets index into spatial dimensions.
-To index into tensor dimensions, use round brackets (parenthesis):</p>
+To index into tensor dimensions, use round brackets (parentheses):</p>
 <div class="m-code"><pre><span></span><span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">img</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -167,7 +169,7 @@ image, so writing to that output also changes the original image:</p>
 <div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># this copy shares data with img</span>
 <span class="n">img2</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>       <span class="c1"># same as img(0).Fill(100)</span>
 <span class="n">img</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<span class="n">img</span><span class="p">(</span><span class="mi">2</span><span class="p">)[:,:]</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">img</span><span class="p">(</span><span class="mi">2</span><span class="p">)[:,:]</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># note that img(2) = img(0) is not allowed by Python</span>
 
 <span class="n">img2</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">Copy</span><span class="p">()</span> <span class="c1"># this copy does not share data with img</span>
 <span class="n">img2</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>       <span class="c1"># does not affect img</span>
@@ -183,10 +185,45 @@ returns a copy of the data, but an assignment form is also available:</p>
 <h2 id="pum_testing">Testing image validity</h2>
 <p>You can use either <code>IsForged()</code> or <code>IsEmpty()</code> to test if an image is forged.
 <code>IsEmpty()</code> is the opposite of <code>IsForged()</code>, and returns <code>True</code> if this image is not forged.</p>
+<p>An image in a Boolean context, such as <code>if image</code>, has the value of <code>IsForged()</code>. This means
+that the following two pieces of code are identical:</p>
+<div class="m-code"><pre><span></span><span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">IsForged</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image has data&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">image</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image has data&quot;</span><span class="p">)</span>
+</pre></div>
+
 <p>Functions that expect an image interpret <code>None</code> as an empty (non-forged) image.</p>
+<h2 id="pum_operators">Operators applied to images</h2>
+<p>Most operators have been overloaded to do what they do in C++:</p>
+<ul>
+<li>Arithmetic operators: <code>+</code>, <code>-</code>, <code>/</code>, <code>%</code>, and the unary <code>+</code> and <code>-</code>.</li>
+<li>Bit-wise logical operators: <code>&amp;</code>, <code>|</code>, <code>^</code>.</li>
+<li>Comparison operators: <code>&lt;</code>, <code>&lt;=</code>, <code>==</code>, <code>&gt;=</code>, <code>&gt;</code> and <code>!=</code>.</li>
+</ul>
+<p>Operators that work differently in Python and C++:</p>
+<ul>
+<li>Indexing operators: see <a href="pydip_user_manual.html#pum_indexing">Indexing into images</a>.</li>
+<li>Multiplication operators: Python has both <code>*</code> and <code>@</code>. <code>@</code> behaves like <code>*</code> in C++. <code>*</code> is always the
+  element-wise multiplication.</li>
+<li>Exponentiation operator: Python has <code>**</code>, this doesn&rsquo;t exist in C++.</li>
+</ul>
+<p>For operators that have an in-place version (e.g. <code>+</code> has a <code>+=</code>), we have always overloaded the in-place
+version as well.</p>
+<p>Not overloaded are the integer division <code>//</code>, <code>del</code>, and the shift operators <code>&lt;&lt;</code> and <code>&gt;&gt;</code>. Logical operators
+<code>and</code>, <code>or</code> and <code>not</code> cannot be overloaded.</p>
+<p><code>len()</code> and <code>str()</code> have also been overloaded. <code>len(image)</code> returns the number of pixels (i.e. it is the same
+as <code>image.NumberOfPixels()</code> if the image is forged, or 0 otherwise). <code>str(image)</code> returns a string containing
+what you&rsquo;d see if you do <code>print(image)</code>.</p>
+<p>Note that operator chaining, where <code>x &lt; y &lt; z</code> is interpreted as <code>x &lt; y and y &lt; z</code>, does not work as expected
+with <em>DIPlib</em> images (in the same way it doesn&rsquo;t work with <em>NumPy</em> arrays). This expression, where <code>x</code> or <code>y</code>
+is an image, will evaluate to <code>y &lt; z</code>. This is because <code>and</code> here first evaluates its left-hand-side argument
+as a boolean expression. If <code>x</code> or <code>y</code> is an image, this will always evaluate as true, as described
+in <a href="pydip_user_manual.html#pum_testing">Testing image validity</a>. <code>and</code> will then evaluate to its right-hand-side argument, <code>y &lt; z</code>.</p>
 <h2 id="pum_numpy">Mixing <em>NumPy</em> arrays and <em>DIPlib</em> images</h2>
-<p>A NumPy array can be passed instead of an image to any <em>DIPlib</em> function. In fact, any Python object
-that uses the buffer interface implicitly casts to an image. The reverse is also true: NumPy treats
+<p>A <em>NumPy</em> array can be passed instead of an image to any <em>DIPlib</em> function. In fact, any Python object
+that uses the buffer interface implicitly casts to an image. The reverse is also true: <em>NumPy</em> treats
 <em>DIPlib</em> images as an array, you can call any <em>NumPy</em> function on an image. However, some code that
 accepts a <em>NumPy</em> array calls methods of the array, which would not be defined for a <em>DIPlib</em> image.
 For example,</p>
@@ -198,7 +235,7 @@ For example,</p>
 <span class="n">img</span><span class="o">.</span><span class="n">shape</span>                 <span class="c1"># error! np.array property not defined for dip.Image</span>
 </pre></div>
 
-<p>One can &ldquo;cast&rdquo; from a <em>NumPy</em> array to a <em>DIPlib</em> image and back:</p>
+<p>One can &ldquo;cast&rdquo; from a <em>NumPy</em> array to a <em>DIPlib</em> image and back, without copying the data:</p>
 <div class="m-code"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 </pre></div>
@@ -242,6 +279,38 @@ then that dimension will be the tensor dimension. The tensor will have a column 
 default tensor shape in <em>DIPlib</em>). The threshold of 4 was picked because it will handle correctly all color
 images. This threshold can be adjusted using <code>dip.SetTensorConversionThreshold()</code>. If set to 0, all arrays
 will be converted to a scalar image.</p>
+<h2 id="pum_dipjavaio"><em>DIPjavaio</em>, or how to use <em>Bio-Formats</em></h2>
+<p>When using an installation of <em>DIPlib</em> that has <em>DIPjavaio</em> (the installation from PyPI does), and <em>Bio-Formats</em>
+has been downloaded according to the instructions at the top of this page, then one can load images from a file
+in any of the 160 or so formats currently supported by <em>Bio-Formats</em>.</p>
+<p>The function <code>dip.ImageRead()</code> will, in this case, use <em>Bio-Formats</em> if it doesn&rsquo;t recognize the file type
+(currently this is for any file that is not ICS, TIFF, PNG, JPEG or NPY). Adding <code>format="bioformats"</code> as an
+argument will cause <em>Bio-Formats</em> to be used even for these known file types.</p>
+<p><code>dip.ImageRead()</code> is a simple interface, it just reads the first image seen. <em>DIPlib</em> has specialized functions
+for each file type, which allow for specifying how an image is to be read. For the <em>Bio-Formats</em> &ldquo;format&rdquo;,
+this function is <code>dip.javaio.ImageReadJavaIO()</code>. It has a parameter <code>interface</code>, which defaults to our
+<em>Bio-Formats</em> interface. In principle other parameters are possible here, but no other interfaces currently exist.
+The other parameter is <code>imageNumber</code>, which specifies which image from a multi-image file format to read.
+This is what <em>Bio-Formats</em> refers to as the &ldquo;series&rdquo;.</p>
+<p>Note that <em>Bio-Formats</em> doesn&rsquo;t always have the same interpretation of a file as <em>DIPlib</em>.
+For example, a multi-page TIFF file is always seen as multiple images by <em>DIPlib</em>.
+<code>dip.ImageReadTIFF("file", imageNumbers=slice(0, 5))</code> will read the first 5 images (pages) and stack them
+along the 3rd dimension (assuming they&rsquo;re of the same size). In contrast, <em>Bio-Formats</em> will read all the
+pages as a single 3D image. Only if the images have different sizes will it see them as individual images.</p>
+<p>To use the <code>dip.javaio.ImageReadJavaIO()</code> function, <code>dip.javaio</code> must first be imported. This doesn&rsquo;t happen
+automatically when importing the <em>DIPlib</em> package because it takes a bit of time and it is not always needed.
+<code>dip.ImageRead()</code> will import <code>dip.javaio</code> when first called. Otherwise, one can explicitly import it via</p>
+<div class="m-code"><pre><span></span><span class="kn">import</span> <span class="nn">diplib</span> <span class="k">as</span> <span class="nn">dip</span>
+<span class="kn">import</span> <span class="nn">diplib.javaio</span>
+</pre></div>
+
+<p>Note that we cannot <code>import dip.javaio</code>, as <code>dip</code> is an alias and the <code>import</code> statement does not resolve it.
+But after importing we can refer to <code>dip.javaio</code>.
+As an alternative, one can, for example,</p>
+<div class="m-code"><pre><span></span><span class="kn">import</span> <span class="nn">diplib.javaio</span> <span class="k">as</span> <span class="nn">dj</span>
+</pre></div>
+
+<p>and then use <code>dj.ImageReadJavaIO()</code>.</p>
       </div>
     </div>
   </div>
