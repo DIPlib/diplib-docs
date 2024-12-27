@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -47,8 +47,8 @@
         <h1>
           <span class="m-breadcrumb">diplib/</span><wbr />graph.h <span class="m-thin">file</span>
         </h1>
-        <p>Representing and working with an image as a graph
-See <a href="infrastructure.html">The library infrastructure</a>.</p>
+        <p>Representing graphs and working with an image as a graph.
+See <a href="graphs.html">Graphs</a>.</p>
         <div class="m-block m-default">
           <h3>Contents</h3>
           <ul>
@@ -56,6 +56,7 @@ See <a href="infrastructure.html">The library infrastructure</a>.</p>
               Reference
               <ul>
                 <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#function-members">Functions</a></li>
               </ul>
             </li>
           </ul>
@@ -63,14 +64,38 @@ See <a href="infrastructure.html">The library infrastructure</a>.</p>
         <section id="nested-classes">
           <h2>Classes</h2>
           <dl class="m-doc">
-            <dt>
+                          <dt>
               class <a href="dip-Graph.html" class="m-doc">dip::<wbr />Graph</a>
             </dt>
             <dd>A non-directed, edge-weighted graph.</dd>
-            <dt>
-              class <a href="dip-LowestCommonAncestorSolver.html" class="m-doc">dip::<wbr />LowestCommonAncestorSolver</a>
+                          <dt>
+              class <a href="dip-DirectedGraph.html" class="m-doc">dip::<wbr />DirectedGraph</a>
             </dt>
-            <dd>Solves the lowest common ancestor problem for a tree.</dd>
+            <dd>A directed, edge-weighted graph.</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="graphs.html#dip-MinimumSpanningForest-Graph-CL-std-vector<Graph-VertexIndex>-CL" class="m-doc">dip::<wbr />MinimumSpanningForest</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html" class="m-doc">dip::Graph</a> const&amp; graph,
+              std::vector&lt;Graph::VertexIndex&gt; const&amp; roots = {}) -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
+            </dt>
+            <dd>Computes the minimum spanning forest (MSF) of a graph using Prim&rsquo;s algorithm.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="graphs.html#dip-GraphCut-DirectedGraph-L-DirectedGraph-VertexIndex--DirectedGraph-VertexIndex-" class="m-doc">dip::<wbr />GraphCut</a>(</span><span class="m-doc-wrap"><a href="dip-DirectedGraph.html" class="m-doc">dip::DirectedGraph</a>&amp; graph,
+              <a href="dip-DirectedGraph.html#dip-DirectedGraph-VertexIndex" class="m-doc">dip::DirectedGraph::VertexIndex</a> sourceIndex,
+              <a href="dip-DirectedGraph.html#dip-DirectedGraph-VertexIndex" class="m-doc">dip::DirectedGraph::VertexIndex</a> sinkIndex)</span>
+            </dt>
+            <dd>Computes the minimum cut of the graph, separating the source node from the sink node.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="graphs.html#dip-Label-Graph-CL" class="m-doc">dip::<wbr />Label</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html" class="m-doc">dip::Graph</a> const&amp; graph) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
+            </dt>
+            <dd>Connected component analysis of a graph.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="graphs.html#dip-Label-DirectedGraph-CL" class="m-doc">dip::<wbr />Label</a>(</span><span class="m-doc-wrap"><a href="dip-DirectedGraph.html" class="m-doc">dip::DirectedGraph</a> const&amp; graph) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
+            </dt>
+            <dd>Connected component analysis of a graph.</dd>
           </dl>
         </section>
       </div>

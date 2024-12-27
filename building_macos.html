@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -73,24 +73,35 @@
 install these programs.</p>
 <p>See <a href="building_cmake.html"><em>CMake</em> configuration</a> for additional information on the build targets and <em>CMake</em> configuration options.</p>
 <p>We mostly use the command line here, which you will find in the terminal window. To open a terminal window,
-press <key>Command</key> \<Command>-\<Space> to bring up the <em>Spotlight</em> search tool, type <code>terminal</code>,
-and press \<Enter>. Alternatively, in <em>Finder</em>, go to the &lsquo;Applications&rsquo; folder, find the &lsquo;Utilities&rsquo; folder in it,
+press <strong class="m-label m-warning">Command</strong>-<strong class="m-label m-warning">Space</strong> to bring up the <em>Spotlight</em> search tool,
+type <code>terminal</code>, and press <strong class="m-label m-warning">Enter</strong>.
+Alternatively, in <em>Finder</em>, go to the &lsquo;Applications&rsquo; folder, find the &lsquo;Utilities&rsquo; folder in it,
 and the &lsquo;Terminal&rsquo; app inside it.</p>
 <h2 id="macos_silicon">Computers with an Apple Silicon chip (M1 and M2 processors)</h2>
 <p>If you are building <em>DIPlib</em> for use in C++ or <em>Python</em> on a Apple Silicon computer, you don&rsquo;t need to do anything
-special. The instructions below will result in native (aarch64) binaries that will work well with the aarch64 version
-of <em>Python</em> and with your own aarch64 programs. If you already have <em>Homebrew</em> installed,
-make sure it is the Apple Silicon native version (installed in <code>/opt/homebrew/</code>, not in <code>/usr/local/</code>),
+special. The instructions below will result in native (arm64) binaries that will work well with the arm64 version
+of <em>Python</em>, the arm64 version of <em>MATLAB</em>, and with your own arm64 programs. If you already have <em>Homebrew</em>
+installed, make sure it is the Apple Silicon native version (installed in <code>/opt/homebrew/</code>, not in <code>/usr/local/</code>),
 so that all libraries and so forth that you install use the same architecture.
 Note that it is possible to run two versions of <em>Homebrew</em> side by side.</p>
-<p>The latest versions of <em>MATLAB</em> run natively on Apple Silicon, again no special instructions are needed. But if
-you are running an older version of <em>MATLAB</em> for the x86_64 architecture (Intel), then you need to build <em>DIPlib</em>
-and <em>DIPimage</em> for that same x86_64 architecture.</p>
+<p><em>MATLAB R2023b</em> and up can run natively on Apple Silicon (and we strongly recommend you install the Apple Silicon
+version of <em>MATLAB</em>, not the Intel version, if you can). No special instructions for building <em>DIPimage</em> are needed.
+However, the interface to <em>DIPviewer</em> (the <code>viewslice</code> function) depends on the <em>Java Native Access library</em>, and the version
+that comes with <em>MATLAB</em> (as of R2023b) does not work on Apple Silicon machines. If you find that <code>viewslice</code> does
+not work, see <a href="https://github.com/DIPlib/diplib/issues/151">this issue</a>.</p>
+<p>If you are running a version of <em>MATLAB</em> for the x86_64 architecture (Intel), then you need to build <em>DIPlib</em>
+and <em>DIPimage</em> for that same x86_64 architecture, see below.</p>
+<p>If you are not sure what architecture your <em>MATLAB</em> installation is for, then find the <em>MATLAB</em> binary and
+examine it with the <code>file</code> command (on the Terminal command line):</p>
+<div class="m-code"><pre><span></span>file<span class="w"> </span>/Applications/MATLAB_R2023b.app/Contents/MacOS/MATLAB
+</pre></div>
+
+<p>This will print out either &ldquo;Mach-O 64-bit executable <strong>x86_64</strong>&rdquo; or &ldquo;Mach-O 64-bit executable <strong>arm64</strong>&rdquo;.</p>
 <h3 id="macos_silicon_cross_compile">Cross-compiling for the x86_64 architecture on an Apple Silicon Mac.</h3>
 <p>There are two ways to cross-compile <em>DIPlib</em> for the x86_64 architecture. We recommend running all the instructions
 below in x86_64 compatibility mode (through Rosetta 2, which is an emulation layer).
 Rosetta 2 can be installed by launching any program that is built for the x86_64 architecture,
-if you have <em>MATLAB</em> running, you already have Rosetta 2 installed. You can install Rosetta 2 manually
+if you have an Intel-based <em>MATLAB</em> running, you already have Rosetta 2 installed. You can install Rosetta 2 manually
 by typing the following in a terminal window:</p>
 <div class="m-code"><pre><span></span>softwareupdate<span class="w"> </span>--install-rosetta
 </pre></div>
@@ -109,7 +120,7 @@ native shell in that same terminal window.</p>
 <code>-DCMAKE_OSX_ARCHITECTURES=x86_64</code> to your <code>cmake</code> command (see <a href="#macos_building">&ldquo;Building&rdquo;</a> below).
 This will have all tools run in native mode, but cross-compile to produce x86_64 binaries.
 This works, but I had trouble getting <em>CMake</em> to identify the right version of all the libraries,
-and attempting to link to aarch64 libraries, which of course doesn&rsquo;t work.
+and attempting to link to arm64 libraries, which of course doesn&rsquo;t work.
 I was able to build <em>DIPimage</em> this way, by disabling all optional components that depend on external libraries.</p>
 <h2 id="macos_xcode"><em>Xcode</em></h2>
 <p>You can install <em>Xcode</em> from the App Store if you don&rsquo;t already have it installed.
@@ -139,7 +150,7 @@ If you don&rsquo;t have <em>Homebrew</em> installed yet, type the following in a
 <p>To compile the documentation yourself (note that the compiled documentation can be found online),
 you need <em>dox++</em>. See <a href="building_documentation.html">Building the <em>DIPlib</em> documentation</a> for details.</p>
 <p>Finally, if you have a version of macOS that is older than 12.0, then you have <em>Python 2</em> by default.
-You need to install <em>Python 3</em>:</p>
+You need to install <em>Python 3</em> if you want to build and use <em>PyDIP</em>:</p>
 <div class="m-code"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>python3
 </pre></div>
 
@@ -169,7 +180,8 @@ brew install gcc</code></p>
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DIPlib/diplib.git
 </pre></div>
 
-<p>This creates a directory <code>src/diplib</code> in your home directory.</p>
+<p>This creates a directory <code>src/diplib</code> in your home directory. Feel free to use any other
+directory if you prefer.</p>
 <h2 id="macos_build">Building</h2>
 <p>To build, run <code>cmake</code> and <code>make</code> from a build directory:</p>
 <div class="m-code"><pre><span></span>mkdir<span class="w"> </span>~/src/diplib/target
@@ -185,31 +197,55 @@ If you prefer to install elsewhere, change the <code>cmake</code> line with the 
 </pre></div>
 
 <p>This will install <em>DIPlib</em>, <em>DIPviewer</em>, <em>DIPjavaio</em>, <em>DIPimage</em> and the documentation under the <code>dip</code> directory
-in your home directory.</p>
+in your home directory. You can pick whatever installation directory makes sense to you, it doesn&rsquo;t matter where
+things get installed.</p>
 <p>Before running <code>make</code>, examine the output of <code>cmake</code> to verify all the features you need are enabled,
-and that your chosen dependencies were found.
-See <a href="building_cmake.html#cmake_variables"><em>CMake</em> variables</a> for a summary of all the <em>CMake</em> options to manually specify paths and configure your build.</p>
+and that your chosen dependencies were found. Some hints to improve your configuration:</p>
+<ul>
+<li>
+<p>By default, everything that can be build will be build and installed. Components can be build if the required
+    external dependencies were found: you need <em>GLFW</em> for <em>DIPviewer</em>, a <em>Java JDK</em> for <em>DIPjavaio</em>,
+    <em>Python</em> for <em>PyDIP</em>, and <em>MATLAB</em> for <em>DIPimage</em>.
+    Add <code>-DDIP_BUILD_DIPVIEWER=Off</code>, <code>-DDIP_BUILD_JAVAIO=Off</code>, <code>-DDIP_BUILD_DIPIMAGE=Off</code> or <code>-DDIP_BUILD_PYDIP=Off</code>
+    to your <em>CMake</em> command to turn the corresponding component off, if you don&rsquo;t need that component
+    (not building unnecessary components will save time).</p>
+</li>
+<li>
+<p>We recommend you additionally specify the <code>-DCMAKE_CXX_FLAGS="-march=native"</code> option to <code>cmake</code>.
+    This will enable additional optimizations that are specific to your computer.
+    Note that the resulting binaries will likely be slower on a different computer, and possibly not work at all.</p>
+</li>
+<li>
+<p>Build a static version of the <em>DIPlib</em> library only if you don&rsquo;t want to build <em>DIPimage</em> or <em>PyDIP</em>, as
+    these components will not work correctly unless the <em>DIPlib</em> library is a dynamic library.</p>
+</li>
+<li>
+<p>If you installed <code>libomp</code>, but <em>CMake</em> couldn&rsquo;t find it (you&rsquo;ll see &ldquo;Multithreading disabled&rdquo; in the configuration
+    report), you might need to tell <em>CMake</em> where to find the library and header files. When building for Apple Silicon,
+    Add <code>-DOpenMP_CXX_INCLUDE_DIR=/opt/homebrew/opt/libomp/include -DCMAKE_CXX_FLAGS=-L/opt/homebrew/opt/libomp/lib</code>
+    to your <em>CMake</em> command  (for Intel-based Macs the paths should start with <code>/usr/local/opt/libomp/</code>).</p>
+</li>
+<li>
+<p>If you want to use the <em>GCC</em> compiler, add <code>-DCMAKE_C_COMPILER=gcc-11 -DCMAKE_CXX_COMPILER=g++-11</code>
+    to the <code>cmake</code> command line. By default, <code>cmake</code> will find the compiler that came with <em>Xcode</em>.
+    (<strong>Note</strong>: at the time of this writing, <code>gcc-11</code> and <code>g++-11</code> were the executables installed by the <code>gcc</code> package.
+    This will change over time, as new versions of <em>GCC</em> are adopted by <em>HomeBrew</em>. Adjust as necessary.)</p>
+</li>
+<li>
+<p>See <a href="building_cmake.html#cmake_variables"><em>CMake</em> variables</a> for a summary of all the <em>CMake</em> options to manually specify paths and configure your build.</p>
+</li>
+</ul>
 <p><em>PyDIP</em> is installed separately through <code>pip</code>. Once the <code>install</code> target has finished building and installing, run</p>
 <div class="m-code"><pre><span></span>make<span class="w"> </span>pip_install
 </pre></div>
 
 <p>Note that it is necessary to install the <em>DIPlib</em> libraries before running the <code>pip_install</code> target.
 If this target fails with <code>pip</code> complaining about a non-existent file, one possible cause is building on a system
-with a newer version of macOS and an older version of Python. The wheel will be created for the newer macOS, but
-Python will expect a wheel matching the macOS version that Python was built on. Adding <code>-DCMAKE_OSX_DEPLOYMENT_TARGET=12</code>
+with a newer version of macOS and an older version of <em>Python</em>. The wheel will be created for the newer macOS, but
+<em>Python</em> will expect a wheel matching the macOS version that <em>Python</em> was built on. Adding <code>-DCMAKE_OSX_DEPLOYMENT_TARGET=12</code>
 to the <code>cmake</code> command and rebuilding the whole project would fix this issue (the 12 there being the version of
-macOS used to build you Python binaries, the error message will show what version you need to build for).
+macOS used to build you <em>Python</em> binaries, the error message will show what version you need to build for).
 [Also, binaries built for an older macOS will work on a newer macOS, but not the other way around].</p>
-<p>We recommend you additionally specify the <code>-DCMAKE_CXX_FLAGS="-march=native"</code> option to <code>cmake</code>.
-This will enable additional optimizations that are specific to your computer.
-Note that the resulting binaries will likely be slower on another computer, and possibly not work at all.</p>
-<p>If you build a static version of the <em>DIPlib</em> library, <em>DIPimage</em> and <em>PyDIP</em> will not work correctly.</p>
-<p>Finally, if you installed the <code>gcc</code> package because you want to use <em>OpenMP</em>,
-add <code>-DCMAKE_C_COMPILER=gcc-11 -DCMAKE_CXX_COMPILER=g++-11</code> to the <code>cmake</code> command line.
-By default, <code>cmake</code> will find the compiler that came with <em>Xcode</em>.
-These two options specify that you want to use the <em>GCC</em> compilers instead.
-(<strong>Note</strong>: at the time of this writing, <code>gcc-11</code> and <code>g++-11</code> were the executables installed by the <code>gcc</code> package.
-This will change over time, as new versions of <em>GCC</em> are adopted by <em>HomeBrew</em>. Adjust as necessary.)</p>
 <h2 id="macos_bioformats">Enabling <em>Bio-Formats</em></h2>
 <p>If building only <em>DIPimage</em> (the <em>MATLAB</em> toolbox), skip this section and instead follow the directions
 you can read when you do <code>help readim</code> in <em>MATLAB</em> after installation.</p>
@@ -257,7 +293,7 @@ used in the C++ library:</p>
 <div class="m-code"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span>
 </pre></div>
 
-<p>The <a href="pydip_user_manual.html">PyDIP User Manual</a> is still quite short, but does contain some important information to get you started.</p>
+<p>The <a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> is still quite short, but does contain some important information to get you started.</p>
         <div class="m-note m-dim m-thin m-text-center"><a href="building_linux.html" class="m-doc">&laquo; Building the <em>DIPlib</em> project on Linux</a> | <a href="building_diplib.html" class="m-doc">Building</a> | <a href="building_windows.html" class="m-doc">Building the <em>DIPlib</em> project on Windows &raquo;</a></div>
       </div>
     </div>

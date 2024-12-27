@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -45,8 +45,8 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <div class="m-doc-include m-right-m m-text-right">
-<span class="m-thin"><a href="infrastructure.html" class="m-doc">The library infrastructure</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib--union_find-h.html">"diplib/union_find.h"</a></span>          </div>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="infrastructure.html" class="m-doc">The library infrastructure</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--union_find-h.html">"diplib/union_find.h"</a></span>          </div>
 
           <div class="m-doc-template"><span class="m-doc-wrap-bumper">template&lt;</span><span class="m-doc-wrap">typename IndexType_,
     typename ValueType_,
@@ -67,7 +67,7 @@
             </li>
           </ul>
         </div>
-<p>Operations such as the watershed, connected component labeling, and the area opening, as implemented in
+          <p>Operations such as the watershed, connected component labeling, and the area opening, as implemented in
 <em>DIPlib</em>, use the union-find algorithm. It provides an efficient method to set equivalences in labels.
 That is, one can re-assign one label to be equivalent to another in O(1) time. Typically, one pass through
 the image assigns a label to each pixel (<code>Create</code>), and determines which labels should be equivalent (<code>Union</code>);
@@ -96,7 +96,7 @@ tree when two trees are merged. It should have the following signature:</p>
         <section id="derived-classes">
           <h2>Derived classes</h2>
           <dl class="m-doc">
-            <dt>
+                          <dt>
               <div class="m-doc-template">template&lt;typename IndexType_&gt;</div>
               class <a href="dip-SimpleUnionFind-T.html" class="m-doc">dip::<wbr />SimpleUnionFind</a>
             </dt>
@@ -106,11 +106,11 @@ tree when two trees are merged. It should have the following signature:</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-            <dt id="dip-UnionFind-T-UnionFind-UnionFunction_-CL">
+                              <dt id="dip-UnionFind-T-UnionFind-UnionFunction_-CL">
               <span class="m-doc-wrap-bumper"><a href="#dip-UnionFind-T-UnionFind-UnionFunction_-CL" class="m-doc-self">UnionFind</a>(</span><span class="m-doc-wrap">UnionFunction_ const&amp; unionFunction) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>Default constructor, creates an empty structure</dd>
-            <dt id="dip-UnionFind-T-UnionFind-dip-uint--ValueType--UnionFunction_-CL">
+                              <dt id="dip-UnionFind-T-UnionFind-dip-uint--ValueType--UnionFunction_-CL">
               <span class="m-doc-wrap-bumper"><a href="#dip-UnionFind-T-UnionFind-dip-uint--ValueType--UnionFunction_-CL" class="m-doc-self">UnionFind</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n,
               <a href="dip-UnionFind-T.html#dip-UnionFind-T-ValueType" class="m-doc">dip::UnionFind::ValueType</a> value,
               UnionFunction_ const&amp; unionFunction)</span>
@@ -121,12 +121,12 @@ tree when two trees are merged. It should have the following signature:</p>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-            <dt id="dip-UnionFind-T-IndexType">
+                              <dt id="dip-UnionFind-T-IndexType">
               using <a href="#dip-UnionFind-T-IndexType" class="m-doc-self">IndexType</a> = IndexType_
 
             </dt>
             <dd>The type of the index (or label) that identifies each tree element</dd>
-            <dt id="dip-UnionFind-T-ValueType">
+                              <dt id="dip-UnionFind-T-ValueType">
               using <a href="#dip-UnionFind-T-ValueType" class="m-doc-self">ValueType</a> = ValueType_
 
             </dt>
@@ -136,51 +136,51 @@ tree when two trees are merged. It should have the following signature:</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-            <dt id="dip-UnionFind-T-Size-C">
+                          <dt id="dip-UnionFind-T-Size-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Size-C" class="m-doc-self">Size</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the number of elements in the data structure. Note that the 0th element
 is counted but not used. This is not the number of trees.</dd>
-            <dt id="dip-UnionFind-T-FindRoot-IndexType--C">
+                          <dt id="dip-UnionFind-T-FindRoot-IndexType--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-FindRoot-IndexType--C" class="m-doc-self">FindRoot</a>(</span><span class="m-doc-wrap"><a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a> index) const -&gt; <a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a></span>
             </dt>
             <dd>Returns the index (label) for the root of the tree that contains <code>index</code>.</dd>
-            <dt id="dip-UnionFind-T-Create-ValueType-CL">
+                          <dt id="dip-UnionFind-T-Create-ValueType-CL">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Create-ValueType-CL" class="m-doc-self">Create</a>(</span><span class="m-doc-wrap"><a href="dip-UnionFind-T.html#dip-UnionFind-T-ValueType" class="m-doc">dip::UnionFind::ValueType</a> const&amp; value = {}) -&gt; <a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a></span>
             </dt>
             <dd>Creates a new element, and places it in its own tree.</dd>
-            <dt id="dip-UnionFind-T-Union-IndexType--IndexType-">
+                          <dt id="dip-UnionFind-T-Union-IndexType--IndexType-">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Union-IndexType--IndexType-" class="m-doc-self">Union</a>(</span><span class="m-doc-wrap"><a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a> index1,
               <a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a> index2) -&gt; <a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a></span>
             </dt>
             <dd>Merges two trees. Returns the index of the new root.</dd>
-            <dt id="dip-UnionFind-T-Value-IndexType-">
+                          <dt id="dip-UnionFind-T-Value-IndexType-">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Value-IndexType-" class="m-doc-self">Value</a>(</span><span class="m-doc-wrap"><a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a> index) -&gt; <a href="dip-UnionFind-T.html#dip-UnionFind-T-ValueType" class="m-doc">dip::UnionFind::ValueType</a>&amp;</span>
             </dt>
             <dd>Returns a reference to the value associated to the tree that contains <code>index</code>.</dd>
-            <dt id="dip-UnionFind-T-Value-IndexType--C">
+                          <dt id="dip-UnionFind-T-Value-IndexType--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Value-IndexType--C" class="m-doc-self">Value</a>(</span><span class="m-doc-wrap"><a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a> index) const -&gt; <a href="dip-UnionFind-T.html#dip-UnionFind-T-ValueType" class="m-doc">dip::UnionFind::ValueType</a> const&amp;</span>
             </dt>
             <dd>Returns a reference to the value associated to the tree that contains <code>index</code>.</dd>
-            <dt>
+                          <dt>
               <div class="m-doc-template">template&lt;typename Function&gt;</div>
               <span class="m-doc-wrap-bumper">void <a href="#dip-UnionFind-T-Iterate-T-Function-" class="m-doc">Iterate</a>(</span><span class="m-doc-wrap">Function function)</span>
             </dt>
-            <dd>Calls <code>function</code> for each tree root.</dd>
-            <dt>
+            <dd>Calls <code>function</code> for each tree root. <a href="#dip-UnionFind-T-Iterate-T-Function-">more...</a></dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Relabel" class="m-doc">Relabel</a>(</span><span class="m-doc-wrap">) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
-            <dd>Assigns a new label to each of the trees.</dd>
-            <dt>
+            <dd>Assigns a new label to each of the trees. <a href="#dip-UnionFind-T-Relabel">more...</a></dd>
+                          <dt>
               <div class="m-doc-template">template&lt;typename Constraint&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Relabel-T-Constraint-" class="m-doc">Relabel</a>(</span><span class="m-doc-wrap">Constraint constraint) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
-            <dd>Assigns a new label to the trees that satisfy <code>constraint</code>, and 0 to the remainder.</dd>
-            <dt id="dip-UnionFind-T-Label-IndexType--C">
+            <dd>Assigns a new label to the trees that satisfy <code>constraint</code>, and 0 to the remainder. <a href="#dip-UnionFind-T-Relabel-T-Constraint-">more...</a></dd>
+                          <dt id="dip-UnionFind-T-Label-IndexType--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-Label-IndexType--C" class="m-doc-self">Label</a>(</span><span class="m-doc-wrap"><a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a> index) const -&gt; <a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a></span>
             </dt>
             <dd>Returns the new label associated to the tree that contains <code>index</code>. Only useful after calling <code>Relabel</code>.</dd>
-            <dt id="dip-UnionFind-T-LabelValue-IndexType--C">
+                          <dt id="dip-UnionFind-T-LabelValue-IndexType--C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-UnionFind-T-LabelValue-IndexType--C" class="m-doc-self">LabelValue</a>(</span><span class="m-doc-wrap"><a href="dip-UnionFind-T.html#dip-UnionFind-T-IndexType" class="m-doc">dip::UnionFind::IndexType</a> index) const -&gt; <a href="dip-UnionFind-T.html#dip-UnionFind-T-ValueType" class="m-doc">dip::UnionFind::ValueType</a> const&amp;</span>
             </dt>
             <dd>Returns a const reference to the value associated to the tree that contains <code>index</code>. Only useful after
@@ -189,7 +189,7 @@ calling <code>Relabel</code>.</dd>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="dip-UnionFind-T-Iterate-T-Function-"><div>
+                        <section class="m-doc-details" id="dip-UnionFind-T-Iterate-T-Function-"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename IndexType_, typename ValueType_, typename UnionFunction_&gt;
@@ -202,7 +202,7 @@ calling <code>Relabel</code>.</dd>
 <p><code>function</code> is a function or function object that takes the index (<code>IndexType</code>) and <code>ValueType</code>
 associated to a tree.</p>
           </div></section>
-          <section class="m-doc-details" id="dip-UnionFind-T-Relabel"><div>
+                        <section class="m-doc-details" id="dip-UnionFind-T-Relabel"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename IndexType_, typename ValueType_, typename UnionFunction_&gt;
@@ -217,7 +217,7 @@ associated to a tree.</p>
 <p>This function destroys the tree structure. After this call, you can only use <code>Size</code>, <code>Label</code> and <code>LabelValue</code>.</p>
 </aside>
           </div></section>
-          <section class="m-doc-details" id="dip-UnionFind-T-Relabel-T-Constraint-"><div>
+                        <section class="m-doc-details" id="dip-UnionFind-T-Relabel-T-Constraint-"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename IndexType_, typename ValueType_, typename UnionFunction_&gt;

@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -62,21 +62,21 @@
 <li><code>DIP</code>:           builds the <em>DIPlib</em> library</li>
 <li><code>DIPviewer</code>:     builds the <em>DIPviewer</em> module (plus the <em>DIPlib</em> library)</li>
 <li><code>DIPjavaio</code>:     builds the <em>DIPjavaio</em> module (plus the <em>DIPlib</em> library)</li>
-<li><code>PyDIP</code>:         builds the <em>PyDIP</em> Python module (includes the <code>DIP</code>, <code>DIPviewer</code> and <code>DIPjavaio</code> targets)</li>
+<li><code>PyDIP</code>:         builds the <em>PyDIP</em> <em>Python</em> module (includes the <code>DIP</code>, <code>DIPviewer</code> and <code>DIPjavaio</code> targets)</li>
 <li><code>dipview</code>:       builds the standalone <code>dipview</code> image viewer program</li>
 <li><code>dipviewjava</code>:   builds the <em>DIPjavaio</em>-enabled standalone <code>dipviewjava</code> image viewer program</li>
 <li><code>all</code>: (default) builds all of the targets above that were configured</li>
 <li><code>install</code>:       builds <code>all</code> and installs everything except <em>PyDIP</em></li>
 <li><code>check</code>:         builds the <code>unit_tests</code> program and runs it</li>
 <li><code>check_memory</code>:  builds the <code>unit_tests</code> program and runs it under <code>valgrind</code></li>
-<li><code>apidoc</code>:        builds all the HTML documentation</li>
+<li><code>doc</code>:           builds all the HTML documentation</li>
 <li><code>examples</code>:      builds the example programs</li>
 <li><code>package</code>:       creates a distributable package for <code>install</code> [note: not fully functional]</li>
-<li><code>bdist_wheel</code>:   builds a Python wheel for <em>PyDIP</em></li>
-<li><code>pip_install</code>:   builds and installs a Python wheel for <em>PyDIP</em></li>
+<li><code>bdist_wheel</code>:   builds a <em>Python</em> wheel for <em>PyDIP</em></li>
+<li><code>pip_install</code>:   builds and installs a <em>Python</em> wheel for <em>PyDIP</em></li>
 <li><code>pip_uninstall</code>: uninstalls <em>PyDIP</em></li>
 </ul>
-<p>The <code>apidoc</code> target requires that <a href="https://crisluengo.github.io/doxpp/"><em>dox++</em></a> is available,
+<p>The <code>doc</code> target requires that <a href="https://crisluengo.github.io/doxpp/"><em>dox++</em></a> is available,
 the target will not be available if it is not; this target will fail to build if additional tools are not installed.
 See <a href="building_documentation.html">Building the <em>DIPlib</em> documentation</a> for details.</p>
 <p>The <code>pip_install</code> target requires the <em>DIPlib</em> libraries to already be installed, so always run the <code>install</code> target
@@ -126,7 +126,7 @@ Alternatively, set them in the <em>CMake</em> GUI.</p>
     if its dependencies are available.</li>
 <li><code>JAVA_HOME</code>: Set the path to the JDK to use.</li>
 <li><code>DIP_JAVA_VERSION</code>: Set the version of Java to target. Defaults to &ldquo;1.8&rdquo;.</li>
-<li>Note that for the <em>MATLAB</em> toolbox, <em>DIPjavaio</em> is not used; build this only if you work in C++ or Python.</li>
+<li>Note that for the <em>MATLAB</em> toolbox, <em>DIPjavaio</em> is not used; build this only if you work in C++ or <em>Python</em>.</li>
 </ul>
 <p>Controlling the build of <em>DIPimage</em>:</p>
 <ul>
@@ -134,15 +134,15 @@ Alternatively, set them in the <em>CMake</em> GUI.</p>
     if <em>MATLAB</em> is available.</li>
 <li><code>Matlab_ROOT_DIR</code>: Set the path of the <em>MATLAB</em> installation to compile <em>DIPimage</em> against.</li>
 <li><code>JAVA_HOME</code>: Set the path to the JDK to use. Java is used by <em>DIPimage</em> to interface with <em>DIPviewer</em>.</li>
-<li><code>DIP_JAVA_VERSION</code>: Set the version of Java to target. Defaults to &ldquo;1.8&rdquo;. For MATLAB versions prior to R2017b
+<li><code>DIP_JAVA_VERSION</code>: Set the version of Java to target. Defaults to &ldquo;1.8&rdquo;. For <em>MATLAB</em> versions prior to R2017b
     use &ldquo;1.7&rdquo; (and set <code>JAVA_HOME</code> to a release of the JDK that supports 1.7). You should not target a Java version
-    later than the one used by your MATLAB. Check the version of Java used by MATLAB by running <code>version -java</code>
-    on the MATLAB command prompt.</li>
+    later than the one used by your <em>MATLAB</em>. Check the version of Java used by <em>MATLAB</em> by running <code>version -java</code>
+    on the <em>MATLAB</em> command prompt.</li>
 </ul>
 <p>Controlling the build of <em>PyDIP</em>:</p>
 <ul>
 <li><code>DIP_BUILD_PYDIP</code>: <code>On</code> (default) or <code>Off</code>. Choose whether to build the <em>PyDIP</em> package, if <em>Python</em> is available.</li>
-<li><code>Python_EXECUTABLE</code>: Set the path to the Python binary, in case <em>CMake</em> doesn&rsquo;t find the right one. It is also
+<li><code>Python_EXECUTABLE</code>: Set the path to the <em>Python</em> binary, in case <em>CMake</em> doesn&rsquo;t find the right one. It is also
     possible to instead set <code>Python_ROOT_DIR</code>, see <a href="https://cmake.org/cmake/help/latest/module/FindPython.html"><em>FindPython</em></a>.</li>
 <li><code>DIP_PYDIP_WHEEL_INCLUDE_LIBS</code>: <code>On</code> or <code>Off</code> (default). Include the <em>DIPlib</em> libraries in the <em>PyDIP</em> wheel.
     Turn on for binary distribution, keep off for personal builds.</li>

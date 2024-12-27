@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -46,7 +46,7 @@
       <div class="m-col-l-10 m-push-l-1">
         <h1>
           <span class="m-breadcrumb"><a href="infrastructure.html">The library infrastructure</a> &raquo;</span>
-          Error management <span class="m-thin">module</span>          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="file--diplib-h.html">"diplib.h"</a></div>
+          Error management <span class="m-thin">module</span>          <div class="m-doc-include m-code m-thin m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
         </h1>
         <p>Exception classes and error management functionality</p>
         <div class="m-block m-default">
@@ -64,20 +64,20 @@
         <section id="nested-classes">
           <h2>Classes</h2>
           <dl class="m-doc">
-            <dt>
+                          <dt>
               class <a href="dip-Error.html" class="m-doc">dip::<wbr />Error</a>
             </dt>
             <dd>Base exception class. All exceptions thrown in <em>DIPlib</em> are derived of this class.</dd>
-            <dt>
+                          <dt>
               class <a href="dip-AssertionError.html" class="m-doc">dip::<wbr />AssertionError</a>
             </dt>
             <dd>Exception class indicating that an internal inconsistency was found (the library code is wrong).</dd>
-            <dt>
+                          <dt>
               class <a href="dip-ParameterError.html" class="m-doc">dip::<wbr />ParameterError</a>
             </dt>
             <dd>Exception class indicating that a function received an inconsistent or out of range parameter
 (the calling code is wrong).</dd>
-            <dt>
+                          <dt>
               class <a href="dip-RunTimeError.html" class="m-doc">dip::<wbr />RunTimeError</a>
             </dt>
             <dd>Exception class indicating that something happened that we couldn&rsquo;t predict (e.g. file error).</dd>
@@ -86,56 +86,56 @@
         <section id="macro-members">
           <h2>Macros</h2>
           <dl class="m-doc">
-            <dt>
+                          <dt>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_ADD_STACK_TRACE" class="m-doc">DIP_ADD_STACK_TRACE</a></span>
             </dt>
-            <dd>Adds information from current function (including source file and location within file) to the <a href="dip-Error.html"><code>dip::Error</code></a>.</dd>
-            <dt id="macro--DIP_THROW">
+            <dd>Adds information from current function (including source file and location within file) to the <a href="dip-Error.html"><code>dip::Error</code></a>. <a href="#macro--DIP_ADD_STACK_TRACE">more...</a></dd>
+                          <dt id="macro--DIP_THROW">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_THROW" class="m-doc-self">DIP_THROW</a></span>
             </dt>
             <dd>Throw a <a href="dip-ParameterError.html"><code>dip::ParameterError</code></a>.</dd>
-            <dt id="macro--DIP_THROW_INVALID_FLAG">
+                          <dt id="macro--DIP_THROW_INVALID_FLAG">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_THROW_INVALID_FLAG" class="m-doc-self">DIP_THROW_INVALID_FLAG</a></span>
             </dt>
             <dd>Throw a <a href="dip-ParameterError.html"><code>dip::ParameterError</code></a> that reads &ldquo;Invalid flag: <flag>&ldquo;.</dd>
-            <dt id="macro--DIP_THROW_IF">
+                          <dt id="macro--DIP_THROW_IF">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_THROW_IF" class="m-doc-self">DIP_THROW_IF</a></span>
             </dt>
             <dd>Test a condition, throw a <a href="dip-ParameterError.html"><code>dip::ParameterError</code></a> if the condition is met.</dd>
-            <dt id="macro--DIP_THROW_RUNTIME">
+                          <dt id="macro--DIP_THROW_RUNTIME">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_THROW_RUNTIME" class="m-doc-self">DIP_THROW_RUNTIME</a></span>
             </dt>
             <dd>Throw a <a href="dip-RunTimeError.html"><code>dip::RunTimeError</code></a>.</dd>
-            <dt id="macro--DIP_THROW_ASSERTION">
+                          <dt id="macro--DIP_THROW_ASSERTION">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_THROW_ASSERTION" class="m-doc-self">DIP_THROW_ASSERTION</a></span>
             </dt>
             <dd>Throw a <a href="dip-AssertionError.html"><code>dip::AssertionError</code></a>.</dd>
-            <dt>
+                          <dt>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_ASSERT" class="m-doc">DIP_ASSERT</a></span>
             </dt>
-            <dd>Test a condition, throw a <a href="dip-AssertionError.html"><code>dip::AssertionError</code></a> if the condition is not met.</dd>
-            <dt>
+            <dd>Test a condition, throw a <a href="dip-AssertionError.html"><code>dip::AssertionError</code></a> if the condition is not met. <a href="#macro--DIP_ASSERT">more...</a></dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_START_STACK_TRACE" class="m-doc">DIP_START_STACK_TRACE</a></span>
             </dt>
-            <dd>Starts a try/catch block that builds a stack trace when an exception is thrown.</dd>
-            <dt id="macro--DIP_END_STACK_TRACE">
+            <dd>Starts a try/catch block that builds a stack trace when an exception is thrown. <a href="#macro--DIP_START_STACK_TRACE">more...</a></dd>
+                          <dt id="macro--DIP_END_STACK_TRACE">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_END_STACK_TRACE" class="m-doc-self">DIP_END_STACK_TRACE</a></span>
             </dt>
             <dd>Ends a try/catch block that builds a stack trace when an exception is thrown. See <a href="error.html#macro--DIP_START_STACK_TRACE"><code>DIP_START_STACK_TRACE</code></a>.</dd>
-            <dt>
+                          <dt>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_STACK_TRACE_THIS" class="m-doc">DIP_STACK_TRACE_THIS</a></span>
             </dt>
-            <dd>Encapsulates a statement in a try/catch block that builds a stack trace when an exception is thrown.</dd>
-            <dt>
+            <dd>Encapsulates a statement in a try/catch block that builds a stack trace when an exception is thrown. <a href="#macro--DIP_STACK_TRACE_THIS">more...</a></dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_PARALLEL_ERROR_DECLARE" class="m-doc">DIP_PARALLEL_ERROR_DECLARE</a></span>
             </dt>
-            <dd>Declarations needed before an OpenMP parallel section to catch exceptions.</dd>
-            <dt id="macro--DIP_PARALLEL_ERROR_START">
+            <dd>Declarations needed before an OpenMP parallel section to catch exceptions. <a href="#macro--DIP_PARALLEL_ERROR_DECLARE">more...</a></dd>
+                          <dt id="macro--DIP_PARALLEL_ERROR_START">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_PARALLEL_ERROR_START" class="m-doc-self">DIP_PARALLEL_ERROR_START</a></span>
             </dt>
             <dd>Starts a try/catch block. Do not use without a <a href="error.html#macro--DIP_PARALLEL_ERROR_END"><code>DIP_PARALLEL_ERROR_END</code></a>.
 See <a href="error.html#macro--DIP_PARALLEL_ERROR_DECLARE"><code>DIP_PARALLEL_ERROR_DECLARE</code></a> for details.</dd>
-            <dt id="macro--DIP_PARALLEL_ERROR_END">
+                          <dt id="macro--DIP_PARALLEL_ERROR_END">
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_PARALLEL_ERROR_END" class="m-doc-self">DIP_PARALLEL_ERROR_END</a></span>
             </dt>
             <dd>Ends a try/catch block started by <a href="error.html#macro--DIP_PARALLEL_ERROR_START"><code>DIP_PARALLEL_ERROR_START</code></a>.
@@ -144,7 +144,7 @@ See <a href="error.html#macro--DIP_PARALLEL_ERROR_DECLARE"><code>DIP_PARALLEL_ER
         </section>
         <section>
           <h2>Macro documentation</h2>
-          <section class="m-doc-details" id="macro--DIP_ADD_STACK_TRACE"><div>
+                        <section class="m-doc-details" id="macro--DIP_ADD_STACK_TRACE"><div>
             <h3>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_ADD_STACK_TRACE" class="m-doc-self">DIP_ADD_STACK_TRACE</a></span>
             </h3>
@@ -166,7 +166,7 @@ When compiling with the CMake configuration flag <code>DIP_ENABLE_STACK_TRACE</c
 anything. Turn the option off if your application would make no use of the stack trace, as building the stack
 trace does incur some runtime cost.</p>
           </div></section>
-          <section class="m-doc-details" id="macro--DIP_ASSERT"><div>
+                        <section class="m-doc-details" id="macro--DIP_ASSERT"><div>
             <h3>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_ASSERT" class="m-doc-self">DIP_ASSERT</a></span>
             </h3>
@@ -178,7 +178,7 @@ trace does incur some runtime cost.</p>
 <p>You would typically disable assertions for production code, as assertions are only used to test internal
 consistency or detect bugs in the code.</p>
           </div></section>
-          <section class="m-doc-details" id="macro--DIP_START_STACK_TRACE"><div>
+                        <section class="m-doc-details" id="macro--DIP_START_STACK_TRACE"><div>
             <h3>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_START_STACK_TRACE" class="m-doc-self">DIP_START_STACK_TRACE</a></span>
             </h3>
@@ -203,7 +203,7 @@ prevent malformed syntax. Thus you should never use one of these two macros with
 anything. Turn the option off if your application would make no use of the stack trace, as building the stack
 trace does incur some runtime cost.</p>
           </div></section>
-          <section class="m-doc-details" id="macro--DIP_STACK_TRACE_THIS"><div>
+                        <section class="m-doc-details" id="macro--DIP_STACK_TRACE_THIS"><div>
             <h3>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_STACK_TRACE_THIS" class="m-doc-self">DIP_STACK_TRACE_THIS</a></span>
             </h3>
@@ -221,7 +221,7 @@ then re-throw. This macro helps by catching and re-throwing exceptions thrown wi
 
 <p>See <a href="error.html#macro--DIP_START_STACK_TRACE"><code>DIP_START_STACK_TRACE</code></a> for more information.</p>
           </div></section>
-          <section class="m-doc-details" id="macro--DIP_PARALLEL_ERROR_DECLARE"><div>
+                        <section class="m-doc-details" id="macro--DIP_PARALLEL_ERROR_DECLARE"><div>
             <h3>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DIP_PARALLEL_ERROR_DECLARE" class="m-doc-self">DIP_PARALLEL_ERROR_DECLARE</a></span>
             </h3>

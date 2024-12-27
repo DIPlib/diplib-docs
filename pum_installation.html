@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>dip::LowestCommonAncestorSolver class | DIPlib | a library for quantitative image analysis</title>
+  <title>PyDIP User Manual &raquo; Installation | DIPlib | a library for quantitative image analysis</title>
   <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
   <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
   <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="next" href="pum_basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#ffffff" />
 </head>
@@ -14,7 +15,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -45,47 +46,31 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <div class="m-doc-include m-right-m m-text-right">
-<span class="m-thin"><a href="infrastructure.html" class="m-doc">The library infrastructure</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib--graph-h.html">"diplib/graph.h"</a></span>          </div>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Installation
+        </h1>
+<p>To install the package from PyPI, use</p>
+<div class="m-code"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>diplib
+</pre></div>
 
-          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>LowestCommonAncestorSolver <span class="m-thin">class</span>        </h1>
-        <p>Solves the lowest common ancestor problem for a tree.</p>
-        <div class="m-block m-default">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
-                <li><a href="#function-members">Functions</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <section id="typeless-methods">
-            <h2>Constructors, destructors, assignment and conversion operators</h2>
-            <dl class="m-doc">
-            <dt id="dip-LowestCommonAncestorSolver-LowestCommonAncestorSolver-Graph-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-LowestCommonAncestorSolver-LowestCommonAncestorSolver-Graph-CL" class="m-doc-self">LowestCommonAncestorSolver</a>(</span><span class="m-doc-wrap"><a href="dip-Graph.html" class="m-doc">dip::Graph</a> const&amp; graph)</span>
-            </dt>
-            <dd>The constructor takes a <code>graph</code>, which must not have any cycles in it (it must be a tree). The
-easiest way to turn an arbitrary graph into a tree is to compute the MST (see <a href="dip-Graph.html#dip-Graph-MinimumSpanningForest-std-vector&lt;VertexIndex&gt;-CL-C"><code>dip::Graph::MinimumSpanningForest</code></a>).</dd>
-            </dl>
-        </section>
-        <section id="function-members">
-          <h2>Functions</h2>
-          <dl class="m-doc">
-            <dt id="dip-LowestCommonAncestorSolver-GetLCA-dip-uint--dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-LowestCommonAncestorSolver-GetLCA-dip-uint--dip-uint--C" class="m-doc-self">GetLCA</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> a,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> b) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the vertex that is the nearest common ancestor to vertices <code>a</code> and <code>b</code>.</dd>
-            <dt id="dip-LowestCommonAncestorSolver-GetLogF-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-LowestCommonAncestorSolver-GetLogF-dip-uint--C" class="m-doc-self">GetLogF</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Returns the value associated to the vertex <code>index</code>. TODO: describe this value!</dd>
-          </dl>
-        </section>
+<p>Windows users might need to install the
+<a href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist">Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019 and 2022</a>.</p>
+<p>To read images through the Bio-Formats library (optional), you will need to download it separately:</p>
+<div class="m-code"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>diplib<span class="w"> </span>download_bioformats
+</pre></div>
+
+<p>Bio-Formats also requires a working <a href="https://www.java.com/en/">Java installation</a>.</p>
+<aside class="m-note m-info">
+<h4>If you have problems</h4>
+<p>The <code>diplib</code> package on PyPI vendors the <em>OpenMP</em> library for some platforms
+(<code>libomp.dylib</code> on macOS, <code>libgomp.so</code> on Linux). It is possible, though rare, for another package
+to vendor an incompatible <em>OpenMP</em> library, and for the combined use to cause Python to crash.
+See for example <a href="https://github.com/DIPlib/diplib/issues/130">this issue</a>. If you happen to run into
+this problem, please <a href="https://github.com/DIPlib/diplib/issues/new/choose">let us know!</a>.
+You can find more information about the simultaneous use of multiple <em>OpenMP</em> libraries
+<a href="https://github.com/joblib/threadpoolctl/blob/master/multiple_openmp.md">on this page</a>.</p>
+</aside>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a> | <a href="pum_basics.html" class="m-doc"><em>PyDIP</em> basics &raquo;</a></div>
       </div>
     </div>
   </div>

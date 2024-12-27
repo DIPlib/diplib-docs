@@ -16,7 +16,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -107,7 +107,8 @@ install the <em>Python 3</em> header files and static library:</p>
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DIPlib/diplib.git
 </pre></div>
 
-<p>This creates a directory <code>src/diplib</code> in your home directory.</p>
+<p>This creates a directory <code>src/diplib</code> in your home directory. Feel free to use any other
+directory if you prefer.</p>
 <h2 id="linux_build">Building</h2>
 <p>To build, run <code>cmake</code> and <code>make</code> from a build directory:</p>
 <div class="m-code"><pre><span></span>mkdir<span class="w"> </span>~/src/diplib/target
@@ -125,8 +126,13 @@ make<span class="w"> </span>-j<span class="w"> </span>install
 <p>This will install <em>DIPlib</em>, <em>DIPviewer</em>, <em>DIPjavaio</em>, <em>DIPimage</em> and the documentation
 under the <code>lib</code>, <code>include</code> and <code>share</code> directories in your home directory.</p>
 <p>Before running <code>make</code>, examine the output of <code>cmake</code> to verify all the features you need are enabled,
-and that your chosen dependencies were found. See <a href="building_cmake.html#cmake_variables"><em>CMake</em> variables</a> for a summary of all the
-<em>CMake</em> options to manually specify paths and configure your build.</p>
+and that your chosen dependencies were found. This is also a good moment to disable the features that
+you don&rsquo;t need. By default, everything will be build and installed, if the required external dependencies
+are found: you need <em>FreeGLUT</em> or <em>GLFW</em> for <em>DIPviewer</em>, a <em>Java JDK</em> for <em>DIPjavaio</em>, <em>Python</em> for <em>PyDIP</em>, and
+<em>MATLAB</em> for <em>DIPimage</em>. Add <code>-DDIP_BUILD_DIPVIEWER=Off</code>, <code>-DDIP_BUILD_JAVAIO=Off</code>, <code>-DDIP_BUILD_DIPIMAGE=Off</code>
+or <code>-DDIP_BUILD_PYDIP=Off</code> to your <em>CMake</em> command to turn the corresponding component off, if you don&rsquo;t
+need that component.</p>
+<p>See <a href="building_cmake.html#cmake_variables"><em>CMake</em> variables</a> for a summary of all the <em>CMake</em> options to manually specify paths and configure your build.</p>
 <p><em>PyDIP</em> is installed separately through <code>pip</code>. Once the <code>install</code> target has finished building
 and installing, run</p>
 <div class="m-code"><pre><span></span>make<span class="w"> </span>pip_install
@@ -135,7 +141,7 @@ and installing, run</p>
 <p>Note that it is necessary to install the <em>DIPlib</em> libraries before running the <code>pip_install</code> target.</p>
 <p>We recommend you additionally specify the <code>-DCMAKE_CXX_FLAGS="-march=native"</code>
 option to <code>cmake</code>. This will enable additional optimizations that are specific
-to your computer. Note that the resulting binaries will likely be slower on another
+to your computer. Note that the resulting binaries will likely be slower on a different
 computer, and possibly not work at all.</p>
 <p>If you build a static version of the <em>DIPlib</em> library, <em>DIPimage</em> and <em>PyDIP</em> will not work
 correctly.</p>
@@ -212,7 +218,7 @@ type and mimics the namespace used in the C++ library:</p>
 <div class="m-code"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span>
 </pre></div>
 
-<p>The <a href="pydip_user_manual.html">PyDIP User Manual</a> is still quite short, but does contain some important
+<p>The <a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> is still quite short, but does contain some important
 information to get you started.</p>
         <div class="m-note m-dim m-thin m-text-center"><a href="building_cmake.html" class="m-doc">&laquo; <em>CMake</em> configuration</a> | <a href="building_diplib.html" class="m-doc">Building</a> | <a href="building_macos.html" class="m-doc">Building the <em>DIPlib</em> project on macOS &raquo;</a></div>
       </div>

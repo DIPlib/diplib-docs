@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.1" class="m-thin">version 3.5.1</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -45,8 +45,8 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <div class="m-doc-include m-right-m m-text-right">
-<span class="m-thin"><a href="numeric.html" class="m-doc">Numeric algorithms and constants</a> module</span><br/><span class="m-code m-inverted"><span class="cp">#include</span> <a class="cpf" href="file--diplib--accumulators-h.html">"diplib/accumulators.h"</a></span>          </div>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="numeric.html" class="m-doc">Numeric algorithms and constants</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--accumulators-h.html">"diplib/accumulators.h"</a></span>          </div>
 
           <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>DirectionalStatisticsAccumulator <span class="m-thin">class</span>        </h1>
         <p><code>DirectionalStatisticsAccumulator</code> computes directional mean and standard deviation by accumulating
@@ -64,7 +64,7 @@ a unit vector with the input value as angle.</p>
             </li>
           </ul>
         </div>
-<p>Samples are added one by one, using the <code>Push</code> method. Other members are used to retrieve estimates of
+          <p>Samples are added one by one, using the <code>Push</code> method. Other members are used to retrieve estimates of
 the sample statistics based on the samples seen up to that point.</p>
 <p>It is possible to accumulate samples in different objects (e.g. when processing with multiple threads),
 and add the accumulators together using the <code>+</code> operator.</p>
@@ -75,27 +75,27 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-            <dt id="dip-DirectionalStatisticsAccumulator-Reset">
+                          <dt id="dip-DirectionalStatisticsAccumulator-Reset">
               <span class="m-doc-wrap-bumper">void <a href="#dip-DirectionalStatisticsAccumulator-Reset" class="m-doc-self">Reset</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Reset the accumulator, leaving it as if newly allocated.</dd>
-            <dt id="dip-DirectionalStatisticsAccumulator-Push-dfloat-">
+                          <dt id="dip-DirectionalStatisticsAccumulator-Push-dfloat-">
               <span class="m-doc-wrap-bumper">void <a href="#dip-DirectionalStatisticsAccumulator-Push-dfloat-" class="m-doc-self">Push</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x)</span>
             </dt>
             <dd>Add a sample to the accumulator</dd>
-            <dt id="dip-DirectionalStatisticsAccumulator-Number-C">
+                          <dt id="dip-DirectionalStatisticsAccumulator-Number-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-DirectionalStatisticsAccumulator-Number-C" class="m-doc-self">Number</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Number of samples</dd>
-            <dt id="dip-DirectionalStatisticsAccumulator-Mean-C">
+                          <dt id="dip-DirectionalStatisticsAccumulator-Mean-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-DirectionalStatisticsAccumulator-Mean-C" class="m-doc-self">Mean</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Unbiased estimator of population mean</dd>
-            <dt id="dip-DirectionalStatisticsAccumulator-Variance-C">
+                          <dt id="dip-DirectionalStatisticsAccumulator-Variance-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-DirectionalStatisticsAccumulator-Variance-C" class="m-doc-self">Variance</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Unbiased estimator of population variance</dd>
-            <dt id="dip-DirectionalStatisticsAccumulator-StandardDeviation-C">
+                          <dt id="dip-DirectionalStatisticsAccumulator-StandardDeviation-C">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-DirectionalStatisticsAccumulator-StandardDeviation-C" class="m-doc-self">StandardDeviation</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Estimator of population standard deviation (it is not possible to derive an unbiased estimator)</dd>
@@ -104,7 +104,7 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-            <dt id="dip-DirectionalStatisticsAccumulator-operator%2B%3D-DirectionalStatisticsAccumulator-CL">
+                          <dt id="dip-DirectionalStatisticsAccumulator-operator%2B%3D-DirectionalStatisticsAccumulator-CL">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-DirectionalStatisticsAccumulator-operator%2B%3D-DirectionalStatisticsAccumulator-CL" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a> const&amp; b) -&gt; <a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a>&amp;</span>
             </dt>
             <dd>Combine two accumulators</dd>
@@ -113,7 +113,7 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-            <dt id="dip-operator%2B-DirectionalStatisticsAccumulator--DirectionalStatisticsAccumulator-CL">
+                            <dt id="dip-operator%2B-DirectionalStatisticsAccumulator--DirectionalStatisticsAccumulator-CL">
               <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-DirectionalStatisticsAccumulator--DirectionalStatisticsAccumulator-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a> lhs,
               <a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a> const&amp; rhs) -&gt; <a href="dip-DirectionalStatisticsAccumulator.html" class="m-doc">dip::DirectionalStatisticsAccumulator</a></span>
             </dt>

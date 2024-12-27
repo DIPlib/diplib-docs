@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PyDIP User Manual &raquo; Measurement | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="pum_filtering.html" />
+  <link rel="next" href="pum_display.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Measurement
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#pum_measurement_information">Information about the measurement object</a></li>
+            <li><a href="#pum_measurement_indexing">Indexing into the measurement object</a></li>
+            <li><a href="#pum_measurement_statistics">Statistics on measurements</a></li>
+            <li><a href="#pum_measurement_selection">Selecting measurement rows</a></li>
+            <li><a href="#pum_measurement_numpy">Converting measurements to a NumPy array</a></li>
+            <li><a href="#pum_measurement_other">Other ways to use measurements</a></li>
+          </ul>
+        </div>
+<p><code>dip.MeasurementTool</code> can measure quite a lot of features for objects in an image, see <a href="dip-MeasurementTool.html"><code>dip::MeasurementTool</code></a>
+for a full list. To demonstrate, we&rsquo;ll start with a simple example image that we can measure: the &lsquo;cermet&rsquo; image.
+Because the file doesn&rsquo;t have pixel size information embedded, we&rsquo;ll invent a pixel size. The pixel size is
+attached to the image, and taken into account by many functions in the <em>DIPlib</em> library. <code>dip.MeasurementTool</code>
+reports measurements in physical units instead of pixels if the image has pixel size information.
+Note that pixels do not need to be isotropic, it is possible to give a different pixel size for each dimension.</p>
+<div class="m-code"><pre><span></span><span class="n">gray</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ImageReadICS</span><span class="p">(</span><span class="s1">&#39;examples/cermet.ics&#39;</span><span class="p">)</span>
+<span class="n">gray</span><span class="o">.</span><span class="n">SetPixelSize</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;um&quot;</span><span class="p">)</span>  <span class="c1"># &quot;um&quot; is easier to type than &quot;μm&quot;, but they mean the same thing</span>
+<span class="n">gray</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="The 'cermet' image" class="m-image" src="basics-7.png"></p>
+<p>Next, we threshold and label the image, then measure some basic features. Because &lsquo;Solidity&rsquo; depends on the
+&lsquo;ConvexArea&rsquo; measurement, we get that one too in the output. </p>
+<div class="m-code"><pre><span></span><span class="n">bin_img</span> <span class="o">=</span> <span class="n">gray</span> <span class="o">&lt;</span> <span class="mi">120</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">bin_img</span><span class="p">,</span> <span class="n">minSize</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">EdgeObjectsRemove</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="n">measurement</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">MeasurementTool</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">gray</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Size&#39;</span><span class="p">,</span> <span class="s1">&#39;Solidity&#39;</span><span class="p">,</span> <span class="s1">&#39;Statistics&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">measurement</span><span class="p">)</span>
+</pre></div>
+
+<div class="m-code"><pre><span></span>   |       Size |   Solidity |                                            Statistics | ConvexArea | 
+-- | ---------- | ---------- | ----------------------------------------------------- | ---------- | 
+   |            |            |       Mean |     StdDev |   Skewness | ExcessKurtosis |            | 
+   |      (μm²) |            |            |            |            |                |      (μm²) | 
+-- | ---------- | ---------- | ---------- | ---------- | ---------- | -------------- | ---------- | 
+ 6 |      262.0 |     0.9668 |      45.34 |      30.82 |     0.7216 |        -0.6831 |      271.0 | 
+ 7 |      63.00 |     0.9474 |      86.35 |      13.41 |     0.2313 |        -0.5471 |      66.50 | 
+ 8 |      243.0 |     0.9293 |      75.09 |      21.16 |     0.1711 |        -0.9723 |      261.5 | 
+ 9 |      209.0 |     0.9698 |      61.63 |      25.80 |     0.3937 |        -0.7994 |      215.5 | 
+10 |      462.0 |     0.9665 |      62.10 |      20.27 |     0.7329 |         0.1613 |      478.0 | 
+11 |      611.0 |     0.9745 |      81.17 |      17.92 |    -0.3812 |        -0.2219 |      627.0 | 
+12 |      80.00 |     0.9816 |      83.10 |      15.72 |     0.1468 |        -0.7721 |      81.50 | 
+13 |      205.0 |     0.9762 |      52.92 |      32.19 |     0.1556 |         -1.183 |      210.0 | 
+14 |      419.0 |     0.9836 |      41.60 |      30.24 |     0.8653 |        -0.3741 |      426.0 | 
+15 |      363.0 |     0.9041 |      71.56 |      22.25 |    -0.2541 |        -0.5946 |      401.5 | 
+16 |      487.0 |     0.9740 |      57.81 |      25.17 |    0.05945 |        -0.4846 |      500.0 | 
+17 |      383.0 |     0.9746 |      53.10 |      24.60 |     0.6360 |        -0.3009 |      393.0 | 
+18 |      250.0 |     0.9709 |      50.21 |      30.08 |     0.6251 |        -0.8159 |      257.5 | 
+20 |      137.0 |     0.9786 |      64.47 |      22.41 |     0.5215 |        -0.8983 |      140.0 | 
+21 |      378.0 |     0.9668 |      64.85 |      21.35 |     0.3866 |        -0.5561 |      391.0 | 
+22 |      392.0 |     0.9043 |      48.06 |      31.20 |     0.4776 |        -0.8514 |      433.5 | 
+23 |      230.0 |     0.9746 |      70.43 |      23.68 |    -0.2813 |        -0.6269 |      236.0 | 
+25 |      262.0 |     0.9686 |      62.26 |      25.31 |     0.3051 |        -0.7452 |      270.5 | 
+26 |      637.0 |     0.9245 |      52.94 |      23.86 |     0.8441 |       -0.08530 |      689.0 | 
+28 |      341.0 |     0.9757 |      54.94 |      25.06 |     0.8843 |        -0.3705 |      349.5 | 
+29 |      501.0 |     0.9747 |      51.85 |      24.15 |     0.9221 |       -0.05920 |      514.0 | 
+30 |      556.0 |     0.8580 |      60.65 |      22.53 |     0.5287 |        -0.3121 |      648.0 | 
+31 |      592.0 |     0.8889 |      58.28 |      29.00 |     0.1195 |         -1.026 |      666.0 | 
+32 |      172.0 |     0.9718 |      68.47 |      23.14 |     0.3064 |        -0.9392 |      177.0 | 
+33 |      566.0 |     0.9792 |      41.71 |      30.85 |     0.7348 |        -0.5709 |      578.0 | 
+35 |      842.0 |     0.9268 |      53.14 |      26.75 |     0.1291 |        -0.4931 |      908.5 | 
+37 |      209.0 |     0.9676 |      56.00 |      26.01 |     0.5350 |        -0.8241 |      216.0 | 
+38 |      147.0 |     0.9545 |      65.14 |      24.51 |     0.3733 |        -0.9707 |      154.0 | 
+39 |      375.0 |     0.9766 |      71.89 |      21.69 |    0.06353 |        -0.7623 |      384.0 | 
+40 |      385.0 |     0.9637 |      51.05 |      27.73 |     0.6729 |        -0.5471 |      399.5 | 
+41 |      223.0 |     0.9612 |      63.78 |      25.31 |     0.1825 |        -0.4636 |      232.0 | 
+42 |      347.0 |     0.9734 |      55.33 |      26.30 |     0.5900 |        -0.7111 |      356.5 | 
+43 |      604.0 |     0.9527 |      50.44 |      26.84 |     0.6709 |        -0.5829 |      634.0 | 
+44 |      354.0 |     0.9739 |      42.53 |      33.74 |     0.6403 |        -0.9280 |      363.5 | 
+45 |      543.0 |     0.9696 |      50.64 |      24.14 |      1.068 |         0.3071 |      560.0 | 
+47 |      147.0 |     0.9515 |      67.05 |      22.61 |     0.2393 |        -0.5154 |      154.5 | 
+48 |      405.0 |     0.9000 |      83.24 |      23.60 |    -0.9721 |      0.0003058 |      450.0 | 
+49 |      577.0 |     0.9714 |      30.64 |      31.71 |      1.246 |         0.2249 |      594.0 | 
+50 |      497.0 |     0.9717 |      61.73 |      18.86 |      1.101 |         0.3655 |      511.5 | 
+52 |      525.0 |     0.9813 |      34.06 |      31.89 |      1.047 |        -0.1825 |      535.0 | 
+53 |      803.0 |     0.9634 |      54.23 |      25.55 |     0.4471 |        -0.5974 |      833.5 | 
+54 |      253.0 |     0.9750 |      59.83 |      25.32 |     0.4961 |        -0.8077 |      259.5 | 
+55 |      193.0 |     0.9772 |      65.91 |      23.49 |     0.4554 |        -0.8702 |      197.5 | 
+</pre></div>
+
+<h2 id="pum_measurement_information">Information about the measurement object</h2>
+<p>The leftmost column of the table above shows the object IDs (labels) of the measured objects. This list can
+be obtained with <code>measurement.Objects()</code>. Note that <code>dip.EdgeObjectsRemove</code> removed some labeled objects,
+those labels are not in the list.</p>
+<p>The column group headers (features), and some information about them, can be obtained with <code>measurement.Features()</code>,
+which returns a list that tells us the name and the number of columns for each feature.
+<code>measurement.Values()</code> also returns a list, but it has an element for each column (not column group), and
+tells us the name of the value (only for multi-value features) and the units that the value is in.</p>
+<p>To query the size of the measurement object, use <code>measurement.NumberOfObjects()</code> (which is the same as
+<code>len(measurement)</code>), <code>measurement.NumberOfFeatures()</code> and <code>measurement.NumberOfValues()</code>. One can query
+if a specific feature was measured with <code>measurement.FeatureExists()</code>, and if a specific objects was
+measured with <code>measurement.ObjectExists()</code>.</p>
+<h2 id="pum_measurement_indexing">Indexing into the measurement object</h2>
+<p>The <code>dip.Measurement</code> object <code>measurement</code> can be indexed in three levels: the measurement name (&lsquo;Statistics&rsquo;),
+the object number (30), and the measurement value within the selected measurement (2):</p>
+<div class="m-code"><pre><span></span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Statistics&#39;</span><span class="p">][</span><span class="mi">30</span><span class="p">]</span>     <span class="c1"># returns a list with the four statistics values</span>
+<span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Statistics&#39;</span><span class="p">][</span><span class="mi">30</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># returns a float</span>
+<span class="n">measurement</span><span class="p">[</span><span class="mi">30</span><span class="p">][</span><span class="s1">&#39;Statistics&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># identical to the above, the order of the two first indices is irrelevant</span>
+</pre></div>
+
+<p>Leaving out one of the indices returns the full row or column:</p>
+<div class="m-code"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">]</span>
+</pre></div>
+
+<p>These objects can be used in many different ways. Both have the same methods as the <code>measurement</code>
+object has, or rather the subset that makes sense: For the column we can query about objects:
+<code>col.Objects()</code>, <code>col.NumberOfObjects()</code> and <code>col.ObjectExists()</code>. For the row we can query about
+features and values: <code>row.Features()</code>, <code>row.Values()</code>, <code>row.NumberOfFeatures()</code>, <code>row.NumberOfValues()</code>
+and <code>row.FeatureExists()</code>.</p>
+<p>Additionally, we have <code>row.ObjectID()</code> and <code>col.FeatureName()</code> to find out which row and which column
+is indexed.</p>
+<p>These objects also mimic the functionality of a dictionary: they both have a <code>keys()</code> method,
+a <code>values()</code> method, and an <code>items()</code> method. These methods do copy the data, so they are less efficient
+to use. But they can be very useful. Additionally, <code>iter()</code> and <code>len()</code> have been overloaded. This
+means that one can iterate over a row or column:</p>
+<div class="m-code"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">col</span><span class="p">:</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+<p>As we&rsquo;ll see below, there are also some functions that take a column of measurements as input.</p>
+<p>Because a feature can have multiple values, something like <code>measurement['Statistics']</code> doesn&rsquo;t
+represent a single value per object. The <code>Subset()</code> method can be used to select a single
+column. It modifies the object to be a single value:</p>
+<div class="m-code"><pre><span></span><span class="n">col</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Statistics&#39;</span><span class="p">]</span>
+<span class="n">col</span><span class="o">.</span><span class="n">Subset</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">col</span><span class="o">.</span><span class="n">Values</span><span class="p">()</span>  <span class="c1"># Shows that we only have one column, the &#39;StdDev&#39; one.</span>
+</pre></div>
+
+<h2 id="pum_measurement_statistics">Statistics on measurements</h2>
+<p>There exist various statistics functions that can be applied to a measurement column:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">Maximum</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">])</span>        <span class="c1"># the largest solidity value</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">MaximumObject</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">])</span>  <span class="c1"># the object ID for the largest solidity value</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">SampleStatistics</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">])</span>
+</pre></div>
+
+<p>These functions all return the statistics for the first column in the column group, use
+<code>Subset()</code> (see <a href="pum_measurement.html#pum_measurement_indexing">above</a>) to select which column to apply the statistics to.</p>
+<p>See under &ldquo;related&rdquo; on <a href="dip-Measurement-IteratorFeature.html">this page</a> for a full
+list of functions available.</p>
+<p>Because a measurement column object is accepted as input by NumPy functions, there are
+many other statistics that can be applied (see <a href="pum_measurement.html#pum_measurement_numpy">Converting measurements to a NumPy array</a>).</p>
+<h2 id="pum_measurement_selection">Selecting measurement rows</h2>
+<p>Comparison operators applied to a colum produce a <a href="dip-LabelMap.html"><code>dip.LabelMap</code></a> object. This
+is an object that can be used to index into a measurement object to select rows. For example,
+to select all the objects over 600 μm²:</p>
+<div class="m-code"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Size&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">600</span>
+<span class="n">large_objects</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+<span class="n">large_objects</span><span class="o">.</span><span class="n">NumberOfObjects</span><span class="p">()</span>        <span class="c1"># equal to 5</span>
+</pre></div>
+
+<p><code>selection.Count()</code> is also 5.</p>
+<p>The operation is always applied to the first value of a multi-valued feature. Use <code>Subset()</code>
+<a href="pum_measurement.html#pum_measurement_indexing">as discussed above</a> to select which value to apply the operation to.</p>
+<p>One can combine multiple <code>LabelMap</code> objects together using element-wise Boolean operators <code>&amp;</code>, <code>|</code> and <code>^</code>.
+Also the unary element-wise negation operator <code>~</code> can be used. But be aware of the precendence
+of these operators in Python</p>
+<p>In this <code>LabelMap</code> object, each label (object ID) is mapped to a new value.
+Those labels mapped to 0 are the rows that will be removed when the mapping is applied to a measurement
+object (which we did with <code>measurement[selection]</code>). The other labels all map to themselves by default.
+One can use indexing to examine and update the mapping.</p>
+<p>For example:</p>
+<div class="m-code"><pre><span></span><span class="n">large_objects</span><span class="o">.</span><span class="n">Objects</span><span class="p">()</span>  <span class="c1"># is [11, 26, 35, 43, 53]</span>
+
+<span class="n">selection</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">selection</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">large_objects</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+<span class="n">large_objects</span><span class="o">.</span><span class="n">Objects</span><span class="p">()</span>  <span class="c1"># is [1, 35, 43, 53]</span>
+</pre></div>
+
+<p>We re-labeled object 11 as 1, and we explicitly deselected object number 26.</p>
+<p><code>selection.Relabel()</code> causes the selected rows to be relabeled with contiguous labels starting at 1:</p>
+<div class="m-code"><pre><span></span><span class="n">selection</span><span class="o">.</span><span class="n">Relabel</span><span class="p">()</span>
+<span class="n">large_objects</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+<span class="n">large_objects</span><span class="o">.</span><span class="n">Objects</span><span class="p">()</span>  <span class="c1"># is [1, 2, 3, 4]</span>
+</pre></div>
+
+<p>Applying the <code>LabelMap</code> to the label image that the measurement was taken from is a simple way to
+select objects with specific properties:</p>
+<div class="m-code"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Size&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">600</span>
+<span class="n">selection</span><span class="o">.</span><span class="n">Relabel</span><span class="p">()</span>  <span class="c1"># optional</span>
+<span class="n">large_object_image</span> <span class="o">=</span> <span class="n">selection</span><span class="o">.</span><span class="n">Apply</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="n">large_object_image</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="s1">&#39;labels&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><img alt="Image with only the 5 largest objects selected" class="m-image" src="measurement-1.png"></p>
+<h2 id="pum_measurement_numpy">Converting measurements to a NumPy array</h2>
+<p>The measurement object can be converted to a NumPy array, which will have the same
+layout as the measurement object as shown by <code>print()</code>. This array will share data
+with the measurement object, modifying it will modify the measurement object.</p>
+<div class="m-code"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement</span><span class="p">)</span>
+<span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Size&#39;</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span>  <span class="c1"># will print [0.0]</span>
+</pre></div>
+
+<p>Also a partially-indexed measurement object can be converted to a NumPy array,
+again sharing data:</p>
+<div class="m-code"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="mi">30</span><span class="p">])</span>  <span class="c1"># returns a 2D NumPy array for a single row of the measurement table</span>
+<span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">])</span>  <span class="c1"># returns a 2D NumPy array for a column group</span>
+</pre></div>
+
+<p>But note that it is not always necessary to explicitly convert to a NumPy array, one
+can directly call NumPy functions on these objects:</p>
+<div class="m-code"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">])</span>
+</pre></div>
+
+<p>Casting to an array might be useful to call a function that expects its input to have
+a <code>shape</code> property.</p>
+<h2 id="pum_measurement_other">Other ways to use measurements</h2>
+<p>We can paint the objects with one of the measurements, which can be useful for display:</p>
+<div class="m-code"><pre><span></span><span class="n">solidity</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ObjectToMeasurement</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">])</span>
+<span class="n">solidity</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><img alt="Image where the intensity of each object is its 'Solidity' value" class="m-image" src="measurement-2.png"></p>
+<p>Casted to a NumPy array, measurement columns can be the input to plotting functions.
+Here we plot size vs solidity:</p>
+<div class="m-code"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Size&#39;</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement</span><span class="p">[</span><span class="s1">&#39;Solidity&#39;</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Size (μm²)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Solidity&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><img alt="2D scatter plot of size vs solidity, there's no correlation" class="m-image" src="measurement-3.png"></p>
+<p>If you use Pandas, you can convert the measurement object to a Data Frame:</p>
+<div class="m-code"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">measurement</span><span class="o">.</span><span class="n">ToDataFrame</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+<div class="m-code"><pre><span></span>     Size  Solidity  Statistics, Mean  Statistics, StdDev  Statistics, Skewness  Statistics, ExcessKurtosis  ConvexArea
+6     0.0  0.966790         45.343511           30.821640              0.721578                   -0.683085       271.0
+7    63.0  0.947368         86.349206           13.414194              0.231313                   -0.547051        66.5
+8   243.0  0.929254         75.094650           21.163748              0.171140                   -0.972349       261.5
+9   209.0  0.969838         61.626794           25.801656              0.393697                   -0.799403       215.5
+10  462.0  0.966527         62.095238           20.270824              0.732851                    0.161275       478.0
+11  611.0  0.974482         81.165303           17.923805             -0.381249                   -0.221944       627.0
+12   80.0  0.981595         83.100000           15.718730              0.146845                   -0.772090        81.5
+&lt;snip&gt;
+</pre></div>
+
+<p>As you can see, column names for multi-valued features are generated that combine the feature
+name and the value name, such as <code>df["Statistics, Mean"]</code>.</p>
+<p>Finally, the function <a href="measurement.html#dip-MeasurementWriteCSV-Measurement-CL-String-CL-StringSet-CL"><code>dip.MeasurementWriteCSV()</code></a> can be used to write a complete
+measurement object to a CSV file, again including the object IDs and header information.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pum_filtering.html" class="m-doc">&laquo; Filtering</a> | <a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a> | <a href="pum_display.html" class="m-doc">Displaying Images &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

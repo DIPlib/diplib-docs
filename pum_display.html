@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PyDIP User Manual &raquo; Displaying Images | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="pum_measurement.html" />
+  <link rel="next" href="pum_numpy.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Displaying Images
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#pum_display_pyplot">Image display using <em>matplotlib</em></a></li>
+            <li><a href="#pum_display_dipviewer">Image display using <em>DIPviewer</em></a></li>
+          </ul>
+        </div>
+<h2 id="pum_display_pyplot">Image display using <em>matplotlib</em></h2>
+<p>The class <code>dip.Image</code> has a method <code>Show()</code>. There is an identical function
+<code>dip.Show()</code>. They display an image to the current <em>matplotlib</em> window, if
+<em>matplotlib</em> is installed:</p>
+<div class="m-code"><pre><span></span><span class="kn">import</span> <span class="nn">diplib</span> <span class="k">as</span> <span class="nn">dip</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ImageRead</span><span class="p">(</span><span class="s1">&#39;examples/trui.ics&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p>This function is useful to show a 1D or a 2D image. For higher-dimensional images,
+a section or projection is shown.</p>
+<p>By default, the image intensities are mapped to the full display range
+(i.e. the minimum image intensity is black and the maximum is white). This
+can be changed for example as follows:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="s1">&#39;unit&#39;</span><span class="p">)</span>  <span class="c1"># maps [0,1] to the display range</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="s1">&#39;8bit&#39;</span><span class="p">)</span>  <span class="c1"># maps [0,255] to the display range</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">)</span>  <span class="c1"># maps [0,pi] to the display range</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="s1">&#39;base&#39;</span><span class="p">)</span>  <span class="c1"># keeps 0 to the middle grey level, and uses a divergent color map</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>  <span class="c1"># uses logarithmic mapping</span>
+</pre></div>
+
+<p>Type <code>help(dip.Show)</code> in Python to learn about many more options, including setting
+the color map, defining how complex data is mapped to grayscale, and how higher-dimensional
+images are mapped to the 2D display.</p>
+<h2 id="pum_display_dipviewer">Image display using <em>DIPviewer</em></h2>
+<p>If <a href="dipviewer.html"><em>DIPviewer</em></a> is installed (which will always be the case for the official <em>PyDIP</em>
+installation on PyPI), its functionality will be in the <code>dip.viewer</code> namespace.
+<code>img.ShowSlice()</code> is the same as <code>dip.viewer.Show(img)</code>. This interactive tool can display
+images of any type and with any number of dimensions.</p>
+<p>Depending on the backend used, it  will be necessary to do <code>dip.viewer.Spin()</code> to interact
+with the created window. <code>Spin()</code> interrupts the interactive session until all <em>DIPviewer</em>
+windows have been closed. Even when <code>Spin()</code> is not needed to interact with the windows,
+it should be run before closing the Python session.
+Alternatively, periodically call <code>dip.viewer.Draw()</code>.</p>
+<p><code>dip.Image.ShowSlice()</code> and <code>dip.viewer.Show()</code> have additional parameters
+that can be used to set viewing options. They also return an object that can be used for
+further interaction:</p>
+<div class="m-code"><pre><span></span><span class="n">wdw</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">ShowSlice</span><span class="p">(</span><span class="s1">&#39;Window title&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="s1">&#39;unit&#39;</span><span class="p">,</span> <span class="n">lut</span><span class="o">=</span><span class="s1">&#39;sequential&#39;</span><span class="p">)</span>
+<span class="n">img2</span><span class="o">.</span><span class="n">ShowSlice</span><span class="p">(</span><span class="s1">&#39;Second image&#39;</span><span class="p">,</span> <span class="n">link</span><span class="o">=</span><span class="n">wdw</span><span class="p">)</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">Spin</span><span class="p">()</span>
+</pre></div>
+
+<p>Type <code>help(dip.viewer.Show)</code> for details.</p>
+<p>The function <code>dip.viewer.ShowModal()</code> is a convenience function that calls <code>dip.viewer.Show()</code>
+and <code>dip.viewer.Spin()</code>. Use it to display a single image.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pum_measurement.html" class="m-doc">&laquo; Measurement</a> | <a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a> | <a href="pum_numpy.html" class="m-doc">Combining <em>PyDIP</em> with <em>NumPy</em> &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

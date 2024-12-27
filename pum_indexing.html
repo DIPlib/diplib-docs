@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PyDIP User Manual &raquo; Indexing | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="pum_basics.html" />
+  <link rel="next" href="pum_tensor_images.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Indexing
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#pum_indexing_irregular">Irregular indexing</a></li>
+          </ul>
+        </div>
+<p>Indexing into a <code>dip.Image</code> object uses the same syntax as other array types in
+Python:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+<p>But the indexing follows <em>DIPlib</em>&rsquo;s rules:</p>
+<ol>
+<li>Dimensions are ordered in reverse from how <em>NumPy</em> stores them (the first dimension is horizontal, or x).</li>
+<li>The end index is included in the range.</li>
+<li>You must provide one range (slice) per dimension, you cannot index only into a subset of dimensions.</li>
+</ol>
+<p>The only exception to the 3rd point is that you can index a single pixel using linear indexing (i.e. a single
+index), which will be interpreted as counting along rows. For example, for a 3D image, coordinates <code>[x, y, z]</code>
+cooresponds to linear index <code>(z * img.Size(1) + y) * img.Size(0) + x</code>.</p>
+<p>It is possible to assign to a subset of the image pixels using indexing:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+</pre></div>
+
+<p>Unlike in <em>DIPlib</em>, the square brackets index into spatial dimensions.
+To index into tensor dimensions, use round brackets (parentheses):</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">img</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+<p>When the indexing operation uses ranges, or indexes into the tensor dimension, then the output is
+a new <code>dip.Image</code> object that shares data with the original image object. This means that writing
+to that output also changes the original image:</p>
+<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>        <span class="c1"># this copy shares data with img</span>
+<span class="n">img2</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>       <span class="c1"># same as img(0).Fill(100)</span>
+<span class="n">img</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">Copy</span><span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">img</span><span class="p">(</span><span class="mi">2</span><span class="p">)[:,:]</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># note that img(2) = img(0) is not allowed by Python</span>
+
+<span class="n">img2</span> <span class="o">=</span> <span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">Copy</span><span class="p">()</span> <span class="c1"># this copy does not share data with img</span>
+<span class="n">img2</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>       <span class="c1"># does not affect img</span>
+</pre></div>
+
+<p>Indexing operations that use only single indices along each dimension return a pixel. This is represented
+as a list with the pixel values (even for scalar images). This list does not share data with the image.</p>
+<h2 id="pum_indexing_irregular">Irregular indexing</h2>
+<p>There are also indexing operations that select an arbitrary (irregular) subset of pixels. These indexing
+operations return a new <code>dip.Image</code> object, which is always 1D.
+This new object does not share data with the original image, the pixel values are copied over.
+But of course there is also an assignment version of these indexing operations.</p>
+<p>There are two irregular indexing methods: a mask image and a list of coordinates.</p>
+<div class="m-code"><pre><span></span><span class="c1"># Mask image indexing</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">img</span> <span class="o">&gt;</span> <span class="mi">100</span>
+<span class="n">img2</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>  <span class="c1"># this copy does not share data with img</span>
+<span class="n">img2</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># does not affect img</span>
+<span class="n">img</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># sets pixels selected by mask to 0</span>
+
+<span class="c1"># Coordinate list indexing</span>
+<span class="nb">list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">img3</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span>  <span class="c1"># also does not share data with img</span>
+<span class="n">img</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># sets selected pixels to 0</span>
+</pre></div>
+
+<p>For the mask indexing, the order of the pixels in the 1D output image depends on the internal linear pixel
+storage order, which is not consistent with any specific (row-major or column-major) order due to operations
+such as <code>Rotation90()</code> and <code>Mirror()</code>. For the coordinate list indexing, the output order always matches
+the coordinate list order.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pum_basics.html" class="m-doc">&laquo; <em>PyDIP</em> basics</a> | <a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a> | <a href="pum_tensor_images.html" class="m-doc">Tensor images and color images &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
