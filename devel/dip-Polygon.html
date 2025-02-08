@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::Polygon struct | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="measurement.html" class="m-doc">Measurement</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--chain_code-h.html">"diplib/chain_code.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>Polygon <span class="m-thin">struct</span>        </h1>
+        <p>A polygon with floating-point vertices.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#derived-classes">Derived classes</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#variable-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="derived-classes">
+          <h2>Derived classes</h2>
+          <dl class="m-doc">
+                          <dt>
+              struct <a href="dip-ConvexHull.html" class="m-doc">dip::<wbr />ConvexHull</a>
+            </dt>
+            <dd>A convex hull is a convex polygon. It can be constructed from a simple <a href="dip-Polygon.html"><code>dip::Polygon</code></a>,
+and is guaranteed clockwise. <a href="dip-ConvexHull.html#dip-ConvexHull">more...</a></dd>
+          </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+                              <dt id="dip-Polygon-Vertices">
+              using <a href="#dip-Polygon-Vertices" class="m-doc-self">Vertices</a> = std::vector&lt;VertexFloat&gt;
+
+            </dt>
+            <dd>Type used to store the vertices.</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt id="dip-Polygon-BoundingBox-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-BoundingBox-C" class="m-doc-self">BoundingBox</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">dip::BoundingBoxFloat</a></span>
+            </dt>
+            <dd>Returns the bounding box of the polygon.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-IsClockWise-C" class="m-doc">IsClockWise</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Determine the orientation of the polygon. <a href="#dip-Polygon-IsClockWise-C">more...</a></dd>
+                          <dt id="dip-Polygon-Area-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Area-C" class="m-doc-self">Area</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the (signed) area of the polygon. The default, clockwise polygons have a positive area.</dd>
+                          <dt id="dip-Polygon-Centroid-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Centroid-C" class="m-doc-self">Centroid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+            </dt>
+            <dd>Computes the centroid of the polygon.</dd>
+                          <dt id="dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C" class="m-doc-self">CovarianceMatrixVertices</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+            </dt>
+            <dd>Returns the covariance matrix for the vertices of the polygon, using centroid <code>g</code>.</dd>
+                          <dt id="dip-Polygon-CovarianceMatrixVertices-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixVertices-C" class="m-doc-self">CovarianceMatrixVertices</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+            </dt>
+            <dd>Returns the covariance matrix for the vertices of the polygon.</dd>
+                          <dt id="dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C" class="m-doc-self">CovarianceMatrixSolid</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+            </dt>
+            <dd>Returns the covariance matrix for the solid object represented by the polygon, using centroid <code>g</code>.</dd>
+                          <dt id="dip-Polygon-CovarianceMatrixSolid-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixSolid-C" class="m-doc-self">CovarianceMatrixSolid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+            </dt>
+            <dd>Returns the covariance matrix for the solid object represented by the polygon.</dd>
+                          <dt id="dip-Polygon-Length-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Length-C" class="m-doc-self">Length</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the length of the polygon (i.e. perimeter). If the polygon represents a pixelated object,
+this function will overestimate the object&rsquo;s perimeter. In this case, use <a href="dip-ChainCode.html#dip-ChainCode-Length-String-CL-C"><code>dip::ChainCode::Length</code></a> instead.</dd>
+                          <dt id="dip-Polygon-Perimeter-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Perimeter-C" class="m-doc-self">Perimeter</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>An alias for <a href="dip-Polygon.html#dip-Polygon-Length-C"><code>dip::Polygon::Length</code></a>.</dd>
+                          <dt id="dip-Polygon-RadiusStatistics-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-RadiusStatistics-C" class="m-doc-self">RadiusStatistics</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a></span>
+            </dt>
+            <dd>Returns statistics on the radii of the polygon. The radii are the distances between the centroid
+and each of the vertices.</dd>
+                          <dt id="dip-Polygon-RadiusStatistics-VertexFloat-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-RadiusStatistics-VertexFloat-CL-C" class="m-doc-self">RadiusStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a></span>
+            </dt>
+            <dd>Returns statistics on the radii of the polygon. The radii are the distances between the given centroid
+and each of the vertices.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-EllipseVariance-C" class="m-doc">EllipseVariance</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Compares a polygon to the ellipse with the same covariance matrix, returning the coefficient of
+variation of the distance of vertices to the ellipse. <a href="#dip-Polygon-EllipseVariance-C">more...</a></dd>
+                          <dt id="dip-Polygon-EllipseVariance-VertexFloat-CL-dip-CovarianceMatrix-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-EllipseVariance-VertexFloat-CL-dip-CovarianceMatrix-CL-C" class="m-doc-self">EllipseVariance</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g,
+              <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> const&amp; C) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Compares a polygon to the ellipse described by the given centroid and covariance matrix, returning
+the coefficient of variation of the distance of vertices to the ellipse.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-FractalDimension-dfloat--C" class="m-doc">FractalDimension</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> length = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the fractal dimension of a polygon. <a href="#dip-Polygon-FractalDimension-dfloat--C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-BendingEnergy-C" class="m-doc">BendingEnergy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the bending energy of a polygon. <a href="#dip-Polygon-BendingEnergy-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-FitCircle-C" class="m-doc">FitCircle</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="measurement.html#dip-CircleParameters" class="m-doc">dip::CircleParameters</a></span>
+            </dt>
+            <dd>Fits a circle to the polygon vertices. <a href="#dip-Polygon-FitCircle-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-FitEllipse-C" class="m-doc">FitEllipse</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="measurement.html#dip-EllipseParameters" class="m-doc">dip::EllipseParameters</a></span>
+            </dt>
+            <dd>Fits an ellipse to the polygon vertices. <a href="#dip-Polygon-FitEllipse-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Simplify-dfloat-" class="m-doc">Simplify</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 0.5) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Simplifies the polygon using the Douglas-Peucker algorithm. <a href="#dip-Polygon-Simplify-dfloat-">more...</a></dd>
+                          <dt id="dip-Polygon-Augment-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Augment-dfloat-" class="m-doc-self">Augment</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 1.0) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Adds vertices along each edge of the polygon such that the distance between two consecutive
+vertices is never more than <code>distance</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Smooth-dfloat-" class="m-doc">Smooth</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Locally averages the location of vertices of a polygon so it becomes smoother. <a href="#dip-Polygon-Smooth-dfloat-">more...</a></dd>
+                          <dt id="dip-Polygon-Reverse">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Reverse" class="m-doc-self">Reverse</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Reverses the orientation of the polygon, converting a clockwise polygon into a counter-clockwise one
+and vice versa.</dd>
+                          <dt id="dip-Polygon-Rotate-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Rotate-dfloat-" class="m-doc-self">Rotate</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Rotates the polygon around the origin by <code>angle</code>, which is positive for clockwise rotation.</dd>
+                          <dt id="dip-Polygon-Scale-dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Scale-dfloat-" class="m-doc-self">Scale</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Scales the polygon isotropically by multiplying each vertex coordinate by <code>scale</code>.</dd>
+                          <dt id="dip-Polygon-Scale-dfloat--dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Scale-dfloat--dfloat-" class="m-doc-self">Scale</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleX,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleY) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Scales the polygon anisotropically by multiplying each vertex coordinate by <code>scaleX</code> and <code>scaleY</code>.</dd>
+                          <dt id="dip-Polygon-Translate-VertexFloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Translate-VertexFloat-" class="m-doc-self">Translate</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> shift) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Translates the polygon by <code>shift</code>.</dd>
+                          <dt id="dip-Polygon-ConvexHull-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-ConvexHull-C" class="m-doc-self">ConvexHull</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ConvexHull.html" class="m-doc">dip::ConvexHull</a></span>
+            </dt>
+            <dd>Returns the convex hull of the polygon. The polygon must be simple.</dd>
+          </dl>
+        </section>
+        <section id="variable-members">
+           <h2>Variables</h2>
+           <dl class="m-doc">
+                            <dt id="dip-Polygon-vertices">
+            <a href="dip-Polygon.html#dip-Polygon-Vertices" class="m-doc">dip::Polygon::Vertices</a> <a href="#dip-Polygon-vertices" class="m-doc-self">vertices</a>
+
+            </dt>
+            <dd>The vertices.</dd>
+           </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-Polygon-IsClockWise-C"><div>
+            <h3>
+              <span class="m-doc-return">bool</span>
+              <span class="m-doc-name"><a href="#dip-Polygon-IsClockWise-C" class="m-doc-self">IsClockWise</a></span>(
+) const            </h3>
+            <p>Determine the orientation of the polygon.</p>
+<p>This is a fast algorithm that assumes that the polygon is simple. Non-simple polygons do not
+have a single orientation anyway.</p>
+<p>If the polygon is constructed from a chain code, this function should always return <code>true</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-EllipseVariance-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-name"><a href="#dip-Polygon-EllipseVariance-C" class="m-doc-self">EllipseVariance</a></span>(
+) const            </h3>
+            <p>Compares a polygon to the ellipse with the same covariance matrix, returning the coefficient of
+variation of the distance of vertices to the ellipse.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>M. Yang, K. Kpalma and J. Ronsin, &ldquo;A Survey of Shape Feature Extraction Techniques&rdquo;,
+  in: Pattern Recognition Techniques, Technology and Applications, P.Y. Yin (Editor), I-Tech, 2008.</li>
+</ul>
+</aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-FractalDimension-dfloat--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-name"><a href="#dip-Polygon-FractalDimension-dfloat--C" class="m-doc-self">FractalDimension</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> length = 0</span>) const            </h3>
+            <p>Computes the fractal dimension of a polygon.</p>
+<p>Fractal dimension is defined as the slope of the polygon length as a function of scale, in a log-log plot.
+Scale is obtained by smoothing the polygon using <a href="dip-Polygon.html#dip-Polygon-Smooth-dfloat-"><code>dip::Polygon::Smooth</code></a>. Therefore, it is important that
+the polygon be densely sampled, use <a href="dip-Polygon.html#dip-Polygon-Augment-dfloat-"><code>dip::Polygon::Augment</code></a> if necessary.</p>
+<p><code>length</code> is the length of the polygon (see <a href="dip-Polygon.html#dip-Polygon-Length-C"><code>dip::Polygon::Length</code></a>). It determines the range of scales used
+to compute the fractal dimension, so a rough estimate is sufficient. If zero is given as length (the default
+value), then it is computed.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-BendingEnergy-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-name"><a href="#dip-Polygon-BendingEnergy-C" class="m-doc-self">BendingEnergy</a></span>(
+) const            </h3>
+            <p>Computes the bending energy of a polygon.</p>
+<p>The bending energy is the integral along the contour of the square of the curvature.
+We approximate curvature by, at each vertex, taking the difference in angle between
+the two edges, and dividing by half the length of the two edges (this is the portion
+of the boundary associated to the edge).</p>
+<p>Note that this approximation is poor when the points are far apart. <a href="dip-Polygon.html#dip-Polygon-Augment-dfloat-"><code>dip::Polygon::Augment</code></a> should
+be used to obtain a densely sampled polygon. It is also beneficial to sufficiently smooth the
+polygon so it better approximates a smooth curve around the object being measured, see <a href="dip-Polygon.html#dip-Polygon-Smooth-dfloat-"><code>dip::Polygon::Smooth</code></a>.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>I.T. Young, J.E. Walker and J.E. Bowie, &ldquo;An Analysis Technique for Biological Shape I&rdquo;,
+  Information and Control 25(4):357-370, 1974.</li>
+<li>J.E. Bowie and I.T. Young, &ldquo;An Analysis Technique for Biological Shape - II&rdquo;,
+  Acta Cytologica 21(5):455-464, 1977.</li>
+</ul>
+</aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-FitCircle-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="measurement.html#dip-CircleParameters" class="m-doc">dip::CircleParameters</a></span>
+              <span class="m-doc-name"><a href="#dip-Polygon-FitCircle-C" class="m-doc-self">FitCircle</a></span>(
+) const            </h3>
+            <p>Fits a circle to the polygon vertices.</p>
+<p>The circle equation,</p>
+<div class="m-math"><svg style="width: 13.914em; height: 1.443em; vertical-align: 0.004em; " viewBox="124.89 -14.47 139.14 14.43">
+<title>
+\[
+   (x-c_x)^2 + (y-c_y)^2 = r^2 \quad ,
+\]
+</title>
+<defs>
+<path id='eq26-g1-61' d='M6.84-4V-4.67H.74V-4H6.84ZM6.84-1.58V-2.25H.74V-1.58H6.84Z'/>
+<path id='eq26-g14-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+<use id='eq26-g10-50' xlink:href='#eq26-g7-50' transform='scale(1.36)'/>
+<use id='eq26-g10-65' xlink:href='#eq26-g7-65' transform='scale(1.36)'/>
+<use id='eq26-g10-71' xlink:href='#eq26-g7-71' transform='scale(1.36)'/>
+<use id='eq26-g10-72' xlink:href='#eq26-g7-72' transform='scale(1.36)'/>
+<use id='eq26-g10-150' xlink:href='#eq26-g7-150' transform='scale(1.36)'/>
+<path id='eq26-g7-50' d='M3.2-.84L3.06-.93C2.58-.41 2.24-.22 1.81-.22C1.31-.22 1.01-.59 1.01-1.21C1.01-1.96 1.32-2.73 1.81-3.25C2.06-3.51 2.41-3.67 2.76-3.67C2.96-3.67 3.08-3.6 3.08-3.49C3.08-3.45 3.07-3.41 3.03-3.33C2.97-3.21 2.95-3.16 2.95-3.07C2.95-2.86 3.08-2.74 3.29-2.74C3.54-2.74 3.71-2.91 3.71-3.14C3.71-3.55 3.33-3.85 2.79-3.85C1.48-3.85 .26-2.58 .26-1.21C.26-.38 .73 .1 1.55 .1C2.2 .1 2.66-.17 3.2-.84Z'/>
+<path id='eq26-g7-65' d='M3.6-3.41C3.6-3.67 3.43-3.85 3.19-3.85C2.99-3.85 2.75-3.72 2.52-3.49C2.17-3.11 1.82-2.6 1.68-2.25L1.55-1.94L2.02-3.83L1.99-3.85L.64-3.62V-3.47C.71-3.47 .79-3.47 .86-3.47C1.06-3.47 1.24-3.45 1.24-3.27C1.24-3.14 1.24-3.14 1.1-2.55L.39 0H1.06C1.5-1.47 1.64-1.82 2.03-2.46C2.33-3 2.59-3.28 2.74-3.28C2.8-3.28 2.84-3.25 2.88-3.16C2.95-3.01 3.02-2.97 3.2-2.97C3.46-2.97 3.6-3.13 3.6-3.41Z'/>
+<path id='eq26-g7-71' d='M3.63-.9L3.51-.97C3.44-.88 3.4-.84 3.32-.73C3.12-.47 3.02-.38 2.91-.38C2.79-.38 2.71-.5 2.65-.74C2.63-.82 2.62-.86 2.61-.88C2.4-1.7 2.3-2.17 2.3-2.31C2.68-2.98 3-3.36 3.15-3.36C3.21-3.36 3.28-3.34 3.36-3.29C3.47-3.23 3.53-3.21 3.61-3.21C3.78-3.21 3.9-3.35 3.9-3.53C3.9-3.72 3.76-3.85 3.55-3.85C3.16-3.85 2.84-3.54 2.23-2.6L2.13-3.08C2.01-3.68 1.91-3.85 1.68-3.85C1.48-3.85 1.2-3.78 .66-3.6L.56-3.56L.59-3.43L.74-3.47C.91-3.51 1.01-3.53 1.08-3.53C1.3-3.53 1.35-3.45 1.48-2.93L1.73-1.85L1.01-.83C.83-.57 .66-.41 .57-.41C.52-.41 .43-.44 .34-.49C.23-.55 .14-.58 .06-.58C-.11-.58-.24-.45-.24-.27C-.24-.04-.07 .1 .2 .1S.58 .02 1.01-.51L1.8-1.54L2.06-.49C2.17-.03 2.29 .1 2.57 .1C2.9 .1 3.13-.11 3.63-.9Z'/>
+<path id='eq26-g7-72' d='M3.72-3.37C3.72-3.63 3.5-3.85 3.24-3.85C3.04-3.85 2.9-3.72 2.9-3.53C2.9-3.39 2.97-3.3 3.14-3.19C3.31-3.09 3.37-3.01 3.37-2.89C3.37-2.54 3.06-1.87 2.31-.63L2.13-1.64C2-2.42 1.51-3.85 1.38-3.85H1.35L1.27-3.84L.41-3.69L.13-3.64V-3.49C.24-3.52 .31-3.53 .4-3.53C.75-3.53 .91-3.4 1.07-2.97C1.31-2.38 1.79-.42 1.79-.07C1.79 .03 1.76 .13 1.7 .24C1.63 .35 1.24 .86 1.08 1.03C.88 1.25 .78 1.32 .66 1.32C.6 1.32 .55 1.29 .45 1.22C.32 1.12 .24 1.07 .13 1.07C-.06 1.07-.21 1.22-.21 1.41C-.21 1.64-.03 1.8 .24 1.8C.73 1.8 1.68 .79 2.58-.71C3.31-1.91 3.72-2.87 3.72-3.37Z'/>
+<path id='eq26-g7-150' d='M1.7-.05C1.7-.78 1.2-.89 1-.89C.78-.89 .49-.76 .49-.38C.49-.03 .8 .05 1.03 .05C1.09 .05 1.14 .04 1.16 .03C1.2 .03 1.22 .02 1.24 .02C1.3 .02 1.36 .06 1.36 .14C1.36 .31 1.22 .7 .65 1.07L.72 1.23C.99 1.14 1.7 .57 1.7-.05Z'/>
+<path id='eq26-g4-0' d='M6.84-2.73V-3.39H.74V-2.73H6.84Z'/>
+<path id='eq26-g4-184' d='M3.39-3.45H.74V-2.67H3.39V0H4.18V-2.67H6.84V-3.45H4.18V-6.12H3.39V-3.45Z'/>
+<path id='eq26-g4-185' d='M3.51-8.54C1.79-7.42 .57-5.49 .57-3.06C.57-.85 1.83 1.39 3.48 2.41L3.62 2.22C2.05 .98 1.6-.46 1.6-3.1C1.6-5.74 2.08-7.11 3.62-8.35L3.51-8.54Z'/>
+<path id='eq26-g4-186' d='M.45-8.54L.35-8.35C1.88-7.11 2.37-5.74 2.37-3.1C2.37-.46 1.92 .98 .35 2.22L.49 2.41C2.13 1.39 3.39-.85 3.39-3.06C3.39-5.49 2.18-7.42 .45-8.54Z'/>
+</defs>
+<g id='eq26-page1'>
+<use x='124.32' y='-3.63' xlink:href='#eq26-g4-185'/>
+<use x='128.78' y='-3.63' xlink:href='#eq26-g10-71'/>
+<use x='137.32' y='-3.63' xlink:href='#eq26-g4-0'/>
+<use x='147.71' y='-3.63' xlink:href='#eq26-g10-50'/>
+<use x='153.45' y='-1.84' xlink:href='#eq26-g7-71'/>
+<use x='158.27' y='-3.63' xlink:href='#eq26-g4-186'/>
+<use x='162.85' y='-8.57' xlink:href='#eq26-g14-50'/>
+<use x='170.39' y='-3.63' xlink:href='#eq26-g4-184'/>
+<use x='181.24' y='-3.63' xlink:href='#eq26-g4-185'/>
+<use x='186.18' y='-3.63' xlink:href='#eq26-g10-72'/>
+<use x='194.6' y='-3.63' xlink:href='#eq26-g4-0'/>
+<use x='204.99' y='-3.63' xlink:href='#eq26-g10-50'/>
+<use x='211.08' y='-1.84' xlink:href='#eq26-g7-72'/>
+<use x='215.8' y='-3.63' xlink:href='#eq26-g4-186'/>
+<use x='220.38' y='-8.57' xlink:href='#eq26-g14-50'/>
+<use x='228.59' y='-3.63' xlink:href='#eq26-g1-61'/>
+<use x='239.32' y='-3.63' xlink:href='#eq26-g10-65'/>
+<use x='244.87' y='-8.57' xlink:href='#eq26-g14-50'/>
+<use x='261.7' y='-3.63' xlink:href='#eq26-g10-150'/>
+</g>
+</svg></div>
+<p>can be linearized,</p>
+<div class="m-math"><svg style="width: 28.168em; height: 6.964em; vertical-align: 0.003em; " viewBox="106.27 -69.67 281.68 69.64">
+<title>
+\begin{align}
+   \begin{split}
+      a x + b y + c - x^2 - y^2 &amp;= 0
+      \\ a &amp;= 2 c_x
+      \\ b &amp;= 2 c_y
+      \\ c &amp;= r^2 - c_x^2 - c_y^2
+   \end{split}
+\end{align}
+</title>
+<defs>
+<use id='eq27-g17-40' xlink:href='#eq27-g14-40' transform='scale(1.36)'/>
+<use id='eq27-g17-41' xlink:href='#eq27-g14-41' transform='scale(1.36)'/>
+<use id='eq27-g17-48' xlink:href='#eq27-g14-48' transform='scale(1.36)'/>
+<use id='eq27-g17-49' xlink:href='#eq27-g14-49' transform='scale(1.36)'/>
+<use id='eq27-g17-50' xlink:href='#eq27-g14-50' transform='scale(1.36)'/>
+<path id='eq27-g1-61' d='M6.84-4V-4.67H.74V-4H6.84ZM6.84-1.58V-2.25H.74V-1.58H6.84Z'/>
+<path id='eq27-g14-40' d='M2.66 1.41C1.96 .86 1.71 .55 1.48-.1C1.27-.69 1.17-1.35 1.17-2.23C1.17-3.14 1.28-3.86 1.52-4.4C1.76-4.94 2.03-5.26 2.66-5.76L2.58-5.9C1.93-5.49 1.67-5.26 1.35-4.86C.72-4.1 .42-3.22 .42-2.2C.42-1.09 .74-.24 1.51 .66C1.87 1.07 2.1 1.27 2.55 1.55L2.66 1.41Z'/>
+<path id='eq27-g14-41' d='M2.49-2.16C2.49-3.28 2.17-4.12 1.4-5.01C1.04-5.43 .81-5.62 .36-5.9L.25-5.76C.95-5.21 1.19-4.91 1.43-4.25C1.64-3.67 1.74-3 1.74-2.13C1.74-1.22 1.62-.5 1.39 .03C1.14 .59 .88 .9 .25 1.41L.33 1.55C.98 1.13 1.24 .9 1.56 .5C2.18-.26 2.49-1.14 2.49-2.16Z'/>
+<path id='eq27-g14-48' d='M4.16-2.88C4.16-4.67 3.36-5.9 2.22-5.9C1.74-5.9 1.37-5.76 1.05-5.45C.54-4.96 .21-3.96 .21-2.93C.21-1.98 .5-.96 .91-.47C1.23-.09 1.68 .12 2.18 .12C2.63 .12 3-.03 3.32-.33C3.83-.81 4.16-1.83 4.16-2.88ZM3.32-2.86C3.32-1.04 2.93-.1 2.18-.1S1.05-1.04 1.05-2.86C1.05-4.71 1.44-5.68 2.19-5.68C2.93-5.68 3.32-4.69 3.32-2.86Z'/>
+<path id='eq27-g14-49' d='M3.44 0V-.13C2.75-.14 2.61-.23 2.61-.65V-5.89L2.54-5.9L.97-5.11V-4.99C1.07-5.03 1.17-5.07 1.21-5.08C1.36-5.14 1.51-5.18 1.6-5.18C1.78-5.18 1.86-5.05 1.86-4.77V-.81C1.86-.52 1.79-.32 1.65-.24C1.52-.17 1.4-.14 1.03-.13V0H3.44Z'/>
+<path id='eq27-g14-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+<path id='eq27-g4-0' d='M6.84-2.73V-3.39H.74V-2.73H6.84Z'/>
+<path id='eq27-g4-184' d='M3.39-3.45H.74V-2.67H3.39V0H4.18V-2.67H6.84V-3.45H4.18V-6.12H3.39V-3.45Z'/>
+<use id='eq27-g10-48' xlink:href='#eq27-g7-48' transform='scale(1.36)'/>
+<use id='eq27-g10-49' xlink:href='#eq27-g7-49' transform='scale(1.36)'/>
+<use id='eq27-g10-50' xlink:href='#eq27-g7-50' transform='scale(1.36)'/>
+<use id='eq27-g10-65' xlink:href='#eq27-g7-65' transform='scale(1.36)'/>
+<use id='eq27-g10-71' xlink:href='#eq27-g7-71' transform='scale(1.36)'/>
+<use id='eq27-g10-72' xlink:href='#eq27-g7-72' transform='scale(1.36)'/>
+<path id='eq27-g7-48' d='M4.16-.87L4.05-.96L3.81-.72C3.54-.44 3.43-.36 3.35-.36C3.28-.36 3.23-.41 3.23-.47C3.23-.65 3.6-2.15 4.01-3.64C4.04-3.73 4.04-3.75 4.06-3.83L4-3.85L3.47-3.79L3.44-3.76L3.35-3.35C3.28-3.67 3.02-3.85 2.65-3.85C1.48-3.85 .15-2.26 .15-.87C.15-.26 .48 .1 1.04 .1C1.65 .1 2.03-.19 2.79-1.28C2.61-.56 2.59-.49 2.59-.27C2.59-.02 2.7 .09 2.94 .09C3.29 .09 3.5-.08 4.16-.87ZM3.19-3.13C3.19-2.39 2.74-1.36 2.15-.72C1.94-.48 1.64-.33 1.39-.33C1.07-.33 .88-.58 .88-.98C.88-1.45 1.19-2.31 1.55-2.86C1.9-3.37 2.3-3.66 2.66-3.66C2.67-3.66 2.68-3.66 2.7-3.66C3-3.64 3.19-3.43 3.19-3.13Z'/>
+<path id='eq27-g7-49' d='M4.13-2.8C4.13-3.42 3.7-3.85 3.12-3.85C2.51-3.85 2.05-3.49 1.43-2.53L2.34-5.92L2.3-5.97C1.86-5.89 1.55-5.83 .96-5.76V-5.62C1.48-5.6 1.53-5.57 1.53-5.38C1.53-5.3 1.51-5.21 1.45-5L1.41-4.84L1.39-4.78L.2-.4V-.37C.2-.17 .86 .1 1.36 .1C2.68 .1 4.13-1.42 4.13-2.8ZM3.39-2.67C3.39-2.1 2.95-1.16 2.43-.62C2.1-.29 1.73-.1 1.35-.1C1.08-.1 .95-.2 .95-.4C.95-.93 1.21-1.76 1.58-2.42C1.97-3.09 2.36-3.42 2.78-3.42C3.16-3.42 3.39-3.14 3.39-2.67Z'/>
+<path id='eq27-g7-50' d='M3.2-.84L3.06-.93C2.58-.41 2.24-.22 1.81-.22C1.31-.22 1.01-.59 1.01-1.21C1.01-1.96 1.32-2.73 1.81-3.25C2.06-3.51 2.41-3.67 2.76-3.67C2.96-3.67 3.08-3.6 3.08-3.49C3.08-3.45 3.07-3.41 3.03-3.33C2.97-3.21 2.95-3.16 2.95-3.07C2.95-2.86 3.08-2.74 3.29-2.74C3.54-2.74 3.71-2.91 3.71-3.14C3.71-3.55 3.33-3.85 2.79-3.85C1.48-3.85 .26-2.58 .26-1.21C.26-.38 .73 .1 1.55 .1C2.2 .1 2.66-.17 3.2-.84Z'/>
+<path id='eq27-g7-65' d='M3.6-3.41C3.6-3.67 3.43-3.85 3.19-3.85C2.99-3.85 2.75-3.72 2.52-3.49C2.17-3.11 1.82-2.6 1.68-2.25L1.55-1.94L2.02-3.83L1.99-3.85L.64-3.62V-3.47C.71-3.47 .79-3.47 .86-3.47C1.06-3.47 1.24-3.45 1.24-3.27C1.24-3.14 1.24-3.14 1.1-2.55L.39 0H1.06C1.5-1.47 1.64-1.82 2.03-2.46C2.33-3 2.59-3.28 2.74-3.28C2.8-3.28 2.84-3.25 2.88-3.16C2.95-3.01 3.02-2.97 3.2-2.97C3.46-2.97 3.6-3.13 3.6-3.41Z'/>
+<path id='eq27-g7-71' d='M3.63-.9L3.51-.97C3.44-.88 3.4-.84 3.32-.73C3.12-.47 3.02-.38 2.91-.38C2.79-.38 2.71-.5 2.65-.74C2.63-.82 2.62-.86 2.61-.88C2.4-1.7 2.3-2.17 2.3-2.31C2.68-2.98 3-3.36 3.15-3.36C3.21-3.36 3.28-3.34 3.36-3.29C3.47-3.23 3.53-3.21 3.61-3.21C3.78-3.21 3.9-3.35 3.9-3.53C3.9-3.72 3.76-3.85 3.55-3.85C3.16-3.85 2.84-3.54 2.23-2.6L2.13-3.08C2.01-3.68 1.91-3.85 1.68-3.85C1.48-3.85 1.2-3.78 .66-3.6L.56-3.56L.59-3.43L.74-3.47C.91-3.51 1.01-3.53 1.08-3.53C1.3-3.53 1.35-3.45 1.48-2.93L1.73-1.85L1.01-.83C.83-.57 .66-.41 .57-.41C.52-.41 .43-.44 .34-.49C.23-.55 .14-.58 .06-.58C-.11-.58-.24-.45-.24-.27C-.24-.04-.07 .1 .2 .1S.58 .02 1.01-.51L1.8-1.54L2.06-.49C2.17-.03 2.29 .1 2.57 .1C2.9 .1 3.13-.11 3.63-.9Z'/>
+<path id='eq27-g7-72' d='M3.72-3.37C3.72-3.63 3.5-3.85 3.24-3.85C3.04-3.85 2.9-3.72 2.9-3.53C2.9-3.39 2.97-3.3 3.14-3.19C3.31-3.09 3.37-3.01 3.37-2.89C3.37-2.54 3.06-1.87 2.31-.63L2.13-1.64C2-2.42 1.51-3.85 1.38-3.85H1.35L1.27-3.84L.41-3.69L.13-3.64V-3.49C.24-3.52 .31-3.53 .4-3.53C.75-3.53 .91-3.4 1.07-2.97C1.31-2.38 1.79-.42 1.79-.07C1.79 .03 1.76 .13 1.7 .24C1.63 .35 1.24 .86 1.08 1.03C.88 1.25 .78 1.32 .66 1.32C.6 1.32 .55 1.29 .45 1.22C.32 1.12 .24 1.07 .13 1.07C-.06 1.07-.21 1.22-.21 1.41C-.21 1.64-.03 1.8 .24 1.8C.73 1.8 1.68 .79 2.58-.71C3.31-1.91 3.72-2.87 3.72-3.37Z'/>
+</defs>
+<g id='eq27-page1'>
+<use x='106.07' y='-58.83' xlink:href='#eq27-g10-48'/>
+<use x='112.49' y='-58.83' xlink:href='#eq27-g10-71'/>
+<use x='121.04' y='-58.83' xlink:href='#eq27-g4-184'/>
+<use x='131.58' y='-58.83' xlink:href='#eq27-g10-49'/>
+<use x='138.48' y='-58.83' xlink:href='#eq27-g10-72'/>
+<use x='146.9' y='-58.83' xlink:href='#eq27-g4-184'/>
+<use x='157.29' y='-58.83' xlink:href='#eq27-g10-50'/>
+<use x='165.61' y='-58.83' xlink:href='#eq27-g4-0'/>
+<use x='175.87' y='-58.83' xlink:href='#eq27-g10-71'/>
+<use x='181.76' y='-63.77' xlink:href='#eq27-g14-50'/>
+<use x='189.3' y='-58.83' xlink:href='#eq27-g4-0'/>
+<use x='200.04' y='-58.83' xlink:href='#eq27-g10-72'/>
+<use x='205.8' y='-63.77' xlink:href='#eq27-g14-50'/>
+<use x='214' y='-58.83' xlink:href='#eq27-g1-61'/>
+<use x='224.92' y='-58.83' xlink:href='#eq27-g17-48'/>
+<use x='204.26' y='-41.4' xlink:href='#eq27-g10-48'/>
+<use x='214' y='-41.4' xlink:href='#eq27-g1-61'/>
+<use x='224.92' y='-41.4' xlink:href='#eq27-g17-50'/>
+<use x='231.03' y='-41.4' xlink:href='#eq27-g10-50'/>
+<use x='236.77' y='-39.61' xlink:href='#eq27-g7-71'/>
+<use x='204.26' y='-23.96' xlink:href='#eq27-g10-49'/>
+<use x='214' y='-23.96' xlink:href='#eq27-g1-61'/>
+<use x='224.92' y='-23.96' xlink:href='#eq27-g17-50'/>
+<use x='231.03' y='-23.96' xlink:href='#eq27-g10-50'/>
+<use x='237.12' y='-22.17' xlink:href='#eq27-g7-72'/>
+<use x='205.02' y='-4.79' xlink:href='#eq27-g10-50'/>
+<use x='214' y='-4.79' xlink:href='#eq27-g1-61'/>
+<use x='224.73' y='-4.79' xlink:href='#eq27-g10-65'/>
+<use x='230.28' y='-9.73' xlink:href='#eq27-g14-50'/>
+<use x='237.82' y='-4.79' xlink:href='#eq27-g4-0'/>
+<use x='248.21' y='-4.79' xlink:href='#eq27-g10-50'/>
+<use x='253.87' y='-9.73' xlink:href='#eq27-g14-50'/>
+<use x='253.95' y='-1.84' xlink:href='#eq27-g7-71'/>
+<use x='261.42' y='-4.79' xlink:href='#eq27-g4-0'/>
+<use x='271.81' y='-4.79' xlink:href='#eq27-g10-50'/>
+<use x='277.47' y='-9.73' xlink:href='#eq27-g14-50'/>
+<use x='277.9' y='-1.84' xlink:href='#eq27-g7-72'/>
+<use x='374.6' y='-31.77' xlink:href='#eq27-g17-40'/>
+<use x='378.58' y='-31.77' xlink:href='#eq27-g17-49'/>
+<use x='384.56' y='-31.77' xlink:href='#eq27-g17-41'/>
+</g>
+</svg></div>
+<p>We find the least-squares solution to the problem of fitting the vertex coordinates
+to this linear equation. This always succeeds, but will not be meaningful if the polygon
+is not close to a circle.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-FitEllipse-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="measurement.html#dip-EllipseParameters" class="m-doc">dip::EllipseParameters</a></span>
+              <span class="m-doc-name"><a href="#dip-Polygon-FitEllipse-C" class="m-doc-self">FitEllipse</a></span>(
+) const            </h3>
+            <p>Fits an ellipse to the polygon vertices.</p>
+<p>We find the least-squares solution to the fit of the polygon vertices to the general equation
+for an ellipse,</p>
+<div class="m-math"><svg style="width: 16.748em; height: 1.330em; vertical-align: 0.005em; " viewBox="110.56 -13.35 167.48 13.3">
+<title>
+\[
+   a x^2 + b xy + c y^2 + d x + e y - 1 = 0
+\]
+</title>
+<defs>
+<path id='eq28-g1-61' d='M6.84-4V-4.67H.74V-4H6.84ZM6.84-1.58V-2.25H.74V-1.58H6.84Z'/>
+<use id='eq28-g14-48' xlink:href='#eq28-g11-48' transform='scale(1.36)'/>
+<use id='eq28-g14-49' xlink:href='#eq28-g11-49' transform='scale(1.36)'/>
+<path id='eq28-g4-0' d='M6.84-2.73V-3.39H.74V-2.73H6.84Z'/>
+<path id='eq28-g4-184' d='M3.39-3.45H.74V-2.67H3.39V0H4.18V-2.67H6.84V-3.45H4.18V-6.12H3.39V-3.45Z'/>
+<path id='eq28-g11-48' d='M4.16-2.88C4.16-4.67 3.36-5.9 2.22-5.9C1.74-5.9 1.37-5.76 1.05-5.45C.54-4.96 .21-3.96 .21-2.93C.21-1.98 .5-.96 .91-.47C1.23-.09 1.68 .12 2.18 .12C2.63 .12 3-.03 3.32-.33C3.83-.81 4.16-1.83 4.16-2.88ZM3.32-2.86C3.32-1.04 2.93-.1 2.18-.1S1.05-1.04 1.05-2.86C1.05-4.71 1.44-5.68 2.19-5.68C2.93-5.68 3.32-4.69 3.32-2.86Z'/>
+<path id='eq28-g11-49' d='M3.44 0V-.13C2.75-.14 2.61-.23 2.61-.65V-5.89L2.54-5.9L.97-5.11V-4.99C1.07-5.03 1.17-5.07 1.21-5.08C1.36-5.14 1.51-5.18 1.6-5.18C1.78-5.18 1.86-5.05 1.86-4.77V-.81C1.86-.52 1.79-.32 1.65-.24C1.52-.17 1.4-.14 1.03-.13V0H3.44Z'/>
+<path id='eq28-g11-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+<path id='eq28-g7-48' d='M5.67-1.19L5.53-1.31L5.19-.98C4.82-.6 4.68-.49 4.57-.49C4.48-.49 4.41-.56 4.41-.64C4.41-.88 4.91-2.93 5.47-4.97C5.5-5.09 5.51-5.11 5.54-5.22L5.46-5.25L4.73-5.17L4.69-5.13L4.56-4.56C4.47-5 4.12-5.25 3.61-5.25C2.02-5.25 .2-3.08 .2-1.19C.2-.36 .66 .13 1.42 .13C2.25 .13 2.76-.26 3.81-1.74C3.56-.76 3.54-.67 3.54-.37C3.54-.02 3.68 .12 4.01 .12C4.49 .12 4.78-.11 5.67-1.19ZM4.35-4.26C4.35-3.26 3.74-1.86 2.93-.98C2.64-.66 2.24-.45 1.89-.45C1.46-.45 1.2-.79 1.2-1.33C1.2-1.98 1.62-3.14 2.12-3.89C2.6-4.6 3.13-4.99 3.62-4.99C3.64-4.99 3.66-4.99 3.68-4.99C4.09-4.97 4.35-4.68 4.35-4.26Z'/>
+<path id='eq28-g7-49' d='M5.63-3.82C5.63-4.66 5.05-5.25 4.25-5.25C3.42-5.25 2.8-4.76 1.95-3.45L3.19-8.08L3.13-8.13C2.54-8.03 2.11-7.96 1.31-7.86V-7.66C2.01-7.63 2.08-7.6 2.08-7.34C2.08-7.23 2.06-7.1 1.98-6.82L1.92-6.6L1.89-6.52L.27-.55V-.5C.27-.23 1.18 .13 1.86 .13C3.66 .13 5.63-1.94 5.63-3.82ZM4.62-3.64C4.62-2.86 4.03-1.58 3.31-.85C2.87-.39 2.36-.14 1.85-.14C1.48-.14 1.3-.27 1.3-.55C1.3-1.26 1.66-2.41 2.16-3.3C2.68-4.22 3.22-4.67 3.79-4.67C4.31-4.67 4.62-4.28 4.62-3.64Z'/>
+<path id='eq28-g7-50' d='M4.36-1.14L4.17-1.26C3.51-.56 3.05-.3 2.47-.3C1.79-.3 1.38-.8 1.38-1.66C1.38-2.67 1.8-3.73 2.47-4.43C2.81-4.79 3.29-5 3.76-5C4.04-5 4.2-4.91 4.2-4.76C4.2-4.7 4.19-4.65 4.13-4.54C4.05-4.38 4.03-4.31 4.03-4.19C4.03-3.91 4.2-3.74 4.49-3.74C4.82-3.74 5.06-3.97 5.06-4.29C5.06-4.85 4.54-5.25 3.81-5.25C2.02-5.25 .36-3.51 .36-1.66C.36-.52 1 .13 2.11 .13C3 .13 3.63-.23 4.36-1.14Z'/>
+<path id='eq28-g7-51' d='M5.66-1.2L5.51-1.32C4.86-.57 4.74-.48 4.54-.48C4.42-.48 4.32-.57 4.32-.71C4.32-.91 4.69-2.3 5.1-3.64L6.28-8.08L6.22-8.13C5.59-8 5.16-7.93 4.39-7.86V-7.66C5.05-7.63 5.13-7.6 5.13-7.35C5.13-7.18 5.12-7.15 4.95-6.52L4.43-4.56C4.34-5.06 4.12-5.25 3.66-5.25C2.11-5.25 .18-3.01 .18-1.23C.18-.38 .66 .13 1.43 .13C2.24 .13 2.76-.25 3.57-1.44C3.44-.85 3.42-.66 3.42-.38C3.42-.06 3.61 .15 3.92 .15C4.42 .15 5.05-.33 5.66-1.2ZM4.24-4.3C4.24-2.49 3-.44 1.91-.44C1.49-.44 1.21-.75 1.21-1.23C1.21-2.22 1.81-3.6 2.6-4.43C2.92-4.76 3.32-4.98 3.66-4.98C3.67-4.98 3.69-4.98 3.7-4.98C4.06-4.95 4.24-4.73 4.24-4.3Z'/>
+<path id='eq28-g7-52' d='M4.41-1.16L4.26-1.3C3.41-.6 3.04-.4 2.51-.4C1.85-.4 1.41-.83 1.41-1.49C1.41-1.67 1.43-1.83 1.52-2.22L1.86-2.26C3.64-2.51 4.91-3.42 4.91-4.44C4.91-4.94 4.55-5.25 3.95-5.25C2.24-5.25 .37-3.3 .37-1.5C.37-.54 1.01 .13 1.94 .13C2.79 .13 3.7-.35 4.41-1.16ZM4.12-4.51C4.12-4.14 3.89-3.72 3.53-3.36C3.08-2.94 2.63-2.73 1.61-2.48L1.81-3C2.22-4.06 3.1-4.98 3.7-4.98C3.95-4.98 4.12-4.8 4.12-4.51Z'/>
+<path id='eq28-g7-71' d='M4.95-1.23L4.79-1.32C4.69-1.2 4.63-1.14 4.53-1C4.25-.64 4.12-.52 3.97-.52C3.8-.52 3.69-.68 3.61-1.01C3.59-1.12 3.57-1.18 3.56-1.2C3.28-2.32 3.13-2.97 3.13-3.14C3.66-4.06 4.09-4.59 4.3-4.59C4.37-4.59 4.48-4.55 4.59-4.49C4.73-4.41 4.81-4.38 4.92-4.38C5.16-4.38 5.32-4.56 5.32-4.81C5.32-5.07 5.12-5.25 4.84-5.25C4.31-5.25 3.87-4.82 3.04-3.55L2.91-4.2C2.74-5.01 2.61-5.25 2.29-5.25C2.01-5.25 1.63-5.16 .89-4.91L.76-4.86L.81-4.68L1.01-4.73C1.24-4.79 1.38-4.81 1.48-4.81C1.77-4.81 1.85-4.7 2.01-3.99L2.36-2.53L1.38-1.13C1.13-.77 .91-.56 .77-.56C.7-.56 .58-.6 .46-.67C.31-.75 .19-.79 .08-.79C-.15-.79-.32-.61-.32-.37C-.32-.06-.1 .13 .27 .13S.79 .02 1.38-.69L2.45-2.1L2.81-.67C2.97-.05 3.12 .13 3.5 .13C3.95 .13 4.26-.15 4.95-1.23Z'/>
+<path id='eq28-g7-72' d='M5.07-4.6C5.07-4.95 4.78-5.25 4.42-5.25C4.14-5.25 3.95-5.07 3.95-4.81C3.95-4.62 4.05-4.5 4.29-4.35C4.51-4.22 4.6-4.11 4.6-3.94C4.6-3.47 4.17-2.55 3.14-.86L2.91-2.24C2.73-3.3 2.06-5.25 1.88-5.25H1.83L1.73-5.24L.56-5.04L.18-4.97V-4.76C.32-4.8 .42-4.81 .55-4.81C1.02-4.81 1.24-4.63 1.46-4.05C1.79-3.24 2.44-.57 2.44-.1C2.44 .04 2.39 .18 2.32 .32C2.23 .48 1.69 1.18 1.48 1.41C1.2 1.7 1.06 1.8 .91 1.8C.82 1.8 .75 1.76 .62 1.67C.44 1.52 .32 1.46 .18 1.46C-.08 1.46-.29 1.67-.29 1.93C-.29 2.24-.04 2.45 .32 2.45C1 2.45 2.29 1.08 3.51-.96C4.51-2.61 5.07-3.92 5.07-4.6Z'/>
+</defs>
+<g id='eq28-page1'>
+<use x='110.36' y='-2.5' xlink:href='#eq28-g7-48'/>
+<use x='116.78' y='-2.5' xlink:href='#eq28-g7-71'/>
+<use x='122.66' y='-7.44' xlink:href='#eq28-g11-50'/>
+<use x='130.2' y='-2.5' xlink:href='#eq28-g4-184'/>
+<use x='140.75' y='-2.5' xlink:href='#eq28-g7-49'/>
+<use x='147.17' y='-2.5' xlink:href='#eq28-g7-71'/>
+<use x='153.54' y='-2.5' xlink:href='#eq28-g7-72'/>
+<use x='161.95' y='-2.5' xlink:href='#eq28-g4-184'/>
+<use x='172.35' y='-2.5' xlink:href='#eq28-g7-50'/>
+<use x='178.48' y='-2.5' xlink:href='#eq28-g7-72'/>
+<use x='184.25' y='-7.44' xlink:href='#eq28-g11-50'/>
+<use x='191.79' y='-2.5' xlink:href='#eq28-g4-184'/>
+<use x='202.34' y='-2.5' xlink:href='#eq28-g7-51'/>
+<use x='208.29' y='-2.5' xlink:href='#eq28-g7-71'/>
+<use x='216.83' y='-2.5' xlink:href='#eq28-g4-184'/>
+<use x='227.27' y='-2.5' xlink:href='#eq28-g7-52'/>
+<use x='233.46' y='-2.5' xlink:href='#eq28-g7-72'/>
+<use x='241.88' y='-2.5' xlink:href='#eq28-g4-0'/>
+<use x='252.14' y='-2.5' xlink:href='#eq28-g14-49'/>
+<use x='261.44' y='-2.5' xlink:href='#eq28-g1-61'/>
+<use x='272.37' y='-2.5' xlink:href='#eq28-g14-48'/>
+</g>
+</svg></div>
+<p>From the fitted parameters we can compute the ellipse parameters. If <span class="m-math"><svg style="width: 6.981em; height: 1.041em; vertical-align: -0.017em;  vertical-align: -0.017em;" viewBox=".56 -10.24 69.81 10.41">
+<title>
+\(b^2-4ac &gt;= 0\)
+</title>
+<defs>
+<use id='eq29-g14-48' xlink:href='#eq29-g11-48' transform='scale(1.36)'/>
+<use id='eq29-g14-52' xlink:href='#eq29-g11-52' transform='scale(1.36)'/>
+<path id='eq29-g4-0' d='M6.84-2.73V-3.39H.74V-2.73H6.84Z'/>
+<path id='eq29-g11-48' d='M4.16-2.88C4.16-4.67 3.36-5.9 2.22-5.9C1.74-5.9 1.37-5.76 1.05-5.45C.54-4.96 .21-3.96 .21-2.93C.21-1.98 .5-.96 .91-.47C1.23-.09 1.68 .12 2.18 .12C2.63 .12 3-.03 3.32-.33C3.83-.81 4.16-1.83 4.16-2.88ZM3.32-2.86C3.32-1.04 2.93-.1 2.18-.1S1.05-1.04 1.05-2.86C1.05-4.71 1.44-5.68 2.19-5.68C2.93-5.68 3.32-4.69 3.32-2.86Z'/>
+<path id='eq29-g11-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+<path id='eq29-g11-52' d='M4.12-1.46V-2.02H3.23V-5.9H2.85L.1-2.02V-1.46H2.56V0H3.23V-1.46H4.12ZM2.55-2.02H.45L2.55-5.01V-2.02Z'/>
+<path id='eq29-g1-61' d='M6.84-4V-4.67H.74V-4H6.84ZM6.84-1.58V-2.25H.74V-1.58H6.84Z'/>
+<path id='eq29-g7-48' d='M5.67-1.19L5.53-1.31L5.19-.98C4.82-.6 4.68-.49 4.57-.49C4.48-.49 4.41-.56 4.41-.64C4.41-.88 4.91-2.93 5.47-4.97C5.5-5.09 5.51-5.11 5.54-5.22L5.46-5.25L4.73-5.17L4.69-5.13L4.56-4.56C4.47-5 4.12-5.25 3.61-5.25C2.02-5.25 .2-3.08 .2-1.19C.2-.36 .66 .13 1.42 .13C2.25 .13 2.76-.26 3.81-1.74C3.56-.76 3.54-.67 3.54-.37C3.54-.02 3.68 .12 4.01 .12C4.49 .12 4.78-.11 5.67-1.19ZM4.35-4.26C4.35-3.26 3.74-1.86 2.93-.98C2.64-.66 2.24-.45 1.89-.45C1.46-.45 1.2-.79 1.2-1.33C1.2-1.98 1.62-3.14 2.12-3.89C2.6-4.6 3.13-4.99 3.62-4.99C3.64-4.99 3.66-4.99 3.68-4.99C4.09-4.97 4.35-4.68 4.35-4.26Z'/>
+<path id='eq29-g7-49' d='M5.63-3.82C5.63-4.66 5.05-5.25 4.25-5.25C3.42-5.25 2.8-4.76 1.95-3.45L3.19-8.08L3.13-8.13C2.54-8.03 2.11-7.96 1.31-7.86V-7.66C2.01-7.63 2.08-7.6 2.08-7.34C2.08-7.23 2.06-7.1 1.98-6.82L1.92-6.6L1.89-6.52L.27-.55V-.5C.27-.23 1.18 .13 1.86 .13C3.66 .13 5.63-1.94 5.63-3.82ZM4.62-3.64C4.62-2.86 4.03-1.58 3.31-.85C2.87-.39 2.36-.14 1.85-.14C1.48-.14 1.3-.27 1.3-.55C1.3-1.26 1.66-2.41 2.16-3.3C2.68-4.22 3.22-4.67 3.79-4.67C4.31-4.67 4.62-4.28 4.62-3.64Z'/>
+<path id='eq29-g7-50' d='M4.36-1.14L4.17-1.26C3.51-.56 3.05-.3 2.47-.3C1.79-.3 1.38-.8 1.38-1.66C1.38-2.67 1.8-3.73 2.47-4.43C2.81-4.79 3.29-5 3.76-5C4.04-5 4.2-4.91 4.2-4.76C4.2-4.7 4.19-4.65 4.13-4.54C4.05-4.38 4.03-4.31 4.03-4.19C4.03-3.91 4.2-3.74 4.49-3.74C4.82-3.74 5.06-3.97 5.06-4.29C5.06-4.85 4.54-5.25 3.81-5.25C2.02-5.25 .36-3.51 .36-1.66C.36-.52 1 .13 2.11 .13C3 .13 3.63-.23 4.36-1.14Z'/>
+<path id='eq29-g7-161' d='M6.84-2.94V-3.18L.74-6.05V-5.38L5.69-3.06L.74-.74V-.07L6.84-2.94Z'/>
+</defs>
+<g id='eq29-page1'>
+<use x='.29' y='0' xlink:href='#eq29-g7-49'/>
+<use x='6.71' y='-4.34' xlink:href='#eq29-g11-50'/>
+<use x='14.25' y='0' xlink:href='#eq29-g4-0'/>
+<use x='24.51' y='0' xlink:href='#eq29-g14-52'/>
+<use x='30.64' y='0' xlink:href='#eq29-g7-48'/>
+<use x='37.19' y='0' xlink:href='#eq29-g7-50'/>
+<use x='46.17' y='0' xlink:href='#eq29-g7-161'/>
+<use x='53.77' y='0' xlink:href='#eq29-g1-61'/>
+<use x='64.7' y='0' xlink:href='#eq29-g14-48'/>
+</g>
+</svg></span>, the fit
+does not correspond to an ellipse, and the function will return a default-initialized
+<a href="measurement.html#dip-EllipseParameters"><code>dip::EllipseParameters</code></a> struct (all the values in it are zero). But even if the fit succeeds,
+if the polygon is not close to an ellipse, the result might not be meaningful.
+Use <a href="dip-CovarianceMatrix.html#dip-CovarianceMatrix-Ellipse-bool--C"><code>dip::CovarianceMatrix::Ellipse</code></a> for an ellipse fit that is always meaningful.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Ellipse#General_ellipse">&ldquo;Ellipse&rdquo;, section &ldquo;General ellipse&rdquo;</a>.</li>
+</ul>
+</aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Simplify-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Simplify-dfloat-" class="m-doc-self">Simplify</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 0.5</span>)            </h3>
+            <p>Simplifies the polygon using the Douglas-Peucker algorithm.</p>
+<p>For a polygon derived from a chain code, setting tolerance to 0.5 leads to a maximum-length digital straight
+segment representation of the object.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Smooth-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Smooth-dfloat-" class="m-doc-self">Smooth</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0</span>)            </h3>
+            <p>Locally averages the location of vertices of a polygon so it becomes smoother.</p>
+<p>Uses a Gaussian filter with parameter <code>sigma</code>, which is not interpreted as a physical distance between
+vertices, but as a distance in number of vertices. That is, the neighboring vertex is at a distance of 1,
+the next one over at a distance of 2, etc. Therefore, it is important that vertices are approximately equally
+spaced. <a href="dip-Polygon.html#dip-Polygon-Augment-dfloat-"><code>dip::Polygon::Augment</code></a> modifies any polygon to satisfy that requirement.</p>
+<p>A polygon derived from the chain code of an object without high curvature, when smoothed with a <code>sigma</code> of 2,
+will fairly well approximate the original smooth boundary. For objects with higher curvature (including very
+small objects), choose a smaller <code>sigma</code>.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

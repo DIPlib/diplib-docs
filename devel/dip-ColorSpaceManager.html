@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::ColorSpaceManager class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="colorspaces.html" class="m-doc">Color spaces</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--color-h.html">"diplib/color.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>ColorSpaceManager <span class="m-thin">class</span>        </h1>
+        <p>An object of this class is used to convert images between color spaces.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#variable-members">Variables</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <p>By default, the object will known a set of color spaces, and be able to convert between
+them. It is possible to define new color spaces, see below.</p>
+<p>To convert an image into a different color space, simply call the <a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C"><code>dip::ColorSpaceManager::Convert</code></a> function.
+In  this code snippet, we first set the image&rsquo;s color space to sRGB. This causes no
+change to the pixel values, it simply tags the image object with the color space name.</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">ColorSpaceManager</span><span class="w"> </span><span class="n">csm</span><span class="p">;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<span class="n">img</span><span class="p">.</span><span class="n">SetColorSpace</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;sRGB&quot;</span><span class="w"> </span><span class="p">);</span><span class="w">                     </span><span class="c1">// img is sRGB</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img_lab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csm</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lab&quot;</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c1">// img_lab will be Lab</span>
+</pre></div>
+
+<p>These are the color spaces known by default. Color space names are case-sensitive,
+but aliases are registered for all these names using all-lowercase.</p>
+<div class="m-spaced m-block m-flat">
+<table class="m-table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Aliases</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"grey"</code></td>
+<td><code>"gray"</code></td>
+<td>An empty string is also interpreted as grey. Defined to be in the range [0,255].</td>
+</tr>
+<tr>
+<td><code>"RGB"</code></td>
+<td></td>
+<td>Linear RGB, defined in the range [0,255].</td>
+</tr>
+<tr>
+<td><code>"sRGB"</code></td>
+<td><code>"R'G'B'"</code></td>
+<td>Industry-standard non-linear, gamma-corrected RGB (average gamma is approximately 2.2, with a linear segment near 0). Values are in the range [0,255].</td>
+</tr>
+<tr>
+<td><code>"CMY"</code></td>
+<td></td>
+<td>Cyan-Magenta-Yellow. Subtractive colors, defined simply as 255-RGB. Values are in the range [0,255].</td>
+</tr>
+<tr>
+<td><code>"CMYK"</code></td>
+<td></td>
+<td>Cyan-Magenta-Yellow-blacK. Subtractive colors with black added. Note that printers need a more complex mapping to CMYK to work correctly.</td>
+</tr>
+<tr>
+<td><code>"HSI"</code></td>
+<td></td>
+<td>Hue-Saturation-Intensity. L<sup>1</sup> norm polar decomposition of the RGB cube, more suited to image analysis than HSV or HCV. S and I are in the range [0,255], H is an angle in degrees. Defined by Hanbury and Serra (2003).</td>
+</tr>
+<tr>
+<td><code>"ICH"</code></td>
+<td></td>
+<td>Intensity-Chroma-Hue. Rotation of the RGB cube, where I is along the black-white diagonal of the cube, and the CH-plane is perpendicular. I is in the range [0,255], H is an angle in degrees.</td>
+</tr>
+<tr>
+<td><code>"ISH"</code></td>
+<td></td>
+<td>Intensity-Saturation-Hue. Based in ICH, where S is the C channel normalized so that the maximum saturation for each H is 1. For each H, the largest value of C is attained for a different value of I.</td>
+</tr>
+<tr>
+<td><code>"HCV"</code></td>
+<td></td>
+<td>Hue-Chroma-Value. V is the max of R, G and B, and C is the difference between largest and smallest RGB intensities. C and V are in range [0,255], H is an angle in degrees.</td>
+</tr>
+<tr>
+<td><code>"HSV"</code></td>
+<td></td>
+<td>Hue-Saturation-Value. Based on HCV, where S is equal to C normalized by V. S is in range [0,1] and V in range [0,255], H is an angle in degrees.</td>
+</tr>
+<tr>
+<td><code>"Y'PbPr"</code></td>
+<td><code>"YPbPr"</code>, <code>"YPP"</code></td>
+<td>Luma and two chroma components. Computed from R&rsquo;G&rsquo;B&rsquo; (non-linear, gamma-corrected RGB). Y&rsquo; is in the range [0,1], and Pb and Pr are in the range [-0.5,0.5].</td>
+</tr>
+<tr>
+<td><code>"Y'CbCr"</code></td>
+<td><code>"YCbCr"</code>, <code>"YCC"</code></td>
+<td>Luma and two chroma components. Scaled Y&rsquo;PbPr such that all three components are in the range [0,255]. Sometimes incorrectly referred to as YUV.</td>
+</tr>
+<tr>
+<td><code>"XYZ"</code></td>
+<td></td>
+<td>CIE 1931 XYZ, standard observer tristimulus values. A rotation of the (linear) RGB cube that aligns Y with the luminance axis. X, Y and Z are in the range [0,1].</td>
+</tr>
+<tr>
+<td><code>"Yxy"</code></td>
+<td></td>
+<td>CIE Yxy, where x and y are normalized X and Y. They are the chromaticity coordinates.</td>
+</tr>
+<tr>
+<td><code>"Lab"</code></td>
+<td><code>"L*a*b*"</code>, <code>"CIELAB"</code></td>
+<td>Lightness and two chromaticity coordinates. One of two color spaces proposed by CIE in 1976 in an attempt for perceptual uniformity. L is in the range [0,100], and a and b are approximately in the range [-100,100].</td>
+</tr>
+<tr>
+<td><code>"Luv"</code></td>
+<td><code>"L*u*v*"</code>, <code>"CIELUV"</code></td>
+<td>Lightness and two chromaticity coordinates. One of two color spaces proposed by CIE in 1976 in an attempt for perceptual uniformity. L is in the range [0,100], and u and v are in a range significantly wider than [-100,100].</td>
+</tr>
+<tr>
+<td><code>"LCH"</code></td>
+<td><code>"L*C*H*"</code></td>
+<td>Lightness-Chroma-Hue. Computed from CIE Lab, where C and H are the polar coordinates to a and b. H is an angle in degrees.</td>
+</tr>
+<tr>
+<td><code>"Oklab"</code></td>
+<td></td>
+<td>An &ldquo;OK Lab colorspace&rdquo;, a better approximation to perceptual uniformity than CIE Lab. Oklab was designed to better predict CAM16-UCS results than other existing color spaces, while being numerically stable. Assumes a D65 white point. L is in the range [0,1], a and b are approximately in the range [-1,1]. Defined by Ottosson (2020).</td>
+</tr>
+<tr>
+<td><code>"Oklch"</code></td>
+<td></td>
+<td>Lightness-Chroma-Hue derived from Oklab, where C and H are the polar coordinates to a and b. H is an angle in degrees.</td>
+</tr>
+<tr>
+<td><code>"wavelength"</code></td>
+<td></td>
+<td>Can only be converted from, not to. Yields an approximate color representation for the given wavelength in nanometers, in the range 380 through 780 nanometers. For values outside the range, produces black. The conversion to XYZ is according to CIE rec. 709, but most of these colors lie outside of the RGB gamut. The conversion to RGB produces colors within the gamut, computed according to Young (2012).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that most color images are stored to file as (nonlinear) sRGB. After loading a color image,
+it is therefore often advantageous to convert the image to (linear) RGB for computation (or some
+other desired color space).</p>
+<p>When converting to/from gray, it is assumed that gray is linear (i.e. a weighted addition of the linear R, G and B
+values, the weights depending on the white point). But in the case of HSI and ISH color spaces, the I channel is the
+gray channel; I is a non-weighted mean of linear RGB, the conversion does not take the white point into accout.</p>
+<h2>Defining a new color space</h2>
+<p>It is possible to define new color spaces, and register conversion functions that
+translate from one color space to another. The <code>ColorSpaceManager</code> object is capable of finding optimal
+paths trough the graph defined by these conversion functions, to convert between color spaces. Thus,
+it is not necessary to create functions that translate from your new color space to
+all known color spaces, it is sufficient to register two function that translate to
+and from your new color space from/to any existing color space.</p>
+<p>In this example, we define a conversion from a new color space (Frank) to XYZ, and from Yxy to Frank.
+The <a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C"><code>dip::ColorSpaceManager::Convert</code></a> function then is able to convert an image from any color space to Frank, and from Frank
+to any color space.</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">ColorSpaceManager</span><span class="w"> </span><span class="n">csm</span><span class="p">;</span>
+<span class="n">csm</span><span class="p">.</span><span class="n">Define</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Frank&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">);</span><span class="w">                        </span><span class="c1">// A new color space with 4 channels</span>
+<span class="n">csm</span><span class="p">.</span><span class="n">DefineAlias</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;f&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Frank&quot;</span><span class="w"> </span><span class="p">);</span><span class="w">                 </span><span class="c1">// &quot;f&quot; is an alias for &quot;Frank&quot;</span>
+<span class="n">csm</span><span class="p">.</span><span class="n">Register</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">frank2xyz</span><span class="w"> </span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// an object that converts from Frank to XYZ</span>
+<span class="n">csm</span><span class="p">.</span><span class="n">Register</span><span class="p">(</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="w"> </span><span class="n">yxy2frank</span><span class="w"> </span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1">// an object that converts from Yxy to Frank</span>
+
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span><span class="w">                             </span><span class="c1">// assume img is sRGB</span>
+<span class="n">csm</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f&quot;</span><span class="w"> </span><span class="p">);</span><span class="w">                    </span><span class="c1">// img will be converted from sRGB to Frank</span>
+</pre></div>
+
+<p>In the example above, <code>frank2xyz</code> and <code>yxy2frank</code> are objects derived from <a href="dip-ColorSpaceConverter.html"><code>dip::ColorSpaceConverter</code></a>.</p>
+<p>Note that one could add conversion functions to and from more color spaces as deemed appropriate,
+for example to save computational time. And it is not necessary for a new color space to have a conversion
+path to or from it. For example, by default the &ldquo;wavelength&rdquo; color space has only a conversion function
+from it to XYZ and to RGB, there are no functions that can convert to the &ldquo;wavelength&rdquo; color space.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>C. Poynton, &ldquo;Color FAQ&rdquo;, 1997. <a href="https://poynton.ca/PDFs/ColorFAQ.pdf">https://poynton.ca/PDFs/ColorFAQ.pdf</a> (last retrieved February 3, 2021).</li>
+<li>A. Hanbury and J. Serra, &ldquo;Colour image analysis in 3D-polar coordinates&rdquo;, Joint Pattern Recognition Symposium, 2003.</li>
+<li>A.T. Young, &ldquo;Rendering Spectra&rdquo;, 2012. <a href="https://aty.sdsu.edu/explain/optics/rendering.html">https://aty.sdsu.edu/explain/optics/rendering.html</a> (last retrieved August 1, 2020).</li>
+<li>B. Ottosson, &ldquo;A perceptual color space for image processing&rdquo;, 2020. <a href="https://bottosson.github.io/posts/oklab/">https://bottosson.github.io/posts/oklab/</a> (last retrieved October 23, 2023).</li>
+</ul>
+</aside>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+                              <dt id="dip-ColorSpaceManager-ColorSpaceManager">
+              <span class="m-doc-wrap-bumper"><a href="#dip-ColorSpaceManager-ColorSpaceManager" class="m-doc-self">ColorSpaceManager</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Constructor, registers the default color spaces.</dd>
+            </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+                              <dt id="dip-ColorSpaceManager-ColorSpaceConverterPointer">
+              using <a href="#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc-self">ColorSpaceConverterPointer</a> = std::shared_ptr&lt;ColorSpaceConverter&gt;
+
+            </dt>
+            <dd>A shared pointer to a <a href="dip-ColorSpaceConverter.html"><code>dip::ColorSpaceConverter</code></a> object.</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt id="dip-ColorSpaceManager-Define-String--dip-uint-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Define-String--dip-uint-" class="m-doc-self">Define</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> colorSpaceName,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nChannels)</span>
+            </dt>
+            <dd>Defines a new color space, that requires <code>nChannels</code> channels.</dd>
+                          <dt id="dip-ColorSpaceManager-DefineAlias-String-CL-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-DefineAlias-String-CL-String-CL" class="m-doc-self">DefineAlias</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; alias,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName)</span>
+            </dt>
+            <dd>Defines an alias for a defined color space name.</dd>
+                          <dt id="dip-ColorSpaceManager-Register-ColorSpaceConverterPointer-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Register-ColorSpaceConverterPointer-" class="m-doc-self">Register</a>(</span><span class="m-doc-wrap"><a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc">dip::ColorSpaceManager::ColorSpaceConverterPointer</a> converter)</span>
+            </dt>
+            <dd>Registers a function object to translate from one color space to another. The
+<code>dip::ColorSpaceManager</code> object takes ownership of the converter.</dd>
+                          <dt id="dip-ColorSpaceManager-Register-ColorSpaceConverter-P">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Register-ColorSpaceConverter-P" class="m-doc-self">Register</a>(</span><span class="m-doc-wrap"><a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>* converter)</span>
+            </dt>
+            <dd>Overload for the previous function, for backwards compatibility. Not recommended.</dd>
+                          <dt id="dip-ColorSpaceManager-IsDefined-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-IsDefined-String-CL-C" class="m-doc-self">IsDefined</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; bool</span>
+            </dt>
+            <dd>Check to see if a color space name is defined.</dd>
+                          <dt id="dip-ColorSpaceManager-GetColorSpaceConverter-String-CL-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-GetColorSpaceConverter-String-CL-String-CL-C" class="m-doc-self">GetColorSpaceConverter</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inputColorSpaceName,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outputColorSpaceName) const -&gt; <a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>*</span>
+            </dt>
+            <dd>Gets a pointer to a color space converter object registered with this <code>ColorSpaceManager</code>.
+Use this to access the object to modify it, for example configure a parameter.</dd>
+                          <dt id="dip-ColorSpaceManager-NumberOfChannels-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-NumberOfChannels-String-CL-C" class="m-doc-self">NumberOfChannels</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of channels used by the given color space.</dd>
+                          <dt id="dip-ColorSpaceManager-CanonicalName-String-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-CanonicalName-String-CL-C" class="m-doc-self">CanonicalName</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp;</span>
+            </dt>
+            <dd>Returns the canonical name for the given color space (i.e. looks up name aliases).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C" class="m-doc">Convert</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName = "") const</span>
+            </dt>
+            <dd>Converts an image to a different color space. <a href="#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-" class="m-doc">SetWhitePoint</a>(</span><span class="m-doc-wrap"><a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> whitePoint)</span>
+            </dt>
+            <dd>Configure the conversion functions to use the given white point. <a href="#dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-">more...</a></dd>
+                          <dt id="dip-ColorSpaceManager-SetWhitePoint-xy-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-SetWhitePoint-xy-CL" class="m-doc-self">SetWhitePoint</a>(</span><span class="m-doc-wrap"><a href="colorspaces.html#dip-xy" class="m-doc">dip::xy</a> const&amp; whitePoint)</span>
+            </dt>
+            <dd>Overload of the function above that takes a (x,y) chromaticity coordinate.</dd>
+          </dl>
+        </section>
+        <section id="variable-members">
+           <h2>Variables</h2>
+           <dl class="m-doc">
+                            <dt id="dip-ColorSpaceManager-IlluminantA">
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantA" class="m-doc-self">IlluminantA</a>
+
+            </dt>
+            <dd>The CIE Standard Illuminant A (typical, domestic, tungsten-filament lighting).</dd>
+                            <dt id="dip-ColorSpaceManager-IlluminantD50">
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD50" class="m-doc-self">IlluminantD50</a>
+
+            </dt>
+            <dd>The CIE Standard Illuminant D50 (mid-morning or mid-afternoon daylight, color temperature is about 5000 K).</dd>
+                            <dt id="dip-ColorSpaceManager-IlluminantD55">
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD55" class="m-doc-self">IlluminantD55</a>
+
+            </dt>
+            <dd>The CIE Standard Illuminant D55 (morning or evening daylight, color temperature is about 5500 K).</dd>
+                            <dt id="dip-ColorSpaceManager-IlluminantD65">
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD65" class="m-doc-self">IlluminantD65</a>
+
+            </dt>
+            <dd>The CIE Standard Illuminant D65 (noon daylight, color temperature is about 6500 K). This is also used in the sRGB standard.</dd>
+                            <dt id="dip-ColorSpaceManager-IlluminantE">
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantE" class="m-doc-self">IlluminantE</a>
+
+            </dt>
+            <dd>The CIE Standard Illuminant E (synthetic, equal energy illuminant).</dd>
+           </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C" class="m-doc-self">Convert</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName = ""</span>) const            </h3>
+            <p>Converts an image to a different color space.</p>
+<p>Both the source (<code>in.ColorSpace()</code>) and destination (<code>colorSpaceName</code>) color spaces must be known,
+and a path of registered conversion functions must exist between the two.</p>
+<p>Note that it is possible to assign an arbitrary string as a color space name in an image. Setting
+an image&rsquo;s color space property is always possible, and gives no guarantee that the image has the
+right number of tensor elements (color channels).</p>
+<p>When converting from one color channel to another, the input image is checked for number of color
+channels. If it doesn&rsquo;t match the number expected for its color space, an exception will be thrown.</p>
+<p>If <code>in.ColorSpace()</code> is an empty string:</p>
+<ul>
+<li>If the image has the same number of color channels as expected for <code>colorSpaceName</code>, it will
+    be assumed that the image already is in the <code>colorSpaceName</code> color space, and no conversion is done.</li>
+<li>Else, if the image is scalar, it will be assumed that its color space is &ldquo;grey&rdquo;.</li>
+<li>Otherwise, an exception will be thrown.</li>
+</ul>
+<p>If <code>colorSpaceName</code> is an empty string, &ldquo;grey&rdquo; is assumed.</p>
+<p>The output image is of a floating-point type. If you want the output to be written in, for example,
+an 8-bit unsigned integer, you can use the &ldquo;protect&rdquo; flag on the output image:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="c1">// read in a color image</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<span class="n">out</span><span class="p">.</span><span class="n">SetDataType</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">DT</span><span class="o">::</span><span class="n">UINT8</span><span class="w"> </span><span class="p">);</span>
+<span class="n">out</span><span class="p">.</span><span class="n">Protect</span><span class="p">();</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">ColorSpaceManager</span><span class="w"> </span><span class="n">csm</span><span class="p">;</span>
+<span class="n">cms</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;HSV&quot;</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+
+<p>In this case, all computations are still performed as double-precision floating-point computations,
+but the result is cast to 8-bit unsigned integers when written to the output image. Some color spaces,
+such as RGB and CMYK are defined to use the [0,255] range of 8-bit unsigned integers. Other color spaces
+such as Lab and XYZ are not. For those color spaces, casting to an integer will destroy the data.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-" class="m-doc-self">SetWhitePoint</a></span>(
+<span class="m-doc-arg"><a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> whitePoint</span>)            </h3>
+            <p>Configure the conversion functions to use the given white point.</p>
+<p>This will configure each of the converter functions that use the white point information
+(grey &harr; RGB &harr; XYZ &harr; Lab/Luv). The default white point is the Standard Illuminant D65
+(<a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-IlluminantD65"><code>dip::ColorSpaceManager::IlluminantD65</code></a>).</p>
+<p>The white point is given as an XYZ triplet or (x,y) chromaticity coordinates.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

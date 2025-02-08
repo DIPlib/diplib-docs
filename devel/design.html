@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DIPlib 3 design decisions | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <em>DIPlib</em> 3 design decisions
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#design_function_signatures">Function signatures</a></li>
+            <li><a href="#design_method_vs_function">Class method vs function</a></li>
+            <li><a href="#design_dynamic_types">Compile-time vs run-time pixel type identification</a></li>
+            <li><a href="#design_options">Passing options to a function</a></li>
+            <li><a href="#design_const_correctness">Const correctness</a></li>
+            <li><a href="#design_frameworks">Frameworks</a></li>
+            <li><a href="#design_multithreading">Multithreading</a></li>
+            <li><a href="#design_ranges">Ranges for indexing</a></li>
+          </ul>
+        </div>
+<p>This page gives reasons behind some of the design choices of <em>DIPlib 3</em>.
+Many of these decisions are inherited from the previous version of the library,
+and some new ones are made possible by the port to C++.</p>
+<h2 id="design_function_signatures">Function signatures</h2>
+<p>There are two possible function signature styles for use in an image analysis
+library:</p>
+<ol>
+<li>
+<p><code>void Filter( dip::Image &amp;in, dip::Image &amp;out, int size );</code></p>
+</li>
+<li>
+<p><code>dip::Image Filter( dip::Image &amp;in, int size );</code></p>
+</li>
+</ol>
+<p>Both of these options have advantages and disadvantages. Style 1 allows for
+in-place operation:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+
+<p>The function here is able to write the results in the image&rsquo;s pixel buffer,
+without having to allocate a temporary pixel buffer as would be the case for:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+
+<p>This is a huge advantage both in speed and memory usage. However, resulting
+programs are not as easy to read (which parameters are inputs and which are
+outputs?) and not as pretty as with style 2. For example, style 2 allows
+for a very elegant chaining of operations:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Filter2</span><span class="p">(</span><span class="w"> </span><span class="n">Filter1</span><span class="p">(</span><span class="w"> </span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+
+<p>Furthermore, style 2 makes it much easier to automatically generate interfaces
+to languages (such as <em>MATLAB</em>) that do not allow a function to modify its input
+arguments. Such an automatic interface generation tool needs to know which
+arguments are inputs and which are outputs.</p>
+<p>In <em>DIPlib 2</em>, (written in C), all functions returned an
+error code, and so output values had to be function arguments
+(style 1). But in C++ we have exceptions to handle error conditions, and so
+are free to have an image as the return value of the function (style 2).
+Because, the advantage of style 1 is too large to ignore, we have
+kept the function signature style (and argument order) of <em>DIPlib 2</em>, but
+additionally we have written a small, inline wrapper function for each of the functions
+that follows the signature style 2. Such a wrapper is very straight-forward:</p>
+<div class="m-code"><pre><span></span><span class="kr">inline</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="nf">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="o">&amp;</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Filter</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>We have chosen not to pollute the documentation with these wrapper functions.
+If a function <code>Filter( in, out )</code> exists, then you can assume that
+there will also be a function <code>out = Filter( in )</code>.</p>
+<h2 id="design_method_vs_function">Class method vs function</h2>
+<p>Some libraries put all image processing/analysis functionality into the
+image object as methods. The idea is to filter an image by
+<code>img.Gauss(sigma)</code>. This is a terrible idea for many reasons:</p>
+<ol>
+<li>one never knows if the image object is modified by the method or not,</li>
+<li>the core include file for the library changes when adding any type of functionality,
+   forcing recompilation of the whole library, and</li>
+<li>it&rsquo;s ugly.</li>
+</ol>
+<p>Filters should be functions, not methods.</p>
+<p>In <em>DIPlib</em>, methods to the core <a href="dip-Image.html"><code>dip::Image</code></a> class query and manipulate image
+properties, not pixel data (with the exception of <a href="dip-Image.html#dip-Image-Copy-Image-CL"><code>dip::Image::Copy</code></a> and
+<a href="dip-Image.html#dip-Image-Fill-Pixel-CL"><code>dip::Image::Fill</code></a>). Filters and other algorithms that manipulate image data are
+always functions or function objects.</p>
+<p>We use function objects sparingly in <em>DIPlib</em>.
+<a href="https://itk.org"><em>ITK</em></a>, for example, has taken
+the object-oriented approach to an extreme, where each algorithm is encapsulated
+in an object, and parameters to the algorithm are set through object methods.
+This leads to very verbose code that is not readable. For example, compare the
+two code snippets below (function object version is not <em>ITK</em> code, but a simplified
+version that ignores <em>ITK</em>&rsquo;s templates and processing pipeline):</p>
+<div class="m-code"><pre><span></span><span class="n">lib</span><span class="o">::</span><span class="n">GaussianFilter</span><span class="w"> </span><span class="n">gauss</span><span class="p">;</span>
+<span class="n">gauss</span><span class="p">.</span><span class="n">SetInput</span><span class="p">(</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="p">);</span>
+<span class="n">gauss</span><span class="p">.</span><span class="n">SetSigma</span><span class="p">(</span><span class="w"> </span><span class="n">FloatArray</span><span class="p">{</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="n">gauss</span><span class="p">.</span><span class="n">Execute</span><span class="p">();</span>
+<span class="n">outim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gauss</span><span class="p">.</span><span class="n">GetOutput</span><span class="p">();</span>
+</pre></div>
+
+<div class="m-code"><pre><span></span><span class="n">outim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Gauss</span><span class="p">(</span><span class="w"> </span><span class="n">image</span><span class="p">,</span><span class="w"> </span><span class="n">FloatArray</span><span class="p">{</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+
+<h2 id="design_dynamic_types">Compile-time vs run-time pixel type identification</h2>
+<p><em>DIPlib</em> uses run-time identification of an image&rsquo;s pixel type, and functions
+dispatch internally to the appropriate sub-function. These sub-functions are
+generated at compile time through templates</p>
+<p>The alternative, seen in most C++ image analysis libraries (<a href="https://itk.org"><em>ITK</em></a>,
+<a href="http://ukoethe.github.io/vigra/"><em>Vigra</em></a>, <a href="https://cimg.eu"><em>CImg</em></a>, etc.),
+is to define the image class, as well as most functions, as templates.
+The user declares an image having a specific data type (and dimensionality),
+and the compiler then creates an image class with that data type for the pixels, as well
+as instances of all functions called with this image as input. This takes time.
+Compiling even a trivial program that uses <em>CImg</em> takes a minute, rather than a
+fraction of a second it takes to compile a similar program that uses <em>DIPlib</em>.
+Writing most functionality as templates implies that most code is actually in
+the header files, rather than in the source files. This functionality then ends
+up in the application executable, rather than in an independent library file
+(shareable among many applications).</p>
+<p>However, the largest disadvantage with templated functions happens when creating
+an (even slightly) general image analysis program: you need to write code that
+allows the user of your program to select the image data type, and write code
+that does all the right dispatching depending on the data type (see, for example,
+the <a href="https://simpleitk.org"><em>SimpleITK</em></a> interface to <em>ITK</em>). Alternatively,
+you have to restrict the data type to one choice. A library is meant to take
+away work from the programmer using the library, so it is logical that <em>DIPlib</em>
+should allow all data types and do the dispatching as necessary. After all,
+<em>DIPlib</em> is meant as a foundation for <em>DIPimage</em> and similar general-purpose
+image analysis tools, where you cannot determine in advance which data type the
+user will want to use. Think about how complicated each of the <em>DIPlib</em>-MEX-files
+would be if <em>DIPlib</em> had compile-time typing: each MEX-file would have to check
+the data type of the input array (or arrays), convert it to a <em>DIPlib</em> image
+class of the same type, then call one of 8 or 10 instances of a function.
+Furthermore, this MEX-file would need to know which image data types are
+meaningful for the function being called (integer only? binary only? does it
+work on complex values?). Instead, we simply convert the input array to a
+<em>DIPlib</em> image and call a function. The MEX-file is trivial, the <em>DIPlib</em>
+function itself takes care of everything.</p>
+<p><em>DIPlib</em> does expose a few templated functions to the user. However, these
+templates typically abstract the type of a constant (see, for example, the
+function <code>dip::Add</code> with a templated <code>rhs</code> argument), and never that of an image.
+Such a template is always a trivial function that simplifies the library user&rsquo;s
+code.</p>
+<h2 id="design_options">Passing options to a function</h2>
+<p>Many algorithms require parameters that select a mode of operation. <em>DIPlib 3</em>
+uses strings for such parameters when the function is intended to be usable
+from interfaces. By not defining C++ constants, the interface code can be
+kept simple. For example, <code>dip::Dilation</code> has an option for the shape of the
+structuring element. Instead of defining an <code>enum</code> (as <em>DIPlib 2</em> did)
+with various values that the interface code needs to translate, the option
+parameter is a string. The user of the interface and the user of the C++ library
+see the same parameter and use the function in the same way. The overhead of a
+few string comparisons is trivial compared to the computational cost of any
+image analysis algorithm.</p>
+<p>An other advantage is having fewer possibilities for name clashes when defining
+a lot of enumerator constants for the many, many options accumulated of the
+large collection of functions and algorithms in <em>DIPlib</em>.</p>
+<p>A function that has multiple independent options takes a <a href="supporttypes.html#dip-StringSet"><code>dip::StringSet</code></a>
+(a <code>std::set&lt;std::string&gt;</code>) as input. The user can simply join strings using
+curly braces, much like in <em>MATLAB</em>. The algorithm can easily check if a
+specific string is given or not.</p>
+<p>However, for infrastructure functions not typically exposed in interfaces (i.e.
+the functions that <em>DIPlib</em> uses internally to do its work) we do define
+numeric constants for options. For example, see the enumerator <a href="supporttypes.html#dip-Option-ThrowException"><code>dip::Option::ThrowException</code></a>,
+or any of the flags defined through <a href="supporttypes.html#macro--DIP_DECLARE_OPTIONS"><code>DIP_DECLARE_OPTIONS</code></a>. These are more efficient
+in use and equally convenient if limited to the C++ code.</p>
+<h2 id="design_const_correctness">Const correctness</h2>
+<p>When an image object is marked <code>const</code>, the compiler will prevent modifications
+to it, it cannot be assigned to, and it cannot be used as the output argument
+to a filter function. However, it is possible to create a non-<code>const</code> image that
+points to the same data segment as a <code>const</code> image. The assignment operator, the
+<a href="dip-Image.html#dip-Image-QuickCopy-C"><code>dip::Image::QuickCopy</code></a> method, and most indexing operations will do this.
+There were two important reasons for this design decision:</p>
+<ol>
+<li>
+<p>Making a <code>const</code> and a non-<code>const</code> version of most of these indexing
+   operators is possible, but some are functions (such as <a href="dip-Image.html#dip-DefineROI-Image-CL-Image-L-UnsignedArray--UnsignedArray--UnsignedArray-"><code>dip::DefineROI</code></a>) taking
+   an output image object as function argument. This argument cannot be marked
+   <code>const</code> because the function needs to modify it. However, the function must
+   assign the data pointer from a <code>const</code> image into it.</p>
+</li>
+<li>
+<p>Functions such as the framework functions need to make certain type of modifications
+   to an input image, such as converting the tensor dimension to a spatial dimension,
+   or applying singleton expansion. The simplest way of accomplishing this is to
+   create a copy of the input image, and modify the copy. However, it would make no
+   sense to make a copy of the data also, since the data are not modified. Thus,
+   we need to make a non-<code>const</code> copy of a <code>const</code> image that shares its data pointer.</p>
+</li>
+</ol>
+<p>Thus, strictly forbidding data pointers from <code>const</code> images to be assigned to non-<code>const</code>
+images would make it impossible to write certain types of functions, and would make
+other types of functions much more complicated.</p>
+<p>Because a copy of a <code>const</code> image can provide non-<code>const</code> access to its pixels, we felt
+that it did not really make sense either to have the <a href="dip-Image.html#dip-Image-Data-C"><code>dip::Image::Data</code></a>,
+<a href="dip-Image.html#dip-Image-Origin-C"><code>dip::Image::Origin</code></a>, and <a href="dip-Image.html#dip-Image-Pointer-dip-sint--C"><code>dip::Image::Pointer</code></a>
+methods return <code>const</code> pointers when applied to a <code>const</code> image. That is, all accesses
+to pixel data ignore the constness of the image object. The constness of the image
+object applies only to the image&rsquo;s properties (size, strides, tensor shape, color space,
+etc.), not to its pixel values.</p>
+<p>However, none of the functions in <em>DIPlib</em> will modify pixel values of a <code>const</code> image.
+Input images to functions are always <code>const</code> references, and even though it would be
+technically possible to modify its pixel values, we have an explicit policy to not do so.</p>
+<p>The same applies to the <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object, but for a different reason:
+Implementing correct handling of <code>const</code> objects would require two versions of all
+iterators (a <code>const</code> one and a non-<code>const</code> one). Since these iterators are quite complex,
+and the benefit of correct <code>const</code> handling is limited, we decided to follow the same
+principle as with the <a href="dip-Image.html"><code>dip::Image</code></a> object: non-<code>const</code> data access is always allowed, but
+<em>DIPlib</em> has an explicit policy to not to change data of a <code>const</code> object.</p>
+<h2 id="design_frameworks">Frameworks</h2>
+<p>The frameworks simplify the writing of many image processing algorithms such that
+they work on images of many different data types, are dimensionality independent,
+and use multithreading. Framework functions also take on the task of testing input
+images and creating output images. Typically, an image processing function only
+needs to write a function that processes a single image line.</p>
+<p>Such a line function is passed to the framework function, and the framework
+function calls the line function for every image line. The line function might
+need a state (parameters, intermediate data, output data). Furthermore, intermediate
+and output data (i.e. data that the line function writes) must be separate for each
+thread calling the line function. <em>DIPlib 2</em> did this in the typical C fashion:
+a function pointer and a <code>void*</code> to the state. The framework function passed the
+<code>void*</code> to the line function, which would cast it back to its original type. C++11
+offers several alternatives that are more type-safe, and offer greater flexibility.</p>
+<p>One option (that we did not choose) would be using <code>std::function</code>, which is an object
+that encapsulates a function pointer, a lambda, or a functor with a predetermined
+signature. It would be possible to write a lambda function that captures some variables
+by reference, or to use <code>std::bind</code> to bind local variables to a function pointer. It
+would also be possible to write a more complex class whose objects can be &lsquo;called&rsquo;
+with the required signature (functor). <code>std::function</code> has some overhead, especially
+at creation.</p>
+<p>The other option (that we did choose) is through derived classes and virtual functions.
+A base class with a pure virtual function serves as the &ldquo;model&rdquo;. An object of a derived
+class, implementing a specific image analysis algorithm, can be referenced using a base
+class pointer. The derived class can have variables that the algorithm uses,
+including references to local variables in the caller&rsquo;s workspace. A benefit of this
+option over the <code>std::function</code> is that we were able to define a second function
+in the class, which the framework function calls once, before starting the processing,
+and after it has decided how many threads to use. This allows the creation of
+intermediate state variables for each thread. Without this facility, intermediate
+state needs to be created for each potential thread (i.e. by examining the maximum
+number of threads setting), which might be wasted effort if fewer threads will be
+used.</p>
+<p>A <code>std::function</code> might have offered more flexibility in how to implement the line
+function, and would have allowed to write simple line functions inline, using a
+lambda. However, the syntax using a derived class with a virtual function is somewhat
+simpler and more straight-forward, and thus more accessible. This was the main reason
+for us to choose the approach we chose.</p>
+<h2 id="design_multithreading">Multithreading</h2>
+<p>We use <a href="https://www.openmp.org"><em>OpenMP</em></a> for multithreading, mostly because it seems
+(to me) easier to use than
+<a href="https://www.threadingbuildingblocks.org/docs/help/index.htm">Intel&rsquo;s <em>Threading Building Blocks</em></a>
+(<em>TBB</em>). <em>TBB</em> does not require special
+compiler support, but all modern compilers support <em>OpenMP</em> (except that XCode&rsquo;s CLang
+on MacOS doesn&rsquo;t come with the <em>OpenMP</em> library, which needs to be installed separately).
+The GNU Compiler Collection has very good support for <em>OpenMP</em>, and is available on
+all platforms. <em>TBB</em> probably also plays better with C++ code than <em>OpenMP</em>, which
+does not allow exceptions to be thrown across parallel construct boundaries. But
+we&rsquo;re dealing only (so far) with trivially parallelizable code, so this is not
+a major issue.</p>
+<p>The framework functions determine, based on the number of operations to perform,
+whether it is worthwhile to create threads for a particular computation. To do so,
+they call a <code>GetNumberOfOperations</code> method of the line filter object. Each filter
+thus needs to have such a method that determines how much work it will be to process
+one image line. If the number of operations (clock cycles) is larger than a threshold,
+multiple threads are started to process the image. I noticed that there is not a large
+difference in overhead between starting one additional thread or starting three, so
+it was not worth while to fine-tune the number of threads based on the number of
+operations to perform.</p>
+<p>The threshold was determined empirically on one single computer, and the way that
+the number of operations per line is computed is imprecise and in some cases empirical.
+It is more than likely that the threshold will not be optimal on a different machine.
+Furthermore, for some filters it is not even possible to determine ahead of time the
+number of operations
+because it depends on the data (e.g. see the pixel table morphology line filter).</p>
+<p>Thus, the point at which multiple threads are launched is imprecise at best.
+However, what matters here is that, for very small images, we do not start threads
+and double or worse the time spent on the filtering. <em>DIPlib 2</em> did not have
+any such logic, always started threads within the frameworks, and consequently
+behaved poorly with very small images. This system is intended to overcome that
+problem.</p>
+<h2 id="design_ranges">Ranges for indexing</h2>
+<p>There two common ways to define ranges for indexing, either the end index is included or not. For example,
+in <em>MATLAB</em> the end index is included, in Python it is excluded. Some languages such as Ruby and Scala allow
+the user to choose between the two. <em>DIPlib</em> uses <a href="dip-Range.html"><code>dip::Range</code></a> to represent a range for indexing. These
+ranges include the end index.</p>
+<p>On Stack Overflow one sees quite a few errors and cases of confusion in Python because the end index is not included
+in the range. Similar errors in <em>MATLAB</em> are highly uncommon. I think that this is because in English (and many,
+if not all, other languages too) when one counts from a to b, the b is included in the count. This is a strong
+argument in favor of including the end index: it is less confusing to the novice programmer.</p>
+<p>There are <a href="https://stackoverflow.com/q/11364533/7328782">no strong</a> <a href="https://stackoverflow.com/q/4504662/7328782">arguments</a>
+as to why it should be excluded. The argument typically offered is that <code>array[a:b]</code> in Python has <code>b - a</code> elements,
+rather than <code>b - a + 1</code> as would be the case if the end index were included, and this is prettier and thus better.
+Also, <code>array[a:b] + array[b:c] == array[a:c]</code>, whereas in <em>MATLAB</em> one would have to write <code>array(a:b-1)</code>
+and <code>array(b:c)</code> to split <code>array[a:c]</code>; this is again an argument of aesthetics. The only technical argument is that,
+by excluding the upper bound, it is possible to index zero elements, <code>array[1:1]</code>; however, in <em>MATLAB</em> this is also
+possible, <code>array(1:0)</code>, so this argument is again not meaningful.</p>
+<p>Nonetheless, <em>MATLAB</em>&rsquo;s end index being included is paired with indexing starting at 1, such that the range <code>1:n</code> has
+<code>n</code> elements, just like Python&rsquo;s <code>range(0, n)</code>. There are very few examples where indexing starts at 0 but includes
+the end index.</p>
+<p>In <em>DIPlib</em> indexing starts at 0, so the logical solution would be for <code>dip::Range( a, b )</code> to exclude <code>b</code>, following
+Python&rsquo;s logic, which also starts indexing at 0. But this leads to certain difficulties when using negative indices
+to count from the end.</p>
+<p>For example, in Python, <code>array[a:]</code> is all elements from <code>a</code> to the end of the array, whereas <code>array[a,-1]</code> is all
+elements from <code>a</code> to the second to last element. In C++ we cannot copy that syntax, we cannot write <code>dip::Range( a, )</code>.
+So if the end index is not included in the array, then there is no way to express a range that includes the last index.
+The same is true for reverse ranges that end in the first array element. There is no number before 0 that can be
+used to indicate &ldquo;one element before the first one&rdquo;, since -1 means the last element of the array.</p>
+<p>This particular issue lead to the decision to include the end index in the range, at the risk of doing things
+differently. There are two positive side-effects to this decision:</p>
+<ul>
+<li>
+<p>Ranges that include the end index are more intuitive, as mentioned above.</p>
+</li>
+<li>
+<p>It is not possible to create an empty range. <code>dip::Range( 4, 4 )</code> is one element, and <code>dip::Range( 4, 3 )</code> is two
+  elements, in reverse. By not allowing empty ranges, we can be sure that indexing an image using a range will produce
+  a valid view.</p>
+</li>
+</ul>
+<p>In C++ it is common to write loops as <code>for( ii = 0; ii &lt; n; ++ii )</code>, and the end iterator always points to one past
+the end of the range. But the <code>dip::Range</code> start and stop values are not meant to be used directly in loops,
+they are meant for the user to communicate ranges to library functions. <code>dip::Range</code> has <code>begin()</code> and <code>end()</code>
+functions for use in loops. Therefore, this aspect should not cause confusion.</p>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

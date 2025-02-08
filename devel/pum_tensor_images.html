@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PyDIP User Manual &raquo; Tensor images and color images | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="pum_indexing.html" />
+  <link rel="next" href="pum_filtering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Tensor images and color images
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#pum_tensor_images_examples">Some example tensor images</a></li>
+            <li><a href="#pum_tensor_images_arithmetic">Arithmetic with tensor images</a></li>
+            <li><a href="#pum_tensor_images_color">Color images</a></li>
+          </ul>
+        </div>
+<p>Images can have any number of channels, organized as either a vector or a matrix. We use the name
+&ldquo;tensor images&rdquo; to encapsulate both of these concepts. A tensor is a generalization of matrix.
+A rank-0 tensor is a single number, a scalar. A rank-1 tensor is a vector. A rank-2 tensor is a matrix.
+Tensors can have any rank, but in the <em>DIPlib</em> library we are currently limited to ranks up to 2
+(we have not seen higher rank tensors used in Image Analysis, if such a use arises, we can extend
+the implementation to support those too).</p>
+<p>Note that the image itself is not a matrix or a tensor. An image can be seen as a multi-dimensional
+array, but we don&rsquo;t apply matrix multiplication or other linear algebra on the image as a matrix.
+But each pixel can be a matrix, or a vector, and we can apply linear algebra on the pixels.</p>
+<p>Images with a single channel, gray-scale images, are referred to as &ldquo;scalar images&rdquo; in <em>DIPlib</em>.</p>
+<p>If the channels (i.e. tensor elements) are organized as a vector, it is a &ldquo;vector image&rdquo;. Color images are
+always vector images. Each pixel is a vector that represents a point in the color space.</p>
+<p>Below we will see some example for rank-2 tensor images, such as the Hessian matrix and the Structure Tensor.</p>
+<h2 id="pum_tensor_images_examples">Some example tensor images</h2>
+<p>This is a scalar image:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ImageRead</span><span class="p">(</span><span class="s1">&#39;examples/trui.ics&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="The 'trui' image" class="m-image" src="tensor_images-1.png"></p>
+<p>We can compute its gradient, which is a vector image:</p>
+<div class="m-code"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Gradient</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="The gradient of 'trui'" class="m-image" src="tensor_images-2.png"></p>
+<p>The vector image is displayed by showing the first vector component in the red channel, and the second one in the green channel.
+<code>g</code> has two components:</p>
+<div class="m-code"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">TensorElements</span><span class="p">()</span>  <span class="c1"># == 2</span>
+<span class="n">g</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">()</span>     <span class="c1"># == &#39;column vector&#39;</span>
+</pre></div>
+
+<p>Multiplying a vector image with its transposed leads to a symmetric matrix:</p>
+<div class="m-code"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">g</span> <span class="o">@</span> <span class="n">dip</span><span class="o">.</span><span class="n">Transpose</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+
+<p><code>S.__repr__()</code> is</p>
+<div class="m-code"><pre><span></span>&lt;Tensor image (2x2 symmetric matrix, 3 elements), SFLOAT, sizes {256, 256}&gt;
+</pre></div>
+
+<p>Note how the 2x2 symmetric matrix stores only 3 elements per pixel. Because of the symmetry, the <code>[0,1]</code> and the <code>[1,0]</code> elements
+are identical, and need not be both stored. See <a href="dip-Tensor.html#dip-Tensor-Shape"><code>dip::Tensor::Shape</code></a> for details on how the individual elements are stored.</p>
+<p>Note also that the transposed image is not an image with spatial axes swapped, we transpose the vector or matrix at each pixel.</p>
+<p>Local averaging of this matrix image (i.e. applying a low-pass filter) leads to the Structure Tensor:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="" class="m-image" src="tensor_images-3.png"></p>
+<p>We can still display this tensor image, because it has only 3 tensor elements, which can be mapped to the three RGB channels of the display.</p>
+<p>The Structure Tensor is one of the more important applications for the concept of the tensor image.
+Here we show how to get the local orientation from it using the eigenvalue decomposition.
+See <a href="why_tensors.html">Why tensors?</a> for some more example applications of the Structure Tensor.</p>
+<div class="m-code"><pre><span></span><span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">EigenDecomposition</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="n">eigenvalues</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">()</span>   <span class="c1"># == &#39;diagonal matrix&#39;</span>
+<span class="n">eigenvectors</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">()</span>  <span class="c1"># == &#39;column-major matrix&#39;</span>
+</pre></div>
+
+<p>The eigendecomposition is such that <code>S @ eigenvectors == eigenvectors @ eigenvalues</code>.
+<code>eigenvectors</code> is a full 2x2 matrix, and hence has 4 tensor elements. These are stored in column-major order.
+The first column is the eigenvector that corresponds to the first eigenvalue.
+Eigenvalues are sorted in descending order, and hence the first eigenvector is perpendicular to the edges in the image.</p>
+<div class="m-code"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">eigenvectors</span><span class="o">.</span><span class="n">TensorColumn</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Angle</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">angle</span><span class="o">.</span><span class="n">Show</span><span class="p">(</span><span class="s1">&#39;orientation&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p><img alt="" class="m-image" src="tensor_images-4.png"></p>
+<p>Note that extracting a column from the tensor yields a vector image, and that this vector image shares data with
+the column-major matrix image. Transposing a matrix is a cheap operation that just changes the storage order of the matrix,
+without a need to copy or reorder the data:</p>
+<div class="m-code"><pre><span></span><span class="n">tmp</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Transpose</span><span class="p">(</span><span class="n">eigenvectors</span><span class="p">)</span>
+<span class="n">tmp</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">()</span>             <span class="c1"># == &#39;row-major matrix&#39;</span>
+<span class="n">tmp</span><span class="o">.</span><span class="n">SharesData</span><span class="p">(</span><span class="n">eigenvectors</span><span class="p">)</span>  <span class="c1"># == True</span>
+</pre></div>
+
+<p>A second important matrix image is the Hessian matrix, which contains all second order derivatives.
+Just like the Structure Tensor, it is a symmetric 2x2 matrix:</p>
+<div class="m-code"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Hessian</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">H</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="" class="m-image" src="tensor_images-5.png"></p>
+<h2 id="pum_tensor_images_arithmetic">Arithmetic with tensor images</h2>
+<p>We&rsquo;ve already seen the matrix multiplication <code>@</code>. Other arithmetic operators are always applied on a per-sample basis:
+addition <code>+</code> and subtraction <code>-</code>, multiplication <code>*</code>, division <code>/</code> and remainder <code>%</code>, exponentiation <code>**</code>,
+bit-wise operators <code>&amp;</code>, <code>|</code>, <code>^</code>, and comparison operators <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, and <code>&lt;=</code>.</p>
+<p>For example, dividing <code>S</code> above by itself, <code>S / S</code>, yields a tensor image of the same sizes and shapes as <code>S</code>.
+Each sample in the left-hand size is divided by the corresponding sample in the right-hand side.</p>
+<p>But if we divide <code>S / eigenvectors</code>, where <code>S</code> has 3 samples organized as a symmetric 2x2 matrix, and <code>eigenvectors</code>
+has 4 samples also organized as a 2x2 matrix, then the operation will see the two images as 2x2 matrices, and
+will produce as output a full 2x2 matrix image (with 4 samples).</p>
+<p>Finally, dividing <code>S / eigenvectors.TensorColumn(0)</code>, there is no way to match up the two tensor shapes,
+so an exception is raised. There is no broadcasting (or singleton expansion as it&rsquo;s called in the <em>DIPlib</em> documentation)
+for tensor elements, unless one of the images is a scalar: <code>S / eigenvectors(0)</code> works as expected.</p>
+<p>Oftentimes, one needs to use a single pixel as one of the operands. For example, to add the same value to each pixel
+in the image. We can of course use a scalar value: <code>g + 5</code>. To create a column vector pixel, simply provide a list:
+<code>g + [1, 5]</code>. Because the <code>+</code> operator works element-wise, a row vector and a column vector can be added together:
+<code>dip.Transpose(g) + [1, 5]</code>. But if one needs a matrix, or a row vector, it is a bit more complex to create.
+For example, <code>g @ [[1, 5]]</code> does not work. Also, a <em>NumPy</em> array is interpreted as an image, not as a tensor pixel,
+so cannot be used either. Instead, use the <code>dip.Create0D()</code> function:</p>
+<div class="m-code"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Create0D</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>                 <span class="c1"># a column vector</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">Transpose</span><span class="p">()</span>                            <span class="c1"># a row vector</span>
+
+<span class="n">p2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Transpose</span><span class="p">(</span><span class="n">dip</span><span class="o">.</span><span class="n">Create0D</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>  <span class="c1"># also a row vector</span>
+
+<span class="n">p3</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Create0D</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]))</span>     <span class="c1"># also a row vector</span>
+</pre></div>
+
+<p>To create a special tensor shape, you can use <code>dip.Image.ReshapeTensor()</code>:</p>
+<div class="m-code"><pre><span></span><span class="n">p4</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Create0D</span><span class="p">([</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>
+<span class="n">p4</span><span class="o">.</span><span class="n">ReshapeTensor</span><span class="p">(</span><span class="n">dip</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="s2">&quot;symmetric matrix&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+<h2 id="pum_tensor_images_color">Color images</h2>
+<p>Color images are vector images where the vector represents a point within the gamut in the (3 or 4-dimensional)
+color space.</p>
+<p>When reading in a color image through <em>DIPlib</em> functions, the color space will typically be set correctly.
+But if it isn&rsquo;t, you can manually set it:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># a 3-channel image</span>
+<span class="n">img</span><span class="o">.</span><span class="n">ColorSpace</span><span class="p">()</span>                <span class="c1"># == &#39;&#39;  (there&#39;s no color space set)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">SetColorSpace</span><span class="p">(</span><span class="s1">&#39;sRGB&#39;</span><span class="p">)</span>       <span class="c1"># define the image&#39;s color space</span>
+</pre></div>
+
+<p><code>dip.Image.SetColorSpace()</code> will overwrite whatever the current color space name is, it will not check that
+the image has the right number of channels, and it will not touch the pixel data.</p>
+<p><a href="dip-ColorSpaceManager.html"><code>dip::ColorSpaceManager</code></a> is the class in the <em>DIPlib</em> library that takes care of color space conventions
+and conversions. In <em>PyDIP</em>, <code>dip.ColorSpaceManager</code> is a sub-module that references an internally stored
+global <code>dip::ColorSpaceManager</code> object. You can query the existence and properties of a color space,
+but not define new ones (as that requires writing C++ code). <code>dip.ColorSpaceManager.Convert()</code> converts
+from any known color space to any other color space, including gray scale. See <a href="dip-ColorSpaceManager.html"><code>dip::ColorSpaceManager</code></a>
+for a list of currently known color spaces.</p>
+<p>The conversion functions assume a specific gamut (each color space defines the range of the values for each channel).
+These values do not change with the data type of the image. For example, a gray-scale image is assumed to be in
+the range 0-255, whether the image is <code>UINT8</code>, <code>SINT16</code> or <code>DFLOAT</code>. But the range of values is irrelevant when
+displaying, as the image display can scale data (see <a href="pum_display.html">Displaying Images</a>). That is, the gamut is only relevant when
+applying color space conversions.</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">ColorSpaceManager</span><span class="o">.</span><span class="n">IsDefined</span><span class="p">(</span><span class="s1">&#39;L*a*b*&#39;</span><span class="p">)</span>         <span class="c1"># == True</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">ColorSpaceManager</span><span class="o">.</span><span class="n">CanonicalName</span><span class="p">(</span><span class="s1">&#39;L*a*b*&#39;</span><span class="p">)</span>     <span class="c1"># == &#39;Lab&#39;</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">ColorSpaceManager</span><span class="o">.</span><span class="n">NumberOfChannels</span><span class="p">(</span><span class="s1">&#39;L*a*b*&#39;</span><span class="p">)</span>  <span class="c1"># == 3</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ImageRead</span><span class="p">(</span><span class="s1">&#39;examples/DIP.tif&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">ColorSpace</span><span class="p">()</span>                                  <span class="c1"># == &#39;sRGB&#39;</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ColorSpaceManager</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s1">&#39;L*a*b*&#39;</span><span class="p">)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">ColorSpace</span><span class="p">()</span>                                  <span class="c1"># == &#39;Lab&#39;</span>
+</pre></div>
+
+<p>Note that <em>PyDIP</em>&rsquo;s image display will convert color images to sRGB for display, so you always see the colors
+as they are intended.</p>
+<p>It is also possible to set the white point, which will affect some color space conversions:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">ColorSpaceManager</span><span class="o">.</span><span class="n">SetWhitePoint</span><span class="p">(</span><span class="n">dip</span><span class="o">.</span><span class="n">ColorSpaceManager</span><span class="o">.</span><span class="n">IlluminantD50</span><span class="p">)</span>
+<span class="n">out2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ColorSpaceManager</span><span class="o">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s1">&#39;L*a*b*&#39;</span><span class="p">)</span>
+</pre></div>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pum_indexing.html" class="m-doc">&laquo; Indexing</a> | <a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a> | <a href="pum_filtering.html" class="m-doc">Filtering &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

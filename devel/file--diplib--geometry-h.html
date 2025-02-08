@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>diplib/geometry.h file | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb">diplib/</span><wbr />geometry.h <span class="m-thin">file</span>
+        </h1>
+        <p>Functions for geometric image transformations
+See <a href="geometry.html">Geometric transformations</a>.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+                              <dt>
+              using <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc-self">dip::<wbr />InterpolationFunctionPointer</a> = void(*)(Image, Image::Pixel, FloatArray)
+
+            </dt>
+            <dd>Pointer to an interpolation function. Only use pointers returned by <a href="geometry.html#dip-PrepareResampleAtUnchecked-Image-CL-String-CL"><code>dip::PrepareResampleAtUnchecked</code></a>.</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Wrap-Image-CL-Image-L-IntegerArray-" class="m-doc">dip::<wbr />Wrap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> wrap)</span>
+            </dt>
+            <dd>Shifts the input image by an integer number of pixels, wrapping the pixels around. <a href="geometry.html#dip-Wrap-Image-CL-Image-L-IntegerArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL" class="m-doc">dip::<wbr />Subsampling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sample)</span>
+            </dt>
+            <dd>Subsamples the input image. <a href="geometry.html#dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL" class="m-doc">dip::<wbr />Resampling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> zoom,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Resamples an image with the given zoom factor and sub-pixel shift. <a href="geometry.html#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Shift-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL" class="m-doc-self">dip::<wbr />Shift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shift,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::FOURIER,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Shift an image. Calls <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-BoundaryConditionArray-CL"><code>dip::Resampling</code></a> with <code>zoom</code> set to 1, and uses the &ldquo;ft&rdquo; method by default.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-ShiftFT-Image-CL-Image-L-FloatArray-" class="m-doc">dip::<wbr />ShiftFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0})</span>
+            </dt>
+            <dd>Modulates the input Fourier spectrum to introduce a shift in the spatial domain <a href="geometry.html#dip-ShiftFT-Image-CL-Image-L-FloatArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; coordinates,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0})</span>
+            </dt>
+            <dd>Finds the values of the image at sub-pixel locations <code>coordinates</code> by interpolation. <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="geometry.html#dip-ResampleAt-Image-CL-FloatArray-CL-String-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Identical to the previous function with the same name, but for a single point.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="geometry.html#dip-PrepareResampleAtUnchecked-Image-CL-String-CL" class="m-doc-self">dip::<wbr />PrepareResampleAtUnchecked</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod) -&gt; <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a></span>
+            </dt>
+            <dd>Prepare for repeated calls to <a href="geometry.html#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-"><code>dip::ResampleAtUnchecked</code></a>. See <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="geometry.html#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-" class="m-doc-self">dip::<wbr />ResampleAtUnchecked</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates,
+              <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a> function) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Similar to <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>, but optimized for repeated calls using the same parameters.
+<code>function</code> comes from <code>PrepareResampleAtUnchecked</code>. <code>fill</code> is always 0.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-ResampleAt-Image-CL-Image-CL-Image-L-String-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; map,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0})</span>
+            </dt>
+            <dd>Resamples an image with sub-pixel locations specified by a coordinate map. <a href="geometry.html#dip-ResampleAt-Image-CL-Image-CL-Image-L-String-CL-Image-Pixel-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL" class="m-doc">dip::<wbr />Skew</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shearArray,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Skews (shears) an image <a href="geometry.html#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL" class="m-doc">dip::<wbr />Skew</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> shear,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> skew,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Skews (shears) an image <a href="geometry.html#dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL" class="m-doc">dip::<wbr />Rotation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension2,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Rotates an image in one orthogonal plane, over the center of the image. <a href="geometry.html#dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Rotation2D-Image-CL-Image-L-dfloat--String-CL-String-CL" class="m-doc">dip::<wbr />Rotation2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Rotates a 2D image <a href="geometry.html#dip-Rotation2D-Image-CL-Image-L-dfloat--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Rotation3D-Image-CL-Image-L-dfloat--dip-uint--String-CL-String-CL" class="m-doc">dip::<wbr />Rotation3D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis = 2,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Rotates a 3D image in one orthogonal plane <a href="geometry.html#dip-Rotation3D-Image-CL-Image-L-dfloat--dip-uint--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Rotation3D-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL-String-CL" class="m-doc">dip::<wbr />Rotation3D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> alpha,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> beta,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS)</span>
+            </dt>
+            <dd>Applies an arbitrary 3D rotation to a 3D image <a href="geometry.html#dip-Rotation3D-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-RotationMatrix2D-Image-L-dfloat-" class="m-doc">dip::<wbr />RotationMatrix2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle)</span>
+            </dt>
+            <dd>Creates a 0D (one pixel) 2x2 matrix image containing a 2D rotation matrix. <a href="geometry.html#dip-RotationMatrix2D-Image-L-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-RotationMatrix3D-Image-L-dfloat--dfloat--dfloat-" class="m-doc">dip::<wbr />RotationMatrix3D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> alpha,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> beta,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma)</span>
+            </dt>
+            <dd>Creates a 0D (one pixel) 3x3 matrix image containing a 3D rotation matrix. <a href="geometry.html#dip-RotationMatrix3D-Image-L-dfloat--dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-RotationMatrix3D-Image-L-FloatArray-CL-dfloat-" class="m-doc">dip::<wbr />RotationMatrix3D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; vector,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle)</span>
+            </dt>
+            <dd>Creates a 0D (one pixel) 3x3 matrix image containing a 3D rotation matrix. <a href="geometry.html#dip-RotationMatrix3D-Image-L-FloatArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL" class="m-doc">dip::<wbr />AffineTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; matrix,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
+            </dt>
+            <dd>Applies an arbitrary affine transformation to the 2D or 3D image. <a href="geometry.html#dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL" class="m-doc">dip::<wbr />WarpControlPoints</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; inCoordinates,
+              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; outCoordinates,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
+            </dt>
+            <dd>Warps an image based on a set of control points using thin plate spline interpolation <a href="geometry.html#dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-LogPolarTransform2D-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />LogPolarTransform2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
+            </dt>
+            <dd>Computes the log-polar transform of the 2D image. <a href="geometry.html#dip-LogPolarTransform2D-Image-CL-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-" class="m-doc">dip::<wbr />Tile</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> tiling = {})</span>
+            </dt>
+            <dd>Tiles a set of images to form a single image. <a href="geometry.html#dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-TileTensorElements-Image-CL-Image-L" class="m-doc">dip::<wbr />TileTensorElements</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Tiles the tensor elements of <code>in</code> to produce a scalar image <a href="geometry.html#dip-TileTensorElements-Image-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />Concatenate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0)</span>
+            </dt>
+            <dd>Concatenates a set of images along one dimension. <a href="geometry.html#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-Concatenate-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />Concatenate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0)</span>
+            </dt>
+            <dd>Concatenates two images.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="geometry.html#dip-JoinChannels-ImageConstRefArray-CL-Image-L" class="m-doc">dip::<wbr />JoinChannels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Concatenates a set of scalar images along the tensor dimension. <a href="geometry.html#dip-JoinChannels-ImageConstRefArray-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="geometry.html#dip-SplitChannels-Image-CL" class="m-doc">dip::<wbr />SplitChannels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in) -&gt; <a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a></span>
+            </dt>
+            <dd>Splits the tensor elements of a tensor image into individual images. <a href="geometry.html#dip-SplitChannels-Image-CL">more...</a></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

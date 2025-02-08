@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::Kernel class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="infrastructure.html" class="m-doc">The library infrastructure</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--kernel-h.html">"diplib/kernel.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>Kernel <span class="m-thin">class</span>        </h1>
+        <p>Represents the shape and size of a filtering kernel.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <p>Some image filters allow the specification of arbitrary kernels: the user can specify the shape
+name and the size of a pre-defined kernel, or the user can pass an image containing the kernel.</p>
+<p>Objects of type <a href="dip-Image.html"><code>dip::Image</code></a>, <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> and <a href="supporttypes.html#dip-String"><code>dip::String</code></a> implicitly convert to
+a <code>dip::Kernel</code>, so it should be convenient to use these various representations in your
+code.</p>
+<p>To define a kernel by shape and size, pass a string defining the shape, and a floating-point
+array with the size along each dimension.
+These are the valid shape strings:</p>
+<ul>
+<li><code>"elliptic"</code>: The unit circle in Euclidean (L<sup>2</sup>) metric.</li>
+<li><code>"rectangular"</code>: A box, the unit circle in L<sup>1</sup> metric.</li>
+<li><code>"diamond"</code>: A box rotated 45 degrees, the unit circle in L<sup>&infin;</sup> metric (max-norm).</li>
+<li><code>"line"</code>: A one-pixel thick straight line.</li>
+</ul>
+<p>In the first three of these cases, the <code>size</code> array indicates the diameter of the circle. The value can
+be different along each dimension, simply stretching the shape. Note that the sizes are not
+necessarily odd, and don&rsquo;t even need to be integers. Pixels included in the neighborhood are
+those covered by the circle, with the origin on a pixel. In the case of the rectangle, however,
+the box is shifted by half a pixel if <code>floor(size)</code> is even. This means that the rectangular
+kernel is not necessarily symmetric. Set the <code>size</code> to odd values to ensure symmetry. Any
+size that is smaller or equal to 1 causes the kernel to not have an extent along that dimension.</p>
+<p>For the case of the <code>"line"</code> kernel, the <code>size</code> array gives the size of the bounding box (rounded to
+the nearest integer), as well as the direction of the line. A negative value for one dimension means
+that the line runs from high to low along that dimension. The line will always run from one corner of
+the bounding box to the opposite corner, and run through the origin.</p>
+<p>To define a kernel through an image, provide a scalar binary image. The &ldquo;on&rdquo; or &ldquo;true&rdquo; pixels form
+the kernel. Note that, for most filters, the image is directly used as neighborhood (i.e. no
+mirroring is applied). As elsewhere, the origin of the kernel is in the middle of the image,
+and on the pixel to the right of the center in case of an even-sized image. If the image
+is a scalar grey-value image, then all pixels with a finite value form the kernel. The kernel then
+has the given weights associated to each pixel. After calling <a href="dip-Kernel.html#dip-Kernel-IgnoreZeros"><code>dip::Kernel::IgnoreZeros</code></a>, all pixels
+with a finite, non-zero value form the kernel.</p>
+<p>See dip::StructuringElement, dip::NeighborList, dip::PixelTable</p>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+                              <dt id="dip-Kernel-Kernel">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Kernel-Kernel" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>The default kernel is a disk with a diameter of 7 pixels.</dd>
+                              <dt id="dip-Kernel-Kernel-String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Kernel-Kernel-String-CL" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape)</span>
+            </dt>
+            <dd>A string implicitly converts to a kernel, it is interpreted as a shape.</dd>
+                              <dt id="dip-Kernel-Kernel-FloatArray--String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Kernel-Kernel-FloatArray--String-CL" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> params,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC)</span>
+            </dt>
+            <dd>A <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> implicitly converts to a kernel, it is interpreted as the
+parameter for each dimension. A second argument specifies the shape.</dd>
+                              <dt id="dip-Kernel-Kernel-dfloat--String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Kernel-Kernel-dfloat--String-CL" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> param,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC)</span>
+            </dt>
+            <dd>A floating-point value implicitly converts to a kernel, it is interpreted as the
+parameter for all dimensions. A second argument specifies the shape.</dd>
+                              <dt id="dip-Kernel-Kernel-ShapeCode--FloatArray-">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Kernel-Kernel-ShapeCode--FloatArray-" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap"><a href="dip-Kernel.html#dip-Kernel-ShapeCode" class="m-doc">dip::Kernel::ShapeCode</a> shape,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> params)</span>
+            </dt>
+            <dd>Low-level constructor mostly for internal use.</dd>
+                              <dt id="dip-Kernel-Kernel-Image-">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Kernel-Kernel-Image-" class="m-doc-self">Kernel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> image)</span>
+            </dt>
+            <dd>An image implicitly converts to a kernel, optionally with weights.</dd>
+            </dl>
+        </section>
+        <section id="enum-members">
+          <h2>Enums</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Kernel-ShapeCode" class="m-doc-self">ShapeCode</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Kernel-ShapeCode-RECTANGULAR" class="m-doc">RECTANGULAR</a>,
+              <a href="#dip-Kernel-ShapeCode-ELLIPTIC" class="m-doc">ELLIPTIC</a>,
+              <a href="#dip-Kernel-ShapeCode-DIAMOND" class="m-doc">DIAMOND</a>,
+              <a href="#dip-Kernel-ShapeCode-LINE" class="m-doc">LINE</a>,
+              <a href="#dip-Kernel-ShapeCode-LEFT_LINE" class="m-doc">LEFT_LINE</a>,
+              <a href="#dip-Kernel-ShapeCode-CUSTOM" class="m-doc">CUSTOM</a> }</span>
+            </dt>
+            <dd>Possible shapes of a kernel</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Kernel-Shift-IntegerArray-" class="m-doc">Shift</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> shift)</span>
+            </dt>
+            <dd>Shifts the kernel by the given amount along each of the axes. <a href="#dip-Kernel-Shift-IntegerArray-">more...</a></dd>
+                          <dt id="dip-Kernel-Shift-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-Shift-C" class="m-doc-self">Shift</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp;</span>
+            </dt>
+            <dd>Retrieves the amount that the is shifted.</dd>
+                          <dt id="dip-Kernel-Mirror">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Kernel-Mirror" class="m-doc-self">Mirror</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Mirrors the kernel. This has no effect on elliptic or diamond kernels, which are always symmetric.</dd>
+                          <dt id="dip-Kernel-IsMirrored-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-IsMirrored-C" class="m-doc-self">IsMirrored</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>True if kernel is mirrored</dd>
+                          <dt id="dip-Kernel-IgnoreZeros">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Kernel-IgnoreZeros" class="m-doc-self">IgnoreZeros</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Causes zeros in the kernel image to be ignored when creating a <a href="dip-PixelTable.html"><code>dip::PixelTable</code></a>.</dd>
+                          <dt id="dip-Kernel-PixelTable-dip-uint--dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-PixelTable-dip-uint--dip-uint--C" class="m-doc-self">PixelTable</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim) const -&gt; <a href="dip-PixelTable.html" class="m-doc">dip::PixelTable</a></span>
+            </dt>
+            <dd>Creates a <a href="dip-PixelTable.html"><code>dip::PixelTable</code></a> structure representing the shape of the kernel, given the dimensionality
+<code>nDim</code>. Pixel table runs will be along dimension <code>procDim</code>.</dd>
+                          <dt id="dip-Kernel-Sizes-dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-Sizes-dip-uint--C" class="m-doc-self">Sizes</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Retrieves the size of the kernel, adjusted to an image of size <code>imsz</code>. When computing required
+boundary extension, use <code>Boundary</code> instead.</dd>
+                          <dt id="dip-Kernel-Boundary-dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-Boundary-dip-uint--C" class="m-doc-self">Boundary</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Returns the size of the boundary extension along each dimension that is necessary to accommodate the
+kernel on the edge pixels of the image, given an image of size <code>imsz</code>.</dd>
+                          <dt id="dip-Kernel-Params-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-Params-C" class="m-doc-self">Params</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the kernel parameters, not adjusted to image dimensionality.</dd>
+                          <dt id="dip-Kernel-Shape-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-Shape-C" class="m-doc-self">Shape</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Kernel.html#dip-Kernel-ShapeCode" class="m-doc">dip::Kernel::ShapeCode</a> const&amp;</span>
+            </dt>
+            <dd>Returns the kernel shape</dd>
+                          <dt id="dip-Kernel-ShapeString-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-ShapeString-C" class="m-doc-self">ShapeString</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Returns the kernel shape</dd>
+                          <dt id="dip-Kernel-IsRectangular-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-IsRectangular-C" class="m-doc-self">IsRectangular</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the kernel is rectangular</dd>
+                          <dt id="dip-Kernel-IsLine-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-IsLine-C" class="m-doc-self">IsLine</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the kernel is a line</dd>
+                          <dt id="dip-Kernel-IsCustom-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-IsCustom-C" class="m-doc-self">IsCustom</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the kernel is a custom shape</dd>
+                          <dt id="dip-Kernel-HasWeights-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-HasWeights-C" class="m-doc-self">HasWeights</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the kernel has weights</dd>
+                          <dt id="dip-Kernel-HasComplexWeights-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-HasComplexWeights-C" class="m-doc-self">HasComplexWeights</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests to see if the kernel has complex weights</dd>
+                          <dt id="dip-Kernel-NumberOfPixels-dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Kernel-NumberOfPixels-dip-uint--C" class="m-doc-self">NumberOfPixels</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of pixels in the kernel, given the image dimensionality <code>nDims</code>.
+This requires the creation of a <a href="dip-PixelTable.html"><code>dip::PixelTable</code></a> for the kernel, so is not a trivial function.</dd>
+          </dl>
+        </section>
+        <section>
+            <h2>Enum documentation</h2>
+                          <section class="m-doc-details" id="dip-Kernel-ShapeCode"><div>
+            <h3>
+              enum class <span class="m-doc-name"><a href="#dip-Kernel-ShapeCode" class="m-doc-self">ShapeCode</a></span>: uint8            </h3>
+            <p>Possible shapes of a kernel</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Kernel-ShapeCode-RECTANGULAR" class="m-doc-self" id="dip-Kernel-ShapeCode-RECTANGULAR">RECTANGULAR</a></span> = 0</td>
+                  <td>
+                  A rectangular kernel, the user will use the string <code>"rectangular"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Kernel-ShapeCode-ELLIPTIC" class="m-doc-self" id="dip-Kernel-ShapeCode-ELLIPTIC">ELLIPTIC</a></span> = 1</td>
+                  <td>
+                  An elliptical (or circular) kernel, corresponding to the string <code>"elliptic"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Kernel-ShapeCode-DIAMOND" class="m-doc-self" id="dip-Kernel-ShapeCode-DIAMOND">DIAMOND</a></span> = 2</td>
+                  <td>
+                  A diamond-shaped kernel, corresponding to the string <code>"diamond"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Kernel-ShapeCode-LINE" class="m-doc-self" id="dip-Kernel-ShapeCode-LINE">LINE</a></span> = 3</td>
+                  <td>
+                  A thin straight line, corresponding to the string <code>"line"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Kernel-ShapeCode-LEFT_LINE" class="m-doc-self" id="dip-Kernel-ShapeCode-LEFT_LINE">LEFT_LINE</a></span> = 4</td>
+                  <td>
+                  The same as <a href="dip-Kernel.html#dip-Kernel-ShapeCode-LINE"><code>dip::Kernel::ShapeCode::LINE</code></a>, but the origin is placed at the leftmost end of the line.
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Kernel-ShapeCode-CUSTOM" class="m-doc-self" id="dip-Kernel-ShapeCode-CUSTOM">CUSTOM</a></span> = 5</td>
+                  <td>
+                  The kernel shape and weights are given by an image.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-Kernel-Shift-IntegerArray-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-Kernel-Shift-IntegerArray-" class="m-doc-self">Shift</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> shift</span>)            </h3>
+            <p>Shifts the kernel by the given amount along each of the axes.</p>
+<p>Note that the shift is only used when converting the kernel to a pixel table. Some algorithms
+will ignore the shift for some kernel shapes.</p>
+<p>The shift if not cumulative, any previous shift is ignored. Any mirroring is applied after the
+shift, whether <code>Mirror</code> is called before or after calling <code>Shift</code>.</p>
+<p>Big shifts can be very expensive, it is recommended to use this feature only for shifting by one pixel
+to adjust the location of even-sized kernels.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

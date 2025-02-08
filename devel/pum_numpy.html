@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PyDIP User Manual &raquo; Combining PyDIP with NumPy | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="pum_display.html" />
+  <link rel="next" href="pum_dipjavaio.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Combining <em>PyDIP</em> with <em>NumPy</em>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#pum_numpy_numpy">Images and <em>NumPy</em> arrays</a></li>
+            <li><a href="#pum_numpy_dimension_ordering">Dimension ordering</a></li>
+            <li><a href="#pum_numpy_tensor_dimension">The tensor dimension</a></li>
+            <li><a href="#pum_numpy_function">Calling PyDIP functions with an array as output</a></li>
+          </ul>
+        </div>
+<p>The <code>dip.Image</code> object uses the Python buffer protocol, which makes it very easy to mix
+<em>PyDIP</em> with <em>NumPy</em> and other image processing packages such as <em>scikit-image</em> or <em>OpenCV</em>,
+which use <em>NumPy</em> arrays to represent their images.</p>
+<h2 id="pum_numpy_numpy">Images and <em>NumPy</em> arrays</h2>
+<p>A <em>NumPy</em> array can be passed instead of an image to any <em>DIPlib</em> function. In fact, any Python object
+that uses the buffer interface implicitly casts to an image. The reverse is also true: <em>NumPy</em> treats
+<em>DIPlib</em> images as an array, you can call any <em>NumPy</em> function on an image. However, some code that
+accepts a <em>NumPy</em> array calls methods of the array, which would not be defined for a <em>DIPlib</em> image.
+For example,</p>
+<div class="m-code"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>          <span class="c1"># OK</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">((</span><span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>              <span class="c1"># OK</span>
+<span class="n">img</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>                 <span class="c1"># error! np.array method not defined for dip.Image</span>
+<span class="n">img</span><span class="o">.</span><span class="n">shape</span>                 <span class="c1"># error! np.array property not defined for dip.Image</span>
+</pre></div>
+
+<p>One can &ldquo;cast&rdquo; from a <em>NumPy</em> array to a <em>DIPlib</em> image and back, without copying the data:</p>
+<div class="m-code"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+<p>The image and the array point to the same memory in these two cases: modifying values in the one cause
+the other to see the modified values as well.</p>
+<p>Note that we used <code>np.asarray()</code>, not <code>np.array()</code>. The latter would have copied the data, unless the
+<code>copy</code> argument is set to <code>False</code>: <code>np.array(img, copy=False)</code> is the same as <code>np.asarray(img)</code>.</p>
+<h2 id="pum_numpy_dimension_ordering">Dimension ordering</h2>
+<p>But do note the different interpretation of dimensions and ranges in <em>NumPy</em> and <em>PyDIP</em>, see <a href="pum_indexing.html">Indexing</a>:</p>
+<ol>
+<li><em>DIPlib</em> reverses the dimensions from how they are treated by <em>NumPy</em>, with the first index being the <em>x</em>
+    coordinate, the second <em>y</em>, etc. In <em>NumPy</em>, and consequently in libraries such as <em>scikit-image</em> or <em>OpenCV</em>,
+    the <em>x</em> coordinate is always the last index.</li>
+<li>Ranges are always inclusive: <code>img[0:10]</code> represents 11 samples in <em>DIPlib</em>, not 10 as in <em>NumPy</em>,
+   because <code>img[10]</code> is part of the range.</li>
+</ol>
+<p>Thus, the following indexing operations are identical:</p>
+<div class="m-code"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="n">img</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+<p>By reversing the indexing, we map an image with normal strides to an array in <em>NumPy</em>&rsquo;s standard C-ordering.
+The following evaluates to <code>True</code>:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="p">)</span><span class="o">.</span><span class="n">HasNormalStrides</span><span class="p">()</span>
+</pre></div>
+
+<p>When using a <em>NumPy</em> array as an image in a <em>DIPlib</em> function, it is implicitly cast to a <code>dip.Image</code>
+object as above, and passed to the <em>DIPlib</em> function. This means that, whether the input is a <em>NumPy</em>
+array or a <em>DIPlib</em> image, other function parameters that identify dimensions are always interpreted
+in the same way. For example, the filter sizes are ordered (x, y, z), not (z, y, x) as they would be
+ordered in <em>scikit-image</em> or other Python imaging libraries.</p>
+<p>By calling <code>dip.ReverseDimensions()</code> (which one should do only directly after loading the <code>diplib</code>
+module to avoid confusing results), <em>PyDIP</em> is configured to reverse dimensions of all <em>DIPlib</em> images.
+This means that the <em>NumPy</em> indexing order will be preserved, images will be indexed as <code>img[z,y,x]</code>.
+This has several surprising results, for example the direction of all angles is reversed, with
+positive angles being counter-clockwise instead of clockwise. This option is intended to make it
+easier to mix <em>DIPlib</em> functions into code that also uses e.g. <em>scikit-image</em>.</p>
+<h2 id="pum_numpy_tensor_dimension">The tensor dimension</h2>
+<p>When casting a tensor image to a <em>NumPy</em> array, the tensor dimension will become the last array dimension.
+When casting a <em>NumPy</em> array to a <em>DIPlib</em> image, there is no information about which dimension, if
+any, is the tensor dimension. By default, the following heuristic is used: if the array has more than
+two dimensions, and if the smaller of the last or the first array dimension has no more than 4 elements,
+then that dimension will be the tensor dimension. The tensor will have a column vector shape (this is the
+default tensor shape in <em>DIPlib</em>). The threshold of 4 was picked because it will handle correctly all color
+images. This threshold can be adjusted using <code>dip.SetTensorConversionThreshold()</code>. If set to 0, all arrays
+will be converted to a scalar image.</p>
+<p>For example, here <code>img</code> is a 2D image of 11x10 pixels, and three samples per pixel:</p>
+<div class="m-code"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+<p>The <code>dip.Image()</code> constructor with a <em>NumPy</em> array as input takes an optional argument that determines
+which axis, if any, is the tensor dimension. Add <code>None</code> to force a scalar output image:</p>
+<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">img3</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">tensor_axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+<p>Here, <code>img2</code> is a 3D scalar image, and <code>img3</code> is a 3D image with 3x11 pixels, and 10 samples per pixel.</p>
+<p>If the <em>NumPy</em> array represents a color image, you will have to explicitly set this information in
+the new <code>dip.Image</code> object:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="o">.</span><span class="n">SetColorSpace</span><span class="p">(</span><span class="s1">&#39;sRGB&#39;</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="pum_numpy_function">Calling PyDIP functions with an array as output</h2>
+<p>The <code>out</code> keyword argument to <em>PyDIP</em> functions is easier to use with a <code>dip.Image</code> object than with a <code>np.array</code>
+object. When passing in an image object, the image can be reforged (meaning its data segment can be reallocated,
+changing the size, number of tensor elements, and/or data type). The same is not true for an input of a different
+type, which will be converted to a protected <code>dip.Image</code> object (see <a href="dip-Image.html#protect">The &ldquo;protect&rdquo; flag</a>).
+This means that it must have the right sizes to receive the output of the function.</p>
+<div class="m-code"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>  <span class="c1"># error! the output has the wrong sizes, and cannot be reforged</span>
+</pre></div>
+
+<p>This will raise a <code>dip.ParameterError</code>: &ldquo;Image is protected&rdquo;. We need to make the array have the right sizes
+for this to work:</p>
+<div class="m-code"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">img</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">img</span><span class="o">.</span><span class="n">Size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">img</span><span class="o">.</span><span class="n">TensorElements</span><span class="p">()))</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+
+<p>Note that the filter is computed in the output type, 64-bit float in this case.</p>
+<p>This is most useful to work in-place, where the feature is easy to use:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pum_display.html" class="m-doc">&laquo; Displaying Images</a> | <a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a> | <a href="pum_dipjavaio.html" class="m-doc"><em>DIPjavaio</em>, or how to use <em>Bio-Formats</em> &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

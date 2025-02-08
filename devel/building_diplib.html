@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Building | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          Building
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#building_summary">Building the <em>DIPlib</em> project</a></li>
+            <li><a href="#linking_diplib">Linking against the <em>DIPlib</em> library</a></li>
+          </ul>
+        </div>
+<h2 id="building_summary">Building the <em>DIPlib</em> project</h2>
+<p>To build <em>DIPlib</em> you will need a C++14 compliant compiler and <em>CMake</em>.
+See <a href="build_dependencies.html">Dependencies</a> for optional dependencies that you can install to
+improve your <em>DIPlib</em> experience.</p>
+<p>A single <em>CMake</em> project builds the <em>DIPlib</em> library, <em>DIPviewer</em>, <em>DIPjavaio</em>, the <em>DIPimage</em> toolbox,
+and the <em>PyDIP</em> package, as well as these documentation pages. In short,</p>
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>&lt;path_to_diplib_repository&gt;
+make<span class="w"> </span>-j<span class="w"> </span>check<span class="w">         </span><span class="c1"># will build DIPlib and PyDIP, and run their unit tests</span>
+make<span class="w"> </span>-j<span class="w"> </span>install<span class="w">       </span><span class="c1"># will install DIPlib and DIPimage</span>
+make<span class="w"> </span>-j<span class="w"> </span>pip_install<span class="w">   </span><span class="c1"># will install PyDIP</span>
+</pre></div>
+
+<p>For a full list of targets and <em>CMake</em> configuration options, see <a href="building_cmake.html"><em>CMake</em> configuration</a>.</p>
+<p>It is also possible to build the <em>PyDIP</em> project separately, using a previously installed <em>DIPlib</em> library,</p>
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>&lt;path_to_diplib_repository&gt;/pydip/
+make<span class="w"> </span>-j<span class="w"> </span>check<span class="w">         </span><span class="c1"># will build PyDIP, and run its unit tests</span>
+make<span class="w"> </span>-j<span class="w"> </span>pip_install<span class="w">   </span><span class="c1"># will install PyDIP</span>
+</pre></div>
+
+<p>The following are step-by-step build instructions:</p>
+<ol>
+<li><a href="building_linux.html">Building the <em>DIPlib</em> project on Linux</a></li>
+<li><a href="building_macos.html">Building the <em>DIPlib</em> project on macOS</a></li>
+<li><a href="building_windows.html">Building the <em>DIPlib</em> project on Windows</a></li>
+<li><a href="building_documentation.html">Building the <em>DIPlib</em> documentation</a></li>
+</ol>
+<h2 id="linking_diplib">Linking against the <em>DIPlib</em> library</h2>
+<p>When writing a program that depends on <em>DIPlib</em> (or <em>DIPviewer</em> and/or <em>DIPjavaio</em>), the simplest solution
+usually is to include its repository as a subproject, and in your <em>CMake</em> file do <code>add_subdirectory(diplib)</code>.
+You then have the <code>DIP</code>, <code>DIPviewer</code> and <code>DIPjavaio</code> targets available (if configured correctly).</p>
+<p>Alternatively you can use the installed <em>DIPlib</em> libraries. When using <em>CMake</em>, simply do
+<code>find_package(DIPlib)</code>, then link against the imported <code>DIPlib::DIP</code>, <code>DIPlib::DIPviewer</code> and/or <code>DIPlib::DIPjavaio</code>
+targets. See the <a href="https://github.com/DIPlib/diplib/blob/master/examples/independent_project/CMakeLists.txt">example <em>CMake</em> script</a>.</p>
+<p>When using <em>CMake</em> in either of the ways above, it will automatically add the relevant include directories,
+set the required compilation flags, and define the required macros by just linking to the relevant targets.</p>
+<p>If you do not use <em>CMake</em>, there are several macros that you should define when building any program
+that links against <em>DIPlib</em>:</p>
+<ul>
+<li>
+<p>If <em>DIPlib</em> was build with the <code>DIP_SHARED_LIBRARY</code> flag not set, then you need to define the <code>DIP_CONFIG_DIP_IS_STATIC</code>
+macro when compiling the code that links against it. Likewise, if the <code>DIP_ALWAYS_128_PRNG</code> flag was set,
+then you must define a <code>DIP_CONFIG_ALWAYS_128_PRNG</code> macro when compiling your program. Mismatching this flag
+could cause your program to not link, or worse, crash at runtime.</p>
+</li>
+<li>
+<p>The following flags do not need to be matched, but they should be if you want the inline functions to behave
+the same as the pre-compiled ones:</p>
+<ul>
+<li>If the flag <code>DIP_ENABLE_STACK_TRACE</code> is set, define the macro <code>DIP_CONFIG_ENABLE_STACK_TRACE</code>.</li>
+<li>If the flag <code>DIP_ENABLE_ASSERT</code> is set, define the macro <code>DIP_CONFIG_ENABLE_ASSERT</code>.</li>
+</ul>
+</li>
+<li>
+<p>If your compiler supports <code>__PRETTY_FUNCTION__</code>, set the macro <code>DIP_CONFIG_HAS_PRETTY_FUNCTION</code> to
+get better stack traces.</p>
+</li>
+<li>
+<p>For <em>DIPviewer</em>, if <code>DIP_SHARED_LIBRARY</code> was not set, define the <code>DIP_CONFIG_DIPVIEWER_IS_STATIC</code> macro.
+Also define <code>DIP_CONFIG_HAS_FREEGLUT</code> or <code>DIP_CONFIG_HAS_GLFW</code> depending on which back-end is used.</p>
+</li>
+<li>
+<p>For <em>DIPjavaio</em>, if <code>DIP_SHARED_LIBRARY</code> was not set, define the <code>DIP_CONFIG_DIPJAVAIO_IS_STATIC</code> macro.
+Also define <code>DIP_CONFIG_HAS_DIPJAVAIO</code> for the function <code>dip::ImageRead</code> to be able to make use of it.</p>
+</li>
+</ul>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

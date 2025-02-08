@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::Framework::ProjectionFunction class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="frameworks.html" class="m-doc">Frameworks</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--framework-h.html">"diplib/framework.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span><span class="m-breadcrumb"><a href="dip-Framework.html">Framework</a>::<wbr/></span>ProjectionFunction <span class="m-thin">class</span>        </h1>
+        <p>Prototype line filter for <a href="frameworks.html#dip-Framework-Projection-Image-CL-Image-CL-Image-L-DataType--BooleanArray--ProjectionFunction-L-ProjectionOptions-"><code>dip::Framework::Projection</code></a>.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <p>An object of a class derived from <code>ProjectionFunction</code> must be passed to the projection framework. The derived
+class can be a template class, such that the line filter is overloaded for each possible pixel data type.</p>
+<p>A derived class can have data members that hold parameters to the projection function, that hold output values,
+or that hold intermediate buffers. The <code>SetNumberOfThreads</code> method is
+called once before any processing starts. This is a good place to allocate space for temporary buffers,
+such that each threads has its own buffers to write in. Note that this function is called even if
+<a href="frameworks.html#dip-Framework-ProjectionOption-NoMultiThreading"><code>dip::Framework::ProjectionOption::NoMultiThreading</code></a> is given, or if the library is compiled without multi-threading.</p>
+<p>The <code>GetNumberOfOperations</code> method is called to determine if it is worthwhile to start worker threads and
+perform the computation in parallel. This function should not perform any other tasks, as it is not
+guaranteed to be called. It is not important that the function be very precise, see <a href="design.html#design_multithreading">Multithreading</a>.</p>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+                              <dt id="dip-Framework-ProjectionFunction-~ProjectionFunction">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Framework-ProjectionFunction-~ProjectionFunction" class="m-doc-self">~ProjectionFunction</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>A virtual destructor guarantees that we can destroy a derived class by a pointer to base</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt id="dip-Framework-ProjectionFunction-Project-Image-CL-Image-CL-Image-Sample-L-dip-uint-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ProjectionFunction-Project-Image-CL-Image-CL-Image-Sample-L-dip-uint-" class="m-doc-self">Project</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image-Sample.html" class="m-doc">dip::Image::Sample</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> thread) <span class="m-label m-flat m-warning">pure virtual</span></span>
+            </dt>
+            <dd>The filter to be applied to each sub-image, which fills out a single sample in <code>out</code>.
+The <code>out</code> sample is of the <code>outImageType</code> type requested in the call to <code>Projection</code>.</dd>
+                          <dt id="dip-Framework-ProjectionFunction-SetNumberOfThreads-dip-uint-">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-ProjectionFunction-SetNumberOfThreads-dip-uint-" class="m-doc-self">SetNumberOfThreads</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> threads) <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>The derived class can define this function if it needs this information ahead of time.</dd>
+                          <dt id="dip-Framework-ProjectionFunction-GetNumberOfOperations-dip-uint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-ProjectionFunction-GetNumberOfOperations-dip-uint-" class="m-doc-self">GetNumberOfOperations</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nPixels) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>The derived class can define this function for helping to determine whether to compute
+in parallel or not. It must return the number of clock cycles per sub-image. The default is valid for
+a trivial projection operation such as max or mean.</dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

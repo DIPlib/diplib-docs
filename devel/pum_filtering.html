@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PyDIP User Manual &raquo; Filtering | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="pum_tensor_images.html" />
+  <link rel="next" href="pum_measurement.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Filtering
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#pum_filtering_example">A simple example</a></li>
+            <li><a href="#pum_filtering_outarg">The <code>out</code> argument</a></li>
+            <li><a href="#pum_filtering_protect">The protect flag</a></li>
+            <li><a href="#pum_filtering_color">Filtering color images</a></li>
+          </ul>
+        </div>
+<p>This section goes into details on using <em>PyDIP</em> functions.</p>
+<p>To find a function in the documentation, type <strong class="m-label m-warning">T</strong> here (or click the
+search icon at the top of the page) to bring up a search dialog box. There you can search for
+functions, modules and pages by name. For example, typing &ldquo;watershed&rdquo; in the search box
+will point you to a series of functions related to the watershed.</p>
+<p>The signature of functions are mostly the same in the Python package as they are in the C++ library.
+Most <em>DIPlib</em> types exist in <em>PyDIP</em> as well, but a few types are translated to Python types,
+see <a href="pum_differences.html#pum_differences_correspondences">Type correspondences</a>.</p>
+<p>Most <em>DIPlib</em> functions have two function signatures, the documentation will always list only
+one of them. The difference is the parameter called <code>out</code>, if it&rsquo;s an image. There is a second
+function signature where this parameter is left out, and the function returns the output image.
+This alternative function signature is usually easier to use, and most example <em>PyDIP</em> code
+will use it.</p>
+<h2 id="pum_filtering_example">A simple example</h2>
+<p>Let&rsquo;s look at that watershed example. First look at the documentation for <a href="segmentation.html#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-"><code>dip::Watershed</code></a>.
+The function has three image arguments: <code>in</code>, <code>mask</code> and <code>out</code>. We can make <code>out</code> be the output
+argument. An image called <code>mask</code> is always a binary image, and usually optional (even if the
+documentation doesn&rsquo;t say so explicitly as in this case). We can pass <code>None</code> to represent
+&ldquo;no image&rdquo; (where in C++ you&rsquo;d use a raw image).</p>
+<p>So we can call it with:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ImageRead</span><span class="p">(</span><span class="s1">&#39;examples/cermet&#39;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Watershed</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">maxDepth</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+
+<p>But <code>None</code> in this case is the default for the <code>mask</code> argument, so we can simplify further as</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Watershed</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">maxDepth</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+
+<p>The default values are always the same as they are in the documentation.</p>
+<h2 id="pum_filtering_outarg">The <code>out</code> argument</h2>
+<p>Sometimes you want an operation to write its output in a pre-allocated buffer. This is when the
+<code>out</code> input argument is useful:</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">Sizes</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;BIN&quot;</span><span class="p">)</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Watershed</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">maxDepth</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+
+<p>Here, <code>dip.Watershed()</code> can write its output in the existing <code>out</code> image, and will not reforge it
+(reallocate its data segment) or change its properties.</p>
+<p>But in principle it is not necessary to get the properties right. If the image passed for <code>out</code>
+has the wrong sizes, number of tensor elements or data type, then it will be reforged to be
+correct:</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;SINT32&quot;</span><span class="p">)</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Watershed</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">maxDepth</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>  <span class="c1"># will show how the image now is 256x256, scalar and binary</span>
+</pre></div>
+
+<h2 id="pum_filtering_protect">The protect flag</h2>
+<p>When a function is able to reforge the <code>out</code> image, it is not always clear why we should bother
+with it. Can we ever be sure that the image will not be reforged? Yes! We can protect the
+data segment, preventing the image from being reforged.</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;SINT32&quot;</span><span class="p">)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">Protect</span><span class="p">()</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Watershed</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">maxDepth</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>  <span class="c1"># raises an exception, because the result cannot be written into out</span>
+</pre></div>
+
+<p>The protect flag is useful when an image encapsulates data from a different source, and we want to
+ensure we overwrite that data.</p>
+<p>It is also useful to change the output data type of a filter.
+For example, <a href="linear.html#dip-Gauss-Image-CL-Image-L-FloatArray--UnsignedArray--String-CL-StringArray-CL-dfloat-"><code>dip::Gauss</code></a> will produce a single-precision floating-point image as output by default.
+But we can force it to produce an output of a different type:</p>
+<div class="m-code"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span>
+<span class="n">out</span><span class="o">.</span><span class="n">SetDataType</span><span class="p">(</span><span class="s1">&#39;UINT8&#39;</span><span class="p">)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">Protect</span><span class="p">()</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+<p>Here, <code>out</code> was not forged (we never gave sizes, we only specified the data type). But by setting the
+protect flag, we indicated to <code>dip.Gauss()</code> not to change its data type, forcing the function to
+produce a 8-bit unsigned integer output.</p>
+<p>Finally, the protect flag is useful to have a function work in-place. For example:</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+<p>Without protecting <code>img</code>, <code>dip.Gauss</code> will reforge its output image, meaning that <code>img</code> is now
+an <code>'SFLOAT'</code> image, no longer a <code>'UINT8'</code> as it was before calling the function. The filter didn&rsquo;t work
+in place, it reforged <code>img</code> after keeping a reference to the original data segment to be used as input
+to the computation. But if we protect the image before applying the filter, this is no longer the case:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="o">.</span><span class="n">Protect</span><span class="p">()</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Gauss</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">img</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Protect</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>     <span class="c1"># reset the protect flag</span>
+</pre></div>
+
+<p>In this case, <code>img</code> is not reforged, and the filter works in-place. <code>img</code> still points to the same
+data segment as it did before the filter was applied.</p>
+<p>Note that some functions cannot work in-place. If they receive the same image as input and output,
+they will first copy the input data before doing the computations that write to the output. To the
+user it looks like the operation is working in-place, but in reality there&rsquo;s a temporary copy being made.</p>
+<h2 id="pum_filtering_color">Filtering color images</h2>
+<p>With some functions, like <code>dip.Gauss()</code>, we can process color images normally. However, many functions
+require a scalar (gray-scale) image as input. This is mostly the case for functions where it doesn&rsquo;t
+make sense to work on color (for example <code>dip.Watershed()</code>), or where the operation is ambiguous on
+color (for example <code>dip.Dilation()</code>). We&rsquo;ll use this latter function as an example.</p>
+<p>Let&rsquo;s start with an example color image:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ImageRead</span><span class="p">(</span><span class="s1">&#39;examples/DIP.tif&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="The DIP image" class="m-image" src="basics-9.png"></p>
+<p>If we try to apply a dilation to this image, we get an exception:</p>
+<div class="m-code"><pre><span></span><span class="n">se</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">SE</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">)</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">Dilation</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="n">se</span><span class="p">)</span>  <span class="c1"># raises exception with text &quot;Image is not scalar&quot;</span>
+</pre></div>
+
+<p>The dilation computes a local maximum, and the maximum over a set of RGB values is not uniquely defined,
+there&rsquo;s no unique, correct way to order colors (not in RGB space, not in any other color space).</p>
+<p>One approach is to apply the dilation to each channel independently:</p>
+<div class="m-code"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">Similar</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">TensorElements</span><span class="p">()):</span>
+    <span class="n">dip</span><span class="o">.</span><span class="n">Dilation</span><span class="p">(</span><span class="n">img</span><span class="p">(</span><span class="n">ii</span><span class="p">),</span> <span class="n">out</span><span class="o">=</span><span class="n">res</span><span class="p">(</span><span class="n">ii</span><span class="p">),</span> <span class="n">se</span><span class="o">=</span><span class="n">se</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="The filtered DIP image, false colors appeared" class="m-image" src="filtering-2.png"></p>
+<p>This is called &ldquo;marginal ordering&rdquo;, and can introduce new colors into the image. The maximum of yellow,
+sky blue and black apparently is pinkish.</p>
+<p>Another approach is to sort pixels on intensity only, or on some other property. Then the dilation picks
+the pixel that has the largest value of this property. For example, we can determine the distance to
+pure yellow, and sort pixels based on that value. <a href="nonlinear.html#dip-SelectionFilter-Image-CL-Image-CL-Image-L-Kernel-CL-dfloat--String-CL-StringArray-CL"><code>dip::SelectionFilter</code></a> is a dilation of sorts,
+it picks pixels from one image based on the intensities of another (scalar) image:</p>
+<div class="m-code"><pre><span></span><span class="n">select</span> <span class="o">=</span> <span class="o">-</span><span class="n">dip</span><span class="o">.</span><span class="n">Norm</span><span class="p">(</span><span class="n">img</span> <span class="o">-</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># negate the distance, so that yellow gets larger values</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">SelectionFilter</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">select</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="n">dip</span><span class="o">.</span><span class="n">Kernel</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;maximum&quot;</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p><img alt="The DIP image, with a meaningful dilation applied" class="m-image" src="filtering-3.png"></p>
+<p>Now we see that the yellow area has grown over the other colors, as one would expect for a dilation.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pum_tensor_images.html" class="m-doc">&laquo; Tensor images and color images</a> | <a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a> | <a href="pum_measurement.html" class="m-doc">Measurement &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

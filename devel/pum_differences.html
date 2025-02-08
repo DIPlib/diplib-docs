@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PyDIP User Manual &raquo; Differences from DIPlib | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="pum_dipjavaio.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> &raquo;</span>
+          Differences from <em>DIPlib</em>
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#pum_differences_correspondences">Type correspondences</a></li>
+            <li><a href="#pum_differences_indexing">Indexing into images</a></li>
+            <li><a href="#pum_differences_testing">Testing image validity</a></li>
+            <li><a href="#pum_differences_operators">Operators applied to images</a></li>
+            <li><a href="#pum_differences_display">Displaying images</a></li>
+          </ul>
+        </div>
+<p>This section has two functions: First, it helps understand how to translate the information
+in the function documentation to use those functions in Python. Second, it brings
+people up to speed that are familiar with <em>DIPlib</em> the C++ library.</p>
+<p>To find a function in the documentation, type <strong class="m-label m-warning">T</strong> here (or click the
+search icon at the top of the page) to bring up a search dialog box. There you can search for
+functions, modules and pages by name. For example, typing &ldquo;watershed&rdquo; in the search box
+will point you to a series of functions related to the watershed.</p>
+<p>A few classes and functions work differently than in C++, and are not explicitly named here.
+For these cases, the Python <code>help()</code> function should give you sufficient information to understand
+the differences. For all other cases, the <code>help()</code> function only gives an automatically-generated
+function signature and the brief documentation (the first paragraph of documentation for the function).
+Use the on-line documentation to learn more about the function. From within Python, type
+<code>dip.Doc('Gabor')</code> or <code>dip.Doc(dip.Gabor)</code> to open the relevant on-line documentation in your default
+web browser.</p>
+<h2 id="pum_differences_correspondences">Type correspondences</h2>
+<p>Most classes defined in <em>DIPlib</em> and used as input arguments to functions have
+a Python binding, with the following exceptions:</p>
+<ul>
+<li>
+<p><code>dip::DataType</code>: translated to/from a string, such as <code>'UINT8'</code> or <code>'SFLOAT'</code>.</p>
+</li>
+<li>
+<p><code>dip::Sample</code>: a scalar (a regular Python number).</p>
+</li>
+<li>
+<p><code>dip::Pixel</code>: a list of scalars.</p>
+</li>
+<li>
+<p><code>dip::Range</code>: a slice (<code>slice(0, 3, 1)</code>). Note that the second argument,
+  the end value, is interpreted differently by <em>DIPlib</em>: it is included in the range.
+  A scalar can also be translated to a range.</p>
+</li>
+<li>
+<p><code>dip::UnsignedArray</code>, <code>dip::FloatArray</code>, or similar: a Python list: <code>[5, 5]</code>.
+  A scalar is accepted as a one-element list.</p>
+</li>
+<li>
+<p><code>dip::StringArray</code>: a list of strings (<code>['foo', 'bar']</code>).</p>
+</li>
+<li>
+<p><code>dip::StringSet</code>: a set of strings (<code>{'foo', 'bar'}</code>).</p>
+</li>
+<li>
+<p><code>dip::VertexInteger</code> and <code>dip::VertexFloat</code>: a tuple or other enumerable.</p>
+</li>
+</ul>
+<p>Classes used only as output arguments, and not of the types described above, are either bound
+directly, or converted to a <code>namedtuple</code> if the class&rsquo; functionality is not useful within Python.
+All simple structs used as output arguments are treated this way.
+<code>dip::VertexInteger</code> and <code>dip::VertexFloat</code> are also named tuples.</p>
+<p>By using named arguments, it is quite simple to set only needed arguments, and
+leave all others with their default values. All arguments that have a default
+value in C++ have the same default value in Python.</p>
+<h2 id="pum_differences_indexing">Indexing into images</h2>
+<p>Indexing into a <code>dip.Image</code> object uses the same syntax as other array types in
+Python:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">img</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+<p>But the indexing follows <em>DIPlib</em>&rsquo;s rules:
+First, dimensions are ordered in reverse from how <em>NumPy</em> stores them
+(the first dimension is horizontal, or x). Second, the end index is included in the
+range. Third, all dimensions must be specified.</p>
+<p>In C++ <em>DIPlib</em>, square brackets index into the tensor dimensions, not the spatial dimensions.
+Use round brackets (parentheses) for this indexing in Python:</p>
+<div class="m-code"><pre><span></span><span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">img</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">img</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+<p>Indexing operations do not return a special view object, they directly return a <code>dip.Image</code> object.
+With regular indexing, this new object shares data with the original one.
+Irregular indexing using a mask image is also supported. This indexing
+returns a copy of the data, but an assignment form is also available:</p>
+<div class="m-code"><pre><span></span><span class="n">img2</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>  <span class="c1"># this copy does not share data with img</span>
+<span class="n">img2</span><span class="o">.</span><span class="n">Fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>      <span class="c1"># does not affect img</span>
+<span class="n">img</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># sets all pixels in mask to 0</span>
+</pre></div>
+
+<p>See <a href="pum_indexing.html">Indexing</a> for more details.</p>
+<h2 id="pum_differences_testing">Testing image validity</h2>
+<p>You can use either <code>IsForged()</code> or <code>IsEmpty()</code> to test if an image is forged.
+<code>IsEmpty()</code> is the opposite of <code>IsForged()</code>, and returns <code>True</code> if this image is not forged.</p>
+<p>An image in a Boolean context, such as <code>if image</code>, has the value of <code>IsForged()</code>. This means
+that the following two pieces of code are identical:</p>
+<div class="m-code"><pre><span></span><span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">IsForged</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image has data&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">image</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The image has data&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>Functions that expect an image interpret <code>None</code> as an empty (non-forged) image.</p>
+<h2 id="pum_differences_operators">Operators applied to images</h2>
+<p>Most operators have been overloaded to do what they do in C++:</p>
+<ul>
+<li>Arithmetic operators: <code>+</code>, <code>-</code>, <code>/</code>, <code>%</code>, and the unary <code>+</code> and <code>-</code>.</li>
+<li>Bit-wise logical operators: <code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>.</li>
+<li>Comparison operators: <code>&lt;</code>, <code>&lt;=</code>, <code>==</code>, <code>&gt;=</code>, <code>&gt;</code> and <code>!=</code>.</li>
+</ul>
+<p>Operators that work differently in Python and C++:</p>
+<ul>
+<li>Indexing operators: see <a href="pum_indexing.html">Indexing</a>.</li>
+<li>Multiplication operators: Python has both <code>*</code> and <code>@</code>. <code>@</code> behaves like <code>*</code> in C++. <code>*</code> is always the
+  element-wise multiplication.</li>
+<li>Exponentiation operator: Python has <code>**</code>, this doesn&rsquo;t exist in C++.</li>
+</ul>
+<p>For operators that have an in-place version (e.g. <code>+</code> has a <code>+=</code>), we have always overloaded the in-place
+version as well.</p>
+<p>Not overloaded are the integer division <code>//</code>, <code>del</code>, and the shift operators <code>&lt;&lt;</code> and <code>&gt;&gt;</code>. Logical operators
+<code>and</code>, <code>or</code> and <code>not</code> cannot be overloaded.</p>
+<p><code>len()</code> and <code>str()</code> have also been overloaded. <code>len(image)</code> returns the number of pixels (i.e. it is the same
+as <code>image.NumberOfPixels()</code> if the image is forged, or 0 otherwise). <code>str(image)</code> returns a string containing
+what you&rsquo;d see if you do <code>print(image)</code>.</p>
+<p>Note that operator chaining, where <code>x &lt; y &lt; z</code> is interpreted as <code>x &lt; y and y &lt; z</code>, does not work as expected
+with <em>DIPlib</em> images (in the same way it doesn&rsquo;t work with <em>NumPy</em> arrays). This expression, where <code>x</code> or <code>y</code>
+is an image, will evaluate to <code>y &lt; z</code>. This is because <code>and</code> here first evaluates its left-hand-side argument
+as a boolean expression. If <code>x</code> or <code>y</code> is an image, this will always evaluate as true, as described
+in <a href="pum_differences.html#pum_differences_testing">Testing image validity</a>. <code>and</code> will then evaluate to its right-hand-side argument, <code>y &lt; z</code>.</p>
+<h2 id="pum_differences_display">Displaying images</h2>
+<p>The class <code>dip.Image</code> has a method <code>Show()</code>. There is an identical function
+<code>dip.Show()</code>. They display an image to the current <em>matplotlib</em> window, if
+<em>matplotlib</em> is installed:</p>
+<div class="m-code"><pre><span></span><span class="kn">import</span> <span class="nn">diplib</span> <span class="k">as</span> <span class="nn">dip</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">ImageRead</span><span class="p">(</span><span class="s1">&#39;examples/trui.ics&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">Show</span><span class="p">()</span>
+</pre></div>
+
+<p>If <a href="dipviewer.html"><em>DIPviewer</em></a> is installed, its functionality will be in the <code>dip.viewer</code>
+namespace. Use <code>img.ShowSlice()</code> for convenience, it calls <code>dip.viewer.Show()</code>,
+meaning that <code>dip.viewer.Spin()</code> might be needed to interact with the created
+window.</p>
+<p><code>dip.Image.ShowSlice()</code> and <code>dip.viewer.Show()</code> have additional parameters
+that can be used to set viewing options. They also return an object that can
+be used for further interaction:</p>
+<div class="m-code"><pre><span></span><span class="n">wdw</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">ShowSlice</span><span class="p">(</span><span class="s1">&#39;Window title&#39;</span><span class="p">,</span> <span class="n">mapping</span><span class="o">=</span><span class="s1">&#39;unit&#39;</span><span class="p">,</span> <span class="n">lut</span><span class="o">=</span><span class="s1">&#39;sequential&#39;</span><span class="p">)</span>
+<span class="n">dip</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">Spin</span><span class="p">()</span>
+</pre></div>
+
+<p>See <a href="pum_display.html">Displaying Images</a> to learn more.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="pum_dipjavaio.html" class="m-doc">&laquo; <em>DIPjavaio</em>, or how to use <em>Bio-Formats</em></a> | <a href="pydip_user_manual.html" class="m-doc"><em>PyDIP</em> User Manual</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

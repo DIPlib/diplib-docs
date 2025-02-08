@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Building &raquo; Building the DIPlib project on Linux | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <link rel="prev" href="building_cmake.html" />
+  <link rel="next" href="building_macos.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="building_diplib.html">Building</a> &raquo;</span>
+          Building the <em>DIPlib</em> project on Linux
+        </h1>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li><a href="#linux_init">Installing build tools and dependencies on Ubuntu</a></li>
+            <li><a href="#linux_git">Cloning the repository</a></li>
+            <li><a href="#linux_build">Building</a></li>
+            <li><a href="#linux_bioformats">Enabling <em>Bio-Formats</em></a></li>
+            <li>
+              <a href="#linux_dipimage">Using <em>DIPimage</em></a>
+              <ul>
+                <li><a href="#linux_matlab_gcc"><em>MATLAB</em> and the <em>GCC</em> libraries</a></li>
+              </ul>
+            </li>
+            <li><a href="#linux_pydip">Using <em>PyDIP</em></a></li>
+          </ul>
+        </div>
+<p>Compiling <em>DIPlib</em> requires a few programs that often are not present on a bare Linux
+installation. It depends on your distribution how you can obtain these. Below we give
+instructions for Ubuntu.</p>
+<aside class="m-note m-info">
+<h4>TODO</h4>
+<p>Add instructions for other distros.</p>
+</aside>
+<p>See <a href="building_cmake.html"><em>CMake</em> configuration</a> for additional information on the build targets and <em>CMake</em> configuration options.</p>
+<p>Everything here requires a shell (such as Bash), which typically runs inside a terminal
+window. If you&rsquo;re using Linux we&rsquo;ll assume you know where to find this.</p>
+<h2 id="linux_init">Installing build tools and dependencies on Ubuntu</h2>
+<p>Type the following command in your shell:</p>
+<div class="m-code"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>git
+</pre></div>
+
+<p>This will install all the required tools. Depending on your version of Ubuntu, you might
+have a compiler that is too old to correctly build <em>DIPlib</em>. To see which version
+of <em>GCC</em> you have, type:</p>
+<div class="m-code"><pre><span></span>g++<span class="w"> </span>--version
+</pre></div>
+
+<p>You want to see at least version 5.4, but later versions would be better. If your
+version of <em>GCC</em> is older, you will need to manually install a newer version.</p>
+<p>If you want to compile <em>DIPviewer</em>, you need to install <code>freeglut</code> as well:</p>
+<div class="m-code"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>freeglut3-dev
+</pre></div>
+
+<p>To compile the documentation yourself (note that the compiled documentation can be found
+online), you need <em>dox++</em>. See <a href="building_documentation.html">Building the <em>DIPlib</em> documentation</a> for details.</p>
+<p>Finally, even if the <code>python3</code> program is already installed, you might need to
+install the <em>Python 3</em> header files and static library:</p>
+<div class="m-code"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-dev
+</pre></div>
+
+<h2 id="linux_git">Cloning the repository</h2>
+<p>Next, get the source repository from <em>GitHub</em>:</p>
+<div class="m-code"><pre><span></span>mkdir<span class="w"> </span>~/src
+<span class="nb">cd</span><span class="w"> </span>~/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DIPlib/diplib.git
+</pre></div>
+
+<p>This creates a directory <code>src/diplib</code> in your home directory. Feel free to use any other
+directory if you prefer.</p>
+<h2 id="linux_build">Building</h2>
+<p>To build, run <code>cmake</code> and <code>make</code> from a build directory:</p>
+<div class="m-code"><pre><span></span>mkdir<span class="w"> </span>~/src/diplib/target
+<span class="nb">cd</span><span class="w"> </span>~/src/diplib/target
+cmake<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="w"> </span>check
+make<span class="w"> </span>-j<span class="w"> </span>install
+</pre></div>
+
+<p>This will install to <code>/usr/local</code>. If you prefer to install elsewhere, change the
+<code>CMAKE_INSTALL_PREFIX</code>. For example:</p>
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>
+</pre></div>
+
+<p>This will install <em>DIPlib</em>, <em>DIPviewer</em>, <em>DIPjavaio</em>, <em>DIPimage</em> and the documentation
+under the <code>lib</code>, <code>include</code> and <code>share</code> directories in your home directory.</p>
+<p>Before running <code>make</code>, examine the output of <code>cmake</code> to verify all the features you need are enabled,
+and that your chosen dependencies were found. This is also a good moment to disable the features that
+you don&rsquo;t need. By default, everything will be build and installed, if the required external dependencies
+are found: you need <em>FreeGLUT</em> or <em>GLFW</em> for <em>DIPviewer</em>, a <em>Java JDK</em> for <em>DIPjavaio</em>, <em>Python</em> for <em>PyDIP</em>, and
+<em>MATLAB</em> for <em>DIPimage</em>. Add <code>-DDIP_BUILD_DIPVIEWER=Off</code>, <code>-DDIP_BUILD_JAVAIO=Off</code>, <code>-DDIP_BUILD_DIPIMAGE=Off</code>
+or <code>-DDIP_BUILD_PYDIP=Off</code> to your <em>CMake</em> command to turn the corresponding component off, if you don&rsquo;t
+need that component.</p>
+<p>See <a href="building_cmake.html#cmake_variables"><em>CMake</em> variables</a> for a summary of all the <em>CMake</em> options to manually specify paths and configure your build.</p>
+<p><em>PyDIP</em> is installed separately through <code>pip</code>. Once the <code>install</code> target has finished building
+and installing, run</p>
+<div class="m-code"><pre><span></span>make<span class="w"> </span>pip_install
+</pre></div>
+
+<p>Note that it is necessary to install the <em>DIPlib</em> libraries before running the <code>pip_install</code> target.</p>
+<p>We recommend you additionally specify the <code>-DCMAKE_CXX_FLAGS="-march=native"</code>
+option to <code>cmake</code>. This will enable additional optimizations that are specific
+to your computer. Note that the resulting binaries will likely be slower on a different
+computer, and possibly not work at all.</p>
+<p>If you build a static version of the <em>DIPlib</em> library, <em>DIPimage</em> and <em>PyDIP</em> will not work
+correctly.</p>
+<h2 id="linux_bioformats">Enabling <em>Bio-Formats</em></h2>
+<p>If building only <em>DIPimage</em> (the <em>MATLAB</em> toolbox), skip this section and instead follow the directions
+you can read when you do <code>help readim</code> in <em>MATLAB</em> after installation.</p>
+<p>First, make sure you have the <em>Java 8 SDK</em> (<em>JDK 8</em>) or later installed,
+you can obtain it from the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle website</a>
+for commercial purposes, or from <a href="https://jdk.java.net">jdk.java.net</a> for an open-source build.</p>
+<p>When running <em>CMake</em> with the proper <em>JDK</em> installed, the <em>DIPjavaio</em> module becomes available.</p>
+<p>Check the <em>CMake</em> output to see which <em>JNI</em> was found. It should match the version of Java found.
+These two should be listed together, but the <em>JNI</em> output is only produced on first run.
+Delete the <code>CMakeCache.txt</code> file to run <code>cmake</code> fresh and see all its output.</p>
+<p>If the version of <em>JNI</em> found is not the one in the <em>JDK</em>, or if it is not found at all, add <code>-DJAVA_HOME=&lt;path&gt;</code>
+to the <code>cmake</code> command line:</p>
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>..<span class="w"> </span>-DJAVA_HOME<span class="o">=</span>/opt/jvm/java-8-oracle
+</pre></div>
+
+<p>Note that these arguments to <code>cmake</code> must be combined with the arguments mentioned earlier, into a single,
+long command line argument.</p>
+<h2 id="linux_dipimage">Using <em>DIPimage</em></h2>
+<p>Once the <code>install</code> target has finished building and installing the toolbox, start
+<em>MATLAB</em>. Type the following command:</p>
+<div class="m-code"><pre><span></span><span class="nb">addpath</span><span class="p">(</span><span class="s">&#39;/Users/&lt;name&gt;/dip/share/DIPimage&#39;</span><span class="p">)</span>
+</pre></div>
+
+<p>This will make the toolbox available (replace <code>/Users/&lt;name&gt;/dip</code> with the
+actual path you installed to).</p>
+<p>To get started using <em>DIPimage</em>, read the <a href="dipimage_user_manual.html"><em>DIPimage</em> User Manual</a>,
+and look through the help, starting at</p>
+<div class="m-code"><pre><span></span><span class="nb">help</span><span class="w"> </span><span class="n">DIPimage</span>
+</pre></div>
+
+<p>Or start the GUI:</p>
+<div class="m-code"><pre><span></span><span class="n">dipimage</span>
+</pre></div>
+
+<p>If you see error messages such as</p>
+<div class="m-code"><pre><span></span>Invalid MEX-file &#39;/Users/\&lt;name&gt;/dip/share/DIPimage/measure.mexa64&#39;:
+/&lt;path&gt;/bin/glnxa64/../../sys/os/glnxa64/libstdc++.so.6: version `GLIBCXX_3.4.26&#39; not found
+(required by /Users/\&lt;name&gt;/dip/share/DIPimage/../../lib/libDIP.so)
+</pre></div>
+
+<p>then please read this next section.</p>
+<h3 id="linux_matlab_gcc"><em>MATLAB</em> and the <em>GCC</em> libraries</h3>
+<p>Skip this section if you do not have any problems running <em>DIPimage</em> functions.</p>
+<p><em>MATLAB</em> is built on Linux with a version of <em>GCC</em> that is typically various years behind the latest, and it ships
+with copies of the <em>GCC</em> libraries so that it can run on older systems that have older versions of those libraries.
+When building a MEX-file with a newer version of <em>GCC</em>, the MEX-file will depend on a newer
+version of the <em>GCC</em> libraries than what <em>MATLAB</em> links against, and will therefore fail to load within <em>MATLAB</em>.</p>
+<p>In <a href="https://www.mathworks.com/support/requirements/supported-compilers.html">the documentation</a> they specify which
+compiler versions are compatible with each version of <em>MATLAB</em>. This list includes the version of <em>GCC</em> used to build
+that version of <em>MATLAB</em>, and a few older releases. That is, their solution to this issue is to tell customers to use
+only those specific versions of <em>GCC</em> to build MEX-files. If you do want to follow <em>MATLAB</em>&rsquo;s recommendation, then
+install one of the supported compilers, and add tell CMake about them using the following command:</p>
+<div class="m-code"><pre><span></span>cmake<span class="w"> </span>.<span class="w"> </span>-DCMAKE_C_COMPILER<span class="o">=</span>gcc-9<span class="w"> </span>-DCMAKE_CXX_COMPILER<span class="o">=</span>g++-9
+</pre></div>
+
+<p>(replacing <code>gcc-9</code> and <code>g++-9</code> with the actual names of the compiler installed). Then rebuild the whole project.</p>
+<p>However, there&rsquo;s a simpler solution. Given that you have a newer version of <em>GCC</em> installed than that used by <em>MATLAB</em>,
+and given that the <em>GCC</em> libraries are perfectly backwards-compatible, one can simply delete the libraries distributed
+with <em>MATLAB</em>, and have it use the ones in your system. In the directory <code>&lt;matlabroot&gt;/sys/os/glnxa64</code>, delete
+the file <code>libstdc++.*</code>, and possibly also the files <code>libg2c.*</code> and <code>libgcc_s*</code> (or rather, rename them, so you can put
+them back if things go sour). Note that you need to restart <em>MATLAB</em> after making this change. You can discover
+what <code>&lt;matlabroot&gt;</code> is by typing <code>matlabroot</code> at the <em>MATLAB</em> command prompt.</p>
+<h2 id="linux_pydip">Using <em>PyDIP</em></h2>
+<p>Once the <code>pip_install</code> target has finished installing, start <em>Python</em>.
+The following command will import the <em>PyDIP</em> package as <code>dip</code>, which is shorter to
+type and mimics the namespace used in the C++ library:</p>
+<div class="m-code"><pre><span></span><span class="kn">import</span> <span class="nn">diplib</span> <span class="k">as</span> <span class="nn">dip</span>
+</pre></div>
+
+<p>To get started using <em>PyDIP</em>, look through the help, starting at</p>
+<div class="m-code"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">dip</span><span class="p">)</span>
+</pre></div>
+
+<p>The <a href="pydip_user_manual.html"><em>PyDIP</em> User Manual</a> is still quite short, but does contain some important
+information to get you started.</p>
+        <div class="m-note m-dim m-thin m-text-center"><a href="building_cmake.html" class="m-doc">&laquo; <em>CMake</em> configuration</a> | <a href="building_diplib.html" class="m-doc">Building</a> | <a href="building_macos.html" class="m-doc">Building the <em>DIPlib</em> project on macOS &raquo;</a></div>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

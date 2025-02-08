@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::Units class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="physical_dimensions.html" class="m-doc">Physical dimensions</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib-h.html">"diplib.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>Units <span class="m-thin">class</span>        </h1>
+        <p>Encapsulates the concepts of physical units, using SI units.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#enum-members">Enums</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#operator-members">Operators</a></li>
+                <li><a href="#related">Related</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <p>It is possible
+to multiply or divide units, and raise to arbitrary integer powers with the
+class method Power. To associate a magnitude to the units, see the class
+<a href="dip-PhysicalQuantity.html"><code>dip::PhysicalQuantity</code></a>.</p>
+<p>Note that radian (<a href="dip-Units.html#dip-Units-BaseUnits-ANGLE"><code>dip::Units::BaseUnits::ANGLE</code></a>), though dimensionless, is treated
+as a specific unit here. Also, mass is measured in grams, rather than kilograms,
+because it simplifies writing prefixes (we presume the Kg won&rsquo;t be used much
+in <em>DIPlib</em>&hellip;).</p>
+<p>Prefixes are recorded with the <a href="dip-Units.html#dip-Units-BaseUnits-THOUSANDS"><code>dip::Units::BaseUnits::THOUSANDS</code></a> value. It indicates how
+often to multiply by 10<sup>3</sup>. Thus, a value of 1 here corresponds to the &lsquo;k&rsquo;
+prefix, 3 with &lsquo;G&rsquo;, and -2 with &lsquo;&mu;&lsquo;. Note that for &lsquo;mm<sup>2</sup>&rsquo;, the
+value for length is 2, and that for thousands is -2. If thousands were -1,
+the units would have to be formatted as &lsquo;10<sup>-3</sup> m<sup>2</sup>&rsquo;. <a href="dip-Units.html#dip-Units-AdjustThousands-dip-sint-"><code>dip::Units::AdjustThousands</code></a>
+adjusts this power so that it can always be formatted with an SI prefix,
+returning a magnitude that can be handled elsewhere (the <a href="dip-PhysicalQuantity.html"><code>dip::PhysicalQuantity</code></a>
+class uses this feature).</p>
+<p>The <a href="dip-Units.html#dip-Units-BaseUnits-PIXEL"><code>dip::Units::BaseUnits::PIXEL</code></a> value is for non-physical quantities, which typically
+represent a magnitude with unknown or arbitrary units. For example,
+<a href="dip-MeasurementTool.html"><code>dip::MeasurementTool</code></a> uses it when an image has no pixel size.
+<a href="dip-Units.html#dip-Units-IsPhysical-C"><code>dip::Units::IsPhysical</code></a> tests whether there are pixel units present or not.</p>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+                              <dt id="dip-Units-Units">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Units-Units" class="m-doc-self">Units</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>A default-constructed <code>Units</code> is dimensionless.</dd>
+                              <dt id="dip-Units-Units-BaseUnits--dip-sint8-">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Units-Units-BaseUnits--dip-sint8-" class="m-doc-self">Units</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html#dip-Units-BaseUnits" class="m-doc">dip::Units::BaseUnits</a> bu,
+              <a href="pixeltypes.html#dip-sint8" class="m-doc">dip::sint8</a> power = 1) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Construct a <code>Units</code> for a specific unit.</dd>
+                              <dt id="dip-Units-Units-dip-String-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-Units-Units-dip-String-CL" class="m-doc-self">Units</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; string)</span>
+            </dt>
+            <dd>Construct a <code>Units</code> from a string representation of units. The string representation should be as
+produced by <a href="dip-Units.html#dip-Units-String-C"><code>dip::Units::String</code></a>, except that &lsquo;u&rsquo; and &lsquo;&mu;&rsquo; are synonyms.</dd>
+            </dl>
+        </section>
+        <section id="enum-members">
+          <h2>Enums</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">enum class <a href="#dip-Units-BaseUnits" class="m-doc-self">BaseUnits</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Units-BaseUnits-THOUSANDS" class="m-doc">THOUSANDS</a>,
+              <a href="#dip-Units-BaseUnits-LENGTH" class="m-doc">LENGTH</a>,
+              <a href="#dip-Units-BaseUnits-MASS" class="m-doc">MASS</a>,
+              <a href="#dip-Units-BaseUnits-TIME" class="m-doc">TIME</a>,
+              <a href="#dip-Units-BaseUnits-CURRENT" class="m-doc">CURRENT</a>,
+              <a href="#dip-Units-BaseUnits-TEMPERATURE" class="m-doc">TEMPERATURE</a>,
+              <a href="#dip-Units-BaseUnits-LUMINOUSINTENSITY" class="m-doc">LUMINOUSINTENSITY</a>,
+              <a href="#dip-Units-BaseUnits-ANGLE" class="m-doc">ANGLE</a>,
+              <a href="#dip-Units-BaseUnits-PIXEL" class="m-doc">PIXEL</a> }</span>
+            </dt>
+            <dd>These are the base units for the SI system.</dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt id="dip-Units-Power-dip-sint8-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-Power-dip-sint8-" class="m-doc-self">Power</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-sint8" class="m-doc">dip::sint8</a> power) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Elevates <code>this</code> to the power <code>p</code>.</dd>
+                          <dt id="dip-Units-HasSameDimensions-Units-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-HasSameDimensions-Units-CL-C" class="m-doc-self">HasSameDimensions</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; other) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Compares two units objects. This differs from the <code>==</code> operator in that <code>km</code> and <code>&amp;mu;m</code> test equal.
+That is, the SI prefix is ignored.</dd>
+                          <dt id="dip-Units-IsDimensionless-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-IsDimensionless-C" class="m-doc-self">IsDimensionless</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Test to see if the units are dimensionless (has no units).</dd>
+                          <dt id="dip-Units-IsPhysical-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-IsPhysical-C" class="m-doc-self">IsPhysical</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Test to see if the units are physical. Units that involve pixels are not physical, and neither are dimensionless units.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-AdjustThousands-dip-sint-" class="m-doc">AdjustThousands</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> power = 0) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Adjusts the power of the thousands, so that we can use an SI prefix with the first unit to be written out. <a href="#dip-Units-AdjustThousands-dip-sint-">more...</a></dd>
+                          <dt id="dip-Units-Thousands-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-Thousands-C" class="m-doc-self">Thousands</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns the power associated with <a href="dip-Units.html#dip-Units-BaseUnits-THOUSANDS"><code>dip::Units::BaseUnits::THOUSANDS</code></a>, corresponding to a given SI prefix.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-String-C" class="m-doc">String</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Cast physical units to a string representation, using only ASCII characters. <a href="#dip-Units-String-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-StringUnicode-C" class="m-doc">StringUnicode</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Cast physical units to a string representation, using Unicode characters (UTF-8 encoded). <a href="#dip-Units-StringUnicode-C">more...</a></dd>
+                          <dt id="dip-Units-FromString-dip-String-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Units-FromString-dip-String-CL" class="m-doc-self">FromString</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; string)</span>
+            </dt>
+            <dd>Sets <code>this</code> to the units represented by the string. This function recognizes more strings than
+what the constructor recognizes.</dd>
+                          <dt id="dip-Units-swap-Units-L">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Units-swap-Units-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html" class="m-doc">dip::Units</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Swaps the values of <code>this</code> and <code>other</code>.</dd>
+                          <dt id="dip-Units-Nano">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Nano" class="m-doc-self">Nano</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Dimensionless nano magnitude (n)</dd>
+                          <dt id="dip-Units-Micro">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Micro" class="m-doc-self">Micro</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Dimensionless micro magnitude (&mu;)</dd>
+                          <dt id="dip-Units-Milli">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Milli" class="m-doc-self">Milli</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Dimensionless milli magnitude (m)</dd>
+                          <dt id="dip-Units-Kilo">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Kilo" class="m-doc-self">Kilo</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Dimensionless kilo magnitude (k)</dd>
+                          <dt id="dip-Units-Mega">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Mega" class="m-doc-self">Mega</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Dimensionless mega magnitude (M)</dd>
+                          <dt id="dip-Units-Giga">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Giga" class="m-doc-self">Giga</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Dimensionless giga magnitude (G)</dd>
+                          <dt id="dip-Units-Meter">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Meter" class="m-doc-self">Meter</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Meter units (m)</dd>
+                          <dt id="dip-Units-SquareMeter">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-SquareMeter" class="m-doc-self">SquareMeter</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Square meter units (m<sup>2</sup>)</dd>
+                          <dt id="dip-Units-CubicMeter">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-CubicMeter" class="m-doc-self">CubicMeter</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Cubic meter units (m<sup>3</sup>)</dd>
+                          <dt id="dip-Units-Nanometer">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Nanometer" class="m-doc-self">Nanometer</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Nanometer units (nm)</dd>
+                          <dt id="dip-Units-Micrometer">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Micrometer" class="m-doc-self">Micrometer</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Micrometer units (&mu;m)</dd>
+                          <dt id="dip-Units-Millimeter">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Millimeter" class="m-doc-self">Millimeter</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Millimeter units (mm)</dd>
+                          <dt id="dip-Units-Kilometer">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Kilometer" class="m-doc-self">Kilometer</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Kilometer units (km)</dd>
+                          <dt id="dip-Units-SquareMicrometer">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-SquareMicrometer" class="m-doc-self">SquareMicrometer</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Square micrometer units (&mu;m<sup>2</sup>)</dd>
+                          <dt id="dip-Units-SquareMillimeter">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-SquareMillimeter" class="m-doc-self">SquareMillimeter</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Square millimeter units (mm<sup>2</sup>)</dd>
+                          <dt id="dip-Units-CubicMillimeter">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-CubicMillimeter" class="m-doc-self">CubicMillimeter</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Cubic millimeter units (mm<sup>3</sup>)</dd>
+                          <dt id="dip-Units-Second">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Second" class="m-doc-self">Second</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Second units (s)</dd>
+                          <dt id="dip-Units-Millisecond">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Millisecond" class="m-doc-self">Millisecond</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Millisecond units (ms)</dd>
+                          <dt id="dip-Units-Hertz">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Hertz" class="m-doc-self">Hertz</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Hertz units (s<sup>-1</sup>)</dd>
+                          <dt id="dip-Units-Kilohertz">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Kilohertz" class="m-doc-self">Kilohertz</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Kilohertz units (ms<sup>-1</sup>)</dd>
+                          <dt id="dip-Units-Megahertz">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Megahertz" class="m-doc-self">Megahertz</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Megahertz units (&mu;s<sup>-1</sup>)</dd>
+                          <dt id="dip-Units-Gigahertz">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Gigahertz" class="m-doc-self">Gigahertz</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Gigahertz units (ns<sup>-1</sup>)</dd>
+                          <dt id="dip-Units-Radian">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Radian" class="m-doc-self">Radian</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Radian units (rad)</dd>
+                          <dt id="dip-Units-Pixel">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-Pixel" class="m-doc-self">Pixel</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Pixel units (px)</dd>
+                          <dt id="dip-Units-SquarePixel">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-SquarePixel" class="m-doc-self">SquarePixel</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Square pixel units (px<sup>2</sup>)</dd>
+                          <dt id="dip-Units-CubicPixel">
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Units-CubicPixel" class="m-doc-self">CubicPixel</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Cubic pixel units (px<sup>3</sup>)</dd>
+          </dl>
+        </section>
+        <section id="operator-members">
+          <h2>Operators</h2>
+          <dl class="m-doc">
+                          <dt id="dip-Units-operator%2A%3D-Units-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-operator%2A%3D-Units-CL" class="m-doc-self">operator*=</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; other) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Multiplies two units objects.</dd>
+                          <dt id="dip-Units-operator%2F%3D-Units-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-operator%2F%3D-Units-CL" class="m-doc-self">operator/=</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; other) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Divides two units objects.</dd>
+                          <dt id="dip-Units-operator%3D%3D-Units-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-operator%3D%3D-Units-CL-C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; rhs) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Compares two units objects.</dd>
+                          <dt id="dip-Units-operator%21%3D-Units-CL-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-operator%21%3D-Units-CL-C" class="m-doc-self">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; rhs) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Compares two units objects.</dd>
+                          <dt id="dip-Units-operator%20bool-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Units-operator%20bool-C" class="m-doc-self">operator bool</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Units tests false if they&rsquo;re dimensionless.</dd>
+          </dl>
+        </section>
+        <section id="related">
+          <h2>Related</h2>
+          <dl class="m-doc">
+                            <dt id="dip-operator%3C%3C-std-ostream-L-Units-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-Units-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; units) -&gt; std::ostream&amp;</span>
+            </dt>
+            <dd>Insert physical quantity to an output stream as a string of base units. See <a href="dip-Units.html#dip-Units-String-C"><code>dip::Units::String</code></a>.</dd>
+          </dl>
+        </section>
+        <section>
+            <h2>Enum documentation</h2>
+                          <section class="m-doc-details" id="dip-Units-BaseUnits"><div>
+            <h3>
+              enum class <span class="m-doc-name"><a href="#dip-Units-BaseUnits" class="m-doc-self">BaseUnits</a></span>: uint8            </h3>
+            <p>These are the base units for the SI system.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Enumerators</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-THOUSANDS" class="m-doc-self" id="dip-Units-BaseUnits-THOUSANDS">THOUSANDS</a></span> = 0</td>
+                  <td>
+                  prefix
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-LENGTH" class="m-doc-self" id="dip-Units-BaseUnits-LENGTH">LENGTH</a></span> = 1</td>
+                  <td>
+                  m
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-MASS" class="m-doc-self" id="dip-Units-BaseUnits-MASS">MASS</a></span> = 2</td>
+                  <td>
+                  g (should be Kg, but this is easier when working with prefixes)
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-TIME" class="m-doc-self" id="dip-Units-BaseUnits-TIME">TIME</a></span> = 3</td>
+                  <td>
+                  s
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-CURRENT" class="m-doc-self" id="dip-Units-BaseUnits-CURRENT">CURRENT</a></span> = 4</td>
+                  <td>
+                  A
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-TEMPERATURE" class="m-doc-self" id="dip-Units-BaseUnits-TEMPERATURE">TEMPERATURE</a></span> = 5</td>
+                  <td>
+                  K
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-LUMINOUSINTENSITY" class="m-doc-self" id="dip-Units-BaseUnits-LUMINOUSINTENSITY">LUMINOUSINTENSITY</a></span> = 6</td>
+                  <td>
+                  cd
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-ANGLE" class="m-doc-self" id="dip-Units-BaseUnits-ANGLE">ANGLE</a></span> = 7</td>
+                  <td>
+                  rad (though really dimensionless)
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="m-doc-name"><a href="#dip-Units-BaseUnits-PIXEL" class="m-doc-self" id="dip-Units-BaseUnits-PIXEL">PIXEL</a></span> = 8</td>
+                  <td>
+                  px (units to use when the image has no dimension information)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-Units-AdjustThousands-dip-sint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+              <span class="m-doc-name"><a href="#dip-Units-AdjustThousands-dip-sint-" class="m-doc-self">AdjustThousands</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> power = 0</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Adjusts the power of the thousands, so that we can use an SI prefix with the first unit to be written out.</p>
+<p>The return value is a number of thousands, which are taken out of the units and should be handled by the caller.
+The input <code>power</code> is the number of thousands that the caller would like to include into the units.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Units-String-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+              <span class="m-doc-name"><a href="#dip-Units-String-C" class="m-doc-self">String</a></span>(
+) const            </h3>
+            <p>Cast physical units to a string representation, using only ASCII characters.</p>
+<p>No attempt is (yet?) made to produce derived SI units or to translate to different units.</p>
+<p>Calling the <a href="dip-Units.html#dip-Units-Units-dip-String-CL"><code>dip::Units::Units</code></a> constructor on the output of this function yields <code>this</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Units-StringUnicode-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+              <span class="m-doc-name"><a href="#dip-Units-StringUnicode-C" class="m-doc-self">StringUnicode</a></span>(
+) const            </h3>
+            <p>Cast physical units to a string representation, using Unicode characters (UTF-8 encoded).</p>
+<p>If Unicode support was disabled during compilation, this function does the same as <a href="dip-Units.html#dip-Units-String-C"><code>dip::Units::String</code></a>.</p>
+<p>No attempt is (yet?) made to produce derived SI units or to translate to different units.</p>
+<p>Calling the <a href="dip-Units.html#dip-Units-Units-dip-String-CL"><code>dip::Units::Units</code></a> constructor on the output of this function yields <code>this</code>.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

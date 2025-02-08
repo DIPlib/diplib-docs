@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::JointImageIterator class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="iterators.html" class="m-doc">Iterators</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--iterators-h.html">"diplib/iterators.h"</a></span>          </div>
+
+          <div class="m-doc-template"><span class="m-doc-wrap-bumper">template&lt;</span><span class="m-doc-wrap">typename Types&gt;</span></div>
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>JointImageIterator <span class="m-thin">class</span>        </h1>
+        <p>An iterator to iterate over all pixels of multiple images.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+                <li><a href="#operator-members">Operators</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <p>The images must have the same sizes except along the processing dimension. It behaves similarly to
+<a href="dip-ImageIterator-T.html"><code>dip::ImageIterator</code></a> with the following differences:</p>
+<ul>
+<li>
+<p>This iterator is not dereferenceable and has no <code>[]</code> operator. The reason is that it points at multiple
+  pixels at the same time (that is, one pixel in each image). Instead, use the <code>Sample&lt;N&gt;</code> method to obtain
+  a reference to a sample of the pixel in image <code>N</code>.</p>
+</li>
+<li>
+<p>The <code>GetLineIterator</code>, <code>Pointer</code> and <code>Offset</code> methods are templated also, requiring a template parameter
+  <code>N</code> as in <code>Offset&lt;N&gt;</code>.</p>
+</li>
+<li>
+<p>The <code>Optimize</code> method sorts image dimensions to optimize looping over the first image. The iterator will
+  be most efficient if all images share dimension ordering.</p>
+</li>
+</ul>
+<p>The first image in the set must be forged. Other images can be empty, but dereferencing them will lead to
+undefined behavior.</p>
+<p>Note that, within templated code, calling the <code>Sample&lt;N&gt;</code> and similar templated methods requires specifying
+that the method is a template:</p>
+<div class="m-code"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">TPI</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">Function</span><span class="p">(</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">JointImageIterator</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TPI</span><span class="p">,</span><span class="w"> </span><span class="n">bin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">it</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+<span class="w">   </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">Sample</span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// Note `template` on this line</span>
+<span class="w">          </span><span class="n">it</span><span class="p">.</span><span class="k">template</span><span class="w"> </span><span class="n">Sample</span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Note `template` on this line</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="o">++</span><span class="n">it</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>There exist aliases <code>InXxx</code> for <code>Xxx&lt;0&gt;</code>, and <code>OutXxx</code> for <code>Xxx&lt;1&gt;</code>, where <code>Xxx</code> is <code>Sample</code>, <code>Pointer</code> or <code>Offset</code>.
+<code>In()</code> is an alias for <code>Sample&lt;0&gt;()</code> and <code>Out()</code> is an alias for <code>Sample&lt;1&gt;()</code>.</p>
+<p>Note that when an image is stripped or reforged, all its iterators are invalidated.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="using_iterators.html">Using iterators to implement filters</a>, <a href="dip-ImageIterator-T.html"><code>dip::ImageIterator</code></a>, <a href="dip-LineIterator-T.html"><code>dip::LineIterator</code></a>, <a href="dip-SampleIterator-T.html"><code>dip::SampleIterator</code></a>, <a href="dip-GenericJointImageIterator-T.html"><code>dip::GenericJointImageIterator</code></a></p>
+</aside>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+                              <dt id="dip-JointImageIterator-T-JointImageIterator">
+              <span class="m-doc-wrap-bumper"><a href="#dip-JointImageIterator-T-JointImageIterator" class="m-doc-self">JointImageIterator</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Default constructor yields an invalid iterator that cannot be dereferenced, and is equivalent to an
+end iterator.</dd>
+                              <dt id="dip-JointImageIterator-T-JointImageIterator-ImageConstRefArray-CL-dip-uint-">
+              <span class="m-doc-wrap-bumper"><a href="#dip-JointImageIterator-T-JointImageIterator-ImageConstRefArray-CL-dip-uint-" class="m-doc-self">JointImageIterator</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; images,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = std::numeric_limits<dip::uint>::max()) <span class="m-label m-flat m-info">explicit</span> </span>
+            </dt>
+            <dd>To construct a useful iterator, provide <code>N</code> images (<code>N</code> equal to the number of template parameters),
+and optionally a processing dimension.</dd>
+            </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+                              <dt id="dip-JointImageIterator-T-iterator_category">
+              using <a href="#dip-JointImageIterator-T-iterator_category" class="m-doc-self">iterator_category</a> = std::forward_iterator_tag
+
+            </dt>
+            <dd>Iterator category</dd>
+                              <dt id="dip-JointImageIterator-T-value_type-T">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              using <a href="#dip-JointImageIterator-T-value_type-T" class="m-doc-self">value_type</a> = typename std::tuple_element&lt;I, std::tuple&lt;Types...&gt;&gt;::type
+
+            </dt>
+            <dd>The data type of the sample, obtained when dereferencing the iterator</dd>
+                              <dt id="dip-JointImageIterator-T-reference-T">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              using <a href="#dip-JointImageIterator-T-reference-T" class="m-doc-self">reference</a> = <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-value_type-T" class="m-doc">dip::JointImageIterator::value_type</a>&amp;
+
+            </dt>
+            <dd>The type of a reference to a sample</dd>
+                              <dt id="dip-JointImageIterator-T-pointer-T">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              using <a href="#dip-JointImageIterator-T-pointer-T" class="m-doc-self">pointer</a> = <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-value_type-T" class="m-doc">dip::JointImageIterator::value_type</a>*
+
+            </dt>
+            <dd>The type of a pointer to a sample</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt id="dip-JointImageIterator-T-swap-JointImageIterator<Types...>-L">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-JointImageIterator-T-swap-JointImageIterator<Types...>-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Swap</dd>
+                          <dt id="dip-JointImageIterator-T-Sample-T-dip-uint--C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Sample-T-dip-uint--C" class="m-doc-self">Sample</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-reference-T" class="m-doc">dip::JointImageIterator::reference</a></span>
+            </dt>
+            <dd>Index into image tensor for image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-InSample-dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-InSample-dip-uint--C" class="m-doc-self">InSample</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-reference-T" class="m-doc">dip::JointImageIterator::reference</a></span>
+            </dt>
+            <dd>Index into image tensor for image 0.</dd>
+                          <dt id="dip-JointImageIterator-T-OutSample-dip-uint--C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-OutSample-dip-uint--C" class="m-doc-self">OutSample</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-reference-T" class="m-doc">dip::JointImageIterator::reference</a></span>
+            </dt>
+            <dd>Index into image tensor for image 1.</dd>
+                          <dt id="dip-JointImageIterator-T-Sample-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Sample-T-C" class="m-doc-self">Sample</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-reference-T" class="m-doc">dip::JointImageIterator::reference</a></span>
+            </dt>
+            <dd>Get first tensor element for image <code>I</code>.</dd>
+                          <dt id="dip-JointImageIterator-T-In-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-In-C" class="m-doc-self">In</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-reference-T" class="m-doc">dip::JointImageIterator::reference</a></span>
+            </dt>
+            <dd>Get first tensor element for image 0.</dd>
+                          <dt id="dip-JointImageIterator-T-Out-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Out-C" class="m-doc-self">Out</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-reference-T" class="m-doc">dip::JointImageIterator::reference</a></span>
+            </dt>
+            <dd>Get first tensor element for image 1.</dd>
+                          <dt id="dip-JointImageIterator-T-begin-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-begin-T-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
+            </dt>
+            <dd>Get an iterator over the tensor for the current pixel of image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-end-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-end-T-C" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
+            </dt>
+            <dd>Get an end iterator over the tensor for the current pixel of image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-cbegin-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-cbegin-T-C" class="m-doc-self">cbegin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a></span>
+            </dt>
+            <dd>Get a const iterator over the tensor for the current pixel of image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-cend-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-cend-T-C" class="m-doc-self">cend</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a></span>
+            </dt>
+            <dd>Get an end const iterator over the tensor for the current pixel of image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-GetLineIterator-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-GetLineIterator-T-C" class="m-doc-self">GetLineIterator</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-LineIterator-T.html" class="m-doc">dip::LineIterator</a></span>
+            </dt>
+            <dd>Get an iterator over the current line of image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-GetConstLineIterator-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-GetConstLineIterator-T-C" class="m-doc-self">GetConstLineIterator</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-LineIterator-T.html#dip-ConstLineIterator-T" class="m-doc">dip::ConstLineIterator</a></span>
+            </dt>
+            <dd>Get a const iterator over the current line of image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-IsAtEnd-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-IsAtEnd-C" class="m-doc-self">IsAtEnd</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Test to see if the iterator reached past the last pixel</dd>
+                          <dt id="dip-JointImageIterator-T-Coordinates-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Coordinates-C" class="m-doc-self">Coordinates</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Return the current coordinates</dd>
+                          <dt id="dip-JointImageIterator-T-SetCoordinates-UnsignedArray-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-SetCoordinates-UnsignedArray-" class="m-doc-self">SetCoordinates</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> coords) -&gt; <a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a>&amp;</span>
+            </dt>
+            <dd>Set the iterator to point at a different location in the image</dd>
+                          <dt id="dip-JointImageIterator-T-Sizes-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Sizes-C" class="m-doc-self">Sizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Return the sizes of the images we&rsquo;re iterating over.</dd>
+                          <dt id="dip-JointImageIterator-T-ProcessingDimensionSize-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-ProcessingDimensionSize-C" class="m-doc-self">ProcessingDimensionSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Return the size along the processing dimension.</dd>
+                          <dt id="dip-JointImageIterator-T-Strides-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Strides-T-C" class="m-doc-self">Strides</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp;</span>
+            </dt>
+            <dd>Return the strides used to iterate over the image <code>I</code>.</dd>
+                          <dt id="dip-JointImageIterator-T-ProcessingDimensionStride-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-ProcessingDimensionStride-T-C" class="m-doc-self">ProcessingDimensionStride</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Return the stride along the processing dimension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-IsOnEdge-C" class="m-doc">IsOnEdge</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Return true if the iterator points at a pixel on the edge of the image. <a href="#dip-JointImageIterator-T-IsOnEdge-C">more...</a></dd>
+                          <dt id="dip-JointImageIterator-T-Pointer-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Pointer-T-C" class="m-doc-self">Pointer</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-pointer-T" class="m-doc">dip::JointImageIterator::pointer</a></span>
+            </dt>
+            <dd>Return the current pointer for image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-InPointer-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-InPointer-C" class="m-doc-self">InPointer</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-pointer-T" class="m-doc">dip::JointImageIterator::pointer</a></span>
+            </dt>
+            <dd>Return the current pointer for image 0.</dd>
+                          <dt id="dip-JointImageIterator-T-OutPointer-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-OutPointer-C" class="m-doc-self">OutPointer</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-JointImageIterator-T.html#dip-JointImageIterator-T-pointer-T" class="m-doc">dip::JointImageIterator::pointer</a></span>
+            </dt>
+            <dd>Return the current pointer for image 1.</dd>
+                          <dt id="dip-JointImageIterator-T-Offset-T-C">
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> I&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Offset-T-C" class="m-doc-self">Offset</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Return the current offset for image <code>I</code></dd>
+                          <dt id="dip-JointImageIterator-T-InOffset-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-InOffset-C" class="m-doc-self">InOffset</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Index into image tensor for image 0.</dd>
+                          <dt id="dip-JointImageIterator-T-OutOffset-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-OutOffset-C" class="m-doc-self">OutOffset</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Index into image tensor for image 1.</dd>
+                          <dt id="dip-JointImageIterator-T-Index-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Index-C" class="m-doc-self">Index</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Return the current index, which is computed: this function is not trivial</dd>
+                          <dt id="dip-JointImageIterator-T-HasProcessingDimension-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-HasProcessingDimension-C" class="m-doc-self">HasProcessingDimension</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>True if the processing dimension is set</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-ProcessingDimension-C" class="m-doc">ProcessingDimension</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Return the processing dimension, the direction of the lines over which the iterator iterates. <a href="#dip-JointImageIterator-T-ProcessingDimension-C">more...</a></dd>
+                          <dt id="dip-JointImageIterator-T-Reset">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Reset" class="m-doc-self">Reset</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a>&amp;</span>
+            </dt>
+            <dd>Reset the iterator to the first pixel in the image (as it was when first created)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-Optimize-dip-uint-" class="m-doc">Optimize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n = 0) -&gt; <a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a>&amp;</span>
+            </dt>
+            <dd>Optimizes the order in which the iterator visits the image pixels. <a href="#dip-JointImageIterator-T-Optimize-dip-uint-">more...</a></dd>
+                          <dt id="dip-JointImageIterator-T-OptimizeAndFlatten-dip-uint-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-OptimizeAndFlatten-dip-uint-" class="m-doc-self">OptimizeAndFlatten</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n = 0) -&gt; <a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a>&amp;</span>
+            </dt>
+            <dd>Like <code>Optimize</code>, but additionally folds dimensions together where possible (flattens the image,
+so that the iterator has fewer dimensions to work with). The processing dimension is not affected.</dd>
+          </dl>
+        </section>
+        <section id="operator-members">
+          <h2>Operators</h2>
+          <dl class="m-doc">
+                          <dt id="dip-JointImageIterator-T-operator%2B%2B">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-operator%2B%2B" class="m-doc-self">operator++</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a>&amp;</span>
+            </dt>
+            <dd>Pre-increment</dd>
+                          <dt id="dip-JointImageIterator-T-operator%2B%2B-int-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-operator%2B%2B-int-" class="m-doc-self">operator++</a>(</span><span class="m-doc-wrap">int ) -&gt; <a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a></span>
+            </dt>
+            <dd>Post-increment</dd>
+                          <dt id="dip-JointImageIterator-T-operator%3D%3D-T-JointImageIterator<OtherTypes...>-CL-C">
+              <div class="m-doc-template">template&lt;typename OtherTypes&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-operator%3D%3D-T-JointImageIterator<OtherTypes...>-CL-C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Equality comparison, is equal if the two iterators have the same coordinates. It is possible to compare
+<code>JointImageIterators</code> with different images and different types.</dd>
+                          <dt id="dip-JointImageIterator-T-operator%21%3D-T-JointImageIterator<OtherTypes...>-CL-C">
+              <div class="m-doc-template">template&lt;typename OtherTypes&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-operator%21%3D-T-JointImageIterator<OtherTypes...>-CL-C" class="m-doc-self">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Inequality comparison</dd>
+                          <dt id="dip-JointImageIterator-T-operator%20bool-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-JointImageIterator-T-operator%20bool-C" class="m-doc-self">operator bool</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-info">explicit</span> </span>
+            </dt>
+            <dd>Test to see if the iterator is still pointing at a pixel</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-JointImageIterator-T-IsOnEdge-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Types&gt;
+              </div>
+              <span class="m-doc-return">bool</span>
+              <span class="m-doc-name"><a href="#dip-JointImageIterator-T-IsOnEdge-C" class="m-doc-self">IsOnEdge</a></span>(
+) const            </h3>
+            <p>Return true if the iterator points at a pixel on the edge of the image.</p>
+<p>If there is a processing dimension, then the iterator always points at an edge pixel; in this case
+only returns true if all pixels on the line are edge pixels (i.e. the first and last pixel of the
+line are not counted).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-JointImageIterator-T-ProcessingDimension-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Types&gt;
+              </div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <span class="m-doc-name"><a href="#dip-JointImageIterator-T-ProcessingDimension-C" class="m-doc-self">ProcessingDimension</a></span>(
+) const            </h3>
+            <p>Return the processing dimension, the direction of the lines over which the iterator iterates.</p>
+<p>If the return value is larger or equal to the dimensionality (i.e. not one of the image dimensions), then
+there is no processing dimension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-JointImageIterator-T-Optimize-dip-uint-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename Types&gt;
+              </div>
+              <span class="m-doc-return"><a href="dip-JointImageIterator-T.html" class="m-doc">dip::JointImageIterator</a>&amp;</span>
+              <span class="m-doc-name"><a href="#dip-JointImageIterator-T-Optimize-dip-uint-" class="m-doc-self">Optimize</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n = 0</span>)            </h3>
+            <p>Optimizes the order in which the iterator visits the image pixels.</p>
+<p>The iterator internally reorders and flips image dimensions to change the linear index to match
+the storage order of the first image (see <a href="dip-Image.html#dip-Image-StandardizeStrides"><code>dip::Image::StandardizeStrides</code></a>), or image <code>n</code>
+if a parameter is given.
+If the image&rsquo;s strides were not normal, this will significantly increase the speed of reading or
+writing to the image. Expanded singleton dimensions are eliminated only if the dimension is expanded
+in all images. Additionally, singleton dimensions are ignored.</p>
+<p>After calling this function, <code>Coordinates</code> and <code>Index</code> no longer match the input images. Do not
+use this method if the order of accessing pixels is relevant, or if <code>Coordinates</code> are needed.</p>
+<p>Note that the processing dimension stride could change sign. Use <code>ProcessingDimensionStride</code>.
+If the processing dimension was a singleton dimension, or singleton-expanded, the iterator will
+no longer have a singleton dimension. In this case, <code>HasProcessingDimension</code> will return false.</p>
+<p>The iterator is reset to the first pixel.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

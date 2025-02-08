@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::DFT class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="transform_lowlevel.html" class="m-doc">Low-level transform support</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--dft-h.html">"diplib/dft.h"</a></span>          </div>
+
+          <div class="m-doc-template"><span class="m-doc-wrap-bumper">template&lt;</span><span class="m-doc-wrap">typename T&gt;</span></div>
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>DFT <span class="m-thin">class</span>        </h1>
+        <p>An object that encapsulates the Discrete Fourier Transform (DFT).</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <p>Usage:</p>
+<div class="m-code"><pre><span></span><span class="n">DFT</span><span class="w"> </span><span class="nf">dft</span><span class="p">(</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">inverse</span><span class="w"> </span><span class="p">);</span><span class="w">          </span><span class="c1">// creates the object with all the data ready to start running DFTs.</span>
+<span class="n">dft</span><span class="p">.</span><span class="n">Apply</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="p">);</span><span class="w">              </span><span class="c1">// computes a DFT, repeat as necessary</span>
+<span class="n">dft</span><span class="p">.</span><span class="n">Initialize</span><span class="p">(</span><span class="w"> </span><span class="n">size2</span><span class="p">,</span><span class="w"> </span><span class="n">inverse</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c1">// changes the options for the new size / direction</span>
+<span class="n">dft</span><span class="p">.</span><span class="n">Apply</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="p">);</span><span class="w">              </span><span class="c1">// computes a different DFT, repeat as necessary</span>
+</pre></div>
+
+<p>The template can be instantiated for <code>T = float</code> or <code>T = double</code>. Linker errors will result for other types.</p>
+<aside class="m-note m-info">
+<h4>Attention</h4>
+<p>The object should not be created, copied or destroyed in multiple threads at the same time.</p>
+</aside>
+<p>The DFT is computed using either PocketFFT or FFTW, depending on compile-time configuration (see the
+<code>DIP_ENABLE_FFTW</code> CMake configuration option).</p>
+<p>When using FFTW, <a href="transform_lowlevel.html#dip-maximumDFTSize"><code>dip::maximumDFTSize</code></a> is the largest length of the transform. PocketFFT does not have this limit.</p>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+                              <dt id="dip-DFT-T-DFT">
+              <span class="m-doc-wrap-bumper"><a href="#dip-DFT-T-DFT" class="m-doc-self">DFT</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd>A default-initialized <code>DFT</code> object is useless. Call <code>Initialize</code> to make it useful.</dd>
+                              <dt id="dip-DFT-T-DFT-dip-uint--bool--Option-DFTOptions-">
+              <span class="m-doc-wrap-bumper"><a href="#dip-DFT-T-DFT-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">DFT</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+              bool inverse,
+              <a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {})</span>
+            </dt>
+            <dd>Construct a <code>DFT</code> object, see <a href="dip-DFT-T.html#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><code>dip::DFT::Initialize</code></a> for the meaning of the parameters.
+Note that this is not a trivial operation. Not thread safe.</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-" class="m-doc">Initialize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+              bool inverse,
+              <a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {})</span>
+            </dt>
+            <dd>Re-configure a <code>DFT</code> object to the given transform size and direction. <a href="#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C" class="m-doc">Apply</a>(</span><span class="m-doc-wrap">std::complex&lt;T&gt;* source,
+              std::complex&lt;T&gt;* destination,
+              T scale) const</span>
+            </dt>
+            <dd>Apply the transform that the <code>DFT</code> object is configured for. <a href="#dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C">more...</a></dd>
+                          <dt id="dip-DFT-T-IsInverse-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsInverse-C" class="m-doc-self">IsInverse</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns <code>true</code> if this represents an inverse transform, <code>false</code> for a forward transform.</dd>
+                          <dt id="dip-DFT-T-IsInplace-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsInplace-C" class="m-doc-self">IsInplace</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns whether the transform is configured to work in place or not. Not meaningful when using PocketFFT.</dd>
+                          <dt id="dip-DFT-T-IsAligned-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsAligned-C" class="m-doc-self">IsAligned</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns whether the transform is configured to work on aligned buffers or not. Not meaningful when using PocketFFT.</dd>
+                          <dt id="dip-DFT-T-TransformSize-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-TransformSize-C" class="m-doc-self">TransformSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the size that the transform is configured for.</dd>
+                          <dt id="dip-DFT-T-BufferSize-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-BufferSize-C" class="m-doc-self">BufferSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-danger">deprecated</span></span>
+            </dt>
+            <dd>Returns the size of the buffer expected by <code>Apply</code>.</dd>
+                          <dt id="dip-DFT-T-Destroy">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Destroy" class="m-doc-self">Destroy</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-danger">private</span></span>
+            </dt>
+            <dd>Frees memory</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">Initialize</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,</span><span class="m-doc-arg">bool inverse,</span><span class="m-doc-arg"><a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {}</span>)            </h3>
+            <p>Re-configure a <code>DFT</code> object to the given transform size and direction.</p>
+<p><code>size</code> is the size of the transform. The two pointers passed to <a href="dip-DFT-T.html#dip-DFT-T-Apply-std-complex&lt;T&gt;-P-std-complex&lt;T&gt;-P-T--C"><code>dip::DFT::Apply</code></a> are expected to point at
+buffers with this length. If <code>inverse</code> is <code>true</code>, an inverse transform will be computed.</p>
+<p><code>options</code> determines some properties for the algorithm that will compute the DFT.</p>
+<ul>
+<li><a href="transform_lowlevel.html#dip-Option-DFTOption-InPlace"><code>dip::Option::DFTOption::InPlace</code></a> means the input and output pointers passed to <a href="dip-DFT-T.html#dip-DFT-T-Apply-std-complex&lt;T&gt;-P-std-complex&lt;T&gt;-P-T--C"><code>dip::DFT::Apply</code></a> must be the same.</li>
+<li><a href="transform_lowlevel.html#dip-Option-DFTOption-TrashInput"><code>dip::Option::DFTOption::TrashInput</code></a> means that the algorithm is free to overwrite the input array.
+   Ignored when working in place.</li>
+<li><a href="transform_lowlevel.html#dip-Option-DFTOption-Aligned"><code>dip::Option::DFTOption::Aligned</code></a> means that the input and output buffers are aligned to 16-bit boundaries,
+   which can significantly improve the speed of the algorithm.</li>
+</ul>
+<p>When using PocketFFT, all these options are ignored.</p>
+<p>Note that this is not a trivial operation, planning an FFT costs time.</p>
+<p>This operation is not thread safe.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C" class="m-doc-self">Apply</a></span>(
+<span class="m-doc-arg">std::complex&lt;T&gt;* source,</span><span class="m-doc-arg">std::complex&lt;T&gt;* destination,</span><span class="m-doc-arg">T scale</span>) const            </h3>
+            <p>Apply the transform that the <code>DFT</code> object is configured for.</p>
+<p><code>source</code> and <code>destination</code> are pointers to contiguous buffers with <a href="dip-DFT-T.html#dip-DFT-T-TransformSize-C"><code>dip::DFT::TransformSize</code></a> elements.
+This is the value of the <code>size</code> parameter of the constructor or <a href="dip-DFT-T.html#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><code>dip::DFT::Initialize</code></a>. These two pointers
+can point to the same address for in-place operation; otherwise they must point to non-overlapping
+regions of memory. When using FFTW, the <code>inplace</code> parameter to the constructor or <a href="dip-DFT-T.html#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><code>dip::DFT::Initialize</code></a>
+must be <code>true</code> if the two pointers here are the same, or <code>false</code> if they are different.</p>
+<p>The input array is not marked <code>const</code>. If <a href="transform_lowlevel.html#dip-Option-DFTOption-TrashInput"><code>dip::Option::DFTOption::TrashInput</code></a> is given when planning,
+the input array can be overwritten with intermediate data, but otherwise will be left intact.</p>
+<p><code>scale</code> is a real scalar that the output values are multiplied by. It is typically set to <code>1/size</code> for
+the inverse transform, and 1 for the forward transform.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

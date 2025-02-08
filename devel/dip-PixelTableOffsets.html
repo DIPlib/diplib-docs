@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>dip::PixelTableOffsets class | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <div class="m-doc-include m-thin m-right-m m-text-right">
+<a href="infrastructure.html" class="m-doc">The library infrastructure</a> module<br/><span class="m-code m-thin">#include <a href="file--diplib--pixel_table-h.html">"diplib/pixel_table.h"</a></span>          </div>
+
+          <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>PixelTableOffsets <span class="m-thin">class</span>        </h1>
+        <p>Represents an arbitrarily-shaped neighborhood (filter support)
+in an arbitrary number of dimensions.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#typeless-methods">Constructors, destructors, assignment and conversion operators</a></li>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+          <p>A <code>PixelTableOffsets</code> object is created from a <a href="dip-PixelTable.html"><code>dip::PixelTable</code></a> through
+its <a href="dip-PixelTable.html#dip-PixelTable-Prepare-Image-CL-C"><code>dip::PixelTable::Prepare</code></a> method. The object is identical to its parent, but
+instead of coordinates it contains offsets. It is ready to be applied to a specific
+image. It can only be used on other images that have the exact same strides as the
+image it was prepared for.</p>
+<p>Offsets cannot be used to test for the neighbor to be within the image domain, so this
+object is meant to be used with images in which the boundary has been extended through
+<a href="boundary.html#dip-ExtendImage-Image-CL-Image-L-UnsignedArray--BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a>, or where the pixels being processed are away from the image edges.</p>
+<p>Its iterator dereferences to an offset rather than coordinates.
+But note that the iterator is not as efficient as a manual double-loop over runs and
+pixels within each run. Even more efficient is to first extract an array with offsets
+using the <code>Offsets</code> method. The difference between these methods is only relevant
+when iterating over the pixel table for each pixel in an image, as the small difference
+accumulates.</p>
+<div class="m-code"><pre><span></span><span class="n">PixelTableOffsets</span><span class="w"> </span><span class="n">pt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+
+<span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">offset</span><span class="o">:</span><span class="w"> </span><span class="n">pt</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">          </span><span class="c1">// easiest, least efficient</span>
+
+<span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">pt</span><span class="p">.</span><span class="n">Runs</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">dip</span><span class="o">::</span><span class="n">sint</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">offset</span><span class="p">;</span>
+<span class="w">   </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">uint</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">run</span><span class="p">.</span><span class="n">length</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">ii</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">pt</span><span class="p">.</span><span class="n">Stride</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">...</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span><span class="w">                                       </span><span class="c1">// more efficient</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">offsets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pt</span><span class="p">.</span><span class="n">Offsets</span><span class="p">();</span>
+<span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">offset</span><span class="o">:</span><span class="w"> </span><span class="n">offsets</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// most efficient (when iterating many times)</span>
+</pre></div>
+
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="dip-PixelTable.html"><code>dip::PixelTable</code></a>, <a href="frameworks.html#dip-Framework-Full-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--BoundaryConditionArray-CL-Kernel-CL-FullLineFilter-L-FullOptions-"><code>dip::Framework::Full</code></a>, <a href="dip-ImageIterator-T.html"><code>dip::ImageIterator</code></a></p>
+</aside>
+        <section id="typeless-methods">
+            <h2>Constructors, destructors, assignment and conversion operators</h2>
+            <dl class="m-doc">
+                              <dt id="dip-PixelTableOffsets-PixelTableOffsets">
+              <span class="m-doc-wrap-bumper"><a href="#dip-PixelTableOffsets-PixelTableOffsets" class="m-doc-self">PixelTableOffsets</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd>A default-constructed pixel table is kinda useless.</dd>
+                              <dt id="dip-PixelTableOffsets-PixelTableOffsets-PixelTable-CL-Image-CL">
+              <span class="m-doc-wrap-bumper"><a href="#dip-PixelTableOffsets-PixelTableOffsets-PixelTable-CL-Image-CL" class="m-doc-self">PixelTableOffsets</a>(</span><span class="m-doc-wrap"><a href="dip-PixelTable.html" class="m-doc">dip::PixelTable</a> const&amp; pt,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image)</span>
+            </dt>
+            <dd>A pixel table with offsets is constructed from a <a href="dip-PixelTable.html"><code>dip::PixelTable</code></a> and a <a href="dip-Image.html"><code>dip::Image</code></a>.</dd>
+            </dl>
+        </section>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+                          <dt>
+              struct <a href="#dip-PixelTableOffsets-PixelRun" class="m-doc">PixelRun</a>
+            </dt>
+            <dd>The pixel table is formed of pixel runs, represented by this structure. <a href="#dip-PixelTableOffsets-PixelRun">more...</a></dd>
+                          <dt>
+              class <a href="dip-PixelTableOffsets-iterator.html" class="m-doc">iterator</a>
+            </dt>
+            <dd>An iterator that visits each of the neighborhood&rsquo;s pixels in turn. <a href="dip-PixelTableOffsets-iterator.html#dip-PixelTableOffsets-iterator">more...</a></dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt id="dip-PixelTableOffsets-Runs-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-Runs-C" class="m-doc-self">Runs</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;PixelRun&gt; const&amp;</span>
+            </dt>
+            <dd>Returns the vector of runs.</dd>
+                          <dt id="dip-PixelTableOffsets-Dimensionality-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-Dimensionality-C" class="m-doc-self">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the dimensionality of the neighborhood.</dd>
+                          <dt id="dip-PixelTableOffsets-Sizes-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-Sizes-C" class="m-doc-self">Sizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the size of the bounding box of the neighborhood.</dd>
+                          <dt id="dip-PixelTableOffsets-Origin-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-Origin-C" class="m-doc-self">Origin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the coordinates of the top-left corner of the bounding box w.r.t. the origin of the neighborhood.</dd>
+                          <dt id="dip-PixelTableOffsets-NumberOfPixels-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-NumberOfPixels-C" class="m-doc-self">NumberOfPixels</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of pixels in the neighborhood.</dd>
+                          <dt id="dip-PixelTableOffsets-ProcessingDimension-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-ProcessingDimension-C" class="m-doc-self">ProcessingDimension</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the processing dimension, the dimension along which pixel runs are laid out.</dd>
+                          <dt id="dip-PixelTableOffsets-Stride-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-Stride-C" class="m-doc-self">Stride</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Returns the stride along the processing dimension used by the iterator.</dd>
+                          <dt id="dip-PixelTableOffsets-begin-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-begin-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-PixelTableOffsets-iterator.html" class="m-doc">dip::PixelTableOffsets::iterator</a></span>
+            </dt>
+            <dd>A const iterator to the first pixel in the neighborhood.</dd>
+                          <dt id="dip-PixelTableOffsets-end-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-end-C" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-PixelTableOffsets-iterator.html" class="m-doc">dip::PixelTableOffsets::iterator</a></span>
+            </dt>
+            <dd>A const iterator to one past the last pixel in the neighborhood.</dd>
+                          <dt id="dip-PixelTableOffsets-HasWeights-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-HasWeights-C" class="m-doc-self">HasWeights</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests if there are weights associated to each pixel in the neighborhood.</dd>
+                          <dt id="dip-PixelTableOffsets-WeightsAreComplex-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-WeightsAreComplex-C" class="m-doc-self">WeightsAreComplex</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests if the weights associated to each pixel, if any, are complex-valued.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-Weights-C" class="m-doc">Weights</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;dfloat&gt; const&amp;</span>
+            </dt>
+            <dd>Returns a const reference to the weights array. <a href="#dip-PixelTableOffsets-Weights-C">more...</a></dd>
+                          <dt id="dip-PixelTableOffsets-Offsets-C">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTableOffsets-Offsets-C" class="m-doc-self">Offsets</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;dip::sint&gt;</span>
+            </dt>
+            <dd>Computes an array with the offsets.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Class documentation</h2>
+                        <section class="m-doc-details" id="dip-PixelTableOffsets-PixelRun"><div>
+            <h3>
+              struct <span class="m-doc-name"><a href="#dip-PixelTableOffsets-PixelRun" class="m-doc-self">PixelRun</a></span>            </h3>
+            <p>The pixel table is formed of pixel runs, represented by this structure.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Variables</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> <span class="m-doc-name"><a href="#dip-PixelTableOffsets-PixelRun-offset" class="m-doc-self" id="dip-PixelTableOffsets-PixelRun-offset">offset</a></span>                  </td>
+                  <td>
+                  the offset of the first pixel in a run, w.r.t. the origin.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-doc-name"><a href="#dip-PixelTableOffsets-PixelRun-length" class="m-doc-self" id="dip-PixelTableOffsets-PixelRun-length">length</a></span>                  </td>
+                  <td>
+                  the length of the run.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-PixelTableOffsets-Weights-C"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;dfloat&gt; const&amp;</span>
+              <span class="m-doc-name"><a href="#dip-PixelTableOffsets-Weights-C" class="m-doc-self">Weights</a></span>(
+) const            </h3>
+            <p>Returns a const reference to the weights array.</p>
+<p>If <a href="dip-PixelTableOffsets.html#dip-PixelTableOffsets-HasWeights-C"><code>dip::PixelTableOffsets::HasWeights</code></a>, then the array returned is not empty. If <a href="dip-PixelTableOffsets.html#dip-PixelTableOffsets-WeightsAreComplex-C"><code>dip::PixelTableOffsets::WeightsAreComplex</code></a> is false, there
+will be <a href="dip-PixelTableOffsets.html#dip-PixelTableOffsets-NumberOfPixels-C"><code>dip::PixelTableOffsets::NumberOfPixels</code></a> weights, one for each pixel in the neighborhood, stored in the same order
+as the <a href="dip-PixelTableOffsets.html#dip-PixelTableOffsets-Offsets-C"><code>dip::PixelTableOffsets::Offsets</code></a> array.</p>
+<p>If <a href="dip-PixelTableOffsets.html#dip-PixelTableOffsets-WeightsAreComplex-C"><code>dip::PixelTableOffsets::WeightsAreComplex</code></a> is true, there will be two times <a href="dip-PixelTableOffsets.html#dip-PixelTableOffsets-NumberOfPixels-C"><code>dip::PixelTableOffsets::NumberOfPixels</code></a> weights. Each pair of
+weights represents one complex value. The pointer to the weights array data can be cast to <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a>.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

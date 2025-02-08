@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>diplib/linear.h file | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb">diplib/</span><wbr />linear.h <span class="m-thin">file</span>
+        </h1>
+        <p>Functions that implement linear filters.
+See <a href="linear.html">Linear filters</a>.</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#alias-members">Aliases</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+                          <dt>
+              struct <a href="linear.html#dip-OneDimensionalFilter" class="m-doc">dip::<wbr />OneDimensionalFilter</a>
+            </dt>
+            <dd>Describes a 1D filter <a href="linear.html#dip-OneDimensionalFilter">more...</a></dd>
+          </dl>
+        </section>
+        <section id="alias-members">
+            <h2>Aliases</h2>
+            <dl class="m-doc">
+                              <dt>
+              using <a href="linear.html#dip-OneDimensionalFilterArray" class="m-doc-self">dip::<wbr />OneDimensionalFilterArray</a> = std::vector&lt;OneDimensionalFilter&gt;
+
+            </dt>
+            <dd>An array of 1D filters</dd>
+            </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="linear.html#dip-SeparateFilter-Image-CL" class="m-doc">dip::<wbr />SeparateFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; filter) -&gt; <a href="linear.html#dip-OneDimensionalFilterArray" class="m-doc">dip::OneDimensionalFilterArray</a></span>
+            </dt>
+            <dd>Separates a linear filter (convolution kernel) into a set of 1D filters that can be applied using
+<a href="linear.html#dip-SeparableConvolution-Image-CL-Image-L-OneDimensionalFilterArray-CL-StringArray-CL-BooleanArray-"><code>dip::SeparableConvolution</code></a>. <a href="linear.html#dip-SeparateFilter-Image-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-SeparableConvolution-Image-CL-Image-L-OneDimensionalFilterArray-CL-StringArray-CL-BooleanArray-" class="m-doc">dip::<wbr />SeparableConvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="linear.html#dip-OneDimensionalFilterArray" class="m-doc">dip::OneDimensionalFilterArray</a> const&amp; filterArray,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {})</span>
+            </dt>
+            <dd>Applies a convolution with a filter kernel (PSF) that is separable. <a href="linear.html#dip-SeparableConvolution-Image-CL-Image-L-OneDimensionalFilterArray-CL-StringArray-CL-BooleanArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-ConvolveFT-Image-CL-Image-CL-Image-L-String-CL-String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />ConvolveFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; filter,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filterRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies a convolution with a filter kernel (PSF) by multiplication in the Fourier domain. <a href="linear.html#dip-ConvolveFT-Image-CL-Image-CL-Image-L-String-CL-String-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GeneralConvolution-Image-CL-Image-CL-Image-L-StringArray-CL" class="m-doc">dip::<wbr />GeneralConvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; filter,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies a convolution with a filter kernel (PSF) by direct implementation of the convolution sum. <a href="linear.html#dip-GeneralConvolution-Image-CL-Image-CL-Image-L-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Convolution-Image-CL-Image-CL-Image-L-String-CL-StringArray-CL" class="m-doc">dip::<wbr />Convolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; filter,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies a convolution with a filter kernel (PSF). <a href="linear.html#dip-Convolution-Image-CL-Image-CL-Image-L-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Uniform-Image-CL-Image-L-Kernel-CL-StringArray-CL" class="m-doc">dip::<wbr />Uniform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies a convolution with a kernel with uniform weights, leading to an average (mean) filter. <a href="linear.html#dip-Uniform-Image-CL-Image-L-Kernel-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GaussFIR-Image-CL-Image-L-FloatArray--UnsignedArray--StringArray-CL-dfloat-" class="m-doc">dip::<wbr />GaussFIR</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Finite impulse response implementation of the Gaussian filter and its derivatives <a href="linear.html#dip-GaussFIR-Image-CL-Image-L-FloatArray--UnsignedArray--StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GaussFT-Image-CL-Image-L-FloatArray--UnsignedArray--dfloat--String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />GaussFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Fourier implementation of the Gaussian filter and its derivatives <a href="linear.html#dip-GaussFT-Image-CL-Image-L-FloatArray--UnsignedArray--dfloat--String-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GaussIIR-Image-CL-Image-L-FloatArray--UnsignedArray--StringArray-CL-UnsignedArray--String-CL-dfloat-" class="m-doc">dip::<wbr />GaussIIR</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> filterOrder = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; designMethod = S::DISCRETE_TIME_FIT,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Infinite impulse response implementation of the Gaussian filter and its derivatives <a href="linear.html#dip-GaussIIR-Image-CL-Image-L-FloatArray--UnsignedArray--StringArray-CL-UnsignedArray--String-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Gauss-Image-CL-Image-L-FloatArray--UnsignedArray--String-CL-StringArray-CL-dfloat-" class="m-doc">dip::<wbr />Gauss</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Convolution with a Gaussian kernel and its derivatives <a href="linear.html#dip-Gauss-Image-CL-Image-L-FloatArray--UnsignedArray--String-CL-StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-FiniteDifference-Image-CL-Image-L-UnsignedArray--String-CL-StringArray-CL-BooleanArray-" class="m-doc">dip::<wbr />FiniteDifference</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; smoothFlag = S::SMOOTH,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {})</span>
+            </dt>
+            <dd>Finite difference derivatives <a href="linear.html#dip-FiniteDifference-Image-CL-Image-L-UnsignedArray--String-CL-StringArray-CL-BooleanArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-SobelGradient-Image-CL-Image-L-dip-uint--StringArray-CL" class="m-doc">dip::<wbr />SobelGradient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>The Sobel derivative filter <a href="linear.html#dip-SobelGradient-Image-CL-Image-L-dip-uint--StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-" class="m-doc">dip::<wbr />Derivative</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes derivatives <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dx-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dx</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the first derivative along x, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dy-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the first derivative along y, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dz-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dz</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the first derivative along z, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dxx-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dxx</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the second derivative along x, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dyy-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dyy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the second derivative along y, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dzz-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dzz</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the second derivative along z, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dxy-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dxy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the first derivative along x and y, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dxz-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dxz</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the first derivative along x and z, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dyz-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />Dyz</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0})</span>
+            </dt>
+            <dd>Computes the first derivative along y and z, see <a href="linear.html#dip-Derivative-Image-CL-Image-L-UnsignedArray--FloatArray--String-CL-StringArray-CL-dfloat-"><code>dip::Derivative</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Gradient-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />Gradient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the gradient of the image, resulting in an <em>N</em>-vector image, if the input was <em>N</em>-dimensional. <a href="linear.html#dip-Gradient-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GradientMagnitude-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />GradientMagnitude</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the gradient magnitude of the image, equivalent to <code>dip::Norm( dip::Gradient( in ))</code>. <a href="linear.html#dip-GradientMagnitude-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GradientDirection-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />GradientDirection</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the direction of the gradient of the image, equivalent to <code>dip::Angle( dip::Gradient( in ))</code>. <a href="linear.html#dip-GradientDirection-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Curl-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />Curl</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the curl (rotation) of the 2D or 3D vector field <code>in</code>. <a href="linear.html#dip-Curl-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Divergence-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />Divergence</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the divergence of the vector field <code>in</code>. <a href="linear.html#dip-Divergence-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Hessian-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />Hessian</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the Hessian of the image, resulting in a symmetric <em>NxN</em> tensor image, if the input
+was <em>N</em>-dimensional. <a href="linear.html#dip-Hessian-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Laplace-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />Laplace</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the Laplacian of the image, equivalent to <code>dip::Trace( dip::Hessian( in ))</code>, but more efficient. <a href="linear.html#dip-Laplace-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Dgg-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />Dgg</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the second derivative in the gradient direction. <a href="linear.html#dip-Dgg-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-LaplacePlusDgg-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />LaplacePlusDgg</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Adds the second derivative in the gradient direction to the Laplacian. <a href="linear.html#dip-LaplacePlusDgg-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-LaplaceMinusDgg-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />LaplaceMinusDgg</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Subtracts the second derivative in the gradient direction from the Laplacian. <a href="linear.html#dip-LaplaceMinusDgg-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Sharpen-Image-CL-Image-L-dfloat--FloatArray--String-CL-StringArray-CL-dfloat-" class="m-doc">dip::<wbr />Sharpen</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight = 1.0,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Sharpens <code>in</code> by subtracting the Laplacian of the image. <a href="linear.html#dip-Sharpen-Image-CL-Image-L-dfloat--FloatArray--String-CL-StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-UnsharpMask-Image-CL-Image-L-dfloat--FloatArray--String-CL-StringArray-CL-dfloat-" class="m-doc">dip::<wbr />UnsharpMask</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight = 1.0,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Sharpens <code>in</code> by subtracting the smoothed image. <a href="linear.html#dip-UnsharpMask-Image-CL-Image-L-dfloat--FloatArray--String-CL-StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GaborFIR-Image-CL-Image-L-FloatArray--FloatArray-CL-StringArray-CL-BooleanArray--dfloat-" class="m-doc">dip::<wbr />GaborFIR</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; frequencies,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Finite impulse response implementation of the Gabor filter <a href="linear.html#dip-GaborFIR-Image-CL-Image-L-FloatArray--FloatArray-CL-StringArray-CL-BooleanArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-GaborIIR-Image-CL-Image-L-FloatArray--FloatArray-CL-StringArray-CL-BooleanArray--IntegerArray-CL-dfloat-" class="m-doc">dip::<wbr />GaborIIR</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; frequencies,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {},
+              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; filterOrder = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Recursive infinite impulse response implementation of the Gabor filter <a href="linear.html#dip-GaborIIR-Image-CL-Image-L-FloatArray--FloatArray-CL-StringArray-CL-BooleanArray--IntegerArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-Gabor2D-Image-CL-Image-L-FloatArray--dfloat--dfloat--StringArray-CL-dfloat-" class="m-doc">dip::<wbr />Gabor2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {5.0,5.0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> frequency = 0.1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> direction = dip::pi,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>2D Gabor filter with direction parameter <a href="linear.html#dip-Gabor2D-Image-CL-Image-L-FloatArray--dfloat--dfloat--StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-LogGaborFilterBank-Image-CL-Image-L-FloatArray-CL-dfloat--dip-uint--String-CL-String-CL" class="m-doc">dip::<wbr />LogGaborFilterBank</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; wavelengths = {3.0,6.0,12.0,24.0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> bandwidth = 0.75,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nOrientations = 6,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL)</span>
+            </dt>
+            <dd>Applies a log-Gabor filter bank <a href="linear.html#dip-LogGaborFilterBank-Image-CL-Image-L-FloatArray-CL-dfloat--dip-uint--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-NormalizedConvolution-Image-CL-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL-dfloat-" class="m-doc">dip::<wbr />NormalizedConvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {S::ADD_ZEROS},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the normalized convolution with a Gaussian kernel: a Gaussian convolution for missing or
+uncertain data. <a href="linear.html#dip-NormalizedConvolution-Image-CL-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-NormalizedDifferentialConvolution-Image-CL-Image-CL-Image-L-dip-uint--FloatArray-CL-String-CL-StringArray-CL-dfloat-" class="m-doc">dip::<wbr />NormalizedDifferentialConvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {S::ADD_ZEROS},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the normalized differential convolution with a Gaussian kernel: a derivative operator for missing
+or uncertain data. <a href="linear.html#dip-NormalizedDifferentialConvolution-Image-CL-Image-CL-Image-L-dip-uint--FloatArray-CL-String-CL-StringArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="linear.html#dip-MeanShiftVector-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-dfloat-" class="m-doc">dip::<wbr />MeanShiftVector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::BEST,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Computes the mean shift vector for each pixel in the image <a href="linear.html#dip-MeanShiftVector-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-dfloat-">more...</a></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>

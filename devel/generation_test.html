@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Generation &raquo; Test image generation module | DIPlib | a library for quantitative image analysis</title>
+  <link rel="stylesheet" href="m-dip+documentation.compiled.css" />
+  <link rel="icon" href="DIPlib_logo_32.png" type="image/png" />
+  <link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Search DIPlib documentation" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+<body>
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
+        </svg></a>
+        <a id="m-navbar-show" href="#navigation" title="Show navigation"></a>
+        <a id="m-navbar-hide" href="#" title="Hide navigation"></a>
+      </div>
+      <div id="m-navbar-collapse" class="m-col-t-12 m-show-m m-col-m-none m-right-m">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="modules.html">Modules</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="files.html">Files</a></li>
+            <li class="m-show-m"><a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path" />
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="generation.html">Generation</a> &raquo;</span>
+          Test image generation <span class="m-thin">module</span>          <div class="m-doc-include m-code m-thin m-text-right">#include <a href="file--diplib--generation-h.html">"diplib/generation.h"</a></div>
+        </h1>
+        <p>Generating images with test objects or functions</p>
+        <div class="m-block m-default">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#nested-classes">Classes</a></li>
+                <li><a href="#function-members">Functions</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <section id="nested-classes">
+          <h2>Classes</h2>
+          <dl class="m-doc">
+                          <dt>
+              struct <a href="#dip-TestObjectParams" class="m-doc">dip::<wbr />TestObjectParams</a>
+            </dt>
+            <dd>Describes the parameters for a test object, used by <a href="generation_test.html#dip-TestObject-Image-L-TestObjectParams-CL-Random-L"><code>dip::TestObject</code></a>. <a href="#dip-TestObjectParams">more...</a></dd>
+          </dl>
+        </section>
+        <section id="function-members">
+          <h2>Functions</h2>
+          <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GaussianEdgeClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />GaussianEdgeClip</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
+            </dt>
+            <dd>Maps input values through an error function, can be used to generate arbitrary band-limited objects. <a href="#dip-GaussianEdgeClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GaussianLineClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />GaussianLineClip</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
+            </dt>
+            <dd>Maps input values through a Gaussian function, can be used to generate arbitrary band-limited lines. <a href="#dip-GaussianLineClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FillDelta-Image-L-String-CL" class="m-doc">dip::<wbr />FillDelta</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; origin = "")</span>
+            </dt>
+            <dd>Fills an image with a delta function. <a href="#dip-FillDelta-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CreateDelta-Image-L-UnsignedArray-CL-String-CL" class="m-doc">dip::<wbr />CreateDelta</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; origin = "")</span>
+            </dt>
+            <dd>Creates a delta function image. <a href="#dip-CreateDelta-Image-L-UnsignedArray-CL-String-CL">more...</a></dd>
+                          <dt id="dip-CreateDelta-UnsignedArray-CL-String-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CreateDelta-UnsignedArray-CL-String-CL" class="m-doc-self">dip::<wbr />CreateDelta</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; origin = "") -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CreateGauss-Image-L-FloatArray-CL-UnsignedArray--dfloat--UnsignedArray-" class="m-doc">dip::<wbr />CreateGauss</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> exponents = {0})</span>
+            </dt>
+            <dd>Creates a Gaussian kernel. <a href="#dip-CreateGauss-Image-L-FloatArray-CL-UnsignedArray--dfloat--UnsignedArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CreateGabor-Image-L-FloatArray-CL-FloatArray-CL-dfloat-" class="m-doc">dip::<wbr />CreateGabor</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; frequencies,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
+            </dt>
+            <dd>Creates a Gabor kernel. <a href="#dip-CreateGabor-Image-L-FloatArray-CL-FloatArray-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FTEllipsoid-Image-L-FloatArray--dfloat-" class="m-doc">dip::<wbr />FTEllipsoid</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> radius = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1)</span>
+            </dt>
+            <dd>Generates the Fourier transform of an ellipsoid. <a href="#dip-FTEllipsoid-Image-L-FloatArray--dfloat-">more...</a></dd>
+                          <dt id="dip-FTEllipsoid-UnsignedArray-CL-FloatArray--dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FTEllipsoid-UnsignedArray-CL-FloatArray--dfloat-" class="m-doc-self">dip::<wbr />FTEllipsoid</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> radius = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FTBox-Image-L-FloatArray--dfloat-" class="m-doc">dip::<wbr />FTBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> length = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1)</span>
+            </dt>
+            <dd>Generates the Fourier transform of a box. <a href="#dip-FTBox-Image-L-FloatArray--dfloat-">more...</a></dd>
+                          <dt id="dip-FTBox-UnsignedArray-CL-FloatArray--dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FTBox-UnsignedArray-CL-FloatArray--dfloat-" class="m-doc-self">dip::<wbr />FTBox</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> length = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FTCross-Image-L-FloatArray--dfloat-" class="m-doc">dip::<wbr />FTCross</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> length = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1)</span>
+            </dt>
+            <dd>Generates the Fourier transform of a cross. <a href="#dip-FTCross-Image-L-FloatArray--dfloat-">more...</a></dd>
+                          <dt id="dip-FTCross-UnsignedArray-CL-FloatArray--dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FTCross-UnsignedArray-CL-FloatArray--dfloat-" class="m-doc-self">dip::<wbr />FTCross</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> length = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FTGaussian-Image-L-FloatArray--dfloat--dfloat-" class="m-doc">dip::<wbr />FTGaussian</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigma,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3)</span>
+            </dt>
+            <dd>Generates the Fourier transform of a Gaussian. <a href="#dip-FTGaussian-Image-L-FloatArray--dfloat--dfloat-">more...</a></dd>
+                          <dt id="dip-FTGaussian-UnsignedArray-CL-FloatArray--dfloat--dfloat-">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FTGaussian-UnsignedArray-CL-FloatArray--dfloat--dfloat-" class="m-doc-self">dip::<wbr />FTGaussian</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigma,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-TestObject-Image-L-TestObjectParams-CL-Random-L" class="m-doc">dip::<wbr />TestObject</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="generation_test.html#dip-TestObjectParams" class="m-doc">dip::TestObjectParams</a> const&amp; params,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random)</span>
+            </dt>
+            <dd>Generates a test object according to <code>params</code>. <a href="#dip-TestObject-Image-L-TestObjectParams-CL-Random-L">more...</a></dd>
+                          <dt id="dip-TestObject-UnsignedArray-CL-TestObjectParams-CL-Random-L">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-TestObject-UnsignedArray-CL-TestObjectParams-CL-Random-L" class="m-doc-self">dip::<wbr />TestObject</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="generation_test.html#dip-TestObjectParams" class="m-doc">dip::TestObjectParams</a> const&amp; params,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
+                          <dt id="dip-TestObject-Image-L-TestObjectParams-CL">
+              <span class="m-doc-wrap-bumper">void <a href="#dip-TestObject-Image-L-TestObjectParams-CL" class="m-doc-self">dip::<wbr />TestObject</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="generation_test.html#dip-TestObjectParams" class="m-doc">dip::TestObjectParams</a> const&amp; params = {})</span>
+            </dt>
+            <dd>Calls the main <a href="generation_test.html#dip-TestObject-Image-L-TestObjectParams-CL-Random-L"><code>dip::TestObject</code></a> function with a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
+                          <dt id="dip-TestObject-UnsignedArray-CL-TestObjectParams-CL">
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-TestObject-UnsignedArray-CL-TestObjectParams-CL" class="m-doc-self">dip::<wbr />TestObject</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {256,256},
+              <a href="generation_test.html#dip-TestObjectParams" class="m-doc">dip::TestObjectParams</a> const&amp; params = {}) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FillPoissonPointProcess-Image-L-Random-L-dfloat-" class="m-doc">dip::<wbr />FillPoissonPointProcess</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01)</span>
+            </dt>
+            <dd>Fills the binary image <code>out</code> with a Poisson point process of <code>density</code>. <a href="#dip-FillPoissonPointProcess-Image-L-Random-L-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CreatePoissonPointProcess-Image-L-UnsignedArray-CL-Random-L-dfloat-" class="m-doc">dip::<wbr />CreatePoissonPointProcess</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01)</span>
+            </dt>
+            <dd>Creates a binary image with a Poisson point process of <code>density</code>. <a href="#dip-CreatePoissonPointProcess-Image-L-UnsignedArray-CL-Random-L-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FillRandomGrid-Image-L-Random-L-dfloat--String-CL-String-CL" class="m-doc">dip::<wbr />FillRandomGrid</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = S::RECTANGULAR,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::TRANSLATION)</span>
+            </dt>
+            <dd>Fills the binary image <code>out</code> with a grid that is randomly placed over the image. <a href="#dip-FillRandomGrid-Image-L-Random-L-dfloat--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CreateRandomGrid-Image-L-UnsignedArray-CL-Random-L-dfloat--String-CL-String-CL" class="m-doc">dip::<wbr />CreateRandomGrid</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = S::RECTANGULAR,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::TRANSLATION)</span>
+            </dt>
+            <dd>Creates a binary image with a random grid. <a href="#dip-CreateRandomGrid-Image-L-UnsignedArray-CL-Random-L-dfloat--String-CL-String-CL">more...</a></dd>
+          </dl>
+        </section>
+        <section>
+            <h2>Class documentation</h2>
+                          <section class="m-doc-details" id="dip-TestObjectParams"><div>
+            <h3>
+              struct <span class="m-doc-name"><a href="#dip-TestObjectParams" class="m-doc-self">dip::<wbr />TestObjectParams</a></span>            </h3>
+            <p>Describes the parameters for a test object, used by <a href="generation_test.html#dip-TestObject-Image-L-TestObjectParams-CL-Random-L"><code>dip::TestObject</code></a>.</p>
+            <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
+              <thead><tr><th>Variables</th><th></th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-objectShape" class="m-doc-self" id="dip-TestObjectParams-objectShape">objectShape</a></span>                  </td>
+                  <td>
+                  Can be <code>"ellipsoid"</code>, <code>"ellipsoid shell"</code>, <code>"box"</code>, <code>"box shell"</code>, or <code>"custom"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-objectSizes" class="m-doc-self" id="dip-TestObjectParams-objectSizes">objectSizes</a></span>                  </td>
+                  <td>
+                  Sizes of the object along each dimension.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-objectAmplitude" class="m-doc-self" id="dip-TestObjectParams-objectAmplitude">objectAmplitude</a></span>                  </td>
+                  <td>
+                  Brightness of object pixels.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  bool <span class="m-doc-name"><a href="#dip-TestObjectParams-randomShift" class="m-doc-self" id="dip-TestObjectParams-randomShift">randomShift</a></span>                  </td>
+                  <td>
+                  If true, add a random sub-pixel shift in the range [-0.5,0.5].
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-generationMethod" class="m-doc-self" id="dip-TestObjectParams-generationMethod">generationMethod</a></span>                  </td>
+                  <td>
+                  Can be <code>"gaussian"</code> (spatial domain method) or <code>"fourier"</code> (frequency domain method).
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-modulationDepth" class="m-doc-self" id="dip-TestObjectParams-modulationDepth">modulationDepth</a></span>                  </td>
+                  <td>
+                  Strength of modulation, if 0 no modulation is applied.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-modulationFrequency" class="m-doc-self" id="dip-TestObjectParams-modulationFrequency">modulationFrequency</a></span>                  </td>
+                  <td>
+                  Frequency of a sine modulation added to the object, units are periods/pixel.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-pointSpreadFunction" class="m-doc-self" id="dip-TestObjectParams-pointSpreadFunction">pointSpreadFunction</a></span>                  </td>
+                  <td>
+                  PSF, can be <code>"gaussian"</code>, <code>"incoherent"</code>, or <code>"none"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-oversampling" class="m-doc-self" id="dip-TestObjectParams-oversampling">oversampling</a></span>                  </td>
+                  <td>
+                  Determines size of PSF (Gaussian PSF has sigma = 0.9*oversampling).
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-backgroundValue" class="m-doc-self" id="dip-TestObjectParams-backgroundValue">backgroundValue</a></span>                  </td>
+                  <td>
+                  Background intensity, must be non-negative.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-signalNoiseRatio" class="m-doc-self" id="dip-TestObjectParams-signalNoiseRatio">signalNoiseRatio</a></span>                  </td>
+                  <td>
+                  SNR = average object energy divided by average noise power. If SNR &gt; 0, adds a mixture of Gaussian and Poisson noise.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-gaussianNoise" class="m-doc-self" id="dip-TestObjectParams-gaussianNoise">gaussianNoise</a></span>                  </td>
+                  <td>
+                  Relative amount of Gaussian noise.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                  <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> <span class="m-doc-name"><a href="#dip-TestObjectParams-poissonNoise" class="m-doc-self" id="dip-TestObjectParams-poissonNoise">poissonNoise</a></span>                  </td>
+                  <td>
+                  Relative amount of Poisson noise.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-GaussianEdgeClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-GaussianEdgeClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-" class="m-doc-self">dip::<wbr />GaussianEdgeClip</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
+            <p>Maps input values through an error function, can be used to generate arbitrary band-limited objects.</p>
+<p><code>in</code> is a scalar, real-valued function whose zero level set represents the edges of an object. The function
+indicates the Euclidean distance to these edges, with positive values inside the object. <code>out</code> will have a
+value of <code>value</code> inside the object, zero outside the object, and a Gaussian profile in the transition. If
+<code>sigma</code> is larger or equal to about 0.8, and the input image is well formed, the output will be approximately
+bandlimited.</p>
+<p>The error function mapping is computed in band around the zero crossings where the input image has values
+smaller than <code>sigma * truncation</code>.</p>
+<p>If <code>value</code> has more than one element, the output will be a tensor image with the same number of elements.</p>
+<p>The following example draws a band-limited cross, where the horizontal and vertical bars both have 20.5 pixels
+width, and different sub-pixel shifts. The foreground has a value of 255, and the background of 0.</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="w"> </span><span class="n">outSize</span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">};</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">xx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20.5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Abs</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">CreateXCoordinate</span><span class="p">(</span><span class="w"> </span><span class="n">outSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">21.3</span><span class="w"> </span><span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">yy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20.5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Abs</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">CreateYCoordinate</span><span class="p">(</span><span class="w"> </span><span class="n">outSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">7.8</span><span class="w"> </span><span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">cross</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">GaussianEdgeClip</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Supremum</span><span class="p">(</span><span class="w"> </span><span class="n">xx</span><span class="p">,</span><span class="w"> </span><span class="n">yy</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+          </div></section>
+                        <section class="m-doc-details" id="dip-GaussianLineClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-GaussianLineClip-Image-CL-Image-L-Image-Pixel-CL-dfloat--dfloat-" class="m-doc-self">dip::<wbr />GaussianLineClip</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
+            <p>Maps input values through a Gaussian function, can be used to generate arbitrary band-limited lines.</p>
+<p><code>in</code> is a scalar, real-valued function whose zero level set represents the lines to be drawn. The function
+indicates the Euclidean distance to these edges. <code>out</code> will have lines with a Gaussian profile and a weight
+of <code>value</code> (the integral perpendicular to the line is <code>value</code>), and a value of zero away from the lines. If
+<code>sigma</code> is larger or equal to about 0.8, and the input image is well formed, the output will be approximately
+bandlimited.</p>
+<p>The Gaussian function mapping is computed in band around the zero crossings where the input image has values
+smaller than <code>sigma * truncation</code>.</p>
+<p>If <code>value</code> has more than one element, the output will be a tensor image with the same number of elements.</p>
+<p>The following example draws a band-limited cross outline, where the horizontal and vertical bars both have
+20.5 pixels width, and different sub-pixel shifts. The lines have a weight of 1500, and the background has
+a value of 0.</p>
+<div class="m-code"><pre><span></span><span class="n">dip</span><span class="o">::</span><span class="n">UnsignedArray</span><span class="w"> </span><span class="n">outSize</span><span class="p">{</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="w"> </span><span class="p">};</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">xx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20.5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Abs</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">CreateXCoordinate</span><span class="p">(</span><span class="w"> </span><span class="n">outSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">21.3</span><span class="w"> </span><span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">yy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20.5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Abs</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">CreateYCoordinate</span><span class="p">(</span><span class="w"> </span><span class="n">outSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">7.8</span><span class="w"> </span><span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">cross</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">GaussianLineClip</span><span class="p">(</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Supremum</span><span class="p">(</span><span class="w"> </span><span class="n">xx</span><span class="p">,</span><span class="w"> </span><span class="n">yy</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1500</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FillDelta-Image-L-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-FillDelta-Image-L-String-CL" class="m-doc-self">dip::<wbr />FillDelta</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; origin = ""</span>)            </h3>
+            <p>Fills an image with a delta function.</p>
+<p>All pixels will be zero except at the origin, where it will be 1.
+<code>out</code> must be forged, and scalar.</p>
+<p><code>origin</code> specifies where the origin lies:</p>
+<ul>
+<li><code>"right"</code>: The origin is on the pixel right of the center (at integer division result of
+  <code>size/2</code>). This is the default.</li>
+<li><code>"left"</code>: The origin is on the pixel left of the center (at integer division result of
+  <code>(size-1)/2</code>).</li>
+<li><code>"corner"</code>: The origin is on the first pixel. This is the default if no other option is given.</li>
+</ul>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CreateDelta-Image-L-UnsignedArray-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-CreateDelta-Image-L-UnsignedArray-CL-String-CL" class="m-doc-self">dip::<wbr />CreateDelta</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; origin = ""</span>)            </h3>
+            <p>Creates a delta function image.</p>
+<p>All pixels will be zero except at the origin, where it will be 1.
+<code>out</code> will be of size <code>sizes</code>, scalar, and of type <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>.
+See <a href="generation_test.html#dip-FillDelta-Image-L-String-CL"><code>dip::FillDelta</code></a> for the meaning of <code>origin</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CreateGauss-Image-L-FloatArray-CL-UnsignedArray--dfloat--UnsignedArray-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-CreateGauss-Image-L-FloatArray-CL-UnsignedArray--dfloat--UnsignedArray-" class="m-doc-self">dip::<wbr />CreateGauss</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> derivativeOrder = {0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> exponents = {0}</span>)            </h3>
+            <p>Creates a Gaussian kernel.</p>
+<p><code>out</code> is reforged to the required size to hold the kernel. These sizes are always odd. <code>sigmas</code> determines
+the number of dimensions. <code>order</code> and <code>exponents</code> will be adjusted if necessary to match.</p>
+<p><code>derivativeOrder</code> is the derivative order, and can be a value between 0 and 3 for each dimension.</p>
+<p>If <code>derivativeOrder</code> is 0, the size of the kernel is given by <code>2 * std::ceil( truncation * sigma ) + 1</code>.
+The default value for <code>truncation</code> is 3, which assures a good approximation of the Gaussian kernel without
+unnecessary expense. For derivatives, the value of <code>truncation</code> is increased by <code>0.5 * derivativeOrder</code>.
+Truncation is limited to avoid unusefully small values.</p>
+<p>By setting <code>exponents</code> to a positive value for each dimension, the created kernel will be multiplied by
+the coordinates to the power of <code>exponents</code>.</p>
+<aside class="m-note m-warning">
+<h4>Warning</h4>
+<p>Convolving an image with the result of this function is much less efficient than calling <a href="linear.html#dip-Gauss-Image-CL-Image-L-FloatArray--UnsignedArray--String-CL-StringArray-CL-dfloat-"><code>dip::Gauss</code></a>.</p>
+</aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CreateGabor-Image-L-FloatArray-CL-FloatArray-CL-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-CreateGabor-Image-L-FloatArray-CL-FloatArray-CL-dfloat-" class="m-doc-self">dip::<wbr />CreateGabor</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; frequencies,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
+            <p>Creates a Gabor kernel.</p>
+<p><code>out</code> is reforged to the required size to hold the kernel. These sizes are always odd. <code>sigmas</code> determines
+the number of dimensions. <code>frequencies</code> must have the same number of elements as <code>sigmas</code>.</p>
+<p>Frequencies are in the range [0, 0.5), with 0.5 being the frequency corresponding to a period of the
+size of the image.</p>
+<p>The size of the kernel is given by <code>2 * std::ceil( truncation * sigma ) + 1</code>.
+The default value for <code>truncation</code> is 3, which assures a good approximation of the kernel without
+unnecessary expense. Truncation is limited to avoid unusefully small values.</p>
+<aside class="m-note m-warning">
+<h4>Warning</h4>
+<p>Convolving an image with the result of this function is much less efficient than calling <a href="linear.html#dip-GaborIIR-Image-CL-Image-L-FloatArray--FloatArray-CL-StringArray-CL-BooleanArray--IntegerArray-CL-dfloat-"><code>dip::GaborIIR</code></a>.</p>
+</aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FTEllipsoid-Image-L-FloatArray--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-FTEllipsoid-Image-L-FloatArray--dfloat-" class="m-doc-self">dip::<wbr />FTEllipsoid</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> radius = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1</span>)            </h3>
+            <p>Generates the Fourier transform of an ellipsoid.</p>
+<p>The length of the axes of the ellipsoid are specified through <code>radius</code>, which indicates the half-length
+of the axes along each dimension. <code>amplitude</code> specifies the brightness of the ellipsoid.</p>
+<p>The function is defined for images between 1 and 3 dimensions. <code>out</code> must be forged, scalar, and of a
+floating-point type.</p>
+<aside class="m-note m-default">
+<h4>Literature</h4>
+<ul>
+<li>L.J. van Vliet, &ldquo;Grey-Scale Measurements in Multi-Dimensional Digitized Images&rdquo;,
+  Ph.D. thesis, Delft University of Technology, 1993.</li>
+</ul>
+</aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FTBox-Image-L-FloatArray--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-FTBox-Image-L-FloatArray--dfloat-" class="m-doc-self">dip::<wbr />FTBox</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> length = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1</span>)            </h3>
+            <p>Generates the Fourier transform of a box.</p>
+<p>The length of the sides of the box are specified through <code>length</code>, which indicates the half-length
+of the sides along each dimension. <code>amplitude</code> specifies the brightness of the box.</p>
+<p><code>out</code> must be forged, scalar, and of a floating-point type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FTCross-Image-L-FloatArray--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-FTCross-Image-L-FloatArray--dfloat-" class="m-doc-self">dip::<wbr />FTCross</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> length = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1</span>)            </h3>
+            <p>Generates the Fourier transform of a cross.</p>
+<p>The length of the sides of the cross are specified through <code>length</code>, which indicates the half-length
+of the sides along each dimension. <code>amplitude</code> specifies the brightness of the cross.</p>
+<p><code>out</code> must be forged, scalar, and of a floating-point type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FTGaussian-Image-L-FloatArray--dfloat--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-FTGaussian-Image-L-FloatArray--dfloat--dfloat-" class="m-doc-self">dip::<wbr />FTGaussian</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigma,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3</span>)            </h3>
+            <p>Generates the Fourier transform of a Gaussian.</p>
+<p>The size of the Gaussian is specified with <code>sigma</code> (note that the Fourier transform of a Gaussian is also a
+Gaussian). <code>volume</code> is the integral of the Gaussian in the spatial domain.</p>
+<p><code>out</code> must be forged, scalar, and of a floating-point type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-TestObject-Image-L-TestObjectParams-CL-Random-L"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-TestObject-Image-L-TestObjectParams-CL-Random-L" class="m-doc-self">dip::<wbr />TestObject</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="generation_test.html#dip-TestObjectParams" class="m-doc">dip::TestObjectParams</a> const&amp; params,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random</span>)            </h3>
+            <p>Generates a test object according to <code>params</code>.</p>
+<p>Generates a test object in the center of <code>out</code>, which must be forged, scalar and of a floating-point type.
+The test object can optionally be modulated using a sine function, blurred, and have noise added.</p>
+<p><code>params</code> describes how the object is generated:</p>
+<ul>
+<li><code>params.generationMethod</code> can be one of:<ul>
+<li><code>"gaussian"</code>: creates the shape directly in the spatial domain, the shape will have Gaussian edges with
+  a sigma of 0.9.</li>
+<li><code>"fourier"</code>: creates the shape in the frequency domain, the shape will be truly bandlimited.</li>
+</ul>
+</li>
+<li><code>params.objectShape</code> can be one of:<ul>
+<li><code>"ellipsoid"</code> or <code>"ellipsoid shell"</code>: the shape is drawn with <a href="generation_drawing.html#dip-DrawBandlimitedBall-Image-L-dfloat--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-"><code>dip::DrawBandlimitedBall</code></a> or
+  <a href="generation_test.html#dip-FTEllipsoid-Image-L-FloatArray--dfloat-"><code>dip::FTEllipsoid</code></a>, depending on the generation method. In the case of <code>"gaussian"</code> (spatial-domain
+  generation), the shape must be isotropic (have same sizes in all dimensions). In the case of <code>"fourier"</code>,
+  the image cannot have more than three dimensions.</li>
+<li><code>"box"</code> or <code>"box shell"</code>: the shape is drawn with <a href="generation_drawing.html#dip-DrawBandlimitedBox-Image-L-FloatArray--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-"><code>dip::DrawBandlimitedBox</code></a> or
+  <a href="generation_test.html#dip-FTBox-Image-L-FloatArray--dfloat-"><code>dip::FTBox</code></a>, depending on the generation method.</li>
+<li><code>"custom"</code>: <code>out</code> already contains a shape, which is used as-is. In the case that <code>params.generationMethod</code>
+  is <code>"gaussian"</code>, <code>out</code> is taken to be in the spatial domain, and in the case of <code>"fourier"</code>, in the
+  frequency domain.</li>
+</ul>
+</li>
+<li><code>params.objectSizes</code> determines the extent of the object along each dimension. Must have either one element
+  or as many elements as image dimensions in <code>out</code>.</li>
+<li><code>params.objectAmplitude</code> determines the brightness of the object.</li>
+<li><code>params.randomShift</code>, if <code>true</code>, shifts the object with a random sub-pixel shift in the range [-0.5,0.5].
+  This sub-pixel shift can be used to avoid bias due to digitization error over a sequence of generated objects.</li>
+</ul>
+<p><code>params</code> also describes what effects are applied to the image:</p>
+<p>Modulation is an additive sine wave along each dimension, and is controlled by:</p>
+<ul>
+<li><code>params.modulationDepth</code> controls the strength of the modulation. If this value is zero, no modulation is applied.</li>
+<li><code>params.modulationFrequency</code> controls the frequency along each image axis. The units are number of periods per
+  pixel, and hence values below 0.5 should be given to prevent aliasing.</li>
+</ul>
+<p>Blurring is controlled by:</p>
+<ul>
+<li><code>params.pointSpreadFunction</code> determines the point spread function (PSF) used. It can be <code>"gaussian"</code> for
+   Gaussian blurring, <code>"incoherent"</code> for a 2D, in-focus, diffraction limited incoherent PSF (applied through
+   Fourier domain filtering), or <code>"none"</code> for no blurring.</li>
+<li><code>params.oversampling</code> determines the size of the PSF. In the case of <code>"gaussian"</code>, the sigma used for blurring
+  is <code>0.9 * params.oversampling</code>. In the case of <code>"incoherent"</code>, this is the <code>oversampling</code> parameter passed to
+  <a href="microscopy.html#dip-IncoherentOTF-Image-L-dfloat--dfloat--dfloat--String-CL"><code>dip::IncoherentOTF</code></a>.</li>
+</ul>
+<p>Noise is controlled by:</p>
+<ul>
+<li><code>params.backgroundValue</code> determines the background intensity added to the image. This is relevant for the
+  Poisson noise.</li>
+<li><code>params.signalNoiseRatio</code> determines the signal to noise ratio (SNR), which we define as the average object
+  energy divided by average noise power (i.e. not in dB). If the SNR is larger than 0, a mixture of Gaussian
+  and Poisson noise is added to the whole image.</li>
+<li><code>params.gaussianNoise</code> determines the relative amount of Gaussian noise used.</li>
+<li><code>params.poissonNoise</code> determines the relative amount of Poisson noise used. The magnitude of these two
+  quantities is not relevant, only their relative values are. If they are equal, the requested SNR is divided
+  equally between the Gaussian and the Poisson noise.</li>
+</ul>
+<p><code>random</code> is the random number generator used for both the sub-pixel shift and the noise added to the image.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FillPoissonPointProcess-Image-L-Random-L-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-FillPoissonPointProcess-Image-L-Random-L-dfloat-" class="m-doc-self">dip::<wbr />FillPoissonPointProcess</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01</span>)            </h3>
+            <p>Fills the binary image <code>out</code> with a Poisson point process of <code>density</code>.</p>
+<p><code>out</code> must be forged, binary and scalar. On average, one of every <code>1/density</code> pixels will be set.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CreatePoissonPointProcess-Image-L-UnsignedArray-CL-Random-L-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-CreatePoissonPointProcess-Image-L-UnsignedArray-CL-Random-L-dfloat-" class="m-doc-self">dip::<wbr />CreatePoissonPointProcess</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01</span>)            </h3>
+            <p>Creates a binary image with a Poisson point process of <code>density</code>.</p>
+<p><code>out</code> will be of size <code>sizes</code>, binary and scalar.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FillRandomGrid-Image-L-Random-L-dfloat--String-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-FillRandomGrid-Image-L-Random-L-dfloat--String-CL-String-CL" class="m-doc-self">dip::<wbr />FillRandomGrid</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = S::RECTANGULAR,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::TRANSLATION</span>)            </h3>
+            <p>Fills the binary image <code>out</code> with a grid that is randomly placed over the image.</p>
+<p>This grid can be useful for random systematic sampling.</p>
+<p><code>type</code> determines the grid type. It can be <code>"rectangular"</code> in any number of dimensions, this is the default grid.
+For 2D images it can be <code>"hexagonal"</code>. In 3D it can be <code>"fcc"</code> or <code>"bcc"</code> for face-centered cubic and body-centered
+cubic, respectively.</p>
+<p><code>density</code> determines the grid density. On average, one of every <code>1/density</code> pixels will be set. The grid is
+sampled equally densely along all dimensions. If the density doesn&rsquo;t lead to an integer grid spacing, the grid
+locations will be rounded, leading to an uneven spacing. <code>density</code> must be such that the grid spacing is at
+least 2. Therefore, <code>density</code> must be smaller than <span class="m-math"><svg style="width: 0.916em; height: 1.552em; vertical-align: -0.491em;  vertical-align: -0.492em;" viewBox="1.2 -10.61 9.16 15.52">
+<title>
+\(\frac{1}{2^d}\)
+</title>
+<defs>
+<path id='eq121-g1-51' d='M3.58-.66L3.49-.73C3.09-.31 3.01-.26 2.88-.26C2.8-.26 2.74-.31 2.74-.39C2.73-.5 2.93-1.26 3.18-2L3.84-4.44L3.81-4.47C3.41-4.4 3.12-4.36 2.64-4.32L2.65-4.21C3.06-4.2 3.11-4.18 3.12-4.04C3.12-3.95 3.11-3.93 3.01-3.58L2.73-2.51C2.65-2.78 2.52-2.89 2.22-2.89C1.23-2.89 .05-1.66 .09-.67C.1-.21 .42 .07 .91 .07C1.43 .07 1.8-.1 2.24-.79C2.17-.47 2.16-.36 2.16-.21C2.17-.03 2.29 .09 2.49 .09C2.81 .09 3.2-.18 3.58-.66ZM2.61-2.36C2.65-1.37 1.91-.24 1.21-.24C.94-.24 .77-.41 .75-.67C.74-1.22 1.09-1.98 1.57-2.44C1.76-2.62 2.04-2.74 2.24-2.74H2.27C2.49-2.73 2.6-2.6 2.61-2.36Z'/>
+<path id='eq121-g5-49' d='M3.44 0V-.13C2.75-.14 2.61-.23 2.61-.65V-5.89L2.54-5.9L.97-5.11V-4.99C1.07-5.03 1.17-5.07 1.21-5.08C1.36-5.14 1.51-5.18 1.6-5.18C1.78-5.18 1.86-5.05 1.86-4.77V-.81C1.86-.52 1.79-.32 1.65-.24C1.52-.17 1.4-.14 1.03-.13V0H3.44Z'/>
+<path id='eq121-g5-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+</defs>
+<g id='eq121-page1'>
+<use x='3.58' y='-4.71' xlink:href='#eq121-g5-49'/>
+<rect x='1.2' y='-3.41' height='.67' width='9.16'/>
+<use x='1.2' y='4.9' xlink:href='#eq121-g5-50'/>
+<use x='5.78' y='2.37' xlink:href='#eq121-g1-51'/>
+</g>
+</svg></span>, with <span class="m-math"><svg style="width: 0.610em; height: 0.829em; vertical-align: -0.016em;  vertical-align: -0.016em;" viewBox=".48 -8.13 6.1 8.29">
+<title>
+\(d\)
+</title>
+<defs>
+<path id='eq122-g1-51' d='M5.66-1.2L5.51-1.32C4.86-.57 4.74-.48 4.54-.48C4.42-.48 4.32-.57 4.32-.71C4.32-.91 4.69-2.3 5.1-3.64L6.28-8.08L6.22-8.13C5.59-8 5.16-7.93 4.39-7.86V-7.66C5.05-7.63 5.13-7.6 5.13-7.35C5.13-7.18 5.12-7.15 4.95-6.52L4.43-4.56C4.34-5.06 4.12-5.25 3.66-5.25C2.11-5.25 .18-3.01 .18-1.23C.18-.38 .66 .13 1.43 .13C2.24 .13 2.76-.25 3.57-1.44C3.44-.85 3.42-.66 3.42-.38C3.42-.06 3.61 .15 3.92 .15C4.42 .15 5.05-.33 5.66-1.2ZM4.24-4.3C4.24-2.49 3-.44 1.91-.44C1.49-.44 1.21-.75 1.21-1.23C1.21-2.22 1.81-3.6 2.6-4.43C2.92-4.76 3.32-4.98 3.66-4.98C3.67-4.98 3.69-4.98 3.7-4.98C4.06-4.95 4.24-4.73 4.24-4.3Z'/>
+</defs>
+<g id='eq122-page1'>
+<use x='.3' y='0' xlink:href='#eq122-g1-51'/>
+</g>
+</svg></span> the image dimensionality,
+in the rectangular case. In the hexagonal case, this is <span class="m-math"><svg style="width: 6.301em; height: 1.776em; vertical-align: -0.715em;  vertical-align: -0.718em;" viewBox="1.2 -10.61 63.01 17.76">
+<title>
+\(\frac{1}{2 \sqrt 3} \approx 0.2887\)
+</title>
+<defs>
+<path id='eq123-g7-149' d='M2.16-.51C2.16-.88 1.85-1.19 1.49-1.19S.83-.89 .83-.51C.83-.06 1.24 .13 1.49 .13S2.16-.07 2.16-.51Z'/>
+<use id='eq123-g4-25' xlink:href='#eq123-g1-25' transform='scale(1.36)'/>
+<path id='eq123-g1-25' d='M5.07-3.75L4.9-3.83C4.76-3.32 4.49-2.87 3.91-2.87C3.23-2.87 2.66-3.83 1.87-3.83C1.11-3.83 .71-3.37 .51-2.67L.68-2.6C.87-3.06 1.19-3.38 1.7-3.38C2.38-3.38 2.89-2.43 3.74-2.43C4.58-2.43 4.95-2.97 5.07-3.75ZM5.07-1.97L4.89-2.05C4.75-1.55 4.48-1.1 3.9-1.1C3.22-1.1 2.65-2.06 1.86-2.06C1.1-2.06 .69-1.6 .49-.9L.67-.83C.86-1.28 1.18-1.61 1.69-1.61C2.38-1.61 2.88-.66 3.73-.66C4.57-.66 4.94-1.19 5.07-1.97Z'/>
+<path id='eq123-g1-112' d='M6.4-.49H5.9L3.91 6.35L2.2 2.71L.52 3.6L.63 3.78L1.56 3.43L3.86 8.25L6.4-.49Z'/>
+<use id='eq123-g14-48' xlink:href='#eq123-g11-48' transform='scale(1.36)'/>
+<use id='eq123-g14-50' xlink:href='#eq123-g11-50' transform='scale(1.36)'/>
+<use id='eq123-g14-55' xlink:href='#eq123-g11-55' transform='scale(1.36)'/>
+<use id='eq123-g14-56' xlink:href='#eq123-g11-56' transform='scale(1.36)'/>
+<path id='eq123-g11-48' d='M4.16-2.88C4.16-4.67 3.36-5.9 2.22-5.9C1.74-5.9 1.37-5.76 1.05-5.45C.54-4.96 .21-3.96 .21-2.93C.21-1.98 .5-.96 .91-.47C1.23-.09 1.68 .12 2.18 .12C2.63 .12 3-.03 3.32-.33C3.83-.81 4.16-1.83 4.16-2.88ZM3.32-2.86C3.32-1.04 2.93-.1 2.18-.1S1.05-1.04 1.05-2.86C1.05-4.71 1.44-5.68 2.19-5.68C2.93-5.68 3.32-4.69 3.32-2.86Z'/>
+<path id='eq123-g11-49' d='M3.44 0V-.13C2.75-.14 2.61-.23 2.61-.65V-5.89L2.54-5.9L.97-5.11V-4.99C1.07-5.03 1.17-5.07 1.21-5.08C1.36-5.14 1.51-5.18 1.6-5.18C1.78-5.18 1.86-5.05 1.86-4.77V-.81C1.86-.52 1.79-.32 1.65-.24C1.52-.17 1.4-.14 1.03-.13V0H3.44Z'/>
+<path id='eq123-g11-50' d='M4.15-1.2L4.04-1.24C3.71-.74 3.6-.66 3.21-.66H1.12L2.59-2.2C3.36-3.01 3.7-3.68 3.7-4.36C3.7-5.23 3-5.9 2.09-5.9C1.61-5.9 1.15-5.71 .83-5.36C.55-5.07 .42-4.79 .27-4.17L.45-4.12C.8-4.98 1.12-5.26 1.72-5.26C2.45-5.26 2.95-4.76 2.95-4.03C2.95-3.35 2.55-2.53 1.82-1.76L.26-.1V0H3.67L4.15-1.2Z'/>
+<path id='eq123-g11-51' d='M3.77-1.91C3.77-2.36 3.63-2.77 3.38-3.04C3.21-3.23 3.04-3.34 2.66-3.5C3.26-3.91 3.48-4.24 3.48-4.71C3.48-5.42 2.92-5.9 2.11-5.9C1.68-5.9 1.29-5.76 .98-5.48C.72-5.24 .59-5.01 .39-4.49L.52-4.45C.88-5.09 1.28-5.38 1.83-5.38C2.39-5.38 2.79-5 2.79-4.45C2.79-4.13 2.66-3.82 2.44-3.6C2.17-3.34 1.93-3.21 1.34-3V-2.88C1.85-2.88 2.05-2.86 2.26-2.79C2.8-2.59 3.14-2.1 3.14-1.49C3.14-.76 2.65-.19 2-.19C1.76-.19 1.59-.25 1.27-.46C1-.62 .86-.68 .71-.68C.51-.68 .38-.56 .38-.38C.38-.07 .75 .12 1.36 .12C2.04 .12 2.73-.1 3.14-.46S3.77-1.33 3.77-1.91Z'/>
+<path id='eq123-g11-55' d='M3.92-5.64V-5.78H.69L.17-4.5L.32-4.43C.7-5.02 .86-5.14 1.34-5.14H3.23L1.5 .07H2.07L3.92-5.64Z'/>
+<path id='eq123-g11-56' d='M3.89-1.35C3.89-2.03 3.59-2.45 2.53-3.24C3.4-3.7 3.7-4.07 3.7-4.66C3.7-5.38 3.07-5.9 2.2-5.9C1.25-5.9 .54-5.32 .54-4.52C.54-3.96 .71-3.7 1.62-2.9C.68-2.18 .49-1.91 .49-1.32C.49-.47 1.18 .12 2.17 .12C3.21 .12 3.89-.45 3.89-1.35ZM3.22-1.08C3.22-.52 2.83-.12 2.26-.12C1.6-.12 1.15-.63 1.15-1.39C1.15-1.95 1.35-2.31 1.85-2.73L2.38-2.34C3.01-1.89 3.22-1.57 3.22-1.08ZM3.1-4.67C3.1-4.18 2.86-3.78 2.36-3.45C2.31-3.42 2.31-3.42 2.28-3.4C1.5-3.9 1.19-4.31 1.19-4.8C1.19-5.3 1.58-5.66 2.13-5.66C2.73-5.66 3.1-5.28 3.1-4.67Z'/>
+</defs>
+<g id='eq123-page1'>
+<use x='6.47' y='-4.71' xlink:href='#eq123-g11-49'/>
+<rect x='1.2' y='-3.41' height='.67' width='14.93'/>
+<use x='1.2' y='6.25' xlink:href='#eq123-g11-50'/>
+<use x='5.58' y='-1.1' xlink:href='#eq123-g1-112'/>
+<rect x='11.74' y='-1.58' height='.49' width='4.38'/>
+<use x='11.74' y='6.25' xlink:href='#eq123-g11-51'/>
+<use x='20.64' y='0' xlink:href='#eq123-g4-25'/>
+<use x='31.57' y='0' xlink:href='#eq123-g14-48'/>
+<use x='37.74' y='0' xlink:href='#eq123-g7-149'/>
+<use x='40.93' y='0' xlink:href='#eq123-g14-50'/>
+<use x='46.91' y='0' xlink:href='#eq123-g14-56'/>
+<use x='52.88' y='0' xlink:href='#eq123-g14-56'/>
+<use x='58.86' y='0' xlink:href='#eq123-g14-55'/>
+</g>
+</svg></span>.</p>
+<p><code>mode</code> determines how the random grid location is determined. It can be either <code>"translation"</code> or <code>"rotation"</code>.
+In the first case, only a random translation is applied to the grid, it will be aligned with the image axes.
+In the second case, the grid will also be randomly rotated. This option is used only for 2D and 3D grids.</p>
+<p><code>out</code> must be forged, binary and scalar.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CreateRandomGrid-Image-L-UnsignedArray-CL-Random-L-dfloat--String-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">void</span>
+              <span class="m-doc-name"><a href="#dip-CreateRandomGrid-Image-L-UnsignedArray-CL-Random-L-dfloat--String-CL-String-CL" class="m-doc-self">dip::<wbr />CreateRandomGrid</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.01,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = S::RECTANGULAR,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::TRANSLATION</span>)            </h3>
+            <p>Creates a binary image with a random grid.</p>
+<p><code>out</code> will be of size <code>sizes</code>, binary and scalar.</p>
+<p>See <a href="generation_test.html#dip-FillRandomGrid-Image-L-Random-L-dfloat--String-CL-String-CL"><code>dip::FillRandomGrid</code></a> for the meaning of the remainder of the parameters, which define the grid.</p>
+          </div></section>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">&hellip;</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form action="https://diplib.org/diplib-docs/#search">
+            <input type="search" name="q" id="search-input" placeholder="Loading &hellip;" disabled="disabled" autofocus="autofocus" autocomplete="off" spellcheck="false" />
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript. Enable it or <a href="https://google.com/search?q=site:diplib.org+">use an external search engine</a>.</noscript>
+          <div id="search-help" class="m-text m-dim m-text-center">
+            <p class="m-noindent">Search for symbols, directories, files, pages or modules.
+              You can omit any prefix from the symbol or file path; adding a <code>:</code> or
+              <code>/</code> suffix lists all members of given symbol or directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">&darr;</span> / <span class="m-label m-dim">&uarr;</span> to navigate through the list,
+              <span class="m-label m-dim">Enter</span> to go.
+              <span class="m-label m-dim">Tab</span> autocompletes common prefix.
+              You can copy a link to the result using <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">L</span>,
+              or <span class="m-label m-dim">⌘</span> <span class="m-label m-dim">M</span> to copy a Markdown link.</p>
+          </div>
+          <div id="search-notfound" class="m-text m-warning m-text-center">Sorry, nothing was found.<br />Maybe try a full-text <a href="#" id="search-external" data-search-engine="https://google.com/search?q=site:diplib.org+{query}">search with external engine</a>?</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v1.js"></script>
+<script src="searchdata-v1.js" async="async"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <p>DIPlib, a library for quantitative image analysis. Documentation compiled with <a href="https://crisluengo.github.io/doxpp/">dox++</a> and styled with <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+      </div>
+    </div>
+  </div>
+</nav></footer>
+</body>
+</html>
