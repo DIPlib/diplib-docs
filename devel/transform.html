@@ -77,8 +77,16 @@
               <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {})</span>
             </dt>
             <dd>Computes the forward and inverse Fourier Transform <a href="#dip-FourierTransform-Image-CL-Image-L-StringSet-CL-BooleanArray-">more...</a></dd>
-                          <dt id="dip-InverseFourierTransform-Image-CL-Image-L-StringSet--BooleanArray-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-InverseFourierTransform-Image-CL-Image-L-StringSet--BooleanArray-" class="m-doc-self">dip::<wbr />InverseFourierTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-HaarWaveletTransform-Image-CL-Image-L-dip-uint--String-CL-BooleanArray-" class="m-doc">dip::<wbr />HaarWaveletTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nLevels = 4,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::FORWARD,
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {})</span>
+            </dt>
+            <dd>Computes the Haar wavelet transform or its inverse. <a href="#dip-HaarWaveletTransform-Image-CL-Image-L-dip-uint--String-CL-BooleanArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-InverseFourierTransform-Image-CL-Image-L-StringSet--BooleanArray-" class="m-doc">dip::<wbr />InverseFourierTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> options = {},
               <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {})</span>
@@ -108,23 +116,15 @@ efficient for FFT computations. <a href="#dip-OptimalFourierTransformSize-dip-ui
               <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> const&amp; process = {})</span>
             </dt>
             <dd>Computes a stationary wavelet transform (also called à-trous wavelet decomposition). <a href="#dip-StationaryWaveletTransform-Image-CL-Image-L-dip-uint--StringArray-CL-BooleanArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-HaarWaveletTransform-Image-CL-Image-L-dip-uint--String-CL-BooleanArray-" class="m-doc">dip::<wbr />HaarWaveletTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nLevels = 4,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::FORWARD,
-              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {})</span>
-            </dt>
-            <dd>Computes the Haar wavelet transform or its inverse. <a href="#dip-HaarWaveletTransform-Image-CL-Image-L-dip-uint--String-CL-BooleanArray-">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-FourierTransform-Image-CL-Image-L-StringSet-CL-BooleanArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-FourierTransform-Image-CL-Image-L-StringSet-CL-BooleanArray-" class="m-doc-self">dip::<wbr />FourierTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {}</span>)            </h3>
             <p>Computes the forward and inverse Fourier Transform</p>
 <p>The Fourier transform as implemented here places the origin (frequency 0) in the middle of
 the image. If the image has <code>N</code> pixels along a dimension, then the origin will be at pixel <code>N/2</code>
@@ -181,11 +181,19 @@ therefore would be limited to lengths of 2<sup>31</sup>-1. Note that this limit 
 dimension, not to the total number of pixels in the image.</p>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-InverseFourierTransform-Image-CL-Image-L-StringSet--BooleanArray-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-InverseFourierTransform-Image-CL-Image-L-StringSet--BooleanArray-" class="m-doc-self">dip::<wbr />InverseFourierTransform</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> options = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {}</span>)            </h3>
+            <p>Inverse Fourier Transform. Convenience function that calls <a href="transform.html#dip-FourierTransform-Image-CL-Image-L-StringSet-CL-BooleanArray-"><code>dip::FourierTransform</code></a> after adding
+&ldquo;inverse&rdquo; to <code>options</code>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-OptimalFourierTransformSize-dip-uint--dip-String-CL-dip-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
               <span class="m-doc-name"><a href="#dip-OptimalFourierTransformSize-dip-uint--dip-String-CL-dip-String-CL" class="m-doc-self">dip::<wbr />OptimalFourierTransformSize</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; which = S::LARGER,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; purpose = S::REAL</span>)            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; which = S::LARGER, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; purpose = S::REAL</span>)            </h3>
             <p>Returns the next larger (or smaller) multiple of small integers. An image of this size is more
 efficient for FFT computations.</p>
 <p>Pad an image with zeros to the next larger size or crop the image to the next smaller size to
@@ -204,9 +212,9 @@ See <a href="transform_lowlevel.html#dip-GetOptimalDFTSize-dip-uint--bool--dip-u
           </div></section>
                         <section class="m-doc-details" id="dip-RieszTransform-Image-CL-Image-L-String-CL-String-CL-BooleanArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-RieszTransform-Image-CL-Image-L-String-CL-String-CL-BooleanArray-" class="m-doc-self">dip::<wbr />RieszTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inRepresentation = S::SPATIAL, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outRepresentation = S::SPATIAL, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {}</span>)            </h3>
             <p>Computes the Riesz transform of a scalar image.</p>
 <p>The Riesz transform is the multi-dimensional generalization of the Hilbert transform, and identical to it for
 one-dimensional images. It is computed through the Fourier domain by</p>
@@ -298,9 +306,9 @@ in the frequency domain is necessary.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-StationaryWaveletTransform-Image-CL-Image-L-dip-uint--StringArray-CL-BooleanArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-StationaryWaveletTransform-Image-CL-Image-L-dip-uint--StringArray-CL-BooleanArray-CL" class="m-doc-self">dip::<wbr />StationaryWaveletTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nLevels = 4,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> const&amp; process = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nLevels = 4, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> const&amp; process = {}</span>)            </h3>
             <p>Computes a stationary wavelet transform (also called à-trous wavelet decomposition).</p>
 <p>For an <em>n</em>-dimensional input image, creates an (<em>n</em>+1)-dimensional output image where each
 slice corresponds to one level of the wavelet transform. The first slice is the lowest level
@@ -327,9 +335,9 @@ differently smoothed images.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-HaarWaveletTransform-Image-CL-Image-L-dip-uint--String-CL-BooleanArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-HaarWaveletTransform-Image-CL-Image-L-dip-uint--String-CL-BooleanArray-" class="m-doc-self">dip::<wbr />HaarWaveletTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nLevels = 4,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::FORWARD,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nLevels = 4, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::FORWARD, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> process = {}</span>)            </h3>
             <p>Computes the Haar wavelet transform or its inverse.</p>
 <p>Recursively splits the image into low-frequency and high-frequency components. Each step splits an <em>n</em>-dimensional
 image into 2<sup><em>n</em></sup> smaller blocks, the one in the top-left corner containing the low-frequency components. The

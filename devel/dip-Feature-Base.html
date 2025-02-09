@@ -67,36 +67,41 @@
           <h2>Derived classes</h2>
           <dl class="m-doc">
                           <dt>
-              class <a href="dip-Feature-LineBased.html" class="m-doc">dip::<wbr />Feature::<wbr />LineBased</a> <span class="m-label m-flat m-warning">abstract</span>
-            </dt>
-            <dd>The abstract base class for all line-based measurement features. <a href="dip-Feature-LineBased.html#dip-Feature-LineBased">more...</a></dd>
-                          <dt>
-              class <a href="dip-Feature-ImageBased.html" class="m-doc">dip::<wbr />Feature::<wbr />ImageBased</a> <span class="m-label m-flat m-warning">abstract</span>
-            </dt>
-            <dd>The abstract base class for all image-based measurement features. <a href="dip-Feature-ImageBased.html#dip-Feature-ImageBased">more...</a></dd>
-                          <dt>
               class <a href="dip-Feature-ChainCodeBased.html" class="m-doc">dip::<wbr />Feature::<wbr />ChainCodeBased</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
             <dd>The abstract base class for all chain-code&ndash;based measurement features. <a href="dip-Feature-ChainCodeBased.html#dip-Feature-ChainCodeBased">more...</a></dd>
                           <dt>
-              class <a href="dip-Feature-PolygonBased.html" class="m-doc">dip::<wbr />Feature::<wbr />PolygonBased</a> <span class="m-label m-flat m-warning">abstract</span>
+              class <a href="dip-Feature-Composite.html" class="m-doc">dip::<wbr />Feature::<wbr />Composite</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
-            <dd>The abstract base class for all polygon-based measurement features. <a href="dip-Feature-PolygonBased.html#dip-Feature-PolygonBased">more...</a></dd>
+            <dd>The abstract base class for all composite measurement features. <a href="dip-Feature-Composite.html#dip-Feature-Composite">more...</a></dd>
                           <dt>
               class <a href="dip-Feature-ConvexHullBased.html" class="m-doc">dip::<wbr />Feature::<wbr />ConvexHullBased</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
             <dd>The abstract base class for all convex-hull&ndash;based measurement features. <a href="dip-Feature-ConvexHullBased.html#dip-Feature-ConvexHullBased">more...</a></dd>
                           <dt>
-              class <a href="dip-Feature-Composite.html" class="m-doc">dip::<wbr />Feature::<wbr />Composite</a> <span class="m-label m-flat m-warning">abstract</span>
+              class <a href="dip-Feature-ImageBased.html" class="m-doc">dip::<wbr />Feature::<wbr />ImageBased</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
-            <dd>The abstract base class for all composite measurement features. <a href="dip-Feature-Composite.html#dip-Feature-Composite">more...</a></dd>
+            <dd>The abstract base class for all image-based measurement features. <a href="dip-Feature-ImageBased.html#dip-Feature-ImageBased">more...</a></dd>
+                          <dt>
+              class <a href="dip-Feature-LineBased.html" class="m-doc">dip::<wbr />Feature::<wbr />LineBased</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The abstract base class for all line-based measurement features. <a href="dip-Feature-LineBased.html#dip-Feature-LineBased">more...</a></dd>
+                          <dt>
+              class <a href="dip-Feature-PolygonBased.html" class="m-doc">dip::<wbr />Feature::<wbr />PolygonBased</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>The abstract base class for all polygon-based measurement features. <a href="dip-Feature-PolygonBased.html#dip-Feature-PolygonBased">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-Feature-Base-Configure-String-CL-dfloat-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Feature-Base-Configure-String-CL-dfloat-" class="m-doc-self">Configure</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; parameter,
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Feature-Base-Cleanup" class="m-doc">Cleanup</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>All measurement features define a <code>Cleanup</code> method that is called after finishing the measurement
+process for one image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Feature-Base-Configure-String-CL-dfloat-" class="m-doc">Configure</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; parameter,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> value) <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
             <dd>A feature can have configurable parameters. Such a feature can define a <code>Configure</code> method
@@ -108,35 +113,36 @@ that the user can access through <a href="dip-MeasurementTool.html#dip-Measureme
             </dt>
             <dd>All measurement features define an <code>Initialize</code> method that prepares the feature class
 to perform measurements on the image. It also gives information on the feature as applied to that image. <a href="#dip-Feature-Base-Initialize-Image-CL-Image-CL-dip-uint-">more...</a></dd>
-                          <dt id="dip-Feature-Base-Cleanup">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Feature-Base-Cleanup" class="m-doc-self">Cleanup</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>All measurement features define a <code>Cleanup</code> method that is called after finishing the measurement
-process for one image.</dd>
           </dl>
         </section>
         <section id="variable-members">
            <h2>Variables</h2>
            <dl class="m-doc">
-                            <dt id="dip-Feature-Base-information">
-            <a href="dip-Feature-Information.html" class="m-doc">dip::Feature::Information</a> const <a href="#dip-Feature-Base-information" class="m-doc-self">information</a>
-
+                            <dt>
+            <a href="dip-Feature-Information.html" class="m-doc">dip::Feature::Information</a> const <a href="#dip-Feature-Base-information" class="m-doc">information</a>
             </dt>
             <dd>Information on the feature</dd>
-                            <dt id="dip-Feature-Base-type">
-            <a href="measurement.html#dip-Feature-Type" class="m-doc">dip::Feature::Type</a> const <a href="#dip-Feature-Base-type" class="m-doc-self">type</a>
-
+                            <dt>
+            <a href="measurement.html#dip-Feature-Type" class="m-doc">dip::Feature::Type</a> const <a href="#dip-Feature-Base-type" class="m-doc">type</a>
             </dt>
             <dd>The type of the measurement</dd>
            </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-Feature-Base-Configure-String-CL-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Feature-Base-Configure-String-CL-dfloat-" class="m-doc-self">Configure</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; parameter, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> value</span>) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>A feature can have configurable parameters. Such a feature can define a <code>Configure</code> method
+that the user can access through <a href="dip-MeasurementTool.html#dip-MeasurementTool-Configure-String-CL-String-CL-dfloat--C"><code>dip::MeasurementTool::Configure</code></a>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Feature-Base-Initialize-Image-CL-Image-CL-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">dip::Feature::ValueInformationArray</a></span>
+              <span class="m-doc-return"><a href="dip-Feature-ValueInformation.html#dip-Feature-ValueInformationArray" class="m-doc">dip::Feature::ValueInformationArray</a> </span>
               <span class="m-doc-name"><a href="#dip-Feature-Base-Initialize-Image-CL-Image-CL-dip-uint-" class="m-doc-self">Initialize</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nObjects</span>) <span class="m-label m-warning">pure virtual</span>            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nObjects</span>) <span class="m-label m-warning">pure virtual</span>            </h3>
             <p>All measurement features define an <code>Initialize</code> method that prepares the feature class
 to perform measurements on the image. It also gives information on the feature as applied to that image.</p>
 <p>This function should check image properties and throw an exception if the measurement
@@ -157,6 +163,29 @@ pixel size.</p>
 <h4>Attention</h4>
 <p>This function is not expected to perform any major amount of work.</p>
 </aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Feature-Base-Cleanup"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Feature-Base-Cleanup" class="m-doc-self">Cleanup</a></span>(
+) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>All measurement features define a <code>Cleanup</code> method that is called after finishing the measurement
+process for one image.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+                        <section class="m-doc-details" id="dip-Feature-Base-information"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Feature-Information.html" class="m-doc">dip::Feature::Information</a> const </span><span class="m-doc-name"><a href="#dip-Feature-Base-information" class="m-doc-self">information</a></span>
+            </h3>
+            <p>Information on the feature</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Feature-Base-type"><div>
+            <h3>
+              <span class="m-doc-return"><a href="measurement.html#dip-Feature-Type" class="m-doc">dip::Feature::Type</a> const </span><span class="m-doc-name"><a href="#dip-Feature-Base-type" class="m-doc-self">type</a></span>
+            </h3>
+            <p>The type of the measurement</p>
           </div></section>
         </section>
       </div>

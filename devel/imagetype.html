@@ -67,10 +67,6 @@
           <h2>Classes</h2>
           <dl class="m-doc">
                           <dt>
-              class <a href="dip-ExternalInterface.html" class="m-doc">dip::<wbr />ExternalInterface</a> <span class="m-label m-flat m-warning">abstract</span>
-            </dt>
-            <dd>Support for external interfaces. <a href="dip-ExternalInterface.html#dip-ExternalInterface">more...</a></dd>
-                          <dt>
               class <a href="dip-AlignedAllocInterface.html" class="m-doc">dip::<wbr />AlignedAllocInterface</a>
             </dt>
             <dd><a href="dip-ExternalInterface.html"><code>dip::ExternalInterface</code></a> that allocates aligned data. <a href="dip-AlignedAllocInterface.html#dip-AlignedAllocInterface">more...</a></dd>
@@ -78,6 +74,10 @@
               class <a href="#dip-CoordinatesComputer" class="m-doc">dip::<wbr />CoordinatesComputer</a>
             </dt>
             <dd>Computes pixel coordinates based on an index or offset. <a href="#dip-CoordinatesComputer">more...</a></dd>
+                          <dt>
+              class <a href="dip-ExternalInterface.html" class="m-doc">dip::<wbr />ExternalInterface</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>Support for external interfaces. <a href="dip-ExternalInterface.html#dip-ExternalInterface">more...</a></dd>
                           <dt>
               class <a href="dip-Image.html" class="m-doc">dip::<wbr />Image</a>
             </dt>
@@ -91,76 +91,55 @@
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-DataSegment">
-              using <a href="#dip-DataSegment" class="m-doc-self">dip::<wbr />DataSegment</a> = std::shared_ptr&lt;void&gt;
-
+                              <dt>
+using <a href="#dip-DataSegment" class="m-doc">dip::<wbr />DataSegment</a> = std::shared_ptr&lt;void&gt;
             </dt>
             <dd>A <a href="dip-Image.html"><code>dip::Image</code></a> holds a shared pointer to the data segment using this type.</dd>
                               <dt>
-              using <a href="dip-Image.html#dip-ImageArray" class="m-doc-self">dip::<wbr />ImageArray</a> = std::vector&lt;Image&gt;
-
+using <a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::<wbr />ImageArray</a> = std::vector&lt;Image&gt;
             </dt>
             <dd>An array of images</dd>
                               <dt>
-              using <a href="dip-Image.html#dip-ImageRefArray" class="m-doc-self">dip::<wbr />ImageRefArray</a> = std::vector&lt;std::reference_wrapper&lt;Image&gt;&gt;
-
-            </dt>
-            <dd>An array of image references</dd>
-                              <dt>
-              using <a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc-self">dip::<wbr />ImageConstRefArray</a> = std::vector&lt;std::reference_wrapper&lt;const Image&gt;&gt;
-
+using <a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::<wbr />ImageConstRefArray</a> = std::vector&lt;std::reference_wrapper&lt;const Image&gt;&gt;
             </dt>
             <dd>An array of const image references</dd>
+                              <dt>
+using <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::<wbr />ImageRefArray</a> = std::vector&lt;std::reference_wrapper&lt;Image&gt;&gt;
+            </dt>
+            <dd>An array of image references</dd>
             </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-NonOwnedRefToDataSegment-void-P">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NonOwnedRefToDataSegment-void-P" class="m-doc-self">dip::<wbr />NonOwnedRefToDataSegment</a>(</span><span class="m-doc-wrap">void* ptr) -&gt; <a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a></span>
-            </dt>
-            <dd>This function converts a pointer to a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that does not own the data pointed to.</dd>
-                          <dt id="dip-NonOwnedRefToDataSegment-void-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NonOwnedRefToDataSegment-void-CP" class="m-doc-self">dip::<wbr />NonOwnedRefToDataSegment</a>(</span><span class="m-doc-wrap">void const* ptr) -&gt; <a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a></span>
-            </dt>
-            <dd>This function converts a pointer to a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that does not own the data pointed to.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-IsOnEdge-UnsignedArray-CL-UnsignedArray-CL-dip-uint-" class="m-doc">dip::<wbr />IsOnEdge</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; coords,
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = std::numeric_limits<dip::uint>::max()) -&gt; bool</span>
-            </dt>
-            <dd>Determines whether the pixel at <code>coords</code> is on the edge of an image of size <code>sizes</code>. <a href="#dip-IsOnEdge-UnsignedArray-CL-UnsignedArray-CL-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-Alias-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Alias</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img1,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-Alias-Image-CL-Image-CL" class="m-doc">dip::<wbr />Alias</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img2) -&gt; bool</span>
             </dt>
             <dd>Calls <code>img1.Aliases( img2 )</code>. See <a href="dip-Image.html#dip-Image-Aliases-Image-CL-C"><code>dip::Image::Aliases</code></a>.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-DefineROI-Image-CL-Image-L-UnsignedArray--UnsignedArray--UnsignedArray-" class="m-doc">dip::<wbr />DefineROI</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Convert-Image-CL-Image-L-dip-DataType-" class="m-doc">dip::<wbr />Convert</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest,
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> origin = {},
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> sizes = {},
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> spacing = {})</span>
+              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
             </dt>
-            <dd>Makes a new image object pointing to same pixel data as <code>src</code>, but
-with different origin, strides and size. <a href="dip-Image.html#dip-DefineROI-Image-CL-Image-L-UnsignedArray--UnsignedArray--UnsignedArray-">more...</a></dd>
+            <dd>Copies samples over from <code>src</code> to <code>dest</code>, with data type conversion. <a href="dip-Image.html#dip-Convert-Image-CL-Image-L-dip-DataType-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-CL-Image-L" class="m-doc">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image.html#dip-Image-Copy-Image-CL"><code>dip::Image::Copy</code></a> method.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-Image-L" class="m-doc-self">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">dip::Image::View</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-Image-L" class="m-doc">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">dip::Image::View</a> const&amp; src,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image.html#dip-Image-Copy-Image-CL"><code>dip::Image::Copy</code></a> method.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-CL-Image-View-L" class="m-doc-self">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-CL-Image-View-L" class="m-doc">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
               <a href="dip-Image-View.html" class="m-doc">dip::Image::View</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image-View.html#dip-Image-View-Copy-View-CL"><code>dip::Image::View::Copy</code></a> method.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-Image-View-L" class="m-doc-self">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">dip::Image::View</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Copy-Image-View-CL-Image-View-L" class="m-doc">dip::<wbr />Copy</a>(</span><span class="m-doc-wrap"><a href="dip-Image-View.html" class="m-doc">dip::Image::View</a> const&amp; src,
               <a href="dip-Image-View.html" class="m-doc">dip::Image::View</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, identical to the <a href="dip-Image-View.html#dip-Image-View-Copy-View-CL"><code>dip::Image::View::Copy</code></a> method.</dd>
@@ -177,154 +156,171 @@ with different origin, strides and size. <a href="dip-Image.html#dip-DefineROI-I
             </dt>
             <dd>Copies the pixels selected by <code>srcOffsets</code> over from <code>src</code> to <code>dest</code>. <code>dest</code> will be a 1D image. <a href="dip-Image.html#dip-CopyFrom-Image-CL-Image-L-IntegerArray-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-CopyTo-Image-CL-Image-L-Image-CL" class="m-doc-self">dip::<wbr />CopyTo</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-CopyTo-Image-CL-Image-L-Image-CL" class="m-doc">dip::<wbr />CopyTo</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; destMask)</span>
             </dt>
             <dd>Copies all pixels from <code>src</code> over to the pixels selected by <code>destMask</code> in <code>dest</code>. <code>dest</code> must be forged.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-CopyTo-Image-CL-Image-L-IntegerArray-CL" class="m-doc-self">dip::<wbr />CopyTo</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-CopyTo-Image-CL-Image-L-IntegerArray-CL" class="m-doc">dip::<wbr />CopyTo</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest,
               <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; destOffsets)</span>
             </dt>
             <dd>Copies all pixels from <code>src</code> over to the pixels selected by <code>destOffsets</code> in <code>dest</code>. <code>dest</code> must be forged.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-CreateImageConstRefArray-ImageArray-CL" class="m-doc">dip::<wbr />CreateImageConstRefArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; imar) -&gt; <a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a></span>
+            </dt>
+            <dd>Creates a <a href="dip-Image.html#dip-ImageConstRefArray"><code>dip::ImageConstRefArray</code></a> from a <a href="dip-Image.html#dip-ImageArray"><code>dip::ImageArray</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-CreateImageRefArray-ImageArray-L" class="m-doc">dip::<wbr />CreateImageRefArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a>&amp; imar) -&gt; <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a></span>
+            </dt>
+            <dd>Creates a <a href="dip-Image.html#dip-ImageRefArray"><code>dip::ImageRefArray</code></a> from a <a href="dip-Image.html#dip-ImageArray"><code>dip::ImageArray</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-DefineROI-Image-CL-Image-L-UnsignedArray--UnsignedArray--UnsignedArray-" class="m-doc">dip::<wbr />DefineROI</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> origin = {},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> sizes = {},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> spacing = {})</span>
+            </dt>
+            <dd>Makes a new image object pointing to same pixel data as <code>src</code>, but
+with different origin, strides and size. <a href="dip-Image.html#dip-DefineROI-Image-CL-Image-L-UnsignedArray--UnsignedArray--UnsignedArray-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-ExpandTensor-Image-CL-Image-L" class="m-doc">dip::<wbr />ExpandTensor</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest)</span>
             </dt>
             <dd>Copies samples over from <code>src</code> to <code>dest</code>, expanding the tensor so it&rsquo;s a standard, column-major matrix. <a href="dip-Image.html#dip-ExpandTensor-Image-CL-Image-L">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dip-Image.html#dip-Convert-Image-CL-Image-L-dip-DataType-" class="m-doc">dip::<wbr />Convert</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; src,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; dest,
-              <a href="dip-DataType.html" class="m-doc">dip::DataType</a> dt)</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-IsOnEdge-UnsignedArray-CL-UnsignedArray-CL-dip-uint-" class="m-doc">dip::<wbr />IsOnEdge</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; coords,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = std::numeric_limits<dip::uint>::max()) -&gt; bool</span>
             </dt>
-            <dd>Copies samples over from <code>src</code> to <code>dest</code>, with data type conversion. <a href="dip-Image.html#dip-Convert-Image-CL-Image-L-dip-DataType-">more...</a></dd>
+            <dd>Determines whether the pixel at <code>coords</code> is on the edge of an image of size <code>sizes</code>. <a href="#dip-IsOnEdge-UnsignedArray-CL-UnsignedArray-CL-dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-CreateImageRefArray-ImageArray-L" class="m-doc-self">dip::<wbr />CreateImageRefArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a>&amp; imar) -&gt; <a href="dip-Image.html#dip-ImageRefArray" class="m-doc">dip::ImageRefArray</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NonOwnedRefToDataSegment-void-P" class="m-doc">dip::<wbr />NonOwnedRefToDataSegment</a>(</span><span class="m-doc-wrap">void* ptr) -&gt; <a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a></span>
             </dt>
-            <dd>Creates a <a href="dip-Image.html#dip-ImageRefArray"><code>dip::ImageRefArray</code></a> from a <a href="dip-Image.html#dip-ImageArray"><code>dip::ImageArray</code></a>.</dd>
+            <dd>This function converts a pointer to a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that does not own the data pointed to.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-CreateImageConstRefArray-ImageArray-CL" class="m-doc-self">dip::<wbr />CreateImageConstRefArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> const&amp; imar) -&gt; <a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NonOwnedRefToDataSegment-void-CP" class="m-doc">dip::<wbr />NonOwnedRefToDataSegment</a>(</span><span class="m-doc-wrap">void const* ptr) -&gt; <a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a></span>
             </dt>
-            <dd>Creates a <a href="dip-Image.html#dip-ImageConstRefArray"><code>dip::ImageConstRefArray</code></a> from a <a href="dip-Image.html#dip-ImageArray"><code>dip::ImageArray</code></a>.</dd>
+            <dd>This function converts a pointer to a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that does not own the data pointed to.</dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-operator%3C%3C-std-ostream-L-Image-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21-Image-Pixel-CL" class="m-doc">dip::<wbr />operator!</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Boolean unary operator, element-wise.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21%3D-T-Image-Pixel-CL-T-CL" class="m-doc">dip::<wbr />operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; bool</span>
+            </dt>
+            <dd>Comparison operator, equivalent to <code>!(lhs==rhs)</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%25-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator%</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Arithmetic operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%26-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator&</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Bit-wise operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2A-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Arithmetic operator, tensor multiplication.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2B-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Arithmetic operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Arithmetic operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Unary operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2F-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Arithmetic operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator<</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+            </dt>
+            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image.html#dip-operator%3C%3C-std-ostream-L-Image-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Image.html"><code>dip::Image</code></a> to <code>std::cout</code> or any other stream. Some
 information about the image is printed.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Sample.html#dip-operator%3C%3C-std-ostream-L-Image-Sample-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Sample.html#dip-operator%3C%3C-std-ostream-L-Image-Sample-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Image-Sample.html" class="m-doc">dip::Image::Sample</a> const&amp; sample) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Image-Sample.html"><code>dip::Image::Sample</code></a> to <code>std::cout</code> or any other stream.
 It is printed like any numeric value of the same type.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2B-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Arithmetic operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Arithmetic operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2A-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator*</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Arithmetic operator, tensor multiplication.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%2F-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator/</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Arithmetic operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%25-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator%</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Arithmetic operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%26-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator&</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Bit-wise operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%7C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator|</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Bit-wise operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%5E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator^</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Bit-wise operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator--Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Unary operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator~-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator~</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Bit-wise unary operator operator.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator!</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Boolean unary operator, element-wise.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3D%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
-            </dt>
-            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%21%3D-T-Image-Pixel-CL-T-CL" class="m-doc-self">dip::<wbr />operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; bool</span>
-            </dt>
-            <dd>Comparison operator, equivalent to <code>!(lhs==rhs)</code>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator<</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
-            </dt>
-            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
-            </dt>
-            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
-            </dt>
-            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
-            </dt>
-            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C%3C-std-ostream-L-Image-Pixel-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C%3C-std-ostream-L-Image-Pixel-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; pixel) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> to <code>std::cout</code> or any other stream.
 It is printed as a sequence of values, prepended with &ldquo;Pixel with values:&rdquo;.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Tensor.html#dip-operator%3C%3C-std-ostream-L-Tensor-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Tensor.html#dip-operator%3C%3C-std-ostream-L-Tensor-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Tensor.html" class="m-doc">dip::Tensor</a> const&amp; tensor) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Prints information about the tensor.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3C%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+            </dt>
+            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3D%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+            </dt>
+            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+            </dt>
+            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%3E%3D-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; bool</span>
+            </dt>
+            <dd>Comparison operator, can only be true if the two pixels have compatible number of tensor elements.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%5E-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator^</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Bit-wise operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator%7C-Image-Pixel-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />operator|</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; lhs,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; rhs) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Bit-wise operator, element-wise.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Image-Pixel.html#dip-operator~-Image-Pixel-CL" class="m-doc">dip::<wbr />operator~</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Bit-wise unary operator operator.</dd>
           </dl>
         </section>
         <section>
             <h2>Class documentation</h2>
                           <section class="m-doc-details" id="dip-CoordinatesComputer"><div>
             <h3>
-              class <span class="m-doc-name"><a href="#dip-CoordinatesComputer" class="m-doc-self">dip::<wbr />CoordinatesComputer</a></span>            </h3>
+              <span class="m-doc-return">class </span><span class="m-doc-name"><a href="#dip-CoordinatesComputer" class="m-doc-self">dip::<wbr />CoordinatesComputer</a></span>            </h3>
             <p>Computes pixel coordinates based on an index or offset.</p>
 <p>Objects of this class are returned by <a href="dip-Image.html#dip-Image-OffsetToCoordinatesComputer-C"><code>dip::Image::OffsetToCoordinatesComputer</code></a>
 and <a href="dip-Image.html#dip-Image-IndexToCoordinatesComputer-C"><code>dip::Image::IndexToCoordinatesComputer</code></a>, and act as functors.
@@ -341,12 +337,34 @@ does not correspond to one of the image&rsquo;s pixels, the result is meaningles
           </div></section>
         </section>
         <section>
+            <h2>Alias documentation</h2>
+                          <section class="m-doc-details" id="dip-DataSegment"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-DataSegment" class="m-doc-self">dip::<wbr />DataSegment</a></span> = std::shared_ptr&lt;void&gt;            </h3>
+            <p>A <a href="dip-Image.html"><code>dip::Image</code></a> holds a shared pointer to the data segment using this type.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-NonOwnedRefToDataSegment-void-P"><div>
+            <h3>
+              <span class="m-doc-return"><a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a> </span>
+              <span class="m-doc-name"><a href="#dip-NonOwnedRefToDataSegment-void-P" class="m-doc-self">dip::<wbr />NonOwnedRefToDataSegment</a></span>(
+<span class="m-doc-arg">void* ptr</span>)            </h3>
+            <p>This function converts a pointer to a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that does not own the data pointed to.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NonOwnedRefToDataSegment-void-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a> </span>
+              <span class="m-doc-name"><a href="#dip-NonOwnedRefToDataSegment-void-CP" class="m-doc-self">dip::<wbr />NonOwnedRefToDataSegment</a></span>(
+<span class="m-doc-arg">void const* ptr</span>)            </h3>
+            <p>This function converts a pointer to a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that does not own the data pointed to.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-IsOnEdge-UnsignedArray-CL-UnsignedArray-CL-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return">bool</span>
+              <span class="m-doc-return">bool </span>
               <span class="m-doc-name"><a href="#dip-IsOnEdge-UnsignedArray-CL-UnsignedArray-CL-dip-uint-" class="m-doc-self">dip::<wbr />IsOnEdge</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; coords,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = std::numeric_limits<dip::uint>::max()</span>)            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; coords, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = std::numeric_limits<dip::uint>::max()</span>)            </h3>
             <p>Determines whether the pixel at <code>coords</code> is on the edge of an image of size <code>sizes</code>.</p>
 <p><code>coords</code> and <code>sizes</code> must have the same size, this is not tested for.</p>
 <p><code>procDim</code> is the processing dimension. This dimension is ignored in the test. If it is outside the

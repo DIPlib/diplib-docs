@@ -74,18 +74,77 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-SetBorder-Image-L-Image-Pixel-CL-UnsignedArray-CL" class="m-doc">dip::<wbr />SetBorder</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {0},
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {1})</span>
-            </dt>
-            <dd>Sets the pixels at the border of <code>out</code> to <code>value</code>. <a href="#dip-SetBorder-Image-L-Image-Pixel-CL-UnsignedArray-CL">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ApplyWindow-Image-CL-Image-L-String-CL-dfloat-" class="m-doc">dip::<wbr />ApplyWindow</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = "Hamming",
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = 0.5)</span>
             </dt>
             <dd>Multiplies the image with a windowing function. <a href="#dip-ApplyWindow-Image-CL-Image-L-String-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BlendBandlimitedMask-Image-L-Image-CL-Image-CL-IntegerArray-" class="m-doc">dip::<wbr />BlendBandlimitedMask</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; value = dip::Image({255}),
+              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> pos = {})</span>
+            </dt>
+            <dd>Blends <code>value</code> into <code>out</code> at position <code>pos</code>, according to <code>mask</code>. <a href="#dip-BlendBandlimitedMask-Image-L-Image-CL-Image-CL-IntegerArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedBall-Image-L-dfloat--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedBall</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> diameter,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
+            </dt>
+            <dd>Draws an approximately bandlimited ball (disk) or an n-sphere (circle) in an image, using Gaussian profiles. <a href="#dip-DrawBandlimitedBall-Image-L-dfloat--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedBox-Image-L-FloatArray--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
+            </dt>
+            <dd>Draws an approximately bandlimited box (rectangle) in an image, using Gaussian profiles. <a href="#dip-DrawBandlimitedBox-Image-L-FloatArray--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedLine-Image-L-FloatArray--FloatArray--Image-Pixel-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedLine</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> start,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> end,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
+            </dt>
+            <dd>Draws an approximately bandlimited line between two points in the image, using Gaussian profiles. <a href="#dip-DrawBandlimitedLine-Image-L-FloatArray--FloatArray--Image-Pixel-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedPoint-Image-L-FloatArray--Image-Pixel-CL-FloatArray--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedPoint</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
+            </dt>
+            <dd>Draws an approximately bandlimited point in the image, in the form of a Gaussian blob. <a href="#dip-DrawBandlimitedPoint-Image-L-FloatArray--Image-Pixel-CL-FloatArray--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBox-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />DrawBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
+            </dt>
+            <dd>Draws a solid box (rectangle) in an image. <a href="#dip-DrawBox-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawDiamond-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />DrawDiamond</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
+            </dt>
+            <dd>Draws a solid diamond in an image. <a href="#dip-DrawDiamond-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawEllipsoid-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />DrawEllipsoid</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
+            </dt>
+            <dd>Draws a solid ellipsoid in an image. <a href="#dip-DrawEllipsoid-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-DrawLine-Image-L-UnsignedArray-CL-UnsignedArray-CL-Image-Pixel-CL-String-CL" class="m-doc">dip::<wbr />DrawLine</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; start,
@@ -109,71 +168,6 @@
             </dt>
             <dd>Draws a polygon in a 2D image. <a href="#dip-DrawPolygon2D-Image-L-Polygon-CL-Image-Pixel-CL-String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawEllipsoid-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />DrawEllipsoid</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
-            </dt>
-            <dd>Draws a solid ellipsoid in an image. <a href="#dip-DrawEllipsoid-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawDiamond-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />DrawDiamond</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
-            </dt>
-            <dd>Draws a solid diamond in an image. <a href="#dip-DrawDiamond-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBox-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />DrawBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1})</span>
-            </dt>
-            <dd>Draws a solid box (rectangle) in an image. <a href="#dip-DrawBox-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedPoint-Image-L-FloatArray--Image-Pixel-CL-FloatArray--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedPoint</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
-            </dt>
-            <dd>Draws an approximately bandlimited point in the image, in the form of a Gaussian blob. <a href="#dip-DrawBandlimitedPoint-Image-L-FloatArray--Image-Pixel-CL-FloatArray--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedLine-Image-L-FloatArray--FloatArray--Image-Pixel-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedLine</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> start,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> end,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
-            </dt>
-            <dd>Draws an approximately bandlimited line between two points in the image, using Gaussian profiles. <a href="#dip-DrawBandlimitedLine-Image-L-FloatArray--FloatArray--Image-Pixel-CL-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedBall-Image-L-dfloat--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedBall</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> diameter,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
-            </dt>
-            <dd>Draws an approximately bandlimited ball (disk) or an n-sphere (circle) in an image, using Gaussian profiles. <a href="#dip-DrawBandlimitedBall-Image-L-dfloat--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DrawBandlimitedBox-Image-L-FloatArray--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />DrawBandlimitedBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sizes,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0)</span>
-            </dt>
-            <dd>Draws an approximately bandlimited box (rectangle) in an image, using Gaussian profiles. <a href="#dip-DrawBandlimitedBox-Image-L-FloatArray--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-BlendBandlimitedMask-Image-L-Image-CL-Image-CL-IntegerArray-" class="m-doc">dip::<wbr />BlendBandlimitedMask</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; value = dip::Image({255}),
-              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> pos = {})</span>
-            </dt>
-            <dd>Blends <code>value</code> into <code>out</code> at position <code>pos</code>, according to <code>mask</code>. <a href="#dip-BlendBandlimitedMask-Image-L-Image-CL-Image-CL-IntegerArray-">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-DrawText-Image-L-String-CL-FloatArray--Image-Pixel-CL-dfloat--String-CL" class="m-doc">dip::<wbr />DrawText</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; text,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,
@@ -187,15 +181,21 @@
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> orientation = 0) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
             <dd>Alternate version of the function above that returns a new image tightly cropped around the rendered text. <a href="#dip-DrawText-String-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SetBorder-Image-L-Image-Pixel-CL-UnsignedArray-CL" class="m-doc">dip::<wbr />SetBorder</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {0},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {1})</span>
+            </dt>
+            <dd>Sets the pixels at the border of <code>out</code> to <code>value</code>. <a href="#dip-SetBorder-Image-L-Image-Pixel-CL-UnsignedArray-CL">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-SetBorder-Image-L-Image-Pixel-CL-UnsignedArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-SetBorder-Image-L-Image-Pixel-CL-UnsignedArray-CL" class="m-doc-self">dip::<wbr />SetBorder</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {0},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {1}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {0}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {1}</span>)            </h3>
             <p>Sets the pixels at the border of <code>out</code> to <code>value</code>.</p>
 <p><code>sizes</code> must contain either a single value or one value per image dimension, and indicates how many pixels
 in from the border are set.</p>
@@ -203,9 +203,9 @@ in from the border are set.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ApplyWindow-Image-CL-Image-L-String-CL-dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ApplyWindow-Image-CL-Image-L-String-CL-dfloat-" class="m-doc-self">dip::<wbr />ApplyWindow</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = "Hamming",</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = 0.5</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; type = "Hamming", </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = 0.5</span>)            </h3>
             <p>Multiplies the image with a windowing function.</p>
 <p><code>type</code> can be one of the following windowing functions:</p>
 <ul>
@@ -229,9 +229,9 @@ window is the outer product of the 1D windows.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DrawLine-Image-L-UnsignedArray-CL-UnsignedArray-CL-Image-Pixel-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawLine-Image-L-UnsignedArray-CL-UnsignedArray-CL-Image-Pixel-CL-String-CL" class="m-doc-self">dip::<wbr />DrawLine</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; start,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; end,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; blend = S::ASSIGN</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; start, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; end, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; blend = S::ASSIGN</span>)            </h3>
             <p>Draws a Bresenham line in an image.</p>
 <p>The line goes from <code>start</code> to <code>end</code>, both points included. These points must be within the image.
 Pixels in <code>out</code> on the line are set to <code>value</code>, other pixels are not touched.
@@ -243,9 +243,9 @@ Pixels in <code>out</code> on the line are set to <code>value</code>, other pixe
           </div></section>
                         <section class="m-doc-details" id="dip-DrawLines-Image-L-CoordinateArray-CL-Image-Pixel-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawLines-Image-L-CoordinateArray-CL-Image-Pixel-CL-String-CL" class="m-doc-self">dip::<wbr />DrawLines</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> const&amp; points,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; blend = S::ASSIGN</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> const&amp; points, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; blend = S::ASSIGN</span>)            </h3>
             <p>Draws a series of Bresenham lines in an image.</p>
 <p>Lines are drawn from <code>points[0]</code> to <code>points[1]</code>, from <code>points[1]</code> to <code>points[2]</code>, etc, forming a continuous
 curve composed of straight (Bresenham) line segments that hits each of the points in sequence.
@@ -261,9 +261,9 @@ Pixels in <code>out</code> on the lines are set to <code>value</code>, other pix
           </div></section>
                         <section class="m-doc-details" id="dip-DrawPolygon2D-Image-L-Polygon-CL-Image-Pixel-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawPolygon2D-Image-L-Polygon-CL-Image-Pixel-CL-String-CL" class="m-doc-self">dip::<wbr />DrawPolygon2D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a> const&amp; polygon,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a> const&amp; polygon, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED</span>)            </h3>
             <p>Draws a polygon in a 2D image.</p>
 <p>Draws a polygon going through each of the points in <code>polygon</code>. <code>mode</code> can be one of the following strings:</p>
 <ul>
@@ -282,9 +282,9 @@ are not touched.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DrawEllipsoid-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawEllipsoid-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />DrawEllipsoid</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}</span>)            </h3>
             <p>Draws a solid ellipsoid in an image.</p>
 <p>The ellipsoid is centered around the coordinates given by <code>origin</code>, and has a diameter <code>sizes[ii]</code> along
 dimension <code>ii</code>. That is, the ellipsoid is composed of all pixels within a Euclidean distance of <code>sizes/2</code>
@@ -295,9 +295,9 @@ Pixels in <code>out</code> within the ellipsoid are set to <code>value</code>, o
           </div></section>
                         <section class="m-doc-details" id="dip-DrawDiamond-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawDiamond-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />DrawDiamond</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}</span>)            </h3>
             <p>Draws a solid diamond in an image.</p>
 <p>The diamond is centered around the coordinates given by <code>origin</code>, and has a width <code>sizes[ii]</code> along
 dimension <code>ii</code>. That is, the diamond is composed of all pixels within a L-1 distance of <code>sizes/2</code>
@@ -308,9 +308,9 @@ Pixels in <code>out</code> within the diamond are set to <code>value</code>, oth
           </div></section>
                         <section class="m-doc-details" id="dip-DrawBox-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawBox-Image-L-FloatArray-CL-FloatArray-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />DrawBox</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sizes, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; origin, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}</span>)            </h3>
             <p>Draws a solid box (rectangle) in an image.</p>
 <p>The box is centered around the coordinates given by <code>origin</code>, and has a width <code>sizes[ii]</code> along
 dimension <code>ii</code>. That is, the box is composed of all pixels within a L-infinity distance of <code>sizes/2</code>
@@ -321,9 +321,9 @@ Pixels in <code>out</code> within the box are set to <code>value</code>, other p
           </div></section>
                         <section class="m-doc-details" id="dip-DrawBandlimitedPoint-Image-L-FloatArray--Image-Pixel-CL-FloatArray--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawBandlimitedPoint-Image-L-FloatArray--Image-Pixel-CL-FloatArray--dfloat-" class="m-doc-self">dip::<wbr />DrawBandlimitedPoint</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigmas = {1.0}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
             <p>Draws an approximately bandlimited point in the image, in the form of a Gaussian blob.</p>
 <p>The blob is centered around the coordinates given by <code>origin</code>, and <code>sigmas[ii]</code> is the parameter for the
 Gaussian along dimension <code>ii</code>. The Gaussian is scaled such that its integral is <code>value</code>. The integral might
@@ -335,9 +335,9 @@ other pixels are not touched.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DrawBandlimitedLine-Image-L-FloatArray--FloatArray--Image-Pixel-CL-dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawBandlimitedLine-Image-L-FloatArray--FloatArray--Image-Pixel-CL-dfloat--dfloat-" class="m-doc-self">dip::<wbr />DrawBandlimitedLine</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> start,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> end,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> start, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> end, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
             <p>Draws an approximately bandlimited line between two points in the image, using Gaussian profiles.</p>
 <p>The two points do not need to be within the image domain.</p>
 <p><code>sigma</code> determines the smoothness of the line. Values are calculated up to a distance of <code>sigma * truncation</code>
@@ -349,9 +349,9 @@ the image <code>out</code>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DrawBandlimitedBall-Image-L-dfloat--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawBandlimitedBall-Image-L-dfloat--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-" class="m-doc-self">dip::<wbr />DrawBandlimitedBall</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> diameter,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> diameter, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
             <p>Draws an approximately bandlimited ball (disk) or an n-sphere (circle) in an image, using Gaussian profiles.</p>
 <p>The ball is centered around the coordinates given by <code>origin</code>, and has a diameter <code>diameter</code> along
 all dimensions. The origin does not need to be within the image.</p>
@@ -370,9 +370,9 @@ expensive (and complicated) to compute in the spatial domain.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DrawBandlimitedBox-Image-L-FloatArray--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawBandlimitedBox-Image-L-FloatArray--FloatArray--Image-Pixel-CL-String-CL-dfloat--dfloat-" class="m-doc-self">dip::<wbr />DrawBandlimitedBox</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sizes,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sizes, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 3.0</span>)            </h3>
             <p>Draws an approximately bandlimited box (rectangle) in an image, using Gaussian profiles.</p>
 <p>The box is centered around the coordinates given by <code>origin</code>, and has a width of <code>sizes[ii]</code> along
 dimension <code>ii</code>. The origin does not need to be within the image.</p>
@@ -389,9 +389,9 @@ their value increased, other pixels are not touched.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-BlendBandlimitedMask-Image-L-Image-CL-Image-CL-IntegerArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-BlendBandlimitedMask-Image-L-Image-CL-Image-CL-IntegerArray-" class="m-doc-self">dip::<wbr />BlendBandlimitedMask</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; value = dip::Image({255}),</span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> pos = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; value = dip::Image({255}), </span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> pos = {}</span>)            </h3>
             <p>Blends <code>value</code> into <code>out</code> at position <code>pos</code>, according to <code>mask</code>.</p>
 <p>Computes <code>out = value * mask + out * (1 - mask)</code>, after shifting <code>value</code> and <code>mask</code> by <code>pos</code>. If
 mask is an integer type, it will be scaled to the 0-1 range first. That is, where <code>mask</code> is maximal,
@@ -417,9 +417,9 @@ of <code>out</code>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DrawText-Image-L-String-CL-FloatArray--Image-Pixel-CL-dfloat--String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DrawText-Image-L-String-CL-FloatArray--Image-Pixel-CL-dfloat--String-CL" class="m-doc-self">dip::<wbr />DrawText</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; text,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> orientation = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; align = S::LEFT</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; text, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> origin, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; value = {1}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> orientation = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; align = S::LEFT</span>)            </h3>
             <p>Draws text with the built-in, fixed-sized glyphs.</p>
 <p>Draws text in the image <code>out</code>, at location <code>origin</code>, with a color given by <code>value</code>, and rotated according to
 <code>orientation</code>.</p>
@@ -440,9 +440,9 @@ for all tensor elements.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DrawText-String-CL-dfloat-"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
               <span class="m-doc-name"><a href="#dip-DrawText-String-CL-dfloat-" class="m-doc-self">dip::<wbr />DrawText</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; text,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> orientation = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; text, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> orientation = 0</span>)            </h3>
             <p>Alternate version of the function above that returns a new image tightly cropped around the rendered text.</p>
 <p>The output image is a 2D scalar image of type <a href="pixeltypes.html#dip-DT_UINT8"><code>dip::DT_UINT8</code></a>, with white text on a black background.</p>
 <p>See <a href="generation_drawing.html#dip-DrawText-Image-L-String-CL-FloatArray--Image-Pixel-CL-dfloat--String-CL"><code>dip::DrawText</code></a>

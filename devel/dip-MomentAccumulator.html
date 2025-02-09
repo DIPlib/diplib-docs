@@ -75,8 +75,8 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-MomentAccumulator-MomentAccumulator-dip-uint-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-MomentAccumulator-MomentAccumulator-dip-uint-" class="m-doc-self">MomentAccumulator</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> N)</span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-MomentAccumulator-MomentAccumulator-dip-uint-" class="m-doc">MomentAccumulator</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> N)</span>
             </dt>
             <dd>The constructor determines the dimensionality for the object.</dd>
             </dl>
@@ -84,38 +84,38 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-MomentAccumulator-Reset">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MomentAccumulator-Reset" class="m-doc-self">Reset</a>(</span><span class="m-doc-wrap">)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-FirstOrder-C" class="m-doc">FirstOrder</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
-            <dd>Reset the accumulator, leaving it as if newly allocated.</dd>
-                          <dt id="dip-MomentAccumulator-Push-FloatArray-CL-dfloat-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MomentAccumulator-Push-FloatArray-CL-dfloat-" class="m-doc-self">Push</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; pos,
+            <dd>First order moments, normalized</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-PlainSecondOrder-C" class="m-doc">PlainSecondOrder</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Plain second order central moments, normalized <a href="#dip-MomentAccumulator-PlainSecondOrder-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MomentAccumulator-Push-FloatArray-CL-dfloat-" class="m-doc">Push</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; pos,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight)</span>
             </dt>
             <dd>Add a sample to the accumulator. <code>pos</code> must have <code>N</code> dimensions.</dd>
-                          <dt id="dip-MomentAccumulator-Sum-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-Sum-C" class="m-doc-self">Sum</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MomentAccumulator-Reset" class="m-doc">Reset</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
-            <dd>Sum of weights (zeroth order moment)</dd>
-                          <dt id="dip-MomentAccumulator-FirstOrder-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-FirstOrder-C" class="m-doc-self">FirstOrder</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>First order moments, normalized</dd>
+            <dd>Reset the accumulator, leaving it as if newly allocated.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-SecondOrder-C" class="m-doc">SecondOrder</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
             <dd>Second order central moment tensor, normalized <a href="#dip-MomentAccumulator-SecondOrder-C">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-PlainSecondOrder-C" class="m-doc">PlainSecondOrder</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-Sum-C" class="m-doc">Sum</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Plain second order central moments, normalized <a href="#dip-MomentAccumulator-PlainSecondOrder-C">more...</a></dd>
+            <dd>Sum of weights (zeroth order moment)</dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-                          <dt id="dip-MomentAccumulator-operator%2B%3D-MomentAccumulator-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-operator%2B%3D-MomentAccumulator-CL" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> const&amp; b) -&gt; <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MomentAccumulator-operator%2B%3D-MomentAccumulator-CL" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> const&amp; b) -&gt; <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a>&amp;</span>
             </dt>
             <dd>Combine two accumulators</dd>
           </dl>
@@ -123,8 +123,8 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-operator%2B-MomentAccumulator--MomentAccumulator-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-MomentAccumulator--MomentAccumulator-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> lhs,
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-MomentAccumulator--MomentAccumulator-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> lhs,
               <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> const&amp; rhs) -&gt; <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a></span>
             </dt>
             <dd>Combine two accumulators</dd>
@@ -132,9 +132,44 @@ and add the accumulators together using the <code>+</code> operator.</p>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-MomentAccumulator-MomentAccumulator-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-MomentAccumulator-MomentAccumulator-dip-uint-" class="m-doc-self">MomentAccumulator</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> N</span>)            </h3>
+            <p>The constructor determines the dimensionality for the object.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-MomentAccumulator-Reset"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-MomentAccumulator-Reset" class="m-doc-self">Reset</a></span>(
+)            </h3>
+            <p>Reset the accumulator, leaving it as if newly allocated.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-MomentAccumulator-Push-FloatArray-CL-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-MomentAccumulator-Push-FloatArray-CL-dfloat-" class="m-doc-self">Push</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; pos, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> weight</span>)            </h3>
+            <p>Add a sample to the accumulator. <code>pos</code> must have <code>N</code> dimensions.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-MomentAccumulator-Sum-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-MomentAccumulator-Sum-C" class="m-doc-self">Sum</a></span>(
+) const            </h3>
+            <p>Sum of weights (zeroth order moment)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-MomentAccumulator-FirstOrder-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-MomentAccumulator-FirstOrder-C" class="m-doc-self">FirstOrder</a></span>(
+) const            </h3>
+            <p>First order moments, normalized</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-MomentAccumulator-SecondOrder-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
               <span class="m-doc-name"><a href="#dip-MomentAccumulator-SecondOrder-C" class="m-doc-self">SecondOrder</a></span>(
 ) const            </h3>
             <p>Second order central moment tensor, normalized</p>
@@ -498,7 +533,7 @@ to scaling of the weights (e.g. scaling the image intensity).</p>
           </div></section>
                         <section class="m-doc-details" id="dip-MomentAccumulator-PlainSecondOrder-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
               <span class="m-doc-name"><a href="#dip-MomentAccumulator-PlainSecondOrder-C" class="m-doc-self">PlainSecondOrder</a></span>(
 ) const            </h3>
             <p>Plain second order central moments, normalized</p>
@@ -610,6 +645,20 @@ relative to the center of mass.</p>
 <p>The normalization makes the moments invariant to scaling of the weights (e.g. scaling of the
 image intensity). Divide each component by <a href="dip-MomentAccumulator.html#dip-MomentAccumulator-Sum-C"><code>dip::MomentAccumulator::Sum</code></a> (the zeroth order moment) to obtain
 size-invariant second order moments.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-MomentAccumulator-operator%2B%3D-MomentAccumulator-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-MomentAccumulator-operator%2B%3D-MomentAccumulator-CL" class="m-doc-self">operator+=</a></span>(
+<span class="m-doc-arg"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> const&amp; b</span>)            </h3>
+            <p>Combine two accumulators</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%2B-MomentAccumulator--MomentAccumulator-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%2B-MomentAccumulator--MomentAccumulator-CL" class="m-doc-self">dip::<wbr />operator+</a></span>(
+<span class="m-doc-arg"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> lhs, </span><span class="m-doc-arg"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> const&amp; rhs</span>)            </h3>
+            <p>Combine two accumulators</p>
           </div></section>
         </section>
       </div>

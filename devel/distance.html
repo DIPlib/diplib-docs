@@ -70,12 +70,11 @@
             </dt>
             <dd>Euclidean distance transform <a href="#dip-EuclideanDistanceTransform-Image-CL-Image-L-String-CL-String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-VectorDistanceTransform-Image-CL-Image-L-String-CL-String-CL" class="m-doc">dip::<wbr />VectorDistanceTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; border = S::BACKGROUND,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::FAST)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GeodesicDistanceTransform-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />GeodesicDistanceTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; condition,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
-            <dd>Euclidean vector distance transform <a href="#dip-VectorDistanceTransform-Image-CL-Image-L-String-CL-String-CL">more...</a></dd>
+            <dd>Geodesic distance transform <a href="#dip-GeodesicDistanceTransform-Image-CL-Image-CL-Image-L">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-GreyWeightedDistanceTransform-Image-CL-Image-CL-Image-CL-Image-L-Metric--String-CL" class="m-doc">dip::<wbr />GreyWeightedDistanceTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; bin,
@@ -86,20 +85,21 @@
             </dt>
             <dd>Grey-weighted distance transform <a href="#dip-GreyWeightedDistanceTransform-Image-CL-Image-CL-Image-CL-Image-L-Metric--String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-GeodesicDistanceTransform-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />GeodesicDistanceTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; condition,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-VectorDistanceTransform-Image-CL-Image-L-String-CL-String-CL" class="m-doc">dip::<wbr />VectorDistanceTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; border = S::BACKGROUND,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::FAST)</span>
             </dt>
-            <dd>Geodesic distance transform <a href="#dip-GeodesicDistanceTransform-Image-CL-Image-CL-Image-L">more...</a></dd>
+            <dd>Euclidean vector distance transform <a href="#dip-VectorDistanceTransform-Image-CL-Image-L-String-CL-String-CL">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-EuclideanDistanceTransform-Image-CL-Image-L-String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-EuclideanDistanceTransform-Image-CL-Image-L-String-CL-String-CL" class="m-doc-self">dip::<wbr />EuclideanDistanceTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; border = S::BACKGROUND,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::SEPARABLE</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; border = S::BACKGROUND, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::SEPARABLE</span>)            </h3>
             <p>Euclidean distance transform</p>
 <p>This function computes the Euclidean distance transform with one of several different methods. The distance
 transform <code>out</code> indicates the distances from the objects (binary 1&rsquo;s) to the nearest background (binary 0&rsquo;s) of
@@ -168,9 +168,9 @@ spherical objects. It this case, use a different method.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-VectorDistanceTransform-Image-CL-Image-L-String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-VectorDistanceTransform-Image-CL-Image-L-String-CL-String-CL" class="m-doc-self">dip::<wbr />VectorDistanceTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; border = S::BACKGROUND,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::FAST</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; border = S::BACKGROUND, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::FAST</span>)            </h3>
             <p>Euclidean vector distance transform</p>
 <p>This function produces the vector components of the Euclidean distance transform, in the form of a vector image.
 The norm of <code>out</code> is identical to the result of <a href="distance.html#dip-EuclideanDistanceTransform-Image-CL-Image-L-String-CL-String-CL"><code>dip::EuclideanDistanceTransform</code></a>.</p>
@@ -180,9 +180,9 @@ The norm of <code>out</code> is identical to the result of <a href="distance.htm
           </div></section>
                         <section class="m-doc-details" id="dip-GreyWeightedDistanceTransform-Image-CL-Image-CL-Image-CL-Image-L-Metric--String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-GreyWeightedDistanceTransform-Image-CL-Image-CL-Image-CL-Image-L-Metric--String-CL" class="m-doc-self">dip::<wbr />GreyWeightedDistanceTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; bin,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Metric.html" class="m-doc">dip::Metric</a> metric = {S::CHAMFER,2},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FASTMARCHING</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; bin, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Metric.html" class="m-doc">dip::Metric</a> metric = {S::CHAMFER,2}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FASTMARCHING</span>)            </h3>
             <p>Grey-weighted distance transform</p>
 <p><code>dip::GreyWeightedDistanceTransform</code> determines the grey weighted distance transform of the object elements in
 the <code>bin</code> image, using the sample values in <code>grey</code> as the local weights for the distances. That is, it computes
@@ -239,9 +239,9 @@ with smaller neighborhoods being faster than larger neighborhoods.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-GeodesicDistanceTransform-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-GeodesicDistanceTransform-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />GeodesicDistanceTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; condition,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; condition, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Geodesic distance transform</p>
 <p>This function computes the geodesic distance transform of the object elements in the <code>marker</code> image, with paths
 constrained to the <code>condition</code> image. That is, for each set pixel in <code>marker</code>, the distance to the background in

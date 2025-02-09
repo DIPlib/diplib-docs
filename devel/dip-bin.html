@@ -66,17 +66,17 @@
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-bin-bin">
-              <span class="m-doc-wrap-bumper"><a href="#dip-bin-bin" class="m-doc-self">bin</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-primary">constexpr</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-bin-bin" class="m-doc">bin</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>The default value is 0 (false)</dd>
-                              <dt id="dip-bin-bin-bool-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-bin-bin-bool-" class="m-doc-self">bin</a>(</span><span class="m-doc-wrap">bool v) <span class="m-label m-flat m-primary">constexpr</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-bin-bin-bool-" class="m-doc">bin</a>(</span><span class="m-doc-wrap">bool v) <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>A bool implicitly converts to bin</dd>
-                              <dt id="dip-bin-bin-T-T-">
+                              <dt>
               <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
-              <span class="m-doc-wrap-bumper"><a href="#dip-bin-bin-T-T-" class="m-doc-self">bin</a>(</span><span class="m-doc-wrap">T v) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
+              <span class="m-doc-wrap-bumper"><a href="#dip-bin-bin-T-T-" class="m-doc">bin</a>(</span><span class="m-doc-wrap">T v) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Any arithmetic type converts to bin by comparing to zero</dd>
             </dl>
@@ -84,67 +84,191 @@
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-                          <dt id="dip-bin-operator%20bool-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%20bool-C" class="m-doc-self">operator bool</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%20bool-C" class="m-doc">operator bool</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>A bin implicitly converts to bool</dd>
-                          <dt id="dip-bin-operator%21-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%21-C" class="m-doc-self">operator!</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Negation operator</dd>
-                          <dt id="dip-bin-operator~-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator~-C" class="m-doc-self">operator~</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Bit-wise negation is the same as regular negation</dd>
-                          <dt id="dip-bin-operator%26-bin--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%26-bin--C" class="m-doc-self">operator&</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>And operator, prefer to use this over <code>std::min</code></dd>
-                          <dt id="dip-bin-operator%7C-bin--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%7C-bin--C" class="m-doc-self">operator|</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Or operator, prefer to use this over <code>std::max</code></dd>
-                          <dt id="dip-bin-operator%5E-bin--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%5E-bin--C" class="m-doc-self">operator^</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Exclusive-or operator</dd>
-                          <dt id="dip-bin-operator%26%3D-bin-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%26%3D-bin-" class="m-doc-self">operator&=</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>And compound operator</dd>
-                          <dt id="dip-bin-operator%7C%3D-bin-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%7C%3D-bin-" class="m-doc-self">operator|=</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Or compound operator</dd>
-                          <dt id="dip-bin-operator%5E%3D-bin-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%5E%3D-bin-" class="m-doc-self">operator^=</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Exclusive-or compound operator</dd>
-                          <dt id="dip-bin-operator%3D%3D-T-T--C">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%3D%3D-T-T--C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap">T other) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Equality operator</dd>
-                          <dt id="dip-bin-operator%21%3D-T-T--C">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%21%3D-T-T--C" class="m-doc-self">operator!=</a>(</span><span class="m-doc-wrap">T other) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Inequality operator</dd>
-                          <dt id="dip-bin-operator%20uint8%26">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%20uint8%26" class="m-doc-self">operator uint8&</a>(</span><span class="m-doc-wrap">) -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>&amp; <span class="m-label m-flat m-info">explicit</span> </span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%20uint8%26" class="m-doc">operator uint8&</a>(</span><span class="m-doc-wrap">) -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>&amp; <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>Allow explicit casting to a reference to the underlying type (uint8&amp;) for binary image operations</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%21-C" class="m-doc">operator!</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Negation operator</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%21%3D-T-T--C" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap">T other) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Inequality operator</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%26-bin--C" class="m-doc">operator&</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>And operator, prefer to use this over <code>std::min</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%26%3D-bin-" class="m-doc">operator&=</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>And compound operator</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%3D%3D-T-T--C" class="m-doc">operator==</a>(</span><span class="m-doc-wrap">T other) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Equality operator</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%5E-bin--C" class="m-doc">operator^</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Exclusive-or operator</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%5E%3D-bin-" class="m-doc">operator^=</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Exclusive-or compound operator</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%7C-bin--C" class="m-doc">operator|</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Or operator, prefer to use this over <code>std::max</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator%7C%3D-bin-" class="m-doc">operator|=</a>(</span><span class="m-doc-wrap"><a href="dip-bin.html" class="m-doc">dip::bin</a> other) -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Or compound operator</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-bin-operator~-C" class="m-doc">operator~</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-bin.html" class="m-doc">dip::bin</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Bit-wise negation is the same as regular negation</dd>
           </dl>
         </section>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-operator%3C%3C-std-ostream-L-bin-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-bin-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-bin-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-bin.html" class="m-doc">dip::bin</a> const&amp; v) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Writes the value as a <code>bool</code> to a stream.</dd>
           </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-bin-bin"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-bin-bin" class="m-doc-self">bin</a></span>(
+) <span class="m-label m-info">defaulted</span> <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>The default value is 0 (false)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-bin-bool-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-bin-bin-bool-" class="m-doc-self">bin</a></span>(
+<span class="m-doc-arg">bool v</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>A bool implicitly converts to bin</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-bin-T-T-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T, typename &lt;SFINAE&gt;&gt;
+              </div>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-bin-bin-T-T-" class="m-doc-self">bin</a></span>(
+<span class="m-doc-arg">T v</span>) <span class="m-label m-info">explicit</span> <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Any arithmetic type converts to bin by comparing to zero</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%20bool-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%20bool-C" class="m-doc-self">operator bool</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>A bin implicitly converts to bool</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%21-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a> </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%21-C" class="m-doc-self">operator!</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Negation operator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator~-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a> </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator~-C" class="m-doc-self">operator~</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Bit-wise negation is the same as regular negation</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%26-bin--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a> </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%26-bin--C" class="m-doc-self">operator&</a></span>(
+<span class="m-doc-arg"><a href="dip-bin.html" class="m-doc">dip::bin</a> other</span>) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>And operator, prefer to use this over <code>std::min</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%7C-bin--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a> </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%7C-bin--C" class="m-doc-self">operator|</a></span>(
+<span class="m-doc-arg"><a href="dip-bin.html" class="m-doc">dip::bin</a> other</span>) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Or operator, prefer to use this over <code>std::max</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%5E-bin--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a> </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%5E-bin--C" class="m-doc-self">operator^</a></span>(
+<span class="m-doc-arg"><a href="dip-bin.html" class="m-doc">dip::bin</a> other</span>) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Exclusive-or operator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%26%3D-bin-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%26%3D-bin-" class="m-doc-self">operator&=</a></span>(
+<span class="m-doc-arg"><a href="dip-bin.html" class="m-doc">dip::bin</a> other</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>And compound operator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%7C%3D-bin-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%7C%3D-bin-" class="m-doc-self">operator|=</a></span>(
+<span class="m-doc-arg"><a href="dip-bin.html" class="m-doc">dip::bin</a> other</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Or compound operator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%5E%3D-bin-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-bin.html" class="m-doc">dip::bin</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%5E%3D-bin-" class="m-doc-self">operator^=</a></span>(
+<span class="m-doc-arg"><a href="dip-bin.html" class="m-doc">dip::bin</a> other</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Exclusive-or compound operator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%3D%3D-T-T--C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%3D%3D-T-T--C" class="m-doc-self">operator==</a></span>(
+<span class="m-doc-arg">T other</span>) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Equality operator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%21%3D-T-T--C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%21%3D-T-T--C" class="m-doc-self">operator!=</a></span>(
+<span class="m-doc-arg">T other</span>) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Inequality operator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-bin-operator%20uint8%26"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-bin-operator%20uint8%26" class="m-doc-self">operator uint8&</a></span>(
+) <span class="m-label m-info">explicit</span>            </h3>
+            <p>Allow explicit casting to a reference to the underlying type (uint8&amp;) for binary image operations</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%3C%3C-std-ostream-L-bin-CL"><div>
+            <h3>
+              <span class="m-doc-return">std::ostream&amp; </span>
+              <span class="m-doc-name"><a href="#dip-operator%3C%3C-std-ostream-L-bin-CL" class="m-doc-self">dip::<wbr />operator<<</a></span>(
+<span class="m-doc-arg">std::ostream&amp; os, </span><span class="m-doc-arg"><a href="dip-bin.html" class="m-doc">dip::bin</a> const&amp; v</span>)            </h3>
+            <p>Writes the value as a <code>bool</code> to a stream.</p>
+          </div></section>
         </section>
       </div>
     </div>

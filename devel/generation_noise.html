@@ -64,13 +64,28 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-UniformNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />UniformNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />BinaryNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound = 0.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound = 1.0)</span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p10 = 0.05,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p01 = 0.05)</span>
             </dt>
-            <dd>Adds uniformly distributed white noise to the input image. <a href="#dip-UniformNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
+            <dd>Adds noise to the binary input image. <a href="#dip-BinaryNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColoredNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />ColoredNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0)</span>
+            </dt>
+            <dd>Adds colored (Brownian, pink, blue, violet) noise to <code>in</code>. <a href="#dip-ColoredNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FillColoredNoise-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />FillColoredNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0)</span>
+            </dt>
+            <dd>Fills <code>out</code> with colored (Brownian, pink, blue, violet) noise. <a href="#dip-FillColoredNoise-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-GaussianNoise-Image-CL-Image-L-Random-L-dfloat-" class="m-doc">dip::<wbr />GaussianNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -86,14 +101,6 @@
             </dt>
             <dd>Adds Poisson-distributed white noise to the input image. <a href="#dip-PoissonNoise-Image-CL-Image-L-Random-L-dfloat-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-BinaryNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />BinaryNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p10 = 0.05,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p01 = 0.05)</span>
-            </dt>
-            <dd>Adds noise to the binary input image. <a href="#dip-BinaryNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-SaltPepperNoise-Image-CL-Image-L-Random-L-dfloat--dfloat--dfloat-" class="m-doc">dip::<wbr />SaltPepperNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
@@ -103,29 +110,22 @@
             </dt>
             <dd>Adds salt-and-pepper noise to the input image. <a href="#dip-SaltPepperNoise-Image-CL-Image-L-Random-L-dfloat--dfloat--dfloat-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-FillColoredNoise-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />FillColoredNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0)</span>
-            </dt>
-            <dd>Fills <code>out</code> with colored (Brownian, pink, blue, violet) noise. <a href="#dip-FillColoredNoise-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ColoredNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />ColoredNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-UniformNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc">dip::<wbr />UniformNoise</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0)</span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound = 0.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound = 1.0)</span>
             </dt>
-            <dd>Adds colored (Brownian, pink, blue, violet) noise to <code>in</code>. <a href="#dip-ColoredNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
+            <dd>Adds uniformly distributed white noise to the input image. <a href="#dip-UniformNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-UniformNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-UniformNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc-self">dip::<wbr />UniformNoise</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound = 0.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound = 1.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound = 0.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound = 1.0</span>)            </h3>
             <p>Adds uniformly distributed white noise to the input image.</p>
 <p>The uniformly distributed noise added to the image is taken from the half-open interval
 [<code>lowerBound</code>, <code>upperBound</code>). That is, for each pixel it does
@@ -142,9 +142,9 @@ threads used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-GaussianNoise-Image-CL-Image-L-Random-L-dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-GaussianNoise-Image-CL-Image-L-Random-L-dfloat-" class="m-doc-self">dip::<wbr />GaussianNoise</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0</span>)            </h3>
             <p>Adds normally distributed white noise to the input image.</p>
 <p>The normally distributed noise added to the image is defined by <code>variance</code>, and has a zero mean. That is,
 for each pixel it does <code>in += gaussianRandomGenerator( 0, std::sqrt( variance ))</code>. The output image is of the
@@ -161,9 +161,9 @@ threads used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-PoissonNoise-Image-CL-Image-L-Random-L-dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-PoissonNoise-Image-CL-Image-L-Random-L-dfloat-" class="m-doc-self">dip::<wbr />PoissonNoise</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> conversion = 1.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> conversion = 1.0</span>)            </h3>
             <p>Adds Poisson-distributed white noise to the input image.</p>
 <p>The Poisson-distributed noise is added to the image scaled by <code>conversion</code>. That is,
 for each pixel it does <code>in = poissonRandomGenerator( in * conversion ) / conversion</code>.
@@ -184,9 +184,9 @@ threads used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-BinaryNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-BinaryNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc-self">dip::<wbr />BinaryNoise</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p10 = 0.05,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p01 = 0.05</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p10 = 0.05, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p01 = 0.05</span>)            </h3>
             <p>Adds noise to the binary input image.</p>
 <p>The noise added to the binary image is described by the two probabilities <code>p10</code> and <code>p01</code>. <code>p10</code> is the
 probability that a foreground pixel transitions to background (probability of 1 &rarr; 0 transition), and <code>p01</code>
@@ -234,9 +234,9 @@ threads used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-SaltPepperNoise-Image-CL-Image-L-Random-L-dfloat--dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-SaltPepperNoise-Image-CL-Image-L-Random-L-dfloat--dfloat--dfloat-" class="m-doc-self">dip::<wbr />SaltPepperNoise</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p0 = 0.05,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p1 = 0.05,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> white = 1.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p0 = 0.05, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> p1 = 0.05, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> white = 1.0</span>)            </h3>
             <p>Adds salt-and-pepper noise to the input image.</p>
 <p>The noise added to the image is described by the two probabilities <code>p0</code> and <code>p1</code>. <code>p0</code> is the
 probability that a pixel is set to 0 (black), and <code>p01</code> is the probability that a pixel is set to <code>white</code>.
@@ -257,9 +257,9 @@ threads used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-FillColoredNoise-Image-L-Random-L-dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-FillColoredNoise-Image-L-Random-L-dfloat--dfloat-" class="m-doc-self">dip::<wbr />FillColoredNoise</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0</span>)            </h3>
             <p>Fills <code>out</code> with colored (Brownian, pink, blue, violet) noise.</p>
 <p>Colored noise is correlated, as opposed to white nose, which is uncorrelated.</p>
 <p>The output image will have a variance of <code>variance</code>. <code>color</code> indicates the color of the noise (and is equal to
@@ -285,9 +285,9 @@ population variance in the output will be much closer to <code>variance</code> t
           </div></section>
                         <section class="m-doc-details" id="dip-ColoredNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ColoredNoise-Image-CL-Image-L-Random-L-dfloat--dfloat-" class="m-doc-self">dip::<wbr />ColoredNoise</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> variance = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> color = -2.0</span>)            </h3>
             <p>Adds colored (Brownian, pink, blue, violet) noise to <code>in</code>.</p>
 <p>Equivalent to adding the output of <a href="generation_noise.html#dip-FillColoredNoise-Image-L-Random-L-dfloat--dfloat-"><code>dip::FillColoredNoise</code></a> to <code>in</code>. See the reference for that function for
 information on the input parameters. <code>out</code> will have the data type of <code>in</code>.</p>

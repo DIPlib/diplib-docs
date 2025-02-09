@@ -89,13 +89,21 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Viewer-options" class="m-doc">options</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; <span class="m-label m-flat m-warning">pure virtual</span></span>
-            </dt>
-            <dd>Returns the <code>Viewer</code>&rsquo;s model <a href="#dip-viewer-Viewer-options">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Viewer-image" class="m-doc">image</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
             <dd>Returns the <a href="dip-Image.html"><code>dip::Image</code></a> being visualized, converted to real valued. <a href="#dip-viewer-Viewer-image">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Viewer-lock" class="m-doc">lock</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Lock the viewer. Necessary before making programmatic changes.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Viewer-name" class="m-doc">name</a>(</span><span class="m-doc-wrap">) -&gt; std::string const&amp; <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Returns the <code>Viewer</code>&rsquo;s name</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Viewer-options" class="m-doc">options</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; <span class="m-label m-flat m-warning">pure virtual</span></span>
+            </dt>
+            <dd>Returns the <code>Viewer</code>&rsquo;s model <a href="#dip-viewer-Viewer-options">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Viewer-original" class="m-doc">original</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
@@ -104,20 +112,12 @@
               <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Viewer-setImage-dip-Image-CL" class="m-doc">setImage</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image) <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
             <dd>Sets the image to be visualized. <a href="#dip-viewer-Viewer-setImage-dip-Image-CL">more...</a></dd>
-                          <dt id="dip-viewer-Viewer-name">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Viewer-name" class="m-doc-self">name</a>(</span><span class="m-doc-wrap">) -&gt; std::string const&amp; <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Returns the <code>Viewer</code>&rsquo;s name</dd>
-                          <dt id="dip-viewer-Viewer-setWindowTitle-char-CP">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Viewer-setWindowTitle-char-CP" class="m-doc-self">setWindowTitle</a>(</span><span class="m-doc-wrap">char const* name) <span class="m-label m-flat m-warning">virtual</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Viewer-setWindowTitle-char-CP" class="m-doc">setWindowTitle</a>(</span><span class="m-doc-wrap">char const* name) <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
             <dd>Set window title, in addition to the <code>Viewer</code>&rsquo;s name</dd>
-                          <dt id="dip-viewer-Viewer-lock">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Viewer-lock" class="m-doc-self">lock</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd>Lock the viewer. Necessary before making programmatic changes.</dd>
-                          <dt id="dip-viewer-Viewer-unlock">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Viewer-unlock" class="m-doc-self">unlock</a>(</span><span class="m-doc-wrap">)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Viewer-unlock" class="m-doc">unlock</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Unlock the viewer.</dd>
           </dl>
@@ -126,7 +126,7 @@
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-viewer-Viewer-options"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp;</span>
+              <span class="m-doc-return"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; </span>
               <span class="m-doc-name"><a href="#dip-viewer-Viewer-options" class="m-doc-self">options</a></span>(
 ) <span class="m-label m-warning">pure virtual</span>            </h3>
             <p>Returns the <code>Viewer</code>&rsquo;s model</p>
@@ -140,7 +140,7 @@
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Viewer-image"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; </span>
               <span class="m-doc-name"><a href="#dip-viewer-Viewer-image" class="m-doc-self">image</a></span>(
 ) <span class="m-label m-warning">pure virtual</span>            </h3>
             <p>Returns the <a href="dip-Image.html"><code>dip::Image</code></a> being visualized, converted to real valued.</p>
@@ -154,7 +154,7 @@
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Viewer-original"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; </span>
               <span class="m-doc-name"><a href="#dip-viewer-Viewer-original" class="m-doc-self">original</a></span>(
 ) <span class="m-label m-warning">pure virtual</span>            </h3>
             <p>Returns the <a href="dip-Image.html"><code>dip::Image</code></a> being visualized.</p>
@@ -168,7 +168,7 @@
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Viewer-setImage-dip-Image-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Viewer-setImage-dip-Image-CL" class="m-doc-self">setImage</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image</span>) <span class="m-label m-warning">pure virtual</span>            </h3>
             <p>Sets the image to be visualized.</p>
@@ -179,6 +179,34 @@
 <span class="w">   </span><span class="n">viewer</span><span class="o">-&gt;</span><span class="n">setImage</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Viewer-name"><div>
+            <h3>
+              <span class="m-doc-return">std::string const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Viewer-name" class="m-doc-self">name</a></span>(
+) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Returns the <code>Viewer</code>&rsquo;s name</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Viewer-setWindowTitle-char-CP"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Viewer-setWindowTitle-char-CP" class="m-doc-self">setWindowTitle</a></span>(
+<span class="m-doc-arg">char const* name</span>) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Set window title, in addition to the <code>Viewer</code>&rsquo;s name</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Viewer-lock"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Viewer-lock" class="m-doc-self">lock</a></span>(
+)            </h3>
+            <p>Lock the viewer. Necessary before making programmatic changes.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Viewer-unlock"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Viewer-unlock" class="m-doc-self">unlock</a></span>(
+)            </h3>
+            <p>Unlock the viewer.</p>
           </div></section>
         </section>
       </div>

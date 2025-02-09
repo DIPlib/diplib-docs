@@ -101,94 +101,102 @@ improve display.</p>
           <h2>Enums</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-ImageDisplay-ProjectionMode" class="m-doc-self">ProjectionMode</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-ImageDisplay-ProjectionMode-SLICE" class="m-doc">SLICE</a>,
-              <a href="#dip-ImageDisplay-ProjectionMode-MAX" class="m-doc">MAX</a>,
-              <a href="#dip-ImageDisplay-ProjectionMode-MEAN" class="m-doc">MEAN</a> }</span>
-            </dt>
-            <dd>Enumerator for the projection mode</dd>
+              enum class <a href="#dip-ImageDisplay-ComplexMode" class="m-doc">ComplexMode</a>: uint8            </dt>
+            <dd>Enumerator for the complex mapping mode <a href="#dip-ImageDisplay-ComplexMode">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-ImageDisplay-ComplexMode" class="m-doc-self">ComplexMode</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-ImageDisplay-ComplexMode-MAGNITUDE" class="m-doc">MAGNITUDE</a>,
-              <a href="#dip-ImageDisplay-ComplexMode-PHASE" class="m-doc">PHASE</a>,
-              <a href="#dip-ImageDisplay-ComplexMode-REAL" class="m-doc">REAL</a>,
-              <a href="#dip-ImageDisplay-ComplexMode-IMAG" class="m-doc">IMAG</a> }</span>
-            </dt>
-            <dd>Enumerator for the complex mapping mode</dd>
+              enum class <a href="#dip-ImageDisplay-MappingMode" class="m-doc">MappingMode</a>: uint8            </dt>
+            <dd>Enumerator for the intensity mapping mode <a href="#dip-ImageDisplay-MappingMode">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-ImageDisplay-MappingMode" class="m-doc-self">MappingMode</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-ImageDisplay-MappingMode-MANUAL" class="m-doc">MANUAL</a>,
-              <a href="#dip-ImageDisplay-MappingMode-MAXMIN" class="m-doc">MAXMIN</a>,
-              <a href="#dip-ImageDisplay-MappingMode-PERCENTILE" class="m-doc">PERCENTILE</a>,
-              <a href="#dip-ImageDisplay-MappingMode-BASED" class="m-doc">BASED</a>,
-              <a href="#dip-ImageDisplay-MappingMode-LOGARITHMIC" class="m-doc">LOGARITHMIC</a>,
-              <a href="#dip-ImageDisplay-MappingMode-MODULO" class="m-doc">MODULO</a> }</span>
-            </dt>
-            <dd>Enumerator for the intensity mapping mode</dd>
+              enum class <a href="#dip-ImageDisplay-ProjectionMode" class="m-doc">ProjectionMode</a>: uint8            </dt>
+            <dd>Enumerator for the projection mode <a href="#dip-ImageDisplay-ProjectionMode">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-ImageDisplay-Input-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Input-C" class="m-doc-self">Input</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Dimensionality-C" class="m-doc">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Get the image dimensionality.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetBlueTensorElement-C" class="m-doc">GetBlueTensorElement</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Get the tensor element to be shown in the blue channel.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetComplexMode-C" class="m-doc">GetComplexMode</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Get the current complex to real mapping mode.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetCoordinates-C" class="m-doc">GetCoordinates</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Get the current coordinates.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetDirection-C" class="m-doc">GetDirection</a>(</span><span class="m-doc-wrap">) const -&gt; std::pair&lt;dip::uint, dip::uint&gt;</span>
+            </dt>
+            <dd>Get the projection/slicing direction. The two values returned are identical when output is 1D.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetGlobalStretch-C" class="m-doc">GetGlobalStretch</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Get the current global stretch mode.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetGreenTensorElement-C" class="m-doc">GetGreenTensorElement</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Get the tensor element to be shown in the green channel.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetLimits-bool-" class="m-doc">GetLimits</a>(</span><span class="m-doc-wrap">bool compute) -&gt; <a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a></span>
+            </dt>
+            <dd>Gets the image intensity range (that selected with <code>"lin"</code>) for the current slicing and complex
+mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;re not yet computed.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetMappingMode-C" class="m-doc">GetMappingMode</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Get the current intensity mapping mode.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetOrthogonal-C" class="m-doc">GetOrthogonal</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the array of dimensions orthogonal to those returned by <a href="dip-ImageDisplay.html#dip-ImageDisplay-GetDirection-C"><code>dip::ImageDisplay::GetDirection</code></a>. These are the
+dimensions not displayed.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetProjectionMode-C" class="m-doc">GetProjectionMode</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Get the current projection mode.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetRange-C" class="m-doc">GetRange</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a></span>
+            </dt>
+            <dd>Get the current intensity range.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetRedTensorElement-C" class="m-doc">GetRedTensorElement</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
+            </dt>
+            <dd>Get the tensor element to be shown in the red channel.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetSizes-C" class="m-doc">GetSizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Get the image sizes.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Input-C" class="m-doc">Input</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
             </dt>
             <dd>Retrieves a reference to the input image.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Slice" class="m-doc">Slice</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-MapSinglePixel-Image-Pixel-CL" class="m-doc">MapSinglePixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; input) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
-            <dd>Retrieves a reference to the raw slice image. <a href="#dip-ImageDisplay-Slice">more...</a></dd>
+            <dd>Puts a single pixel through the same mapping the image will go through to become <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-OutIsDirty-C" class="m-doc">OutIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different result from the previous one.
+That is, the display needs to be redrawn.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Output" class="m-doc">Output</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
             </dt>
             <dd>Retrieves a reference to the output image. <a href="#dip-ImageDisplay-Output">more...</a></dd>
-                          <dt id="dip-ImageDisplay-MapSinglePixel-Image-Pixel-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-MapSinglePixel-Image-Pixel-CL" class="m-doc-self">MapSinglePixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; input) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Puts a single pixel through the same mapping the image will go through to become <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>.</dd>
-                          <dt id="dip-ImageDisplay-OutIsDirty-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-OutIsDirty-C" class="m-doc-self">OutIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different result from the previous one.
-That is, the display needs to be redrawn.</dd>
-                          <dt id="dip-ImageDisplay-SliceIsDirty-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-SliceIsDirty-C" class="m-doc-self">SliceIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different slice</dd>
-                          <dt id="dip-ImageDisplay-SizeIsDirty-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-SizeIsDirty-C" class="m-doc-self">SizeIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield an output of a different size. That is,
-the slicing direction has changed, and this yields a change in sizes.</dd>
-                          <dt id="dip-ImageDisplay-Pixel-dip-uint--dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Pixel-dip-uint--dip-uint-" class="m-doc-self">Pixel</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Pixel-dip-uint--dip-uint-" class="m-doc">Pixel</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y = 0) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Gets input image intensities at a given 2D point (automatically finds corresponding nD location).
 In case of a 1D <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>, <code>y</code> is ignored.</dd>
-                          <dt id="dip-ImageDisplay-SetDirection-dip-uint--dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetDirection-dip-uint--dip-uint-" class="m-doc-self">SetDirection</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim2)</span>
-            </dt>
-            <dd>Sets the projection/slicing direction, as the two image dimensions to show along the x and y axis
-of the 2D display. If <code>dim1==dim2</code>, a 1D output is produced.</dd>
-                          <dt id="dip-ImageDisplay-SetCoordinates-UnsignedArray-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetCoordinates-UnsignedArray-" class="m-doc-self">SetCoordinates</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> coordinates)</span>
-            </dt>
-            <dd>Sets the current coordinates. This affects the slice displayed.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetTensorElements-dip-sint--dip-sint--dip-sint-" class="m-doc">SetTensorElements</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> red,
-              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> green = -1,
-              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> blue = -1)</span>
-            </dt>
-            <dd>Sets the tensor element to be shown in each of the three output channels. <a href="#dip-ImageDisplay-SetTensorElements-dip-sint--dip-sint--dip-sint-">more...</a></dd>
-                          <dt id="dip-ImageDisplay-SetProjectionMode-ProjectionMode-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetProjectionMode-ProjectionMode-" class="m-doc-self">SetProjectionMode</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-ProjectionMode" class="m-doc">dip::ImageDisplay::ProjectionMode</a> projectionMode)</span>
-            </dt>
-            <dd>Sets the projection mode. Has no effect if image dimensionality is equal to projection dimensionality.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetProjectionMode-String-CL" class="m-doc">SetProjectionMode</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; projectionMode)</span>
-            </dt>
-            <dd>Sets the projection mode. Has no effect if image dimensionality is equal to projection dimensionality. <a href="#dip-ImageDisplay-SetProjectionMode-String-CL">more...</a></dd>
-                          <dt id="dip-ImageDisplay-SetComplexMode-ComplexMode-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetComplexMode-ComplexMode-" class="m-doc-self">SetComplexMode</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-ComplexMode" class="m-doc">dip::ImageDisplay::ComplexMode</a> complexMode)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetComplexMode-ComplexMode-" class="m-doc">SetComplexMode</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-ComplexMode" class="m-doc">dip::ImageDisplay::ComplexMode</a> complexMode)</span>
             </dt>
             <dd>Sets the complex to real mapping mode. Has no effect when projection mode is set to <code>"max"</code>, or for
 non-complex images.</dd>
@@ -197,12 +205,38 @@ non-complex images.</dd>
             </dt>
             <dd>Sets the complex to real mapping mode. Has no effect when projection mode is set to <code>"max"</code>, or for
 non-complex images. <a href="#dip-ImageDisplay-SetComplexMode-String-CL">more...</a></dd>
-                          <dt id="dip-ImageDisplay-SetMappingMode-MappingMode-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetMappingMode-MappingMode-" class="m-doc-self">SetMappingMode</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-MappingMode" class="m-doc">dip::ImageDisplay::MappingMode</a> mappingMode)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetCoordinates-UnsignedArray-" class="m-doc">SetCoordinates</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> coordinates)</span>
+            </dt>
+            <dd>Sets the current coordinates. This affects the slice displayed.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetDirection-dip-uint--dip-uint-" class="m-doc">SetDirection</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim2)</span>
+            </dt>
+            <dd>Sets the projection/slicing direction, as the two image dimensions to show along the x and y axis
+of the 2D display. If <code>dim1==dim2</code>, a 1D output is produced.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetGlobalStretch-bool-" class="m-doc">SetGlobalStretch</a>(</span><span class="m-doc-wrap">bool globalStretch)</span>
+            </dt>
+            <dd>Sets the global stretch mode. Has no effect on 2D images or when the projection mode is not <code>"slice"</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetGlobalStretch-String-CL" class="m-doc">SetGlobalStretch</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; globalStretch)</span>
+            </dt>
+            <dd>Sets the global stretch mode. Has no effect on 2D images or when the projection mode is not <code>"slice"</code> <a href="#dip-ImageDisplay-SetGlobalStretch-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetMappingMode-MappingMode-" class="m-doc">SetMappingMode</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-MappingMode" class="m-doc">dip::ImageDisplay::MappingMode</a> mappingMode)</span>
             </dt>
             <dd>Sets the intensity mapping mode. Has no effect for binary images.</dd>
-                          <dt id="dip-ImageDisplay-SetRange-Limits-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetRange-Limits-" class="m-doc-self">SetRange</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a> range)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetProjectionMode-ProjectionMode-" class="m-doc">SetProjectionMode</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-ProjectionMode" class="m-doc">dip::ImageDisplay::ProjectionMode</a> projectionMode)</span>
+            </dt>
+            <dd>Sets the projection mode. Has no effect if image dimensionality is equal to projection dimensionality.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetProjectionMode-String-CL" class="m-doc">SetProjectionMode</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; projectionMode)</span>
+            </dt>
+            <dd>Sets the projection mode. Has no effect if image dimensionality is equal to projection dimensionality. <a href="#dip-ImageDisplay-SetProjectionMode-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetRange-Limits-" class="m-doc">SetRange</a>(</span><span class="m-doc-wrap"><a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a> range)</span>
             </dt>
             <dd>Sets the range of intensities to be mapped to the output range. Forces intensity mapping mode to linear.
 Has no effect for binary images.</dd>
@@ -211,79 +245,32 @@ Has no effect for binary images.</dd>
             </dt>
             <dd>Sets the mapping mode and the range of intensities to be mapped to the output range.
 Has no effect for binary images. <a href="#dip-ImageDisplay-SetRange-String-CL">more...</a></dd>
-                          <dt id="dip-ImageDisplay-SetGlobalStretch-bool-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetGlobalStretch-bool-" class="m-doc-self">SetGlobalStretch</a>(</span><span class="m-doc-wrap">bool globalStretch)</span>
-            </dt>
-            <dd>Sets the global stretch mode. Has no effect on 2D images or when the projection mode is not <code>"slice"</code></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetGlobalStretch-String-CL" class="m-doc">SetGlobalStretch</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; globalStretch)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageDisplay-SetTensorElements-dip-sint--dip-sint--dip-sint-" class="m-doc">SetTensorElements</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> red,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> green = -1,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> blue = -1)</span>
             </dt>
-            <dd>Sets the global stretch mode. Has no effect on 2D images or when the projection mode is not <code>"slice"</code> <a href="#dip-ImageDisplay-SetGlobalStretch-String-CL">more...</a></dd>
-                          <dt id="dip-ImageDisplay-GetDirection-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetDirection-C" class="m-doc-self">GetDirection</a>(</span><span class="m-doc-wrap">) const -&gt; std::pair&lt;dip::uint, dip::uint&gt;</span>
+            <dd>Sets the tensor element to be shown in each of the three output channels. <a href="#dip-ImageDisplay-SetTensorElements-dip-sint--dip-sint--dip-sint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-SizeIsDirty-C" class="m-doc">SizeIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
-            <dd>Get the projection/slicing direction. The two values returned are identical when output is 1D.</dd>
-                          <dt id="dip-ImageDisplay-GetOrthogonal-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetOrthogonal-C" class="m-doc-self">GetOrthogonal</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield an output of a different size. That is,
+the slicing direction has changed, and this yields a change in sizes.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Slice" class="m-doc">Slice</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
             </dt>
-            <dd>Returns the array of dimensions orthogonal to those returned by <a href="dip-ImageDisplay.html#dip-ImageDisplay-GetDirection-C"><code>dip::ImageDisplay::GetDirection</code></a>. These are the
-dimensions not displayed.</dd>
-                          <dt id="dip-ImageDisplay-GetCoordinates-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetCoordinates-C" class="m-doc-self">GetCoordinates</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            <dd>Retrieves a reference to the raw slice image. <a href="#dip-ImageDisplay-Slice">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-SliceIsDirty-C" class="m-doc">SliceIsDirty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
-            <dd>Get the current coordinates.</dd>
-                          <dt id="dip-ImageDisplay-GetSizes-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetSizes-C" class="m-doc-self">GetSizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
-            </dt>
-            <dd>Get the image sizes.</dd>
-                          <dt id="dip-ImageDisplay-Dimensionality-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-Dimensionality-C" class="m-doc-self">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Get the image dimensionality.</dd>
-                          <dt id="dip-ImageDisplay-GetRedTensorElement-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetRedTensorElement-C" class="m-doc-self">GetRedTensorElement</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
-            </dt>
-            <dd>Get the tensor element to be shown in the red channel.</dd>
-                          <dt id="dip-ImageDisplay-GetGreenTensorElement-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetGreenTensorElement-C" class="m-doc-self">GetGreenTensorElement</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
-            </dt>
-            <dd>Get the tensor element to be shown in the green channel.</dd>
-                          <dt id="dip-ImageDisplay-GetBlueTensorElement-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetBlueTensorElement-C" class="m-doc-self">GetBlueTensorElement</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
-            </dt>
-            <dd>Get the tensor element to be shown in the blue channel.</dd>
-                          <dt id="dip-ImageDisplay-GetProjectionMode-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetProjectionMode-C" class="m-doc-self">GetProjectionMode</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Get the current projection mode.</dd>
-                          <dt id="dip-ImageDisplay-GetComplexMode-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetComplexMode-C" class="m-doc-self">GetComplexMode</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Get the current complex to real mapping mode.</dd>
-                          <dt id="dip-ImageDisplay-GetMappingMode-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetMappingMode-C" class="m-doc-self">GetMappingMode</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Get the current intensity mapping mode.</dd>
-                          <dt id="dip-ImageDisplay-GetRange-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetRange-C" class="m-doc-self">GetRange</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a></span>
-            </dt>
-            <dd>Get the current intensity range.</dd>
-                          <dt id="dip-ImageDisplay-GetLimits-bool-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetLimits-bool-" class="m-doc-self">GetLimits</a>(</span><span class="m-doc-wrap">bool compute) -&gt; <a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a></span>
-            </dt>
-            <dd>Gets the image intensity range (that selected with <code>"lin"</code>) for the current slicing and complex
-mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;re not yet computed.</dd>
-                          <dt id="dip-ImageDisplay-GetGlobalStretch-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageDisplay-GetGlobalStretch-C" class="m-doc-self">GetGlobalStretch</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Get the current global stretch mode.</dd>
+            <dd>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different slice</dd>
           </dl>
         </section>
         <section>
           <h2>Class documentation</h2>
                         <section class="m-doc-details" id="dip-ImageDisplay-Limits"><div>
             <h3>
-              struct <span class="m-doc-name"><a href="#dip-ImageDisplay-Limits" class="m-doc-self">Limits</a></span>            </h3>
+              <span class="m-doc-return">struct </span><span class="m-doc-name"><a href="#dip-ImageDisplay-Limits" class="m-doc-self">Limits</a></span>            </h3>
             <p>Intensity mapping limits</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Variables</th><th></th></tr></thead>
@@ -310,25 +297,28 @@ mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;r
             <h2>Enum documentation</h2>
                           <section class="m-doc-details" id="dip-ImageDisplay-ProjectionMode"><div>
             <h3>
-              enum class <span class="m-doc-name"><a href="#dip-ImageDisplay-ProjectionMode" class="m-doc-self">ProjectionMode</a></span>: uint8            </h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-ImageDisplay-ProjectionMode" class="m-doc-self">ProjectionMode</a></span>: uint8            </h3>
             <p>Enumerator for the projection mode</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
               <tbody>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-ProjectionMode-SLICE" class="m-doc-self" id="dip-ImageDisplay-ProjectionMode-SLICE">SLICE</a></span> = 0</td>
+                  <td><a href="#dip-ImageDisplay-ProjectionMode-SLICE" class="m-doc-self" id="dip-ImageDisplay-ProjectionMode-SLICE">SLICE</a> = 0
+</td>
                   <td>
                   A slice is prepared for display
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-ProjectionMode-MAX" class="m-doc-self" id="dip-ImageDisplay-ProjectionMode-MAX">MAX</a></span> = 1</td>
+                  <td><a href="#dip-ImageDisplay-ProjectionMode-MAX" class="m-doc-self" id="dip-ImageDisplay-ProjectionMode-MAX">MAX</a> = 1
+</td>
                   <td>
                   The max projection is prepared for display
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-ProjectionMode-MEAN" class="m-doc-self" id="dip-ImageDisplay-ProjectionMode-MEAN">MEAN</a></span> = 2</td>
+                  <td><a href="#dip-ImageDisplay-ProjectionMode-MEAN" class="m-doc-self" id="dip-ImageDisplay-ProjectionMode-MEAN">MEAN</a> = 2
+</td>
                   <td>
                   The mean projection is prepared for display
                   </td>
@@ -338,31 +328,35 @@ mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;r
           </div></section>
                           <section class="m-doc-details" id="dip-ImageDisplay-ComplexMode"><div>
             <h3>
-              enum class <span class="m-doc-name"><a href="#dip-ImageDisplay-ComplexMode" class="m-doc-self">ComplexMode</a></span>: uint8            </h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-ImageDisplay-ComplexMode" class="m-doc-self">ComplexMode</a></span>: uint8            </h3>
             <p>Enumerator for the complex mapping mode</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
               <tbody>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-ComplexMode-MAGNITUDE" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-MAGNITUDE">MAGNITUDE</a></span> = 0</td>
+                  <td><a href="#dip-ImageDisplay-ComplexMode-MAGNITUDE" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-MAGNITUDE">MAGNITUDE</a> = 0
+</td>
                   <td>
                   The magnitude is prepared for display
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-ComplexMode-PHASE" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-PHASE">PHASE</a></span> = 1</td>
+                  <td><a href="#dip-ImageDisplay-ComplexMode-PHASE" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-PHASE">PHASE</a> = 1
+</td>
                   <td>
                   The complex phase is prepared for display
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-ComplexMode-REAL" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-REAL">REAL</a></span> = 2</td>
+                  <td><a href="#dip-ImageDisplay-ComplexMode-REAL" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-REAL">REAL</a> = 2
+</td>
                   <td>
                   The real component is prepared for display
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-ComplexMode-IMAG" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-IMAG">IMAG</a></span> = 3</td>
+                  <td><a href="#dip-ImageDisplay-ComplexMode-IMAG" class="m-doc-self" id="dip-ImageDisplay-ComplexMode-IMAG">IMAG</a> = 3
+</td>
                   <td>
                   The imaginary component is prepared for display
                   </td>
@@ -372,43 +366,49 @@ mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;r
           </div></section>
                           <section class="m-doc-details" id="dip-ImageDisplay-MappingMode"><div>
             <h3>
-              enum class <span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode" class="m-doc-self">MappingMode</a></span>: uint8            </h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode" class="m-doc-self">MappingMode</a></span>: uint8            </h3>
             <p>Enumerator for the intensity mapping mode</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
               <tbody>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode-MANUAL" class="m-doc-self" id="dip-ImageDisplay-MappingMode-MANUAL">MANUAL</a></span> = 0</td>
+                  <td><a href="#dip-ImageDisplay-MappingMode-MANUAL" class="m-doc-self" id="dip-ImageDisplay-MappingMode-MANUAL">MANUAL</a> = 0
+</td>
                   <td>
                   <a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits"><code>dip::ImageDisplay::Limits</code></a> are used as-is
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode-MAXMIN" class="m-doc-self" id="dip-ImageDisplay-MappingMode-MAXMIN">MAXMIN</a></span> = 1</td>
+                  <td><a href="#dip-ImageDisplay-MappingMode-MAXMIN" class="m-doc-self" id="dip-ImageDisplay-MappingMode-MAXMIN">MAXMIN</a> = 1
+</td>
                   <td>
                   The max and min values are taken as the display limits
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode-PERCENTILE" class="m-doc-self" id="dip-ImageDisplay-MappingMode-PERCENTILE">PERCENTILE</a></span> = 2</td>
+                  <td><a href="#dip-ImageDisplay-MappingMode-PERCENTILE" class="m-doc-self" id="dip-ImageDisplay-MappingMode-PERCENTILE">PERCENTILE</a> = 2
+</td>
                   <td>
                   The 5% and 95% values are taken as the display limits
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode-BASED" class="m-doc-self" id="dip-ImageDisplay-MappingMode-BASED">BASED</a></span> = 3</td>
+                  <td><a href="#dip-ImageDisplay-MappingMode-BASED" class="m-doc-self" id="dip-ImageDisplay-MappingMode-BASED">BASED</a> = 3
+</td>
                   <td>
                   0 should remain at the middle of the output range
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode-LOGARITHMIC" class="m-doc-self" id="dip-ImageDisplay-MappingMode-LOGARITHMIC">LOGARITHMIC</a></span> = 4</td>
+                  <td><a href="#dip-ImageDisplay-MappingMode-LOGARITHMIC" class="m-doc-self" id="dip-ImageDisplay-MappingMode-LOGARITHMIC">LOGARITHMIC</a> = 4
+</td>
                   <td>
                   A logarithmic mapping is applied
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dip-ImageDisplay-MappingMode-MODULO" class="m-doc-self" id="dip-ImageDisplay-MappingMode-MODULO">MODULO</a></span> = 5</td>
+                  <td><a href="#dip-ImageDisplay-MappingMode-MODULO" class="m-doc-self" id="dip-ImageDisplay-MappingMode-MODULO">MODULO</a> = 5
+</td>
                   <td>
                   The integer input values are mapped modulo the output range
                   </td>
@@ -421,9 +421,9 @@ mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;r
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-ImageDisplay-ImageDisplay-Image-CL-ColorSpaceManager-P-ExternalInterface-P"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-ImageDisplay-Image-CL-ColorSpaceManager-P-ExternalInterface-P" class="m-doc-self">ImageDisplay</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="dip-ColorSpaceManager.html" class="m-doc">dip::ColorSpaceManager</a>* colorSpaceManager = nullptr,</span><span class="m-doc-arg"><a href="dip-ExternalInterface.html" class="m-doc">dip::ExternalInterface</a>* externalInterface = nullptr</span>) <span class="m-label m-info">explicit</span>            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="dip-ColorSpaceManager.html" class="m-doc">dip::ColorSpaceManager</a>* colorSpaceManager = nullptr, </span><span class="m-doc-arg"><a href="dip-ExternalInterface.html" class="m-doc">dip::ExternalInterface</a>* externalInterface = nullptr</span>) <span class="m-label m-info">explicit</span>            </h3>
             <p>The constructor takes an image with at least 1 dimension.</p>
 <p>If <code>colorSpaceManager</code> is not <code>nullptr</code>, it points to the color space manager object to be
 used to convert the color image <code>image</code> to sRGB. If <code>image</code> is not color, or already is sRGB, the color
@@ -434,9 +434,16 @@ output image.</p>
 <p>Both <code>colorSpaceManager</code> and <code>externalInterface</code>, if given, must exist for as long as the
 <code>ImageDisplay</code> object exists.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-Input-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-Input-C" class="m-doc-self">Input</a></span>(
+) const            </h3>
+            <p>Retrieves a reference to the input image.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageDisplay-Slice"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-Slice" class="m-doc-self">Slice</a></span>(
 )            </h3>
             <p>Retrieves a reference to the raw slice image.</p>
@@ -445,7 +452,7 @@ the input data for the what is shown in <a href="dip-ImageDisplay.html#dip-Image
           </div></section>
                         <section class="m-doc-details" id="dip-ImageDisplay-Output"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-Output" class="m-doc-self">Output</a></span>(
 )            </h3>
             <p>Retrieves a reference to the output image.</p>
@@ -453,17 +460,77 @@ the input data for the what is shown in <a href="dip-ImageDisplay.html#dip-Image
 <p>The output image data segment will be allocated using the external interface provided to the
 <code>ImageDisplay</code> constructor.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-MapSinglePixel-Image-Pixel-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-MapSinglePixel-Image-Pixel-CL" class="m-doc-self">MapSinglePixel</a></span>(
+<span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; input</span>)            </h3>
+            <p>Puts a single pixel through the same mapping the image will go through to become <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-OutIsDirty-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-OutIsDirty-C" class="m-doc-self">OutIsDirty</a></span>(
+) const            </h3>
+            <p>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different result from the previous one.
+That is, the display needs to be redrawn.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SliceIsDirty-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SliceIsDirty-C" class="m-doc-self">SliceIsDirty</a></span>(
+) const            </h3>
+            <p>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield a different slice</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SizeIsDirty-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SizeIsDirty-C" class="m-doc-self">SizeIsDirty</a></span>(
+) const            </h3>
+            <p>Returns true if the next call to <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a> will yield an output of a different size. That is,
+the slicing direction has changed, and this yields a change in sizes.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-Pixel-dip-uint--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-Pixel-dip-uint--dip-uint-" class="m-doc-self">Pixel</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y = 0</span>)            </h3>
+            <p>Gets input image intensities at a given 2D point (automatically finds corresponding nD location).
+In case of a 1D <a href="dip-ImageDisplay.html#dip-ImageDisplay-Output"><code>dip::ImageDisplay::Output</code></a>, <code>y</code> is ignored.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SetDirection-dip-uint--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SetDirection-dip-uint--dip-uint-" class="m-doc-self">SetDirection</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim2</span>)            </h3>
+            <p>Sets the projection/slicing direction, as the two image dimensions to show along the x and y axis
+of the 2D display. If <code>dim1==dim2</code>, a 1D output is produced.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SetCoordinates-UnsignedArray-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SetCoordinates-UnsignedArray-" class="m-doc-self">SetCoordinates</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> coordinates</span>)            </h3>
+            <p>Sets the current coordinates. This affects the slice displayed.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageDisplay-SetTensorElements-dip-sint--dip-sint--dip-sint-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-SetTensorElements-dip-sint--dip-sint--dip-sint-" class="m-doc-self">SetTensorElements</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> red,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> green = -1,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> blue = -1</span>)            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> red, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> green = -1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> blue = -1</span>)            </h3>
             <p>Sets the tensor element to be shown in each of the three output channels.</p>
 <p>This function only has an effect for tensor images without a color space.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SetProjectionMode-ProjectionMode-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SetProjectionMode-ProjectionMode-" class="m-doc-self">SetProjectionMode</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageDisplay.html#dip-ImageDisplay-ProjectionMode" class="m-doc">dip::ImageDisplay::ProjectionMode</a> projectionMode</span>)            </h3>
+            <p>Sets the projection mode. Has no effect if image dimensionality is equal to projection dimensionality.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageDisplay-SetProjectionMode-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-SetProjectionMode-String-CL" class="m-doc-self">SetProjectionMode</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; projectionMode</span>)            </h3>
             <p>Sets the projection mode. Has no effect if image dimensionality is equal to projection dimensionality.</p>
@@ -493,9 +560,17 @@ the input data for the what is shown in <a href="dip-ImageDisplay.html#dip-Image
 forces the complex to real mapping mode to <code>"magnitude"</code>.</p>
 <p>For projection modes other than <code>"slice"</code>, turns off global stretch mode.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SetComplexMode-ComplexMode-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SetComplexMode-ComplexMode-" class="m-doc-self">SetComplexMode</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageDisplay.html#dip-ImageDisplay-ComplexMode" class="m-doc">dip::ImageDisplay::ComplexMode</a> complexMode</span>)            </h3>
+            <p>Sets the complex to real mapping mode. Has no effect when projection mode is set to <code>"max"</code>, or for
+non-complex images.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageDisplay-SetComplexMode-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-SetComplexMode-String-CL" class="m-doc-self">SetComplexMode</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; complexMode</span>)            </h3>
             <p>Sets the complex to real mapping mode. Has no effect when projection mode is set to <code>"max"</code>, or for
@@ -531,9 +606,24 @@ non-complex images.</p>
 </tbody>
 </table>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SetMappingMode-MappingMode-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SetMappingMode-MappingMode-" class="m-doc-self">SetMappingMode</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageDisplay.html#dip-ImageDisplay-MappingMode" class="m-doc">dip::ImageDisplay::MappingMode</a> mappingMode</span>)            </h3>
+            <p>Sets the intensity mapping mode. Has no effect for binary images.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SetRange-Limits-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SetRange-Limits-" class="m-doc-self">SetRange</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a> range</span>)            </h3>
+            <p>Sets the range of intensities to be mapped to the output range. Forces intensity mapping mode to linear.
+Has no effect for binary images.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageDisplay-SetRange-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-SetRange-String-CL" class="m-doc-self">SetRange</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; range</span>)            </h3>
             <p>Sets the mapping mode and the range of intensities to be mapped to the output range.
@@ -629,9 +719,16 @@ Has no effect for binary images.</p>
 </tbody>
 </table>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-SetGlobalStretch-bool-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-SetGlobalStretch-bool-" class="m-doc-self">SetGlobalStretch</a></span>(
+<span class="m-doc-arg">bool globalStretch</span>)            </h3>
+            <p>Sets the global stretch mode. Has no effect on 2D images or when the projection mode is not <code>"slice"</code></p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageDisplay-SetGlobalStretch-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageDisplay-SetGlobalStretch-String-CL" class="m-doc-self">SetGlobalStretch</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; globalStretch</span>)            </h3>
             <p>Sets the global stretch mode. Has no effect on 2D images or when the projection mode is not <code>"slice"</code></p>
@@ -653,6 +750,106 @@ Has no effect for binary images.</p>
 </tr>
 </tbody>
 </table>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetDirection-C"><div>
+            <h3>
+              <span class="m-doc-return">std::pair&lt;dip::uint, dip::uint&gt; </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetDirection-C" class="m-doc-self">GetDirection</a></span>(
+) const            </h3>
+            <p>Get the projection/slicing direction. The two values returned are identical when output is 1D.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetOrthogonal-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetOrthogonal-C" class="m-doc-self">GetOrthogonal</a></span>(
+) const            </h3>
+            <p>Returns the array of dimensions orthogonal to those returned by <a href="dip-ImageDisplay.html#dip-ImageDisplay-GetDirection-C"><code>dip::ImageDisplay::GetDirection</code></a>. These are the
+dimensions not displayed.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetCoordinates-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetCoordinates-C" class="m-doc-self">GetCoordinates</a></span>(
+) const            </h3>
+            <p>Get the current coordinates.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetSizes-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetSizes-C" class="m-doc-self">GetSizes</a></span>(
+) const            </h3>
+            <p>Get the image sizes.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-Dimensionality-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-Dimensionality-C" class="m-doc-self">Dimensionality</a></span>(
+) const            </h3>
+            <p>Get the image dimensionality.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetRedTensorElement-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetRedTensorElement-C" class="m-doc-self">GetRedTensorElement</a></span>(
+) const            </h3>
+            <p>Get the tensor element to be shown in the red channel.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetGreenTensorElement-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetGreenTensorElement-C" class="m-doc-self">GetGreenTensorElement</a></span>(
+) const            </h3>
+            <p>Get the tensor element to be shown in the green channel.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetBlueTensorElement-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetBlueTensorElement-C" class="m-doc-self">GetBlueTensorElement</a></span>(
+) const            </h3>
+            <p>Get the tensor element to be shown in the blue channel.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetProjectionMode-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetProjectionMode-C" class="m-doc-self">GetProjectionMode</a></span>(
+) const            </h3>
+            <p>Get the current projection mode.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetComplexMode-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetComplexMode-C" class="m-doc-self">GetComplexMode</a></span>(
+) const            </h3>
+            <p>Get the current complex to real mapping mode.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetMappingMode-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetMappingMode-C" class="m-doc-self">GetMappingMode</a></span>(
+) const            </h3>
+            <p>Get the current intensity mapping mode.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetRange-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetRange-C" class="m-doc-self">GetRange</a></span>(
+) const            </h3>
+            <p>Get the current intensity range.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetLimits-bool-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageDisplay.html#dip-ImageDisplay-Limits" class="m-doc">dip::ImageDisplay::Limits</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetLimits-bool-" class="m-doc-self">GetLimits</a></span>(
+<span class="m-doc-arg">bool compute</span>)            </h3>
+            <p>Gets the image intensity range (that selected with <code>"lin"</code>) for the current slicing and complex
+mapping modes. If <code>compute</code> is true, it computes them if they&rsquo;re not yet computed.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageDisplay-GetGlobalStretch-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageDisplay-GetGlobalStretch-C" class="m-doc-self">GetGlobalStretch</a></span>(
+) const            </h3>
+            <p>Get the current global stretch mode.</p>
           </div></section>
         </section>
       </div>

@@ -78,10 +78,19 @@ See <a href="supporttypes.html">Support types</a>, <a href="pixeltypes.html">Pix
           <h2>Classes</h2>
           <dl class="m-doc">
                           <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              struct <a href="dip-IsSampleType-T.html" class="m-doc">dip::<wbr />IsSampleType</a>
+              class <a href="dip-AlignedBuffer.html" class="m-doc">dip::<wbr />AlignedBuffer</a>
             </dt>
-            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are valid for image samples. <a href="dip-IsSampleType-T.html#dip-IsSampleType-T">more...</a></dd>
+            <dd>A container used to allocate 32-byte aligned buffers. <a href="dip-AlignedBuffer.html#dip-AlignedBuffer">more...</a></dd>
+                          <dt>
+              class <a href="dip-bin.html" class="m-doc">dip::<wbr />bin</a>
+            </dt>
+            <dd>Type for samples in a binary image. Can store 0 or 1. Occupies 1 byte. <a href="dip-bin.html#dip-bin">more...</a></dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              struct <a href="dip-IsIndexingType-T.html" class="m-doc">dip::<wbr />IsIndexingType</a>
+            </dt>
+            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are indexing types, true for
+signed and unsigned integers. See <a href="dip-IsSampleType-T.html"><code>dip::IsSampleType</code></a> for usage details. <a href="dip-IsIndexingType-T.html#dip-IsIndexingType-T">more...</a></dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               struct <a href="dip-IsNumericType-T.html" class="m-doc">dip::<wbr />IsNumericType</a>
@@ -90,14 +99,13 @@ See <a href="supporttypes.html">Support types</a>, <a href="pixeltypes.html">Pix
 <code>std::is_arithmetic</code> but also true for complex types. See <a href="dip-IsSampleType-T.html"><code>dip::IsSampleType</code></a> for usage details. <a href="dip-IsNumericType-T.html#dip-IsNumericType-T">more...</a></dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              struct <a href="dip-IsIndexingType-T.html" class="m-doc">dip::<wbr />IsIndexingType</a>
+              struct <a href="dip-IsSampleType-T.html" class="m-doc">dip::<wbr />IsSampleType</a>
             </dt>
-            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are indexing types, true for
-signed and unsigned integers. See <a href="dip-IsSampleType-T.html"><code>dip::IsSampleType</code></a> for usage details. <a href="dip-IsIndexingType-T.html#dip-IsIndexingType-T">more...</a></dd>
+            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are valid for image samples. <a href="dip-IsSampleType-T.html#dip-IsSampleType-T">more...</a></dd>
                           <dt>
-              class <a href="dip-bin.html" class="m-doc">dip::<wbr />bin</a>
+              struct <a href="supporttypes.html#dip-QuartilesResult" class="m-doc">dip::<wbr />QuartilesResult</a>
             </dt>
-            <dd>Type for samples in a binary image. Can store 0 or 1. Occupies 1 byte. <a href="dip-bin.html#dip-bin">more...</a></dd>
+            <dd>Represents the quartiles, see <a href="dip-Measurement-IteratorFeature.html#dip-Quartiles-Measurement-IteratorFeature-CL"><code>dip::Quartiles</code></a>. <a href="supporttypes.html#dip-QuartilesResult">more...</a></dd>
                           <dt>
               struct <a href="dip-Range.html" class="m-doc">dip::<wbr />Range</a>
             </dt>
@@ -127,276 +135,216 @@ image dimension. <a href="dip-Range.html#dip-Range">more...</a></dd>
 <use x='46.68' y='0' xlink:href='#eq3-g7-71'/>
 </g>
 </svg></span>. <a href="supporttypes.html#dip-RegressionParameters">more...</a></dd>
-                          <dt>
-              struct <a href="supporttypes.html#dip-QuartilesResult" class="m-doc">dip::<wbr />QuartilesResult</a>
-            </dt>
-            <dd>Represents the quartiles, see <a href="dip-Measurement-IteratorFeature.html#dip-Quartiles-Measurement-IteratorFeature-CL"><code>dip::Quartiles</code></a>. <a href="supporttypes.html#dip-QuartilesResult">more...</a></dd>
-                          <dt>
-              class <a href="dip-AlignedBuffer.html" class="m-doc">dip::<wbr />AlignedBuffer</a>
-            </dt>
-            <dd>A container used to allocate 32-byte aligned buffers. <a href="dip-AlignedBuffer.html#dip-AlignedBuffer">more...</a></dd>
           </dl>
         </section>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
                               <dt>
-              using <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc-self">dip::<wbr />Option::<wbr />CmpPropFlags</a> = dip::detail::Options
-
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="pixeltypes.html#dip-AbsType-T" class="m-doc">dip::<wbr />AbsType</a> = dip::detail::AbsTypeCalculator
             </dt>
-            <dd>Determines which properties to compare. Combines multiple <a href="supporttypes.html#dip-Option-CmpPropEnumerator"><code>dip::Option::CmpPropEnumerator</code></a> values,
-predefined values are in <a href="dip-Option-CmpProp.html"><code>dip::Option::CmpProp</code></a>.</dd>
+            <dd>The type to use for the output of abs operations. Matches <a href="dip-DataType.html#dip-DataType-SuggestAbs-DataType-"><code>dip::DataType::SuggestAbs</code></a>.</dd>
                               <dt>
-              using <a href="supporttypes.html#dip-sint" class="m-doc-self">dip::<wbr />sint</a> = std::ptrdiff_t
-
+using <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::<wbr />BooleanArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
             </dt>
-            <dd>An integer type to be used for strides and similar measures.</dd>
+            <dd>An array used as a dimension selector.</dd>
                               <dt>
-              using <a href="supporttypes.html#dip-uint" class="m-doc-self">dip::<wbr />uint</a> = std::size_t
-
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="pixeltypes.html#dip-ComplexType-T" class="m-doc">dip::<wbr />ComplexType</a> = dip::detail::ComplexTypeCalculator
             </dt>
-            <dd>An integer type to be used for sizes and the like.</dd>
+            <dd>The type to use in calculations when a complex type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestComplex-DataType-"><code>dip::DataType::SuggestComplex</code></a>.</dd>
                               <dt>
-              using <a href="pixeltypes.html#dip-uint8" class="m-doc-self">dip::<wbr />uint8</a> = std::uint8_t
-
+using <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::<wbr />CoordinateArray</a> = std::vector&lt;UnsignedArray&gt;
             </dt>
-            <dd>Type for samples in an 8-bit unsigned integer image; also to be used as single byte for pointer arithmetic</dd>
+            <dd>An array of pixel coordinates.</dd>
                               <dt>
-              using <a href="pixeltypes.html#dip-uint16" class="m-doc-self">dip::<wbr />uint16</a> = std::uint16_t
-
-            </dt>
-            <dd>Type for samples in a 16-bit unsigned integer image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-uint32" class="m-doc-self">dip::<wbr />uint32</a> = std::uint32_t
-
-            </dt>
-            <dd>Type for samples in a 32-bit unsigned integer image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-uint64" class="m-doc-self">dip::<wbr />uint64</a> = std::uint64_t
-
-            </dt>
-            <dd>Type for samples in a 64-bit unsigned integer image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-sint8" class="m-doc-self">dip::<wbr />sint8</a> = std::int8_t
-
-            </dt>
-            <dd>Type for samples in an 8-bit signed integer image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-sint16" class="m-doc-self">dip::<wbr />sint16</a> = std::int16_t
-
-            </dt>
-            <dd>Type for samples in a 16-bit signed integer image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-sint32" class="m-doc-self">dip::<wbr />sint32</a> = std::int32_t
-
-            </dt>
-            <dd>Type for samples in a 32-bit signed integer image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-sint64" class="m-doc-self">dip::<wbr />sint64</a> = std::int64_t
-
-            </dt>
-            <dd>Type for samples in a 64-bit signed integer image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-sfloat" class="m-doc-self">dip::<wbr />sfloat</a> = float
-
-            </dt>
-            <dd>Type for samples in a 32-bit floating point (single-precision) image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-dfloat" class="m-doc-self">dip::<wbr />dfloat</a> = double
-
-            </dt>
-            <dd>Type for samples in a 64-bit floating point (double-precision) image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-scomplex" class="m-doc-self">dip::<wbr />scomplex</a> = std::complex&lt;sfloat&gt;
-
-            </dt>
-            <dd>Type for samples in a 64-bit complex-valued (single-precision) image</dd>
-                              <dt>
-              using <a href="pixeltypes.html#dip-dcomplex" class="m-doc-self">dip::<wbr />dcomplex</a> = std::complex&lt;dfloat&gt;
-
+using <a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::<wbr />dcomplex</a> = std::complex&lt;dfloat&gt;
             </dt>
             <dd>Type for samples in a 128-bit complex-valued (double-precision) image</dd>
                               <dt>
-              using <a href="pixeltypes.html#dip-LabelType" class="m-doc-self">dip::<wbr />LabelType</a> = <a href="pixeltypes.html#dip-uint32" class="m-doc">dip::uint32</a>
-
+using <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::<wbr />dfloat</a> = double
             </dt>
-            <dd>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-DT_LABEL"><code>dip::DT_LABEL</code></a>.</dd>
+            <dd>Type for samples in a 64-bit floating point (double-precision) image</dd>
                               <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-FloatType-T" class="m-doc-self">dip::<wbr />FloatType</a> = dip::detail::FloatTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations when a floating-point type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestFloat-DataType-"><code>dip::DataType::SuggestFloat</code></a>.</dd>
-                              <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-DoubleType-T" class="m-doc-self">dip::<wbr />DoubleType</a> = dip::detail::DoubleTypeCalculator
-
+using <a href="pixeltypes.html#dip-DoubleType-T" class="m-doc">dip::<wbr />DoubleType</a> = dip::detail::DoubleTypeCalculator
             </dt>
             <dd>The double precision floating point type (real or complex) to use when computing large sums of any input type. Matches <a href="dip-DataType.html#dip-DataType-SuggestDouble-DataType-"><code>dip::DataType::SuggestDouble</code></a>.</dd>
                               <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-ComplexType-T" class="m-doc-self">dip::<wbr />ComplexType</a> = dip::detail::ComplexTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations when a complex type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestComplex-DataType-"><code>dip::DataType::SuggestComplex</code></a>.</dd>
-                              <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-FlexType-T" class="m-doc-self">dip::<wbr />FlexType</a> = dip::detail::FlexTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlex-DataType-"><code>dip::DataType::SuggestFlex</code></a>.</dd>
-                              <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-FlexBinType-T" class="m-doc-self">dip::<wbr />FlexBinType</a> = dip::detail::FlexBinTypeCalculator
-
+using <a href="pixeltypes.html#dip-FlexBinType-T" class="m-doc">dip::<wbr />FlexBinType</a> = dip::detail::FlexBinTypeCalculator
             </dt>
             <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlexBin-DataType-"><code>dip::DataType::SuggestFlexBin</code></a>.</dd>
                               <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-AbsType-T" class="m-doc-self">dip::<wbr />AbsType</a> = dip::detail::AbsTypeCalculator
-
+using <a href="pixeltypes.html#dip-FlexType-T" class="m-doc">dip::<wbr />FlexType</a> = dip::detail::FlexTypeCalculator
             </dt>
-            <dd>The type to use for the output of abs operations. Matches <a href="dip-DataType.html#dip-DataType-SuggestAbs-DataType-"><code>dip::DataType::SuggestAbs</code></a>.</dd>
+            <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlex-DataType-"><code>dip::DataType::SuggestFlex</code></a>.</dd>
                               <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="pixeltypes.html#dip-RealType-T" class="m-doc-self">dip::<wbr />RealType</a> = dip::detail::RealTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations when a real-valued type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestReal-DataType-"><code>dip::DataType::SuggestReal</code></a>.</dd>
-                              <dt>
-              using <a href="supporttypes.html#dip-IntegerArray" class="m-doc-self">dip::<wbr />IntegerArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
-            </dt>
-            <dd>An array to hold strides, filter sizes, etc.</dd>
-                              <dt>
-              using <a href="supporttypes.html#dip-UnsignedArray" class="m-doc-self">dip::<wbr />UnsignedArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
-            </dt>
-            <dd>An array to hold dimensions, dimension lists, etc.</dd>
-                              <dt>
-              using <a href="supporttypes.html#dip-FloatArray" class="m-doc-self">dip::<wbr />FloatArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
+using <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::<wbr />FloatArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
             </dt>
             <dd>An array to hold filter parameters.</dd>
                               <dt>
-              using <a href="supporttypes.html#dip-BooleanArray" class="m-doc-self">dip::<wbr />BooleanArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
-            </dt>
-            <dd>An array used as a dimension selector.</dd>
-                              <dt>
-              using <a href="supporttypes.html#dip-CoordinateArray" class="m-doc-self">dip::<wbr />CoordinateArray</a> = std::vector&lt;UnsignedArray&gt;
-
-            </dt>
-            <dd>An array of pixel coordinates.</dd>
-                              <dt>
-              using <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc-self">dip::<wbr />FloatCoordinateArray</a> = std::vector&lt;FloatArray&gt;
-
+using <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::<wbr />FloatCoordinateArray</a> = std::vector&lt;FloatArray&gt;
             </dt>
             <dd>An array of subpixel coordinates.</dd>
                               <dt>
-              using <a href="supporttypes.html#dip-String" class="m-doc-self">dip::<wbr />String</a> = std::string
-
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="pixeltypes.html#dip-FloatType-T" class="m-doc">dip::<wbr />FloatType</a> = dip::detail::FloatTypeCalculator
+            </dt>
+            <dd>The type to use in calculations when a floating-point type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestFloat-DataType-"><code>dip::DataType::SuggestFloat</code></a>.</dd>
+                              <dt>
+using <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::<wbr />IntegerArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
+            </dt>
+            <dd>An array to hold strides, filter sizes, etc.</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::<wbr />LabelType</a> = <a href="pixeltypes.html#dip-uint32" class="m-doc">dip::uint32</a>
+            </dt>
+            <dd>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-DT_LABEL"><code>dip::DT_LABEL</code></a>.</dd>
+                              <dt>
+using <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::<wbr />Option::<wbr />CmpPropFlags</a> = dip::detail::Options
+            </dt>
+            <dd>Determines which properties to compare. Combines multiple <a href="supporttypes.html#dip-Option-CmpPropEnumerator"><code>dip::Option::CmpPropEnumerator</code></a> values,
+predefined values are in <a href="dip-Option-CmpProp.html"><code>dip::Option::CmpProp</code></a>.</dd>
+                              <dt>
+using <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::<wbr />RangeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
+            </dt>
+            <dd>An array of ranges</dd>
+                              <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="pixeltypes.html#dip-RealType-T" class="m-doc">dip::<wbr />RealType</a> = dip::detail::RealTypeCalculator
+            </dt>
+            <dd>The type to use in calculations when a real-valued type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestReal-DataType-"><code>dip::DataType::SuggestReal</code></a>.</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-scomplex" class="m-doc">dip::<wbr />scomplex</a> = std::complex&lt;sfloat&gt;
+            </dt>
+            <dd>Type for samples in a 64-bit complex-valued (single-precision) image</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-sfloat" class="m-doc">dip::<wbr />sfloat</a> = float
+            </dt>
+            <dd>Type for samples in a 32-bit floating point (single-precision) image</dd>
+                              <dt>
+using <a href="supporttypes.html#dip-sint" class="m-doc">dip::<wbr />sint</a> = std::ptrdiff_t
+            </dt>
+            <dd>An integer type to be used for strides and similar measures.</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-sint16" class="m-doc">dip::<wbr />sint16</a> = std::int16_t
+            </dt>
+            <dd>Type for samples in a 16-bit signed integer image</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-sint32" class="m-doc">dip::<wbr />sint32</a> = std::int32_t
+            </dt>
+            <dd>Type for samples in a 32-bit signed integer image</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-sint64" class="m-doc">dip::<wbr />sint64</a> = std::int64_t
+            </dt>
+            <dd>Type for samples in a 64-bit signed integer image</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-sint8" class="m-doc">dip::<wbr />sint8</a> = std::int8_t
+            </dt>
+            <dd>Type for samples in an 8-bit signed integer image</dd>
+                              <dt>
+using <a href="supporttypes.html#dip-String" class="m-doc">dip::<wbr />String</a> = std::string
             </dt>
             <dd>A string, used to specify an option</dd>
                               <dt>
-              using <a href="supporttypes.html#dip-StringArray" class="m-doc-self">dip::<wbr />StringArray</a> = std::vector&lt;String&gt;
-
+using <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::<wbr />StringArray</a> = std::vector&lt;String&gt;
             </dt>
             <dd>An array of strings, used to specify an option per dimension</dd>
                               <dt>
-              using <a href="supporttypes.html#dip-StringSet" class="m-doc-self">dip::<wbr />StringSet</a> = std::set&lt;String&gt;
-
+using <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::<wbr />StringSet</a> = std::set&lt;String&gt;
             </dt>
             <dd>A collection of strings, used to specify multiple independent options</dd>
                               <dt>
-              using <a href="dip-Range.html#dip-RangeArray" class="m-doc-self">dip::<wbr />RangeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
+using <a href="supporttypes.html#dip-uint" class="m-doc">dip::<wbr />uint</a> = std::size_t
             </dt>
-            <dd>An array of ranges</dd>
+            <dd>An integer type to be used for sizes and the like.</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-uint16" class="m-doc">dip::<wbr />uint16</a> = std::uint16_t
+            </dt>
+            <dd>Type for samples in a 16-bit unsigned integer image</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-uint32" class="m-doc">dip::<wbr />uint32</a> = std::uint32_t
+            </dt>
+            <dd>Type for samples in a 32-bit unsigned integer image</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-uint64" class="m-doc">dip::<wbr />uint64</a> = std::uint64_t
+            </dt>
+            <dd>Type for samples in a 64-bit unsigned integer image</dd>
+                              <dt>
+using <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::<wbr />uint8</a> = std::uint8_t
+            </dt>
+            <dd>Type for samples in an 8-bit unsigned integer image; also to be used as single byte for pointer arithmetic</dd>
+                              <dt>
+using <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::<wbr />UnsignedArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
+            </dt>
+            <dd>An array to hold dimensions, dimension lists, etc.</dd>
             </dl>
         </section>
         <section id="enum-members">
           <h2>Enums</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="supporttypes.html#dip-Option-ThrowException" class="m-doc-self">dip::<wbr />Option::<wbr />ThrowException</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Option-ThrowException-DONT_THROW" class="m-doc">DONT_THROW</a>,
-              <a href="#dip-Option-ThrowException-DO_THROW" class="m-doc">DO_THROW</a> }</span>
-            </dt>
-            <dd>Some functions that check for a condition optionally throw an exception
-if that condition is not met.</dd>
+              enum class <a href="supporttypes.html#dip-Option-AcceptDataTypeChange" class="m-doc">dip::<wbr />Option::<wbr />AcceptDataTypeChange</a>: uint8            </dt>
+            <dd>The function <a href="dip-Image.html#dip-Image-ReForge-Image-CL-Option-AcceptDataTypeChange-"><code>dip::Image::ReForge</code></a> takes this option to control how to handle protected images. <a href="supporttypes.html#dip-Option-AcceptDataTypeChange">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="supporttypes.html#dip-Option-AllowSingletonExpansion" class="m-doc-self">dip::<wbr />Option::<wbr />AllowSingletonExpansion</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Option-AllowSingletonExpansion-DONT_ALLOW" class="m-doc">DONT_ALLOW</a>,
-              <a href="#dip-Option-AllowSingletonExpansion-DO_ALLOW" class="m-doc">DO_ALLOW</a> }</span>
-            </dt>
-            <dd>The function <a href="dip-Image.html#dip-Image-CheckIsMask-UnsignedArray-CL-Option-AllowSingletonExpansion--Option-ThrowException--C"><code>dip::Image::CheckIsMask</code></a> takes this option to control how sizes are compared.</dd>
+              enum class <a href="supporttypes.html#dip-Option-AllowSingletonExpansion" class="m-doc">dip::<wbr />Option::<wbr />AllowSingletonExpansion</a>: uint8            </dt>
+            <dd>The function <a href="dip-Image.html#dip-Image-CheckIsMask-UnsignedArray-CL-Option-AllowSingletonExpansion--Option-ThrowException--C"><code>dip::Image::CheckIsMask</code></a> takes this option to control how sizes are compared. <a href="supporttypes.html#dip-Option-AllowSingletonExpansion">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="supporttypes.html#dip-Option-AcceptDataTypeChange" class="m-doc-self">dip::<wbr />Option::<wbr />AcceptDataTypeChange</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Option-AcceptDataTypeChange-DONT_ALLOW" class="m-doc">DONT_ALLOW</a>,
-              <a href="#dip-Option-AcceptDataTypeChange-DO_ALLOW" class="m-doc">DO_ALLOW</a> }</span>
-            </dt>
-            <dd>The function <a href="dip-Image.html#dip-Image-ReForge-Image-CL-Option-AcceptDataTypeChange-"><code>dip::Image::ReForge</code></a> takes this option to control how to handle protected images.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="supporttypes.html#dip-Option-CropLocation" class="m-doc-self">dip::<wbr />Option::<wbr />CropLocation</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Option-CropLocation-CENTER" class="m-doc">CENTER</a>,
-              <a href="#dip-Option-CropLocation-MIRROR_CENTER" class="m-doc">MIRROR_CENTER</a>,
-              <a href="#dip-Option-CropLocation-TOP_LEFT" class="m-doc">TOP_LEFT</a>,
-              <a href="#dip-Option-CropLocation-BOTTOM_RIGHT" class="m-doc">BOTTOM_RIGHT</a> }</span>
-            </dt>
-            <dd>The function <a href="dip-Image.html#dip-Image-Crop-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a> takes this option to control which pixels are taken.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="supporttypes.html#dip-Option-CmpPropEnumerator" class="m-doc">dip::<wbr />Option::<wbr />CmpPropEnumerator</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-Option-CmpPropEnumerator-DataType" class="m-doc">DataType</a>,
-              <a href="#dip-Option-CmpPropEnumerator-Dimensionality" class="m-doc">Dimensionality</a>,
-              <a href="#dip-Option-CmpPropEnumerator-Sizes" class="m-doc">Sizes</a>,
-              <a href="#dip-Option-CmpPropEnumerator-Strides" class="m-doc">Strides</a>,
-              <a href="#dip-Option-CmpPropEnumerator-TensorShape" class="m-doc">TensorShape</a>,
-              <a href="#dip-Option-CmpPropEnumerator-TensorElements" class="m-doc">TensorElements</a>,
-              <a href="#dip-Option-CmpPropEnumerator-TensorStride" class="m-doc">TensorStride</a>,
-              <a href="#dip-Option-CmpPropEnumerator-ColorSpace" class="m-doc">ColorSpace</a>,
-              <a href="#dip-Option-CmpPropEnumerator-PixelSize" class="m-doc">PixelSize</a> }</span>
-            </dt>
+              enum class <a href="supporttypes.html#dip-Option-CmpPropEnumerator" class="m-doc">dip::<wbr />Option::<wbr />CmpPropEnumerator</a>: uint8            </dt>
             <dd>Determines which properties to compare. <a href="supporttypes.html#dip-Option-CmpPropEnumerator">more...</a></dd>
+                          <dt>
+              enum class <a href="supporttypes.html#dip-Option-CropLocation" class="m-doc">dip::<wbr />Option::<wbr />CropLocation</a>: uint8            </dt>
+            <dd>The function <a href="dip-Image.html#dip-Image-Crop-UnsignedArray-CL-Option-CropLocation-"><code>dip::Image::Crop</code></a> takes this option to control which pixels are taken. <a href="supporttypes.html#dip-Option-CropLocation">more...</a></dd>
+                          <dt>
+              enum class <a href="supporttypes.html#dip-Option-ThrowException" class="m-doc">dip::<wbr />Option::<wbr />ThrowException</a>: uint8            </dt>
+            <dd>Some functions that check for a condition optionally throw an exception
+if that condition is not met. <a href="supporttypes.html#dip-Option-ThrowException">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="pixeltypes.html#dip-CastLabelType-T-TPI-" class="m-doc-self">dip::<wbr />CastLabelType</a>(</span><span class="m-doc-wrap">TPI label) -&gt; <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a></span>
-            </dt>
-            <dd>Casting any unsigned integer type to <a href="pixeltypes.html#dip-LabelType"><code>dip::LabelType</code></a>. Throws if <code>value</code> is too large.</dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="pixeltypes.html#dip-PixelIsInfinity-T-TPI-" class="m-doc-self">dip::<wbr />PixelIsInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
-            </dt>
-            <dd>A templated function to check for positive infinity, which works also for integer types (always returning false)</dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="pixeltypes.html#dip-PixelIsMinusInfinity-T-TPI-" class="m-doc-self">dip::<wbr />PixelIsMinusInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
-            </dt>
-            <dd>A templated function to check for negative infinity, which works also for integer types (always returning false)</dd>
-                          <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ArrayUseParameter-T-DimensionArray<T>-L-dip-uint--T-" class="m-doc">dip::<wbr />ArrayUseParameter</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>&amp; array,
+              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ArrayUseParameter-T-DimensionArray%3CT%3E-L-dip-uint--T-" class="m-doc">dip::<wbr />ArrayUseParameter</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>&amp; array,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims,
               T defaultValue = {})</span>
             </dt>
-            <dd>Check the length of an array, and extend it if necessary and possible. <a href="supporttypes.html#dip-ArrayUseParameter-T-DimensionArray<T>-L-dip-uint--T-">more...</a></dd>
+            <dd>Check the length of an array, and extend it if necessary and possible. <a href="supporttypes.html#dip-ArrayUseParameter-T-DimensionArray%3CT%3E-L-dip-uint--T-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="supporttypes.html#dip-BooleanFromString-String-CL-String-CL-String-CL" class="m-doc-self">dip::<wbr />BooleanFromString</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; input,
+              <span class="m-doc-wrap-bumper">auto <a href="supporttypes.html#dip-BooleanFromString-String-CL-String-CL-String-CL" class="m-doc">dip::<wbr />BooleanFromString</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; input,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; trueString,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; falseString) -&gt; bool</span>
             </dt>
             <dd>Translates a string input parameter that is meant as a boolean value.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="supporttypes.html#dip-StringCompareCaseInsensitive-String-CL-String-CL" class="m-doc-self">dip::<wbr />StringCompareCaseInsensitive</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; string1,
+              <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="pixeltypes.html#dip-CastLabelType-T-TPI-" class="m-doc">dip::<wbr />CastLabelType</a>(</span><span class="m-doc-wrap">TPI label) -&gt; <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a></span>
+            </dt>
+            <dd>Casting any unsigned integer type to <a href="pixeltypes.html#dip-LabelType"><code>dip::LabelType</code></a>. Throws if <code>value</code> is too large.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="pixeltypes.html#dip-PixelIsInfinity-T-TPI-" class="m-doc">dip::<wbr />PixelIsInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
+            </dt>
+            <dd>A templated function to check for positive infinity, which works also for integer types (always returning false)</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="pixeltypes.html#dip-PixelIsMinusInfinity-T-TPI-" class="m-doc">dip::<wbr />PixelIsMinusInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
+            </dt>
+            <dd>A templated function to check for negative infinity, which works also for integer types (always returning false)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="supporttypes.html#dip-StringCompareCaseInsensitive-String-CL-String-CL" class="m-doc">dip::<wbr />StringCompareCaseInsensitive</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; string1,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; string2) -&gt; bool</span>
             </dt>
             <dd>A case-insensitive string comparison, use only with ASCII characters!</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ToLowerCase-String-L" class="m-doc-self">dip::<wbr />ToLowerCase</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a>&amp; string)</span>
+              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ToLowerCase-String-L" class="m-doc">dip::<wbr />ToLowerCase</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a>&amp; string)</span>
             </dt>
             <dd>Convert a string to lower case, use only with ASCII characters!</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ToUpperCase-String-L" class="m-doc-self">dip::<wbr />ToUpperCase</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a>&amp; string)</span>
+              <span class="m-doc-wrap-bumper">void <a href="supporttypes.html#dip-ToUpperCase-String-L" class="m-doc">dip::<wbr />ToUpperCase</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a>&amp; string)</span>
             </dt>
             <dd>Convert a string to upper case, use only with ASCII characters!</dd>
           </dl>
@@ -405,12 +353,12 @@ if that condition is not met.</dd>
           <h2>Operators</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-bin.html#dip-operator%3C%3C-std-ostream-L-bin-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-bin.html#dip-operator%3C%3C-std-ostream-L-bin-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-bin.html" class="m-doc">dip::bin</a> const&amp; v) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Writes the value as a <code>bool</code> to a stream.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Range.html#dip-operator%3C%3C-std-ostream-L-Range-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Range.html#dip-operator%3C%3C-std-ostream-L-Range-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; range) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Display a range as &ldquo;{start, stop, step}&rdquo;.</dd>
@@ -420,82 +368,68 @@ if that condition is not met.</dd>
           <h2>Variables</h2>
           <dl class="m-doc">
                           <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-DataType" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />DataType</a>
- = CmpPropEnumerator::DataType <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-All" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />All</a> = Shape+ColorSpace+PixelSize <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-DataType"><code>dip::Option::CmpPropEnumerator::DataType</code></a>.</dd>
+            <dd><a href="supporttypes.html#dip-Option-CmpProp-Shape"><code>dip::Option::CmpProp::Shape</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-ColorSpace"><code>dip::Option::CmpProp::ColorSpace</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-PixelSize"><code>dip::Option::CmpProp::PixelSize</code></a>.</dd>
                           <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Dimensionality" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />Dimensionality</a>
- = CmpPropEnumerator::Dimensionality <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-Dimensionality"><code>dip::Option::CmpPropEnumerator::Dimensionality</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Sizes" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />Sizes</a>
- = CmpPropEnumerator::Sizes <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-Sizes"><code>dip::Option::CmpPropEnumerator::Sizes</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Strides" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />Strides</a>
- = CmpPropEnumerator::Strides <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-Strides"><code>dip::Option::CmpPropEnumerator::Strides</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-TensorShape" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />TensorShape</a>
- = CmpPropEnumerator::TensorShape <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-TensorShape"><code>dip::Option::CmpPropEnumerator::TensorShape</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-TensorElements" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />TensorElements</a>
- = CmpPropEnumerator::TensorElements <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-TensorElements"><code>dip::Option::CmpPropEnumerator::TensorElements</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-TensorStride" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />TensorStride</a>
- = CmpPropEnumerator::TensorStride <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-TensorStride"><code>dip::Option::CmpPropEnumerator::TensorStride</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-ColorSpace" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />ColorSpace</a>
- = CmpPropEnumerator::ColorSpace <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-ColorSpace"><code>dip::Option::CmpPropEnumerator::ColorSpace</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-PixelSize" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />PixelSize</a>
- = CmpPropEnumerator::PixelSize <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-PixelSize"><code>dip::Option::CmpPropEnumerator::PixelSize</code></a>.</dd>
-                          <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-AllSizes" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />AllSizes</a>
- = Sizes+TensorElements <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-AllSizes" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />AllSizes</a> = Sizes+TensorElements <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd><a href="supporttypes.html#dip-Option-CmpProp-Sizes"><code>dip::Option::CmpProp::Sizes</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-TensorElements"><code>dip::Option::CmpProp::TensorElements</code></a>.</dd>
                           <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Samples" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />Samples</a>
- = DataType+Sizes+TensorElements <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-ColorSpace" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />ColorSpace</a> = CmpPropEnumerator::ColorSpace <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpProp-DataType"><code>dip::Option::CmpProp::DataType</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-Sizes"><code>dip::Option::CmpProp::Sizes</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-TensorElements"><code>dip::Option::CmpProp::TensorElements</code></a>.</dd>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-ColorSpace"><code>dip::Option::CmpPropEnumerator::ColorSpace</code></a>.</dd>
                           <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Shape" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />Shape</a>
- = DataType+Sizes+TensorShape <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-DataType" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />DataType</a> = CmpPropEnumerator::DataType <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpProp-DataType"><code>dip::Option::CmpProp::DataType</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-Sizes"><code>dip::Option::CmpProp::Sizes</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-TensorShape"><code>dip::Option::CmpProp::TensorShape</code></a>.</dd>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-DataType"><code>dip::Option::CmpPropEnumerator::DataType</code></a>.</dd>
                           <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Full" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />Full</a>
- = Shape+Strides+TensorStride <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Dimensionality" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />Dimensionality</a> = CmpPropEnumerator::Dimensionality <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-Dimensionality"><code>dip::Option::CmpPropEnumerator::Dimensionality</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Full" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />Full</a> = Shape+Strides+TensorStride <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd><a href="supporttypes.html#dip-Option-CmpProp-Shape"><code>dip::Option::CmpProp::Shape</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-Strides"><code>dip::Option::CmpProp::Strides</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-TensorStride"><code>dip::Option::CmpProp::TensorStride</code></a>.</dd>
                           <dt>
-            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-All" class="m-doc-self">dip::<wbr />Option::<wbr />CmpProp::<wbr />All</a>
- = Shape+ColorSpace+PixelSize <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-PixelSize" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />PixelSize</a> = CmpPropEnumerator::PixelSize <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
-            <dd><a href="supporttypes.html#dip-Option-CmpProp-Shape"><code>dip::Option::CmpProp::Shape</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-ColorSpace"><code>dip::Option::CmpProp::ColorSpace</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-PixelSize"><code>dip::Option::CmpProp::PixelSize</code></a>.</dd>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-PixelSize"><code>dip::Option::CmpPropEnumerator::PixelSize</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Samples" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />Samples</a> = DataType+Sizes+TensorElements <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpProp-DataType"><code>dip::Option::CmpProp::DataType</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-Sizes"><code>dip::Option::CmpProp::Sizes</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-TensorElements"><code>dip::Option::CmpProp::TensorElements</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Shape" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />Shape</a> = DataType+Sizes+TensorShape <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpProp-DataType"><code>dip::Option::CmpProp::DataType</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-Sizes"><code>dip::Option::CmpProp::Sizes</code></a> + <a href="supporttypes.html#dip-Option-CmpProp-TensorShape"><code>dip::Option::CmpProp::TensorShape</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Sizes" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />Sizes</a> = CmpPropEnumerator::Sizes <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-Sizes"><code>dip::Option::CmpPropEnumerator::Sizes</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-Strides" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />Strides</a> = CmpPropEnumerator::Strides <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-Strides"><code>dip::Option::CmpPropEnumerator::Strides</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-TensorElements" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />TensorElements</a> = CmpPropEnumerator::TensorElements <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-TensorElements"><code>dip::Option::CmpPropEnumerator::TensorElements</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-TensorShape" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />TensorShape</a> = CmpPropEnumerator::TensorShape <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-TensorShape"><code>dip::Option::CmpPropEnumerator::TensorShape</code></a>.</dd>
+                          <dt>
+            <a href="supporttypes.html#dip-Option-CmpPropFlags" class="m-doc">dip::Option::CmpPropFlags</a> const <a href="supporttypes.html#dip-Option-CmpProp-TensorStride" class="m-doc">dip::<wbr />Option::<wbr />CmpProp::<wbr />TensorStride</a> = CmpPropEnumerator::TensorStride <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd><a href="supporttypes.html#dip-Option-CmpPropEnumerator-TensorStride"><code>dip::Option::CmpPropEnumerator::TensorStride</code></a>.</dd>
           </dl>
         </section>
         <section id="macro-members">
           <h2>Macros</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">#define <a href="supporttypes.html#macro--DIP_DECLARE_OPTIONS" class="m-doc">DIP_DECLARE_OPTIONS</a></span>
+              <span class="m-doc-wrap-bumper">#define <a href="supporttypes.html#macro--DIP_DECLARE_OPTIONS" class="m-doc">DIP_DECLARE_OPTIONS</a>(</span><span class="m-doc-wrap">EnumType, OptionsType)</span>
             </dt>
             <dd>Declare a type used to pass enumerated options to a function or class. <a href="supporttypes.html#macro--DIP_DECLARE_OPTIONS">more...</a></dd>
           </dl>

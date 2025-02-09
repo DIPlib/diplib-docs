@@ -114,8 +114,8 @@ pixel in the neighborhood. For example, modified from from the function <a href=
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-PixelTable-PixelTable">
-              <span class="m-doc-wrap-bumper"><a href="#dip-PixelTable-PixelTable" class="m-doc-self">PixelTable</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-PixelTable-PixelTable" class="m-doc">PixelTable</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>A default-constructed pixel table is kinda useless.</dd>
                               <dt>
@@ -136,112 +136,112 @@ pixel in the neighborhood. For example, modified from from the function <a href=
           <h2>Classes</h2>
           <dl class="m-doc">
                           <dt>
-              struct <a href="#dip-PixelTable-PixelRun" class="m-doc">PixelRun</a>
-            </dt>
-            <dd>The pixel table is formed of pixel runs, represented by this structure. <a href="#dip-PixelTable-PixelRun">more...</a></dd>
-                          <dt>
               class <a href="dip-PixelTable-iterator.html" class="m-doc">iterator</a>
             </dt>
             <dd>An iterator that visits each of the neighborhood&rsquo;s pixels in turn. <a href="dip-PixelTable-iterator.html#dip-PixelTable-iterator">more...</a></dd>
+                          <dt>
+              struct <a href="#dip-PixelTable-PixelRun" class="m-doc">PixelRun</a>
+            </dt>
+            <dd>The pixel table is formed of pixel runs, represented by this structure. <a href="#dip-PixelTable-PixelRun">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-PixelTable-Runs-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Runs-C" class="m-doc-self">Runs</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;PixelRun&gt; const&amp;</span>
-            </dt>
-            <dd>Returns the vector of runs.</dd>
-                          <dt id="dip-PixelTable-Dimensionality-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Dimensionality-C" class="m-doc-self">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the dimensionality of the neighborhood.</dd>
-                          <dt id="dip-PixelTable-Sizes-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Sizes-C" class="m-doc-self">Sizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
-            </dt>
-            <dd>Returns the size of the bounding box of the neighborhood.</dd>
-                          <dt id="dip-PixelTable-Origin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Origin-C" class="m-doc-self">Origin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp;</span>
-            </dt>
-            <dd>Returns the coordinates of the top-left corner of the bounding box w.r.t. the origin.</dd>
-                          <dt id="dip-PixelTable-Boundary-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Boundary-C" class="m-doc-self">Boundary</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
-            </dt>
-            <dd>Returns the size of the boundary extension along each dimension that is necessary to accommodate the
-neighborhood on the edge pixels of the image.</dd>
-                          <dt id="dip-PixelTable-ShiftOrigin-IntegerArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-ShiftOrigin-IntegerArray-CL" class="m-doc-self">ShiftOrigin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; shift)</span>
-            </dt>
-            <dd>Shifts the origin of the neighborhood by the given amount.</dd>
-                          <dt id="dip-PixelTable-MirrorOrigin">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-MirrorOrigin" class="m-doc-self">MirrorOrigin</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd>Shifts the origin of neighborhood by one pixel to the left for even-sized dimensions.
-This is useful for neighborhoods with their origin in the default location, that have been mirrored.</dd>
-                          <dt id="dip-PixelTable-Mirror">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-Mirror" class="m-doc-self">Mirror</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd>Mirrors the neighborhood.</dd>
-                          <dt id="dip-PixelTable-NumberOfPixels-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-NumberOfPixels-C" class="m-doc-self">NumberOfPixels</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the number of pixels in the neighborhood.</dd>
-                          <dt id="dip-PixelTable-ProcessingDimension-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-ProcessingDimension-C" class="m-doc-self">ProcessingDimension</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the processing dimension, the dimension along which pixel runs are laid out.</dd>
-                          <dt id="dip-PixelTable-begin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-begin-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-PixelTable-iterator.html" class="m-doc">dip::PixelTable::iterator</a></span>
-            </dt>
-            <dd>A const iterator to the first pixel in the neighborhood.</dd>
-                          <dt id="dip-PixelTable-end-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-end-C" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-PixelTable-iterator.html" class="m-doc">dip::PixelTable::iterator</a></span>
-            </dt>
-            <dd>A const iterator to one past the last pixel in the neighborhood.</dd>
-                          <dt id="dip-PixelTable-AsImage-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-AsImage-C" class="m-doc-self">AsImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
-            </dt>
-            <dd>Creates a binary image representing the neighborhood, or a <code>dfloat</code> one if
-there are weights associated.</dd>
-                          <dt id="dip-PixelTable-AsImage-Image-L-C">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-AsImage-Image-L-C" class="m-doc-self">AsImage</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) const</span>
-            </dt>
-            <dd>Same as previous overload, but writing into the given image.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Prepare-Image-CL-C" class="m-doc">Prepare</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image) const -&gt; <a href="dip-PixelTableOffsets.html" class="m-doc">dip::PixelTableOffsets</a></span>
-            </dt>
-            <dd>Prepare the pixel table to be applied to a specific image. <a href="#dip-PixelTable-Prepare-Image-CL-C">more...</a></dd>
-                          <dt id="dip-PixelTable-AddWeights-Image-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-AddWeights-Image-CL" class="m-doc-self">AddWeights</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image)</span>
-            </dt>
-            <dd>Add weights to each pixel in the neighborhood, taken from an image. The image must be of the same
-sizes as the <code>PixelTable</code>&rsquo;s bounding box (i.e. the image used to construct the pixel table), scalar,
-and not binary (i.e. integer, float or complex).</dd>
-                          <dt id="dip-PixelTable-AddDistanceToOriginAsWeights">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-AddDistanceToOriginAsWeights" class="m-doc-self">AddDistanceToOriginAsWeights</a>(</span><span class="m-doc-wrap">)</span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-AddDistanceToOriginAsWeights" class="m-doc">AddDistanceToOriginAsWeights</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Add weights to each pixel in the neighborhood, using the Euclidean distance to the origin
 as the weight. This is useful for algorithms that need to, for example, sort the pixels in the
 neighborhood by distance to the origin.</dd>
-                          <dt id="dip-PixelTable-HasWeights-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-HasWeights-C" class="m-doc-self">HasWeights</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-AddWeights-Image-CL" class="m-doc">AddWeights</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image)</span>
+            </dt>
+            <dd>Add weights to each pixel in the neighborhood, taken from an image. The image must be of the same
+sizes as the <code>PixelTable</code>&rsquo;s bounding box (i.e. the image used to construct the pixel table), scalar,
+and not binary (i.e. integer, float or complex).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-AsImage-C" class="m-doc">AsImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Creates a binary image representing the neighborhood, or a <code>dfloat</code> one if
+there are weights associated.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-AsImage-Image-L-C" class="m-doc">AsImage</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) const</span>
+            </dt>
+            <dd>Same as previous overload, but writing into the given image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-begin-C" class="m-doc">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-PixelTable-iterator.html" class="m-doc">dip::PixelTable::iterator</a></span>
+            </dt>
+            <dd>A const iterator to the first pixel in the neighborhood.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Boundary-C" class="m-doc">Boundary</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Returns the size of the boundary extension along each dimension that is necessary to accommodate the
+neighborhood on the edge pixels of the image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Dimensionality-C" class="m-doc">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the dimensionality of the neighborhood.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-end-C" class="m-doc">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-PixelTable-iterator.html" class="m-doc">dip::PixelTable::iterator</a></span>
+            </dt>
+            <dd>A const iterator to one past the last pixel in the neighborhood.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-HasWeights-C" class="m-doc">HasWeights</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>Tests if there are weights associated to each pixel in the neighborhood.</dd>
-                          <dt id="dip-PixelTable-WeightsAreComplex-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-WeightsAreComplex-C" class="m-doc-self">WeightsAreComplex</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-Mirror" class="m-doc">Mirror</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
-            <dd>Tests if the weights associated to each pixel, if any, are complex-valued.</dd>
+            <dd>Mirrors the neighborhood.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-MirrorOrigin" class="m-doc">MirrorOrigin</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Shifts the origin of neighborhood by one pixel to the left for even-sized dimensions.
+This is useful for neighborhoods with their origin in the default location, that have been mirrored.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-NumberOfPixels-C" class="m-doc">NumberOfPixels</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of pixels in the neighborhood.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Origin-C" class="m-doc">Origin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the coordinates of the top-left corner of the bounding box w.r.t. the origin.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Prepare-Image-CL-C" class="m-doc">Prepare</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image) const -&gt; <a href="dip-PixelTableOffsets.html" class="m-doc">dip::PixelTableOffsets</a></span>
+            </dt>
+            <dd>Prepare the pixel table to be applied to a specific image. <a href="#dip-PixelTable-Prepare-Image-CL-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-ProcessingDimension-C" class="m-doc">ProcessingDimension</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the processing dimension, the dimension along which pixel runs are laid out.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Runs-C" class="m-doc">Runs</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;PixelRun&gt; const&amp;</span>
+            </dt>
+            <dd>Returns the vector of runs.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PixelTable-ShiftOrigin-IntegerArray-CL" class="m-doc">ShiftOrigin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; shift)</span>
+            </dt>
+            <dd>Shifts the origin of the neighborhood by the given amount.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Sizes-C" class="m-doc">Sizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the size of the bounding box of the neighborhood.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-Weights-C" class="m-doc">Weights</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;dfloat&gt; const&amp;</span>
             </dt>
             <dd>Returns a const reference to the weights array. <a href="#dip-PixelTable-Weights-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelTable-WeightsAreComplex-C" class="m-doc">WeightsAreComplex</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Tests if the weights associated to each pixel, if any, are complex-valued.</dd>
           </dl>
         </section>
         <section>
           <h2>Class documentation</h2>
                         <section class="m-doc-details" id="dip-PixelTable-PixelRun"><div>
             <h3>
-              struct <span class="m-doc-name"><a href="#dip-PixelTable-PixelRun" class="m-doc-self">PixelRun</a></span>            </h3>
+              <span class="m-doc-return">struct </span><span class="m-doc-name"><a href="#dip-PixelTable-PixelRun" class="m-doc-self">PixelRun</a></span>            </h3>
             <p>The pixel table is formed of pixel runs, represented by this structure.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Variables</th><th></th></tr></thead>
@@ -266,11 +266,18 @@ neighborhood by distance to the origin.</dd>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-PixelTable-PixelTable"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-PixelTable" class="m-doc-self">PixelTable</a></span>(
+) <span class="m-label m-info">defaulted</span>            </h3>
+            <p>A default-constructed pixel table is kinda useless.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-PixelTable-PixelTable-String-CL-FloatArray--dip-uint-"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-PixelTable-PixelTable-String-CL-FloatArray--dip-uint-" class="m-doc-self">PixelTable</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> size,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> size, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>)            </h3>
             <p>Construct a pixel table for default filter shapes.</p>
 <p>The known default <code>shape</code>s are <code>"rectangular"</code>, <code>"elliptic"</code>, and <code>"diamond"</code>,
 which correspond to a unit circle in the L<sup>&infin;</sup>, L<sup>2</sup> and L<sup>1</sup> norms; and
@@ -295,9 +302,9 @@ opposite corner, and run through the origin.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-PixelTable-PixelTable-Image-CL-IntegerArray-CL-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-PixelTable-PixelTable-Image-CL-IntegerArray-CL-dip-uint-" class="m-doc-self">PixelTable</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; origin = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; origin = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>)            </h3>
             <p>Construct a pixel table for an arbitrary shape defined by a binary image.</p>
 <p>Set pixels in <code>mask</code> indicate pixels that belong to the neighborhood.</p>
 <p><code>origin</code> gives the coordinates of the pixel in the image that will be placed at the origin
@@ -307,9 +314,110 @@ exact middle pixel, and for even-sized dimensions the origin is the pixel to the
 exact middle.</p>
 <p><code>procDim</code> indicates the processing dimension.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-Runs-C"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;PixelRun&gt; const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-Runs-C" class="m-doc-self">Runs</a></span>(
+) const            </h3>
+            <p>Returns the vector of runs.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-Dimensionality-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-Dimensionality-C" class="m-doc-self">Dimensionality</a></span>(
+) const            </h3>
+            <p>Returns the dimensionality of the neighborhood.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-Sizes-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-Sizes-C" class="m-doc-self">Sizes</a></span>(
+) const            </h3>
+            <p>Returns the size of the bounding box of the neighborhood.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-Origin-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-Origin-C" class="m-doc-self">Origin</a></span>(
+) const            </h3>
+            <p>Returns the coordinates of the top-left corner of the bounding box w.r.t. the origin.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-Boundary-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-Boundary-C" class="m-doc-self">Boundary</a></span>(
+) const            </h3>
+            <p>Returns the size of the boundary extension along each dimension that is necessary to accommodate the
+neighborhood on the edge pixels of the image.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-ShiftOrigin-IntegerArray-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-ShiftOrigin-IntegerArray-CL" class="m-doc-self">ShiftOrigin</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; shift</span>)            </h3>
+            <p>Shifts the origin of the neighborhood by the given amount.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-MirrorOrigin"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-MirrorOrigin" class="m-doc-self">MirrorOrigin</a></span>(
+)            </h3>
+            <p>Shifts the origin of neighborhood by one pixel to the left for even-sized dimensions.
+This is useful for neighborhoods with their origin in the default location, that have been mirrored.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-Mirror"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-Mirror" class="m-doc-self">Mirror</a></span>(
+)            </h3>
+            <p>Mirrors the neighborhood.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-NumberOfPixels-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-NumberOfPixels-C" class="m-doc-self">NumberOfPixels</a></span>(
+) const            </h3>
+            <p>Returns the number of pixels in the neighborhood.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-ProcessingDimension-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-ProcessingDimension-C" class="m-doc-self">ProcessingDimension</a></span>(
+) const            </h3>
+            <p>Returns the processing dimension, the dimension along which pixel runs are laid out.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-begin-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-PixelTable-iterator.html" class="m-doc">dip::PixelTable::iterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-begin-C" class="m-doc-self">begin</a></span>(
+) const            </h3>
+            <p>A const iterator to the first pixel in the neighborhood.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-end-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-PixelTable-iterator.html" class="m-doc">dip::PixelTable::iterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-end-C" class="m-doc-self">end</a></span>(
+) const            </h3>
+            <p>A const iterator to one past the last pixel in the neighborhood.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-AsImage-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-AsImage-C" class="m-doc-self">AsImage</a></span>(
+) const            </h3>
+            <p>Creates a binary image representing the neighborhood, or a <code>dfloat</code> one if
+there are weights associated.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-AsImage-Image-L-C"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-AsImage-Image-L-C" class="m-doc-self">AsImage</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>) const            </h3>
+            <p>Same as previous overload, but writing into the given image.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-PixelTable-Prepare-Image-CL-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-PixelTableOffsets.html" class="m-doc">dip::PixelTableOffsets</a></span>
+              <span class="m-doc-return"><a href="dip-PixelTableOffsets.html" class="m-doc">dip::PixelTableOffsets</a> </span>
               <span class="m-doc-name"><a href="#dip-PixelTable-Prepare-Image-CL-C" class="m-doc-self">Prepare</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image</span>) const            </h3>
             <p>Prepare the pixel table to be applied to a specific image.</p>
@@ -317,9 +425,41 @@ exact middle.</p>
 but has knowledge of the image&rsquo;s strides and thus directly gives offsets rather than coordinates to
 the neighbors.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-AddWeights-Image-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-AddWeights-Image-CL" class="m-doc-self">AddWeights</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image</span>)            </h3>
+            <p>Add weights to each pixel in the neighborhood, taken from an image. The image must be of the same
+sizes as the <code>PixelTable</code>&rsquo;s bounding box (i.e. the image used to construct the pixel table), scalar,
+and not binary (i.e. integer, float or complex).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-AddDistanceToOriginAsWeights"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-AddDistanceToOriginAsWeights" class="m-doc-self">AddDistanceToOriginAsWeights</a></span>(
+)            </h3>
+            <p>Add weights to each pixel in the neighborhood, using the Euclidean distance to the origin
+as the weight. This is useful for algorithms that need to, for example, sort the pixels in the
+neighborhood by distance to the origin.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-HasWeights-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-HasWeights-C" class="m-doc-self">HasWeights</a></span>(
+) const            </h3>
+            <p>Tests if there are weights associated to each pixel in the neighborhood.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelTable-WeightsAreComplex-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-PixelTable-WeightsAreComplex-C" class="m-doc-self">WeightsAreComplex</a></span>(
+) const            </h3>
+            <p>Tests if the weights associated to each pixel, if any, are complex-valued.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-PixelTable-Weights-C"><div>
             <h3>
-              <span class="m-doc-return">std::vector&lt;dfloat&gt; const&amp;</span>
+              <span class="m-doc-return">std::vector&lt;dfloat&gt; const&amp; </span>
               <span class="m-doc-name"><a href="#dip-PixelTable-Weights-C" class="m-doc-self">Weights</a></span>(
 ) const            </h3>
             <p>Returns a const reference to the weights array.</p>

@@ -97,33 +97,33 @@ This class is derived from <code>std::exception</code>, so you can choose to cat
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-what-C" class="m-doc">what</a>(</span><span class="m-doc-wrap">) const -&gt; char const* <span class="m-label m-flat m-warning">override</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Return a message indicating what caused the exception to be thrown, as well as the location
-where the error occurred. <a href="#dip-Error-what-C">more...</a></dd>
-                          <dt id="dip-Error-Message-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-Message-C" class="m-doc-self">Message</a>(</span><span class="m-doc-wrap">) const -&gt; std::string</span>
-            </dt>
-            <dd>Return a message indicating what caused the exception to be thrown, without location information.</dd>
-                          <dt id="dip-Error-AddStackTrace-std-string-CL-std-string-CL-unsigned int-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-AddStackTrace-std-string-CL-std-string-CL-unsigned int-" class="m-doc-self">AddStackTrace</a>(</span><span class="m-doc-wrap">std::string const&amp; functionName,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-AddStackTrace-std-string-CL-std-string-CL-unsigned%20int-" class="m-doc">AddStackTrace</a>(</span><span class="m-doc-wrap">std::string const&amp; functionName,
               std::string const&amp; fileName,
               unsigned int lineNumber) -&gt; <a href="dip-Error.html" class="m-doc">dip::Error</a>&amp;</span>
             </dt>
             <dd>Add an entry to the stack trace. Typically called through the <a href="error.html#macro--DIP_ADD_STACK_TRACE"><code>DIP_ADD_STACK_TRACE</code></a> macro.</dd>
-                          <dt id="dip-Error-IsSet-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-IsSet-C" class="m-doc-self">IsSet</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-IsSet-C" class="m-doc">IsSet</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>Returns true if an error message is set. Use this to distinguish from a default-constructed error.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-Message-C" class="m-doc">Message</a>(</span><span class="m-doc-wrap">) const -&gt; std::string</span>
+            </dt>
+            <dd>Return a message indicating what caused the exception to be thrown, without location information.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Error-what-C" class="m-doc">what</a>(</span><span class="m-doc-wrap">) const -&gt; char const* <span class="m-label m-flat m-warning">override</span> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Return a message indicating what caused the exception to be thrown, as well as the location
+where the error occurred. <a href="#dip-Error-what-C">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Error-what-C"><div>
             <h3>
-              <span class="m-doc-return">char const*</span>
+              <span class="m-doc-return">char const* </span>
               <span class="m-doc-name"><a href="#dip-Error-what-C" class="m-doc-self">what</a></span>(
-) const <span class="m-label m-warning">override</span> <span class="m-label m-flat m-success">noexcept</span>            </h3>
+) const <span class="m-label m-warning">override</span> <span class="m-label m-success">noexcept</span>            </h3>
             <p>Return a message indicating what caused the exception to be thrown, as well as the location
 where the error occurred.</p>
 <p>Sometimes multiple locations are given, this is an (incomplete) stack trace that might help figure
@@ -134,6 +134,27 @@ and re-throw the exception.</p>
 <h4>See also</h4>
 <p><a href="error.html#macro--DIP_ADD_STACK_TRACE"><code>DIP_ADD_STACK_TRACE</code></a>, <a href="error.html#macro--DIP_START_STACK_TRACE"><code>DIP_START_STACK_TRACE</code></a>, <a href="error.html#macro--DIP_END_STACK_TRACE"><code>DIP_END_STACK_TRACE</code></a>, <a href="error.html#macro--DIP_STACK_TRACE_THIS"><code>DIP_STACK_TRACE_THIS</code></a></p>
 </aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Error-Message-C"><div>
+            <h3>
+              <span class="m-doc-return">std::string </span>
+              <span class="m-doc-name"><a href="#dip-Error-Message-C" class="m-doc-self">Message</a></span>(
+) const            </h3>
+            <p>Return a message indicating what caused the exception to be thrown, without location information.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Error-AddStackTrace-std-string-CL-std-string-CL-unsigned%20int-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Error.html" class="m-doc">dip::Error</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Error-AddStackTrace-std-string-CL-std-string-CL-unsigned%20int-" class="m-doc-self">AddStackTrace</a></span>(
+<span class="m-doc-arg">std::string const&amp; functionName, </span><span class="m-doc-arg">std::string const&amp; fileName, </span><span class="m-doc-arg">unsigned int lineNumber</span>)            </h3>
+            <p>Add an entry to the stack trace. Typically called through the <a href="error.html#macro--DIP_ADD_STACK_TRACE"><code>DIP_ADD_STACK_TRACE</code></a> macro.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Error-IsSet-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-Error-IsSet-C" class="m-doc-self">IsSet</a></span>(
+) const            </h3>
+            <p>Returns true if an error message is set. Use this to distinguish from a default-constructed error.</p>
           </div></section>
         </section>
       </div>

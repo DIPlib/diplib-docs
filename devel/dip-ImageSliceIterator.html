@@ -101,12 +101,12 @@ which would be less efficient in use and therefore it&rsquo;s better to not offe
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-ImageSliceIterator-ImageSliceIterator">
-              <span class="m-doc-wrap-bumper"><a href="#dip-ImageSliceIterator-ImageSliceIterator" class="m-doc-self">ImageSliceIterator</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-ImageSliceIterator-ImageSliceIterator" class="m-doc">ImageSliceIterator</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>Default constructor yields an invalid iterator that cannot be dereferenced or used in any way</dd>
-                              <dt id="dip-ImageSliceIterator-ImageSliceIterator-Image-CL-dip-uint-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-ImageSliceIterator-ImageSliceIterator-Image-CL-dip-uint-" class="m-doc-self">ImageSliceIterator</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-ImageSliceIterator-ImageSliceIterator-Image-CL-dip-uint-" class="m-doc">ImageSliceIterator</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim)</span>
             </dt>
             <dd>To construct a useful iterator, provide an image and a processing dimension</dd>
@@ -115,177 +115,435 @@ which would be less efficient in use and therefore it&rsquo;s better to not offe
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-ImageSliceIterator-iterator_category">
-              using <a href="#dip-ImageSliceIterator-iterator_category" class="m-doc-self">iterator_category</a> = std::forward_iterator_tag
-
-            </dt>
-            <dd>Iterator category</dd>
-                              <dt id="dip-ImageSliceIterator-value_type">
-              using <a href="#dip-ImageSliceIterator-value_type" class="m-doc-self">value_type</a> = <a href="dip-Image.html" class="m-doc">dip::Image</a>
-
-            </dt>
-            <dd>The type obtained when dereferencing the iterator</dd>
-                              <dt id="dip-ImageSliceIterator-difference_type">
-              using <a href="#dip-ImageSliceIterator-difference_type" class="m-doc-self">difference_type</a> = <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a>
-
+                              <dt>
+using <a href="#dip-ImageSliceIterator-difference_type" class="m-doc">difference_type</a> = <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a>
             </dt>
             <dd>The type of distances between iterators</dd>
-                              <dt id="dip-ImageSliceIterator-reference">
-              using <a href="#dip-ImageSliceIterator-reference" class="m-doc-self">reference</a> = <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;
-
+                              <dt>
+using <a href="#dip-ImageSliceIterator-iterator_category" class="m-doc">iterator_category</a> = std::forward_iterator_tag
             </dt>
-            <dd>The type of a reference to <code>value_type</code></dd>
-                              <dt id="dip-ImageSliceIterator-pointer">
-              using <a href="#dip-ImageSliceIterator-pointer" class="m-doc-self">pointer</a> = <a href="dip-Image.html" class="m-doc">dip::Image</a>*
-
+            <dd>Iterator category</dd>
+                              <dt>
+using <a href="#dip-ImageSliceIterator-pointer" class="m-doc">pointer</a> = <a href="dip-Image.html" class="m-doc">dip::Image</a>*
             </dt>
             <dd>The type of a pointer to <code>value_type</code></dd>
+                              <dt>
+using <a href="#dip-ImageSliceIterator-reference" class="m-doc">reference</a> = <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;
+            </dt>
+            <dd>The type of a reference to <code>value_type</code></dd>
+                              <dt>
+using <a href="#dip-ImageSliceIterator-value_type" class="m-doc">value_type</a> = <a href="dip-Image.html" class="m-doc">dip::Image</a>
+            </dt>
+            <dd>The type obtained when dereferencing the iterator</dd>
             </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-ImageSliceIterator-swap-ImageSliceIterator-L">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageSliceIterator-swap-ImageSliceIterator-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Swap</dd>
-                          <dt id="dip-ImageSliceIterator-IsValid-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-IsValid-C" class="m-doc-self">IsValid</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Test to see if the iterator is valid (i.e. not default-constructed); it can still be at end, and thus not dereferenceable</dd>
-                          <dt id="dip-ImageSliceIterator-IsAtEnd-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-IsAtEnd-C" class="m-doc-self">IsAtEnd</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Test to see if the iterator reached past the last plane</dd>
-                          <dt id="dip-ImageSliceIterator-Coordinate-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-Coordinate-C" class="m-doc-self">Coordinate</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-Coordinate-C" class="m-doc">Coordinate</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Return the current position</dd>
-                          <dt id="dip-ImageSliceIterator-SetCoordinate-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-SetCoordinate-dip-uint-" class="m-doc-self">SetCoordinate</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> coord) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-IsAtEnd-C" class="m-doc">IsAtEnd</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
-            <dd>Set the iterator to point at a different location in the image</dd>
-                          <dt id="dip-ImageSliceIterator-ProcessingDimension-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-ProcessingDimension-C" class="m-doc-self">ProcessingDimension</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dd>Test to see if the iterator reached past the last plane</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-IsValid-C" class="m-doc">IsValid</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Test to see if the iterator is valid (i.e. not default-constructed); it can still be at end, and thus not dereferenceable</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-ProcessingDimension-C" class="m-doc">ProcessingDimension</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Return the processing dimension, the direction over which the iterator iterates</dd>
-                          <dt id="dip-ImageSliceIterator-Reset">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-Reset" class="m-doc-self">Reset</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-Reset" class="m-doc">Reset</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
             </dt>
             <dd>Reset the iterator to the first image plane (as it was when the iterator first was created)</dd>
-                          <dt id="dip-ImageSliceIterator-Set-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-Set-dip-uint-" class="m-doc-self">Set</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> plane) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-Set-dip-uint-" class="m-doc">Set</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> plane) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
             </dt>
             <dd>Set the iterator to index <code>plane</code>. If <code>plane</code> is outside the image domain, the iterator is still valid,
 but should not be dereferenced.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-SetCoordinate-dip-uint-" class="m-doc">SetCoordinate</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> coord) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+            </dt>
+            <dd>Set the iterator to point at a different location in the image</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageSliceIterator-swap-ImageSliceIterator-L" class="m-doc">swap</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Swap</dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-                          <dt id="dip-ImageSliceIterator-operator%2A">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2A" class="m-doc-self">operator*</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
-            </dt>
-            <dd>Dereference</dd>
-                          <dt id="dip-ImageSliceIterator-operator-%3E">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator-%3E" class="m-doc-self">operator-></a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>*</span>
-            </dt>
-            <dd>Dereference</dd>
-                          <dt id="dip-ImageSliceIterator-operator%2B%2B">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%2B" class="m-doc-self">operator++</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
-            </dt>
-            <dd>Pre-increment</dd>
-                          <dt id="dip-ImageSliceIterator-operator%2B%2B-int-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%2B-int-" class="m-doc-self">operator++</a>(</span><span class="m-doc-wrap">int ) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
-            </dt>
-            <dd>Post-increment</dd>
-                          <dt id="dip-ImageSliceIterator-operator--">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator--" class="m-doc-self">operator--</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
-            </dt>
-            <dd>Pre-decrement, but never past the first slice</dd>
-                          <dt id="dip-ImageSliceIterator-operator---int-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator---int-" class="m-doc-self">operator--</a>(</span><span class="m-doc-wrap">int ) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
-            </dt>
-            <dd>Post-decrement, but never past the first slice</dd>
-                          <dt id="dip-ImageSliceIterator-operator%2B%3D-difference_type-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%3D-difference_type-" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
-            </dt>
-            <dd>Increment by <code>n</code></dd>
-                          <dt id="dip-ImageSliceIterator-operator%2B%3D-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%3D-dip-uint-" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
-            </dt>
-            <dd>Increment by <code>n</code></dd>
-                          <dt id="dip-ImageSliceIterator-operator-%3D-difference_type-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator-%3D-difference_type-" class="m-doc-self">operator-=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
-            </dt>
-            <dd>Decrement by <code>n</code>, but never moves the iterator to before the first slice</dd>
-                          <dt id="dip-ImageSliceIterator-operator-%3D-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator-%3D-dip-uint-" class="m-doc-self">operator-=</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
-            </dt>
-            <dd>Decrement by <code>n</code>, but never moves the iterator to before the first slice</dd>
-                          <dt id="dip-ImageSliceIterator-operator--ImageSliceIterator-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator--ImageSliceIterator-CL-C" class="m-doc-self">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; it2) const -&gt; <a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a></span>
-            </dt>
-            <dd>Difference between iterators</dd>
-                          <dt id="dip-ImageSliceIterator-operator%3D%3D-ImageSliceIterator-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3D%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
-            </dt>
-            <dd>Equality comparison</dd>
-                          <dt id="dip-ImageSliceIterator-operator%21%3D-ImageSliceIterator-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%21%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
-            </dt>
-            <dd>Inequality comparison</dd>
-                          <dt id="dip-ImageSliceIterator-operator%3E-ImageSliceIterator-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3E-ImageSliceIterator-CL-C" class="m-doc-self">operator></a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
-            </dt>
-            <dd>Larger than comparison</dd>
-                          <dt id="dip-ImageSliceIterator-operator%3C-ImageSliceIterator-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3C-ImageSliceIterator-CL-C" class="m-doc-self">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
-            </dt>
-            <dd>Smaller than comparison</dd>
-                          <dt id="dip-ImageSliceIterator-operator%3E%3D-ImageSliceIterator-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3E%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
-            </dt>
-            <dd>Not smaller than comparison</dd>
-                          <dt id="dip-ImageSliceIterator-operator%3C%3D-ImageSliceIterator-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3C%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
-            </dt>
-            <dd>Not larger than comparison</dd>
-                          <dt id="dip-ImageSliceIterator-operator%20bool-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%20bool-C" class="m-doc-self">operator bool</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-info">explicit</span> </span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%20bool-C" class="m-doc">operator bool</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>Test to see if the iterator is valid and can be dereferenced</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%21%3D-ImageSliceIterator-CL-C" class="m-doc">operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Inequality comparison</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2A" class="m-doc">operator*</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;</span>
+            </dt>
+            <dd>Dereference</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%2B" class="m-doc">operator++</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+            </dt>
+            <dd>Pre-increment</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%2B-int-" class="m-doc">operator++</a>(</span><span class="m-doc-wrap">int ) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
+            </dt>
+            <dd>Post-increment</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%3D-difference_type-" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+            </dt>
+            <dd>Increment by <code>n</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%2B%3D-dip-uint-" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+            </dt>
+            <dd>Increment by <code>n</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator--ImageSliceIterator-CL-C" class="m-doc">operator-</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; it2) const -&gt; <a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a></span>
+            </dt>
+            <dd>Difference between iterators</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator--" class="m-doc">operator--</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+            </dt>
+            <dd>Pre-decrement, but never past the first slice</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator---int-" class="m-doc">operator--</a>(</span><span class="m-doc-wrap">int ) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
+            </dt>
+            <dd>Post-decrement, but never past the first slice</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator-%3D-difference_type-" class="m-doc">operator-=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+            </dt>
+            <dd>Decrement by <code>n</code>, but never moves the iterator to before the first slice</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator-%3D-dip-uint-" class="m-doc">operator-=</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp;</span>
+            </dt>
+            <dd>Decrement by <code>n</code>, but never moves the iterator to before the first slice</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator-%3E" class="m-doc">operator-></a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a>*</span>
+            </dt>
+            <dd>Dereference</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3C-ImageSliceIterator-CL-C" class="m-doc">operator<</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Smaller than comparison</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3C%3D-ImageSliceIterator-CL-C" class="m-doc">operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Not larger than comparison</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3D%3D-ImageSliceIterator-CL-C" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Equality comparison</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3E-ImageSliceIterator-CL-C" class="m-doc">operator></a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Larger than comparison</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceIterator-operator%3E%3D-ImageSliceIterator-CL-C" class="m-doc">operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other) const -&gt; bool</span>
+            </dt>
+            <dd>Not smaller than comparison</dd>
           </dl>
         </section>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-operator%2B-ImageSliceIterator--dip-sint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-ImageSliceIterator--dip-sint-" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
-              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
-            </dt>
-            <dd>Increment an image slice iterator by <code>n</code></dd>
-                            <dt id="dip-operator%2B-ImageSliceIterator--dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-ImageSliceIterator--dip-uint-" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
-            </dt>
-            <dd>Increment an image slice iterator by <code>n</code></dd>
-                            <dt id="dip-operator--ImageSliceIterator--dip-sint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--ImageSliceIterator--dip-sint-" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
-              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
-            </dt>
-            <dd>Decrement an image slice iterator by <code>n</code>, but never moves the iterator to before the first slide</dd>
-                            <dt id="dip-operator--ImageSliceIterator--dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--ImageSliceIterator--dip-uint-" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
-            </dt>
-            <dd>Decrement an image slice iterator by <code>n</code>, but never moves the iterator to before the first slide</dd>
-                            <dt id="dip-ImageSliceEndIterator-Image-CL-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceEndIterator-Image-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageSliceEndIterator</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageSliceEndIterator-Image-CL-dip-uint-" class="m-doc">dip::<wbr />ImageSliceEndIterator</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
             </dt>
             <dd>Constructs an end iterator corresponding to a <a href="dip-ImageSliceIterator.html"><code>dip::ImageSliceIterator</code></a></dd>
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-ImageSliceIterator--dip-sint-" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
+            </dt>
+            <dd>Increment an image slice iterator by <code>n</code></dd>
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-ImageSliceIterator--dip-uint-" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
+            </dt>
+            <dd>Increment an image slice iterator by <code>n</code></dd>
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--ImageSliceIterator--dip-sint-" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
+            </dt>
+            <dd>Decrement an image slice iterator by <code>n</code>, but never moves the iterator to before the first slide</dd>
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--ImageSliceIterator--dip-uint-" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n) -&gt; <a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a></span>
+            </dt>
+            <dd>Decrement an image slice iterator by <code>n</code>, but never moves the iterator to before the first slide</dd>
           </dl>
+        </section>
+        <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-iterator_category"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ImageSliceIterator-iterator_category" class="m-doc-self">iterator_category</a></span> = std::forward_iterator_tag            </h3>
+            <p>Iterator category</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-value_type"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ImageSliceIterator-value_type" class="m-doc-self">value_type</a></span> = <a href="dip-Image.html" class="m-doc">dip::Image</a>            </h3>
+            <p>The type obtained when dereferencing the iterator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-difference_type"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ImageSliceIterator-difference_type" class="m-doc-self">difference_type</a></span> = <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a>            </h3>
+            <p>The type of distances between iterators</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-reference"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ImageSliceIterator-reference" class="m-doc-self">reference</a></span> = <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp;            </h3>
+            <p>The type of a reference to <code>value_type</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-pointer"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ImageSliceIterator-pointer" class="m-doc-self">pointer</a></span> = <a href="dip-Image.html" class="m-doc">dip::Image</a>*            </h3>
+            <p>The type of a pointer to <code>value_type</code></p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-ImageSliceIterator"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-ImageSliceIterator" class="m-doc-self">ImageSliceIterator</a></span>(
+) <span class="m-label m-info">defaulted</span>            </h3>
+            <p>Default constructor yields an invalid iterator that cannot be dereferenced or used in any way</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-ImageSliceIterator-Image-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-ImageSliceIterator-Image-CL-dip-uint-" class="m-doc-self">ImageSliceIterator</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim</span>)            </h3>
+            <p>To construct a useful iterator, provide an image and a processing dimension</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-swap-ImageSliceIterator-L"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-swap-ImageSliceIterator-L" class="m-doc-self">swap</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; other</span>) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Swap</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-IsValid-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-IsValid-C" class="m-doc-self">IsValid</a></span>(
+) const            </h3>
+            <p>Test to see if the iterator is valid (i.e. not default-constructed); it can still be at end, and thus not dereferenceable</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-IsAtEnd-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-IsAtEnd-C" class="m-doc-self">IsAtEnd</a></span>(
+) const            </h3>
+            <p>Test to see if the iterator reached past the last plane</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-Coordinate-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-Coordinate-C" class="m-doc-self">Coordinate</a></span>(
+) const            </h3>
+            <p>Return the current position</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-SetCoordinate-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-SetCoordinate-dip-uint-" class="m-doc-self">SetCoordinate</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> coord</span>)            </h3>
+            <p>Set the iterator to point at a different location in the image</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-ProcessingDimension-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-ProcessingDimension-C" class="m-doc-self">ProcessingDimension</a></span>(
+) const            </h3>
+            <p>Return the processing dimension, the direction over which the iterator iterates</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-Reset"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-Reset" class="m-doc-self">Reset</a></span>(
+)            </h3>
+            <p>Reset the iterator to the first image plane (as it was when the iterator first was created)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-Set-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-Set-dip-uint-" class="m-doc-self">Set</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> plane</span>)            </h3>
+            <p>Set the iterator to index <code>plane</code>. If <code>plane</code> is outside the image domain, the iterator is still valid,
+but should not be dereferenced.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%2A"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%2A" class="m-doc-self">operator*</a></span>(
+)            </h3>
+            <p>Dereference</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator-%3E"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a>* </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator-%3E" class="m-doc-self">operator-></a></span>(
+)            </h3>
+            <p>Dereference</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%2B%2B"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%2B%2B" class="m-doc-self">operator++</a></span>(
+)            </h3>
+            <p>Pre-increment</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%2B%2B-int-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%2B%2B-int-" class="m-doc-self">operator++</a></span>(
+<span class="m-doc-arg">int </span>)            </h3>
+            <p>Post-increment</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator--"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator--" class="m-doc-self">operator--</a></span>(
+)            </h3>
+            <p>Pre-decrement, but never past the first slice</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator---int-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator---int-" class="m-doc-self">operator--</a></span>(
+<span class="m-doc-arg">int </span>)            </h3>
+            <p>Post-decrement, but never past the first slice</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%2B%3D-difference_type-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%2B%3D-difference_type-" class="m-doc-self">operator+=</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a> n</span>)            </h3>
+            <p>Increment by <code>n</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%2B%3D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%2B%3D-dip-uint-" class="m-doc-self">operator+=</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n</span>)            </h3>
+            <p>Increment by <code>n</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator-%3D-difference_type-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator-%3D-difference_type-" class="m-doc-self">operator-=</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a> n</span>)            </h3>
+            <p>Decrement by <code>n</code>, but never moves the iterator to before the first slice</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator-%3D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator-%3D-dip-uint-" class="m-doc-self">operator-=</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n</span>)            </h3>
+            <p>Decrement by <code>n</code>, but never moves the iterator to before the first slice</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator--ImageSliceIterator-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html#dip-ImageSliceIterator-difference_type" class="m-doc">dip::ImageSliceIterator::difference_type</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator--ImageSliceIterator-CL-C" class="m-doc-self">operator-</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; it2</span>) const            </h3>
+            <p>Difference between iterators</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%3D%3D-ImageSliceIterator-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%3D%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator==</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other</span>) const            </h3>
+            <p>Equality comparison</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%21%3D-ImageSliceIterator-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%21%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator!=</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other</span>) const            </h3>
+            <p>Inequality comparison</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%3E-ImageSliceIterator-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%3E-ImageSliceIterator-CL-C" class="m-doc-self">operator></a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other</span>) const            </h3>
+            <p>Larger than comparison</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%3C-ImageSliceIterator-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%3C-ImageSliceIterator-CL-C" class="m-doc-self">operator<</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other</span>) const            </h3>
+            <p>Smaller than comparison</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%3E%3D-ImageSliceIterator-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%3E%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator>=</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other</span>) const            </h3>
+            <p>Not smaller than comparison</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%3C%3D-ImageSliceIterator-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%3C%3D-ImageSliceIterator-CL-C" class="m-doc-self">operator<=</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> const&amp; other</span>) const            </h3>
+            <p>Not larger than comparison</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceIterator-operator%20bool-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceIterator-operator%20bool-C" class="m-doc-self">operator bool</a></span>(
+) const <span class="m-label m-info">explicit</span>            </h3>
+            <p>Test to see if the iterator is valid and can be dereferenced</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%2B-ImageSliceIterator--dip-sint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%2B-ImageSliceIterator--dip-sint-" class="m-doc-self">dip::<wbr />operator+</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n</span>)            </h3>
+            <p>Increment an image slice iterator by <code>n</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%2B-ImageSliceIterator--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%2B-ImageSliceIterator--dip-uint-" class="m-doc-self">dip::<wbr />operator+</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n</span>)            </h3>
+            <p>Increment an image slice iterator by <code>n</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator--ImageSliceIterator--dip-sint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator--ImageSliceIterator--dip-sint-" class="m-doc-self">dip::<wbr />operator-</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> n</span>)            </h3>
+            <p>Decrement an image slice iterator by <code>n</code>, but never moves the iterator to before the first slide</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator--ImageSliceIterator--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator--ImageSliceIterator--dip-uint-" class="m-doc-self">dip::<wbr />operator-</a></span>(
+<span class="m-doc-arg"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> it, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> n</span>)            </h3>
+            <p>Decrement an image slice iterator by <code>n</code>, but never moves the iterator to before the first slide</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageSliceEndIterator-Image-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageSliceIterator.html" class="m-doc">dip::ImageSliceIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageSliceEndIterator-Image-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageSliceEndIterator</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim</span>)            </h3>
+            <p>Constructs an end iterator corresponding to a <a href="dip-ImageSliceIterator.html"><code>dip::ImageSliceIterator</code></a></p>
+          </div></section>
         </section>
       </div>
     </div>

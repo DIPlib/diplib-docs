@@ -67,8 +67,8 @@
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-viewer-ViewingOptions-ViewingOptions-dip-Image-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-viewer-ViewingOptions-ViewingOptions-dip-Image-CL" class="m-doc-self">ViewingOptions</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image) <span class="m-label m-flat m-info">explicit</span> </span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-viewer-ViewingOptions-ViewingOptions-dip-Image-CL" class="m-doc">ViewingOptions</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>Calculate default options from an image</dd>
             </dl>
@@ -76,188 +76,353 @@
         <section id="enum-members">
           <h2>Enums</h2>
           <dl class="m-doc">
-                          <dt id="dip-viewer-ViewingOptions-ComplexToReal">
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-viewer-ViewingOptions-ComplexToReal" class="m-doc-self">ComplexToReal</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-viewer-ViewingOptions-ComplexToReal-Real" class="m-doc">Real</a>,
-              <a href="#dip-viewer-ViewingOptions-ComplexToReal-Imaginary" class="m-doc">Imaginary</a>,
-              <a href="#dip-viewer-ViewingOptions-ComplexToReal-Magnitude" class="m-doc">Magnitude</a>,
-              <a href="#dip-viewer-ViewingOptions-ComplexToReal-Phase" class="m-doc">Phase</a> }</span>
-            </dt>
-            <dd>Complex-to-real mapping options</dd>
-                          <dt id="dip-viewer-ViewingOptions-Mapping">
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-viewer-ViewingOptions-Mapping" class="m-doc-self">Mapping</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-viewer-ViewingOptions-Mapping-ZeroOne" class="m-doc">ZeroOne</a>,
-              <a href="#dip-viewer-ViewingOptions-Mapping-Angle" class="m-doc">Angle</a>,
-              <a href="#dip-viewer-ViewingOptions-Mapping-Normal" class="m-doc">Normal</a>,
-              <a href="#dip-viewer-ViewingOptions-Mapping-Linear" class="m-doc">Linear</a>,
-              <a href="#dip-viewer-ViewingOptions-Mapping-Symmetric" class="m-doc">Symmetric</a>,
-              <a href="#dip-viewer-ViewingOptions-Mapping-Logarithmic" class="m-doc">Logarithmic</a> }</span>
-            </dt>
-            <dd>Grey-value mapping options</dd>
-                          <dt id="dip-viewer-ViewingOptions-Projection">
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-viewer-ViewingOptions-Projection" class="m-doc-self">Projection</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-viewer-ViewingOptions-Projection-None" class="m-doc">None</a>,
-              <a href="#dip-viewer-ViewingOptions-Projection-Min" class="m-doc">Min</a>,
-              <a href="#dip-viewer-ViewingOptions-Projection-Mean" class="m-doc">Mean</a>,
-              <a href="#dip-viewer-ViewingOptions-Projection-Max" class="m-doc">Max</a> }</span>
-            </dt>
-            <dd>Slice projection options</dd>
-                          <dt id="dip-viewer-ViewingOptions-LookupTable">
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-viewer-ViewingOptions-LookupTable" class="m-doc-self">LookupTable</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-viewer-ViewingOptions-LookupTable-ColorSpace" class="m-doc">ColorSpace</a>,
-              <a href="#dip-viewer-ViewingOptions-LookupTable-RGB" class="m-doc">RGB</a>,
-              <a href="#dip-viewer-ViewingOptions-LookupTable-Grey" class="m-doc">Grey</a>,
-              <a href="#dip-viewer-ViewingOptions-LookupTable-Sequential" class="m-doc">Sequential</a>,
-              <a href="#dip-viewer-ViewingOptions-LookupTable-Divergent" class="m-doc">Divergent</a>,
-              <a href="#dip-viewer-ViewingOptions-LookupTable-Cyclic" class="m-doc">Cyclic</a>,
-              <a href="#dip-viewer-ViewingOptions-LookupTable-Label" class="m-doc">Label</a> }</span>
-            </dt>
-            <dd>Grey-value to color mapping options</dd>
-                          <dt id="dip-viewer-ViewingOptions-Diff">
-              <span class="m-doc-wrap-bumper">enum class <a href="#dip-viewer-ViewingOptions-Diff" class="m-doc-self">Diff</a>: uint8{ </span><span class="m-doc-wrap"><a href="#dip-viewer-ViewingOptions-Diff-None" class="m-doc">None</a>,
-              <a href="#dip-viewer-ViewingOptions-Diff-Draw" class="m-doc">Draw</a>,
-              <a href="#dip-viewer-ViewingOptions-Diff-Place" class="m-doc">Place</a>,
-              <a href="#dip-viewer-ViewingOptions-Diff-Mapping" class="m-doc">Mapping</a>,
-              <a href="#dip-viewer-ViewingOptions-Diff-Projection" class="m-doc">Projection</a>,
-              <a href="#dip-viewer-ViewingOptions-Diff-Complex" class="m-doc">Complex</a> }</span>
-            </dt>
-            <dd>Defines which view (parts) need to be recalculated</dd>
+                          <dt>
+              enum class <a href="#dip-viewer-ViewingOptions-ComplexToReal" class="m-doc">ComplexToReal</a>: uint8            </dt>
+            <dd>Complex-to-real mapping options <a href="#dip-viewer-ViewingOptions-ComplexToReal">more...</a></dd>
+                          <dt>
+              enum class <a href="#dip-viewer-ViewingOptions-Diff" class="m-doc">Diff</a>: uint8            </dt>
+            <dd>Defines which view (parts) need to be recalculated <a href="#dip-viewer-ViewingOptions-Diff">more...</a></dd>
+                          <dt>
+              enum class <a href="#dip-viewer-ViewingOptions-LookupTable" class="m-doc">LookupTable</a>: uint8            </dt>
+            <dd>Grey-value to color mapping options <a href="#dip-viewer-ViewingOptions-LookupTable">more...</a></dd>
+                          <dt>
+              enum class <a href="#dip-viewer-ViewingOptions-Mapping" class="m-doc">Mapping</a>: uint8            </dt>
+            <dd>Grey-value mapping options <a href="#dip-viewer-ViewingOptions-Mapping">more...</a></dd>
+                          <dt>
+              enum class <a href="#dip-viewer-ViewingOptions-Projection" class="m-doc">Projection</a>: uint8            </dt>
+            <dd>Slice projection options <a href="#dip-viewer-ViewingOptions-Projection">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-viewer-ViewingOptions-diff-ViewingOptions-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-diff-ViewingOptions-CL-C" class="m-doc-self">diff</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options) const -&gt; <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Diff" class="m-doc">dip::viewer::ViewingOptions::Diff</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-diff-ViewingOptions-CL-C" class="m-doc">diff</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options) const -&gt; <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Diff" class="m-doc">dip::viewer::ViewingOptions::Diff</a></span>
             </dt>
             <dd>Calculates which view (parts) need to be recalculated</dd>
-                          <dt id="dip-viewer-ViewingOptions-needsReproject-ViewingOptions-CL-dip-uint--dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-needsReproject-ViewingOptions-CL-dip-uint--dip-uint--C" class="m-doc-self">needsReproject</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getComplexDescription-C" class="m-doc">getComplexDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Returns a textual description of the current complex-to-real mapping</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getLookupTableDescription-C" class="m-doc">getLookupTableDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Returns a textual description of the current grey-value to color mapping</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getMappingDescription-C" class="m-doc">getMappingDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Returns a textual description of the current grey-value mapping</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getProjectionDescription-C" class="m-doc">getProjectionDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Returns a textual description of the current slice projection</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-needsReproject-ViewingOptions-CL-dip-uint--dip-uint--C" class="m-doc">needsReproject</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimx,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimy) const -&gt; bool</span>
             </dt>
             <dd>Calculates whether a particular slice projection needs to be recalculated</dd>
-                          <dt id="dip-viewer-ViewingOptions-setAutomaticRange">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-ViewingOptions-setAutomaticRange" class="m-doc-self">setAutomaticRange</a>(</span><span class="m-doc-wrap">)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-ViewingOptions-setAutomaticRange" class="m-doc">setAutomaticRange</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Sets automatic range based on current lookup table and mapping</dd>
-                          <dt id="dip-viewer-ViewingOptions-setMappingRange-ViewingOptions-Mapping-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-ViewingOptions-setMappingRange-ViewingOptions-Mapping-" class="m-doc-self">setMappingRange</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-ViewingOptions-setMappingRange-ViewingOptions-Mapping-" class="m-doc">setMappingRange</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping)</span>
             </dt>
             <dd>Sets mapping range based on mapping</dd>
-                          <dt id="dip-viewer-ViewingOptions-getComplexDescription-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getComplexDescription-C" class="m-doc-self">getComplexDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Returns a textual description of the current complex-to-real mapping</dd>
-                          <dt id="dip-viewer-ViewingOptions-getMappingDescription-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getMappingDescription-C" class="m-doc-self">getMappingDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Returns a textual description of the current grey-value mapping</dd>
-                          <dt id="dip-viewer-ViewingOptions-getProjectionDescription-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getProjectionDescription-C" class="m-doc-self">getProjectionDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Returns a textual description of the current slice projection</dd>
-                          <dt id="dip-viewer-ViewingOptions-getLookupTableDescription-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-ViewingOptions-getLookupTableDescription-C" class="m-doc-self">getLookupTableDescription</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Returns a textual description of the current grey-value to color mapping</dd>
           </dl>
         </section>
         <section id="variable-members">
            <h2>Variables</h2>
            <dl class="m-doc">
-                            <dt id="dip-viewer-ViewingOptions-dims_">
-            <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> <a href="#dip-viewer-ViewingOptions-dims_" class="m-doc-self">dims_</a>
-
-            </dt>
-            <dd>Dimensions to visualize (MainX, MainY, LeftX, TopY). Use -1 to not map to any image dimension.</dd>
-                            <dt id="dip-viewer-ViewingOptions-operating_point_">
-            <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> <a href="#dip-viewer-ViewingOptions-operating_point_" class="m-doc-self">operating_point_</a>
-
-            </dt>
-            <dd>Coordinates of selected point, which also determines which slice is shown.</dd>
-                            <dt id="dip-viewer-ViewingOptions-complex_">
-            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-ComplexToReal" class="m-doc">dip::viewer::ViewingOptions::ComplexToReal</a> <a href="#dip-viewer-ViewingOptions-complex_" class="m-doc-self">complex_</a>
-
-            </dt>
-            <dd>What to do with complex numbers.</dd>
-                            <dt id="dip-viewer-ViewingOptions-projection_">
-            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Projection" class="m-doc">dip::viewer::ViewingOptions::Projection</a> <a href="#dip-viewer-ViewingOptions-projection_" class="m-doc-self">projection_</a>
-
-            </dt>
-            <dd>Type of projection.</dd>
-                            <dt id="dip-viewer-ViewingOptions-roi_origin_">
-            <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> <a href="#dip-viewer-ViewingOptions-roi_origin_" class="m-doc-self">roi_origin_</a>
-
-            </dt>
-            <dd>Origin of projection ROI.</dd>
-                            <dt id="dip-viewer-ViewingOptions-roi_sizes_">
-            <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> <a href="#dip-viewer-ViewingOptions-roi_sizes_" class="m-doc-self">roi_sizes_</a>
-
-            </dt>
-            <dd>Sizes of projection ROI.</dd>
-                            <dt id="dip-viewer-ViewingOptions-labels_">
-            <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <a href="#dip-viewer-ViewingOptions-labels_" class="m-doc-self">labels_</a>
-
-            </dt>
-            <dd>Labels to use for axes, one character per axis.</dd>
-                            <dt id="dip-viewer-ViewingOptions-range_">
-            <a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc">dip::viewer::FloatRange</a> <a href="#dip-viewer-ViewingOptions-range_" class="m-doc-self">range_</a>
-
-            </dt>
-            <dd>value range across image (histogram limits).</dd>
-                            <dt id="dip-viewer-ViewingOptions-tensor_range_">
-            <a href="dipviewer.html#dip-viewer-FloatRangeArray" class="m-doc">dip::viewer::FloatRangeArray</a> <a href="#dip-viewer-ViewingOptions-tensor_range_" class="m-doc-self">tensor_range_</a>
-
-            </dt>
-            <dd>value range per tensor.</dd>
-                            <dt id="dip-viewer-ViewingOptions-mapping_range_">
-            <a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc">dip::viewer::FloatRange</a> <a href="#dip-viewer-ViewingOptions-mapping_range_" class="m-doc-self">mapping_range_</a>
-
-            </dt>
-            <dd>mapped value range (colorbar limits).</dd>
-                            <dt id="dip-viewer-ViewingOptions-mapping_">
-            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> <a href="#dip-viewer-ViewingOptions-mapping_" class="m-doc-self">mapping_</a>
-
-            </dt>
-            <dd>Grey-value mapping options, sets mapping_range_.</dd>
-                            <dt id="dip-viewer-ViewingOptions-element_">
-            <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <a href="#dip-viewer-ViewingOptions-element_" class="m-doc-self">element_</a>
-
-            </dt>
-            <dd>Tensor element to visualize.</dd>
-                            <dt id="dip-viewer-ViewingOptions-lut_">
-            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-LookupTable" class="m-doc">dip::viewer::ViewingOptions::LookupTable</a> <a href="#dip-viewer-ViewingOptions-lut_" class="m-doc-self">lut_</a>
-
-            </dt>
-            <dd>Grey-value to color mapping options.</dd>
-                            <dt id="dip-viewer-ViewingOptions-color_elements_">
-            <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> <a href="#dip-viewer-ViewingOptions-color_elements_" class="m-doc-self">color_elements_</a>
-
+                            <dt>
+            <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> <a href="#dip-viewer-ViewingOptions-color_elements_" class="m-doc">color_elements_</a>
             </dt>
             <dd>Which tensor element is R, G, and B.</dd>
-                            <dt id="dip-viewer-ViewingOptions-split_">
-            <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> <a href="#dip-viewer-ViewingOptions-split_" class="m-doc-self">split_</a>
-
+                            <dt>
+            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-ComplexToReal" class="m-doc">dip::viewer::ViewingOptions::ComplexToReal</a> <a href="#dip-viewer-ViewingOptions-complex_" class="m-doc">complex_</a>
             </dt>
-            <dd>Split point between projections (pixels).</dd>
-                            <dt id="dip-viewer-ViewingOptions-zoom_">
-            <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> <a href="#dip-viewer-ViewingOptions-zoom_" class="m-doc-self">zoom_</a>
-
+            <dd>What to do with complex numbers.</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> <a href="#dip-viewer-ViewingOptions-dims_" class="m-doc">dims_</a>
             </dt>
-            <dd>Zoom factor per dimension (from physical dimensions + user). Also determines relative viewport sizes.</dd>
-                            <dt id="dip-viewer-ViewingOptions-origin_">
-            <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> <a href="#dip-viewer-ViewingOptions-origin_" class="m-doc-self">origin_</a>
-
+            <dd>Dimensions to visualize (MainX, MainY, LeftX, TopY). Use -1 to not map to any image dimension.</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <a href="#dip-viewer-ViewingOptions-element_" class="m-doc">element_</a>
             </dt>
-            <dd>Display origin for moving the image around.</dd>
-                            <dt id="dip-viewer-ViewingOptions-offset_">
-            <a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> <a href="#dip-viewer-ViewingOptions-offset_" class="m-doc-self">offset_</a>
-
+            <dd>Tensor element to visualize.</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <a href="#dip-viewer-ViewingOptions-labels_" class="m-doc">labels_</a>
+            </dt>
+            <dd>Labels to use for axes, one character per axis.</dd>
+                            <dt>
+            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-LookupTable" class="m-doc">dip::viewer::ViewingOptions::LookupTable</a> <a href="#dip-viewer-ViewingOptions-lut_" class="m-doc">lut_</a>
+            </dt>
+            <dd>Grey-value to color mapping options.</dd>
+                            <dt>
+            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> <a href="#dip-viewer-ViewingOptions-mapping_" class="m-doc">mapping_</a>
+            </dt>
+            <dd>Grey-value mapping options, sets mapping_range_.</dd>
+                            <dt>
+            <a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc">dip::viewer::FloatRange</a> <a href="#dip-viewer-ViewingOptions-mapping_range_" class="m-doc">mapping_range_</a>
+            </dt>
+            <dd>mapped value range (colorbar limits).</dd>
+                            <dt>
+            <a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> <a href="#dip-viewer-ViewingOptions-offset_" class="m-doc">offset_</a>
             </dt>
             <dd>Offset of origin pixel in real-world coordinates.</dd>
-                            <dt id="dip-viewer-ViewingOptions-status_">
-            <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <a href="#dip-viewer-ViewingOptions-status_" class="m-doc-self">status_</a>
-
+                            <dt>
+            <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> <a href="#dip-viewer-ViewingOptions-operating_point_" class="m-doc">operating_point_</a>
+            </dt>
+            <dd>Coordinates of selected point, which also determines which slice is shown.</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> <a href="#dip-viewer-ViewingOptions-origin_" class="m-doc">origin_</a>
+            </dt>
+            <dd>Display origin for moving the image around.</dd>
+                            <dt>
+            <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Projection" class="m-doc">dip::viewer::ViewingOptions::Projection</a> <a href="#dip-viewer-ViewingOptions-projection_" class="m-doc">projection_</a>
+            </dt>
+            <dd>Type of projection.</dd>
+                            <dt>
+            <a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc">dip::viewer::FloatRange</a> <a href="#dip-viewer-ViewingOptions-range_" class="m-doc">range_</a>
+            </dt>
+            <dd>value range across image (histogram limits).</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> <a href="#dip-viewer-ViewingOptions-roi_origin_" class="m-doc">roi_origin_</a>
+            </dt>
+            <dd>Origin of projection ROI.</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> <a href="#dip-viewer-ViewingOptions-roi_sizes_" class="m-doc">roi_sizes_</a>
+            </dt>
+            <dd>Sizes of projection ROI.</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> <a href="#dip-viewer-ViewingOptions-split_" class="m-doc">split_</a>
+            </dt>
+            <dd>Split point between projections (pixels).</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <a href="#dip-viewer-ViewingOptions-status_" class="m-doc">status_</a>
             </dt>
             <dd>Status bar text.</dd>
+                            <dt>
+            <a href="dipviewer.html#dip-viewer-FloatRangeArray" class="m-doc">dip::viewer::FloatRangeArray</a> <a href="#dip-viewer-ViewingOptions-tensor_range_" class="m-doc">tensor_range_</a>
+            </dt>
+            <dd>value range per tensor.</dd>
+                            <dt>
+            <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> <a href="#dip-viewer-ViewingOptions-zoom_" class="m-doc">zoom_</a>
+            </dt>
+            <dd>Zoom factor per dimension (from physical dimensions + user). Also determines relative viewport sizes.</dd>
            </dl>
+        </section>
+        <section>
+            <h2>Enum documentation</h2>
+                          <section class="m-doc-details" id="dip-viewer-ViewingOptions-ComplexToReal"><div>
+            <h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-ComplexToReal" class="m-doc-self">ComplexToReal</a></span>: uint8            </h3>
+            <p>Complex-to-real mapping options</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-viewer-ViewingOptions-Mapping"><div>
+            <h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-Mapping" class="m-doc-self">Mapping</a></span>: uint8            </h3>
+            <p>Grey-value mapping options</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-viewer-ViewingOptions-Projection"><div>
+            <h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-Projection" class="m-doc-self">Projection</a></span>: uint8            </h3>
+            <p>Slice projection options</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-viewer-ViewingOptions-LookupTable"><div>
+            <h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-LookupTable" class="m-doc-self">LookupTable</a></span>: uint8            </h3>
+            <p>Grey-value to color mapping options</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-viewer-ViewingOptions-Diff"><div>
+            <h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-Diff" class="m-doc-self">Diff</a></span>: uint8            </h3>
+            <p>Defines which view (parts) need to be recalculated</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-ViewingOptions-dip-Image-CL"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-ViewingOptions-dip-Image-CL" class="m-doc-self">ViewingOptions</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image</span>) <span class="m-label m-info">explicit</span>            </h3>
+            <p>Calculate default options from an image</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-diff-ViewingOptions-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Diff" class="m-doc">dip::viewer::ViewingOptions::Diff</a> </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-diff-ViewingOptions-CL-C" class="m-doc-self">diff</a></span>(
+<span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options</span>) const            </h3>
+            <p>Calculates which view (parts) need to be recalculated</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-needsReproject-ViewingOptions-CL-dip-uint--dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-needsReproject-ViewingOptions-CL-dip-uint--dip-uint--C" class="m-doc-self">needsReproject</a></span>(
+<span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimx, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimy</span>) const            </h3>
+            <p>Calculates whether a particular slice projection needs to be recalculated</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-setAutomaticRange"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-setAutomaticRange" class="m-doc-self">setAutomaticRange</a></span>(
+)            </h3>
+            <p>Sets automatic range based on current lookup table and mapping</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-setMappingRange-ViewingOptions-Mapping-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-setMappingRange-ViewingOptions-Mapping-" class="m-doc-self">setMappingRange</a></span>(
+<span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping</span>)            </h3>
+            <p>Sets mapping range based on mapping</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-getComplexDescription-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-getComplexDescription-C" class="m-doc-self">getComplexDescription</a></span>(
+) const            </h3>
+            <p>Returns a textual description of the current complex-to-real mapping</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-getMappingDescription-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-getMappingDescription-C" class="m-doc-self">getMappingDescription</a></span>(
+) const            </h3>
+            <p>Returns a textual description of the current grey-value mapping</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-getProjectionDescription-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-getProjectionDescription-C" class="m-doc-self">getProjectionDescription</a></span>(
+) const            </h3>
+            <p>Returns a textual description of the current slice projection</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-getLookupTableDescription-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-getLookupTableDescription-C" class="m-doc-self">getLookupTableDescription</a></span>(
+) const            </h3>
+            <p>Returns a textual description of the current grey-value to color mapping</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-dims_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-dims_" class="m-doc-self">dims_</a></span>
+            </h3>
+            <p>Dimensions to visualize (MainX, MainY, LeftX, TopY). Use -1 to not map to any image dimension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-operating_point_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-operating_point_" class="m-doc-self">operating_point_</a></span>
+            </h3>
+            <p>Coordinates of selected point, which also determines which slice is shown.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-complex_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-ComplexToReal" class="m-doc">dip::viewer::ViewingOptions::ComplexToReal</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-complex_" class="m-doc-self">complex_</a></span>
+            </h3>
+            <p>What to do with complex numbers.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-projection_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Projection" class="m-doc">dip::viewer::ViewingOptions::Projection</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-projection_" class="m-doc-self">projection_</a></span>
+            </h3>
+            <p>Type of projection.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-roi_origin_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-roi_origin_" class="m-doc-self">roi_origin_</a></span>
+            </h3>
+            <p>Origin of projection ROI.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-roi_sizes_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-roi_sizes_" class="m-doc-self">roi_sizes_</a></span>
+            </h3>
+            <p>Sizes of projection ROI.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-labels_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-labels_" class="m-doc-self">labels_</a></span>
+            </h3>
+            <p>Labels to use for axes, one character per axis.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-range_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc">dip::viewer::FloatRange</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-range_" class="m-doc-self">range_</a></span>
+            </h3>
+            <p>value range across image (histogram limits).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-tensor_range_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dipviewer.html#dip-viewer-FloatRangeArray" class="m-doc">dip::viewer::FloatRangeArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-tensor_range_" class="m-doc-self">tensor_range_</a></span>
+            </h3>
+            <p>value range per tensor.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-mapping_range_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc">dip::viewer::FloatRange</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-mapping_range_" class="m-doc-self">mapping_range_</a></span>
+            </h3>
+            <p>mapped value range (colorbar limits).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-mapping_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-mapping_" class="m-doc-self">mapping_</a></span>
+            </h3>
+            <p>Grey-value mapping options, sets mapping_range_.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-element_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-element_" class="m-doc-self">element_</a></span>
+            </h3>
+            <p>Tensor element to visualize.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-lut_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-LookupTable" class="m-doc">dip::viewer::ViewingOptions::LookupTable</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-lut_" class="m-doc-self">lut_</a></span>
+            </h3>
+            <p>Grey-value to color mapping options.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-color_elements_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-color_elements_" class="m-doc-self">color_elements_</a></span>
+            </h3>
+            <p>Which tensor element is R, G, and B.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-split_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-split_" class="m-doc-self">split_</a></span>
+            </h3>
+            <p>Split point between projections (pixels).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-zoom_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-zoom_" class="m-doc-self">zoom_</a></span>
+            </h3>
+            <p>Zoom factor per dimension (from physical dimensions + user). Also determines relative viewport sizes.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-origin_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-origin_" class="m-doc-self">origin_</a></span>
+            </h3>
+            <p>Display origin for moving the image around.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-offset_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-PhysicalQuantity.html#dip-PhysicalQuantityArray" class="m-doc">dip::PhysicalQuantityArray</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-offset_" class="m-doc-self">offset_</a></span>
+            </h3>
+            <p>Offset of origin pixel in real-world coordinates.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-ViewingOptions-status_"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span><span class="m-doc-name"><a href="#dip-viewer-ViewingOptions-status_" class="m-doc-self">status_</a></span>
+            </h3>
+            <p>Status bar text.</p>
+          </div></section>
         </section>
       </div>
     </div>

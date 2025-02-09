@@ -74,12 +74,24 @@
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-viewer-Window-refresh">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-refresh" class="m-doc-self">refresh</a>(</span><span class="m-doc-wrap">)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-click-int--int--int--int--int-" class="m-doc">click</a>(</span><span class="m-doc-wrap">int ,
+              int ,
+              int ,
+              int ,
+              int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
-            <dd>Refresh window contents.</dd>
-                          <dt id="dip-viewer-Window-destroy">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-destroy" class="m-doc-self">destroy</a>(</span><span class="m-doc-wrap">)</span>
+            <dd>Overridable callback that is called when a mouse button is clicked.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-close" class="m-doc">close</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that is called when the window is closed.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-create" class="m-doc">create</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that is called when the window is created.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-destroy" class="m-doc">destroy</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Marks the window for destruction.</dd>
                           <dt>
@@ -87,117 +99,119 @@
             </dt>
             <dd>Returns whether the window is marked for destruction. <a href="#dip-viewer-Window-destroyed-C">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-draw" class="m-doc">draw</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that draws the visualization.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-drawString-char-CP" class="m-doc">drawString</a>(</span><span class="m-doc-wrap">char const* string) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Draw a string onto the window. <a href="#dip-viewer-Window-drawString-char-CP">more...</a></dd>
-                          <dt id="dip-viewer-Window-width-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-width-C" class="m-doc-self">width</a>(</span><span class="m-doc-wrap">) const -&gt; int</span>
-            </dt>
-            <dd>Returns the window&rsquo;s width.</dd>
-                          <dt id="dip-viewer-Window-height-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-height-C" class="m-doc-self">height</a>(</span><span class="m-doc-wrap">) const -&gt; int</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-height-C" class="m-doc">height</a>(</span><span class="m-doc-wrap">) const -&gt; int</span>
             </dt>
             <dd>Returns the window&rsquo;s height.</dd>
-                          <dt id="dip-viewer-Window-setPosition-int--int-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-setPosition-int--int-" class="m-doc-self">setPosition</a>(</span><span class="m-doc-wrap">int x,
-              int y)</span>
-            </dt>
-            <dd>Set the window&rsquo;s screen position.</dd>
-                          <dt id="dip-viewer-Window-setSize-int--int-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-setSize-int--int-" class="m-doc-self">setSize</a>(</span><span class="m-doc-wrap">int width,
-              int height)</span>
-            </dt>
-            <dd>Set the window&rsquo;s size.</dd>
-                          <dt id="dip-viewer-Window-manager">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-manager" class="m-doc-self">manager</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-viewer-Manager.html" class="m-doc">dip::viewer::Manager</a>* <span class="m-label m-flat m-warning">protected</span></span>
-            </dt>
-            <dd>Returns the <a href="dip-viewer-Manager.html"><code>dip::viewer::Manager</code></a> that manages this window.</dd>
-                          <dt id="dip-viewer-Window-id">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-id" class="m-doc-self">id</a>(</span><span class="m-doc-wrap">) -&gt; void* <span class="m-label m-flat m-warning">protected</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-id" class="m-doc">id</a>(</span><span class="m-doc-wrap">) -&gt; void* <span class="m-label m-flat m-warning">protected</span></span>
             </dt>
             <dd>Returns the window&rsquo;s identity.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-title-char-CP" class="m-doc">title</a>(</span><span class="m-doc-wrap">char const* name) <span class="m-label m-flat m-warning">protected</span></span>
-            </dt>
-            <dd>Sets the window&rsquo;s title. <a href="#dip-viewer-Window-title-char-CP">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-swap" class="m-doc">swap</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span></span>
-            </dt>
-            <dd>Swaps display buffers. <a href="#dip-viewer-Window-swap">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-requestSize-dip-uint--dip-uint-" class="m-doc">requestSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height) <span class="m-label m-flat m-warning">protected</span></span>
-            </dt>
-            <dd>Suggests a window&rsquo;s size. <a href="#dip-viewer-Window-requestSize-dip-uint--dip-uint-">more...</a></dd>
-                          <dt id="dip-viewer-Window-release">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-release" class="m-doc-self">release</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Release any resources held or referenced by this window.</dd>
-                          <dt id="dip-viewer-Window-draw">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-draw" class="m-doc-self">draw</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that draws the visualization.</dd>
-                          <dt id="dip-viewer-Window-idle">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-idle" class="m-doc-self">idle</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called periodically to allow for animation.</dd>
-                          <dt id="dip-viewer-Window-reshape-int--int-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-reshape-int--int-" class="m-doc-self">reshape</a>(</span><span class="m-doc-wrap">int ,
-              int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called when the window shape is changed.</dd>
-                          <dt id="dip-viewer-Window-visible-int-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-visible-int-" class="m-doc-self">visible</a>(</span><span class="m-doc-wrap">int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called when the window visibility changes.</dd>
-                          <dt id="dip-viewer-Window-create">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-create" class="m-doc-self">create</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called when the window is created.</dd>
-                          <dt id="dip-viewer-Window-close">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-close" class="m-doc-self">close</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called when the window is closed.</dd>
-                          <dt id="dip-viewer-Window-key-unsigned char--int--int--int-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-key-unsigned char--int--int--int-" class="m-doc-self">key</a>(</span><span class="m-doc-wrap">unsigned char k,
-              int x,
-              int y,
-              int mods) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called when a key is pressed.</dd>
-                          <dt id="dip-viewer-Window-click-int--int--int--int--int-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-click-int--int--int--int--int-" class="m-doc-self">click</a>(</span><span class="m-doc-wrap">int ,
-              int ,
-              int ,
-              int ,
-              int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called when a mouse button is clicked.</dd>
-                          <dt id="dip-viewer-Window-motion-int--int-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-motion-int--int-" class="m-doc-self">motion</a>(</span><span class="m-doc-wrap">int ,
-              int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Overridable callback that is called when the mouse is moved while a button is clicked.</dd>
-                          <dt id="dip-viewer-Window-manager-Manager-P">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-manager-Manager-P" class="m-doc-self">manager</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-Manager.html" class="m-doc">dip::viewer::Manager</a>* _manager) <span class="m-label m-flat m-danger">private</span></span>
-            </dt>
-            <dd>Sets the window&rsquo;s manager.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-id-void-P" class="m-doc">id</a>(</span><span class="m-doc-wrap">void* _id) <span class="m-label m-flat m-danger">private</span></span>
             </dt>
             <dd>Sets the window&rsquo;s identity. <a href="#dip-viewer-Window-id-void-P">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-idle" class="m-doc">idle</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that is called periodically to allow for animation.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-key-unsigned%20char--int--int--int-" class="m-doc">key</a>(</span><span class="m-doc-wrap">unsigned char k,
+              int x,
+              int y,
+              int mods) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that is called when a key is pressed.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-manager" class="m-doc">manager</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-viewer-Manager.html" class="m-doc">dip::viewer::Manager</a>* <span class="m-label m-flat m-warning">protected</span></span>
+            </dt>
+            <dd>Returns the <a href="dip-viewer-Manager.html"><code>dip::viewer::Manager</code></a> that manages this window.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-manager-Manager-P" class="m-doc">manager</a>(</span><span class="m-doc-wrap"><a href="dip-viewer-Manager.html" class="m-doc">dip::viewer::Manager</a>* _manager) <span class="m-label m-flat m-danger">private</span></span>
+            </dt>
+            <dd>Sets the window&rsquo;s manager.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-motion-int--int-" class="m-doc">motion</a>(</span><span class="m-doc-wrap">int ,
+              int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that is called when the mouse is moved while a button is clicked.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-refresh" class="m-doc">refresh</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Refresh window contents.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-release" class="m-doc">release</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Release any resources held or referenced by this window.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-requestSize-dip-uint--dip-uint-" class="m-doc">requestSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height) <span class="m-label m-flat m-warning">protected</span></span>
+            </dt>
+            <dd>Suggests a window&rsquo;s size. <a href="#dip-viewer-Window-requestSize-dip-uint--dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-reshape-int--int-" class="m-doc">reshape</a>(</span><span class="m-doc-wrap">int ,
+              int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that is called when the window shape is changed.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-resize-int--int-" class="m-doc">resize</a>(</span><span class="m-doc-wrap">int width,
               int height) <span class="m-label m-flat m-danger">private</span></span>
             </dt>
             <dd>Sets the window&rsquo;s size. <a href="#dip-viewer-Window-resize-int--int-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-setPosition-int--int-" class="m-doc">setPosition</a>(</span><span class="m-doc-wrap">int x,
+              int y)</span>
+            </dt>
+            <dd>Set the window&rsquo;s screen position.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-setSize-int--int-" class="m-doc">setSize</a>(</span><span class="m-doc-wrap">int width,
+              int height)</span>
+            </dt>
+            <dd>Set the window&rsquo;s size.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-swap" class="m-doc">swap</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">protected</span></span>
+            </dt>
+            <dd>Swaps display buffers. <a href="#dip-viewer-Window-swap">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-title-char-CP" class="m-doc">title</a>(</span><span class="m-doc-wrap">char const* name) <span class="m-label m-flat m-warning">protected</span></span>
+            </dt>
+            <dd>Sets the window&rsquo;s title. <a href="#dip-viewer-Window-title-char-CP">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Window-visible-int-" class="m-doc">visible</a>(</span><span class="m-doc-wrap">int ) <span class="m-label m-flat m-warning">protected</span> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overridable callback that is called when the window visibility changes.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Window-width-C" class="m-doc">width</a>(</span><span class="m-doc-wrap">) const -&gt; int</span>
+            </dt>
+            <dd>Returns the window&rsquo;s width.</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-viewer-Window-refresh"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-refresh" class="m-doc-self">refresh</a></span>(
+)            </h3>
+            <p>Refresh window contents.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-destroy"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-destroy" class="m-doc-self">destroy</a></span>(
+)            </h3>
+            <p>Marks the window for destruction.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-viewer-Window-destroyed-C"><div>
             <h3>
-              <span class="m-doc-return">bool</span>
+              <span class="m-doc-return">bool </span>
               <span class="m-doc-name"><a href="#dip-viewer-Window-destroyed-C" class="m-doc-self">destroyed</a></span>(
 ) const            </h3>
             <p>Returns whether the window is marked for destruction.</p>
@@ -205,15 +219,57 @@
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Window-drawString-char-CP"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
               <span class="m-doc-name"><a href="#dip-viewer-Window-drawString-char-CP" class="m-doc-self">drawString</a></span>(
 <span class="m-doc-arg">char const* string</span>)            </h3>
             <p>Draw a string onto the window.</p>
 <p>Must be called from a callback.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-width-C"><div>
+            <h3>
+              <span class="m-doc-return">int </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-width-C" class="m-doc-self">width</a></span>(
+) const            </h3>
+            <p>Returns the window&rsquo;s width.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-height-C"><div>
+            <h3>
+              <span class="m-doc-return">int </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-height-C" class="m-doc-self">height</a></span>(
+) const            </h3>
+            <p>Returns the window&rsquo;s height.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-setPosition-int--int-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-setPosition-int--int-" class="m-doc-self">setPosition</a></span>(
+<span class="m-doc-arg">int x, </span><span class="m-doc-arg">int y</span>)            </h3>
+            <p>Set the window&rsquo;s screen position.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-setSize-int--int-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-setSize-int--int-" class="m-doc-self">setSize</a></span>(
+<span class="m-doc-arg">int width, </span><span class="m-doc-arg">int height</span>)            </h3>
+            <p>Set the window&rsquo;s size.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-manager"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-viewer-Manager.html" class="m-doc">dip::viewer::Manager</a>* </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-manager" class="m-doc-self">manager</a></span>(
+) <span class="m-label m-warning">protected</span>            </h3>
+            <p>Returns the <a href="dip-viewer-Manager.html"><code>dip::viewer::Manager</code></a> that manages this window.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-id"><div>
+            <h3>
+              <span class="m-doc-return">void* </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-id" class="m-doc-self">id</a></span>(
+) <span class="m-label m-warning">protected</span>            </h3>
+            <p>Returns the window&rsquo;s identity.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-viewer-Window-title-char-CP"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Window-title-char-CP" class="m-doc-self">title</a></span>(
 <span class="m-doc-arg">char const* name</span>) <span class="m-label m-warning">protected</span>            </h3>
             <p>Sets the window&rsquo;s title.</p>
@@ -221,7 +277,7 @@
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Window-swap"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Window-swap" class="m-doc-self">swap</a></span>(
 ) <span class="m-label m-warning">protected</span>            </h3>
             <p>Swaps display buffers.</p>
@@ -229,15 +285,92 @@
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Window-requestSize-dip-uint--dip-uint-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Window-requestSize-dip-uint--dip-uint-" class="m-doc-self">requestSize</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height</span>) <span class="m-label m-warning">protected</span>            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height</span>) <span class="m-label m-warning">protected</span>            </h3>
             <p>Suggests a window&rsquo;s size.</p>
 <p>Note that this function must be called before the <a href="dip-viewer-Window.html#dip-viewer-Window-create"><code>dip::viewer::Window::create</code></a> callback is called.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-release"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-release" class="m-doc-self">release</a></span>(
+) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Release any resources held or referenced by this window.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-draw"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-draw" class="m-doc-self">draw</a></span>(
+) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that draws the visualization.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-idle"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-idle" class="m-doc-self">idle</a></span>(
+) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called periodically to allow for animation.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-reshape-int--int-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-reshape-int--int-" class="m-doc-self">reshape</a></span>(
+<span class="m-doc-arg">int , </span><span class="m-doc-arg">int </span>) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called when the window shape is changed.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-visible-int-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-visible-int-" class="m-doc-self">visible</a></span>(
+<span class="m-doc-arg">int </span>) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called when the window visibility changes.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-create"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-create" class="m-doc-self">create</a></span>(
+) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called when the window is created.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-close"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-close" class="m-doc-self">close</a></span>(
+) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called when the window is closed.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-key-unsigned%20char--int--int--int-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-key-unsigned%20char--int--int--int-" class="m-doc-self">key</a></span>(
+<span class="m-doc-arg">unsigned char k, </span><span class="m-doc-arg">int x, </span><span class="m-doc-arg">int y, </span><span class="m-doc-arg">int mods</span>) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called when a key is pressed.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-click-int--int--int--int--int-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-click-int--int--int--int--int-" class="m-doc-self">click</a></span>(
+<span class="m-doc-arg">int , </span><span class="m-doc-arg">int , </span><span class="m-doc-arg">int , </span><span class="m-doc-arg">int , </span><span class="m-doc-arg">int </span>) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called when a mouse button is clicked.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-motion-int--int-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-motion-int--int-" class="m-doc-self">motion</a></span>(
+<span class="m-doc-arg">int , </span><span class="m-doc-arg">int </span>) <span class="m-label m-warning">protected</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overridable callback that is called when the mouse is moved while a button is clicked.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-viewer-Window-manager-Manager-P"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-viewer-Window-manager-Manager-P" class="m-doc-self">manager</a></span>(
+<span class="m-doc-arg"><a href="dip-viewer-Manager.html" class="m-doc">dip::viewer::Manager</a>* _manager</span>) <span class="m-label m-danger">private</span>            </h3>
+            <p>Sets the window&rsquo;s manager.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-viewer-Window-id-void-P"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Window-id-void-P" class="m-doc-self">id</a></span>(
 <span class="m-doc-arg">void* _id</span>) <span class="m-label m-danger">private</span>            </h3>
             <p>Sets the window&rsquo;s identity.</p>
@@ -246,9 +379,9 @@ identifier that can be used to determine the window context.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Window-resize-int--int-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Window-resize-int--int-" class="m-doc-self">resize</a></span>(
-<span class="m-doc-arg">int width,</span><span class="m-doc-arg">int height</span>) <span class="m-label m-danger">private</span>            </h3>
+<span class="m-doc-arg">int width, </span><span class="m-doc-arg">int height</span>) <span class="m-label m-danger">private</span>            </h3>
             <p>Sets the window&rsquo;s size.</p>
 <p>Note that this does not actually resize the window!</p>
           </div></section>

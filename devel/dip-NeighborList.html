@@ -75,8 +75,8 @@ to each neighbor. Otherwise, a default unit distance is substituted.</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-NeighborList-NeighborList-Metric-CL-dip-uint-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-NeighborList-NeighborList-Metric-CL-dip-uint-" class="m-doc-self">NeighborList</a>(</span><span class="m-doc-wrap"><a href="dip-Metric.html" class="m-doc">dip::Metric</a> const&amp; metric,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-NeighborList-NeighborList-Metric-CL-dip-uint-" class="m-doc">NeighborList</a>(</span><span class="m-doc-wrap"><a href="dip-Metric.html" class="m-doc">dip::Metric</a> const&amp; metric,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimensionality)</span>
             </dt>
             <dd>Creates a <code>NeighborList</code> given the image dimensionality and a <a href="dip-Metric.html"><code>dip::Metric</code></a>.</dd>
@@ -94,72 +94,189 @@ to each neighbor. Otherwise, a default unit distance is substituted.</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-NeighborList-ComputeOffsets-IntegerArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-ComputeOffsets-IntegerArray-CL-C" class="m-doc-self">ComputeOffsets</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-begin-C" class="m-doc">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-NeighborList-Iterator.html" class="m-doc">dip::NeighborList::Iterator</a></span>
             </dt>
-            <dd>Returns an array with offsets corresponding to each of the neighbors in the list, given an
-image&rsquo;s strides array.</dd>
-                          <dt id="dip-NeighborList-CopyDistances-T-C">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-CopyDistances-T-C" class="m-doc-self">CopyDistances</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;T&gt;</span>
-            </dt>
-            <dd>Returns an array with the distances to each of the neighbors in the list.</dd>
-                          <dt id="dip-NeighborList-FindBackward-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-FindBackward-dip-uint--C" class="m-doc-self">FindBackward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
-            </dt>
-            <dd>Returns an array that is true for those neighbors that would be processed earlier
-if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
-                          <dt id="dip-NeighborList-FindForward-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-FindForward-dip-uint--C" class="m-doc-self">FindForward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
-            </dt>
-            <dd>Returns an array that is true for those neighbors that would be processed later
-if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
-                          <dt id="dip-NeighborList-SelectBackward-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-SelectBackward-dip-uint--C" class="m-doc-self">SelectBackward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="dip-NeighborList.html" class="m-doc">dip::NeighborList</a></span>
-            </dt>
-            <dd>Returns a new <code>NeighborList</code> object containing only those neighbors that would be processed earlier
-if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
-                          <dt id="dip-NeighborList-SelectForward-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-SelectForward-dip-uint--C" class="m-doc-self">SelectForward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="dip-NeighborList.html" class="m-doc">dip::NeighborList</a></span>
-            </dt>
-            <dd>Returns a new <code>NeighborList</code> object containing only those neighbors that would be processed later
-if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
-                          <dt id="dip-NeighborList-Size-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Size-C" class="m-doc-self">Size</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the number of neighbors.</dd>
-                          <dt id="dip-NeighborList-Dimensionality-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Dimensionality-C" class="m-doc-self">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the neighborhood dimensionality</dd>
-                          <dt id="dip-NeighborList-Border-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Border-C" class="m-doc-self">Border</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            <dd>A forward iterator to the first neighbor</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Border-C" class="m-doc">Border</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
             </dt>
             <dd>Returns the number of pixels, along each dimension, that the neighborhood extends outside of its
 central pixel.</dd>
-                          <dt id="dip-NeighborList-begin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-begin-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-NeighborList-Iterator.html" class="m-doc">dip::NeighborList::Iterator</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-ComputeOffsets-IntegerArray-CL-C" class="m-doc">ComputeOffsets</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a></span>
             </dt>
-            <dd>A forward iterator to the first neighbor</dd>
-                          <dt id="dip-NeighborList-end-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-end-C" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-NeighborList-Iterator.html" class="m-doc">dip::NeighborList::Iterator</a></span>
-            </dt>
-            <dd>A forward iterator to one past the last neighbor</dd>
-                          <dt id="dip-NeighborList-Coordinates-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Coordinates-dip-uint--C" class="m-doc-self">Coordinates</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp;</span>
+            <dd>Returns an array with offsets corresponding to each of the neighbors in the list, given an
+image&rsquo;s strides array.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Coordinates-dip-uint--C" class="m-doc">Coordinates</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp;</span>
             </dt>
             <dd>Retrieve neighbor coordinates by index</dd>
-                          <dt id="dip-NeighborList-Distance-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Distance-dip-uint--C" class="m-doc-self">Distance</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-CopyDistances-T-C" class="m-doc">CopyDistances</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;T&gt;</span>
+            </dt>
+            <dd>Returns an array with the distances to each of the neighbors in the list.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Dimensionality-C" class="m-doc">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the neighborhood dimensionality</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Distance-dip-uint--C" class="m-doc">Distance</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Retrieve neighbor distance by index</dd>
-                          <dt id="dip-NeighborList-IsInImage-dip-uint--UnsignedArray-CL-UnsignedArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-IsInImage-dip-uint--UnsignedArray-CL-UnsignedArray-CL-C" class="m-doc-self">IsInImage</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-end-C" class="m-doc">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-NeighborList-Iterator.html" class="m-doc">dip::NeighborList::Iterator</a></span>
+            </dt>
+            <dd>A forward iterator to one past the last neighbor</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-FindBackward-dip-uint--C" class="m-doc">FindBackward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
+            </dt>
+            <dd>Returns an array that is true for those neighbors that would be processed earlier
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-FindForward-dip-uint--C" class="m-doc">FindForward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
+            </dt>
+            <dd>Returns an array that is true for those neighbors that would be processed later
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-IsInImage-dip-uint--UnsignedArray-CL-UnsignedArray-CL-C" class="m-doc">IsInImage</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; coords,
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; imsz) const -&gt; bool</span>
             </dt>
             <dd>Returns true if the neighbor by index is within the image</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-SelectBackward-dip-uint--C" class="m-doc">SelectBackward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="dip-NeighborList.html" class="m-doc">dip::NeighborList</a></span>
+            </dt>
+            <dd>Returns a new <code>NeighborList</code> object containing only those neighbors that would be processed earlier
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-SelectForward-dip-uint--C" class="m-doc">SelectForward</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0) const -&gt; <a href="dip-NeighborList.html" class="m-doc">dip::NeighborList</a></span>
+            </dt>
+            <dd>Returns a new <code>NeighborList</code> object containing only those neighbors that would be processed later
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-NeighborList-Size-C" class="m-doc">Size</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of neighbors.</dd>
           </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-NeighborList-NeighborList-Metric-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-NeighborList-Metric-CL-dip-uint-" class="m-doc-self">NeighborList</a></span>(
+<span class="m-doc-arg"><a href="dip-Metric.html" class="m-doc">dip::Metric</a> const&amp; metric, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimensionality</span>)            </h3>
+            <p>Creates a <code>NeighborList</code> given the image dimensionality and a <a href="dip-Metric.html"><code>dip::Metric</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-ComputeOffsets-IntegerArray-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-ComputeOffsets-IntegerArray-CL-C" class="m-doc-self">ComputeOffsets</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides</span>) const            </h3>
+            <p>Returns an array with offsets corresponding to each of the neighbors in the list, given an
+image&rsquo;s strides array.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-CopyDistances-T-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">std::vector&lt;T&gt; </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-CopyDistances-T-C" class="m-doc-self">CopyDistances</a></span>(
+) const            </h3>
+            <p>Returns an array with the distances to each of the neighbors in the list.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-FindBackward-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-FindBackward-dip-uint--C" class="m-doc-self">FindBackward</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>) const            </h3>
+            <p>Returns an array that is true for those neighbors that would be processed earlier
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-FindForward-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-FindForward-dip-uint--C" class="m-doc-self">FindForward</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>) const            </h3>
+            <p>Returns an array that is true for those neighbors that would be processed later
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-SelectBackward-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-NeighborList.html" class="m-doc">dip::NeighborList</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-SelectBackward-dip-uint--C" class="m-doc-self">SelectBackward</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>) const            </h3>
+            <p>Returns a new <code>NeighborList</code> object containing only those neighbors that would be processed earlier
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-SelectForward-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-NeighborList.html" class="m-doc">dip::NeighborList</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-SelectForward-dip-uint--C" class="m-doc-self">SelectForward</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> procDim = 0</span>) const            </h3>
+            <p>Returns a new <code>NeighborList</code> object containing only those neighbors that would be processed later
+if processing as <code>ImageIterator</code> and the like would. <code>procDim</code> must be the iterator&rsquo;s processing dimension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-Size-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-Size-C" class="m-doc-self">Size</a></span>(
+) const            </h3>
+            <p>Returns the number of neighbors.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-Dimensionality-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-Dimensionality-C" class="m-doc-self">Dimensionality</a></span>(
+) const            </h3>
+            <p>Returns the neighborhood dimensionality</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-Border-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-Border-C" class="m-doc-self">Border</a></span>(
+) const            </h3>
+            <p>Returns the number of pixels, along each dimension, that the neighborhood extends outside of its
+central pixel.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-begin-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-NeighborList-Iterator.html" class="m-doc">dip::NeighborList::Iterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-begin-C" class="m-doc-self">begin</a></span>(
+) const            </h3>
+            <p>A forward iterator to the first neighbor</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-end-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-NeighborList-Iterator.html" class="m-doc">dip::NeighborList::Iterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-end-C" class="m-doc-self">end</a></span>(
+) const            </h3>
+            <p>A forward iterator to one past the last neighbor</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-Coordinates-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-Coordinates-dip-uint--C" class="m-doc-self">Coordinates</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index</span>) const            </h3>
+            <p>Retrieve neighbor coordinates by index</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-Distance-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-Distance-dip-uint--C" class="m-doc-self">Distance</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index</span>) const            </h3>
+            <p>Retrieve neighbor distance by index</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-NeighborList-IsInImage-dip-uint--UnsignedArray-CL-UnsignedArray-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-NeighborList-IsInImage-dip-uint--UnsignedArray-CL-UnsignedArray-CL-C" class="m-doc-self">IsInImage</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; coords, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; imsz</span>) const            </h3>
+            <p>Returns true if the neighbor by index is within the image</p>
+          </div></section>
         </section>
       </div>
     </div>

@@ -74,50 +74,23 @@ See <a href="microscopy.html">Microscopy</a>.</p>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-AttenuationCorrection-Image-CL-Image-L-dfloat--dfloat--dfloat--dfloat--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />AttenuationCorrection</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> fAttenuation = 0.01,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> bAttenuation = 0.01,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> NA = 1.4,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> refIndex = 1.518,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "DET")</span>
+            </dt>
+            <dd>3D fluorescence attenuation correction using one of three iterative algorithms <a href="microscopy.html#dip-AttenuationCorrection-Image-CL-Image-L-dfloat--dfloat--dfloat--dfloat--dfloat--dfloat--String-CL">more...</a></dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-BeerLambertMapping-Image-CL-Image-L-Image-Pixel-CL" class="m-doc">dip::<wbr />BeerLambertMapping</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; background)</span>
             </dt>
             <dd>Applies a logarithmic mapping to a transmittance image to obtain an absorbance image <a href="microscopy.html#dip-BeerLambertMapping-Image-CL-Image-L-Image-Pixel-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-InverseBeerLambertMapping-Image-CL-Image-L-Image-Pixel-CL" class="m-doc">dip::<wbr />InverseBeerLambertMapping</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; background = {255})</span>
-            </dt>
-            <dd>Applies an exponential mapping to an absorbance image to obtain a transmittance image <a href="microscopy.html#dip-InverseBeerLambertMapping-Image-CL-Image-L-Image-Pixel-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-UnmixStains-Image-CL-Image-L-std-vector<Image-Pixel>-CL" class="m-doc">dip::<wbr />UnmixStains</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              std::vector&lt;Image::Pixel&gt; const&amp; stains)</span>
-            </dt>
-            <dd>Unmixes stains in a brightfield absorbance image or a fluorescence emission image. <a href="microscopy.html#dip-UnmixStains-Image-CL-Image-L-std-vector<Image-Pixel>-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-std-vector<Image-Pixel>-CL" class="m-doc">dip::<wbr />MixStains</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              std::vector&lt;Image::Pixel&gt; const&amp; stains)</span>
-            </dt>
-            <dd>Composes a color image given stain densities and stain absorbance values (brightfield) or stain emission
-values (fluorescence) <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-std-vector<Image-Pixel>-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-MandersOverlapCoefficient-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />MandersOverlapCoefficient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the Manders Overlap Coefficient. <a href="microscopy.html#dip-MandersOverlapCoefficient-Image-CL-Image-CL-Image-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-IntensityCorrelationQuotient-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />IntensityCorrelationQuotient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes Li&rsquo;s Intensity Correlation Quotient. <a href="microscopy.html#dip-IntensityCorrelationQuotient-Image-CL-Image-CL-Image-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-MandersColocalizationCoefficients-Image-CL-Image-CL-Image-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />MandersColocalizationCoefficients</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold1 = 0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold2 = 0) -&gt; <a href="microscopy.html#dip-ColocalizationCoefficients" class="m-doc">dip::ColocalizationCoefficients</a></span>
-            </dt>
-            <dd>Computes Manders&rsquo; Colocalization Coefficients. <a href="microscopy.html#dip-MandersColocalizationCoefficients-Image-CL-Image-CL-Image-CL-dfloat--dfloat-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-CostesColocalizationCoefficients-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />CostesColocalizationCoefficients</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
@@ -134,13 +107,23 @@ values (fluorescence) <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-st
             </dt>
             <dd>Computes Costes&rsquo; test of significance of true colocalization <a href="microscopy.html#dip-CostesSignificanceTest-Image-CL-Image-CL-Image-CL-Random-L-UnsignedArray--dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-CostesSignificanceTest-Image-CL-Image-CL-Image-CL-UnsignedArray--dip-uint-" class="m-doc-self">dip::<wbr />CostesSignificanceTest</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
+              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-CostesSignificanceTest-Image-CL-Image-CL-Image-CL-UnsignedArray--dip-uint-" class="m-doc">dip::<wbr />CostesSignificanceTest</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
               <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> blockSizes = {3},
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> repetitions = 200) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-ExponentialFitCorrection-Image-CL-Image-CL-Image-L-dfloat--String-CL-dfloat--String-CL" class="m-doc">dip::<wbr />ExponentialFitCorrection</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile = -1.0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; fromWhere = "first plane",
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> hysteresis = 1.0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; weighting = "none")</span>
+            </dt>
+            <dd>3D fluorescence attenuation correction using an exponential fit <a href="microscopy.html#dip-ExponentialFitCorrection-Image-CL-Image-CL-Image-L-dfloat--String-CL-dfloat--String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-IncoherentOTF-Image-L-dfloat--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />IncoherentOTF</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> defocus = 0,
@@ -150,7 +133,7 @@ values (fluorescence) <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-st
             </dt>
             <dd>Generates an incoherent OTF (optical transfer function) <a href="microscopy.html#dip-IncoherentOTF-Image-L-dfloat--dfloat--dfloat--String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-IncoherentOTF-UnsignedArray-CL-dfloat--dfloat--dfloat--String-CL" class="m-doc-self">dip::<wbr />IncoherentOTF</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
+              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-IncoherentOTF-UnsignedArray-CL-dfloat--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />IncoherentOTF</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> defocus = 0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> oversampling = 1,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1,
@@ -158,7 +141,7 @@ values (fluorescence) <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-st
             </dt>
             <dd>Overload for the function above, which takes image sizes instead of an image.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-IncoherentOTF-dfloat--dfloat--dfloat--String-CL" class="m-doc-self">dip::<wbr />IncoherentOTF</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> defocus = 0,
+              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-IncoherentOTF-dfloat--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />IncoherentOTF</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> defocus = 0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> oversampling = 1,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> amplitude = 1,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::STOKSETH) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
@@ -171,27 +154,38 @@ values (fluorescence) <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-st
             </dt>
             <dd>Generates an incoherent PSF (point spread function) <a href="microscopy.html#dip-IncoherentPSF-Image-L-dfloat--dfloat-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-ExponentialFitCorrection-Image-CL-Image-CL-Image-L-dfloat--String-CL-dfloat--String-CL" class="m-doc">dip::<wbr />ExponentialFitCorrection</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile = -1.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; fromWhere = "first plane",
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> hysteresis = 1.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; weighting = "none")</span>
+              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-IntensityCorrelationQuotient-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />IntensityCorrelationQuotient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>3D fluorescence attenuation correction using an exponential fit <a href="microscopy.html#dip-ExponentialFitCorrection-Image-CL-Image-CL-Image-L-dfloat--String-CL-dfloat--String-CL">more...</a></dd>
+            <dd>Computes Li&rsquo;s Intensity Correlation Quotient. <a href="microscopy.html#dip-IntensityCorrelationQuotient-Image-CL-Image-CL-Image-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-AttenuationCorrection-Image-CL-Image-L-dfloat--dfloat--dfloat--dfloat--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />AttenuationCorrection</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-InverseBeerLambertMapping-Image-CL-Image-L-Image-Pixel-CL" class="m-doc">dip::<wbr />InverseBeerLambertMapping</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> fAttenuation = 0.01,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> bAttenuation = 0.01,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> NA = 1.4,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> refIndex = 1.518,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "DET")</span>
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; background = {255})</span>
             </dt>
-            <dd>3D fluorescence attenuation correction using one of three iterative algorithms <a href="microscopy.html#dip-AttenuationCorrection-Image-CL-Image-L-dfloat--dfloat--dfloat--dfloat--dfloat--dfloat--String-CL">more...</a></dd>
+            <dd>Applies an exponential mapping to an absorbance image to obtain a transmittance image <a href="microscopy.html#dip-InverseBeerLambertMapping-Image-CL-Image-L-Image-Pixel-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-MandersColocalizationCoefficients-Image-CL-Image-CL-Image-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />MandersColocalizationCoefficients</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold1 = 0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold2 = 0) -&gt; <a href="microscopy.html#dip-ColocalizationCoefficients" class="m-doc">dip::ColocalizationCoefficients</a></span>
+            </dt>
+            <dd>Computes Manders&rsquo; Colocalization Coefficients. <a href="microscopy.html#dip-MandersColocalizationCoefficients-Image-CL-Image-CL-Image-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="microscopy.html#dip-MandersOverlapCoefficient-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />MandersOverlapCoefficient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; channel2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Manders Overlap Coefficient. <a href="microscopy.html#dip-MandersOverlapCoefficient-Image-CL-Image-CL-Image-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-std-vector%3CImage-Pixel%3E-CL" class="m-doc">dip::<wbr />MixStains</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              std::vector&lt;Image::Pixel&gt; const&amp; stains)</span>
+            </dt>
+            <dd>Composes a color image given stain densities and stain absorbance values (brightfield) or stain emission
+values (fluorescence) <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-std-vector%3CImage-Pixel%3E-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-SimulatedAttenuation-Image-CL-Image-L-dfloat--dfloat--dfloat--dfloat--dip-uint--dfloat-" class="m-doc">dip::<wbr />SimulatedAttenuation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -203,6 +197,12 @@ values (fluorescence) <a href="microscopy.html#dip-MixStains-Image-CL-Image-L-st
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> rayStep = 1)</span>
             </dt>
             <dd>3D fluorescence attenuation simulation <a href="microscopy.html#dip-SimulatedAttenuation-Image-CL-Image-L-dfloat--dfloat--dfloat--dfloat--dip-uint--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="microscopy.html#dip-UnmixStains-Image-CL-Image-L-std-vector%3CImage-Pixel%3E-CL" class="m-doc">dip::<wbr />UnmixStains</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              std::vector&lt;Image::Pixel&gt; const&amp; stains)</span>
+            </dt>
+            <dd>Unmixes stains in a brightfield absorbance image or a fluorescence emission image. <a href="microscopy.html#dip-UnmixStains-Image-CL-Image-L-std-vector%3CImage-Pixel%3E-CL">more...</a></dd>
           </dl>
         </section>
       </div>

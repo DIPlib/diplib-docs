@@ -335,8 +335,8 @@ method just like any of the default features.</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-MeasurementTool-MeasurementTool">
-              <span class="m-doc-wrap-bumper"><a href="#dip-MeasurementTool-MeasurementTool" class="m-doc-self">MeasurementTool</a>(</span><span class="m-doc-wrap">)</span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-MeasurementTool-MeasurementTool" class="m-doc">MeasurementTool</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Constructor.</dd>
             </dl>
@@ -345,15 +345,16 @@ method just like any of the default features.</p>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MeasurementTool-Register-Feature-Base-P" class="m-doc">Register</a>(</span><span class="m-doc-wrap"><a href="dip-Feature-Base.html" class="m-doc">dip::Feature::Base</a>* feature)</span>
-            </dt>
-            <dd>Registers a feature with this <code>MeasurementTool</code>. <a href="#dip-MeasurementTool-Register-Feature-Base-P">more...</a></dd>
-                          <dt id="dip-MeasurementTool-Configure-String-CL-String-CL-dfloat--C">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MeasurementTool-Configure-String-CL-String-CL-dfloat--C" class="m-doc-self">Configure</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; feature,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MeasurementTool-Configure-String-CL-String-CL-dfloat--C" class="m-doc">Configure</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; feature,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; parameter,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> value) const</span>
             </dt>
             <dd>Sets a parameter of a feature registered with this <code>MeasurementTool</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MeasurementTool-Features-C" class="m-doc">Features</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Feature-Information.html#dip-Feature-InformationArray" class="m-doc">dip::Feature::InformationArray</a></span>
+            </dt>
+            <dd>Returns a table with known feature names and descriptions, which can directly be shown to the user.
+(Note: data is copied to output array, this is not a trivial function).</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-MeasurementTool-Measure-Image-CL-Image-CL-StringArray--UnsignedArray-CL-dip-uint--C" class="m-doc">Measure</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,
@@ -362,18 +363,24 @@ method just like any of the default features.</p>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0) const -&gt; <a href="dip-Measurement.html" class="m-doc">dip::Measurement</a></span>
             </dt>
             <dd>Measures one or more features on one or more objects in the labeled image. <a href="#dip-MeasurementTool-Measure-Image-CL-Image-CL-StringArray--UnsignedArray-CL-dip-uint--C">more...</a></dd>
-                          <dt id="dip-MeasurementTool-Features-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MeasurementTool-Features-C" class="m-doc-self">Features</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Feature-Information.html#dip-Feature-InformationArray" class="m-doc">dip::Feature::InformationArray</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MeasurementTool-Register-Feature-Base-P" class="m-doc">Register</a>(</span><span class="m-doc-wrap"><a href="dip-Feature-Base.html" class="m-doc">dip::Feature::Base</a>* feature)</span>
             </dt>
-            <dd>Returns a table with known feature names and descriptions, which can directly be shown to the user.
-(Note: data is copied to output array, this is not a trivial function).</dd>
+            <dd>Registers a feature with this <code>MeasurementTool</code>. <a href="#dip-MeasurementTool-Register-Feature-Base-P">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-MeasurementTool-MeasurementTool"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-MeasurementTool-MeasurementTool" class="m-doc-self">MeasurementTool</a></span>(
+)            </h3>
+            <p>Constructor.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-MeasurementTool-Register-Feature-Base-P"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-MeasurementTool-Register-Feature-Base-P" class="m-doc-self">Register</a></span>(
 <span class="m-doc-arg"><a href="dip-Feature-Base.html" class="m-doc">dip::Feature::Base</a>* feature</span>)            </h3>
             <p>Registers a feature with this <code>MeasurementTool</code>.</p>
@@ -390,11 +397,18 @@ The <a href="dip-MeasurementTool.html"><code>dip::MeasurementTool</code></a> obj
 <p>See the source files for existing features for examples (and a starting point) on how to write your
 own feature.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-MeasurementTool-Configure-String-CL-String-CL-dfloat--C"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-MeasurementTool-Configure-String-CL-String-CL-dfloat--C" class="m-doc-self">Configure</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; feature, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; parameter, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> value</span>) const            </h3>
+            <p>Sets a parameter of a feature registered with this <code>MeasurementTool</code>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-MeasurementTool-Measure-Image-CL-Image-CL-StringArray--UnsignedArray-CL-dip-uint--C"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Measurement.html" class="m-doc">dip::Measurement</a></span>
+              <span class="m-doc-return"><a href="dip-Measurement.html" class="m-doc">dip::Measurement</a> </span>
               <span class="m-doc-name"><a href="#dip-MeasurementTool-Measure-Image-CL-Image-CL-StringArray--UnsignedArray-CL-dip-uint--C" class="m-doc-self">Measure</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> features,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0</span>) const            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> features, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; objectIDs = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0</span>) const            </h3>
             <p>Measures one or more features on one or more objects in the labeled image.</p>
 <p><code>label</code> is a labeled image (any unsigned integer type, and scalar), and <code>grey</code> is either a raw
 image (not forged, without pixel data), or an real-valued image with the same dimensionality and
@@ -413,6 +427,14 @@ to be measured, a raw <a href="dip-Measurement.html"><code>dip::Measurement</cod
 the <code>label</code> image into account. Those of <code>grey</code> are ignored. Some measurements require
 isotropic pixel sizes, if <code>label</code> is not isotropic, the pixel size is ignored and these
 measures will return values in pixels instead.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-MeasurementTool-Features-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Feature-Information.html#dip-Feature-InformationArray" class="m-doc">dip::Feature::InformationArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-MeasurementTool-Features-C" class="m-doc-self">Features</a></span>(
+) const            </h3>
+            <p>Returns a table with known feature names and descriptions, which can directly be shown to the user.
+(Note: data is copied to output array, this is not a trivial function).</p>
           </div></section>
         </section>
       </div>

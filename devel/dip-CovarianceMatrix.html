@@ -71,16 +71,16 @@ the off-diagonal elements, which are equal by definition.</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-CovarianceMatrix-CovarianceMatrix">
-              <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix" class="m-doc-self">CovarianceMatrix</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix" class="m-doc">CovarianceMatrix</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>Default-initialized covariance matrix is all zeros.</dd>
-                              <dt id="dip-CovarianceMatrix-CovarianceMatrix-VertexFloat-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix-VertexFloat-" class="m-doc-self">CovarianceMatrix</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> v) <span class="m-label m-flat m-info">explicit</span> </span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix-VertexFloat-" class="m-doc">CovarianceMatrix</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> v) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>Construct a covariance matrix as the outer product of a vector and itself.</dd>
-                              <dt id="dip-CovarianceMatrix-CovarianceMatrix-dfloat--dfloat--dfloat-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix-dfloat--dfloat--dfloat-" class="m-doc-self">CovarianceMatrix</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> xx,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-CovarianceMatrix-CovarianceMatrix-dfloat--dfloat--dfloat-" class="m-doc">CovarianceMatrix</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> xx,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> yy,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> xy) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
@@ -99,63 +99,134 @@ the off-diagonal elements, which are equal by definition.</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-CovarianceMatrix-xx-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-xx-C" class="m-doc-self">xx</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Read matrix element.</dd>
-                          <dt id="dip-CovarianceMatrix-xy-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-xy-C" class="m-doc-self">xy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Read matrix element.</dd>
-                          <dt id="dip-CovarianceMatrix-yy-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-yy-C" class="m-doc-self">yy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Read matrix element.</dd>
-                          <dt id="dip-CovarianceMatrix-Det-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Det-C" class="m-doc-self">Det</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Det-C" class="m-doc">Det</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Compute determinant of matrix.</dd>
-                          <dt id="dip-CovarianceMatrix-Inv-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Inv-C" class="m-doc-self">Inv</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
-            </dt>
-            <dd>Compute inverse of matrix.</dd>
-                          <dt id="dip-CovarianceMatrix-Project-VertexFloat-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Project-VertexFloat-CL-C" class="m-doc-self">Project</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; v) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes v&rsquo; * C * v, with v&rsquo; the transpose of v.
-This is a positive scalar if v is non-zero, because C (this matrix) is positive semidefinite.</dd>
-                          <dt id="dip-CovarianceMatrix-Eig-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Eig-C" class="m-doc-self">Eig</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix-Eigenvalues.html" class="m-doc">dip::CovarianceMatrix::Eigenvalues</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Eig-C" class="m-doc">Eig</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix-Eigenvalues.html" class="m-doc">dip::CovarianceMatrix::Eigenvalues</a></span>
             </dt>
             <dd>Compute eigenvalues of matrix.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Ellipse-bool--C" class="m-doc">Ellipse</a>(</span><span class="m-doc-wrap">bool solid = false) const -&gt; dip::CovarianceMatrix::EllipseParameters</span>
             </dt>
             <dd>Compute parameters of ellipse with same covariance matrix. <a href="#dip-CovarianceMatrix-Ellipse-bool--C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Inv-C" class="m-doc">Inv</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+            </dt>
+            <dd>Compute inverse of matrix.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-Project-VertexFloat-CL-C" class="m-doc">Project</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; v) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes v&rsquo; * C * v, with v&rsquo; the transpose of v.
+This is a positive scalar if v is non-zero, because C (this matrix) is positive semidefinite.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-xx-C" class="m-doc">xx</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Read matrix element.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-xy-C" class="m-doc">xy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Read matrix element.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-yy-C" class="m-doc">yy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Read matrix element.</dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-                          <dt id="dip-CovarianceMatrix-operator%2B%3D-CovarianceMatrix-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-operator%2B%3D-CovarianceMatrix-CL" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> const&amp; other) -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp;</span>
-            </dt>
-            <dd>Add other matrix to this matrix.</dd>
-                          <dt id="dip-CovarianceMatrix-operator%2A%3D-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-operator%2A%3D-dfloat-" class="m-doc-self">operator*=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> d) -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-operator%2A%3D-dfloat-" class="m-doc">operator*=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> d) -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp;</span>
             </dt>
             <dd>Scale matrix.</dd>
-                          <dt id="dip-CovarianceMatrix-operator%2F%3D-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-operator%2F%3D-dfloat-" class="m-doc-self">operator/=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> d) -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-operator%2B%3D-CovarianceMatrix-CL" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> const&amp; other) -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp;</span>
+            </dt>
+            <dd>Add other matrix to this matrix.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceMatrix-operator%2F%3D-dfloat-" class="m-doc">operator/=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> d) -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp;</span>
             </dt>
             <dd>Scale matrix.</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-CovarianceMatrix"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-CovarianceMatrix" class="m-doc-self">CovarianceMatrix</a></span>(
+) <span class="m-label m-info">defaulted</span>            </h3>
+            <p>Default-initialized covariance matrix is all zeros.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-CovarianceMatrix-VertexFloat-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-CovarianceMatrix-VertexFloat-" class="m-doc-self">CovarianceMatrix</a></span>(
+<span class="m-doc-arg"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> v</span>) <span class="m-label m-info">explicit</span>            </h3>
+            <p>Construct a covariance matrix as the outer product of a vector and itself.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-CovarianceMatrix-dfloat--dfloat--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-CovarianceMatrix-dfloat--dfloat--dfloat-" class="m-doc-self">CovarianceMatrix</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> xx, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> yy, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> xy</span>) <span class="m-label m-info">explicit</span>            </h3>
+            <p>Construct a covariance matrix with the three components.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-xx-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-xx-C" class="m-doc-self">xx</a></span>(
+) const            </h3>
+            <p>Read matrix element.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-xy-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-xy-C" class="m-doc-self">xy</a></span>(
+) const            </h3>
+            <p>Read matrix element.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-yy-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-yy-C" class="m-doc-self">yy</a></span>(
+) const            </h3>
+            <p>Read matrix element.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-Det-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-Det-C" class="m-doc-self">Det</a></span>(
+) const            </h3>
+            <p>Compute determinant of matrix.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-Inv-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-Inv-C" class="m-doc-self">Inv</a></span>(
+) const            </h3>
+            <p>Compute inverse of matrix.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-Project-VertexFloat-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-Project-VertexFloat-CL-C" class="m-doc-self">Project</a></span>(
+<span class="m-doc-arg"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; v</span>) const            </h3>
+            <p>Computes v&rsquo; * C * v, with v&rsquo; the transpose of v.
+This is a positive scalar if v is non-zero, because C (this matrix) is positive semidefinite.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-Eig-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix-Eigenvalues.html" class="m-doc">dip::CovarianceMatrix::Eigenvalues</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-Eig-C" class="m-doc-self">Eig</a></span>(
+) const            </h3>
+            <p>Compute eigenvalues of matrix.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-CovarianceMatrix-Ellipse-bool--C"><div>
             <h3>
-              <span class="m-doc-return">dip::CovarianceMatrix::EllipseParameters</span>
+              <span class="m-doc-return">dip::CovarianceMatrix::EllipseParameters </span>
               <span class="m-doc-name"><a href="#dip-CovarianceMatrix-Ellipse-bool--C" class="m-doc-self">Ellipse</a></span>(
 <span class="m-doc-arg">bool solid = false</span>) const            </h3>
             <p>Compute parameters of ellipse with same covariance matrix.</p>
@@ -163,6 +234,27 @@ This is a positive scalar if v is non-zero, because C (this matrix) is positive 
 shell (e.g. obtained through <a href="dip-Polygon.html#dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C"><code>dip::Polygon::CovarianceMatrixVertices</code></a>). This is the default for
 backwards-compatibility. If <code>true</code>, the covariance matrix corresponds to a solid ellipse (e.g. obtained
 though <a href="dip-Polygon.html#dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C"><code>dip::Polygon::CovarianceMatrixSolid</code></a>).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-operator%2B%3D-CovarianceMatrix-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-operator%2B%3D-CovarianceMatrix-CL" class="m-doc-self">operator+=</a></span>(
+<span class="m-doc-arg"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> const&amp; other</span>)            </h3>
+            <p>Add other matrix to this matrix.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-operator%2A%3D-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-operator%2A%3D-dfloat-" class="m-doc-self">operator*=</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> d</span>)            </h3>
+            <p>Scale matrix.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceMatrix-operator%2F%3D-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceMatrix-operator%2F%3D-dfloat-" class="m-doc-self">operator/=</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> d</span>)            </h3>
+            <p>Scale matrix.</p>
           </div></section>
         </section>
       </div>

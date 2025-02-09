@@ -65,34 +65,32 @@
           <h2>Classes</h2>
           <dl class="m-doc">
                           <dt>
-              struct <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::<wbr />viewer::<wbr />ViewingOptions</a>
-            </dt>
-            <dd>Model that determines the <a href="dip-viewer-SliceViewer.html"><code>dip::viewer::SliceViewer</code></a>&rsquo;s behavior <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions">more...</a></dd>
-                          <dt>
               class <a href="dip-viewer-View.html" class="m-doc">dip::<wbr />viewer::<wbr />View</a>
             </dt>
             <dd>Displays a view of the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a> model <a href="dip-viewer-View.html#dip-viewer-View">more...</a></dd>
                           <dt>
-              class <a href="dip-viewer-ViewPort.html" class="m-doc">dip::<wbr />viewer::<wbr />ViewPort</a>
-            </dt>
-            <dd>Handles interaction in a certain display area to control the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a> model <a href="dip-viewer-ViewPort.html#dip-viewer-ViewPort">more...</a></dd>
-                          <dt>
               class <a href="dip-viewer-Viewer.html" class="m-doc">dip::<wbr />viewer::<wbr />Viewer</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
             <dd>A Window for viewing a <a href="dip-Image.html"><code>dip::Image</code></a> <a href="dip-viewer-Viewer.html#dip-viewer-Viewer">more...</a></dd>
+                          <dt>
+              struct <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::<wbr />viewer::<wbr />ViewingOptions</a>
+            </dt>
+            <dd>Model that determines the <a href="dip-viewer-SliceViewer.html"><code>dip::viewer::SliceViewer</code></a>&rsquo;s behavior <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions">more...</a></dd>
+                          <dt>
+              class <a href="dip-viewer-ViewPort.html" class="m-doc">dip::<wbr />viewer::<wbr />ViewPort</a>
+            </dt>
+            <dd>Handles interaction in a certain display area to control the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a> model <a href="dip-viewer-ViewPort.html#dip-viewer-ViewPort">more...</a></dd>
           </dl>
         </section>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
                               <dt>
-              using <a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRange</a> = std::pair&lt;dip::dfloat, dip::dfloat&gt;
-
+using <a href="dipviewer.html#dip-viewer-FloatRange" class="m-doc">dip::<wbr />viewer::<wbr />FloatRange</a> = std::pair&lt;dip::dfloat, dip::dfloat&gt;
             </dt>
             <dd>Specifies a range of values between a lower and upper limit</dd>
                               <dt>
-              using <a href="dipviewer.html#dip-viewer-FloatRangeArray" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRangeArray</a> = std::vector&lt;FloatRange&gt;
-
+using <a href="dipviewer.html#dip-viewer-FloatRangeArray" class="m-doc">dip::<wbr />viewer::<wbr />FloatRangeArray</a> = std::vector&lt;FloatRange&gt;
             </dt>
             <dd>Specifies an array of ranges (typically one per tensor element)</dd>
             </dl>
@@ -101,8 +99,14 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="dipviewer.html#dip-viewer-ApplyViewerColorMap-dip-Image-L-dip-Image-L-ViewingOptions-L" class="m-doc">dip::<wbr />viewer::<wbr />ApplyViewerColorMap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; options)</span>
+            </dt>
+            <dd>Applies the colormap defined by the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a></dd>
+                          <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dipviewer.html#dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-" class="m-doc-self">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
+              <span class="m-doc-wrap-bumper">auto <a href="dipviewer.html#dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-" class="m-doc">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
               double offset,
               double scale,
               <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
@@ -110,21 +114,15 @@
             <dd>Maps an image grey-value onto [0,255]</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dipviewer.html#dip-viewer-rangeMap-T-T--ViewingOptions-CL" class="m-doc-self">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
+              <span class="m-doc-wrap-bumper">auto <a href="dipviewer.html#dip-viewer-rangeMap-T-T--ViewingOptions-CL" class="m-doc">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
               <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Maps an image grey-value onto [0,255]</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="dipviewer.html#dip-viewer-to_string-T-dip-DimensionArray<T>-" class="m-doc-self">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> array) -&gt; std::string</span>
+              <span class="m-doc-wrap-bumper">auto <a href="dipviewer.html#dip-viewer-to_string-T-dip-DimensionArray%3CT%3E-" class="m-doc">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> array) -&gt; std::string</span>
             </dt>
             <dd>String conversion for <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="dipviewer.html#dip-viewer-ApplyViewerColorMap-dip-Image-L-dip-Image-L-ViewingOptions-L" class="m-doc-self">dip::<wbr />viewer::<wbr />ApplyViewerColorMap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; options)</span>
-            </dt>
-            <dd>Applies the colormap defined by the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a></dd>
           </dl>
         </section>
       </div>

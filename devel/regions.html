@@ -74,6 +74,27 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetLabelBoundingBox-Image-CL-LabelType-" class="m-doc">dip::<wbr />GetLabelBoundingBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> objectID) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
+            </dt>
+            <dd>Returns the bounding box for all pixels with label <code>objectID</code> in the labeled or binary image <code>label</code>. <a href="#dip-GetLabelBoundingBox-Image-CL-LabelType-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GrowRegions-Image-CL-Image-CL-Image-L-dip-sint--dip-uint-" class="m-doc">dip::<wbr />GrowRegions</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0)</span>
+            </dt>
+            <dd>Grow (dilate) labeled regions uniformly. <a href="#dip-GrowRegions-Image-CL-Image-CL-Image-L-dip-sint--dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GrowRegionsWeighted-Image-CL-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc">dip::<wbr />GrowRegionsWeighted</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = infinity)</span>
+            </dt>
+            <dd>Grow labeled regions with a speed function given by a grey-value image. <a href="#dip-GrowRegionsWeighted-Image-CL-Image-CL-Image-CL-Image-L-dfloat-">more...</a></dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Label-Image-CL-Image-L-dip-uint--dip-uint--dip-uint--StringArray--String-CL" class="m-doc">dip::<wbr />Label</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; binary,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
@@ -90,6 +111,23 @@
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; region = "") -&gt; std::vector&lt;LabelType&gt;</span>
             </dt>
             <dd>Gets a list of object labels in the labeled image. A labeled image must be of an unsigned type. <a href="#dip-ListObjectLabels-Image-CL-Image-CL-String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MakeRegionsConvex2D-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />MakeRegionsConvex2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED)</span>
+            </dt>
+            <dd>Make each object a single, convex shape. <a href="#dip-MakeRegionsConvex2D-Image-CL-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-RegionAdjacencyGraph-Image-CL-String-CL" class="m-doc">dip::<wbr />RegionAdjacencyGraph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching") -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
+            </dt>
+            <dd>Construct a graph for the given labeled image. <a href="#dip-RegionAdjacencyGraph-Image-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-RegionAdjacencyGraph-Image-CL-Measurement-IteratorFeature-CL-String-CL" class="m-doc">dip::<wbr />RegionAdjacencyGraph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
+              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching") -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
+            </dt>
+            <dd>Construct a graph for the given labeled image. <a href="#dip-RegionAdjacencyGraph-Image-CL-Measurement-IteratorFeature-CL-String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Relabel-Image-CL-Image-L" class="m-doc">dip::<wbr />Relabel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
@@ -115,71 +153,33 @@
             </dt>
             <dd>Removes small objects from a labeled or binary image. <a href="#dip-SmallObjectsRemove-Image-CL-Image-L-dip-uint--dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-GrowRegions-Image-CL-Image-CL-Image-L-dip-sint--dip-uint-" class="m-doc">dip::<wbr />GrowRegions</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0)</span>
-            </dt>
-            <dd>Grow (dilate) labeled regions uniformly. <a href="#dip-GrowRegions-Image-CL-Image-CL-Image-L-dip-sint--dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-GrowRegionsWeighted-Image-CL-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc">dip::<wbr />GrowRegionsWeighted</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = infinity)</span>
-            </dt>
-            <dd>Grow labeled regions with a speed function given by a grey-value image. <a href="#dip-GrowRegionsWeighted-Image-CL-Image-CL-Image-CL-Image-L-dfloat-">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-SplitRegions-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />SplitRegions</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
             </dt>
             <dd>Ensures a gap between regions with unequal labels. <a href="#dip-SplitRegions-Image-CL-Image-L-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MakeRegionsConvex2D-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />MakeRegionsConvex2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED)</span>
-            </dt>
-            <dd>Make each object a single, convex shape. <a href="#dip-MakeRegionsConvex2D-Image-CL-Image-L-String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-GetLabelBoundingBox-Image-CL-LabelType-" class="m-doc">dip::<wbr />GetLabelBoundingBox</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
-              <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> objectID) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
-            </dt>
-            <dd>Returns the bounding box for all pixels with label <code>objectID</code> in the labeled or binary image <code>label</code>. <a href="#dip-GetLabelBoundingBox-Image-CL-LabelType-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-RegionAdjacencyGraph-Image-CL-String-CL" class="m-doc">dip::<wbr />RegionAdjacencyGraph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching") -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
-            </dt>
-            <dd>Construct a graph for the given labeled image. <a href="#dip-RegionAdjacencyGraph-Image-CL-String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-RegionAdjacencyGraph-Image-CL-Measurement-IteratorFeature-CL-String-CL" class="m-doc">dip::<wbr />RegionAdjacencyGraph</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
-              <a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching") -&gt; <a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
-            </dt>
-            <dd>Construct a graph for the given labeled image. <a href="#dip-RegionAdjacencyGraph-Image-CL-Measurement-IteratorFeature-CL-String-CL">more...</a></dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator%26-LabelMap--LabelMap-CL" class="m-doc-self">dip::<wbr />operator&</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator%26-LabelMap--LabelMap-CL" class="m-doc">dip::<wbr />operator&</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,
               <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> const&amp; rhs) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
             </dt>
             <dd>Combines two maps using logical AND. See <a href="dip-LabelMap.html#dip-LabelMap-operator%26%3D-LabelMap-CL"><code>operator&amp;=</code></a>.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator%7C-LabelMap--LabelMap-CL" class="m-doc-self">dip::<wbr />operator|</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,
-              <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> const&amp; rhs) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
-            </dt>
-            <dd>Combines two maps using logical OR. See <a href="dip-LabelMap.html#dip-LabelMap-operator%7C%3D-LabelMap-CL"><code>operator|=</code></a>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator%5E-LabelMap--LabelMap-CL" class="m-doc-self">dip::<wbr />operator^</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator%5E-LabelMap--LabelMap-CL" class="m-doc">dip::<wbr />operator^</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,
               <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> const&amp; rhs) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
             </dt>
             <dd>Combines two maps using logical XOR. See <a href="dip-LabelMap.html#dip-LabelMap-operator%5E%3D-LabelMap-CL"><code>operator^=</code></a>.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator~-LabelMap-" class="m-doc-self">dip::<wbr />operator~</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> rhs) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator%7C-LabelMap--LabelMap-CL" class="m-doc">dip::<wbr />operator|</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,
+              <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> const&amp; rhs) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
+            </dt>
+            <dd>Combines two maps using logical OR. See <a href="dip-LabelMap.html#dip-LabelMap-operator%7C%3D-LabelMap-CL"><code>operator|=</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="dip-LabelMap.html#dip-operator~-LabelMap-" class="m-doc">dip::<wbr />operator~</a>(</span><span class="m-doc-wrap"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> rhs) -&gt; <a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
             </dt>
             <dd>Applies logical NOT to the map. See <a href="dip-LabelMap.html#dip-LabelMap-Negate"><code>dip::LabelMap::Negate</code></a>.</dd>
           </dl>
@@ -188,10 +188,10 @@
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Label-Image-CL-Image-L-dip-uint--dip-uint--dip-uint--StringArray--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
               <span class="m-doc-name"><a href="#dip-Label-Image-CL-Image-L-dip-uint--dip-uint--dip-uint--StringArray--String-CL" class="m-doc-self">dip::<wbr />Label</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; binary,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> minSize = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> boundaryCondition = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::ALL</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; binary, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> minSize = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> boundaryCondition = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::ALL</span>)            </h3>
             <p>Labels the connected components in a binary image</p>
 <p>The output is an unsigned integer image. Each object (respecting the connectivity,
 see <a href="concepts.html#connectivity">Connectivity</a>) in the input image receives a unique number. This number ranges
@@ -218,10 +218,10 @@ value in the output image.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ListObjectLabels-Image-CL-Image-CL-String-CL-String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">std::vector&lt;LabelType&gt;</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">std::vector&lt;LabelType&gt; </span>
               <span class="m-doc-name"><a href="#dip-ListObjectLabels-Image-CL-Image-CL-String-CL-String-CL" class="m-doc-self">dip::<wbr />ListObjectLabels</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; background = S::EXCLUDE,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; region = ""</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; background = S::EXCLUDE, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; region = ""</span>)            </h3>
             <p>Gets a list of object labels in the labeled image. A labeled image must be of an unsigned type.</p>
 <p>If <code>background</code> is <code>"include"</code>, the label ID 0 will be included in the result if present in the image.
 Otherwise, <code>background</code> is <code>"exclude"</code>, and the label ID 0 will be ignored.</p>
@@ -230,10 +230,10 @@ the labels of all objects are listed.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Relabel-Image-CL-Image-L"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Relabel-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Relabel</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Re-assigns labels to objects in a labeled image, such that all labels are consecutive.</p>
 <p>Note that disjoint objects will remain disjoint, as this function only replaces each label ID with
 a new value. The output image will have consecutive label IDs, in the range [1, <em>N</em>], with <em>N</em> the
@@ -242,10 +242,10 @@ number of unique labels in <code>label</code>. Pixels with a value of 0 will rem
           </div></section>
                         <section class="m-doc-details" id="dip-Relabel-Image-CL-Image-L-Graph-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Relabel-Image-CL-Image-L-Graph-CL" class="m-doc-self">dip::<wbr />Relabel</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Graph.html" class="m-doc">dip::Graph</a> const&amp; graph</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Graph.html" class="m-doc">dip::Graph</a> const&amp; graph</span>)            </h3>
             <p>Re-assigns labels to objects in a labeled image, such that regions joined by an edge in <code>graph</code> obtain the same label.</p>
 <p><code>graph</code> should be obtained through <a href="regions.html#dip-RegionAdjacencyGraph-Image-CL-String-CL"><code>dip::RegionAdjacencyGraph</code></a> and modified to obtain a useful segmentation.
 For example:</p>
@@ -261,19 +261,19 @@ For example:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Relabel-Image-CL-Image-L-DirectedGraph-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Relabel-Image-CL-Image-L-DirectedGraph-CL" class="m-doc-self">dip::<wbr />Relabel</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-DirectedGraph.html" class="m-doc">dip::DirectedGraph</a> const&amp; graph</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-DirectedGraph.html" class="m-doc">dip::DirectedGraph</a> const&amp; graph</span>)            </h3>
             <p>Re-assigns labels to objects in a labeled image, such that regions joined by an edge in <code>graph</code> obtain the same label.</p>
 <p><a href="dip-DirectedGraph.html"><code>dip::DirectedGraph</code></a> version of the function above.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-SmallObjectsRemove-Image-CL-Image-L-dip-uint--dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-SmallObjectsRemove-Image-CL-Image-L-dip-uint--dip-uint-" class="m-doc-self">dip::<wbr />SmallObjectsRemove</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> threshold,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> threshold, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0</span>)            </h3>
             <p>Removes small objects from a labeled or binary image.</p>
 <p>If <code>in</code> is an unsigned integer image, it is assumed to be a labeled image. The size of the objects
 are measured using <a href="dip-MeasurementTool.html"><code>dip::MeasurementTool</code></a>, and the labels for the objects with fewer than <code>threshold</code>
@@ -288,10 +288,10 @@ are touching or if objects are disjoint.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-GrowRegions-Image-CL-Image-CL-Image-L-dip-sint--dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-GrowRegions-Image-CL-Image-CL-Image-L-dip-sint--dip-uint-" class="m-doc-self">dip::<wbr />GrowRegions</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> connectivity = -1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 0</span>)            </h3>
             <p>Grow (dilate) labeled regions uniformly.</p>
 <p>The regions in the labeled image <code>label</code> are dilated <code>iterations</code> steps, according to <code>connectivity</code>,
 and optionally constrained by <code>mask</code>. If <code>iterations</code> is 0, the objects are dilated until no further
@@ -311,10 +311,10 @@ whereas in a normal dilation, the label with the larger value would grow over th
           </div></section>
                         <section class="m-doc-details" id="dip-GrowRegionsWeighted-Image-CL-Image-CL-Image-CL-Image-L-dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-GrowRegionsWeighted-Image-CL-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc-self">dip::<wbr />GrowRegionsWeighted</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = infinity</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = infinity</span>)            </h3>
             <p>Grow labeled regions with a speed function given by a grey-value image.</p>
 <p>The regions in the input image <code>label</code> are grown according to a grey-weighted distance
 metric; the weights are given by <code>grey</code>. The optional mask image <code>mask</code> limits the
@@ -338,10 +338,10 @@ these pixel sizes influence the distances computed, and so <code>distance</code>
           </div></section>
                         <section class="m-doc-details" id="dip-SplitRegions-Image-CL-Image-L-dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-SplitRegions-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />SplitRegions</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0</span>)            </h3>
             <p>Ensures a gap between regions with unequal labels.</p>
 <p>In the output image, no two regions will be connected according to <code>connectivity</code>. <code>out</code> is of the same
 type as <code>label</code>, which must be an unsigned integer type, and scalar.</p>
@@ -353,10 +353,10 @@ zero (the background label).</p>
           </div></section>
                         <section class="m-doc-details" id="dip-MakeRegionsConvex2D-Image-CL-Image-L-String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-MakeRegionsConvex2D-Image-CL-Image-L-String-CL" class="m-doc-self">dip::<wbr />MakeRegionsConvex2D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::FILLED</span>)            </h3>
             <p>Make each object a single, convex shape.</p>
 <p>For each label, it finds the convex hull and draws it into the image. Where the convex hulls of objects
 overlaps, the larger label prevails, meaning that the other object might not be convex any more where the
@@ -371,10 +371,10 @@ idempotent (i.e. running it a second time on its own output can produce a differ
           </div></section>
                         <section class="m-doc-details" id="dip-GetLabelBoundingBox-Image-CL-LabelType-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a> </span>
               <span class="m-doc-name"><a href="#dip-GetLabelBoundingBox-Image-CL-LabelType-" class="m-doc-self">dip::<wbr />GetLabelBoundingBox</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> objectID</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> objectID</span>)            </h3>
             <p>Returns the bounding box for all pixels with label <code>objectID</code> in the labeled or binary image <code>label</code>.</p>
 <p><code>label</code> must be a labeled image (of type unsigned integer) or binary, and must be scalar and have at least
 one dimension.</p>
@@ -386,10 +386,10 @@ features <a href="features.html#size_features_Minimum">Minimum</a> and <a href="
           </div></section>
                         <section class="m-doc-details" id="dip-RegionAdjacencyGraph-Image-CL-String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return"><a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return"><a href="dip-Graph.html" class="m-doc">dip::Graph</a> </span>
               <span class="m-doc-name"><a href="#dip-RegionAdjacencyGraph-Image-CL-String-CL" class="m-doc-self">dip::<wbr />RegionAdjacencyGraph</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching"</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching"</span>)            </h3>
             <p>Construct a graph for the given labeled image.</p>
 <p>Each region (object/label) in the image <code>labels</code> is a node. Edges represent neighborhood relations between regions.
 Because the <a href="dip-Graph.html"><code>dip::Graph</code></a> class uses the vertex ID as an index into an array, it is recommended that this function
@@ -419,10 +419,10 @@ to another region, then the edge weight is very small to indicate a strong conne
           </div></section>
                         <section class="m-doc-details" id="dip-RegionAdjacencyGraph-Image-CL-Measurement-IteratorFeature-CL-String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
-              <span class="m-doc-return"><a href="dip-Graph.html" class="m-doc">dip::Graph</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--regions-h.html">"diplib/regions.h"</a></div>
+              <span class="m-doc-return"><a href="dip-Graph.html" class="m-doc">dip::Graph</a> </span>
               <span class="m-doc-name"><a href="#dip-RegionAdjacencyGraph-Image-CL-Measurement-IteratorFeature-CL-String-CL" class="m-doc-self">dip::<wbr />RegionAdjacencyGraph</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,</span><span class="m-doc-arg"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching"</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels, </span><span class="m-doc-arg"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = "touching"</span>)            </h3>
             <p>Construct a graph for the given labeled image.</p>
 <p>This function is similar to the one above, but edge weights are derived from the absolute difference
 between <code>featureValues</code> for the two regions joined by the edge. Vertex values are set to the feature value
@@ -432,38 +432,6 @@ first value of the feature is used. For features with multiple values, select a 
 <a href="dip-Measurement-IteratorFeature.html#dip-Measurement-IteratorFeature-Subset-dip-uint--dip-uint-"><code>dip::Measurement::IteratorFeature::Subset</code></a> method, or pick a column in the <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object
 directly using <a href="dip-Measurement.html#dip-Measurement-FeatureValuesView-dip-uint--dip-uint--C"><code>dip::Measurement::FeatureValuesView</code></a>.</p>
 <p>For the labels that do not appear in <code>featureValues</code>, their vertex value will be set to 0.</p>
-          </div></section>
-                        <section class="m-doc-details" id="dip-operator%26-LabelMap--LabelMap-CL"><div>
-            <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--label_map-h.html">"diplib/label_map.h"</a></div>
-              <span class="m-doc-return"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
-              <span class="m-doc-name"><a href="#dip-operator%26-LabelMap--LabelMap-CL" class="m-doc-self">dip::<wbr />operator&</a></span>(
-<span class="m-doc-arg"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,</span><span class="m-doc-arg"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> const&amp; rhs</span>)            </h3>
-            <p>Combines two maps using logical AND. See <a href="dip-LabelMap.html#dip-LabelMap-operator%26%3D-LabelMap-CL"><code>operator&amp;=</code></a>.</p>
-          </div></section>
-                        <section class="m-doc-details" id="dip-operator%7C-LabelMap--LabelMap-CL"><div>
-            <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--label_map-h.html">"diplib/label_map.h"</a></div>
-              <span class="m-doc-return"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
-              <span class="m-doc-name"><a href="#dip-operator%7C-LabelMap--LabelMap-CL" class="m-doc-self">dip::<wbr />operator|</a></span>(
-<span class="m-doc-arg"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,</span><span class="m-doc-arg"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> const&amp; rhs</span>)            </h3>
-            <p>Combines two maps using logical OR. See <a href="dip-LabelMap.html#dip-LabelMap-operator%7C%3D-LabelMap-CL"><code>operator|=</code></a>.</p>
-          </div></section>
-                        <section class="m-doc-details" id="dip-operator%5E-LabelMap--LabelMap-CL"><div>
-            <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--label_map-h.html">"diplib/label_map.h"</a></div>
-              <span class="m-doc-return"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
-              <span class="m-doc-name"><a href="#dip-operator%5E-LabelMap--LabelMap-CL" class="m-doc-self">dip::<wbr />operator^</a></span>(
-<span class="m-doc-arg"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> lhs,</span><span class="m-doc-arg"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> const&amp; rhs</span>)            </h3>
-            <p>Combines two maps using logical XOR. See <a href="dip-LabelMap.html#dip-LabelMap-operator%5E%3D-LabelMap-CL"><code>operator^=</code></a>.</p>
-          </div></section>
-                        <section class="m-doc-details" id="dip-operator~-LabelMap-"><div>
-            <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--label_map-h.html">"diplib/label_map.h"</a></div>
-              <span class="m-doc-return"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a></span>
-              <span class="m-doc-name"><a href="#dip-operator~-LabelMap-" class="m-doc-self">dip::<wbr />operator~</a></span>(
-<span class="m-doc-arg"><a href="dip-LabelMap.html" class="m-doc">dip::LabelMap</a> rhs</span>)            </h3>
-            <p>Applies logical NOT to the map. See <a href="dip-LabelMap.html#dip-LabelMap-Negate"><code>dip::LabelMap::Negate</code></a>.</p>
           </div></section>
         </section>
       </div>

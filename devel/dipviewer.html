@@ -329,10 +329,6 @@ ensure a clean exit.</p>
             </dt>
             <dd>Handles viewer linking. <a href="dip-viewer-LinkViewPort.html#dip-viewer-LinkViewPort">more...</a></dd>
                           <dt>
-              class <a href="dip-viewer-Window.html" class="m-doc">dip::<wbr />viewer::<wbr />Window</a>
-            </dt>
-            <dd>Simple GL window <a href="dip-viewer-Window.html#dip-viewer-Window">more...</a></dd>
-                          <dt>
               class <a href="dip-viewer-Manager.html" class="m-doc">dip::<wbr />viewer::<wbr />Manager</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
             <dd>Simple window manager. <a href="dip-viewer-Manager.html#dip-viewer-Manager">more...</a></dd>
@@ -353,46 +349,75 @@ ensure a clean exit.</p>
             </dt>
             <dd>Allows the user to control which tensor elements are visualized. <a href="dip-viewer-TensorViewPort.html#dip-viewer-TensorViewPort">more...</a></dd>
                           <dt>
-              struct <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::<wbr />viewer::<wbr />ViewingOptions</a>
-            </dt>
-            <dd>Model that determines the <a href="dip-viewer-SliceViewer.html"><code>dip::viewer::SliceViewer</code></a>&rsquo;s behavior <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions">more...</a></dd>
-                          <dt>
               class <a href="dip-viewer-View.html" class="m-doc">dip::<wbr />viewer::<wbr />View</a>
             </dt>
             <dd>Displays a view of the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a> model <a href="dip-viewer-View.html#dip-viewer-View">more...</a></dd>
+                          <dt>
+              class <a href="dip-viewer-Viewer.html" class="m-doc">dip::<wbr />viewer::<wbr />Viewer</a> <span class="m-label m-flat m-warning">abstract</span>
+            </dt>
+            <dd>A Window for viewing a <a href="dip-Image.html"><code>dip::Image</code></a> <a href="dip-viewer-Viewer.html#dip-viewer-Viewer">more...</a></dd>
+                          <dt>
+              struct <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::<wbr />viewer::<wbr />ViewingOptions</a>
+            </dt>
+            <dd>Model that determines the <a href="dip-viewer-SliceViewer.html"><code>dip::viewer::SliceViewer</code></a>&rsquo;s behavior <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions">more...</a></dd>
                           <dt>
               class <a href="dip-viewer-ViewPort.html" class="m-doc">dip::<wbr />viewer::<wbr />ViewPort</a>
             </dt>
             <dd>Handles interaction in a certain display area to control the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a> model <a href="dip-viewer-ViewPort.html#dip-viewer-ViewPort">more...</a></dd>
                           <dt>
-              class <a href="dip-viewer-Viewer.html" class="m-doc">dip::<wbr />viewer::<wbr />Viewer</a> <span class="m-label m-flat m-warning">abstract</span>
+              class <a href="dip-viewer-Window.html" class="m-doc">dip::<wbr />viewer::<wbr />Window</a>
             </dt>
-            <dd>A Window for viewing a <a href="dip-Image.html"><code>dip::Image</code></a> <a href="dip-viewer-Viewer.html#dip-viewer-Viewer">more...</a></dd>
+            <dd>Simple GL window <a href="dip-viewer-Window.html#dip-viewer-Window">more...</a></dd>
           </dl>
         </section>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
                               <dt>
-              using <a href="#dip-viewer-WindowPtr" class="m-doc-self">dip::<wbr />viewer::<wbr />WindowPtr</a> = std::shared_ptr&lt;Window&gt;
-
-            </dt>
-            <dd>Shared pointer to a Window</dd>
-                              <dt>
-              using <a href="#dip-viewer-FloatRange" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRange</a> = std::pair&lt;dip::dfloat, dip::dfloat&gt;
-
+using <a href="#dip-viewer-FloatRange" class="m-doc">dip::<wbr />viewer::<wbr />FloatRange</a> = std::pair&lt;dip::dfloat, dip::dfloat&gt;
             </dt>
             <dd>Specifies a range of values between a lower and upper limit</dd>
                               <dt>
-              using <a href="#dip-viewer-FloatRangeArray" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRangeArray</a> = std::vector&lt;FloatRange&gt;
-
+using <a href="#dip-viewer-FloatRangeArray" class="m-doc">dip::<wbr />viewer::<wbr />FloatRangeArray</a> = std::vector&lt;FloatRange&gt;
             </dt>
             <dd>Specifies an array of ranges (typically one per tensor element)</dd>
+                              <dt>
+using <a href="#dip-viewer-WindowPtr" class="m-doc">dip::<wbr />viewer::<wbr />WindowPtr</a> = std::shared_ptr&lt;Window&gt;
+            </dt>
+            <dd>Shared pointer to a Window</dd>
             </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-ApplyViewerColorMap-dip-Image-L-dip-Image-L-ViewingOptions-L" class="m-doc">dip::<wbr />viewer::<wbr />ApplyViewerColorMap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; options)</span>
+            </dt>
+            <dd>Applies the colormap defined by the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-CloseAll" class="m-doc">dip::<wbr />viewer::<wbr />CloseAll</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Close all open windows. <a href="#dip-viewer-CloseAll">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Draw" class="m-doc">dip::<wbr />viewer::<wbr />Draw</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Process user event queue. <a href="#dip-viewer-Draw">more...</a></dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-" class="m-doc">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
+              double offset,
+              double scale,
+              <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Maps an image grey-value onto [0,255]</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-rangeMap-T-T--ViewingOptions-CL" class="m-doc">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
+              <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Maps an image grey-value onto [0,255]</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-Show-Image-CL-String-CL-dip-uint--dip-uint-" class="m-doc">dip::<wbr />viewer::<wbr />Show</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; title = "",
@@ -412,79 +437,48 @@ ensure a clean exit.</p>
             </dt>
             <dd>Wait until all windows are closed. <a href="#dip-viewer-Spin">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-Draw" class="m-doc">dip::<wbr />viewer::<wbr />Draw</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd>Process user event queue. <a href="#dip-viewer-Draw">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-CloseAll" class="m-doc">dip::<wbr />viewer::<wbr />CloseAll</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd>Close all open windows. <a href="#dip-viewer-CloseAll">more...</a></dd>
-                          <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-" class="m-doc-self">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
-              double offset,
-              double scale,
-              <a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Maps an image grey-value onto [0,255]</dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-rangeMap-T-T--ViewingOptions-CL" class="m-doc-self">dip::<wbr />viewer::<wbr />rangeMap</a>(</span><span class="m-doc-wrap">T val,
-              <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Maps an image grey-value onto [0,255]</dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-to_string-T-dip-DimensionArray<T>-" class="m-doc-self">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> array) -&gt; std::string</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-viewer-to_string-T-dip-DimensionArray%3CT%3E-" class="m-doc">dip::<wbr />viewer::<wbr />to_string</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> array) -&gt; std::string</span>
             </dt>
             <dd>String conversion for <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-viewer-ApplyViewerColorMap-dip-Image-L-dip-Image-L-ViewingOptions-L" class="m-doc-self">dip::<wbr />viewer::<wbr />ApplyViewerColorMap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; options)</span>
-            </dt>
-            <dd>Applies the colormap defined by the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a></dd>
           </dl>
         </section>
         <section id="macro-members">
           <h2>Macros</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIPVIEWER_EXPORT" class="m-doc-self">DIPVIEWER_EXPORT</a></span>
-            </dt>
-            <dd>Indicates that the function or class is exported from the shared library.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIPVIEWER_NO_EXPORT" class="m-doc-self">DIPVIEWER_NO_EXPORT</a></span>
-            </dt>
-            <dd>Indicates that the function or class is not exported from the shared library.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIPVIEWER_CLASS_EXPORT" class="m-doc-self">DIPVIEWER_CLASS_EXPORT</a></span>
+              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIPVIEWER_CLASS_EXPORT" class="m-doc">DIPVIEWER_CLASS_EXPORT</a></span>
             </dt>
             <dd>Specifically for classes in a inheritance hierarchy and that must be passed across the
 executable/shared library interface. See <a href="infrastructure.html#macro--DIP_CLASS_EXPORT"><code>DIP_CLASS_EXPORT</code></a> for more details.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIPVIEWER_EXPORT" class="m-doc">DIPVIEWER_EXPORT</a></span>
+            </dt>
+            <dd>Indicates that the function or class is exported from the shared library.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">#define <a href="#macro--DIPVIEWER_NO_EXPORT" class="m-doc">DIPVIEWER_NO_EXPORT</a></span>
+            </dt>
+            <dd>Indicates that the function or class is not exported from the shared library.</dd>
           </dl>
         </section>
         <section>
             <h2>Alias documentation</h2>
                           <section class="m-doc-details" id="dip-viewer-WindowPtr"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--manager-h.html">"diplib/viewer/manager.h"</a></div>
-              using <span class="m-doc-name"><a href="#dip-viewer-WindowPtr" class="m-doc-self">dip::<wbr />viewer::<wbr />WindowPtr</a></span> = std::shared_ptr&lt;Window&gt;
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--manager-h.html">"diplib/viewer/manager.h"</a></div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-viewer-WindowPtr" class="m-doc-self">dip::<wbr />viewer::<wbr />WindowPtr</a></span> = std::shared_ptr&lt;Window&gt;            </h3>
             <p>Shared pointer to a Window</p>
           </div></section>
                           <section class="m-doc-details" id="dip-viewer-FloatRange"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
-              using <span class="m-doc-name"><a href="#dip-viewer-FloatRange" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRange</a></span> = std::pair&lt;dip::dfloat, dip::dfloat&gt;
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-viewer-FloatRange" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRange</a></span> = std::pair&lt;dip::dfloat, dip::dfloat&gt;            </h3>
             <p>Specifies a range of values between a lower and upper limit</p>
           </div></section>
                           <section class="m-doc-details" id="dip-viewer-FloatRangeArray"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
-              using <span class="m-doc-name"><a href="#dip-viewer-FloatRangeArray" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRangeArray</a></span> = std::vector&lt;FloatRange&gt;
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-viewer-FloatRangeArray" class="m-doc-self">dip::<wbr />viewer::<wbr />FloatRangeArray</a></span> = std::vector&lt;FloatRange&gt;            </h3>
             <p>Specifies an array of ranges (typically one per tensor element)</p>
           </div></section>
         </section>
@@ -492,10 +486,10 @@ executable/shared library interface. See <a href="infrastructure.html#macro--DIP
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-viewer-Show-Image-CL-String-CL-dip-uint--dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
-              <span class="m-doc-return">std::shared_ptr&lt;SliceViewer&gt;</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
+              <span class="m-doc-return">std::shared_ptr&lt;SliceViewer&gt; </span>
               <span class="m-doc-name"><a href="#dip-viewer-Show-Image-CL-String-CL-dip-uint--dip-uint-" class="m-doc-self">dip::<wbr />viewer::<wbr />Show</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; title = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; title = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height = 0</span>)            </h3>
             <p>Show an image in the slice viewer.</p>
 <p>A new interactive <a href="dip-viewer-SliceViewer.html"><code>dip::viewer::SliceViewer</code></a> window is created for the image. <code>title</code> sets the window title.
 If both <code>width</code> and <code>height</code> are larger than zero, they specify the size of the window created.</p>
@@ -507,10 +501,10 @@ at an appropriate time after calling <code>dip::viewer::Show</code> or <a href="
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-ShowSimple-Image-CL-String-CL-dip-uint--dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
-              <span class="m-doc-return">std::shared_ptr&lt;ImageViewer&gt;</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
+              <span class="m-doc-return">std::shared_ptr&lt;ImageViewer&gt; </span>
               <span class="m-doc-name"><a href="#dip-viewer-ShowSimple-Image-CL-String-CL-dip-uint--dip-uint-" class="m-doc-self">dip::<wbr />viewer::<wbr />ShowSimple</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; title = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; title = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> width = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> height = 0</span>)            </h3>
             <p>Show a 2D grey-value or RGB image, of type <a href="pixeltypes.html#dip-DT_UINT8"><code>dip::DT_UINT8</code></a>.</p>
 <p>A new non-interactive <a href="dip-viewer-ImageViewer.html"><code>dip::viewer::ImageViewer</code></a> window is created for the image. <code>title</code> sets the window title.
 <code>width</code> and <code>height</code> specify the size of the window created.</p>
@@ -526,8 +520,8 @@ at an appropriate time after calling <a href="dipviewer.html#dip-viewer-Show-Ima
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Spin"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Spin" class="m-doc-self">dip::<wbr />viewer::<wbr />Spin</a></span>(
 )            </h3>
             <p>Wait until all windows are closed.</p>
@@ -540,8 +534,8 @@ at an appropriate time after calling <a href="dipviewer.html#dip-viewer-Show-Ima
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-Draw"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-Draw" class="m-doc-self">dip::<wbr />viewer::<wbr />Draw</a></span>(
 )            </h3>
             <p>Process user event queue.</p>
@@ -554,8 +548,8 @@ called repeatedly for continuous interaction.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-CloseAll"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--dipviewer-h.html">"dipviewer.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-CloseAll" class="m-doc-self">dip::<wbr />viewer::<wbr />CloseAll</a></span>(
 )            </h3>
             <p>Close all open windows.</p>
@@ -567,43 +561,43 @@ at an appropriate time after calling <a href="dipviewer.html#dip-viewer-Show-Ima
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-viewer-rangeMap-T-T--double--double--ViewingOptions-Mapping-" class="m-doc-self">dip::<wbr />viewer::<wbr />rangeMap</a></span>(
-<span class="m-doc-arg">T val,</span><span class="m-doc-arg">double offset,</span><span class="m-doc-arg">double scale,</span><span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping</span>)            </h3>
+<span class="m-doc-arg">T val, </span><span class="m-doc-arg">double offset, </span><span class="m-doc-arg">double scale, </span><span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html#dip-viewer-ViewingOptions-Mapping" class="m-doc">dip::viewer::ViewingOptions::Mapping</a> mapping</span>)            </h3>
             <p>Maps an image grey-value onto [0,255]</p>
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-rangeMap-T-T--ViewingOptions-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-viewer-rangeMap-T-T--ViewingOptions-CL" class="m-doc-self">dip::<wbr />viewer::<wbr />rangeMap</a></span>(
-<span class="m-doc-arg">T val,</span><span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options</span>)            </h3>
+<span class="m-doc-arg">T val, </span><span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a> const&amp; options</span>)            </h3>
             <p>Maps an image grey-value onto [0,255]</p>
           </div></section>
-                        <section class="m-doc-details" id="dip-viewer-to_string-T-dip-DimensionArray<T>-"><div>
+                        <section class="m-doc-details" id="dip-viewer-to_string-T-dip-DimensionArray%3CT%3E-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-return">std::string</span>
-              <span class="m-doc-name"><a href="#dip-viewer-to_string-T-dip-DimensionArray<T>-" class="m-doc-self">dip::<wbr />viewer::<wbr />to_string</a></span>(
+              <span class="m-doc-return">std::string </span>
+              <span class="m-doc-name"><a href="#dip-viewer-to_string-T-dip-DimensionArray%3CT%3E-" class="m-doc-self">dip::<wbr />viewer::<wbr />to_string</a></span>(
 <span class="m-doc-arg"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> array</span>)            </h3>
             <p>String conversion for <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a></p>
           </div></section>
                         <section class="m-doc-details" id="dip-viewer-ApplyViewerColorMap-dip-Image-L-dip-Image-L-ViewingOptions-L"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--viewer-h.html">"diplib/viewer/viewer.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-viewer-ApplyViewerColorMap-dip-Image-L-dip-Image-L-ViewingOptions-L" class="m-doc-self">dip::<wbr />viewer::<wbr />ApplyViewerColorMap</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; options</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-viewer-ViewingOptions.html" class="m-doc">dip::viewer::ViewingOptions</a>&amp; options</span>)            </h3>
             <p>Applies the colormap defined by the <a href="dip-viewer-ViewingOptions.html"><code>dip::viewer::ViewingOptions</code></a></p>
           </div></section>
         </section>
@@ -611,22 +605,28 @@ at an appropriate time after calling <a href="dipviewer.html#dip-viewer-Show-Ima
           <h2>Macro documentation</h2>
                         <section class="m-doc-details" id="macro--DIPVIEWER_EXPORT"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--export-h.html">"diplib/viewer/export.h"</a></div>
-              <span class="m-doc-wrap-bumper">#define <span class="m-doc-name"><a href="#macro--DIPVIEWER_EXPORT" class="m-doc-self">DIPVIEWER_EXPORT</a></span></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--export-h.html">"diplib/viewer/export.h"</a></div>
+                <span class="m-doc-return">#define </span>
+                <span class="m-doc-name"><a href="#macro--DIPVIEWER_EXPORT" class="m-doc-self">DIPVIEWER_EXPORT</a></span>
+</span>
             </h3>
             <p>Indicates that the function or class is exported from the shared library.</p>
           </div></section>
                         <section class="m-doc-details" id="macro--DIPVIEWER_NO_EXPORT"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--export-h.html">"diplib/viewer/export.h"</a></div>
-              <span class="m-doc-wrap-bumper">#define <span class="m-doc-name"><a href="#macro--DIPVIEWER_NO_EXPORT" class="m-doc-self">DIPVIEWER_NO_EXPORT</a></span></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--export-h.html">"diplib/viewer/export.h"</a></div>
+                <span class="m-doc-return">#define </span>
+                <span class="m-doc-name"><a href="#macro--DIPVIEWER_NO_EXPORT" class="m-doc-self">DIPVIEWER_NO_EXPORT</a></span>
+</span>
             </h3>
             <p>Indicates that the function or class is not exported from the shared library.</p>
           </div></section>
                         <section class="m-doc-details" id="macro--DIPVIEWER_CLASS_EXPORT"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--viewer--export-h.html">"diplib/viewer/export.h"</a></div>
-              <span class="m-doc-wrap-bumper">#define <span class="m-doc-name"><a href="#macro--DIPVIEWER_CLASS_EXPORT" class="m-doc-self">DIPVIEWER_CLASS_EXPORT</a></span></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--viewer--export-h.html">"diplib/viewer/export.h"</a></div>
+                <span class="m-doc-return">#define </span>
+                <span class="m-doc-name"><a href="#macro--DIPVIEWER_CLASS_EXPORT" class="m-doc-self">DIPVIEWER_CLASS_EXPORT</a></span>
+</span>
             </h3>
             <p>Specifically for classes in a inheritance hierarchy and that must be passed across the
 executable/shared library interface. See <a href="infrastructure.html#macro--DIP_CLASS_EXPORT"><code>DIP_CLASS_EXPORT</code></a> for more details.</p>

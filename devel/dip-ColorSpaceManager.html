@@ -233,8 +233,8 @@ from it to XYZ and to RGB, there are no functions that can convert to the &ldquo
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-ColorSpaceManager-ColorSpaceManager">
-              <span class="m-doc-wrap-bumper"><a href="#dip-ColorSpaceManager-ColorSpaceManager" class="m-doc-self">ColorSpaceManager</a>(</span><span class="m-doc-wrap">)</span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-ColorSpaceManager-ColorSpaceManager" class="m-doc">ColorSpaceManager</a>(</span><span class="m-doc-wrap">)</span>
             </dt>
             <dd>Constructor, registers the default color spaces.</dd>
             </dl>
@@ -242,9 +242,8 @@ from it to XYZ and to RGB, there are no functions that can convert to the &ldquo
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-ColorSpaceManager-ColorSpaceConverterPointer">
-              using <a href="#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc-self">ColorSpaceConverterPointer</a> = std::shared_ptr&lt;ColorSpaceConverter&gt;
-
+                              <dt>
+using <a href="#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc">ColorSpaceConverterPointer</a> = std::shared_ptr&lt;ColorSpaceConverter&gt;
             </dt>
             <dd>A shared pointer to a <a href="dip-ColorSpaceConverter.html"><code>dip::ColorSpaceConverter</code></a> object.</dd>
             </dl>
@@ -252,41 +251,8 @@ from it to XYZ and to RGB, there are no functions that can convert to the &ldquo
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-ColorSpaceManager-Define-String--dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Define-String--dip-uint-" class="m-doc-self">Define</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> colorSpaceName,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nChannels)</span>
-            </dt>
-            <dd>Defines a new color space, that requires <code>nChannels</code> channels.</dd>
-                          <dt id="dip-ColorSpaceManager-DefineAlias-String-CL-String-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-DefineAlias-String-CL-String-CL" class="m-doc-self">DefineAlias</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; alias,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName)</span>
-            </dt>
-            <dd>Defines an alias for a defined color space name.</dd>
-                          <dt id="dip-ColorSpaceManager-Register-ColorSpaceConverterPointer-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Register-ColorSpaceConverterPointer-" class="m-doc-self">Register</a>(</span><span class="m-doc-wrap"><a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc">dip::ColorSpaceManager::ColorSpaceConverterPointer</a> converter)</span>
-            </dt>
-            <dd>Registers a function object to translate from one color space to another. The
-<code>dip::ColorSpaceManager</code> object takes ownership of the converter.</dd>
-                          <dt id="dip-ColorSpaceManager-Register-ColorSpaceConverter-P">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Register-ColorSpaceConverter-P" class="m-doc-self">Register</a>(</span><span class="m-doc-wrap"><a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>* converter)</span>
-            </dt>
-            <dd>Overload for the previous function, for backwards compatibility. Not recommended.</dd>
-                          <dt id="dip-ColorSpaceManager-IsDefined-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-IsDefined-String-CL-C" class="m-doc-self">IsDefined</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; bool</span>
-            </dt>
-            <dd>Check to see if a color space name is defined.</dd>
-                          <dt id="dip-ColorSpaceManager-GetColorSpaceConverter-String-CL-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-GetColorSpaceConverter-String-CL-String-CL-C" class="m-doc-self">GetColorSpaceConverter</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inputColorSpaceName,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outputColorSpaceName) const -&gt; <a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>*</span>
-            </dt>
-            <dd>Gets a pointer to a color space converter object registered with this <code>ColorSpaceManager</code>.
-Use this to access the object to modify it, for example configure a parameter.</dd>
-                          <dt id="dip-ColorSpaceManager-NumberOfChannels-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-NumberOfChannels-String-CL-C" class="m-doc-self">NumberOfChannels</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the number of channels used by the given color space.</dd>
-                          <dt id="dip-ColorSpaceManager-CanonicalName-String-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-CanonicalName-String-CL-C" class="m-doc-self">CanonicalName</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-CanonicalName-String-CL-C" class="m-doc">CanonicalName</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp;</span>
             </dt>
             <dd>Returns the canonical name for the given color space (i.e. looks up name aliases).</dd>
                           <dt>
@@ -296,11 +262,44 @@ Use this to access the object to modify it, for example configure a parameter.</
             </dt>
             <dd>Converts an image to a different color space. <a href="#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Define-String--dip-uint-" class="m-doc">Define</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> colorSpaceName,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nChannels)</span>
+            </dt>
+            <dd>Defines a new color space, that requires <code>nChannels</code> channels.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-DefineAlias-String-CL-String-CL" class="m-doc">DefineAlias</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; alias,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName)</span>
+            </dt>
+            <dd>Defines an alias for a defined color space name.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-GetColorSpaceConverter-String-CL-String-CL-C" class="m-doc">GetColorSpaceConverter</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inputColorSpaceName,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outputColorSpaceName) const -&gt; <a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>*</span>
+            </dt>
+            <dd>Gets a pointer to a color space converter object registered with this <code>ColorSpaceManager</code>.
+Use this to access the object to modify it, for example configure a parameter.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-IsDefined-String-CL-C" class="m-doc">IsDefined</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; bool</span>
+            </dt>
+            <dd>Check to see if a color space name is defined.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceManager-NumberOfChannels-String-CL-C" class="m-doc">NumberOfChannels</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of channels used by the given color space.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Register-ColorSpaceConverterPointer-" class="m-doc">Register</a>(</span><span class="m-doc-wrap"><a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc">dip::ColorSpaceManager::ColorSpaceConverterPointer</a> converter)</span>
+            </dt>
+            <dd>Registers a function object to translate from one color space to another. The
+<code>dip::ColorSpaceManager</code> object takes ownership of the converter.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-Register-ColorSpaceConverter-P" class="m-doc">Register</a>(</span><span class="m-doc-wrap"><a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>* converter)</span>
+            </dt>
+            <dd>Overload for the previous function, for backwards compatibility. Not recommended.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-" class="m-doc">SetWhitePoint</a>(</span><span class="m-doc-wrap"><a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> whitePoint)</span>
             </dt>
             <dd>Configure the conversion functions to use the given white point. <a href="#dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-">more...</a></dd>
-                          <dt id="dip-ColorSpaceManager-SetWhitePoint-xy-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-SetWhitePoint-xy-CL" class="m-doc-self">SetWhitePoint</a>(</span><span class="m-doc-wrap"><a href="colorspaces.html#dip-xy" class="m-doc">dip::xy</a> const&amp; whitePoint)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceManager-SetWhitePoint-xy-CL" class="m-doc">SetWhitePoint</a>(</span><span class="m-doc-wrap"><a href="colorspaces.html#dip-xy" class="m-doc">dip::xy</a> const&amp; whitePoint)</span>
             </dt>
             <dd>Overload of the function above that takes a (x,y) chromaticity coordinate.</dd>
           </dl>
@@ -308,40 +307,108 @@ Use this to access the object to modify it, for example configure a parameter.</
         <section id="variable-members">
            <h2>Variables</h2>
            <dl class="m-doc">
-                            <dt id="dip-ColorSpaceManager-IlluminantA">
-            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantA" class="m-doc-self">IlluminantA</a>
-
+                            <dt>
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantA" class="m-doc">IlluminantA</a>
             </dt>
             <dd>The CIE Standard Illuminant A (typical, domestic, tungsten-filament lighting).</dd>
-                            <dt id="dip-ColorSpaceManager-IlluminantD50">
-            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD50" class="m-doc-self">IlluminantD50</a>
-
+                            <dt>
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD50" class="m-doc">IlluminantD50</a>
             </dt>
             <dd>The CIE Standard Illuminant D50 (mid-morning or mid-afternoon daylight, color temperature is about 5000 K).</dd>
-                            <dt id="dip-ColorSpaceManager-IlluminantD55">
-            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD55" class="m-doc-self">IlluminantD55</a>
-
+                            <dt>
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD55" class="m-doc">IlluminantD55</a>
             </dt>
             <dd>The CIE Standard Illuminant D55 (morning or evening daylight, color temperature is about 5500 K).</dd>
-                            <dt id="dip-ColorSpaceManager-IlluminantD65">
-            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD65" class="m-doc-self">IlluminantD65</a>
-
+                            <dt>
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantD65" class="m-doc">IlluminantD65</a>
             </dt>
             <dd>The CIE Standard Illuminant D65 (noon daylight, color temperature is about 6500 K). This is also used in the sRGB standard.</dd>
-                            <dt id="dip-ColorSpaceManager-IlluminantE">
-            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantE" class="m-doc-self">IlluminantE</a>
-
+                            <dt>
+            static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const <a href="#dip-ColorSpaceManager-IlluminantE" class="m-doc">IlluminantE</a>
             </dt>
             <dd>The CIE Standard Illuminant E (synthetic, equal energy illuminant).</dd>
            </dl>
         </section>
         <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-ColorSpaceConverterPointer"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc-self">ColorSpaceConverterPointer</a></span> = std::shared_ptr&lt;ColorSpaceConverter&gt;            </h3>
+            <p>A shared pointer to a <a href="dip-ColorSpaceConverter.html"><code>dip::ColorSpaceConverter</code></a> object.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-ColorSpaceManager"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-ColorSpaceManager" class="m-doc-self">ColorSpaceManager</a></span>(
+)            </h3>
+            <p>Constructor, registers the default color spaces.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-Define-String--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-Define-String--dip-uint-" class="m-doc-self">Define</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> colorSpaceName, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nChannels</span>)            </h3>
+            <p>Defines a new color space, that requires <code>nChannels</code> channels.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-DefineAlias-String-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-DefineAlias-String-CL-String-CL" class="m-doc-self">DefineAlias</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; alias, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName</span>)            </h3>
+            <p>Defines an alias for a defined color space name.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-Register-ColorSpaceConverterPointer-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-Register-ColorSpaceConverterPointer-" class="m-doc-self">Register</a></span>(
+<span class="m-doc-arg"><a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-ColorSpaceConverterPointer" class="m-doc">dip::ColorSpaceManager::ColorSpaceConverterPointer</a> converter</span>)            </h3>
+            <p>Registers a function object to translate from one color space to another. The
+<code>dip::ColorSpaceManager</code> object takes ownership of the converter.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-Register-ColorSpaceConverter-P"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-Register-ColorSpaceConverter-P" class="m-doc-self">Register</a></span>(
+<span class="m-doc-arg"><a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>* converter</span>)            </h3>
+            <p>Overload for the previous function, for backwards compatibility. Not recommended.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-IsDefined-String-CL-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-IsDefined-String-CL-C" class="m-doc-self">IsDefined</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName</span>) const            </h3>
+            <p>Check to see if a color space name is defined.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-GetColorSpaceConverter-String-CL-String-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ColorSpaceConverter.html" class="m-doc">dip::ColorSpaceConverter</a>* </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-GetColorSpaceConverter-String-CL-String-CL-C" class="m-doc-self">GetColorSpaceConverter</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; inputColorSpaceName, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; outputColorSpaceName</span>) const            </h3>
+            <p>Gets a pointer to a color space converter object registered with this <code>ColorSpaceManager</code>.
+Use this to access the object to modify it, for example configure a parameter.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-NumberOfChannels-String-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-NumberOfChannels-String-CL-C" class="m-doc-self">NumberOfChannels</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName</span>) const            </h3>
+            <p>Returns the number of channels used by the given color space.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-CanonicalName-String-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-CanonicalName-String-CL-C" class="m-doc-self">CanonicalName</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName</span>) const            </h3>
+            <p>Returns the canonical name for the given color space (i.e. looks up name aliases).</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C" class="m-doc-self">Convert</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName = ""</span>) const            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorSpaceName = ""</span>) const            </h3>
             <p>Converts an image to a different color space.</p>
 <p>Both the source (<code>in.ColorSpace()</code>) and destination (<code>colorSpaceName</code>) color spaces must be known,
 and a path of registered conversion functions must exist between the two.</p>
@@ -375,7 +442,7 @@ such as Lab and XYZ are not. For those color spaces, casting to an integer will 
           </div></section>
                         <section class="m-doc-details" id="dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-" class="m-doc-self">SetWhitePoint</a></span>(
 <span class="m-doc-arg"><a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> whitePoint</span>)            </h3>
             <p>Configure the conversion functions to use the given white point.</p>
@@ -383,6 +450,46 @@ such as Lab and XYZ are not. For those color spaces, casting to an integer will 
 (grey &harr; RGB &harr; XYZ &harr; Lab/Luv). The default white point is the Standard Illuminant D65
 (<a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-IlluminantD65"><code>dip::ColorSpaceManager::IlluminantD65</code></a>).</p>
 <p>The white point is given as an XYZ triplet or (x,y) chromaticity coordinates.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-SetWhitePoint-xy-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceManager-SetWhitePoint-xy-CL" class="m-doc-self">SetWhitePoint</a></span>(
+<span class="m-doc-arg"><a href="colorspaces.html#dip-xy" class="m-doc">dip::xy</a> const&amp; whitePoint</span>)            </h3>
+            <p>Overload of the function above that takes a (x,y) chromaticity coordinate.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-IlluminantA"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const </span><span class="m-doc-name"><a href="#dip-ColorSpaceManager-IlluminantA" class="m-doc-self">IlluminantA</a></span>
+            </h3>
+            <p>The CIE Standard Illuminant A (typical, domestic, tungsten-filament lighting).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-IlluminantD50"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const </span><span class="m-doc-name"><a href="#dip-ColorSpaceManager-IlluminantD50" class="m-doc-self">IlluminantD50</a></span>
+            </h3>
+            <p>The CIE Standard Illuminant D50 (mid-morning or mid-afternoon daylight, color temperature is about 5000 K).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-IlluminantD55"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const </span><span class="m-doc-name"><a href="#dip-ColorSpaceManager-IlluminantD55" class="m-doc-self">IlluminantD55</a></span>
+            </h3>
+            <p>The CIE Standard Illuminant D55 (morning or evening daylight, color temperature is about 5500 K).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-IlluminantD65"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const </span><span class="m-doc-name"><a href="#dip-ColorSpaceManager-IlluminantD65" class="m-doc-self">IlluminantD65</a></span>
+            </h3>
+            <p>The CIE Standard Illuminant D65 (noon daylight, color temperature is about 6500 K). This is also used in the sRGB standard.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceManager-IlluminantE"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const </span><span class="m-doc-name"><a href="#dip-ColorSpaceManager-IlluminantE" class="m-doc-self">IlluminantE</a></span>
+            </h3>
+            <p>The CIE Standard Illuminant E (synthetic, equal energy illuminant).</p>
           </div></section>
         </section>
       </div>

@@ -66,23 +66,23 @@ See <a href="dip-ColorSpaceManager.html"><code>dip::ColorSpaceManager</code></a>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-ColorSpaceConverter-InputColorSpace-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceConverter-InputColorSpace-C" class="m-doc-self">InputColorSpace</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-label m-flat m-warning">pure virtual</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceConverter-Convert-ConstLineIterator%3Cdfloat%3E-L-LineIterator%3Cdfloat%3E-L-C" class="m-doc">Convert</a>(</span><span class="m-doc-wrap"><a href="dip-LineIterator-T.html#dip-ConstLineIterator-T" class="m-doc">dip::ConstLineIterator</a>&amp; input,
+              <a href="dip-LineIterator-T.html" class="m-doc">dip::LineIterator</a>&amp; output) const <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
-            <dd>Returns the source color space name.</dd>
-                          <dt id="dip-ColorSpaceConverter-OutputColorSpace-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceConverter-OutputColorSpace-C" class="m-doc-self">OutputColorSpace</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-label m-flat m-warning">pure virtual</span></span>
-            </dt>
-            <dd>Returns the destination color space name.</dd>
+            <dd>This is the method that performs the conversion for one image line. <a href="#dip-ColorSpaceConverter-Convert-ConstLineIterator%3Cdfloat%3E-L-LineIterator%3Cdfloat%3E-L-C">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceConverter-Cost-C" class="m-doc">Cost</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
             <dd>Returns the cost of the conversion. This cost includes computational cost as well as precision loss. <a href="#dip-ColorSpaceConverter-Cost-C">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceConverter-Convert-ConstLineIterator<dfloat>-L-LineIterator<dfloat>-L-C" class="m-doc">Convert</a>(</span><span class="m-doc-wrap"><a href="dip-LineIterator-T.html#dip-ConstLineIterator-T" class="m-doc">dip::ConstLineIterator</a>&amp; input,
-              <a href="dip-LineIterator-T.html" class="m-doc">dip::LineIterator</a>&amp; output) const <span class="m-label m-flat m-warning">pure virtual</span></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceConverter-InputColorSpace-C" class="m-doc">InputColorSpace</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
-            <dd>This is the method that performs the conversion for one image line. <a href="#dip-ColorSpaceConverter-Convert-ConstLineIterator<dfloat>-L-LineIterator<dfloat>-L-C">more...</a></dd>
+            <dd>Returns the source color space name.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorSpaceConverter-OutputColorSpace-C" class="m-doc">OutputColorSpace</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-label m-flat m-warning">pure virtual</span></span>
+            </dt>
+            <dd>Returns the destination color space name.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ColorSpaceConverter-SetWhitePoint-XYZ-CL-XYZMatrix-CL-XYZMatrix-CL" class="m-doc">SetWhitePoint</a>(</span><span class="m-doc-wrap"><a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const&amp; whitePoint,
               <a href="colorspaces.html#dip-XYZMatrix" class="m-doc">dip::XYZMatrix</a> const&amp; matrix,
@@ -93,9 +93,23 @@ See <a href="dip-ColorSpaceManager.html"><code>dip::ColorSpaceManager</code></a>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-ColorSpaceConverter-InputColorSpace-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceConverter-InputColorSpace-C" class="m-doc-self">InputColorSpace</a></span>(
+) const <span class="m-label m-warning">pure virtual</span>            </h3>
+            <p>Returns the source color space name.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ColorSpaceConverter-OutputColorSpace-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceConverter-OutputColorSpace-C" class="m-doc-self">OutputColorSpace</a></span>(
+) const <span class="m-label m-warning">pure virtual</span>            </h3>
+            <p>Returns the destination color space name.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ColorSpaceConverter-Cost-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
               <span class="m-doc-name"><a href="#dip-ColorSpaceConverter-Cost-C" class="m-doc-self">Cost</a></span>(
 ) const <span class="m-label m-warning">virtual</span>            </h3>
             <p>Returns the cost of the conversion. This cost includes computational cost as well as precision loss.</p>
@@ -104,11 +118,11 @@ See <a href="dip-ColorSpaceManager.html"><code>dip::ColorSpaceManager</code></a>
 Conversion to grey therefore must always have a high cost. It is not necessary to define this method,
 the default implementation returns a cost of 1.</p>
           </div></section>
-                        <section class="m-doc-details" id="dip-ColorSpaceConverter-Convert-ConstLineIterator<dfloat>-L-LineIterator<dfloat>-L-C"><div>
+                        <section class="m-doc-details" id="dip-ColorSpaceConverter-Convert-ConstLineIterator%3Cdfloat%3E-L-LineIterator%3Cdfloat%3E-L-C"><div>
             <h3>
-              <span class="m-doc-return">void</span>
-              <span class="m-doc-name"><a href="#dip-ColorSpaceConverter-Convert-ConstLineIterator<dfloat>-L-LineIterator<dfloat>-L-C" class="m-doc-self">Convert</a></span>(
-<span class="m-doc-arg"><a href="dip-LineIterator-T.html#dip-ConstLineIterator-T" class="m-doc">dip::ConstLineIterator</a>&amp; input,</span><span class="m-doc-arg"><a href="dip-LineIterator-T.html" class="m-doc">dip::LineIterator</a>&amp; output</span>) const <span class="m-label m-warning">pure virtual</span>            </h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ColorSpaceConverter-Convert-ConstLineIterator%3Cdfloat%3E-L-LineIterator%3Cdfloat%3E-L-C" class="m-doc-self">Convert</a></span>(
+<span class="m-doc-arg"><a href="dip-LineIterator-T.html#dip-ConstLineIterator-T" class="m-doc">dip::ConstLineIterator</a>&amp; input, </span><span class="m-doc-arg"><a href="dip-LineIterator-T.html" class="m-doc">dip::LineIterator</a>&amp; output</span>) const <span class="m-label m-warning">pure virtual</span>            </h3>
             <p>This is the method that performs the conversion for one image line.</p>
 <p>Called by <a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-Convert-Image-CL-Image-L-String-CL-C"><code>dip::ColorSpaceManager::Convert</code></a>.</p>
 <p><code>input</code> and <code>output</code> point to buffers with the number of tensor elements expected for the two color
@@ -116,9 +130,9 @@ spaces, as determined by the <code>InputColorSpace</code> and <code>OutputColorS
           </div></section>
                         <section class="m-doc-details" id="dip-ColorSpaceConverter-SetWhitePoint-XYZ-CL-XYZMatrix-CL-XYZMatrix-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ColorSpaceConverter-SetWhitePoint-XYZ-CL-XYZMatrix-CL-XYZMatrix-CL" class="m-doc-self">SetWhitePoint</a></span>(
-<span class="m-doc-arg"><a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const&amp; whitePoint,</span><span class="m-doc-arg"><a href="colorspaces.html#dip-XYZMatrix" class="m-doc">dip::XYZMatrix</a> const&amp; matrix,</span><span class="m-doc-arg"><a href="colorspaces.html#dip-XYZMatrix" class="m-doc">dip::XYZMatrix</a> const&amp; inverseMatrix</span>) <span class="m-label m-warning">virtual</span>            </h3>
+<span class="m-doc-arg"><a href="colorspaces.html#dip-XYZ" class="m-doc">dip::XYZ</a> const&amp; whitePoint, </span><span class="m-doc-arg"><a href="colorspaces.html#dip-XYZMatrix" class="m-doc">dip::XYZMatrix</a> const&amp; matrix, </span><span class="m-doc-arg"><a href="colorspaces.html#dip-XYZMatrix" class="m-doc">dip::XYZMatrix</a> const&amp; inverseMatrix</span>) <span class="m-label m-warning">virtual</span>            </h3>
             <p>This method is called to set the white point used by the converter. Does nothing by default.</p>
 <p>Called by <a href="dip-ColorSpaceManager.html#dip-ColorSpaceManager-SetWhitePoint-dip-XYZ-"><code>dip::ColorSpaceManager::SetWhitePoint</code></a>.</p>
 <p><code>matrix</code> and <code>inverseMatrix</code> are computed from <code>whitePoint</code> by the caller, to avoid multiple converter

@@ -84,15 +84,15 @@ for a given dimension, default to dimension 0, so can be called without argument
             </dt>
             <dd>The constructor takes an image, an optional mask, and configuration options for each histogram
 dimension. <a href="#dip-Histogram-Histogram-Image-CL-Image-CL-ConfigurationArray-">more...</a></dd>
-                              <dt id="dip-Histogram-Histogram-Image-CL-Image-CL-Configuration-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Image-CL-Image-CL-Configuration-" class="m-doc-self">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Image-CL-Image-CL-Configuration-" class="m-doc">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> configuration)</span>
             </dt>
             <dd>This version of the constructor is identical to the previous one, but with a single configuration
 parameter instead of an array.</dd>
-                              <dt id="dip-Histogram-Histogram-Image-CL-Image-CL-Image-CL-ConfigurationArray-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Image-CL-Image-CL-Image-CL-ConfigurationArray-" class="m-doc-self">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input1,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram-Image-CL-Image-CL-Image-CL-ConfigurationArray-" class="m-doc">Histogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input2,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {})</span>
@@ -118,8 +118,8 @@ options for each histogram dimension. <a href="#dip-Histogram-Histogram-Measurem
               <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> const&amp; configuration)</span>
             </dt>
             <dd>Create a 1D histogram around existing data. No ownership is transferred. <a href="#dip-Histogram-Histogram-CountType-CP-Configuration-CL">more...</a></dd>
-                              <dt id="dip-Histogram-Histogram">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram" class="m-doc-self">Histogram</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Histogram-Histogram" class="m-doc">Histogram</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>The default-initialized histogram is empty and can only be assigned to.</dd>
             </dl>
@@ -136,137 +136,88 @@ options for each histogram dimension. <a href="#dip-Histogram-Histogram-Measurem
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-Histogram-CountType">
-              using <a href="#dip-Histogram-CountType" class="m-doc-self">CountType</a> = <a href="pixeltypes.html#dip-uint64" class="m-doc">dip::uint64</a>
-
-            </dt>
-            <dd>Type of histogram bins. See <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</dd>
-                              <dt id="dip-Histogram-ConfigurationArray">
-              using <a href="#dip-Histogram-ConfigurationArray" class="m-doc-self">ConfigurationArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
+                              <dt>
+using <a href="#dip-Histogram-ConfigurationArray" class="m-doc">ConfigurationArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
             </dt>
             <dd>An array of <a href="dip-Histogram-Configuration.html"><code>dip::Histogram::Configuration</code></a> objects, one per histogram dimension.</dd>
+                              <dt>
+using <a href="#dip-Histogram-CountType" class="m-doc">CountType</a> = <a href="pixeltypes.html#dip-uint64" class="m-doc">dip::uint64</a>
+            </dt>
+            <dd>Type of histogram bins. See <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</dd>
             </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Histogram-OptimalConfiguration" class="m-doc">OptimalConfiguration</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-dip-uint--C" class="m-doc">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
             </dt>
-            <dd>Creates a <a href="dip-Histogram-Configuration.html"><code>dip::Histogram::Configuration</code></a> that uses the optimal bin size according to the Freedman&ndash;Diaconis rule. <a href="#dip-Histogram-OptimalConfiguration">more...</a></dd>
-                          <dt id="dip-Histogram-OptimalConfigurationWithFullRange">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Histogram-OptimalConfigurationWithFullRange" class="m-doc-self">OptimalConfigurationWithFullRange</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a></span>
+            <dd>Get the value at the given bin in a 1D histogram</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-dip-uint--dip-uint--C" class="m-doc">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
             </dt>
-            <dd>Like <a href="dip-Histogram.html#dip-Histogram-OptimalConfiguration"><code>dip::Histogram::OptimalConfiguration</code></a>, but includes the full data range (min to max); note that this can
-potentially lead to extremely large histograms.</dd>
-                          <dt id="dip-Histogram-swap-Histogram-L">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Histogram-swap-Histogram-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
+            <dd>Get the value at the given bin in a 2D histogram</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-dip-uint--dip-uint--dip-uint--C" class="m-doc">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> z) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
             </dt>
-            <dd>Swaps <code>this</code> and <code>other</code>.</dd>
-                          <dt id="dip-Histogram-IsInitialized-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-IsInitialized-C" class="m-doc-self">IsInitialized</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            <dd>Get the value at the given bin in a 3D histogram</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-UnsignedArray-CL-C" class="m-doc">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; bin) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
             </dt>
-            <dd>Returns false for a default-initialized histogram.</dd>
+            <dd>Get the value at the given bin</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-begin-C" class="m-doc">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a></span>
+            </dt>
+            <dd>Returns an iterator to the first bin</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dfloat--C" class="m-doc">Bin</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> value) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Gets the bin for <code>value</code> in a 1D histogram</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dfloat--dfloat--C" class="m-doc">Bin</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x_value,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y_value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Gets the bin for {<code>x_value</code>, <code>y_value</code>} in a 2D histogram</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dfloat--dfloat--dfloat--C" class="m-doc">Bin</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x_value,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y_value,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> z_value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Gets the bin for {<code>x_value</code>, <code>y_value</code>, <code>z_value</code>} in a 3D histogram</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-FloatArray-CL-C" class="m-doc">Bin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Gets the bin for <code>value</code> in an nD histogram</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinBoundaries-dip-uint--C" class="m-doc">BinBoundaries</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Returns the bin boundaries along dimension <code>dim</code> (<code>Bins(dim)+1</code> values).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinCenter-dip-uint--dip-uint--C" class="m-doc">BinCenter</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> bin,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Returns the bin center for the given <code>bin</code> along dimension <code>dim</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinCenters-dip-uint--C" class="m-doc">BinCenters</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Returns the bin centers along dimension <code>dim</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bins-dip-uint--C" class="m-doc">Bins</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of bins along dimension <code>dim</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinSize-dip-uint--C" class="m-doc">BinSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Returns the size of the bins along dimension <code>dim</code></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Copy-C" class="m-doc">Copy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Deep copy, returns a copy of <code>this</code> with its own data segment. <a href="#dip-Histogram-Copy-C">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Histogram-ReverseLookup-Image-CL-Image-L-BooleanArray-" class="m-doc">ReverseLookup</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> excludeOutOfBoundValues = {false})</span>
-            </dt>
-            <dd>Performs a reverse histogram lookup, yielding an image &ldquo;painted&rdquo; with the bin values. <a href="#dip-Histogram-ReverseLookup-Image-CL-Image-L-BooleanArray-">more...</a></dd>
-                          <dt id="dip-Histogram-Dimensionality-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Dimensionality-C" class="m-doc-self">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the histogram dimensionality.</dd>
-                          <dt id="dip-Histogram-Bins-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bins-dip-uint--C" class="m-doc-self">Bins</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the number of bins along dimension <code>dim</code></dd>
-                          <dt id="dip-Histogram-BinSize-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinSize-dip-uint--C" class="m-doc-self">BinSize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Returns the size of the bins along dimension <code>dim</code></dd>
-                          <dt id="dip-Histogram-LowerBound-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-LowerBound-dip-uint--C" class="m-doc-self">LowerBound</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Returns the lower bound of the histogram for dimension <code>dim</code></dd>
-                          <dt id="dip-Histogram-UpperBound-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-UpperBound-dip-uint--C" class="m-doc-self">UpperBound</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Returns the upper bound of the histogram for dimension <code>dim</code></dd>
-                          <dt id="dip-Histogram-BinBoundaries-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinBoundaries-dip-uint--C" class="m-doc-self">BinBoundaries</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Returns the bin boundaries along dimension <code>dim</code> (<code>Bins(dim)+1</code> values).</dd>
-                          <dt id="dip-Histogram-BinCenters-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinCenters-dip-uint--C" class="m-doc-self">BinCenters</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Returns the bin centers along dimension <code>dim</code></dd>
-                          <dt id="dip-Histogram-BinCenter-dip-uint--dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-BinCenter-dip-uint--dip-uint--C" class="m-doc-self">BinCenter</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> bin,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Returns the bin center for the given <code>bin</code> along dimension <code>dim</code></dd>
-                          <dt id="dip-Histogram-Bin-dfloat--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dfloat--C" class="m-doc-self">Bin</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> value) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Gets the bin for <code>value</code> in a 1D histogram</dd>
-                          <dt id="dip-Histogram-Bin-dfloat--dfloat--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dfloat--dfloat--C" class="m-doc-self">Bin</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x_value,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y_value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
-            </dt>
-            <dd>Gets the bin for {<code>x_value</code>, <code>y_value</code>} in a 2D histogram</dd>
-                          <dt id="dip-Histogram-Bin-dfloat--dfloat--dfloat--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-dfloat--dfloat--dfloat--C" class="m-doc-self">Bin</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x_value,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y_value,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> z_value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
-            </dt>
-            <dd>Gets the bin for {<code>x_value</code>, <code>y_value</code>, <code>z_value</code>} in a 3D histogram</dd>
-                          <dt id="dip-Histogram-Bin-FloatArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Bin-FloatArray-CL-C" class="m-doc-self">Bin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; value) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
-            </dt>
-            <dd>Gets the bin for <code>value</code> in an nD histogram</dd>
-                          <dt id="dip-Histogram-At-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-dip-uint--C" class="m-doc-self">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
-            </dt>
-            <dd>Get the value at the given bin in a 1D histogram</dd>
-                          <dt id="dip-Histogram-At-dip-uint--dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-dip-uint--dip-uint--C" class="m-doc-self">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
-            </dt>
-            <dd>Get the value at the given bin in a 2D histogram</dd>
-                          <dt id="dip-Histogram-At-dip-uint--dip-uint--dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-dip-uint--dip-uint--dip-uint--C" class="m-doc-self">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> z) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
-            </dt>
-            <dd>Get the value at the given bin in a 3D histogram</dd>
-                          <dt id="dip-Histogram-At-UnsignedArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-At-UnsignedArray-CL-C" class="m-doc-self">At</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; bin) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a></span>
-            </dt>
-            <dd>Get the value at the given bin</dd>
-                          <dt id="dip-Histogram-GetImage-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-GetImage-C" class="m-doc-self">GetImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
-            </dt>
-            <dd>Get the image that holds the bin counts. The image is always scalar and of type <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</dd>
-                          <dt id="dip-Histogram-begin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-begin-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a></span>
-            </dt>
-            <dd>Returns an iterator to the first bin</dd>
-                          <dt id="dip-Histogram-end">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Histogram-end" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a></span>
-            </dt>
-            <dd>Returns an end iterator</dd>
-                          <dt id="dip-Histogram-Origin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Origin-C" class="m-doc-self">Origin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> const*</span>
-            </dt>
-            <dd>Returns a pointer to the first bin</dd>
-                          <dt id="dip-Histogram-Count-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Count-C" class="m-doc-self">Count</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Count-C" class="m-doc">Count</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the total number of elements in the histogram (sum of bins)</dd>
                           <dt>
@@ -275,13 +226,60 @@ potentially lead to extremely large histograms.</dd>
             <dd>Converts the histogram to a cumulative histogram. For each bin, it will contain the sum of that
 bin with all the previous ones. <a href="#dip-Histogram-Cumulative">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Dimensionality-C" class="m-doc">Dimensionality</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the histogram dimensionality.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Histogram-end" class="m-doc">end</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a></span>
+            </dt>
+            <dd>Returns an end iterator</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-GetImage-C" class="m-doc">GetImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+            </dt>
+            <dd>Get the image that holds the bin counts. The image is always scalar and of type <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-GetMarginal-dip-uint--C" class="m-doc">GetMarginal</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim) const -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Returns the marginal histogram for dimension <code>dim</code>. <a href="#dip-Histogram-GetMarginal-dip-uint--C">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-IsInitialized-C" class="m-doc">IsInitialized</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns false for a default-initialized histogram.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-LowerBound-dip-uint--C" class="m-doc">LowerBound</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Returns the lower bound of the histogram for dimension <code>dim</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Histogram-OptimalConfiguration" class="m-doc">OptimalConfiguration</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a></span>
+            </dt>
+            <dd>Creates a <a href="dip-Histogram-Configuration.html"><code>dip::Histogram::Configuration</code></a> that uses the optimal bin size according to the Freedman&ndash;Diaconis rule. <a href="#dip-Histogram-OptimalConfiguration">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-Histogram-OptimalConfigurationWithFullRange" class="m-doc">OptimalConfigurationWithFullRange</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a></span>
+            </dt>
+            <dd>Like <a href="dip-Histogram.html#dip-Histogram-OptimalConfiguration"><code>dip::Histogram::OptimalConfiguration</code></a>, but includes the full data range (min to max); note that this can
+potentially lead to extremely large histograms.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Origin-C" class="m-doc">Origin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> const*</span>
+            </dt>
+            <dd>Returns a pointer to the first bin</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Histogram-ReverseLookup-Image-CL-Image-L-BooleanArray-" class="m-doc">ReverseLookup</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> excludeOutOfBoundValues = {false})</span>
+            </dt>
+            <dd>Performs a reverse histogram lookup, yielding an image &ldquo;painted&rdquo; with the bin values. <a href="#dip-Histogram-ReverseLookup-Image-CL-Image-L-BooleanArray-">more...</a></dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-Smooth-FloatArray-" class="m-doc">Smooth</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigma) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;</span>
             </dt>
             <dd>Smooths the histogram, using Gaussian smoothing with parameters <code>sigma</code>. <a href="#dip-Histogram-Smooth-FloatArray-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Histogram-swap-Histogram-L" class="m-doc">swap</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Swaps <code>this</code> and <code>other</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-UpperBound-dip-uint--C" class="m-doc">UpperBound</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Returns the upper bound of the histogram for dimension <code>dim</code></dd>
           </dl>
         </section>
         <section id="operator-members">
@@ -291,8 +289,8 @@ bin with all the previous ones. <a href="#dip-Histogram-Cumulative">more...</a><
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-operator%2B%3D-Histogram-CL" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; other) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;</span>
             </dt>
             <dd>Adds a histogram to *this. <code>other</code> must have identical properties. <a href="#dip-Histogram-operator%2B%3D-Histogram-CL">more...</a></dd>
-                          <dt id="dip-Histogram-operator-%3D-Histogram-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-operator-%3D-Histogram-CL" class="m-doc-self">operator-=</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; other) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Histogram-operator-%3D-Histogram-CL" class="m-doc">operator-=</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; other) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;</span>
             </dt>
             <dd>Subtracts a histogram from *this, using saturated subtraction. <code>other</code> must have identical properties.</dd>
           </dl>
@@ -300,41 +298,69 @@ bin with all the previous ones. <a href="#dip-Histogram-Cumulative">more...</a><
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-DT_COUNT">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_COUNT" class="m-doc-self">dip::<wbr />DT_COUNT</a>
- <span class="m-label m-flat m-primary">constexpr</span>
+                            <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_COUNT" class="m-doc">dip::<wbr />DT_COUNT</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd>Data type of histogram bins. See <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>.</dd>
-                            <dt id="dip-operator%2B-Histogram-CL-Histogram-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-Histogram-CL-Histogram-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%2B-Histogram-CL-Histogram-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Adds two histograms.</dd>
-                            <dt id="dip-operator--Histogram-CL-Histogram-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--Histogram-CL-Histogram-CL" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator--Histogram-CL-Histogram-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Subtracts two histograms.</dd>
           </dl>
         </section>
         <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-Histogram-CountType"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-Histogram-CountType" class="m-doc-self">CountType</a></span> = <a href="pixeltypes.html#dip-uint64" class="m-doc">dip::uint64</a>            </h3>
+            <p>Type of histogram bins. See <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-ConfigurationArray"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-Histogram-ConfigurationArray" class="m-doc-self">ConfigurationArray</a></span> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>            </h3>
+            <p>An array of <a href="dip-Histogram-Configuration.html"><code>dip::Histogram::Configuration</code></a> objects, one per histogram dimension.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Histogram-Histogram-Image-CL-Image-CL-ConfigurationArray-"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Histogram-Image-CL-Image-CL-ConfigurationArray-" class="m-doc-self">Histogram</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},</span><span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {}</span>) <span class="m-label m-info">explicit</span>            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}, </span><span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {}</span>) <span class="m-label m-info">explicit</span>            </h3>
             <p>The constructor takes an image, an optional mask, and configuration options for each histogram
 dimension.</p>
 <p><code>configuration</code> should have as many elements as tensor elements in <code>input</code>. If <code>configuration</code> has only
 one element, it will be used for all histogram dimensions. If it is an empty array, appropriate configuration
 values for <code>input</code> are chosen based on its data type (see <a href="dip-Histogram-Configuration.html#dip-Histogram-Configuration-Configuration-DataType-"><code>dip::Histogram::Configuration::Configuration</code></a>).</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Histogram-Image-CL-Image-CL-Configuration-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Histogram-Image-CL-Image-CL-Configuration-" class="m-doc-self">Histogram</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> configuration</span>)            </h3>
+            <p>This version of the constructor is identical to the previous one, but with a single configuration
+parameter instead of an array.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Histogram-Image-CL-Image-CL-Image-CL-ConfigurationArray-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Histogram-Image-CL-Image-CL-Image-CL-ConfigurationArray-" class="m-doc-self">Histogram</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {}</span>)            </h3>
+            <p>A version of the constructor that takes two scalar input images, and constructs their joint histogram
+(a 2D histogram, equal to the one obtained if the two images were the two channels of a tensor image).</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Histogram-Histogram-Measurement-IteratorFeature-CL-ConfigurationArray-"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Histogram-Measurement-IteratorFeature-CL-ConfigurationArray-" class="m-doc-self">Histogram</a></span>(
-<span class="m-doc-arg"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues,</span><span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {}</span>) <span class="m-label m-info">explicit</span>            </h3>
+<span class="m-doc-arg"><a href="dip-Measurement-IteratorFeature.html" class="m-doc">dip::Measurement::IteratorFeature</a> const&amp; featureValues, </span><span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration = {}</span>) <span class="m-label m-info">explicit</span>            </h3>
             <p>The constructor takes an <code>IteratorFeature</code> of a <a href="dip-Measurement.html"><code>dip::Measurement</code></a> object, and configuration
 options for each histogram dimension.</p>
 <p><code>configuration</code> should have as many elements as values in <code>featureValues</code>. If <code>configuration</code> has only
@@ -343,7 +369,7 @@ will stretch from lowest to highest value, in 100 bins.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Histogram-Histogram-ConfigurationArray-"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Histogram-ConfigurationArray-" class="m-doc-self">Histogram</a></span>(
 <span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-ConfigurationArray" class="m-doc">dip::Histogram::ConfigurationArray</a> configuration</span>) <span class="m-label m-info">explicit</span>            </h3>
             <p>An empty histogram with the given configuration. Histogram bins are initialized to 0.</p>
@@ -355,7 +381,7 @@ but it is possible to modify the values in the bins (modify the pixel values of 
           </div></section>
                         <section class="m-doc-details" id="dip-Histogram-Histogram-Configuration-CL"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Histogram-Configuration-CL" class="m-doc-self">Histogram</a></span>(
 <span class="m-doc-arg"><a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> const&amp; configuration</span>) <span class="m-label m-info">explicit</span>            </h3>
             <p>An empty histogram with the given configuration. Histogram bins are initialized to 0.</p>
@@ -367,9 +393,9 @@ but it is possible to modify the values in the bins (modify the pixel values of 
           </div></section>
                         <section class="m-doc-details" id="dip-Histogram-Histogram-CountType-CP-Configuration-CL"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Histogram-CountType-CP-Configuration-CL" class="m-doc-self">Histogram</a></span>(
-<span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> const* data,</span><span class="m-doc-arg"><a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> const&amp; configuration</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> const* data, </span><span class="m-doc-arg"><a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> const&amp; configuration</span>)            </h3>
             <p>Create a 1D histogram around existing data. No ownership is transferred.</p>
 <p><code>data</code> is a raw pointer to the data that will be encapsulated by the output histogram. Data must
 be contiguous and of type <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>. <code>configuration</code> determines how many
@@ -377,9 +403,16 @@ bins are pointed to by <code>data</code>.</p>
 <p>Even though the data pointer is declared <code>const</code> here, it is possible to obtain a non-const
 pointer to the data later.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Histogram"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Histogram" class="m-doc-self">Histogram</a></span>(
+) <span class="m-label m-info">defaulted</span>            </h3>
+            <p>The default-initialized histogram is empty and can only be assigned to.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Histogram-OptimalConfiguration"><div>
             <h3>
-              <span class="m-doc-return">static <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a></span>
+              <span class="m-doc-return">static <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-OptimalConfiguration" class="m-doc-self">OptimalConfiguration</a></span>(
 )            </h3>
             <p>Creates a <a href="dip-Histogram-Configuration.html"><code>dip::Histogram::Configuration</code></a> that uses the optimal bin size according to the Freedman&ndash;Diaconis rule.</p>
@@ -428,9 +461,31 @@ over which the histogram will be computed.</p>
 <p>The histogram limits are chosen to avoid extremely large histograms, by ignoring values 50 IQRs below the
 lower quartile or above the upper quartile.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-OptimalConfigurationWithFullRange"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-OptimalConfigurationWithFullRange" class="m-doc-self">OptimalConfigurationWithFullRange</a></span>(
+)            </h3>
+            <p>Like <a href="dip-Histogram.html#dip-Histogram-OptimalConfiguration"><code>dip::Histogram::OptimalConfiguration</code></a>, but includes the full data range (min to max); note that this can
+potentially lead to extremely large histograms.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-swap-Histogram-L"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-swap-Histogram-L" class="m-doc-self">swap</a></span>(
+<span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; other</span>) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Swaps <code>this</code> and <code>other</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-IsInitialized-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-IsInitialized-C" class="m-doc-self">IsInitialized</a></span>(
+) const            </h3>
+            <p>Returns false for a default-initialized histogram.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Histogram-Copy-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Copy-C" class="m-doc-self">Copy</a></span>(
 ) const            </h3>
             <p>Deep copy, returns a copy of <code>this</code> with its own data segment.</p>
@@ -446,9 +501,9 @@ lower quartile or above the upper quartile.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Histogram-ReverseLookup-Image-CL-Image-L-BooleanArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Histogram-ReverseLookup-Image-CL-Image-L-BooleanArray-" class="m-doc-self">ReverseLookup</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> excludeOutOfBoundValues = {false}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; input, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> excludeOutOfBoundValues = {false}</span>)            </h3>
             <p>Performs a reverse histogram lookup, yielding an image &ldquo;painted&rdquo; with the bin values.</p>
 <p>The bin corresponding to each pixel in the input image is found in the histogram, and this bin&rsquo;s
 value is written to <code>output</code>.</p>
@@ -463,9 +518,156 @@ bin values.</p>
 algorithms such as <a href="#dip-KMeansClustering-Histogram-CL-dip-uint-"><code>dip::KMeansClustering</code></a> or
 <a href="#dip-MinimumVariancePartitioning-Histogram-CL-dip-uint-"><code>dip::MinimumVariancePartitioning</code></a>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Dimensionality-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Dimensionality-C" class="m-doc-self">Dimensionality</a></span>(
+) const            </h3>
+            <p>Returns the histogram dimensionality.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Bins-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Bins-dip-uint--C" class="m-doc-self">Bins</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0</span>) const            </h3>
+            <p>Returns the number of bins along dimension <code>dim</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-BinSize-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-BinSize-dip-uint--C" class="m-doc-self">BinSize</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0</span>) const            </h3>
+            <p>Returns the size of the bins along dimension <code>dim</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-LowerBound-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-LowerBound-dip-uint--C" class="m-doc-self">LowerBound</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0</span>) const            </h3>
+            <p>Returns the lower bound of the histogram for dimension <code>dim</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-UpperBound-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-UpperBound-dip-uint--C" class="m-doc-self">UpperBound</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0</span>) const            </h3>
+            <p>Returns the upper bound of the histogram for dimension <code>dim</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-BinBoundaries-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-BinBoundaries-dip-uint--C" class="m-doc-self">BinBoundaries</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0</span>) const            </h3>
+            <p>Returns the bin boundaries along dimension <code>dim</code> (<code>Bins(dim)+1</code> values).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-BinCenters-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-BinCenters-dip-uint--C" class="m-doc-self">BinCenters</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0</span>) const            </h3>
+            <p>Returns the bin centers along dimension <code>dim</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-BinCenter-dip-uint--dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-BinCenter-dip-uint--dip-uint--C" class="m-doc-self">BinCenter</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> bin, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim = 0</span>) const            </h3>
+            <p>Returns the bin center for the given <code>bin</code> along dimension <code>dim</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Bin-dfloat--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Bin-dfloat--C" class="m-doc-self">Bin</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> value</span>) const            </h3>
+            <p>Gets the bin for <code>value</code> in a 1D histogram</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Bin-dfloat--dfloat--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Bin-dfloat--dfloat--C" class="m-doc-self">Bin</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x_value, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y_value</span>) const            </h3>
+            <p>Gets the bin for {<code>x_value</code>, <code>y_value</code>} in a 2D histogram</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Bin-dfloat--dfloat--dfloat--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Bin-dfloat--dfloat--dfloat--C" class="m-doc-self">Bin</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x_value, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y_value, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> z_value</span>) const            </h3>
+            <p>Gets the bin for {<code>x_value</code>, <code>y_value</code>, <code>z_value</code>} in a 3D histogram</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Bin-FloatArray-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Bin-FloatArray-CL-C" class="m-doc-self">Bin</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; value</span>) const            </h3>
+            <p>Gets the bin for <code>value</code> in an nD histogram</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-At-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-At-dip-uint--C" class="m-doc-self">At</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x</span>) const            </h3>
+            <p>Get the value at the given bin in a 1D histogram</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-At-dip-uint--dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-At-dip-uint--dip-uint--C" class="m-doc-self">At</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y</span>) const            </h3>
+            <p>Get the value at the given bin in a 2D histogram</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-At-dip-uint--dip-uint--dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-At-dip-uint--dip-uint--dip-uint--C" class="m-doc-self">At</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> x, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> y, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> z</span>) const            </h3>
+            <p>Get the value at the given bin in a 3D histogram</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-At-UnsignedArray-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-At-UnsignedArray-CL-C" class="m-doc-self">At</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; bin</span>) const            </h3>
+            <p>Get the value at the given bin</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-GetImage-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-GetImage-C" class="m-doc-self">GetImage</a></span>(
+) const            </h3>
+            <p>Get the image that holds the bin counts. The image is always scalar and of type <a href="dip-Histogram.html#dip-DT_COUNT"><code>dip::DT_COUNT</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-begin-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-begin-C" class="m-doc-self">begin</a></span>(
+) const            </h3>
+            <p>Returns an iterator to the first bin</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-end"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-ImageIterator-T.html#dip-ConstImageIterator-T" class="m-doc">dip::ConstImageIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-end" class="m-doc-self">end</a></span>(
+)            </h3>
+            <p>Returns an end iterator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Origin-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html#dip-Histogram-CountType" class="m-doc">dip::Histogram::CountType</a> const* </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Origin-C" class="m-doc-self">Origin</a></span>(
+) const            </h3>
+            <p>Returns a pointer to the first bin</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-Count-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-Count-C" class="m-doc-self">Count</a></span>(
+) const            </h3>
+            <p>Returns the total number of elements in the histogram (sum of bins)</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Histogram-Cumulative"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;</span>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Cumulative" class="m-doc-self">Cumulative</a></span>(
 )            </h3>
             <p>Converts the histogram to a cumulative histogram. For each bin, it will contain the sum of that
@@ -478,7 +680,7 @@ with indices equal or smaller to <code>i</code>, <code>j</code> and <code>k</cod
           </div></section>
                         <section class="m-doc-details" id="dip-Histogram-GetMarginal-dip-uint--C"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> </span>
               <span class="m-doc-name"><a href="#dip-Histogram-GetMarginal-dip-uint--C" class="m-doc-self">GetMarginal</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dim</span>) const            </h3>
             <p>Returns the marginal histogram for dimension <code>dim</code>.</p>
@@ -488,7 +690,7 @@ by summing over all dimensions except <code>dim</code>, and is equivalent to the
           </div></section>
                         <section class="m-doc-details" id="dip-Histogram-Smooth-FloatArray-"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;</span>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; </span>
               <span class="m-doc-name"><a href="#dip-Histogram-Smooth-FloatArray-" class="m-doc-self">Smooth</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> sigma</span>)            </h3>
             <p>Smooths the histogram, using Gaussian smoothing with parameters <code>sigma</code>.</p>
@@ -500,12 +702,42 @@ histogram count to change.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Histogram-operator%2B%3D-Histogram-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp;</span>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; </span>
               <span class="m-doc-name"><a href="#dip-Histogram-operator%2B%3D-Histogram-CL" class="m-doc-self">operator+=</a></span>(
 <span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; other</span>)            </h3>
             <p>Adds a histogram to *this. <code>other</code> must have identical properties.</p>
 <p>Adding multiple histograms together can be useful, for example, when accumulating pixel values
 from multiple images, or in multiple threads.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Histogram-operator-%3D-Histogram-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Histogram-operator-%3D-Histogram-CL" class="m-doc-self">operator-=</a></span>(
+<span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; other</span>)            </h3>
+            <p>Subtracts a histogram from *this, using saturated subtraction. <code>other</code> must have identical properties.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%2B-Histogram-CL-Histogram-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%2B-Histogram-CL-Histogram-CL" class="m-doc-self">dip::<wbr />operator+</a></span>(
+<span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs</span>)            </h3>
+            <p>Adds two histograms.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator--Histogram-CL-Histogram-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator--Histogram-CL-Histogram-CL" class="m-doc-self">dip::<wbr />operator-</a></span>(
+<span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs</span>)            </h3>
+            <p>Subtracts two histograms.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+                        <section class="m-doc-details" id="dip-DT_COUNT"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_COUNT" class="m-doc-self">dip::<wbr />DT_COUNT</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Data type of histogram bins. See <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>.</p>
           </div></section>
         </section>
       </div>

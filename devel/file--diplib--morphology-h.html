@@ -74,19 +74,32 @@ See <a href="morphology.html">Morphological filtering</a>.</p>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Dilation-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />Dilation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-AlternatingSequentialFilter-Image-CL-Image-L-Range-CL-String-CL-String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />AlternatingSequentialFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; sizes = {3,7,2},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::STRUCTURAL,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENCLOSE,
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Applies the dilation with a standard or custom structuring element. <a href="morphology.html#dip-Dilation-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
+            <dd>Alternating sequential filters for smoothing <a href="morphology.html#dip-AlternatingSequentialFilter-Image-CL-Image-L-Range-CL-String-CL-String-CL-String-CL-StringArray-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Erosion-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />Erosion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-AreaClosing-Image-CL-Image-CL-Image-L-dip-uint--dip-uint-" class="m-doc">dip::<wbr />AreaClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> filterSize,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
             </dt>
-            <dd>Applies the erosion with a standard or custom structuring element. <a href="morphology.html#dip-Erosion-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
+            <dd>Computes the area closing, calling <a href="morphology.html#dip-AreaOpening-Image-CL-Image-CL-Image-L-dip-uint--dip-uint--String-CL"><code>dip::AreaOpening</code></a> with <code>polarity="closing"</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-AreaOpening-Image-CL-Image-CL-Image-L-dip-uint--dip-uint--String-CL" class="m-doc">dip::<wbr />AreaOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> filterSize,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING)</span>
+            </dt>
+            <dd>Computes the area opening or closing. This is a parametric opening. <a href="morphology.html#dip-AreaOpening-Image-CL-Image-CL-Image-L-dip-uint--dip-uint--String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Closing-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />Closing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -95,138 +108,13 @@ See <a href="morphology.html">Morphological filtering</a>.</p>
             </dt>
             <dd>Applies the closing with a standard or custom structuring element. <a href="morphology.html#dip-Closing-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Opening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />Opening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-ClosingByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL" class="m-doc">dip::<wbr />ClosingByReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Applies the opening with a standard or custom structuring element. <a href="morphology.html#dip-Opening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Tophat-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />Tophat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>The Top-hat operator and its variants <a href="morphology.html#dip-Tophat-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalThreshold-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>A morphological smoothing filter <a href="morphology.html#dip-MorphologicalThreshold-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalGist-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalGist</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Morphological gist operator and its variants <a href="morphology.html#dip-MorphologicalGist-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalRange-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>A morphological edge detector <a href="morphology.html#dip-MorphologicalRange-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalGradientMagnitude-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalGradientMagnitude</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>The morphological version of the gradient magnitude <a href="morphology.html#dip-MorphologicalGradientMagnitude-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Lee-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />Lee</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sign = S::UNSIGNED,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>A morphological edge detector <a href="morphology.html#dip-Lee-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalSmoothing-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalSmoothing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::AVERAGE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>A morphological smoothing filter <a href="morphology.html#dip-MorphologicalSmoothing-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalSharpening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalSharpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>A morphological sharpening filter <a href="morphology.html#dip-MorphologicalSharpening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MultiScaleMorphologicalGradient-Image-CL-Image-L-dip-uint--dip-uint--String-CL-StringArray-CL" class="m-doc">dip::<wbr />MultiScaleMorphologicalGradient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> upperSize = 9,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> lowerSize = 3,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filterShape = S::ELLIPTIC,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>A morphological edge detector <a href="morphology.html#dip-MultiScaleMorphologicalGradient-Image-CL-Image-L-dip-uint--dip-uint--String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalLaplace-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalLaplace</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>The morphological version of the Laplace operator <a href="morphology.html#dip-MorphologicalLaplace-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-RankFilter-Image-CL-Image-L-StructuringElement-CL-dip-uint--String-CL-StringArray-CL" class="m-doc">dip::<wbr />RankFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rank = 2,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; order = S::INCREASING,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Applies the rank-order filter. <a href="morphology.html#dip-RankFilter-Image-CL-Image-L-StructuringElement-CL-dip-uint--String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-RankMinClosing-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL" class="m-doc">dip::<wbr />RankMinClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> se = {},
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rank = 2,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Applies the rank-min closing, a closing that is somewhat robust to noise. <a href="morphology.html#dip-RankMinClosing-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-RankMaxOpening-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL" class="m-doc">dip::<wbr />RankMaxOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> se = {},
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rank = 2,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Applies the rank-max opening, an opening that is somewhat robust to noise. <a href="morphology.html#dip-RankMaxOpening-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-" class="m-doc">dip::<wbr />Watershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> flags = {})</span>
-            </dt>
-            <dd>Computes the watershed of <code>in</code> within <code>mask</code>, with on-line merging of regions. <a href="segmentation.html#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL" class="m-doc">dip::<wbr />SeededWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
-            </dt>
-            <dd>Computes the watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>, with on-line merging of regions. <a href="segmentation.html#dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL">more...</a></dd>
+            <dd>Closing by reconstruction <a href="morphology.html#dip-ClosingByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL" class="m-doc">dip::<wbr />CompactWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
@@ -238,153 +126,12 @@ See <a href="morphology.html">Morphological filtering</a>.</p>
             </dt>
             <dd>Computes the compact watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>. <a href="segmentation.html#dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Dilation-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />Dilation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL)</span>
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Computes the stochastic watershed of <code>in</code>. <a href="segmentation.html#dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-StochasticWatershed-Image-CL-Image-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc-self">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL)</span>
-            </dt>
-            <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks significant local minima. <a href="segmentation.html#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks significant local maxima. <a href="segmentation.html#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-Minima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Minima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks local minima. <a href="segmentation.html#dip-Minima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Maxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks local maxima. <a href="segmentation.html#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-UpperSkeleton2D-Image-CL-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />UpperSkeleton2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::NATURAL)</span>
-            </dt>
-            <dd>Grey-value skeleton (2D only). <a href="morphology.html#dip-UpperSkeleton2D-Image-CL-Image-CL-Image-L-String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalReconstruction-Image-CL-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />MorphologicalReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::DILATION)</span>
-            </dt>
-            <dd>Reconstruction by dilation or erosion, also known as inf-reconstruction and sup-reconstruction <a href="morphology.html#dip-MorphologicalReconstruction-Image-CL-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-LimitedMorphologicalReconstruction-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />LimitedMorphologicalReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDistance = 20,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::DILATION)</span>
-            </dt>
-            <dd>Reconstruction by dilation or erosion, but with a limited reach. <a href="morphology.html#dip-LimitedMorphologicalReconstruction-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-HMinima-Image-CL-Image-L-dfloat--dip-uint-" class="m-doc">dip::<wbr />HMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> h,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
-            </dt>
-            <dd>Computes the H-Minima filtered image <a href="morphology.html#dip-HMinima-Image-CL-Image-L-dfloat--dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-HMaxima-Image-CL-Image-L-dfloat--dip-uint-" class="m-doc">dip::<wbr />HMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> h,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
-            </dt>
-            <dd>Computes the H-Maxima filtered image <a href="morphology.html#dip-HMaxima-Image-CL-Image-L-dfloat--dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-ImposeMinima-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />ImposeMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
-            </dt>
-            <dd>Impose minima. <a href="morphology.html#dip-ImposeMinima-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Leveling-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />Leveling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
-            </dt>
-            <dd>The leveling of <code>in</code> imposed by <code>marker</code>. <a href="morphology.html#dip-Leveling-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-AreaOpening-Image-CL-Image-CL-Image-L-dip-uint--dip-uint--String-CL" class="m-doc">dip::<wbr />AreaOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> filterSize,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING)</span>
-            </dt>
-            <dd>Computes the area opening or closing. This is a parametric opening. <a href="morphology.html#dip-AreaOpening-Image-CL-Image-CL-Image-L-dip-uint--dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-AreaClosing-Image-CL-Image-CL-Image-L-dip-uint--dip-uint-" class="m-doc-self">dip::<wbr />AreaClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> filterSize,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
-            </dt>
-            <dd>Computes the area closing, calling <a href="morphology.html#dip-AreaOpening-Image-CL-Image-CL-Image-L-dip-uint--dip-uint--String-CL"><code>dip::AreaOpening</code></a> with <code>polarity="closing"</code>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-VolumeOpening-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />VolumeOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> filterSize,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING)</span>
-            </dt>
-            <dd>Computes the volume opening or closing. This is a parametric opening. <a href="morphology.html#dip-VolumeOpening-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-VolumeClosing-Image-CL-Image-CL-Image-L-dfloat--dip-uint-" class="m-doc-self">dip::<wbr />VolumeClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> filterSize,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
-            </dt>
-            <dd>Computes the area closing, calling <a href="morphology.html#dip-VolumeOpening-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL"><code>dip::VolumeOpening</code></a> with <code>polarity="closing"</code>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-PathOpening-Image-CL-Image-CL-Image-L-dip-uint--String-CL-StringSet-CL" class="m-doc">dip::<wbr />PathOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 7,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; mode = {})</span>
-            </dt>
-            <dd>Applies a path opening or closing in all possible directions <a href="morphology.html#dip-PathOpening-Image-CL-Image-CL-Image-L-dip-uint--String-CL-StringSet-CL">more...</a></dd>
+            <dd>Applies the dilation with a standard or custom structuring element. <a href="morphology.html#dip-Dilation-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-DirectedPathOpening-Image-CL-Image-CL-Image-L-IntegerArray--String-CL-StringSet-CL" class="m-doc">dip::<wbr />DirectedPathOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
@@ -395,31 +142,12 @@ See <a href="morphology.html">Morphological filtering</a>.</p>
             </dt>
             <dd>Applies a path opening or closing in a specific direction. <a href="morphology.html#dip-DirectedPathOpening-Image-CL-Image-CL-Image-L-IntegerArray--String-CL-StringSet-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-OpeningByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL" class="m-doc">dip::<wbr />OpeningByReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Erosion-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />Erosion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Opening by reconstruction <a href="morphology.html#dip-OpeningByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-ClosingByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL" class="m-doc">dip::<wbr />ClosingByReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Closing by reconstruction <a href="morphology.html#dip-ClosingByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-AlternatingSequentialFilter-Image-CL-Image-L-Range-CL-String-CL-String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />AlternatingSequentialFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; sizes = {3,7,2},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; shape = S::ELLIPTIC,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::STRUCTURAL,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENCLOSE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Alternating sequential filters for smoothing <a href="morphology.html#dip-AlternatingSequentialFilter-Image-CL-Image-L-Range-CL-String-CL-String-CL-String-CL-StringArray-CL">more...</a></dd>
+            <dd>Applies the erosion with a standard or custom structuring element. <a href="morphology.html#dip-Erosion-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-HitAndMiss-Image-CL-Image-L-StructuringElement-CL-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />HitAndMiss</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -439,6 +167,278 @@ See <a href="morphology.html">Morphological filtering</a>.</p>
             </dt>
             <dd>The Hit-and-Miss transform, uses a single structuring element in the form of a small image that
 has &ldquo;hit&rdquo;, &ldquo;miss&rdquo; and &ldquo;don&rsquo;t care&rdquo; values. <a href="morphology.html#dip-HitAndMiss-Image-CL-Image-L-Image-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-HMaxima-Image-CL-Image-L-dfloat--dip-uint-" class="m-doc">dip::<wbr />HMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> h,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
+            </dt>
+            <dd>Computes the H-Maxima filtered image <a href="morphology.html#dip-HMaxima-Image-CL-Image-L-dfloat--dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-HMinima-Image-CL-Image-L-dfloat--dip-uint-" class="m-doc">dip::<wbr />HMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> h,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
+            </dt>
+            <dd>Computes the H-Minima filtered image <a href="morphology.html#dip-HMinima-Image-CL-Image-L-dfloat--dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-ImposeMinima-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />ImposeMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
+            </dt>
+            <dd>Impose minima. <a href="morphology.html#dip-ImposeMinima-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Lee-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />Lee</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; sign = S::UNSIGNED,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>A morphological edge detector <a href="morphology.html#dip-Lee-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Leveling-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />Leveling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
+            </dt>
+            <dd>The leveling of <code>in</code> imposed by <code>marker</code>. <a href="morphology.html#dip-Leveling-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-LimitedMorphologicalReconstruction-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />LimitedMorphologicalReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDistance = 20,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::DILATION)</span>
+            </dt>
+            <dd>Reconstruction by dilation or erosion, but with a limited reach. <a href="morphology.html#dip-LimitedMorphologicalReconstruction-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Maxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks local maxima. <a href="segmentation.html#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-Minima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Minima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks local minima. <a href="segmentation.html#dip-Minima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalGist-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalGist</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Morphological gist operator and its variants <a href="morphology.html#dip-MorphologicalGist-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalGradientMagnitude-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalGradientMagnitude</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>The morphological version of the gradient magnitude <a href="morphology.html#dip-MorphologicalGradientMagnitude-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalLaplace-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalLaplace</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>The morphological version of the Laplace operator <a href="morphology.html#dip-MorphologicalLaplace-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalRange-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>A morphological edge detector <a href="morphology.html#dip-MorphologicalRange-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalReconstruction-Image-CL-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />MorphologicalReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; marker,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; direction = S::DILATION)</span>
+            </dt>
+            <dd>Reconstruction by dilation or erosion, also known as inf-reconstruction and sup-reconstruction <a href="morphology.html#dip-MorphologicalReconstruction-Image-CL-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalSharpening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalSharpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>A morphological sharpening filter <a href="morphology.html#dip-MorphologicalSharpening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalSmoothing-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalSmoothing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::AVERAGE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>A morphological smoothing filter <a href="morphology.html#dip-MorphologicalSmoothing-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MorphologicalThreshold-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />MorphologicalThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>A morphological smoothing filter <a href="morphology.html#dip-MorphologicalThreshold-Image-CL-Image-L-StructuringElement-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-MultiScaleMorphologicalGradient-Image-CL-Image-L-dip-uint--dip-uint--String-CL-StringArray-CL" class="m-doc">dip::<wbr />MultiScaleMorphologicalGradient</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> upperSize = 9,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> lowerSize = 3,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filterShape = S::ELLIPTIC,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>A morphological edge detector <a href="morphology.html#dip-MultiScaleMorphologicalGradient-Image-CL-Image-L-dip-uint--dip-uint--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Opening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL" class="m-doc">dip::<wbr />Opening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies the opening with a standard or custom structuring element. <a href="morphology.html#dip-Opening-Image-CL-Image-L-StructuringElement-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-OpeningByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL" class="m-doc">dip::<wbr />OpeningByReconstruction</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Opening by reconstruction <a href="morphology.html#dip-OpeningByReconstruction-Image-CL-Image-L-StructuringElement-CL-dip-uint--StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-PathOpening-Image-CL-Image-CL-Image-L-dip-uint--String-CL-StringSet-CL" class="m-doc">dip::<wbr />PathOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 7,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; mode = {})</span>
+            </dt>
+            <dd>Applies a path opening or closing in all possible directions <a href="morphology.html#dip-PathOpening-Image-CL-Image-CL-Image-L-dip-uint--String-CL-StringSet-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-RankFilter-Image-CL-Image-L-StructuringElement-CL-dip-uint--String-CL-StringArray-CL" class="m-doc">dip::<wbr />RankFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rank = 2,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; order = S::INCREASING,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies the rank-order filter. <a href="morphology.html#dip-RankFilter-Image-CL-Image-L-StructuringElement-CL-dip-uint--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-RankMaxOpening-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL" class="m-doc">dip::<wbr />RankMaxOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> se = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rank = 2,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies the rank-max opening, an opening that is somewhat robust to noise. <a href="morphology.html#dip-RankMaxOpening-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-RankMinClosing-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL" class="m-doc">dip::<wbr />RankMinClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> se = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rank = 2,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies the rank-min closing, a closing that is somewhat robust to noise. <a href="morphology.html#dip-RankMinClosing-Image-CL-Image-L-StructuringElement--dip-uint--StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL" class="m-doc">dip::<wbr />SeededWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
+            </dt>
+            <dd>Computes the watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>, with on-line merging of regions. <a href="segmentation.html#dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL)</span>
+            </dt>
+            <dd>Computes the stochastic watershed of <code>in</code>. <a href="segmentation.html#dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-StochasticWatershed-Image-CL-Image-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL)</span>
+            </dt>
+            <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-Tophat-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />Tophat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-StructuringElement.html" class="m-doc">dip::StructuringElement</a> const&amp; se = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; edgeType = S::TEXTURE,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>The Top-hat operator and its variants <a href="morphology.html#dip-Tophat-Image-CL-Image-L-StructuringElement-CL-String-CL-String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-UpperSkeleton2D-Image-CL-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />UpperSkeleton2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; endPixelCondition = S::NATURAL)</span>
+            </dt>
+            <dd>Grey-value skeleton (2D only). <a href="morphology.html#dip-UpperSkeleton2D-Image-CL-Image-CL-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-VolumeClosing-Image-CL-Image-CL-Image-L-dfloat--dip-uint-" class="m-doc">dip::<wbr />VolumeClosing</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> filterSize,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0)</span>
+            </dt>
+            <dd>Computes the area closing, calling <a href="morphology.html#dip-VolumeOpening-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL"><code>dip::VolumeOpening</code></a> with <code>polarity="closing"</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="morphology.html#dip-VolumeOpening-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />VolumeOpening</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> filterSize,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::OPENING)</span>
+            </dt>
+            <dd>Computes the volume opening or closing. This is a parametric opening. <a href="morphology.html#dip-VolumeOpening-Image-CL-Image-CL-Image-L-dfloat--dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-" class="m-doc">dip::<wbr />Watershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> flags = {})</span>
+            </dt>
+            <dd>Computes the watershed of <code>in</code> within <code>mask</code>, with on-line merging of regions. <a href="segmentation.html#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks significant local maxima. <a href="segmentation.html#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="segmentation.html#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks significant local minima. <a href="segmentation.html#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
           </dl>
         </section>
       </div>

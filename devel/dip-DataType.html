@@ -78,17 +78,17 @@ on these constants:</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-DataType-DataType">
-              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType" class="m-doc-self">DataType</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-primary">constexpr</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType" class="m-doc">DataType</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>The default data type is single-precision Float (<a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>).</dd>
-                              <dt id="dip-DataType-DataType-T-T-">
+                              <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType-T-T-" class="m-doc-self">DataType</a>(</span><span class="m-doc-wrap">T ) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
+              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType-T-T-" class="m-doc">DataType</a>(</span><span class="m-doc-wrap">T ) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Get the data type value of any expression, as long as that expression is of one of the known data types</dd>
-                              <dt id="dip-DataType-DataType-String-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType-String-CL" class="m-doc-self">DataType</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) <span class="m-label m-flat m-info">explicit</span> </span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-DataType-DataType-String-CL" class="m-doc">DataType</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>A string can be cast to a data type. See <a href="pixeltypes.html">Pixel data types</a> for recognized strings.</dd>
             </dl>
@@ -97,8 +97,7 @@ on these constants:</p>
             <h2>Aliases</h2>
             <dl class="m-doc">
                               <dt>
-              using <a href="#dip-DataType-Classes" class="m-doc">Classes</a> = dip::detail::Options
-
+using <a href="#dip-DataType-Classes" class="m-doc">Classes</a> = dip::detail::Options
             </dt>
             <dd>Specifies a collection of data types. <a href="#dip-DataType-Classes">more...</a></dd>
             </dl>
@@ -106,114 +105,78 @@ on these constants:</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-DataType-swap-DataType-L">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DataType-swap-DataType-L" class="m-doc-self">swap</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Swaps the values of <code>this</code> and <code>other</code></dd>
-                          <dt id="dip-DataType-Name-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-Name-C" class="m-doc-self">Name</a>(</span><span class="m-doc-wrap">) const -&gt; char const*</span>
-            </dt>
-            <dd>Returns a C-style string constant with a representation of the data type name. See <a href="pixeltypes.html">Pixel data types</a> for returned strings.</dd>
-                          <dt id="dip-DataType-SizeOf-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-SizeOf-C" class="m-doc-self">SizeOf</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the size in bytes of the data type.</dd>
-                          <dt id="dip-DataType-IsInRange-dip-sint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInRange-dip-sint--C" class="m-doc-self">IsInRange</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> value) const -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the integer <code>value</code> is within the range representable by the data type.</dd>
-                          <dt id="dip-DataType-IsInRange-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInRange-dip-uint--C" class="m-doc-self">IsInRange</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> value) const -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the integer <code>value</code> is within the range representable by the data type.</dd>
-                          <dt id="dip-DataType-Real-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-Real-C" class="m-doc-self">Real</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
-            </dt>
-            <dd>Returns the real data type corresponding to a complex data type</dd>
-                          <dt id="dip-DataType-IsA-Classes--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsA-Classes--C" class="m-doc-self">IsA</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> cls) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsA-Classes--C" class="m-doc">IsA</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> cls) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Returns <code>true</code> if the data type is of the given class.</dd>
-                          <dt id="dip-DataType-IsBinary-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsBinary-C" class="m-doc-self">IsBinary</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsBinary-C" class="m-doc">IsBinary</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Returns <code>true</code> if the data type is binary.</dd>
-                          <dt id="dip-DataType-IsUInt-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsUInt-C" class="m-doc-self">IsUInt</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Returns <code>true</code> if the data type is an unsigned integer type.</dd>
-                          <dt id="dip-DataType-IsSInt-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsSInt-C" class="m-doc-self">IsSInt</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Returns <code>true</code> if the data type is a signed integer type.</dd>
-                          <dt id="dip-DataType-IsInteger-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInteger-C" class="m-doc-self">IsInteger</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Returns <code>true</code> if the data type is an integer type.</dd>
-                          <dt id="dip-DataType-IsFloat-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFloat-C" class="m-doc-self">IsFloat</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Returns <code>true</code> if the data type is a floating point type.</dd>
-                          <dt id="dip-DataType-IsReal-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsReal-C" class="m-doc-self">IsReal</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Returns <code>true</code> if the data type is real (floating point or integer).</dd>
-                          <dt id="dip-DataType-IsFlex-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFlex-C" class="m-doc-self">IsFlex</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Returns <code>true</code> if the data type is one of the &ldquo;flex&rdquo; types (floating point or complex).</dd>
-                          <dt id="dip-DataType-IsFlexBin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFlexBin-C" class="m-doc-self">IsFlexBin</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Returns <code>true</code> if the data type is floating point, complex or binary.</dd>
-                          <dt id="dip-DataType-IsComplex-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsComplex-C" class="m-doc-self">IsComplex</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsComplex-C" class="m-doc">IsComplex</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Returns <code>true</code> if the data type is complex.</dd>
-                          <dt id="dip-DataType-IsUnsigned-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsUnsigned-C" class="m-doc-self">IsUnsigned</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFlex-C" class="m-doc">IsFlex</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
-            <dd>Returns <code>true</code> if the data type is an unsigned type (binary or unsigned integer).</dd>
-                          <dt id="dip-DataType-IsSigned-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsSigned-C" class="m-doc-self">IsSigned</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            <dd>Returns <code>true</code> if the data type is one of the &ldquo;flex&rdquo; types (floating point or complex).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFlexBin-C" class="m-doc">IsFlexBin</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is floating point, complex or binary.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsFloat-C" class="m-doc">IsFloat</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is a floating point type.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInRange-dip-sint--C" class="m-doc">IsInRange</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> value) const -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the integer <code>value</code> is within the range representable by the data type.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInRange-dip-uint--C" class="m-doc">IsInRange</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> value) const -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the integer <code>value</code> is within the range representable by the data type.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsInteger-C" class="m-doc">IsInteger</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is an integer type.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsReal-C" class="m-doc">IsReal</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Returns <code>true</code> if the data type is real (floating point or integer).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsSigned-C" class="m-doc">IsSigned</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Returns <code>true</code> if the data type is a signed type (signed integer, floating point or complex)</dd>
-                          <dt id="dip-DataType-SuggestInteger-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestInteger-DataType-" class="m-doc-self">SuggestInteger</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsSInt-C" class="m-doc">IsSInt</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
-            <dd>Returns an integer type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestSigned-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestSigned-DataType-" class="m-doc-self">SuggestSigned</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            <dd>Returns <code>true</code> if the data type is a signed integer type.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsUInt-C" class="m-doc">IsUInt</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
-            <dd>Returns a signed type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestFloat-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFloat-DataType-" class="m-doc-self">SuggestFloat</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            <dd>Returns <code>true</code> if the data type is an unsigned integer type.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-IsUnsigned-C" class="m-doc">IsUnsigned</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
-            <dd>Returns a suitable floating-point type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestDouble-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestDouble-DataType-" class="m-doc-self">SuggestDouble</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            <dd>Returns <code>true</code> if the data type is an unsigned type (binary or unsigned integer).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-Name-C" class="m-doc">Name</a>(</span><span class="m-doc-wrap">) const -&gt; char const*</span>
             </dt>
-            <dd>Returns a suitable double precision floating-point type (real or complex) that can hold large sums of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestComplex-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestComplex-DataType-" class="m-doc-self">SuggestComplex</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            <dd>Returns a C-style string constant with a representation of the data type name. See <a href="pixeltypes.html">Pixel data types</a> for returned strings.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-Real-C" class="m-doc">Real</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
             </dt>
-            <dd>Returns a suitable complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestFlex-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFlex-DataType-" class="m-doc-self">SuggestFlex</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            <dd>Returns the real data type corresponding to a complex data type</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-SizeOf-C" class="m-doc">SizeOf</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
-            <dd>Returns a suitable floating-point or complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestFlexBin-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFlexBin-DataType-" class="m-doc-self">SuggestFlexBin</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
-            </dt>
-            <dd>Returns a suitable floating-point, complex or binary type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestAbs-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestAbs-DataType-" class="m-doc-self">SuggestAbs</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            <dd>Returns the size in bytes of the data type.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestAbs-DataType-" class="m-doc">SuggestAbs</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
             </dt>
             <dd>Returns a suitable type that can hold samples of type <code>abs(type)</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
-                          <dt id="dip-DataType-SuggestReal-DataType-">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestReal-DataType-" class="m-doc-self">SuggestReal</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
-            </dt>
-            <dd>Returns a suitable real type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestArithmetic-DataType--DataType-" class="m-doc">SuggestArithmetic</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
@@ -221,51 +184,85 @@ on these constants:</p>
             <dd>Returns a suitable floating-point, complex or binary type (&ldquo;FlexBin&rdquo;) that can hold the result of an
 arithmetic computation performed with the two data types. <a href="#dip-DataType-SuggestArithmetic-DataType--DataType-">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestComplex-DataType-" class="m-doc">SuggestComplex</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestDouble-DataType-" class="m-doc">SuggestDouble</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable double precision floating-point type (real or complex) that can hold large sums of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestDyadicOperation-DataType--DataType-" class="m-doc">SuggestDyadicOperation</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
             </dt>
             <dd>Returns a suitable type that can hold any samples of the two data types. <a href="#dip-DataType-SuggestDyadicOperation-DataType--DataType-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFlex-DataType-" class="m-doc">SuggestFlex</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable floating-point or complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFlexBin-DataType-" class="m-doc">SuggestFlexBin</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable floating-point, complex or binary type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestFloat-DataType-" class="m-doc">SuggestFloat</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable floating-point type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestInteger-DataType-" class="m-doc">SuggestInteger</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns an integer type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestReal-DataType-" class="m-doc">SuggestReal</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a suitable real type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-DataType-SuggestSigned-DataType-" class="m-doc">SuggestSigned</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+            </dt>
+            <dd>Returns a signed type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DataType-swap-DataType-L" class="m-doc">swap</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a>&amp; other) <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Swaps the values of <code>this</code> and <code>other</code></dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-                          <dt id="dip-DataType-operator%20int-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%20int-C" class="m-doc-self">operator int</a>(</span><span class="m-doc-wrap">) const -&gt; int <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd><code>DataType</code> objects implicitly convert to the enumeration integer.</dd>
-                          <dt id="dip-DataType-operator%3D%3D-DataType--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%3D%3D-DataType--C" class="m-doc-self">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> other) const -&gt; bool</span>
-            </dt>
-            <dd><code>DataType</code> objects can be compared.</dd>
-                          <dt id="dip-DataType-operator%20Classes-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%20Classes-C" class="m-doc-self">operator Classes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%20Classes-C" class="m-doc">operator Classes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Implicit conversion to <a href="dip-DataType.html#dip-DataType-Classes"><code>dip::DataType::Classes</code></a> options class.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%20int-C" class="m-doc">operator int</a>(</span><span class="m-doc-wrap">) const -&gt; int <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd><code>DataType</code> objects implicitly convert to the enumeration integer.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DataType-operator%3D%3D-DataType--C" class="m-doc">operator==</a>(</span><span class="m-doc-wrap"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> other) const -&gt; bool</span>
+            </dt>
+            <dd><code>DataType</code> objects can be compared.</dd>
           </dl>
         </section>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-operator%3C%3C-std-ostream-L-DataType-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-DataType-" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+                            <dt>
+using <a href="#dip-DataTypeArray" class="m-doc">dip::<wbr />DataTypeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
+            </dt>
+            <dd>An array to hold data types</dd>
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-DataType-" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-DataType.html"><code>dip::DataType</code></a> to <code>std::cout</code> or any other stream. The result of <a href="dip-DataType.html#dip-DataType-Name-C"><code>type.Name()</code></a>
 is written.</dd>
-                            <dt id="dip-DataTypeArray">
-              using <a href="#dip-DataTypeArray" class="m-doc-self">dip::<wbr />DataTypeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
-            </dt>
-            <dd>An array to hold data types</dd>
           </dl>
         </section>
         <section>
           <h2>Alias documentation</h2>
                         <section class="m-doc-details" id="dip-DataType-Classes"><div>
             <h3>
-              using <span class="m-doc-name"><a href="#dip-DataType-Classes" class="m-doc-self">Classes</a></span> = dip::detail::Options
-            </h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-DataType-Classes" class="m-doc-self">Classes</a></span> = dip::detail::Options            </h3>
             <p>Specifies a collection of data types.</p>
 <p>Valid values are:</p>
 <div class="m-smaller-font m-grid m-block m-flat">
@@ -781,14 +778,232 @@ is written.</dd>
 <li><code>Class_Binary</code>, <code>Class_Integer</code>, <code>Class_Float</code> and <code>Class_Complex</code></li>
 </ul>
           </div></section>
+                        <section class="m-doc-details" id="dip-DataTypeArray"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-DataTypeArray" class="m-doc-self">dip::<wbr />DataTypeArray</a></span> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>            </h3>
+            <p>An array to hold data types</p>
+          </div></section>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-DataType-DataType"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-DataType" class="m-doc-self">DataType</a></span>(
+) <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>The default data type is single-precision Float (<a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a>).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-DataType-T-T-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-DataType-T-T-" class="m-doc-self">DataType</a></span>(
+<span class="m-doc-arg">T </span>) <span class="m-label m-info">explicit</span> <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Get the data type value of any expression, as long as that expression is of one of the known data types</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-DataType-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-DataType-String-CL" class="m-doc-self">DataType</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; name</span>) <span class="m-label m-info">explicit</span>            </h3>
+            <p>A string can be cast to a data type. See <a href="pixeltypes.html">Pixel data types</a> for recognized strings.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-swap-DataType-L"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-DataType-swap-DataType-L" class="m-doc-self">swap</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a>&amp; other</span>) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Swaps the values of <code>this</code> and <code>other</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-Name-C"><div>
+            <h3>
+              <span class="m-doc-return">char const* </span>
+              <span class="m-doc-name"><a href="#dip-DataType-Name-C" class="m-doc-self">Name</a></span>(
+) const            </h3>
+            <p>Returns a C-style string constant with a representation of the data type name. See <a href="pixeltypes.html">Pixel data types</a> for returned strings.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SizeOf-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SizeOf-C" class="m-doc-self">SizeOf</a></span>(
+) const            </h3>
+            <p>Returns the size in bytes of the data type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsInRange-dip-sint--C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsInRange-dip-sint--C" class="m-doc-self">IsInRange</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> value</span>) const            </h3>
+            <p>Returns true if the integer <code>value</code> is within the range representable by the data type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsInRange-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsInRange-dip-uint--C" class="m-doc-self">IsInRange</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> value</span>) const            </h3>
+            <p>Returns true if the integer <code>value</code> is within the range representable by the data type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-Real-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-Real-C" class="m-doc-self">Real</a></span>(
+) const            </h3>
+            <p>Returns the real data type corresponding to a complex data type</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsA-Classes--C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsA-Classes--C" class="m-doc-self">IsA</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> cls</span>) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is of the given class.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsBinary-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsBinary-C" class="m-doc-self">IsBinary</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is binary.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsUInt-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsUInt-C" class="m-doc-self">IsUInt</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is an unsigned integer type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsSInt-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsSInt-C" class="m-doc-self">IsSInt</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is a signed integer type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsInteger-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsInteger-C" class="m-doc-self">IsInteger</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is an integer type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsFloat-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsFloat-C" class="m-doc-self">IsFloat</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is a floating point type.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsReal-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsReal-C" class="m-doc-self">IsReal</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is real (floating point or integer).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsFlex-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsFlex-C" class="m-doc-self">IsFlex</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is one of the &ldquo;flex&rdquo; types (floating point or complex).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsFlexBin-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsFlexBin-C" class="m-doc-self">IsFlexBin</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is floating point, complex or binary.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsComplex-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsComplex-C" class="m-doc-self">IsComplex</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is complex.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsUnsigned-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsUnsigned-C" class="m-doc-self">IsUnsigned</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is an unsigned type (binary or unsigned integer).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-IsSigned-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-IsSigned-C" class="m-doc-self">IsSigned</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Returns <code>true</code> if the data type is a signed type (signed integer, floating point or complex)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestInteger-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestInteger-DataType-" class="m-doc-self">SuggestInteger</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns an integer type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestSigned-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestSigned-DataType-" class="m-doc-self">SuggestSigned</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a signed type that is most suitable to hold samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestFloat-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestFloat-DataType-" class="m-doc-self">SuggestFloat</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a suitable floating-point type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestDouble-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestDouble-DataType-" class="m-doc-self">SuggestDouble</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a suitable double precision floating-point type (real or complex) that can hold large sums of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestComplex-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestComplex-DataType-" class="m-doc-self">SuggestComplex</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a suitable complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestFlex-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestFlex-DataType-" class="m-doc-self">SuggestFlex</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a suitable floating-point or complex type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestFlexBin-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestFlexBin-DataType-" class="m-doc-self">SuggestFlexBin</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a suitable floating-point, complex or binary type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestAbs-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestAbs-DataType-" class="m-doc-self">SuggestAbs</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a suitable type that can hold samples of type <code>abs(type)</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-SuggestReal-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-SuggestReal-DataType-" class="m-doc-self">SuggestReal</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>Returns a suitable real type that can hold the samples of <code>type</code>. See <a href="pixeltypes.html">Pixel data types</a>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-DataType-SuggestArithmetic-DataType--DataType-"><div>
             <h3>
-              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
               <span class="m-doc-name"><a href="#dip-DataType-SuggestArithmetic-DataType--DataType-" class="m-doc-self">SuggestArithmetic</a></span>(
-<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,</span><span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1, </span><span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2</span>)            </h3>
             <p>Returns a suitable floating-point, complex or binary type (&ldquo;FlexBin&rdquo;) that can hold the result of an
 arithmetic computation performed with the two data types.</p>
 <p>The output value given <code>type1</code> and <code>type2</code> is as follows. First the two arguments are promoted using
@@ -852,9 +1067,9 @@ inputs is irrelevant, and the table is symmetric):</p>
           </div></section>
                         <section class="m-doc-details" id="dip-DataType-SuggestDyadicOperation-DataType--DataType-"><div>
             <h3>
-              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a></span>
+              <span class="m-doc-return">static <a href="dip-DataType.html" class="m-doc">dip::DataType</a> </span>
               <span class="m-doc-name"><a href="#dip-DataType-SuggestDyadicOperation-DataType--DataType-" class="m-doc-self">SuggestDyadicOperation</a></span>(
-<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1,</span><span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type1, </span><span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type2</span>)            </h3>
             <p>Returns a suitable type that can hold any samples of the two data types.</p>
 <p>The output value given <code>type1</code> and <code>type2</code> is as follows (note that the order of the two inputs is
 irrelevant, and the table is symmetric):</p>
@@ -1090,6 +1305,35 @@ irrelevant, and the table is symmetric):</p>
 </tbody>
 </table>
 </div>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-operator%20int-C"><div>
+            <h3>
+              <span class="m-doc-return">int </span>
+              <span class="m-doc-name"><a href="#dip-DataType-operator%20int-C" class="m-doc-self">operator int</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p><code>DataType</code> objects implicitly convert to the enumeration integer.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-operator%3D%3D-DataType--C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DataType-operator%3D%3D-DataType--C" class="m-doc-self">operator==</a></span>(
+<span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> other</span>) const            </h3>
+            <p><code>DataType</code> objects can be compared.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DataType-operator%20Classes-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html#dip-DataType-Classes" class="m-doc">dip::DataType::Classes</a> </span>
+              <span class="m-doc-name"><a href="#dip-DataType-operator%20Classes-C" class="m-doc-self">operator Classes</a></span>(
+) const <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Implicit conversion to <a href="dip-DataType.html#dip-DataType-Classes"><code>dip::DataType::Classes</code></a> options class.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%3C%3C-std-ostream-L-DataType-"><div>
+            <h3>
+              <span class="m-doc-return">std::ostream&amp; </span>
+              <span class="m-doc-name"><a href="#dip-operator%3C%3C-std-ostream-L-DataType-" class="m-doc-self">dip::<wbr />operator<<</a></span>(
+<span class="m-doc-arg">std::ostream&amp; os, </span><span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> type</span>)            </h3>
+            <p>You can output a <a href="dip-DataType.html"><code>dip::DataType</code></a> to <code>std::cout</code> or any other stream. The result of <a href="dip-DataType.html#dip-DataType-Name-C"><code>type.Name()</code></a>
+is written.</p>
           </div></section>
         </section>
       </div>

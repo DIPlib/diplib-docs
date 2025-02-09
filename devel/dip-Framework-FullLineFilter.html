@@ -78,8 +78,8 @@ guaranteed to be called. It is not important that the function be very precise, 
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-Framework-FullLineFilter-~FullLineFilter">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Framework-FullLineFilter-~FullLineFilter" class="m-doc-self">~FullLineFilter</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-warning">virtual</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Framework-FullLineFilter-~FullLineFilter" class="m-doc">~FullLineFilter</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
             <dd>A virtual destructor guarantees that we can destroy a derived class by a pointer to base</dd>
             </dl>
@@ -87,17 +87,12 @@ guaranteed to be called. It is not important that the function be very precise, 
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-Framework-FullLineFilter-Filter-FullLineFilterParameters-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-FullLineFilter-Filter-FullLineFilterParameters-CL" class="m-doc-self">Filter</a>(</span><span class="m-doc-wrap"><a href="frameworks.html#dip-Framework-FullLineFilterParameters" class="m-doc">dip::Framework::FullLineFilterParameters</a> const&amp; params) <span class="m-label m-flat m-warning">pure virtual</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-FullLineFilter-Filter-FullLineFilterParameters-CL" class="m-doc">Filter</a>(</span><span class="m-doc-wrap"><a href="frameworks.html#dip-Framework-FullLineFilterParameters" class="m-doc">dip::Framework::FullLineFilterParameters</a> const&amp; params) <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
             <dd>The derived class must must define this method, this is the actual line filter.</dd>
-                          <dt id="dip-Framework-FullLineFilter-SetNumberOfThreads-dip-uint--PixelTableOffsets-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-FullLineFilter-SetNumberOfThreads-dip-uint--PixelTableOffsets-CL" class="m-doc-self">SetNumberOfThreads</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> threads,
-              <a href="dip-PixelTableOffsets.html" class="m-doc">dip::PixelTableOffsets</a> const&amp; pixelTable) <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>The derived class can define this function for setting up the processing.</dd>
-                          <dt id="dip-Framework-FullLineFilter-GetNumberOfOperations-dip-uint--dip-uint--dip-uint--dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-FullLineFilter-GetNumberOfOperations-dip-uint--dip-uint--dip-uint--dip-uint-" class="m-doc-self">GetNumberOfOperations</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> lineLength,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Framework-FullLineFilter-GetNumberOfOperations-dip-uint--dip-uint--dip-uint--dip-uint-" class="m-doc">GetNumberOfOperations</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> lineLength,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nTensorElements,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nKernelPixels,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nRuns) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-warning">virtual</span></span>
@@ -105,7 +100,45 @@ guaranteed to be called. It is not important that the function be very precise, 
             <dd>The derived class can define this function for helping to determine whether to compute
 in parallel or not. It must return the number of clock cycles per image line. The default is valid for
 a convolution-like operation.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Framework-FullLineFilter-SetNumberOfThreads-dip-uint--PixelTableOffsets-CL" class="m-doc">SetNumberOfThreads</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> threads,
+              <a href="dip-PixelTableOffsets.html" class="m-doc">dip::PixelTableOffsets</a> const&amp; pixelTable) <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>The derived class can define this function for setting up the processing.</dd>
           </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-Framework-FullLineFilter-~FullLineFilter"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Framework-FullLineFilter-~FullLineFilter" class="m-doc-self">~FullLineFilter</a></span>(
+) <span class="m-label m-info">defaulted</span> <span class="m-label m-warning">virtual</span>            </h3>
+            <p>A virtual destructor guarantees that we can destroy a derived class by a pointer to base</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Framework-FullLineFilter-Filter-FullLineFilterParameters-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Framework-FullLineFilter-Filter-FullLineFilterParameters-CL" class="m-doc-self">Filter</a></span>(
+<span class="m-doc-arg"><a href="frameworks.html#dip-Framework-FullLineFilterParameters" class="m-doc">dip::Framework::FullLineFilterParameters</a> const&amp; params</span>) <span class="m-label m-warning">pure virtual</span>            </h3>
+            <p>The derived class must must define this method, this is the actual line filter.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Framework-FullLineFilter-SetNumberOfThreads-dip-uint--PixelTableOffsets-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Framework-FullLineFilter-SetNumberOfThreads-dip-uint--PixelTableOffsets-CL" class="m-doc-self">SetNumberOfThreads</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> threads, </span><span class="m-doc-arg"><a href="dip-PixelTableOffsets.html" class="m-doc">dip::PixelTableOffsets</a> const&amp; pixelTable</span>) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>The derived class can define this function for setting up the processing.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Framework-FullLineFilter-GetNumberOfOperations-dip-uint--dip-uint--dip-uint--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Framework-FullLineFilter-GetNumberOfOperations-dip-uint--dip-uint--dip-uint--dip-uint-" class="m-doc-self">GetNumberOfOperations</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> lineLength, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nTensorElements, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nKernelPixels, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nRuns</span>) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>The derived class can define this function for helping to determine whether to compute
+in parallel or not. It must return the number of clock cycles per image line. The default is valid for
+a convolution-like operation.</p>
+          </div></section>
         </section>
       </div>
     </div>

@@ -73,128 +73,123 @@ single value is illegal.</p>
           <h2>Classes</h2>
           <dl class="m-doc">
                           <dt>
-              struct <a href="#dip-ChainCode-CodeTable" class="m-doc">CodeTable</a>
-            </dt>
-            <dd>Provides data that are helpful when processing chain codes. <a href="#dip-ChainCode-CodeTable">more...</a></dd>
-                          <dt>
               class <a href="dip-ChainCode-Code.html" class="m-doc">Code</a>
             </dt>
             <dd>Encodes a single chain code, as used by <a href="dip-ChainCode.html"><code>dip::ChainCode</code></a>. <a href="dip-ChainCode-Code.html#dip-ChainCode-Code">more...</a></dd>
+                          <dt>
+              struct <a href="#dip-ChainCode-CodeTable" class="m-doc">CodeTable</a>
+            </dt>
+            <dd>Provides data that are helpful when processing chain codes. <a href="#dip-ChainCode-CodeTable">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-ChainCode-Push-Code-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ChainCode-Push-Code-CL" class="m-doc-self">Push</a>(</span><span class="m-doc-wrap"><a href="dip-ChainCode-Code.html" class="m-doc">dip::ChainCode::Code</a> const&amp; code)</span>
-            </dt>
-            <dd>Adds a code to the end of the chain.</dd>
-                          <dt id="dip-ChainCode-PrepareCodeTable-IntegerArray-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-PrepareCodeTable-IntegerArray-CL-C" class="m-doc-self">PrepareCodeTable</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides) const -&gt; <a href="dip-ChainCode.html#dip-ChainCode-CodeTable" class="m-doc">dip::ChainCode::CodeTable</a></span>
-            </dt>
-            <dd>Returns a table that is useful when processing the chain code</dd>
-                          <dt id="dip-ChainCode-PrepareCodeTable-dip-uint--IntegerArray-CL">
-              <span class="m-doc-wrap-bumper">static auto <a href="#dip-ChainCode-PrepareCodeTable-dip-uint--IntegerArray-CL" class="m-doc-self">PrepareCodeTable</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity,
-              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides) -&gt; <a href="dip-ChainCode.html#dip-ChainCode-CodeTable" class="m-doc">dip::ChainCode::CodeTable</a></span>
-            </dt>
-            <dd>Returns a table that is useful when processing the chain code</dd>
-                          <dt id="dip-ChainCode-ConvertTo8Connected-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-ConvertTo8Connected-C" class="m-doc-self">ConvertTo8Connected</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a></span>
-            </dt>
-            <dd>Creates a new chain code object that is 8-connected and represents the same shape.</dd>
-                          <dt id="dip-ChainCode-Empty-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Empty-C" class="m-doc-self">Empty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>A chain code whose <code>start</code> value hasn&rsquo;t been set is considered empty.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Length-String-CL-C" class="m-doc">Length</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryPixels = S::EXCLUDE) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Returns the length of the chain code using the method by Vossepoel and Smeulders. <a href="#dip-ChainCode-Length-String-CL-C">more...</a></dd>
-                          <dt id="dip-ChainCode-Feret-dfloat--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Feret-dfloat--C" class="m-doc-self">Feret</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angleStep = 5.0/180.0*pi) const -&gt; <a href="measurement.html#dip-FeretValues" class="m-doc">dip::FeretValues</a></span>
-            </dt>
-            <dd>Returns the Feret diameters, using an angular step size in radian of <code>angleStep</code>.
-It is better to use <a href="dip-ConvexHull.html#dip-ConvexHull-Feret-C"><code>dip::ConvexHull::Feret</code></a>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-BendingEnergy-C" class="m-doc">BendingEnergy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the bending energy. <a href="#dip-ChainCode-BendingEnergy-C">more...</a></dd>
-                          <dt id="dip-ChainCode-Area-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Area-C" class="m-doc-self">Area</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Area-C" class="m-doc">Area</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Computes the area of the solid object described by the chain code. Uses the result of
 <a href="dip-ChainCode.html#dip-ChainCode-Polygon-String-CL-C"><code>dip::ChainCode::Polygon</code></a>, so if you plan to do multiple similar measures, extract the polygon and
 compute the measures on that.</dd>
-                          <dt id="dip-ChainCode-Centroid-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Centroid-C" class="m-doc-self">Centroid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-BendingEnergy-C" class="m-doc">BendingEnergy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the bending energy. <a href="#dip-ChainCode-BendingEnergy-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-BoundingBox-C" class="m-doc">BoundingBox</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-BoundingBox-T.html#dip-BoundingBoxInteger" class="m-doc">dip::BoundingBoxInteger</a></span>
+            </dt>
+            <dd>Finds the bounding box for the object described by the chain code.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Centroid-C" class="m-doc">Centroid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
             </dt>
             <dd>Computes the centroid of the solid object described by the chain code. Uses the result of
 <a href="dip-ChainCode.html#dip-ChainCode-Polygon-String-CL-C"><code>dip::ChainCode::Polygon</code></a>, so if you plan to do multiple similar measures, extract the polygon and
 compute the measures on that.</dd>
-                          <dt id="dip-ChainCode-BoundingBox-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-BoundingBox-C" class="m-doc-self">BoundingBox</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-BoundingBox-T.html#dip-BoundingBoxInteger" class="m-doc">dip::BoundingBoxInteger</a></span>
-            </dt>
-            <dd>Finds the bounding box for the object described by the chain code.</dd>
-                          <dt id="dip-ChainCode-LongestRun-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-LongestRun-C" class="m-doc-self">LongestRun</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Returns the length of the longest run of identical chain codes.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Polygon-String-CL-C" class="m-doc">Polygon</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; borderCodes = S::KEEP) const -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-ConvertTo8Connected-C" class="m-doc">ConvertTo8Connected</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a></span>
             </dt>
-            <dd>Returns a polygon representation of the object. <a href="#dip-ChainCode-Polygon-String-CL-C">more...</a></dd>
-                          <dt id="dip-ChainCode-ConvexHull-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-ConvexHull-C" class="m-doc-self">ConvexHull</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ConvexHull.html" class="m-doc">dip::ConvexHull</a></span>
+            <dd>Creates a new chain code object that is 8-connected and represents the same shape.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-ConvexHull-C" class="m-doc">ConvexHull</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ConvexHull.html" class="m-doc">dip::ConvexHull</a></span>
             </dt>
             <dd>Returns the convex hull of the object, see <a href="dip-ChainCode.html#dip-ChainCode-Polygon-String-CL-C"><code>dip::ChainCode::Polygon</code></a>.</dd>
-                          <dt id="dip-ChainCode-Image-dip-Image-L-C">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ChainCode-Image-dip-Image-L-C" class="m-doc-self">Image</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) const</span>
-            </dt>
-            <dd>Paints the pixels traced by the chain code in a binary image. The image has the size of the
-<a href="dip-ChainCode.html#dip-ChainCode-BoundingBox-C"><code>dip::ChainCode::BoundingBox</code></a>.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Coordinates-C" class="m-doc">Coordinates</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
             </dt>
             <dd>Returns the pixel coordinates for each of the pixels represented in the chain code. <a href="#dip-ChainCode-Coordinates-C">more...</a></dd>
-                          <dt id="dip-ChainCode-Offset-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Offset-C" class="m-doc-self">Offset</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Empty-C" class="m-doc">Empty</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>A chain code whose <code>start</code> value hasn&rsquo;t been set is considered empty.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Feret-dfloat--C" class="m-doc">Feret</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angleStep = 5.0/180.0*pi) const -&gt; <a href="measurement.html#dip-FeretValues" class="m-doc">dip::FeretValues</a></span>
+            </dt>
+            <dd>Returns the Feret diameters, using an angular step size in radian of <code>angleStep</code>.
+It is better to use <a href="dip-ConvexHull.html#dip-ConvexHull-Feret-C"><code>dip::ConvexHull::Feret</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ChainCode-Image-dip-Image-L-C" class="m-doc">Image</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) const</span>
+            </dt>
+            <dd>Paints the pixels traced by the chain code in a binary image. The image has the size of the
+<a href="dip-ChainCode.html#dip-ChainCode-BoundingBox-C"><code>dip::ChainCode::BoundingBox</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Length-String-CL-C" class="m-doc">Length</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryPixels = S::EXCLUDE) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Returns the length of the chain code using the method by Vossepoel and Smeulders. <a href="#dip-ChainCode-Length-String-CL-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-LongestRun-C" class="m-doc">LongestRun</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the length of the longest run of identical chain codes.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Offset-C" class="m-doc">Offset</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a></span>
             </dt>
             <dd>Create a new chain code that goes around the object in the same direction, but traces the background
 pixels that are 4-connected to the object. That is, it grows the object by one pixel. Only defined for
 8-connected chain codes.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-Polygon-String-CL-C" class="m-doc">Polygon</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; borderCodes = S::KEEP) const -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a></span>
+            </dt>
+            <dd>Returns a polygon representation of the object. <a href="#dip-ChainCode-Polygon-String-CL-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ChainCode-PrepareCodeTable-IntegerArray-CL-C" class="m-doc">PrepareCodeTable</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides) const -&gt; <a href="dip-ChainCode.html#dip-ChainCode-CodeTable" class="m-doc">dip::ChainCode::CodeTable</a></span>
+            </dt>
+            <dd>Returns a table that is useful when processing the chain code</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">static auto <a href="#dip-ChainCode-PrepareCodeTable-dip-uint--IntegerArray-CL" class="m-doc">PrepareCodeTable</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity,
+              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides) -&gt; <a href="dip-ChainCode.html#dip-ChainCode-CodeTable" class="m-doc">dip::ChainCode::CodeTable</a></span>
+            </dt>
+            <dd>Returns a table that is useful when processing the chain code</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ChainCode-Push-Code-CL" class="m-doc">Push</a>(</span><span class="m-doc-wrap"><a href="dip-ChainCode-Code.html" class="m-doc">dip::ChainCode::Code</a> const&amp; code)</span>
+            </dt>
+            <dd>Adds a code to the end of the chain.</dd>
           </dl>
         </section>
         <section id="variable-members">
            <h2>Variables</h2>
            <dl class="m-doc">
-                            <dt id="dip-ChainCode-codes">
-            std::vector&lt;Code&gt; <a href="#dip-ChainCode-codes" class="m-doc-self">codes</a>
-
+                            <dt>
+            std::vector&lt;Code&gt; <a href="#dip-ChainCode-codes" class="m-doc">codes</a>
             </dt>
             <dd>The chain codes</dd>
-                            <dt id="dip-ChainCode-start">
-            <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> <a href="#dip-ChainCode-start" class="m-doc-self">start</a>
- = {-1,-1}
-            </dt>
-            <dd>The coordinates of the start pixel, the default value is outside the image to indicate there&rsquo;s no chain code here</dd>
-                            <dt id="dip-ChainCode-objectID">
-            <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> <a href="#dip-ChainCode-objectID" class="m-doc-self">objectID</a>
- = 0
-            </dt>
-            <dd>The label of the object from which this chain code is taken</dd>
-                            <dt id="dip-ChainCode-is8connected">
-            bool <a href="#dip-ChainCode-is8connected" class="m-doc-self">is8connected</a>
- = true
+                            <dt>
+            bool <a href="#dip-ChainCode-is8connected" class="m-doc">is8connected</a> = true
             </dt>
             <dd>Is false when connectivity = 1, true when connectivity = 2</dd>
+                            <dt>
+            <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> <a href="#dip-ChainCode-objectID" class="m-doc">objectID</a> = 0
+            </dt>
+            <dd>The label of the object from which this chain code is taken</dd>
+                            <dt>
+            <a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> <a href="#dip-ChainCode-start" class="m-doc">start</a> = {-1,-1}
+            </dt>
+            <dd>The coordinates of the start pixel, the default value is outside the image to indicate there&rsquo;s no chain code here</dd>
            </dl>
         </section>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-ChainCodeArray">
-              using <a href="#dip-ChainCodeArray" class="m-doc-self">dip::<wbr />ChainCodeArray</a> = std::vector&lt;ChainCode&gt;
-
+                            <dt>
+using <a href="#dip-ChainCodeArray" class="m-doc">dip::<wbr />ChainCodeArray</a> = std::vector&lt;ChainCode&gt;
             </dt>
             <dd>A collection of object contours.</dd>
           </dl>
@@ -203,7 +198,7 @@ pixels that are 4-connected to the object. That is, it grows the object by one p
           <h2>Class documentation</h2>
                         <section class="m-doc-details" id="dip-ChainCode-CodeTable"><div>
             <h3>
-              struct <span class="m-doc-name"><a href="#dip-ChainCode-CodeTable" class="m-doc-self">CodeTable</a></span>            </h3>
+              <span class="m-doc-return">struct </span><span class="m-doc-name"><a href="#dip-ChainCode-CodeTable" class="m-doc-self">CodeTable</a></span>            </h3>
             <p>Provides data that are helpful when processing chain codes.</p>
 <p>The table is prepared using the <a href="dip-ChainCode.html#dip-ChainCode-PrepareCodeTable-IntegerArray-CL-C"><code>dip::ChainCode::PrepareCodeTable</code></a> method. The method takes a stride array,
 which is expected to have exactly two elements (as chain codes only work with 2D images). The returned
@@ -234,10 +229,53 @@ first four table elements can be used. Otherwise, eight table elements exist and
           </div></section>
         </section>
         <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-ChainCodeArray"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ChainCodeArray" class="m-doc-self">dip::<wbr />ChainCodeArray</a></span> = std::vector&lt;ChainCode&gt;            </h3>
+            <p>A collection of object contours.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-ChainCode-Push-Code-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-Push-Code-CL" class="m-doc-self">Push</a></span>(
+<span class="m-doc-arg"><a href="dip-ChainCode-Code.html" class="m-doc">dip::ChainCode::Code</a> const&amp; code</span>)            </h3>
+            <p>Adds a code to the end of the chain.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-PrepareCodeTable-IntegerArray-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ChainCode.html#dip-ChainCode-CodeTable" class="m-doc">dip::ChainCode::CodeTable</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-PrepareCodeTable-IntegerArray-CL-C" class="m-doc-self">PrepareCodeTable</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides</span>) const            </h3>
+            <p>Returns a table that is useful when processing the chain code</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-PrepareCodeTable-dip-uint--IntegerArray-CL"><div>
+            <h3>
+              <span class="m-doc-return">static <a href="dip-ChainCode.html#dip-ChainCode-CodeTable" class="m-doc">dip::ChainCode::CodeTable</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-PrepareCodeTable-dip-uint--IntegerArray-CL" class="m-doc-self">PrepareCodeTable</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> const&amp; strides</span>)            </h3>
+            <p>Returns a table that is useful when processing the chain code</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-ConvertTo8Connected-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-ConvertTo8Connected-C" class="m-doc-self">ConvertTo8Connected</a></span>(
+) const            </h3>
+            <p>Creates a new chain code object that is 8-connected and represents the same shape.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-Empty-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-Empty-C" class="m-doc-self">Empty</a></span>(
+) const            </h3>
+            <p>A chain code whose <code>start</code> value hasn&rsquo;t been set is considered empty.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ChainCode-Length-String-CL-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-ChainCode-Length-String-CL-C" class="m-doc-self">Length</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryPixels = S::EXCLUDE</span>) const            </h3>
             <p>Returns the length of the chain code using the method by Vossepoel and Smeulders.</p>
@@ -255,9 +293,17 @@ portions of the perimeter, set <code>boundaryPixels</code> to <code>"include"</c
 </ul>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-Feret-dfloat--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="measurement.html#dip-FeretValues" class="m-doc">dip::FeretValues</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-Feret-dfloat--C" class="m-doc-self">Feret</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angleStep = 5.0/180.0*pi</span>) const            </h3>
+            <p>Returns the Feret diameters, using an angular step size in radian of <code>angleStep</code>.
+It is better to use <a href="dip-ConvexHull.html#dip-ConvexHull-Feret-C"><code>dip::ConvexHull::Feret</code></a>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ChainCode-BendingEnergy-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-ChainCode-BendingEnergy-C" class="m-doc-self">BendingEnergy</a></span>(
 ) const            </h3>
             <p>Computes the bending energy.</p>
@@ -273,9 +319,41 @@ to use <a href="dip-Polygon.html#dip-Polygon-BendingEnergy-C"><code>dip::Polygon
 </ul>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-Area-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-Area-C" class="m-doc-self">Area</a></span>(
+) const            </h3>
+            <p>Computes the area of the solid object described by the chain code. Uses the result of
+<a href="dip-ChainCode.html#dip-ChainCode-Polygon-String-CL-C"><code>dip::ChainCode::Polygon</code></a>, so if you plan to do multiple similar measures, extract the polygon and
+compute the measures on that.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-Centroid-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-Centroid-C" class="m-doc-self">Centroid</a></span>(
+) const            </h3>
+            <p>Computes the centroid of the solid object described by the chain code. Uses the result of
+<a href="dip-ChainCode.html#dip-ChainCode-Polygon-String-CL-C"><code>dip::ChainCode::Polygon</code></a>, so if you plan to do multiple similar measures, extract the polygon and
+compute the measures on that.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-BoundingBox-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-BoundingBox-T.html#dip-BoundingBoxInteger" class="m-doc">dip::BoundingBoxInteger</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-BoundingBox-C" class="m-doc-self">BoundingBox</a></span>(
+) const            </h3>
+            <p>Finds the bounding box for the object described by the chain code.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-LongestRun-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-LongestRun-C" class="m-doc-self">LongestRun</a></span>(
+) const            </h3>
+            <p>Returns the length of the longest run of identical chain codes.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ChainCode-Polygon-String-CL-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a></span>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a> </span>
               <span class="m-doc-name"><a href="#dip-ChainCode-Polygon-String-CL-C" class="m-doc-self">Polygon</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; borderCodes = S::KEEP</span>) const            </h3>
             <p>Returns a polygon representation of the object.</p>
@@ -298,15 +376,66 @@ along that edge.</p>
 </ul>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-ConvexHull-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ConvexHull.html" class="m-doc">dip::ConvexHull</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-ConvexHull-C" class="m-doc-self">ConvexHull</a></span>(
+) const            </h3>
+            <p>Returns the convex hull of the object, see <a href="dip-ChainCode.html#dip-ChainCode-Polygon-String-CL-C"><code>dip::ChainCode::Polygon</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-Image-dip-Image-L-C"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-Image-dip-Image-L-C" class="m-doc-self">Image</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>) const            </h3>
+            <p>Paints the pixels traced by the chain code in a binary image. The image has the size of the
+<a href="dip-ChainCode.html#dip-ChainCode-BoundingBox-C"><code>dip::ChainCode::BoundingBox</code></a>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ChainCode-Coordinates-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> </span>
               <span class="m-doc-name"><a href="#dip-ChainCode-Coordinates-C" class="m-doc-self">Coordinates</a></span>(
 ) const            </h3>
             <p>Returns the pixel coordinates for each of the pixels represented in the chain code.</p>
 <p>Very large coordinate values will be returned if the chain code runs outside the image
 on the left or top (i.e. if the pixels encoded by the chain code have negative coordinates)
 because the output object uses unsigned integers.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-Offset-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ChainCode.html" class="m-doc">dip::ChainCode</a> </span>
+              <span class="m-doc-name"><a href="#dip-ChainCode-Offset-C" class="m-doc-self">Offset</a></span>(
+) const            </h3>
+            <p>Create a new chain code that goes around the object in the same direction, but traces the background
+pixels that are 4-connected to the object. That is, it grows the object by one pixel. Only defined for
+8-connected chain codes.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+                        <section class="m-doc-details" id="dip-ChainCode-codes"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;Code&gt; </span><span class="m-doc-name"><a href="#dip-ChainCode-codes" class="m-doc-self">codes</a></span>
+            </h3>
+            <p>The chain codes</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-start"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Vertex-T.html#dip-VertexInteger" class="m-doc">dip::VertexInteger</a> </span><span class="m-doc-name"><a href="#dip-ChainCode-start" class="m-doc-self">start</a></span>
+ = {-1,-1}            </h3>
+            <p>The coordinates of the start pixel, the default value is outside the image to indicate there&rsquo;s no chain code here</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-objectID"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> </span><span class="m-doc-name"><a href="#dip-ChainCode-objectID" class="m-doc-self">objectID</a></span>
+ = 0            </h3>
+            <p>The label of the object from which this chain code is taken</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ChainCode-is8connected"><div>
+            <h3>
+              <span class="m-doc-return">bool </span><span class="m-doc-name"><a href="#dip-ChainCode-is8connected" class="m-doc-self">is8connected</a></span>
+ = true            </h3>
+            <p>Is false when connectivity = 1, true when connectivity = 2</p>
           </div></section>
         </section>
       </div>

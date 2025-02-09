@@ -76,6 +76,10 @@
             </dt>
             <dd>A data structure with information about an image file. <a href="#dip-FileInformation">more...</a></dd>
                           <dt>
+              class <a href="dip-FixedOutputBuffer.html" class="m-doc">dip::<wbr />FixedOutputBuffer</a>
+            </dt>
+            <dd>An output buffer implementation that cannot be resized. <a href="dip-FixedOutputBuffer.html#dip-FixedOutputBuffer">more...</a></dd>
+                          <dt>
               class <a href="dip-OutputBuffer.html" class="m-doc">dip::<wbr />OutputBuffer</a> <span class="m-label m-flat m-warning">abstract</span>
             </dt>
             <dd>An abstract base class for output buffers. <a href="dip-OutputBuffer.html#dip-OutputBuffer">more...</a></dd>
@@ -83,15 +87,64 @@
               class <a href="dip-SimpleOutputBuffer.html" class="m-doc">dip::<wbr />SimpleOutputBuffer</a>
             </dt>
             <dd>A simple output buffer implementation. <a href="dip-SimpleOutputBuffer.html#dip-SimpleOutputBuffer">more...</a></dd>
-                          <dt>
-              class <a href="dip-FixedOutputBuffer.html" class="m-doc">dip::<wbr />FixedOutputBuffer</a>
-            </dt>
-            <dd>An output buffer implementation that cannot be resized. <a href="dip-FixedOutputBuffer.html#dip-FixedOutputBuffer">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileAddExtension-String-CL-String-CL" class="m-doc">dip::<wbr />FileAddExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-label m-danger">deprecated</span></span>
+            </dt>
+            <dd>Adds the given extension to the file name, replacing any existing extension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileAppendExtension-String-CL-String-CL" class="m-doc">dip::<wbr />FileAppendExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Appends the given extension to the file name.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileCompareExtension-String-CL-String-CL" class="m-doc">dip::<wbr />FileCompareExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file name has the given extension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileGetExtension-String-CL" class="m-doc">dip::<wbr />FileGetExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Gets the extension for the given file name, or an empty string if there&rsquo;s no extension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileGetExtensionPosition-String-CL" class="m-doc">dip::<wbr />FileGetExtensionPosition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; String::size_type</span>
+            </dt>
+            <dd>Returns the location of the dot that separates the extension, or <code>dip::String::npos</code> if there is no dot.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileHasExtension-String-CL" class="m-doc">dip::<wbr />FileHasExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file name has an extension.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsICS-String-CL" class="m-doc">dip::<wbr />ImageIsICS</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file <code>filename</code> is an ICS file.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsJPEG-String-CL" class="m-doc">dip::<wbr />ImageIsJPEG</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file <code>filename</code> is a JPEG file.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsNPY-String-CL" class="m-doc">dip::<wbr />ImageIsNPY</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file <code>filename</code> is a NPY file.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsPNG-String-CL" class="m-doc">dip::<wbr />ImageIsPNG</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file <code>filename</code> is a PNG file.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsTIFF-String-CL" class="m-doc">dip::<wbr />ImageIsTIFF</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
+            </dt>
+            <dd>Returns true if the file <code>filename</code> is a TIFF file.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageRead-Image-L-String-CL-String-" class="m-doc">dip::<wbr />ImageRead</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = "") -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads the image in a file <code>filename</code>, and puts it in <code>out</code>. <a href="#dip-ImageRead-Image-L-String-CL-String-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadICS-Image-L-String-CL-RangeArray-CL-Range-CL-String-CL" class="m-doc">dip::<wbr />ImageReadICS</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
@@ -111,23 +164,65 @@
             </dt>
             <dd>This function is an overload of the previous function that defines the ROI using different
 parameters. <a href="#dip-ImageReadICS-Image-L-String-CL-UnsignedArray-CL-UnsignedArray-CL-UnsignedArray-CL-Range-CL-String-CL">more...</a></dd>
-                          <dt id="dip-ImageReadICSInfo-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadICSInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadICSInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadICSInfo-String-CL" class="m-doc">dip::<wbr />ImageReadICSInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
             </dt>
             <dd>Reads image information and metadata from the ICS file <code>filename</code>, without reading the actual
 pixel data. See <a href="file_io.html#dip-ImageReadICS-Image-L-String-CL-RangeArray-CL-Range-CL-String-CL"><code>dip::ImageReadICS</code></a> for more details on the file format and the handling of <code>filename</code>.</dd>
-                          <dt id="dip-ImageIsICS-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsICS-String-CL" class="m-doc-self">dip::<wbr />ImageIsICS</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the file <code>filename</code> is an ICS file.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteICS-Image-CL-String-CL-StringArray-CL-dip-uint--StringSet-CL" class="m-doc">dip::<wbr />ImageWriteICS</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; history = {},
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {})</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEG-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
             </dt>
-            <dd>Writes <code>image</code> as an ICS file. <a href="#dip-ImageWriteICS-Image-CL-String-CL-StringArray-CL-dip-uint--StringSet-CL">more...</a></dd>
+            <dd>Reads an image from the JPEG file <code>filename</code> and puts it in <code>out</code>. <a href="#dip-ImageReadJPEG-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEG-Image-L-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              void const* buffer,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads an image from the JPEG-encoded buffer and puts it in <code>out</code>. <a href="#dip-ImageReadJPEG-Image-L-void-CP-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEGInfo-String-CL" class="m-doc">dip::<wbr />ImageReadJPEGInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads image information and metadata from the JPEG file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadJPEG-Image-L-String-CL"><code>dip::ImageReadJPEG</code></a> for more details on the handling of <code>filename</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEGInfo-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadJPEGInfo</a>(</span><span class="m-doc-wrap">void const* buffer,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads image information and metadata from the JPEG-encoded buffer, without reading the actual
+pixel data. <a href="#dip-ImageReadJPEGInfo-void-CP-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadNPY-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads a numeric array from the NumPy NPY file <code>filename</code> and puts it in <code>out</code>. <a href="#dip-ImageReadNPY-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadNPYInfo-String-CL" class="m-doc">dip::<wbr />ImageReadNPYInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads array information (size and data type) from the NumPy NPY file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadNPY-Image-L-String-CL"><code>dip::ImageReadNPY</code></a> for more details on the handling of <code>filename</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNG-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadPNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads an image from the PNG file <code>filename</code> and puts it in <code>out</code>. <a href="#dip-ImageReadPNG-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNG-Image-L-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadPNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              void const* buffer,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads an image from the PNG-encoded buffer and puts it in <code>out</code>. <a href="#dip-ImageReadPNG-Image-L-void-CP-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNGInfo-String-CL" class="m-doc">dip::<wbr />ImageReadPNGInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads image information and metadata from the PNG file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadPNG-Image-L-String-CL"><code>dip::ImageReadPNG</code></a> for more details on the handling of <code>filename</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNGInfo-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadPNGInfo</a>(</span><span class="m-doc-wrap">void const* buffer,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads image information and metadata from the PNG-encoded buffer, without reading the actual
+pixel data. <a href="#dip-ImageReadPNGInfo-void-CP-dip-uint-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadTIFF-Image-L-String-CL-Range--RangeArray-CL-Range-CL-String-CL" class="m-doc">dip::<wbr />ImageReadTIFF</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
@@ -150,99 +245,56 @@ pixel data. See <a href="file_io.html#dip-ImageReadICS-Image-L-String-CL-RangeAr
             <dd>This function is an overload of the previous function that defines the ROI using different
 parameters. <a href="#dip-ImageReadTIFF-Image-L-String-CL-Range-CL-UnsignedArray-CL-UnsignedArray-CL-UnsignedArray-CL-Range-CL-String-CL">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadTIFFInfo-String-CL-dip-uint-" class="m-doc">dip::<wbr />ImageReadTIFFInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> imageNumber = 0) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+            </dt>
+            <dd>Reads image information and metadata from the TIFF file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadTIFF-Image-L-String-CL-Range--RangeArray-CL-Range-CL-String-CL"><code>dip::ImageReadTIFF</code></a> for more details on the handling of <code>filename</code> and <code>imageNumber</code>.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ImageReadTIFFSeries-Image-L-StringArray-CL-String-CL" class="m-doc">dip::<wbr />ImageReadTIFFSeries</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; filenames,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; useColorMap = S::APPLY)</span>
             </dt>
             <dd>Reads a set of 2D TIFF images as a single 3D image. <a href="#dip-ImageReadTIFFSeries-Image-L-StringArray-CL-String-CL">more...</a></dd>
-                          <dt id="dip-ImageReadTIFFInfo-String-CL-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadTIFFInfo-String-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageReadTIFFInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> imageNumber = 0) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads image information and metadata from the TIFF file <code>filename</code>, without reading the actual
-pixel data. See <a href="file_io.html#dip-ImageReadTIFF-Image-L-String-CL-Range--RangeArray-CL-Range-CL-String-CL"><code>dip::ImageReadTIFF</code></a> for more details on the handling of <code>filename</code> and <code>imageNumber</code>.</dd>
-                          <dt id="dip-ImageIsTIFF-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsTIFF-String-CL" class="m-doc-self">dip::<wbr />ImageIsTIFF</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the file <code>filename</code> is a TIFF file.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteTIFF-Image-CL-String-CL-String-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWriteTIFF</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWrite-Image-CL-String-CL-String--String-CL" class="m-doc">dip::<wbr />ImageWrite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = "",
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80)</span>
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = "",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = "")</span>
             </dt>
-            <dd>Writes <code>image</code> as a TIFF file. <a href="#dip-ImageWriteTIFF-Image-CL-String-CL-String-CL-dip-uint-">more...</a></dd>
+            <dd>Writes <code>image</code> to file. <a href="#dip-ImageWrite-Image-CL-String-CL-String--String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEG-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteICS-Image-CL-String-CL-StringArray-CL-dip-uint--StringSet-CL" class="m-doc">dip::<wbr />ImageWriteICS</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; history = {},
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {})</span>
             </dt>
-            <dd>Reads an image from the JPEG file <code>filename</code> and puts it in <code>out</code>. <a href="#dip-ImageReadJPEG-Image-L-String-CL">more...</a></dd>
-                          <dt id="dip-ImageReadJPEGInfo-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEGInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadJPEGInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads image information and metadata from the JPEG file <code>filename</code>, without reading the actual
-pixel data. See <a href="file_io.html#dip-ImageReadJPEG-Image-L-String-CL"><code>dip::ImageReadJPEG</code></a> for more details on the handling of <code>filename</code>.</dd>
-                          <dt id="dip-ImageIsJPEG-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsJPEG-String-CL" class="m-doc-self">dip::<wbr />ImageIsJPEG</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the file <code>filename</code> is a JPEG file.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEG-Image-L-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              void const* buffer,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads an image from the JPEG-encoded buffer and puts it in <code>out</code>. <a href="#dip-ImageReadJPEG-Image-L-void-CP-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadJPEGInfo-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadJPEGInfo</a>(</span><span class="m-doc-wrap">void const* buffer,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads image information and metadata from the JPEG-encoded buffer, without reading the actual
-pixel data. <a href="#dip-ImageReadJPEGInfo-void-CP-dip-uint-">more...</a></dd>
+            <dd>Writes <code>image</code> as an ICS file. <a href="#dip-ImageWriteICS-Image-CL-String-CL-StringArray-CL-dip-uint--StringSet-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWriteJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80)</span>
             </dt>
             <dd>Writes <code>image</code> as a JPEG file. <a href="#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-">more...</a></dd>
-                          <dt id="dip-ImageWriteJPEG-Image-CL-OutputBuffer-L-dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteJPEG-Image-CL-OutputBuffer-L-dip-uint-" class="m-doc-self">dip::<wbr />ImageWriteJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteJPEG-Image-CL-OutputBuffer-L-dip-uint-" class="m-doc">dip::<wbr />ImageWriteJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="dip-OutputBuffer.html" class="m-doc">dip::OutputBuffer</a>&amp; buffer,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80)</span>
             </dt>
             <dd>Encodes <code>image</code> as a JPEG file and writes it to a user-created buffer.
 See <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-"><code>dip::ImageWriteJPEG</code></a> for details.</dd>
-                          <dt id="dip-ImageWriteJPEG-Image-CL-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageWriteJPEG-Image-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWriteJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageWriteJPEG-Image-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWriteJPEG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80) -&gt; std::vector&lt;dip::uint8&gt;</span>
             </dt>
             <dd>Encodes <code>image</code> as a JPEG file and writes it to a buffer that is returned.
 See <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-"><code>dip::ImageWriteJPEG</code></a> for details.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNG-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadPNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteNPY-Image-CL-String-CL" class="m-doc">dip::<wbr />ImageWriteNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename)</span>
             </dt>
-            <dd>Reads an image from the PNG file <code>filename</code> and puts it in <code>out</code>. <a href="#dip-ImageReadPNG-Image-L-String-CL">more...</a></dd>
-                          <dt id="dip-ImageReadPNGInfo-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNGInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadPNGInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads image information and metadata from the PNG file <code>filename</code>, without reading the actual
-pixel data. See <a href="file_io.html#dip-ImageReadPNG-Image-L-String-CL"><code>dip::ImageReadPNG</code></a> for more details on the handling of <code>filename</code>.</dd>
-                          <dt id="dip-ImageIsPNG-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsPNG-String-CL" class="m-doc-self">dip::<wbr />ImageIsPNG</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the file <code>filename</code> is a PNG file.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNG-Image-L-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadPNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              void const* buffer,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads an image from the PNG-encoded buffer and puts it in <code>out</code>. <a href="#dip-ImageReadPNG-Image-L-void-CP-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadPNGInfo-void-CP-dip-uint-" class="m-doc">dip::<wbr />ImageReadPNGInfo</a>(</span><span class="m-doc-wrap">void const* buffer,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads image information and metadata from the PNG-encoded buffer, without reading the actual
-pixel data. <a href="#dip-ImageReadPNGInfo-void-CP-dip-uint-">more...</a></dd>
+            <dd>Writes <code>image</code> as a numeric array to a NumPy NPY file. <a href="#dip-ImageWriteNPY-Image-CL-String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
@@ -251,8 +303,8 @@ pixel data. <a href="#dip-ImageReadPNGInfo-void-CP-dip-uint-">more...</a></dd>
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0)</span>
             </dt>
             <dd>Writes <code>image</code> as a PNG file. <a href="#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-">more...</a></dd>
-                          <dt id="dip-ImageWritePNG-Image-CL-OutputBuffer-L-dip-sint--StringSet-CL-dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWritePNG-Image-CL-OutputBuffer-L-dip-sint--StringSet-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWritePNG-Image-CL-OutputBuffer-L-dip-sint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="dip-OutputBuffer.html" class="m-doc">dip::OutputBuffer</a>&amp; buffer,
               <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL},
@@ -260,8 +312,8 @@ pixel data. <a href="#dip-ImageReadPNGInfo-void-CP-dip-uint-">more...</a></dd>
             </dt>
             <dd>Encodes <code>image</code> as a PNG file and writes it to a user-created buffer.
 See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-"><code>dip::ImageWritePNG</code></a> for details.</dd>
-                          <dt id="dip-ImageWritePNG-Image-CL-dip-sint--StringSet-CL-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageWritePNG-Image-CL-dip-sint--StringSet-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageWritePNG-Image-CL-dip-sint--StringSet-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWritePNG</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL},
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0) -&gt; std::vector&lt;dip::uint8&gt;</span>
@@ -269,71 +321,19 @@ See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringS
             <dd>Encodes <code>image</code> as a PNG file and writes it to a buffer that is returned.
 See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-"><code>dip::ImageWritePNG</code></a> for details.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadNPY-Image-L-String-CL" class="m-doc">dip::<wbr />ImageReadNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads a numeric array from the NumPy NPY file <code>filename</code> and puts it in <code>out</code>. <a href="#dip-ImageReadNPY-Image-L-String-CL">more...</a></dd>
-                          <dt id="dip-ImageReadNPYInfo-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageReadNPYInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadNPYInfo</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
-            </dt>
-            <dd>Reads array information (size and data type) from the NumPy NPY file <code>filename</code>, without reading the actual
-pixel data. See <a href="file_io.html#dip-ImageReadNPY-Image-L-String-CL"><code>dip::ImageReadNPY</code></a> for more details on the handling of <code>filename</code>.</dd>
-                          <dt id="dip-ImageIsNPY-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageIsNPY-String-CL" class="m-doc-self">dip::<wbr />ImageIsNPY</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the file <code>filename</code> is a NPY file.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteNPY-Image-CL-String-CL" class="m-doc">dip::<wbr />ImageWriteNPY</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename)</span>
-            </dt>
-            <dd>Writes <code>image</code> as a numeric array to a NumPy NPY file. <a href="#dip-ImageWriteNPY-Image-CL-String-CL">more...</a></dd>
-                          <dt id="dip-FileGetExtensionPosition-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileGetExtensionPosition-String-CL" class="m-doc-self">dip::<wbr />FileGetExtensionPosition</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; String::size_type</span>
-            </dt>
-            <dd>Returns the location of the dot that separates the extension, or <code>dip::String::npos</code> if there is no dot.</dd>
-                          <dt id="dip-FileHasExtension-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileHasExtension-String-CL" class="m-doc-self">dip::<wbr />FileHasExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the file name has an extension.</dd>
-                          <dt id="dip-FileGetExtension-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileGetExtension-String-CL" class="m-doc-self">dip::<wbr />FileGetExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Gets the extension for the given file name, or an empty string if there&rsquo;s no extension.</dd>
-                          <dt id="dip-FileCompareExtension-String-CL-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileCompareExtension-String-CL-String-CL" class="m-doc-self">dip::<wbr />FileCompareExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension) -&gt; bool</span>
-            </dt>
-            <dd>Returns true if the file name has the given extension.</dd>
-                          <dt id="dip-FileAddExtension-String-CL-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileAddExtension-String-CL-String-CL" class="m-doc-self">dip::<wbr />FileAddExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-label m-danger">deprecated</span></span>
-            </dt>
-            <dd>Adds the given extension to the file name, replacing any existing extension.</dd>
-                          <dt id="dip-FileAppendExtension-String-CL-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-FileAppendExtension-String-CL-String-CL" class="m-doc-self">dip::<wbr />FileAppendExtension</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Appends the given extension to the file name.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ImageRead-Image-L-String-CL-String-" class="m-doc">dip::<wbr />ImageRead</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWriteTIFF-Image-CL-String-CL-String-CL-dip-uint-" class="m-doc">dip::<wbr />ImageWriteTIFF</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = "") -&gt; <a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = "",
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80)</span>
             </dt>
-            <dd>Reads the image in a file <code>filename</code>, and puts it in <code>out</code>. <a href="#dip-ImageRead-Image-L-String-CL-String-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ImageWrite-Image-CL-String-CL-String--String-CL" class="m-doc">dip::<wbr />ImageWrite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = "",
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = "")</span>
-            </dt>
-            <dd>Writes <code>image</code> to file. <a href="#dip-ImageWrite-Image-CL-String-CL-String--String-CL">more...</a></dd>
+            <dd>Writes <code>image</code> as a TIFF file. <a href="#dip-ImageWriteTIFF-Image-CL-String-CL-String-CL-dip-uint-">more...</a></dd>
           </dl>
         </section>
         <section>
             <h2>Class documentation</h2>
                           <section class="m-doc-details" id="dip-FileInformation"><div>
             <h3>
-              struct <span class="m-doc-name"><a href="#dip-FileInformation" class="m-doc-self">dip::<wbr />FileInformation</a></span>            </h3>
+              <span class="m-doc-return">struct </span><span class="m-doc-name"><a href="#dip-FileInformation" class="m-doc-self">dip::<wbr />FileInformation</a></span>            </h3>
             <p>A data structure with information about an image file.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Variables</th><th></th></tr></thead>
@@ -423,9 +423,9 @@ pixel data. See <a href="file_io.html#dip-ImageReadNPY-Image-L-String-CL"><code>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-ImageReadICS-Image-L-String-CL-RangeArray-CL-Range-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadICS-Image-L-String-CL-RangeArray-CL-Range-CL-String-CL" class="m-doc-self">dip::<wbr />ImageReadICS</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a> const&amp; roi = {},</span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = ""</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a> const&amp; roi = {}, </span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = ""</span>)            </h3>
             <p>Read the image in the ICS file <code>filename</code> and puts it in <code>out</code>.</p>
 <p>The ICS image file format (Image Cytometry Standard) can contain images with any dimensionality
 and data type also supported by <em>DIPlib</em>, and therefore is used as the default image file format.</p>
@@ -443,9 +443,9 @@ the flag is ignored.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageReadICS-Image-L-String-CL-UnsignedArray-CL-UnsignedArray-CL-UnsignedArray-CL-Range-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadICS-Image-L-String-CL-UnsignedArray-CL-UnsignedArray-CL-UnsignedArray-CL-Range-CL-String-CL" class="m-doc-self">dip::<wbr />ImageReadICS</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; origin,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; spacing = {},</span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = ""</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; origin, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; spacing = {}, </span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = ""</span>)            </h3>
             <p>This function is an overload of the previous function that defines the ROI using different
 parameters.</p>
 <p>The parameters <code>origin</code> and <code>sizes</code> define a ROI to read in.
@@ -458,11 +458,26 @@ For empty arrays, <code>origin</code> defaults to all zeros (i.e. the top left p
 and <code>spacing</code> to all ones (i.e. no subsampling).</p>
 <p>See the first overload for this function to learn about the other parameters.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageReadICSInfo-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageReadICSInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadICSInfo</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Reads image information and metadata from the ICS file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadICS-Image-L-String-CL-RangeArray-CL-Range-CL-String-CL"><code>dip::ImageReadICS</code></a> for more details on the file format and the handling of <code>filename</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageIsICS-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageIsICS-String-CL" class="m-doc-self">dip::<wbr />ImageIsICS</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Returns true if the file <code>filename</code> is an ICS file.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageWriteICS-Image-CL-String-CL-StringArray-CL-dip-uint--StringSet-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageWriteICS-Image-CL-String-CL-StringArray-CL-dip-uint--StringSet-CL" class="m-doc-self">dip::<wbr />ImageWriteICS</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; history = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; history = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {}</span>)            </h3>
             <p>Writes <code>image</code> as an ICS file.</p>
 <p>The ICS image file format (Image Cytometry Standard) can contain images with any dimensionality
 and data type also supported by <em>DIPlib</em>, and therefore is used as the default image file format.
@@ -492,9 +507,9 @@ non-contiguous data, then the <code>"fast"</code> option is ignored, the image i
           </div></section>
                         <section class="m-doc-details" id="dip-ImageReadTIFF-Image-L-String-CL-Range--RangeArray-CL-Range-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadTIFF-Image-L-String-CL-Range--RangeArray-CL-Range-CL-String-CL" class="m-doc-self">dip::<wbr />ImageReadTIFF</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> imageNumbers = Range{0},</span><span class="m-doc-arg"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a> const&amp; roi = {},</span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; useColorMap = S::APPLY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> imageNumbers = Range{0}, </span><span class="m-doc-arg"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a> const&amp; roi = {}, </span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; useColorMap = S::APPLY</span>)            </h3>
             <p>Reads an image from the TIFF file <code>filename</code> and puts it in <code>out</code>.</p>
 <p>The function tries to open <code>filename</code> as given first, and if that fails, it appends &ldquo;.tif&rdquo; and &ldquo;.tiff&rdquo; to the
 name and tries again.</p>
@@ -533,9 +548,9 @@ more common ones. These are the most obvious limitations:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageReadTIFF-Image-L-String-CL-Range-CL-UnsignedArray-CL-UnsignedArray-CL-UnsignedArray-CL-Range-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadTIFF-Image-L-String-CL-Range-CL-UnsignedArray-CL-UnsignedArray-CL-UnsignedArray-CL-Range-CL-String-CL" class="m-doc-self">dip::<wbr />ImageReadTIFF</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; imageNumbers,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; origin,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; spacing = {},</span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; useColorMap = S::APPLY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; imageNumbers, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; origin, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; spacing = {}, </span><span class="m-doc-arg"><a href="dip-Range.html" class="m-doc">dip::Range</a> const&amp; channels = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; useColorMap = S::APPLY</span>)            </h3>
             <p>This function is an overload of the previous function that defines the ROI using different
 parameters.</p>
 <p>The parameters <code>origin</code> and <code>sizes</code> define a ROI to read in.
@@ -550,20 +565,35 @@ and <code>spacing</code> to all ones (i.e. no subsampling).</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageReadTIFFSeries-Image-L-StringArray-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageReadTIFFSeries-Image-L-StringArray-CL-String-CL" class="m-doc-self">dip::<wbr />ImageReadTIFFSeries</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; filenames,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; useColorMap = S::APPLY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; filenames, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; useColorMap = S::APPLY</span>)            </h3>
             <p>Reads a set of 2D TIFF images as a single 3D image.</p>
 <p><code>filenames</code> contains the paths to the TIFF files, which are read in the order given, and concatenated along the 3rd
 dimension. Only the first page of each TIFF file is read.</p>
 <p>Set <code>useColorMap</code> to <code>"ignore"</code> to return the color map indices as pixel values, ignoring the color map.
 This option only has effect for TIFF files with a color-mapped (palette) image.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageReadTIFFInfo-String-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageReadTIFFInfo-String-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageReadTIFFInfo</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> imageNumber = 0</span>)            </h3>
+            <p>Reads image information and metadata from the TIFF file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadTIFF-Image-L-String-CL-Range--RangeArray-CL-Range-CL-String-CL"><code>dip::ImageReadTIFF</code></a> for more details on the handling of <code>filename</code> and <code>imageNumber</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageIsTIFF-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageIsTIFF-String-CL" class="m-doc-self">dip::<wbr />ImageIsTIFF</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Returns true if the file <code>filename</code> is a TIFF file.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageWriteTIFF-Image-CL-String-CL-String-CL-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageWriteTIFF-Image-CL-String-CL-String-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWriteTIFF</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80</span>)            </h3>
             <p>Writes <code>image</code> as a TIFF file.</p>
 <p>The TIFF image file format is very flexible in how data can be written, but is limited to multiple pages
 of 2D images. A 3D image will be written as a multi-page TIFF file.</p>
@@ -597,38 +627,53 @@ following strings:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageReadJPEG-Image-L-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadJPEG-Image-L-String-CL" class="m-doc-self">dip::<wbr />ImageReadJPEG</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
             <p>Reads an image from the JPEG file <code>filename</code> and puts it in <code>out</code>.</p>
 <p>The function tries to open <code>filename</code> as given first, and if that fails, it appends &ldquo;.jpg&rdquo; and &ldquo;.jpeg&rdquo; to the
 name and tries again.</p>
 <p>JPEG images are either gray-scale (scalar) or sRGB images, the color space information will be set accordingly.</p>
 <p>The pixels per inch value in the JPEG file will be used to set the pixel size of <code>out</code>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageReadJPEGInfo-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageReadJPEGInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadJPEGInfo</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Reads image information and metadata from the JPEG file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadJPEG-Image-L-String-CL"><code>dip::ImageReadJPEG</code></a> for more details on the handling of <code>filename</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageIsJPEG-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageIsJPEG-String-CL" class="m-doc-self">dip::<wbr />ImageIsJPEG</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Returns true if the file <code>filename</code> is a JPEG file.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageReadJPEG-Image-L-void-CP-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadJPEG-Image-L-void-CP-dip-uint-" class="m-doc-self">dip::<wbr />ImageReadJPEG</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg">void const* buffer,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg">void const* buffer, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
             <p>Reads an image from the JPEG-encoded buffer and puts it in <code>out</code>.</p>
 <p><code>buffer</code> must point to <code>length</code> bytes containing a JPEG-encoded image.
 See <a href="file_io.html#dip-ImageReadJPEG-Image-L-String-CL"><code>dip::ImageReadJPEG</code></a> for details.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageReadJPEGInfo-void-CP-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadJPEGInfo-void-CP-dip-uint-" class="m-doc-self">dip::<wbr />ImageReadJPEGInfo</a></span>(
-<span class="m-doc-arg">void const* buffer,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
+<span class="m-doc-arg">void const* buffer, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
             <p>Reads image information and metadata from the JPEG-encoded buffer, without reading the actual
 pixel data.</p>
 <p><code>buffer</code> must point to <code>length</code> bytes containing a JPEG-encoded image.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWriteJPEG</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80</span>)            </h3>
             <p>Writes <code>image</code> as a JPEG file.</p>
 <p><code>image</code> must be 2D, and either scalar or with three tensor elements.
 If the image has three tensor elements, it will be saved as an sRGB image, even if the color space
@@ -640,11 +685,27 @@ be applied.</p>
 <p><code>jpegLevel</code> determines the amount of compression applied. <code>jpegLevel</code> is an integer between 1 and 100, with
 increasing numbers yielding larger files and fewer compression artifacts.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageWriteJPEG-Image-CL-OutputBuffer-L-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageWriteJPEG-Image-CL-OutputBuffer-L-dip-uint-" class="m-doc-self">dip::<wbr />ImageWriteJPEG</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="dip-OutputBuffer.html" class="m-doc">dip::OutputBuffer</a>&amp; buffer, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80</span>)            </h3>
+            <p>Encodes <code>image</code> as a JPEG file and writes it to a user-created buffer.
+See <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-"><code>dip::ImageWriteJPEG</code></a> for details.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageWriteJPEG-Image-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;dip::uint8&gt; </span>
+              <span class="m-doc-name"><a href="#dip-ImageWriteJPEG-Image-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWriteJPEG</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> jpegLevel = 80</span>)            </h3>
+            <p>Encodes <code>image</code> as a JPEG file and writes it to a buffer that is returned.
+See <a href="file_io.html#dip-ImageWriteJPEG-Image-CL-String-CL-dip-uint-"><code>dip::ImageWriteJPEG</code></a> for details.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageReadPNG-Image-L-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadPNG-Image-L-String-CL" class="m-doc-self">dip::<wbr />ImageReadPNG</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
             <p>Reads an image from the PNG file <code>filename</code> and puts it in <code>out</code>.</p>
 <p>The function tries to open <code>filename</code> as given first, and if that fails, it appends &ldquo;.png&rdquo; to the
 name and tries again.</p>
@@ -652,29 +713,44 @@ name and tries again.</p>
 If the image has an alpha channel, it will be the second or fourth tensor element in <code>out</code>.</p>
 <p>The pixel size information, if present in the PNG file, will be used to set the pixel size of <code>out</code>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageReadPNGInfo-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageReadPNGInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadPNGInfo</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Reads image information and metadata from the PNG file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadPNG-Image-L-String-CL"><code>dip::ImageReadPNG</code></a> for more details on the handling of <code>filename</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageIsPNG-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageIsPNG-String-CL" class="m-doc-self">dip::<wbr />ImageIsPNG</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Returns true if the file <code>filename</code> is a PNG file.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageReadPNG-Image-L-void-CP-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadPNG-Image-L-void-CP-dip-uint-" class="m-doc-self">dip::<wbr />ImageReadPNG</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg">void const* buffer,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg">void const* buffer, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
             <p>Reads an image from the PNG-encoded buffer and puts it in <code>out</code>.</p>
 <p><code>buffer</code> must point to <code>length</code> bytes containing a PNG-encoded image.
 See <a href="file_io.html#dip-ImageReadPNG-Image-L-String-CL"><code>dip::ImageReadPNG</code></a> for details.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageReadPNGInfo-void-CP-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadPNGInfo-void-CP-dip-uint-" class="m-doc-self">dip::<wbr />ImageReadPNGInfo</a></span>(
-<span class="m-doc-arg">void const* buffer,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
+<span class="m-doc-arg">void const* buffer, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length</span>)            </h3>
             <p>Reads image information and metadata from the PNG-encoded buffer, without reading the actual
 pixel data.</p>
 <p><code>buffer</code> must point to <code>length</code> bytes containing a PNG-encoded image.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWritePNG</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0</span>)            </h3>
             <p>Writes <code>image</code> as a PNG file.</p>
 <p><code>image</code> must be 2D, and have between one and four tensor elements.
 If the image has three or four tensor elements, it will be saved as an sRGB image, even if the color space
@@ -712,11 +788,27 @@ costly option. If <code>compressionLevel</code> is 0, <code>filterChoice</code> 
 type of <code>image</code> (use 0 otherwise). For example, it can be used to specify that a camera has produced
 10-bit output, even though the image is of type <a href="pixeltypes.html#dip-DT_UINT16"><code>dip::DT_UINT16</code></a>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageWritePNG-Image-CL-OutputBuffer-L-dip-sint--StringSet-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ImageWritePNG-Image-CL-OutputBuffer-L-dip-sint--StringSet-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWritePNG</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="dip-OutputBuffer.html" class="m-doc">dip::OutputBuffer</a>&amp; buffer, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0</span>)            </h3>
+            <p>Encodes <code>image</code> as a PNG file and writes it to a user-created buffer.
+See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-"><code>dip::ImageWritePNG</code></a> for details.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageWritePNG-Image-CL-dip-sint--StringSet-CL-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;dip::uint8&gt; </span>
+              <span class="m-doc-name"><a href="#dip-ImageWritePNG-Image-CL-dip-sint--StringSet-CL-dip-uint-" class="m-doc-self">dip::<wbr />ImageWritePNG</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> compressionLevel = 6, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; filterChoice = {S::ALL}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> significantBits = 0</span>)            </h3>
+            <p>Encodes <code>image</code> as a PNG file and writes it to a buffer that is returned.
+See <a href="file_io.html#dip-ImageWritePNG-Image-CL-String-CL-dip-sint--StringSet-CL-dip-uint-"><code>dip::ImageWritePNG</code></a> for details.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageReadNPY-Image-L-String-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageReadNPY-Image-L-String-CL" class="m-doc-self">dip::<wbr />ImageReadNPY</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
             <p>Reads a numeric array from the NumPy NPY file <code>filename</code> and puts it in <code>out</code>.</p>
 <p>The function tries to open <code>filename</code> as given first, and if that fails, it appends &ldquo;.npy&rdquo; to the
 name and tries again.</p>
@@ -727,11 +819,26 @@ the NumPy array&rsquo;s first index is the y axis as the second index is the x a
 treated everywhere in Python). We generalize this to arbitrary dimensions by reversing the indices.
 A standard C-order NumPy array this way translates to a DIPlib image with <a href="concepts.html#normal_strides">Normal strides</a>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ImageReadNPYInfo-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
+              <span class="m-doc-name"><a href="#dip-ImageReadNPYInfo-String-CL" class="m-doc-self">dip::<wbr />ImageReadNPYInfo</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Reads array information (size and data type) from the NumPy NPY file <code>filename</code>, without reading the actual
+pixel data. See <a href="file_io.html#dip-ImageReadNPY-Image-L-String-CL"><code>dip::ImageReadNPY</code></a> for more details on the handling of <code>filename</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ImageIsNPY-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ImageIsNPY-String-CL" class="m-doc-self">dip::<wbr />ImageIsNPY</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Returns true if the file <code>filename</code> is a NPY file.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageWriteNPY-Image-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageWriteNPY-Image-CL-String-CL" class="m-doc-self">dip::<wbr />ImageWriteNPY</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
             <p>Writes <code>image</code> as a numeric array to a NumPy NPY file.</p>
 <p><code>image</code> must be scalar, use <a href="dip-Image.html#dip-Image-TensorToSpatial-dip-uint-"><code>dip::Image::TensorToSpatial</code></a> to save a tensor image. Any data type is allowed.
 Metadata (e.g. pixel sizes) are not stored.</p>
@@ -741,12 +848,54 @@ the NumPy array&rsquo;s first index is the y axis as the second index is the x a
 treated everywhere in Python). We generalize this to arbitrary dimensions by reversing the indices.
 A DIPlib image with <a href="concepts.html#normal_strides">Normal strides</a> is thus translated to a NumPy array with standard C-order.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-FileGetExtensionPosition-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">String::size_type </span>
+              <span class="m-doc-name"><a href="#dip-FileGetExtensionPosition-String-CL" class="m-doc-self">dip::<wbr />FileGetExtensionPosition</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Returns the location of the dot that separates the extension, or <code>dip::String::npos</code> if there is no dot.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FileHasExtension-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-FileHasExtension-String-CL" class="m-doc-self">dip::<wbr />FileHasExtension</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Returns true if the file name has an extension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FileGetExtension-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-FileGetExtension-String-CL" class="m-doc-self">dip::<wbr />FileGetExtension</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename</span>)            </h3>
+            <p>Gets the extension for the given file name, or an empty string if there&rsquo;s no extension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FileCompareExtension-String-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-FileCompareExtension-String-CL-String-CL" class="m-doc-self">dip::<wbr />FileCompareExtension</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension</span>)            </h3>
+            <p>Returns true if the file name has the given extension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FileAddExtension-String-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-FileAddExtension-String-CL-String-CL" class="m-doc-self">dip::<wbr />FileAddExtension</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension</span>) <span class="m-label m-danger">deprecated</span>            </h3>
+            <p>Adds the given extension to the file name, replacing any existing extension.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-FileAppendExtension-String-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-FileAppendExtension-String-CL-String-CL" class="m-doc-self">dip::<wbr />FileAppendExtension</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; extension</span>)            </h3>
+            <p>Appends the given extension to the file name.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ImageRead-Image-L-String-CL-String-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--simple_file_io-h.html">"diplib/simple_file_io.h"</a></div>
-              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--simple_file_io-h.html">"diplib/simple_file_io.h"</a></div>
+              <span class="m-doc-return"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> </span>
               <span class="m-doc-name"><a href="#dip-ImageRead-Image-L-String-CL-String-" class="m-doc-self">dip::<wbr />ImageRead</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = ""</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = ""</span>)            </h3>
             <p>Reads the image in a file <code>filename</code>, and puts it in <code>out</code>.</p>
 <p><code>format</code> can be one of:</p>
 <ul>
@@ -770,10 +919,10 @@ cannot be expected to read all possible files.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-ImageWrite-Image-CL-String-CL-String--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--simple_file_io-h.html">"diplib/simple_file_io.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--simple_file_io-h.html">"diplib/simple_file_io.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ImageWrite-Image-CL-String-CL-String--String-CL" class="m-doc-self">dip::<wbr />ImageWrite</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = ""</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; image, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; filename, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> format = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; compression = ""</span>)            </h3>
             <p>Writes <code>image</code> to file.</p>
 <p><code>format</code> can be one of:</p>
 <ul>

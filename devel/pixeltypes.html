@@ -389,15 +389,20 @@ For example,</p>
           <h2>Classes</h2>
           <dl class="m-doc">
                           <dt>
+              class <a href="dip-bin.html" class="m-doc">dip::<wbr />bin</a>
+            </dt>
+            <dd>Type for samples in a binary image. Can store 0 or 1. Occupies 1 byte. <a href="dip-bin.html#dip-bin">more...</a></dd>
+                          <dt>
               struct <a href="dip-DataType.html" class="m-doc">dip::<wbr />DataType</a>
             </dt>
             <dd><code>DataType</code> objects are used to indicate what the data type of
 an image is. <a href="dip-DataType.html#dip-DataType">more...</a></dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              struct <a href="dip-IsSampleType-T.html" class="m-doc">dip::<wbr />IsSampleType</a>
+              struct <a href="dip-IsIndexingType-T.html" class="m-doc">dip::<wbr />IsIndexingType</a>
             </dt>
-            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are valid for image samples. <a href="dip-IsSampleType-T.html#dip-IsSampleType-T">more...</a></dd>
+            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are indexing types, true for
+signed and unsigned integers. See <a href="dip-IsSampleType-T.html"><code>dip::IsSampleType</code></a> for usage details. <a href="dip-IsIndexingType-T.html#dip-IsIndexingType-T">more...</a></dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               struct <a href="dip-IsNumericType-T.html" class="m-doc">dip::<wbr />IsNumericType</a>
@@ -406,205 +411,179 @@ an image is. <a href="dip-DataType.html#dip-DataType">more...</a></dd>
 <code>std::is_arithmetic</code> but also true for complex types. See <a href="dip-IsSampleType-T.html"><code>dip::IsSampleType</code></a> for usage details. <a href="dip-IsNumericType-T.html#dip-IsNumericType-T">more...</a></dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              struct <a href="dip-IsIndexingType-T.html" class="m-doc">dip::<wbr />IsIndexingType</a>
+              struct <a href="dip-IsSampleType-T.html" class="m-doc">dip::<wbr />IsSampleType</a>
             </dt>
-            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are indexing types, true for
-signed and unsigned integers. See <a href="dip-IsSampleType-T.html"><code>dip::IsSampleType</code></a> for usage details. <a href="dip-IsIndexingType-T.html#dip-IsIndexingType-T">more...</a></dd>
-                          <dt>
-              class <a href="dip-bin.html" class="m-doc">dip::<wbr />bin</a>
-            </dt>
-            <dd>Type for samples in a binary image. Can store 0 or 1. Occupies 1 byte. <a href="dip-bin.html#dip-bin">more...</a></dd>
+            <dd>For use with <code>std::enable_if</code> to enable templates only for types that are valid for image samples. <a href="dip-IsSampleType-T.html#dip-IsSampleType-T">more...</a></dd>
           </dl>
         </section>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
                               <dt>
-              using <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc-self">dip::<wbr />DataTypeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
-
-            </dt>
-            <dd>An array to hold data types</dd>
-                              <dt id="dip-uint8">
-              using <a href="#dip-uint8" class="m-doc-self">dip::<wbr />uint8</a> = std::uint8_t
-
-            </dt>
-            <dd>Type for samples in an 8-bit unsigned integer image; also to be used as single byte for pointer arithmetic</dd>
-                              <dt id="dip-uint16">
-              using <a href="#dip-uint16" class="m-doc-self">dip::<wbr />uint16</a> = std::uint16_t
-
-            </dt>
-            <dd>Type for samples in a 16-bit unsigned integer image</dd>
-                              <dt id="dip-uint32">
-              using <a href="#dip-uint32" class="m-doc-self">dip::<wbr />uint32</a> = std::uint32_t
-
-            </dt>
-            <dd>Type for samples in a 32-bit unsigned integer image</dd>
-                              <dt id="dip-uint64">
-              using <a href="#dip-uint64" class="m-doc-self">dip::<wbr />uint64</a> = std::uint64_t
-
-            </dt>
-            <dd>Type for samples in a 64-bit unsigned integer image</dd>
-                              <dt id="dip-sint8">
-              using <a href="#dip-sint8" class="m-doc-self">dip::<wbr />sint8</a> = std::int8_t
-
-            </dt>
-            <dd>Type for samples in an 8-bit signed integer image</dd>
-                              <dt id="dip-sint16">
-              using <a href="#dip-sint16" class="m-doc-self">dip::<wbr />sint16</a> = std::int16_t
-
-            </dt>
-            <dd>Type for samples in a 16-bit signed integer image</dd>
-                              <dt id="dip-sint32">
-              using <a href="#dip-sint32" class="m-doc-self">dip::<wbr />sint32</a> = std::int32_t
-
-            </dt>
-            <dd>Type for samples in a 32-bit signed integer image</dd>
-                              <dt id="dip-sint64">
-              using <a href="#dip-sint64" class="m-doc-self">dip::<wbr />sint64</a> = std::int64_t
-
-            </dt>
-            <dd>Type for samples in a 64-bit signed integer image</dd>
-                              <dt id="dip-sfloat">
-              using <a href="#dip-sfloat" class="m-doc-self">dip::<wbr />sfloat</a> = float
-
-            </dt>
-            <dd>Type for samples in a 32-bit floating point (single-precision) image</dd>
-                              <dt id="dip-dfloat">
-              using <a href="#dip-dfloat" class="m-doc-self">dip::<wbr />dfloat</a> = double
-
-            </dt>
-            <dd>Type for samples in a 64-bit floating point (double-precision) image</dd>
-                              <dt id="dip-scomplex">
-              using <a href="#dip-scomplex" class="m-doc-self">dip::<wbr />scomplex</a> = std::complex&lt;sfloat&gt;
-
-            </dt>
-            <dd>Type for samples in a 64-bit complex-valued (single-precision) image</dd>
-                              <dt id="dip-dcomplex">
-              using <a href="#dip-dcomplex" class="m-doc-self">dip::<wbr />dcomplex</a> = std::complex&lt;dfloat&gt;
-
-            </dt>
-            <dd>Type for samples in a 128-bit complex-valued (double-precision) image</dd>
-                              <dt id="dip-LabelType">
-              using <a href="#dip-LabelType" class="m-doc-self">dip::<wbr />LabelType</a> = <a href="pixeltypes.html#dip-uint32" class="m-doc">dip::uint32</a>
-
-            </dt>
-            <dd>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-DT_LABEL"><code>dip::DT_LABEL</code></a>.</dd>
-                              <dt id="dip-FloatType-T">
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="#dip-FloatType-T" class="m-doc-self">dip::<wbr />FloatType</a> = dip::detail::FloatTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations when a floating-point type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestFloat-DataType-"><code>dip::DataType::SuggestFloat</code></a>.</dd>
-                              <dt id="dip-DoubleType-T">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="#dip-DoubleType-T" class="m-doc-self">dip::<wbr />DoubleType</a> = dip::detail::DoubleTypeCalculator
-
-            </dt>
-            <dd>The double precision floating point type (real or complex) to use when computing large sums of any input type. Matches <a href="dip-DataType.html#dip-DataType-SuggestDouble-DataType-"><code>dip::DataType::SuggestDouble</code></a>.</dd>
-                              <dt id="dip-ComplexType-T">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="#dip-ComplexType-T" class="m-doc-self">dip::<wbr />ComplexType</a> = dip::detail::ComplexTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations when a complex type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestComplex-DataType-"><code>dip::DataType::SuggestComplex</code></a>.</dd>
-                              <dt id="dip-FlexType-T">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="#dip-FlexType-T" class="m-doc-self">dip::<wbr />FlexType</a> = dip::detail::FlexTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlex-DataType-"><code>dip::DataType::SuggestFlex</code></a>.</dd>
-                              <dt id="dip-FlexBinType-T">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="#dip-FlexBinType-T" class="m-doc-self">dip::<wbr />FlexBinType</a> = dip::detail::FlexBinTypeCalculator
-
-            </dt>
-            <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlexBin-DataType-"><code>dip::DataType::SuggestFlexBin</code></a>.</dd>
-                              <dt id="dip-AbsType-T">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="#dip-AbsType-T" class="m-doc-self">dip::<wbr />AbsType</a> = dip::detail::AbsTypeCalculator
-
+using <a href="#dip-AbsType-T" class="m-doc">dip::<wbr />AbsType</a> = dip::detail::AbsTypeCalculator
             </dt>
             <dd>The type to use for the output of abs operations. Matches <a href="dip-DataType.html#dip-DataType-SuggestAbs-DataType-"><code>dip::DataType::SuggestAbs</code></a>.</dd>
-                              <dt id="dip-RealType-T">
+                              <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              using <a href="#dip-RealType-T" class="m-doc-self">dip::<wbr />RealType</a> = dip::detail::RealTypeCalculator
-
+using <a href="#dip-ComplexType-T" class="m-doc">dip::<wbr />ComplexType</a> = dip::detail::ComplexTypeCalculator
+            </dt>
+            <dd>The type to use in calculations when a complex type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestComplex-DataType-"><code>dip::DataType::SuggestComplex</code></a>.</dd>
+                              <dt>
+using <a href="dip-DataType.html#dip-DataTypeArray" class="m-doc">dip::<wbr />DataTypeArray</a> = <a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a>
+            </dt>
+            <dd>An array to hold data types</dd>
+                              <dt>
+using <a href="#dip-dcomplex" class="m-doc">dip::<wbr />dcomplex</a> = std::complex&lt;dfloat&gt;
+            </dt>
+            <dd>Type for samples in a 128-bit complex-valued (double-precision) image</dd>
+                              <dt>
+using <a href="#dip-dfloat" class="m-doc">dip::<wbr />dfloat</a> = double
+            </dt>
+            <dd>Type for samples in a 64-bit floating point (double-precision) image</dd>
+                              <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="#dip-DoubleType-T" class="m-doc">dip::<wbr />DoubleType</a> = dip::detail::DoubleTypeCalculator
+            </dt>
+            <dd>The double precision floating point type (real or complex) to use when computing large sums of any input type. Matches <a href="dip-DataType.html#dip-DataType-SuggestDouble-DataType-"><code>dip::DataType::SuggestDouble</code></a>.</dd>
+                              <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="#dip-FlexBinType-T" class="m-doc">dip::<wbr />FlexBinType</a> = dip::detail::FlexBinTypeCalculator
+            </dt>
+            <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlexBin-DataType-"><code>dip::DataType::SuggestFlexBin</code></a>.</dd>
+                              <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="#dip-FlexType-T" class="m-doc">dip::<wbr />FlexType</a> = dip::detail::FlexTypeCalculator
+            </dt>
+            <dd>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlex-DataType-"><code>dip::DataType::SuggestFlex</code></a>.</dd>
+                              <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="#dip-FloatType-T" class="m-doc">dip::<wbr />FloatType</a> = dip::detail::FloatTypeCalculator
+            </dt>
+            <dd>The type to use in calculations when a floating-point type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestFloat-DataType-"><code>dip::DataType::SuggestFloat</code></a>.</dd>
+                              <dt>
+using <a href="#dip-LabelType" class="m-doc">dip::<wbr />LabelType</a> = <a href="pixeltypes.html#dip-uint32" class="m-doc">dip::uint32</a>
+            </dt>
+            <dd>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-DT_LABEL"><code>dip::DT_LABEL</code></a>.</dd>
+                              <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+using <a href="#dip-RealType-T" class="m-doc">dip::<wbr />RealType</a> = dip::detail::RealTypeCalculator
             </dt>
             <dd>The type to use in calculations when a real-valued type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestReal-DataType-"><code>dip::DataType::SuggestReal</code></a>.</dd>
+                              <dt>
+using <a href="#dip-scomplex" class="m-doc">dip::<wbr />scomplex</a> = std::complex&lt;sfloat&gt;
+            </dt>
+            <dd>Type for samples in a 64-bit complex-valued (single-precision) image</dd>
+                              <dt>
+using <a href="#dip-sfloat" class="m-doc">dip::<wbr />sfloat</a> = float
+            </dt>
+            <dd>Type for samples in a 32-bit floating point (single-precision) image</dd>
+                              <dt>
+using <a href="#dip-sint16" class="m-doc">dip::<wbr />sint16</a> = std::int16_t
+            </dt>
+            <dd>Type for samples in a 16-bit signed integer image</dd>
+                              <dt>
+using <a href="#dip-sint32" class="m-doc">dip::<wbr />sint32</a> = std::int32_t
+            </dt>
+            <dd>Type for samples in a 32-bit signed integer image</dd>
+                              <dt>
+using <a href="#dip-sint64" class="m-doc">dip::<wbr />sint64</a> = std::int64_t
+            </dt>
+            <dd>Type for samples in a 64-bit signed integer image</dd>
+                              <dt>
+using <a href="#dip-sint8" class="m-doc">dip::<wbr />sint8</a> = std::int8_t
+            </dt>
+            <dd>Type for samples in an 8-bit signed integer image</dd>
+                              <dt>
+using <a href="#dip-uint16" class="m-doc">dip::<wbr />uint16</a> = std::uint16_t
+            </dt>
+            <dd>Type for samples in a 16-bit unsigned integer image</dd>
+                              <dt>
+using <a href="#dip-uint32" class="m-doc">dip::<wbr />uint32</a> = std::uint32_t
+            </dt>
+            <dd>Type for samples in a 32-bit unsigned integer image</dd>
+                              <dt>
+using <a href="#dip-uint64" class="m-doc">dip::<wbr />uint64</a> = std::uint64_t
+            </dt>
+            <dd>Type for samples in a 64-bit unsigned integer image</dd>
+                              <dt>
+using <a href="#dip-uint8" class="m-doc">dip::<wbr />uint8</a> = std::uint8_t
+            </dt>
+            <dd>Type for samples in an 8-bit unsigned integer image; also to be used as single byte for pointer arithmetic</dd>
             </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-clamp_cast-T-SourceType-">
-              <div class="m-doc-template">template&lt;typename TargetType, typename SourceType,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-clamp_cast-T-SourceType-" class="m-doc-self">dip::<wbr />clamp_cast</a>(</span><span class="m-doc-wrap">SourceType v) -&gt; TargetType <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Casts a value of any pixel type to any other pixel type, clamping it to the destination range.</dd>
-                          <dt id="dip-CastLabelType-T-TPI-">
+                          <dt>
               <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CastLabelType-T-TPI-" class="m-doc-self">dip::<wbr />CastLabelType</a>(</span><span class="m-doc-wrap">TPI label) -&gt; <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CastLabelType-T-TPI-" class="m-doc">dip::<wbr />CastLabelType</a>(</span><span class="m-doc-wrap">TPI label) -&gt; <a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a></span>
             </dt>
             <dd>Casting any unsigned integer type to <a href="pixeltypes.html#dip-LabelType"><code>dip::LabelType</code></a>. Throws if <code>value</code> is too large.</dd>
-                          <dt id="dip-PixelIsInfinity-T-TPI-">
+                          <dt>
+              <div class="m-doc-template">template&lt;typename TargetType, typename SourceType,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-clamp_cast-T-SourceType-" class="m-doc">dip::<wbr />clamp_cast</a>(</span><span class="m-doc-wrap">SourceType v) -&gt; TargetType <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Casts a value of any pixel type to any other pixel type, clamping it to the destination range.</dd>
+                          <dt>
               <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelIsInfinity-T-TPI-" class="m-doc-self">dip::<wbr />PixelIsInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelIsInfinity-T-TPI-" class="m-doc">dip::<wbr />PixelIsInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
             </dt>
             <dd>A templated function to check for positive infinity, which works also for integer types (always returning false)</dd>
-                          <dt id="dip-PixelIsMinusInfinity-T-TPI-">
+                          <dt>
               <div class="m-doc-template">template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelIsMinusInfinity-T-TPI-" class="m-doc-self">dip::<wbr />PixelIsMinusInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PixelIsMinusInfinity-T-TPI-" class="m-doc">dip::<wbr />PixelIsMinusInfinity</a>(</span><span class="m-doc-wrap">TPI ) -&gt; bool</span>
             </dt>
             <dd>A templated function to check for negative infinity, which works also for integer types (always returning false)</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_add-T-T--T-" class="m-doc-self">dip::<wbr />saturated_add</a>(</span><span class="m-doc-wrap">T lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_add-T-T--T-" class="m-doc">dip::<wbr />saturated_add</a>(</span><span class="m-doc-wrap">T lhs,
               T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Adds two values using saturated arithmetic.</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_sub-T-T--T-" class="m-doc-self">dip::<wbr />saturated_sub</a>(</span><span class="m-doc-wrap">T lhs,
-              T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Subtracts two values using saturated arithmetic.</dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_mul-T-T--T-" class="m-doc-self">dip::<wbr />saturated_mul</a>(</span><span class="m-doc-wrap">T lhs,
-              T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
-            </dt>
-            <dd>Multiplies two values using saturated arithmetic.</dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_div-T-T--T-" class="m-doc-self">dip::<wbr />saturated_div</a>(</span><span class="m-doc-wrap">T lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_div-T-T--T-" class="m-doc">dip::<wbr />saturated_div</a>(</span><span class="m-doc-wrap">T lhs,
               T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Divides two values using saturated arithmetic.</dd>
                           <dt>
+              <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_inv-T-T-" class="m-doc">dip::<wbr />saturated_inv</a>(</span><span class="m-doc-wrap">T v) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Inverts a value using saturated arithmetic. This is the same as negation, but not for unsigned values.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_mul-T-T--T-" class="m-doc">dip::<wbr />saturated_mul</a>(</span><span class="m-doc-wrap">T lhs,
+              T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Multiplies two values using saturated arithmetic.</dd>
+                          <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_safediv-T-T--T-" class="m-doc-self">dip::<wbr />saturated_safediv</a>(</span><span class="m-doc-wrap">T lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_safediv-T-T--T-" class="m-doc">dip::<wbr />saturated_safediv</a>(</span><span class="m-doc-wrap">T lhs,
               T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Divides two values using saturated arithmetic. Tests for division
 by zero, return 0 rather than infinity or NaN (or an exception).</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_inv-T-T-" class="m-doc-self">dip::<wbr />saturated_inv</a>(</span><span class="m-doc-wrap">T v) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-saturated_sub-T-T--T-" class="m-doc">dip::<wbr />saturated_sub</a>(</span><span class="m-doc-wrap">T lhs,
+              T rhs) -&gt; T <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
-            <dd>Inverts a value using saturated arithmetic. This is the same as negation, but not for unsigned values.</dd>
+            <dd>Subtracts two values using saturated arithmetic.</dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-DataType.html#dip-operator%3C%3C-std-ostream-L-DataType-" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-DataType.html#dip-operator%3C%3C-std-ostream-L-DataType-" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-DataType.html" class="m-doc">dip::DataType</a> type) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-DataType.html"><code>dip::DataType</code></a> to <code>std::cout</code> or any other stream. The result of <a href="dip-DataType.html#dip-DataType-Name-C"><code>type.Name()</code></a>
 is written.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-bin.html#dip-operator%3C%3C-std-ostream-L-bin-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-bin.html#dip-operator%3C%3C-std-ostream-L-bin-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-bin.html" class="m-doc">dip::bin</a> const&amp; v) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Writes the value as a <code>bool</code> to a stream.</dd>
@@ -613,151 +592,387 @@ is written.</dd>
         <section id="variable-members">
           <h2>Variables</h2>
           <dl class="m-doc">
-                          <dt id="dip-DT_BIN">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_BIN" class="m-doc-self">dip::<wbr />DT_BIN</a>
- <span class="m-label m-flat m-primary">constexpr</span>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_BIN" class="m-doc">dip::<wbr />DT_BIN</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd>Constant representing the type <a href="dip-bin.html"><code>dip::bin</code></a>.</dd>
-                          <dt id="dip-DT_UINT8">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT8" class="m-doc-self">dip::<wbr />DT_UINT8</a>
- <span class="m-label m-flat m-primary">constexpr</span>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="dip-Histogram.html#dip-DT_COUNT" class="m-doc">dip::<wbr />DT_COUNT</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint8"><code>dip::uint8</code></a>.</dd>
-                          <dt id="dip-DT_SINT8">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT8" class="m-doc-self">dip::<wbr />DT_SINT8</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint8"><code>dip::sint8</code></a>.</dd>
-                          <dt id="dip-DT_UINT16">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT16" class="m-doc-self">dip::<wbr />DT_UINT16</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint16"><code>dip::uint16</code></a>.</dd>
-                          <dt id="dip-DT_SINT16">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT16" class="m-doc-self">dip::<wbr />DT_SINT16</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint16"><code>dip::sint16</code></a>.</dd>
-                          <dt id="dip-DT_UINT32">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT32" class="m-doc-self">dip::<wbr />DT_UINT32</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint32"><code>dip::uint32</code></a>.</dd>
-                          <dt id="dip-DT_SINT32">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT32" class="m-doc-self">dip::<wbr />DT_SINT32</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint32"><code>dip::sint32</code></a>.</dd>
-                          <dt id="dip-DT_UINT64">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT64" class="m-doc-self">dip::<wbr />DT_UINT64</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint64"><code>dip::uint64</code></a>.</dd>
-                          <dt id="dip-DT_SINT64">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT64" class="m-doc-self">dip::<wbr />DT_SINT64</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint64"><code>dip::sint64</code></a>.</dd>
-                          <dt id="dip-DT_SFLOAT">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SFLOAT" class="m-doc-self">dip::<wbr />DT_SFLOAT</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-sfloat"><code>dip::sfloat</code></a>.</dd>
-                          <dt id="dip-DT_DFLOAT">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_DFLOAT" class="m-doc-self">dip::<wbr />DT_DFLOAT</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a>.</dd>
-                          <dt id="dip-DT_SCOMPLEX">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SCOMPLEX" class="m-doc-self">dip::<wbr />DT_SCOMPLEX</a>
- <span class="m-label m-flat m-primary">constexpr</span>
-            </dt>
-            <dd>Constant representing the type <a href="pixeltypes.html#dip-scomplex"><code>dip::scomplex</code></a>.</dd>
-                          <dt id="dip-DT_DCOMPLEX">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_DCOMPLEX" class="m-doc-self">dip::<wbr />DT_DCOMPLEX</a>
- <span class="m-label m-flat m-primary">constexpr</span>
+            <dd>Data type of histogram bins. See <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_DCOMPLEX" class="m-doc">dip::<wbr />DT_DCOMPLEX</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd>Constant representing the type <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a>.</dd>
-                          <dt id="dip-DT_LABEL">
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_LABEL" class="m-doc-self">dip::<wbr />DT_LABEL</a>
- = DT_UINT32 <span class="m-label m-flat m-primary">constexpr</span>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_DFLOAT" class="m-doc">dip::<wbr />DT_DFLOAT</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_LABEL" class="m-doc">dip::<wbr />DT_LABEL</a> = DT_UINT32 <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-LabelType"><code>dip::LabelType</code></a>.</dd>
                           <dt>
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="dip-Histogram.html#dip-DT_COUNT" class="m-doc-self">dip::<wbr />DT_COUNT</a>
- <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SCOMPLEX" class="m-doc">dip::<wbr />DT_SCOMPLEX</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
-            <dd>Data type of histogram bins. See <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>.</dd>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-scomplex"><code>dip::scomplex</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SFLOAT" class="m-doc">dip::<wbr />DT_SFLOAT</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-sfloat"><code>dip::sfloat</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT16" class="m-doc">dip::<wbr />DT_SINT16</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint16"><code>dip::sint16</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT32" class="m-doc">dip::<wbr />DT_SINT32</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint32"><code>dip::sint32</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT64" class="m-doc">dip::<wbr />DT_SINT64</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint64"><code>dip::sint64</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_SINT8" class="m-doc">dip::<wbr />DT_SINT8</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-sint8"><code>dip::sint8</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT16" class="m-doc">dip::<wbr />DT_UINT16</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint16"><code>dip::uint16</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT32" class="m-doc">dip::<wbr />DT_UINT32</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint32"><code>dip::uint32</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT64" class="m-doc">dip::<wbr />DT_UINT64</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint64"><code>dip::uint64</code></a>.</dd>
+                          <dt>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="#dip-DT_UINT8" class="m-doc">dip::<wbr />DT_UINT8</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>Constant representing the type <a href="pixeltypes.html#dip-uint8"><code>dip::uint8</code></a>.</dd>
           </dl>
         </section>
         <section>
+            <h2>Alias documentation</h2>
+                          <section class="m-doc-details" id="dip-uint8"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-uint8" class="m-doc-self">dip::<wbr />uint8</a></span> = std::uint8_t            </h3>
+            <p>Type for samples in an 8-bit unsigned integer image; also to be used as single byte for pointer arithmetic</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-uint16"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-uint16" class="m-doc-self">dip::<wbr />uint16</a></span> = std::uint16_t            </h3>
+            <p>Type for samples in a 16-bit unsigned integer image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-uint32"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-uint32" class="m-doc-self">dip::<wbr />uint32</a></span> = std::uint32_t            </h3>
+            <p>Type for samples in a 32-bit unsigned integer image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-uint64"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-uint64" class="m-doc-self">dip::<wbr />uint64</a></span> = std::uint64_t            </h3>
+            <p>Type for samples in a 64-bit unsigned integer image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-sint8"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-sint8" class="m-doc-self">dip::<wbr />sint8</a></span> = std::int8_t            </h3>
+            <p>Type for samples in an 8-bit signed integer image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-sint16"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-sint16" class="m-doc-self">dip::<wbr />sint16</a></span> = std::int16_t            </h3>
+            <p>Type for samples in a 16-bit signed integer image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-sint32"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-sint32" class="m-doc-self">dip::<wbr />sint32</a></span> = std::int32_t            </h3>
+            <p>Type for samples in a 32-bit signed integer image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-sint64"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-sint64" class="m-doc-self">dip::<wbr />sint64</a></span> = std::int64_t            </h3>
+            <p>Type for samples in a 64-bit signed integer image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-sfloat"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-sfloat" class="m-doc-self">dip::<wbr />sfloat</a></span> = float            </h3>
+            <p>Type for samples in a 32-bit floating point (single-precision) image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-dfloat"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-dfloat" class="m-doc-self">dip::<wbr />dfloat</a></span> = double            </h3>
+            <p>Type for samples in a 64-bit floating point (double-precision) image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-scomplex"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-scomplex" class="m-doc-self">dip::<wbr />scomplex</a></span> = std::complex&lt;sfloat&gt;            </h3>
+            <p>Type for samples in a 64-bit complex-valued (single-precision) image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-dcomplex"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-dcomplex" class="m-doc-self">dip::<wbr />dcomplex</a></span> = std::complex&lt;dfloat&gt;            </h3>
+            <p>Type for samples in a 128-bit complex-valued (double-precision) image</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-LabelType"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-LabelType" class="m-doc-self">dip::<wbr />LabelType</a></span> = <a href="pixeltypes.html#dip-uint32" class="m-doc">dip::uint32</a>            </h3>
+            <p>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-DT_LABEL"><code>dip::DT_LABEL</code></a>.</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-FloatType-T"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-FloatType-T" class="m-doc-self">dip::<wbr />FloatType</a></span> = dip::detail::FloatTypeCalculator            </h3>
+            <p>The type to use in calculations when a floating-point type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestFloat-DataType-"><code>dip::DataType::SuggestFloat</code></a>.</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-DoubleType-T"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-DoubleType-T" class="m-doc-self">dip::<wbr />DoubleType</a></span> = dip::detail::DoubleTypeCalculator            </h3>
+            <p>The double precision floating point type (real or complex) to use when computing large sums of any input type. Matches <a href="dip-DataType.html#dip-DataType-SuggestDouble-DataType-"><code>dip::DataType::SuggestDouble</code></a>.</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-ComplexType-T"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-ComplexType-T" class="m-doc-self">dip::<wbr />ComplexType</a></span> = dip::detail::ComplexTypeCalculator            </h3>
+            <p>The type to use in calculations when a complex type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestComplex-DataType-"><code>dip::DataType::SuggestComplex</code></a>.</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-FlexType-T"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-FlexType-T" class="m-doc-self">dip::<wbr />FlexType</a></span> = dip::detail::FlexTypeCalculator            </h3>
+            <p>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlex-DataType-"><code>dip::DataType::SuggestFlex</code></a>.</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-FlexBinType-T"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-FlexBinType-T" class="m-doc-self">dip::<wbr />FlexBinType</a></span> = dip::detail::FlexBinTypeCalculator            </h3>
+            <p>The type to use in calculations. Matches <a href="dip-DataType.html#dip-DataType-SuggestFlexBin-DataType-"><code>dip::DataType::SuggestFlexBin</code></a>.</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-AbsType-T"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-AbsType-T" class="m-doc-self">dip::<wbr />AbsType</a></span> = dip::detail::AbsTypeCalculator            </h3>
+            <p>The type to use for the output of abs operations. Matches <a href="dip-DataType.html#dip-DataType-SuggestAbs-DataType-"><code>dip::DataType::SuggestAbs</code></a>.</p>
+          </div></section>
+                          <section class="m-doc-details" id="dip-RealType-T"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-RealType-T" class="m-doc-self">dip::<wbr />RealType</a></span> = dip::detail::RealTypeCalculator            </h3>
+            <p>The type to use in calculations when a real-valued type is needed. Matches <a href="dip-DataType.html#dip-DataType-SuggestReal-DataType-"><code>dip::DataType::SuggestReal</code></a>.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-clamp_cast-T-SourceType-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename TargetType, typename SourceType,  &lt;SFINAE&gt; = 0&gt;
+              </div>
+              <span class="m-doc-return">TargetType </span>
+              <span class="m-doc-name"><a href="#dip-clamp_cast-T-SourceType-" class="m-doc-self">dip::<wbr />clamp_cast</a></span>(
+<span class="m-doc-arg">SourceType v</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Casts a value of any pixel type to any other pixel type, clamping it to the destination range.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CastLabelType-T-TPI-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;
+              </div>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-LabelType" class="m-doc">dip::LabelType</a> </span>
+              <span class="m-doc-name"><a href="#dip-CastLabelType-T-TPI-" class="m-doc-self">dip::<wbr />CastLabelType</a></span>(
+<span class="m-doc-arg">TPI label</span>)            </h3>
+            <p>Casting any unsigned integer type to <a href="pixeltypes.html#dip-LabelType"><code>dip::LabelType</code></a>. Throws if <code>value</code> is too large.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelIsInfinity-T-TPI-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-PixelIsInfinity-T-TPI-" class="m-doc-self">dip::<wbr />PixelIsInfinity</a></span>(
+<span class="m-doc-arg">TPI </span>)            </h3>
+            <p>A templated function to check for positive infinity, which works also for integer types (always returning false)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PixelIsMinusInfinity-T-TPI-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename TPI,  &lt;SFINAE&gt; = 0&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-PixelIsMinusInfinity-T-TPI-" class="m-doc-self">dip::<wbr />PixelIsMinusInfinity</a></span>(
+<span class="m-doc-arg">TPI </span>)            </h3>
+            <p>A templated function to check for negative infinity, which works also for integer types (always returning false)</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-saturated_add-T-T--T-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;
               </div>
-              <span class="m-doc-return">T</span>
+              <span class="m-doc-return">T </span>
               <span class="m-doc-name"><a href="#dip-saturated_add-T-T--T-" class="m-doc-self">dip::<wbr />saturated_add</a></span>(
-<span class="m-doc-arg">T lhs,</span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+<span class="m-doc-arg">T lhs, </span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
             <p>Adds two values using saturated arithmetic.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-saturated_sub-T-T--T-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;
               </div>
-              <span class="m-doc-return">T</span>
+              <span class="m-doc-return">T </span>
               <span class="m-doc-name"><a href="#dip-saturated_sub-T-T--T-" class="m-doc-self">dip::<wbr />saturated_sub</a></span>(
-<span class="m-doc-arg">T lhs,</span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+<span class="m-doc-arg">T lhs, </span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
             <p>Subtracts two values using saturated arithmetic.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-saturated_mul-T-T--T-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;
               </div>
-              <span class="m-doc-return">T</span>
+              <span class="m-doc-return">T </span>
               <span class="m-doc-name"><a href="#dip-saturated_mul-T-T--T-" class="m-doc-self">dip::<wbr />saturated_mul</a></span>(
-<span class="m-doc-arg">T lhs,</span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+<span class="m-doc-arg">T lhs, </span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
             <p>Multiplies two values using saturated arithmetic.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-saturated_div-T-T--T-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;
               </div>
-              <span class="m-doc-return">T</span>
+              <span class="m-doc-return">T </span>
               <span class="m-doc-name"><a href="#dip-saturated_div-T-T--T-" class="m-doc-self">dip::<wbr />saturated_div</a></span>(
-<span class="m-doc-arg">T lhs,</span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+<span class="m-doc-arg">T lhs, </span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
             <p>Divides two values using saturated arithmetic.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-saturated_safediv-T-T--T-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-return">T</span>
+              <span class="m-doc-return">T </span>
               <span class="m-doc-name"><a href="#dip-saturated_safediv-T-T--T-" class="m-doc-self">dip::<wbr />saturated_safediv</a></span>(
-<span class="m-doc-arg">T lhs,</span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
+<span class="m-doc-arg">T lhs, </span><span class="m-doc-arg">T rhs</span>) <span class="m-label m-primary">constexpr</span>            </h3>
             <p>Divides two values using saturated arithmetic. Tests for division
 by zero, return 0 rather than infinity or NaN (or an exception).</p>
           </div></section>
                         <section class="m-doc-details" id="dip-saturated_inv-T-T-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--saturated_arithmetic-h.html">"diplib/saturated_arithmetic.h"</a></div>
               <div class="m-doc-template">
                 template&lt;typename T,  &lt;SFINAE&gt; = 0&gt;
               </div>
-              <span class="m-doc-return">T</span>
+              <span class="m-doc-return">T </span>
               <span class="m-doc-name"><a href="#dip-saturated_inv-T-T-" class="m-doc-self">dip::<wbr />saturated_inv</a></span>(
 <span class="m-doc-arg">T v</span>) <span class="m-label m-primary">constexpr</span>            </h3>
             <p>Inverts a value using saturated arithmetic. This is the same as negation, but not for unsigned values.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+                        <section class="m-doc-details" id="dip-DT_BIN"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_BIN" class="m-doc-self">dip::<wbr />DT_BIN</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="dip-bin.html"><code>dip::bin</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_UINT8"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_UINT8" class="m-doc-self">dip::<wbr />DT_UINT8</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-uint8"><code>dip::uint8</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_SINT8"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_SINT8" class="m-doc-self">dip::<wbr />DT_SINT8</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-sint8"><code>dip::sint8</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_UINT16"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_UINT16" class="m-doc-self">dip::<wbr />DT_UINT16</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-uint16"><code>dip::uint16</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_SINT16"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_SINT16" class="m-doc-self">dip::<wbr />DT_SINT16</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-sint16"><code>dip::sint16</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_UINT32"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_UINT32" class="m-doc-self">dip::<wbr />DT_UINT32</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-uint32"><code>dip::uint32</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_SINT32"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_SINT32" class="m-doc-self">dip::<wbr />DT_SINT32</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-sint32"><code>dip::sint32</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_UINT64"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_UINT64" class="m-doc-self">dip::<wbr />DT_UINT64</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-uint64"><code>dip::uint64</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_SINT64"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_SINT64" class="m-doc-self">dip::<wbr />DT_SINT64</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-sint64"><code>dip::sint64</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_SFLOAT"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_SFLOAT" class="m-doc-self">dip::<wbr />DT_SFLOAT</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-sfloat"><code>dip::sfloat</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_DFLOAT"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_DFLOAT" class="m-doc-self">dip::<wbr />DT_DFLOAT</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_SCOMPLEX"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_SCOMPLEX" class="m-doc-self">dip::<wbr />DT_SCOMPLEX</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-scomplex"><code>dip::scomplex</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_DCOMPLEX"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_DCOMPLEX" class="m-doc-self">dip::<wbr />DT_DCOMPLEX</a></span>
+ <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Constant representing the type <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DT_LABEL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> const </span><span class="m-doc-name"><a href="#dip-DT_LABEL" class="m-doc-self">dip::<wbr />DT_LABEL</a></span>
+ = DT_UINT32 <span class="m-label m-primary">constexpr</span>            </h3>
+            <p>Type currently used for all labeled images, see <a href="pixeltypes.html#dip-LabelType"><code>dip::LabelType</code></a>.</p>
           </div></section>
         </section>
       </div>

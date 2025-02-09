@@ -88,159 +88,46 @@
           <h2>Enums</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dml-GetImageMode" class="m-doc-self">dml::<wbr />GetImageMode</a>: dip::uint8{ </span><span class="m-doc-wrap"><a href="#dml-GetImageMode-REFERENCE" class="m-doc">REFERENCE</a>,
-              <a href="#dml-GetImageMode-SHARED_COPY" class="m-doc">SHARED_COPY</a> }</span>
-            </dt>
-            <dd><a href="dip_matlab_interface.html#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><code>dml::GetImage</code></a> can optionally create a shared copy of the input <code>mxArray</code>, which extends its lifetime.
-This is useful if the MEX-file needs to keep a reference to the object.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">enum class <a href="#dml-ArrayConversionMode" class="m-doc-self">dml::<wbr />ArrayConversionMode</a>: dip::uint8{ </span><span class="m-doc-wrap"><a href="#dml-ArrayConversionMode-STANDARD" class="m-doc">STANDARD</a>,
-              <a href="#dml-ArrayConversionMode-TENSOR_OPERATOR" class="m-doc">TENSOR_OPERATOR</a> }</span>
-            </dt>
+              enum class <a href="#dml-ArrayConversionMode" class="m-doc">dml::<wbr />ArrayConversionMode</a>: dip::uint8            </dt>
             <dd><a href="dip_matlab_interface.html#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><code>dml::GetImage</code></a> can optionally turn an input numeric array to a tensor image. If the numeric array
-is a short vector (up to 5 elements) or a small matrix (up to 5x5 elements) it will be seen as a 0D tensor image.</dd>
+is a short vector (up to 5 elements) or a small matrix (up to 5x5 elements) it will be seen as a 0D tensor image. <a href="#dml-ArrayConversionMode">more...</a></dd>
+                          <dt>
+              enum class <a href="#dml-GetImageMode" class="m-doc">dml::<wbr />GetImageMode</a>: dip::uint8            </dt>
+            <dd><a href="dip_matlab_interface.html#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><code>dml::GetImage</code></a> can optionally create a shared copy of the input <code>mxArray</code>, which extends its lifetime.
+This is useful if the MEX-file needs to keep a reference to the object. <a href="#dml-GetImageMode">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dml-IsScalar-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-IsScalar-mxArray-CP" class="m-doc-self">dml::<wbr />IsScalar</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
-            </dt>
-            <dd>True if array is scalar (has single value)</dd>
-                          <dt id="dml-IsVector-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-IsVector-mxArray-CP" class="m-doc-self">dml::<wbr />IsVector</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
-            </dt>
-            <dd>True if empty or a one-dimensional array</dd>
-                          <dt id="dml-IsString-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-IsString-mxArray-CP" class="m-doc-self">dml::<wbr />IsString</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
-            </dt>
-            <dd>True if <code>mx</code> is a string (char vector or string class)</dd>
-                          <dt id="dml-GetUnsigned-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetUnsigned-mxArray-CP" class="m-doc-self">dml::<wbr />GetUnsigned</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Convert an unsigned integer from <code>mxArray</code> to <a href="supporttypes.html#dip-uint"><code>dip::uint</code></a> by copy.</dd>
-                          <dt id="dml-GetInteger-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetInteger-mxArray-CP" class="m-doc-self">dml::<wbr />GetInteger</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
-            </dt>
-            <dd>Convert a signed integer from <code>mxArray</code> to <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a> by copy.</dd>
-                          <dt id="dml-GetFloat-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetFloat-mxArray-CP" class="m-doc-self">dml::<wbr />GetFloat</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Convert a floating-point number from <code>mxArray</code> to <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a> by copy.</dd>
-                          <dt id="dml-GetComplex-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetComplex-mxArray-CP" class="m-doc-self">dml::<wbr />GetComplex</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a></span>
-            </dt>
-            <dd>Convert a complex floating-point number from <code>mxArray</code> to <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a> by copy.</dd>
-                          <dt id="dml-GetBooleanArray-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetBooleanArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetBooleanArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
-            </dt>
-            <dd>Convert a boolean (logical) array from <code>mxArray</code> to <a href="supporttypes.html#dip-BooleanArray"><code>dip::BooleanArray</code></a> by copy.</dd>
-                          <dt id="dml-GetUnsignedArray-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetUnsignedArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetUnsignedArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
-            </dt>
-            <dd>Convert an unsigned integer array from <code>mxArray</code> to <a href="supporttypes.html#dip-UnsignedArray"><code>dip::UnsignedArray</code></a> by copy.</dd>
-                          <dt id="dml-GetIntegerArray-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetIntegerArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetIntegerArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a></span>
-            </dt>
-            <dd>Convert a signed integer array from <code>mxArray</code> to <a href="supporttypes.html#dip-IntegerArray"><code>dip::IntegerArray</code></a> by copy.</dd>
-                          <dt id="dml-GetFloatArray-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetFloatArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetFloatArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Convert a floating-point array from <code>mxArray</code> to <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> by copy.</dd>
-                          <dt id="dml-GetStdVector-T-mxArray-CP">
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStdVector-T-mxArray-CP" class="m-doc-self">dml::<wbr />GetStdVector</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; std::vector&lt;T&gt;</span>
-            </dt>
-            <dd>Convert a 1D real-valued numeric array from <code>mxArray</code> to <code>std::vector&lt; T &gt;</code> by copy.
-Data is cast as usual from doubles to the target type (see <a href="pixeltypes.html#dip-clamp_cast-T-SourceType-"><code>dip::clamp_cast</code></a>).</dd>
-                          <dt id="dml-GetStdVectorOfFloats-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStdVectorOfFloats-mxArray-CP" class="m-doc-self">dml::<wbr />GetStdVectorOfFloats</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; std::vector&lt;dip::dfloat&gt; <span class="m-label m-danger">deprecated</span></span>
-            </dt>
-            <dd>Convert a floating-point array from <code>mxArray</code> to <code>std::vector&lt;dip::dfloat&gt;</code> by copy.</dd>
-                          <dt id="dml-GetProcessArray-mxArray-CP-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetProcessArray-mxArray-CP-dip-uint-" class="m-doc-self">dml::<wbr />GetProcessArray</a>(</span><span class="m-doc-wrap">mxArray const* mx,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims) -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
-            </dt>
-            <dd>Convert an unsigned integer <code>mxArray</code> to a <a href="supporttypes.html#dip-BooleanArray"><code>dip::BooleanArray</code></a>, where elements of the input are indices
-where the output array is set. The output array has <code>nDims</code> elements. In <em>MATLAB</em>, dimensions start with 1.
-If <code>mx</code> is empty, all dimensions are to be processed.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetCoordinateArray-mxArray-CP" class="m-doc">dml::<wbr />GetCoordinateArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
-            </dt>
-            <dd>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-CoordinateArray"><code>dip::CoordinateArray</code></a> by copy. <a href="#dml-GetCoordinateArray-mxArray-CP">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetFloatCoordinateArray-mxArray-CP" class="m-doc">dml::<wbr />GetFloatCoordinateArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a></span>
-            </dt>
-            <dd>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-FloatCoordinateArray"><code>dip::FloatCoordinateArray</code></a> by copy. <a href="#dml-GetFloatCoordinateArray-mxArray-CP">more...</a></dd>
-                          <dt id="dml-HandleNewStyleString-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-HandleNewStyleString-mxArray-CP" class="m-doc-self">dml::<wbr />HandleNewStyleString</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; mxArray const*</span>
-            </dt>
-            <dd>If <code>mx</code> is a &ldquo;string&rdquo; class object, return a char vector or a cell array of char vectors.</dd>
-                          <dt id="dml-GetString-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetString-mxArray-CP" class="m-doc-self">dml::<wbr />GetString</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Convert a string from <code>mxArray</code> to <a href="supporttypes.html#dip-String"><code>dip::String</code></a> by copy.</dd>
-                          <dt id="dml-GetStringUnicode-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStringUnicode-mxArray-CP" class="m-doc-self">dml::<wbr />GetStringUnicode</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
-            </dt>
-            <dd>Convert a string from <code>mxArray</code> to a UTF-8 encoded <a href="supporttypes.html#dip-String"><code>dip::String</code></a> by copy.</dd>
-                          <dt id="dml-GetStringArray-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStringArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetStringArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a></span>
-            </dt>
-            <dd>Convert a cell array of strings from <code>mxArray</code> to <a href="supporttypes.html#dip-StringArray"><code>dip::StringArray</code></a> by copy.</dd>
-                          <dt id="dml-GetStringSet-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStringSet-mxArray-CP" class="m-doc-self">dml::<wbr />GetStringSet</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a></span>
-            </dt>
-            <dd>Convert a cell array of string from <code>mxArray</code> to <a href="supporttypes.html#dip-StringSet"><code>dip::StringSet</code></a> by copy.</dd>
-                          <dt id="dml-GetBoolean-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetBoolean-mxArray-CP" class="m-doc-self">dml::<wbr />GetBoolean</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
-            </dt>
-            <dd>Convert a boolean (logical) from <code>mxArray</code> to <code>bool</code> by copy. Accepts <code>"yes"</code> and <code>"no"</code> as well.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetRange-mxArray-CP" class="m-doc">dml::<wbr />GetRange</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Range.html" class="m-doc">dip::Range</a></span>
-            </dt>
-            <dd>Convert an integer array from <code>mxArray</code> to <a href="dip-Range.html"><code>dip::Range</code></a> by copy. <a href="#dml-GetRange-mxArray-CP">more...</a></dd>
-                          <dt id="dml-GetRangeArray-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetRangeArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetRangeArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
-            </dt>
-            <dd>Convert a cell array of integer array from <code>mxArray</code> to <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a> by copy.</dd>
-                          <dt id="dml-GetPixel-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetPixel-mxArray-CP" class="m-doc-self">dml::<wbr />GetPixel</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Convert a numeric array from <code>mxArray</code> to <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> by copy.</dd>
-                          <dt id="dml-GetHistogramConfiguration-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetHistogramConfiguration-mxArray-CP" class="m-doc-self">dml::<wbr />GetHistogramConfiguration</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a></span>
-            </dt>
-            <dd>Reads a histogram <a href="dip-Histogram-Configuration.html"><code>Configuration</code></a> struct from a cell <code>mxArray</code> with key-value pairs.</dd>
-                          <dt id="dml-CreateDouble2Vector-dip-dfloat--dip-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-CreateDouble2Vector-dip-dfloat--dip-dfloat-" class="m-doc-self">dml::<wbr />CreateDouble2Vector</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> v0,
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-CreateDouble2Vector-dip-dfloat--dip-dfloat-" class="m-doc">dml::<wbr />CreateDouble2Vector</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> v0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> v1) -&gt; mxArray*</span>
             </dt>
             <dd>Create a two-element mxArray and write the two values in it.</dd>
-                          <dt id="dml-GetArray-bool-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-bool-" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap">bool in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-bool-" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap">bool in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert an boolean from <code>bool</code> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-uint-" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-uint-" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert an unsigned integer from <a href="supporttypes.html#dip-uint"><code>dip::uint</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-sint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-sint-" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-sint-" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a signed integer from <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-dfloat-" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-dfloat-" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a floating-point number from <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-dcomplex-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-dcomplex-" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a> in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-dcomplex-" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a> in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a complex floating-point number from <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-T-dip-DimensionArray<T>-CL">
+                          <dt>
               <div class="m-doc-template">template&lt;typename T, typename &lt;SFINAE&gt;&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-T-dip-DimensionArray<T>-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; in) -&gt; mxArray*</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-T-dip-DimensionArray%3CT%3E-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a numeric array from <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a> to <code>mxArray</code> by copy. Works for
 <a href="supporttypes.html#dip-UnsignedArray"><code>dip::UnsignedArray</code></a>, <a href="supporttypes.html#dip-IntegerArray"><code>dip::IntegerArray</code></a> and <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a>.</dd>
@@ -248,63 +135,103 @@ If <code>mx</code> is empty, all dimensions are to be processed.</dd>
               <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-CoordinateArray-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-CoordinateArray"><code>dip::CoordinateArray</code></a> by copy. <a href="#dml-GetArray-dip-CoordinateArray-CL">more...</a></dd>
-                          <dt id="dml-GetArray-dip-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-String-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-String-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a string from <a href="supporttypes.html#dip-String"><code>dip::String</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-StringArray-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-StringArray-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-StringArray-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a string array from <a href="supporttypes.html#dip-StringArray"><code>dip::StringArray</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArrayUnicode-dip-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArrayUnicode-dip-String-CL" class="m-doc-self">dml::<wbr />GetArrayUnicode</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in) -&gt; mxArray*</span>
-            </dt>
-            <dd>Convert a UTF-8 encoded string from <a href="supporttypes.html#dip-String"><code>dip::String</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-Image-Sample-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Image-Sample-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Sample.html" class="m-doc">dip::Image::Sample</a> const&amp; in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Image-Sample-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Sample.html" class="m-doc">dip::Image::Sample</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a sample from <a href="dip-Image-Sample.html"><code>dip::Image::Sample</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-Image-Pixel-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Image-Pixel-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Image-Pixel-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a set of samples from <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-PixelSize-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-PixelSize-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; pixelSize) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-PixelSize-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; pixelSize) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a pixel size object <a href="dip-PixelSize.html"><code>dip::PixelSize</code></a> to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-FileInformation-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-FileInformation-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> const&amp; fileInformation) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-FileInformation-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> const&amp; fileInformation) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a <a href="file_io.html#dip-FileInformation"><code>dip::FileInformation</code></a> structure to <code>mxArray</code> by copy.</dd>
-                          <dt id="dml-GetArray-dip-Distribution-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Distribution-CL" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; in) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Distribution-CL" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; in) -&gt; mxArray*</span>
             </dt>
             <dd>Convert a <a href="dip-Distribution.html"><code>dip::Distribution</code></a> object to <code>mxArray</code> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Image-CL-bool-" class="m-doc">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img,
+              bool doNotSetToTrue = false) -&gt; mxArray*</span>
+            </dt>
+            <dd>Find the <code>mxArray</code> that holds the data for the <a href="dip-Image.html"><code>dip::Image</code></a> <code>img</code>,
+and create a <em>MATLAB</em> <code>dip_image</code> object around it.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArrayAsArray-dip-Image-CL-bool-" class="m-doc">dml::<wbr />GetArrayAsArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img,
+              bool doNotSetToTrue = false) -&gt; mxArray*</span>
+            </dt>
+            <dd>Find the <code>mxArray</code> that holds the data for the <a href="dip-Image.html"><code>dip::Image</code></a> <code>img</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArrayUnicode-dip-String-CL" class="m-doc">dml::<wbr />GetArrayUnicode</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in) -&gt; mxArray*</span>
+            </dt>
+            <dd>Convert a UTF-8 encoded string from <a href="supporttypes.html#dip-String"><code>dip::String</code></a> to <code>mxArray</code> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetBoolean-mxArray-CP" class="m-doc">dml::<wbr />GetBoolean</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
+            </dt>
+            <dd>Convert a boolean (logical) from <code>mxArray</code> to <code>bool</code> by copy. Accepts <code>"yes"</code> and <code>"no"</code> as well.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetBooleanArray-mxArray-CP" class="m-doc">dml::<wbr />GetBooleanArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
+            </dt>
+            <dd>Convert a boolean (logical) array from <code>mxArray</code> to <a href="supporttypes.html#dip-BooleanArray"><code>dip::BooleanArray</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetComplex-mxArray-CP" class="m-doc">dml::<wbr />GetComplex</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a></span>
+            </dt>
+            <dd>Convert a complex floating-point number from <code>mxArray</code> to <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetCoordinateArray-mxArray-CP" class="m-doc">dml::<wbr />GetCoordinateArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+            </dt>
+            <dd>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-CoordinateArray"><code>dip::CoordinateArray</code></a> by copy. <a href="#dml-GetCoordinateArray-mxArray-CP">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetFloat-mxArray-CP" class="m-doc">dml::<wbr />GetFloat</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Convert a floating-point number from <code>mxArray</code> to <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetFloatArray-mxArray-CP" class="m-doc">dml::<wbr />GetFloatArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Convert a floating-point array from <code>mxArray</code> to <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetFloatCoordinateArray-mxArray-CP" class="m-doc">dml::<wbr />GetFloatCoordinateArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a></span>
+            </dt>
+            <dd>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-FloatCoordinateArray"><code>dip::FloatCoordinateArray</code></a> by copy. <a href="#dml-GetFloatCoordinateArray-mxArray-CP">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetHistogramConfiguration-mxArray-CP" class="m-doc">dml::<wbr />GetHistogramConfiguration</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a></span>
+            </dt>
+            <dd>Reads a histogram <a href="dip-Histogram-Configuration.html"><code>Configuration</code></a> struct from a cell <code>mxArray</code> with key-value pairs.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-" class="m-doc">dml::<wbr />GetImage</a>(</span><span class="m-doc-wrap">mxArray const* mx,
               <a href="dip_matlab_interface.html#dml-GetImageMode" class="m-doc">dml::GetImageMode</a> mode = GetImageMode::REFERENCE,
               <a href="dip_matlab_interface.html#dml-ArrayConversionMode" class="m-doc">dml::ArrayConversionMode</a> conversion = ArrayConversionMode::STANDARD) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
             <dd>Passing an <code>mxArray</code> to <em>DIPlib</em>, keeping ownership of the data. <a href="#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-">more...</a></dd>
-                          <dt id="dml-GetImageArray-mxArray-CP">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetImageArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetImageArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetImageArray-mxArray-CP" class="m-doc">dml::<wbr />GetImageArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a></span>
             </dt>
             <dd>Convert a cell array of images from <code>mxArray</code> to <a href="dip-Image.html#dip-ImageArray"><code>dip::ImageArray</code></a>, using <a href="dip_matlab_interface.html#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><code>dml::GetImage</code></a> for each
 element of the cell array.</dd>
-                          <dt id="dml-GetArrayAsArray-dip-Image-CL-bool-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArrayAsArray-dip-Image-CL-bool-" class="m-doc-self">dml::<wbr />GetArrayAsArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img,
-              bool doNotSetToTrue = false) -&gt; mxArray*</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetInteger-mxArray-CP" class="m-doc">dml::<wbr />GetInteger</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a></span>
             </dt>
-            <dd>Find the <code>mxArray</code> that holds the data for the <a href="dip-Image.html"><code>dip::Image</code></a> <code>img</code>.</dd>
-                          <dt id="dml-GetArray-dip-Image-CL-bool-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetArray-dip-Image-CL-bool-" class="m-doc-self">dml::<wbr />GetArray</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img,
-              bool doNotSetToTrue = false) -&gt; mxArray*</span>
+            <dd>Convert a signed integer from <code>mxArray</code> to <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetIntegerArray-mxArray-CP" class="m-doc">dml::<wbr />GetIntegerArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a></span>
             </dt>
-            <dd>Find the <code>mxArray</code> that holds the data for the <a href="dip-Image.html"><code>dip::Image</code></a> <code>img</code>,
-and create a <em>MATLAB</em> <code>dip_image</code> object around it.</dd>
-                          <dt id="dml-GetKernel-T-int--mxArray-CPA-int-L-dip-uint-">
+            <dd>Convert a signed integer array from <code>mxArray</code> to <a href="supporttypes.html#dip-IntegerArray"><code>dip::IntegerArray</code></a> by copy.</dd>
+                          <dt>
               <div class="m-doc-template">template&lt;typename K&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetKernel-T-int--mxArray-CPA-int-L-dip-uint-" class="m-doc-self">dml::<wbr />GetKernel</a>(</span><span class="m-doc-wrap">int nrhs,
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetKernel-T-int--mxArray-CPA-int-L-dip-uint-" class="m-doc">dml::<wbr />GetKernel</a>(</span><span class="m-doc-wrap">int nrhs,
               mxArray const*[] prhs,
               int&amp; index,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims) -&gt; K</span>
@@ -312,47 +239,118 @@ and create a <em>MATLAB</em> <code>dip_image</code> object around it.</dd>
             <dd>Gets a structuring element or kernel from the input argument(s) at <code>index</code>, and <code>index+1</code>. <code>index</code> is
 updated to point to the next unused input argument.</dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetPixel-mxArray-CP" class="m-doc">dml::<wbr />GetPixel</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Convert a numeric array from <code>mxArray</code> to <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> by copy.</dd>
+                          <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#dml-GetPreference-T-dip-String-CL" class="m-doc">dml::<wbr />GetPreference</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; preference) -&gt; T</span>
             </dt>
             <dd>Get the value of a property, equivalent to calling <code>dipgetpref</code> in <em>MATLAB</em>. <a href="#dml-GetPreference-T-dip-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetProcessArray-mxArray-CP-dip-uint-" class="m-doc">dml::<wbr />GetProcessArray</a>(</span><span class="m-doc-wrap">mxArray const* mx,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims) -&gt; <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a></span>
+            </dt>
+            <dd>Convert an unsigned integer <code>mxArray</code> to a <a href="supporttypes.html#dip-BooleanArray"><code>dip::BooleanArray</code></a>, where elements of the input are indices
+where the output array is set. The output array has <code>nDims</code> elements. In <em>MATLAB</em>, dimensions start with 1.
+If <code>mx</code> is empty, all dimensions are to be processed.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetRange-mxArray-CP" class="m-doc">dml::<wbr />GetRange</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Range.html" class="m-doc">dip::Range</a></span>
+            </dt>
+            <dd>Convert an integer array from <code>mxArray</code> to <a href="dip-Range.html"><code>dip::Range</code></a> by copy. <a href="#dml-GetRange-mxArray-CP">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetRangeArray-mxArray-CP" class="m-doc">dml::<wbr />GetRangeArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a></span>
+            </dt>
+            <dd>Convert a cell array of integer array from <code>mxArray</code> to <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a> by copy.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStdVector-T-mxArray-CP" class="m-doc">dml::<wbr />GetStdVector</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; std::vector&lt;T&gt;</span>
+            </dt>
+            <dd>Convert a 1D real-valued numeric array from <code>mxArray</code> to <code>std::vector&lt; T &gt;</code> by copy.
+Data is cast as usual from doubles to the target type (see <a href="pixeltypes.html#dip-clamp_cast-T-SourceType-"><code>dip::clamp_cast</code></a>).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStdVectorOfFloats-mxArray-CP" class="m-doc">dml::<wbr />GetStdVectorOfFloats</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; std::vector&lt;dip::dfloat&gt; <span class="m-label m-danger">deprecated</span></span>
+            </dt>
+            <dd>Convert a floating-point array from <code>mxArray</code> to <code>std::vector&lt;dip::dfloat&gt;</code> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetString-mxArray-CP" class="m-doc">dml::<wbr />GetString</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Convert a string from <code>mxArray</code> to <a href="supporttypes.html#dip-String"><code>dip::String</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStringArray-mxArray-CP" class="m-doc">dml::<wbr />GetStringArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a></span>
+            </dt>
+            <dd>Convert a cell array of strings from <code>mxArray</code> to <a href="supporttypes.html#dip-StringArray"><code>dip::StringArray</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStringSet-mxArray-CP" class="m-doc">dml::<wbr />GetStringSet</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a></span>
+            </dt>
+            <dd>Convert a cell array of string from <code>mxArray</code> to <a href="supporttypes.html#dip-StringSet"><code>dip::StringSet</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetStringUnicode-mxArray-CP" class="m-doc">dml::<wbr />GetStringUnicode</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a></span>
+            </dt>
+            <dd>Convert a string from <code>mxArray</code> to a UTF-8 encoded <a href="supporttypes.html#dip-String"><code>dip::String</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetUnsigned-mxArray-CP" class="m-doc">dml::<wbr />GetUnsigned</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Convert an unsigned integer from <code>mxArray</code> to <a href="supporttypes.html#dip-uint"><code>dip::uint</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-GetUnsignedArray-mxArray-CP" class="m-doc">dml::<wbr />GetUnsignedArray</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Convert an unsigned integer array from <code>mxArray</code> to <a href="supporttypes.html#dip-UnsignedArray"><code>dip::UnsignedArray</code></a> by copy.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-HandleNewStyleString-mxArray-CP" class="m-doc">dml::<wbr />HandleNewStyleString</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; mxArray const*</span>
+            </dt>
+            <dd>If <code>mx</code> is a &ldquo;string&rdquo; class object, return a char vector or a cell array of char vectors.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-IsScalar-mxArray-CP" class="m-doc">dml::<wbr />IsScalar</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
+            </dt>
+            <dd>True if array is scalar (has single value)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-IsString-mxArray-CP" class="m-doc">dml::<wbr />IsString</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
+            </dt>
+            <dd>True if <code>mx</code> is a string (char vector or string class)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dml-IsVector-mxArray-CP" class="m-doc">dml::<wbr />IsVector</a>(</span><span class="m-doc-wrap">mxArray const* mx) -&gt; bool</span>
+            </dt>
+            <dd>True if empty or a one-dimensional array</dd>
           </dl>
         </section>
         <section id="macro-members">
           <h2>Macros</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">#define <a href="#macro--DML_MIN_ARGS" class="m-doc">DML_MIN_ARGS</a></span>
+              <span class="m-doc-wrap-bumper">#define <a href="#macro--DML_CATCH" class="m-doc">DML_CATCH</a></span>
             </dt>
-            <dd>Tests to ensure the MEX-file has been called with sufficient inputs. <a href="#macro--DML_MIN_ARGS">more...</a></dd>
+            <dd>Catch exceptions thrown in a MEX-file. <a href="#macro--DML_CATCH">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">#define <a href="#macro--DML_MAX_ARGS" class="m-doc">DML_MAX_ARGS</a></span>
             </dt>
             <dd>Tests to ensure the MEX-file has not been called with too many inputs. <a href="#macro--DML_MAX_ARGS">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">#define <a href="#macro--DML_CATCH" class="m-doc">DML_CATCH</a></span>
+              <span class="m-doc-wrap-bumper">#define <a href="#macro--DML_MIN_ARGS" class="m-doc">DML_MIN_ARGS</a></span>
             </dt>
-            <dd>Catch exceptions thrown in a MEX-file. <a href="#macro--DML_CATCH">more...</a></dd>
+            <dd>Tests to ensure the MEX-file has been called with sufficient inputs. <a href="#macro--DML_MIN_ARGS">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Enum documentation</h2>
                         <section class="m-doc-details" id="dml-GetImageMode"><div>
             <h3>
-              enum class <span class="m-doc-name"><a href="#dml-GetImageMode" class="m-doc-self">dml::<wbr />GetImageMode</a></span>: dip::uint8            </h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dml-GetImageMode" class="m-doc-self">dml::<wbr />GetImageMode</a></span>: dip::uint8            </h3>
             <p><a href="dip_matlab_interface.html#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><code>dml::GetImage</code></a> can optionally create a shared copy of the input <code>mxArray</code>, which extends its lifetime.
 This is useful if the MEX-file needs to keep a reference to the object.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
               <tbody>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dml-GetImageMode-REFERENCE" class="m-doc-self" id="dml-GetImageMode-REFERENCE">REFERENCE</a></span> = 0</td>
+                  <td><a href="#dml-GetImageMode-REFERENCE" class="m-doc-self" id="dml-GetImageMode-REFERENCE">REFERENCE</a> = 0
+</td>
                   <td>
                   Reference the <code>mxArray</code> in the <a href="dip-Image.html"><code>dip::Image</code></a> object.
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dml-GetImageMode-SHARED_COPY" class="m-doc-self" id="dml-GetImageMode-SHARED_COPY">SHARED_COPY</a></span> = 1</td>
+                  <td><a href="#dml-GetImageMode-SHARED_COPY" class="m-doc-self" id="dml-GetImageMode-SHARED_COPY">SHARED_COPY</a> = 1
+</td>
                   <td>
                   Make a shared copy of the <code>mxArray</code> and take ownership of the copy.
                   </td>
@@ -362,20 +360,22 @@ This is useful if the MEX-file needs to keep a reference to the object.</p>
           </div></section>
                         <section class="m-doc-details" id="dml-ArrayConversionMode"><div>
             <h3>
-              enum class <span class="m-doc-name"><a href="#dml-ArrayConversionMode" class="m-doc-self">dml::<wbr />ArrayConversionMode</a></span>: dip::uint8            </h3>
+              <span class="m-doc-return">enum class </span><span class="m-doc-name"><a href="#dml-ArrayConversionMode" class="m-doc-self">dml::<wbr />ArrayConversionMode</a></span>: dip::uint8            </h3>
             <p><a href="dip_matlab_interface.html#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><code>dml::GetImage</code></a> can optionally turn an input numeric array to a tensor image. If the numeric array
 is a short vector (up to 5 elements) or a small matrix (up to 5x5 elements) it will be seen as a 0D tensor image.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Enumerators</th><th></th></tr></thead>
               <tbody>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dml-ArrayConversionMode-STANDARD" class="m-doc-self" id="dml-ArrayConversionMode-STANDARD">STANDARD</a></span> = 0</td>
+                  <td><a href="#dml-ArrayConversionMode-STANDARD" class="m-doc-self" id="dml-ArrayConversionMode-STANDARD">STANDARD</a> = 0
+</td>
                   <td>
                   All arrays are scalar images.
                   </td>
                 </tr>
                 <tr>
-                  <td><span class="m-doc-name"><a href="#dml-ArrayConversionMode-TENSOR_OPERATOR" class="m-doc-self" id="dml-ArrayConversionMode-TENSOR_OPERATOR">TENSOR_OPERATOR</a></span> = 1</td>
+                  <td><a href="#dml-ArrayConversionMode-TENSOR_OPERATOR" class="m-doc-self" id="dml-ArrayConversionMode-TENSOR_OPERATOR">TENSOR_OPERATOR</a> = 1
+</td>
                   <td>
                   Small arrays are 0D tensor images.
                   </td>
@@ -386,9 +386,113 @@ is a short vector (up to 5 elements) or a small matrix (up to 5x5 elements) it w
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dml-IsScalar-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dml-IsScalar-mxArray-CP" class="m-doc-self">dml::<wbr />IsScalar</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>True if array is scalar (has single value)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-IsVector-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dml-IsVector-mxArray-CP" class="m-doc-self">dml::<wbr />IsVector</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>True if empty or a one-dimensional array</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-IsString-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dml-IsString-mxArray-CP" class="m-doc-self">dml::<wbr />IsString</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>True if <code>mx</code> is a string (char vector or string class)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetUnsigned-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetUnsigned-mxArray-CP" class="m-doc-self">dml::<wbr />GetUnsigned</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert an unsigned integer from <code>mxArray</code> to <a href="supporttypes.html#dip-uint"><code>dip::uint</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetInteger-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetInteger-mxArray-CP" class="m-doc-self">dml::<wbr />GetInteger</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a signed integer from <code>mxArray</code> to <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetFloat-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetFloat-mxArray-CP" class="m-doc-self">dml::<wbr />GetFloat</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a floating-point number from <code>mxArray</code> to <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetComplex-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetComplex-mxArray-CP" class="m-doc-self">dml::<wbr />GetComplex</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a complex floating-point number from <code>mxArray</code> to <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetBooleanArray-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetBooleanArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetBooleanArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a boolean (logical) array from <code>mxArray</code> to <a href="supporttypes.html#dip-BooleanArray"><code>dip::BooleanArray</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetUnsignedArray-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetUnsignedArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetUnsignedArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert an unsigned integer array from <code>mxArray</code> to <a href="supporttypes.html#dip-UnsignedArray"><code>dip::UnsignedArray</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetIntegerArray-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetIntegerArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetIntegerArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a signed integer array from <code>mxArray</code> to <a href="supporttypes.html#dip-IntegerArray"><code>dip::IntegerArray</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetFloatArray-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetFloatArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetFloatArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a floating-point array from <code>mxArray</code> to <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetStdVector-T-mxArray-CP"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">std::vector&lt;T&gt; </span>
+              <span class="m-doc-name"><a href="#dml-GetStdVector-T-mxArray-CP" class="m-doc-self">dml::<wbr />GetStdVector</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a 1D real-valued numeric array from <code>mxArray</code> to <code>std::vector&lt; T &gt;</code> by copy.
+Data is cast as usual from doubles to the target type (see <a href="pixeltypes.html#dip-clamp_cast-T-SourceType-"><code>dip::clamp_cast</code></a>).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetStdVectorOfFloats-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;dip::dfloat&gt; </span>
+              <span class="m-doc-name"><a href="#dml-GetStdVectorOfFloats-mxArray-CP" class="m-doc-self">dml::<wbr />GetStdVectorOfFloats</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>) <span class="m-label m-danger">deprecated</span>            </h3>
+            <p>Convert a floating-point array from <code>mxArray</code> to <code>std::vector&lt;dip::dfloat&gt;</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetProcessArray-mxArray-CP-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetProcessArray-mxArray-CP-dip-uint-" class="m-doc-self">dml::<wbr />GetProcessArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims</span>)            </h3>
+            <p>Convert an unsigned integer <code>mxArray</code> to a <a href="supporttypes.html#dip-BooleanArray"><code>dip::BooleanArray</code></a>, where elements of the input are indices
+where the output array is set. The output array has <code>nDims</code> elements. In <em>MATLAB</em>, dimensions start with 1.
+If <code>mx</code> is empty, all dimensions are to be processed.</p>
+          </div></section>
                         <section class="m-doc-details" id="dml-GetCoordinateArray-mxArray-CP"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> </span>
               <span class="m-doc-name"><a href="#dml-GetCoordinateArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetCoordinateArray</a></span>(
 <span class="m-doc-arg">mxArray const* mx</span>)            </h3>
             <p>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-CoordinateArray"><code>dip::CoordinateArray</code></a> by copy.</p>
@@ -397,35 +501,207 @@ the same length), or a matrix with a row per coordinate and a column per dimensi
           </div></section>
                         <section class="m-doc-details" id="dml-GetFloatCoordinateArray-mxArray-CP"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> </span>
               <span class="m-doc-name"><a href="#dml-GetFloatCoordinateArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetFloatCoordinateArray</a></span>(
 <span class="m-doc-arg">mxArray const* mx</span>)            </h3>
             <p>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-FloatCoordinateArray"><code>dip::FloatCoordinateArray</code></a> by copy.</p>
 <p>A coordinates array is either a cell array with arrays of double floats (all of them
 the same length), or a matrix with a row per coordinate and a column per dimension.</p>
           </div></section>
+                        <section class="m-doc-details" id="dml-HandleNewStyleString-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return">mxArray const* </span>
+              <span class="m-doc-name"><a href="#dml-HandleNewStyleString-mxArray-CP" class="m-doc-self">dml::<wbr />HandleNewStyleString</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>If <code>mx</code> is a &ldquo;string&rdquo; class object, return a char vector or a cell array of char vectors.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetString-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetString-mxArray-CP" class="m-doc-self">dml::<wbr />GetString</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a string from <code>mxArray</code> to <a href="supporttypes.html#dip-String"><code>dip::String</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetStringUnicode-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetStringUnicode-mxArray-CP" class="m-doc-self">dml::<wbr />GetStringUnicode</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a string from <code>mxArray</code> to a UTF-8 encoded <a href="supporttypes.html#dip-String"><code>dip::String</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetStringArray-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetStringArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetStringArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a cell array of strings from <code>mxArray</code> to <a href="supporttypes.html#dip-StringArray"><code>dip::StringArray</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetStringSet-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetStringSet-mxArray-CP" class="m-doc-self">dml::<wbr />GetStringSet</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a cell array of string from <code>mxArray</code> to <a href="supporttypes.html#dip-StringSet"><code>dip::StringSet</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetBoolean-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dml-GetBoolean-mxArray-CP" class="m-doc-self">dml::<wbr />GetBoolean</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a boolean (logical) from <code>mxArray</code> to <code>bool</code> by copy. Accepts <code>"yes"</code> and <code>"no"</code> as well.</p>
+          </div></section>
                         <section class="m-doc-details" id="dml-GetRange-mxArray-CP"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Range.html" class="m-doc">dip::Range</a></span>
+              <span class="m-doc-return"><a href="dip-Range.html" class="m-doc">dip::Range</a> </span>
               <span class="m-doc-name"><a href="#dml-GetRange-mxArray-CP" class="m-doc-self">dml::<wbr />GetRange</a></span>(
 <span class="m-doc-arg">mxArray const* mx</span>)            </h3>
             <p>Convert an integer array from <code>mxArray</code> to <a href="dip-Range.html"><code>dip::Range</code></a> by copy.</p>
 <p>A range is an integer array with zero to three elements, ordered the same way as in the
 constructors for <a href="dip-Range.html"><code>dip::Range</code></a>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dml-GetRangeArray-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Range.html#dip-RangeArray" class="m-doc">dip::RangeArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetRangeArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetRangeArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a cell array of integer array from <code>mxArray</code> to <a href="dip-Range.html#dip-RangeArray"><code>dip::RangeArray</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetPixel-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetPixel-mxArray-CP" class="m-doc-self">dml::<wbr />GetPixel</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a numeric array from <code>mxArray</code> to <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetHistogramConfiguration-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Histogram-Configuration.html" class="m-doc">dip::Histogram::Configuration</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetHistogramConfiguration-mxArray-CP" class="m-doc-self">dml::<wbr />GetHistogramConfiguration</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Reads a histogram <a href="dip-Histogram-Configuration.html"><code>Configuration</code></a> struct from a cell <code>mxArray</code> with key-value pairs.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-CreateDouble2Vector-dip-dfloat--dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-CreateDouble2Vector-dip-dfloat--dip-dfloat-" class="m-doc-self">dml::<wbr />CreateDouble2Vector</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> v0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> v1</span>)            </h3>
+            <p>Create a two-element mxArray and write the two values in it.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-bool-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-bool-" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg">bool in</span>)            </h3>
+            <p>Convert an boolean from <code>bool</code> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-uint-" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> in</span>)            </h3>
+            <p>Convert an unsigned integer from <a href="supporttypes.html#dip-uint"><code>dip::uint</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-sint-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-sint-" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a> in</span>)            </h3>
+            <p>Convert a signed integer from <a href="supporttypes.html#dip-sint"><code>dip::sint</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-dfloat-" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> in</span>)            </h3>
+            <p>Convert a floating-point number from <a href="pixeltypes.html#dip-dfloat"><code>dip::dfloat</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-dcomplex-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-dcomplex-" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dcomplex" class="m-doc">dip::dcomplex</a> in</span>)            </h3>
+            <p>Convert a complex floating-point number from <a href="pixeltypes.html#dip-dcomplex"><code>dip::dcomplex</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-T-dip-DimensionArray%3CT%3E-CL"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T, typename &lt;SFINAE&gt;&gt;
+              </div>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-T-dip-DimensionArray%3CT%3E-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="dip-DimensionArray-T.html" class="m-doc">dip::DimensionArray</a> const&amp; in</span>)            </h3>
+            <p>Convert a numeric array from <a href="dip-DimensionArray-T.html"><code>dip::DimensionArray</code></a> to <code>mxArray</code> by copy. Works for
+<a href="supporttypes.html#dip-UnsignedArray"><code>dip::UnsignedArray</code></a>, <a href="supporttypes.html#dip-IntegerArray"><code>dip::IntegerArray</code></a> and <a href="supporttypes.html#dip-FloatArray"><code>dip::FloatArray</code></a>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dml-GetArray-dip-CoordinateArray-CL"><div>
             <h3>
-              <span class="m-doc-return">mxArray*</span>
+              <span class="m-doc-return">mxArray* </span>
               <span class="m-doc-name"><a href="#dml-GetArray-dip-CoordinateArray-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> const&amp; in</span>)            </h3>
             <p>Convert a coordinates array from <code>mxArray</code> to <a href="supporttypes.html#dip-CoordinateArray"><code>dip::CoordinateArray</code></a> by copy.</p>
 <p>The output <code>mxArray</code> is a matrix with a row per coordinate and a column per dimension.</p>
           </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-String-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in</span>)            </h3>
+            <p>Convert a string from <a href="supporttypes.html#dip-String"><code>dip::String</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-StringArray-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-StringArray-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; in</span>)            </h3>
+            <p>Convert a string array from <a href="supporttypes.html#dip-StringArray"><code>dip::StringArray</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArrayUnicode-dip-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArrayUnicode-dip-String-CL" class="m-doc-self">dml::<wbr />GetArrayUnicode</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; in</span>)            </h3>
+            <p>Convert a UTF-8 encoded string from <a href="supporttypes.html#dip-String"><code>dip::String</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-Image-Sample-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-Image-Sample-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="dip-Image-Sample.html" class="m-doc">dip::Image::Sample</a> const&amp; in</span>)            </h3>
+            <p>Convert a sample from <a href="dip-Image-Sample.html"><code>dip::Image::Sample</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-Image-Pixel-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-Image-Pixel-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; in</span>)            </h3>
+            <p>Convert a set of samples from <a href="dip-Image-Pixel.html"><code>dip::Image::Pixel</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-PixelSize-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-PixelSize-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; pixelSize</span>)            </h3>
+            <p>Convert a pixel size object <a href="dip-PixelSize.html"><code>dip::PixelSize</code></a> to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-FileInformation-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-FileInformation-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="file_io.html#dip-FileInformation" class="m-doc">dip::FileInformation</a> const&amp; fileInformation</span>)            </h3>
+            <p>Convert a <a href="file_io.html#dip-FileInformation"><code>dip::FileInformation</code></a> structure to <code>mxArray</code> by copy.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-Distribution-CL"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-Distribution-CL" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; in</span>)            </h3>
+            <p>Convert a <a href="dip-Distribution.html"><code>dip::Distribution</code></a> object to <code>mxArray</code> by copy.</p>
+          </div></section>
                         <section class="m-doc-details" id="dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
               <span class="m-doc-name"><a href="#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-" class="m-doc-self">dml::<wbr />GetImage</a></span>(
-<span class="m-doc-arg">mxArray const* mx,</span><span class="m-doc-arg"><a href="dip_matlab_interface.html#dml-GetImageMode" class="m-doc">dml::GetImageMode</a> mode = GetImageMode::REFERENCE,</span><span class="m-doc-arg"><a href="dip_matlab_interface.html#dml-ArrayConversionMode" class="m-doc">dml::ArrayConversionMode</a> conversion = ArrayConversionMode::STANDARD</span>)            </h3>
+<span class="m-doc-arg">mxArray const* mx, </span><span class="m-doc-arg"><a href="dip_matlab_interface.html#dml-GetImageMode" class="m-doc">dml::GetImageMode</a> mode = GetImageMode::REFERENCE, </span><span class="m-doc-arg"><a href="dip_matlab_interface.html#dml-ArrayConversionMode" class="m-doc">dml::ArrayConversionMode</a> conversion = ArrayConversionMode::STANDARD</span>)            </h3>
             <p>Passing an <code>mxArray</code> to <em>DIPlib</em>, keeping ownership of the data.</p>
 <p>This function &ldquo;converts&rdquo; an <code>mxArray</code> with image data to a <a href="dip-Image.html"><code>dip::Image</code></a> object.
 The <code>dip::Image</code> object will point to the data in the <code>mxArray</code>, unless
@@ -440,12 +716,46 @@ an input array, which is supposed to be illegal in <code>mexFunction()</code>:</
 
 <p>An empty <code>mxArray</code> produces a non-forged image.</p>
           </div></section>
+                        <section class="m-doc-details" id="dml-GetImageArray-mxArray-CP"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> </span>
+              <span class="m-doc-name"><a href="#dml-GetImageArray-mxArray-CP" class="m-doc-self">dml::<wbr />GetImageArray</a></span>(
+<span class="m-doc-arg">mxArray const* mx</span>)            </h3>
+            <p>Convert a cell array of images from <code>mxArray</code> to <a href="dip-Image.html#dip-ImageArray"><code>dip::ImageArray</code></a>, using <a href="dip_matlab_interface.html#dml-GetImage-mxArray-CP-GetImageMode--ArrayConversionMode-"><code>dml::GetImage</code></a> for each
+element of the cell array.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArrayAsArray-dip-Image-CL-bool-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArrayAsArray-dip-Image-CL-bool-" class="m-doc-self">dml::<wbr />GetArrayAsArray</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img, </span><span class="m-doc-arg">bool doNotSetToTrue = false</span>)            </h3>
+            <p>Find the <code>mxArray</code> that holds the data for the <a href="dip-Image.html"><code>dip::Image</code></a> <code>img</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetArray-dip-Image-CL-bool-"><div>
+            <h3>
+              <span class="m-doc-return">mxArray* </span>
+              <span class="m-doc-name"><a href="#dml-GetArray-dip-Image-CL-bool-" class="m-doc-self">dml::<wbr />GetArray</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img, </span><span class="m-doc-arg">bool doNotSetToTrue = false</span>)            </h3>
+            <p>Find the <code>mxArray</code> that holds the data for the <a href="dip-Image.html"><code>dip::Image</code></a> <code>img</code>,
+and create a <em>MATLAB</em> <code>dip_image</code> object around it.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dml-GetKernel-T-int--mxArray-CPA-int-L-dip-uint-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename K&gt;
+              </div>
+              <span class="m-doc-return">K </span>
+              <span class="m-doc-name"><a href="#dml-GetKernel-T-int--mxArray-CPA-int-L-dip-uint-" class="m-doc-self">dml::<wbr />GetKernel</a></span>(
+<span class="m-doc-arg">int nrhs, </span><span class="m-doc-arg">mxArray const*[] prhs, </span><span class="m-doc-arg">int&amp; index, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nDims</span>)            </h3>
+            <p>Gets a structuring element or kernel from the input argument(s) at <code>index</code>, and <code>index+1</code>. <code>index</code> is
+updated to point to the next unused input argument.</p>
+          </div></section>
                         <section class="m-doc-details" id="dml-GetPreference-T-dip-String-CL"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-return">T</span>
+              <span class="m-doc-return">T </span>
               <span class="m-doc-name"><a href="#dml-GetPreference-T-dip-String-CL" class="m-doc-self">dml::<wbr />GetPreference</a></span>(
 <span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; preference</span>)            </h3>
             <p>Get the value of a property, equivalent to calling <code>dipgetpref</code> in <em>MATLAB</em>.</p>
@@ -460,7 +770,9 @@ that store an array are currently not supported.</p>
           <h2>Macro documentation</h2>
                         <section class="m-doc-details" id="macro--DML_MIN_ARGS"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">#define <span class="m-doc-name"><a href="#macro--DML_MIN_ARGS" class="m-doc-self">DML_MIN_ARGS</a></span></span>
+                <span class="m-doc-return">#define </span>
+                <span class="m-doc-name"><a href="#macro--DML_MIN_ARGS" class="m-doc-self">DML_MIN_ARGS</a></span>
+</span>
             </h3>
             <p>Tests to ensure the MEX-file has been called with sufficient inputs.</p>
 <p><code>DML_MIN_ARGS(n);</code> throws an error if <code>nrhs</code> is smaller than <code>n</code>. Use this in a
@@ -468,7 +780,9 @@ that store an array are currently not supported.</p>
           </div></section>
                         <section class="m-doc-details" id="macro--DML_MAX_ARGS"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">#define <span class="m-doc-name"><a href="#macro--DML_MAX_ARGS" class="m-doc-self">DML_MAX_ARGS</a></span></span>
+                <span class="m-doc-return">#define </span>
+                <span class="m-doc-name"><a href="#macro--DML_MAX_ARGS" class="m-doc-self">DML_MAX_ARGS</a></span>
+</span>
             </h3>
             <p>Tests to ensure the MEX-file has not been called with too many inputs.</p>
 <p><code>DML_MAX_ARGS(n);</code> throws an error if <code>nrhs</code> is larger than <code>n</code>. Use this in a
@@ -476,7 +790,9 @@ that store an array are currently not supported.</p>
           </div></section>
                         <section class="m-doc-details" id="macro--DML_CATCH"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">#define <span class="m-doc-name"><a href="#macro--DML_CATCH" class="m-doc-self">DML_CATCH</a></span></span>
+                <span class="m-doc-return">#define </span>
+                <span class="m-doc-name"><a href="#macro--DML_CATCH" class="m-doc-self">DML_CATCH</a></span>
+</span>
             </h3>
             <p>Catch exceptions thrown in a MEX-file.</p>
 <p>This macro forms the <code>catch</code> section to a <code>try</code> statement. It will catch exceptions

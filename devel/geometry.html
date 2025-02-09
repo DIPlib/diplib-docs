@@ -148,9 +148,8 @@ and Fourier interpolation methods, no boundary extension is needed.</p>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-InterpolationFunctionPointer">
-              using <a href="#dip-InterpolationFunctionPointer" class="m-doc-self">dip::<wbr />InterpolationFunctionPointer</a> = void(*)(Image, Image::Pixel, FloatArray)
-
+                              <dt>
+using <a href="#dip-InterpolationFunctionPointer" class="m-doc">dip::<wbr />InterpolationFunctionPointer</a> = void(*)(Image, Image::Pixel, FloatArray)
             </dt>
             <dd>Pointer to an interpolation function. Only use pointers returned by <a href="geometry.html#dip-PrepareResampleAtUnchecked-Image-CL-String-CL"><code>dip::PrepareResampleAtUnchecked</code></a>.</dd>
             </dl>
@@ -159,40 +158,41 @@ and Fourier interpolation methods, no boundary extension is needed.</p>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Wrap-Image-CL-Image-L-IntegerArray-" class="m-doc">dip::<wbr />Wrap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL" class="m-doc">dip::<wbr />AffineTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> wrap)</span>
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; matrix,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
             </dt>
-            <dd>Shifts the input image by an integer number of pixels, wrapping the pixels around. <a href="#dip-Wrap-Image-CL-Image-L-IntegerArray-">more...</a></dd>
+            <dd>Applies an arbitrary affine transformation to the 2D or 3D image. <a href="#dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL" class="m-doc">dip::<wbr />Subsampling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />Concatenate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sample)</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0)</span>
             </dt>
-            <dd>Subsamples the input image. <a href="#dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL">more...</a></dd>
+            <dd>Concatenates a set of images along one dimension. <a href="#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL" class="m-doc">dip::<wbr />Resampling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Concatenate-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />Concatenate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> zoom,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0)</span>
             </dt>
-            <dd>Resamples an image with the given zoom factor and sub-pixel shift. <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL">more...</a></dd>
-                          <dt id="dip-Shift-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Shift-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL" class="m-doc-self">dip::<wbr />Shift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shift,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::FOURIER,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Shift an image. Calls <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-BoundaryConditionArray-CL"><code>dip::Resampling</code></a> with <code>zoom</code> set to 1, and uses the &ldquo;ft&rdquo; method by default.</dd>
+            <dd>Concatenates two images.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-ShiftFT-Image-CL-Image-L-FloatArray-" class="m-doc">dip::<wbr />ShiftFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0})</span>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-JoinChannels-ImageConstRefArray-CL-Image-L" class="m-doc">dip::<wbr />JoinChannels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
-            <dd>Modulates the input Fourier spectrum to introduce a shift in the spatial domain <a href="#dip-ShiftFT-Image-CL-Image-L-FloatArray-">more...</a></dd>
+            <dd>Concatenates a set of scalar images along the tensor dimension. <a href="#dip-JoinChannels-ImageConstRefArray-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-LogPolarTransform2D-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />LogPolarTransform2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
+            </dt>
+            <dd>Computes the log-polar transform of the 2D image. <a href="#dip-LogPolarTransform2D-Image-CL-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PrepareResampleAtUnchecked-Image-CL-String-CL" class="m-doc">dip::<wbr />PrepareResampleAtUnchecked</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod) -&gt; <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a></span>
+            </dt>
+            <dd>Prepare for repeated calls to <a href="geometry.html#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-"><code>dip::ResampleAtUnchecked</code></a>. See <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -201,25 +201,13 @@ and Fourier interpolation methods, no boundary extension is needed.</p>
               <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0})</span>
             </dt>
             <dd>Finds the values of the image at sub-pixel locations <code>coordinates</code> by interpolation. <a href="#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL">more...</a></dd>
-                          <dt id="dip-ResampleAt-Image-CL-FloatArray-CL-String-CL-Image-Pixel-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ResampleAt-Image-CL-FloatArray-CL-String-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ResampleAt-Image-CL-FloatArray-CL-String-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
               <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
             </dt>
             <dd>Identical to the previous function with the same name, but for a single point.</dd>
-                          <dt id="dip-PrepareResampleAtUnchecked-Image-CL-String-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PrepareResampleAtUnchecked-Image-CL-String-CL" class="m-doc-self">dip::<wbr />PrepareResampleAtUnchecked</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod) -&gt; <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a></span>
-            </dt>
-            <dd>Prepare for repeated calls to <a href="geometry.html#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-"><code>dip::ResampleAtUnchecked</code></a>. See <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>.</dd>
-                          <dt id="dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-" class="m-doc-self">dip::<wbr />ResampleAtUnchecked</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates,
-              <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a> function) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
-            </dt>
-            <dd>Similar to <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>, but optimized for repeated calls using the same parameters.
-<code>function</code> comes from <code>PrepareResampleAtUnchecked</code>. <code>fill</code> is always 0.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-ResampleAt-Image-CL-Image-CL-Image-L-String-CL-Image-Pixel-CL" class="m-doc">dip::<wbr />ResampleAt</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; map,
@@ -229,24 +217,21 @@ and Fourier interpolation methods, no boundary extension is needed.</p>
             </dt>
             <dd>Resamples an image with sub-pixel locations specified by a coordinate map. <a href="#dip-ResampleAt-Image-CL-Image-CL-Image-L-String-CL-Image-Pixel-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL" class="m-doc">dip::<wbr />Skew</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-" class="m-doc">dip::<wbr />ResampleAtUnchecked</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates,
+              <a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a> function) -&gt; <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a></span>
+            </dt>
+            <dd>Similar to <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>, but optimized for repeated calls using the same parameters.
+<code>function</code> comes from <code>PrepareResampleAtUnchecked</code>. <code>fill</code> is always 0.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL" class="m-doc">dip::<wbr />Resampling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shearArray,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> zoom,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0},
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Skews (shears) an image <a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL" class="m-doc">dip::<wbr />Skew</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> shear,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> skew,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Skews (shears) an image <a href="#dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL">more...</a></dd>
+            <dd>Resamples an image with the given zoom factor and sub-pixel shift. <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL" class="m-doc">dip::<wbr />Rotation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -303,27 +288,48 @@ and Fourier interpolation methods, no boundary extension is needed.</p>
             </dt>
             <dd>Creates a 0D (one pixel) 3x3 matrix image containing a 3D rotation matrix. <a href="#dip-RotationMatrix3D-Image-L-FloatArray-CL-dfloat-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL" class="m-doc">dip::<wbr />AffineTransform</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Shift-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />Shift</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; matrix,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shift,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::FOURIER,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Applies an arbitrary affine transformation to the 2D or 3D image. <a href="#dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL">more...</a></dd>
+            <dd>Shift an image. Calls <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-BoundaryConditionArray-CL"><code>dip::Resampling</code></a> with <code>zoom</code> set to 1, and uses the &ldquo;ft&rdquo; method by default.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL" class="m-doc">dip::<wbr />WarpControlPoints</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-ShiftFT-Image-CL-Image-L-FloatArray-" class="m-doc">dip::<wbr />ShiftFT</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; inCoordinates,
-              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; outCoordinates,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0})</span>
             </dt>
-            <dd>Warps an image based on a set of control points using thin plate spline interpolation <a href="#dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL">more...</a></dd>
+            <dd>Modulates the input Fourier spectrum to introduce a shift in the spatial domain <a href="#dip-ShiftFT-Image-CL-Image-L-FloatArray-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-LogPolarTransform2D-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />LogPolarTransform2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL" class="m-doc">dip::<wbr />Skew</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shearArray,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Computes the log-polar transform of the 2D image. <a href="#dip-LogPolarTransform2D-Image-CL-Image-L-String-CL">more...</a></dd>
+            <dd>Skews (shears) an image <a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL" class="m-doc">dip::<wbr />Skew</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> shear,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> skew,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Skews (shears) an image <a href="#dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-SplitChannels-Image-CL" class="m-doc">dip::<wbr />SplitChannels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in) -&gt; <a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a></span>
+            </dt>
+            <dd>Splits the tensor elements of a tensor image into individual images. <a href="#dip-SplitChannels-Image-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL" class="m-doc">dip::<wbr />Subsampling</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sample)</span>
+            </dt>
+            <dd>Subsamples the input image. <a href="#dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-" class="m-doc">dip::<wbr />Tile</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -336,45 +342,46 @@ and Fourier interpolation methods, no boundary extension is needed.</p>
             </dt>
             <dd>Tiles the tensor elements of <code>in</code> to produce a scalar image <a href="#dip-TileTensorElements-Image-CL-Image-L">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />Concatenate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL" class="m-doc">dip::<wbr />WarpControlPoints</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0)</span>
+              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; inCoordinates,
+              <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; outCoordinates,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR)</span>
             </dt>
-            <dd>Concatenates a set of images along one dimension. <a href="#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-">more...</a></dd>
-                          <dt id="dip-Concatenate-Image-CL-Image-CL-Image-L-dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Concatenate-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />Concatenate</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+            <dd>Warps an image based on a set of control points using thin plate spline interpolation <a href="#dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Wrap-Image-CL-Image-L-IntegerArray-" class="m-doc">dip::<wbr />Wrap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0)</span>
+              <a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> wrap)</span>
             </dt>
-            <dd>Concatenates two images.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-JoinChannels-ImageConstRefArray-CL-Image-L" class="m-doc">dip::<wbr />JoinChannels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
-            </dt>
-            <dd>Concatenates a set of scalar images along the tensor dimension. <a href="#dip-JoinChannels-ImageConstRefArray-CL-Image-L">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-SplitChannels-Image-CL" class="m-doc">dip::<wbr />SplitChannels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in) -&gt; <a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a></span>
-            </dt>
-            <dd>Splits the tensor elements of a tensor image into individual images. <a href="#dip-SplitChannels-Image-CL">more...</a></dd>
+            <dd>Shifts the input image by an integer number of pixels, wrapping the pixels around. <a href="#dip-Wrap-Image-CL-Image-L-IntegerArray-">more...</a></dd>
           </dl>
+        </section>
+        <section>
+            <h2>Alias documentation</h2>
+                          <section class="m-doc-details" id="dip-InterpolationFunctionPointer"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-InterpolationFunctionPointer" class="m-doc-self">dip::<wbr />InterpolationFunctionPointer</a></span> = void(*)(Image, Image::Pixel, FloatArray)            </h3>
+            <p>Pointer to an interpolation function. Only use pointers returned by <a href="geometry.html#dip-PrepareResampleAtUnchecked-Image-CL-String-CL"><code>dip::PrepareResampleAtUnchecked</code></a>.</p>
+          </div></section>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Wrap-Image-CL-Image-L-IntegerArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Wrap-Image-CL-Image-L-IntegerArray-" class="m-doc-self">dip::<wbr />Wrap</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> wrap</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a> wrap</span>)            </h3>
             <p>Shifts the input image by an integer number of pixels, wrapping the pixels around.</p>
 <p><code>dip::Wrap</code> is equivalent to <a href="geometry.html#dip-Shift-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL"><code>dip::Shift</code></a> with nearest neighbor interpolation and periodic
 boundary condition, but faster.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Subsampling-Image-CL-Image-L-UnsignedArray-CL" class="m-doc-self">dip::<wbr />Subsampling</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sample</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sample</span>)            </h3>
             <p>Subsamples the input image.</p>
 <p>The input image is subsampled by <code>sample[ ii ]</code> along dimension <code>ii</code>. The output image shares
 the data segment of the input image, meaning that no data are copied. If a data copy is required,
@@ -383,9 +390,9 @@ calling <a href="dip-Image.html#dip-Image-ForceContiguousData"><code>dip::Image:
           </div></section>
                         <section class="m-doc-details" id="dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-StringArray-CL" class="m-doc-self">dip::<wbr />Resampling</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> zoom,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> zoom, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Resamples an image with the given zoom factor and sub-pixel shift.</p>
 <p>The shift is applied first, and causes part of the image to shift out of the field of view.
 Thus, <code>shift</code> is in input pixels. <code>boundaryCondition</code> determines how the new areas are filled in.
@@ -414,11 +421,18 @@ For unsigned types, resulting samples outside the original image domain are clam
 of properly using the saturated inversion.</p>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-Shift-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Shift-Image-CL-Image-L-FloatArray-CL-String-CL-StringArray-CL" class="m-doc-self">dip::<wbr />Shift</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shift, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::FOURIER, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+            <p>Shift an image. Calls <a href="#dip-Resampling-Image-CL-Image-L-FloatArray--FloatArray--String-CL-BoundaryConditionArray-CL"><code>dip::Resampling</code></a> with <code>zoom</code> set to 1, and uses the &ldquo;ft&rdquo; method by default.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ShiftFT-Image-CL-Image-L-FloatArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ShiftFT-Image-CL-Image-L-FloatArray-" class="m-doc-self">dip::<wbr />ShiftFT</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> shift = {0.0}</span>)            </h3>
             <p>Modulates the input Fourier spectrum to introduce a shift in the spatial domain</p>
 <p><code>in</code> is the Fourier transform of an image <code>img</code>. It will be multiplied with a complex quantity
 to change its phase in such a way that the image <code>img</code> will be shifted. For example:</p>
@@ -435,9 +449,9 @@ to change its phase in such a way that the image <code>img</code> will be shifte
           </div></section>
                         <section class="m-doc-details" id="dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />ResampleAt</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; coordinates,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; coordinates, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}</span>)            </h3>
             <p>Finds the values of the image at sub-pixel locations <code>coordinates</code> by interpolation.</p>
 <p>The array <code>coordinates</code> must have all elements be arrays of the same length as the image dimensionality.
 For any coordinates outside of the image domain, the pixel value <code>fill</code> will be returned.
@@ -450,11 +464,33 @@ ignored, nearest neighbor interpolation will be used.</p>
 shape as <code>in</code>. To obtain results in a floating-point type, set the data type of <code>out</code> and protect it,
 see <a href="dip-Image.html#protect">The &ldquo;protect&rdquo; flag</a>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-ResampleAt-Image-CL-FloatArray-CL-String-CL-Image-Pixel-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> </span>
+              <span class="m-doc-name"><a href="#dip-ResampleAt-Image-CL-FloatArray-CL-String-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />ResampleAt</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}</span>)            </h3>
+            <p>Identical to the previous function with the same name, but for a single point.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-PrepareResampleAtUnchecked-Image-CL-String-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a> </span>
+              <span class="m-doc-name"><a href="#dip-PrepareResampleAtUnchecked-Image-CL-String-CL" class="m-doc-self">dip::<wbr />PrepareResampleAtUnchecked</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod</span>)            </h3>
+            <p>Prepare for repeated calls to <a href="geometry.html#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-"><code>dip::ResampleAtUnchecked</code></a>. See <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> </span>
+              <span class="m-doc-name"><a href="#dip-ResampleAtUnchecked-Image-CL-FloatArray-CL-InterpolationFunctionPointer-" class="m-doc-self">dip::<wbr />ResampleAtUnchecked</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; coordinates, </span><span class="m-doc-arg"><a href="geometry.html#dip-InterpolationFunctionPointer" class="m-doc">dip::InterpolationFunctionPointer</a> function</span>)            </h3>
+            <p>Similar to <a href="geometry.html#dip-ResampleAt-Image-CL-Image-L-FloatCoordinateArray-CL-String-CL-Image-Pixel-CL"><code>dip::ResampleAt</code></a>, but optimized for repeated calls using the same parameters.
+<code>function</code> comes from <code>PrepareResampleAtUnchecked</code>. <code>fill</code> is always 0.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-ResampleAt-Image-CL-Image-CL-Image-L-String-CL-Image-Pixel-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-ResampleAt-Image-CL-Image-CL-Image-L-String-CL-Image-Pixel-CL" class="m-doc-self">dip::<wbr />ResampleAt</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; map,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,</span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; map, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; fill = {0}</span>)            </h3>
             <p>Resamples an image with sub-pixel locations specified by a coordinate map.</p>
 <p>Returns an image of the same size as <code>map</code> with pixels taken from <code>in</code> at the subpixel coordinates
 specified by <code>map</code>. Each tensor element of <code>map</code> specifies the location for an input dimension.
@@ -470,9 +506,9 @@ its data type will not change, but the computations will still be performed in t
           </div></section>
                         <section class="m-doc-details" id="dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--String-CL-StringArray-CL" class="m-doc-self">dip::<wbr />Skew</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shearArray,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; shearArray, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Skews (shears) an image</p>
 <p>The image is skewed such that a straight line along dimension <code>axis</code> is tilted by an angle of
 <code>atan( shearArray[ ii ] )</code> radian in the direction of dimension <code>ii</code>. <code>shearArray[ ii ]</code> thus represents
@@ -500,9 +536,9 @@ instead of properly using the saturated inversion.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Skew-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL" class="m-doc-self">dip::<wbr />Skew</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> shear,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> skew,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> shear, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> skew, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Skews (shears) an image</p>
 <p>The image is skewed such that a straight line along dimension <code>axis</code> is tilted by an
 angle of <code>shear</code> radian in the direction of dimension <code>skew</code>. Each image line along dimension
@@ -530,9 +566,9 @@ instead of properly using the saturated inversion.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL" class="m-doc-self">dip::<wbr />Rotation</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension1,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension2,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension2, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
             <p>Rotates an image in one orthogonal plane, over the center of the image.</p>
 <p>Rotates an image in the plane defined by <code>dimension1</code> and <code>dimension2</code>, over an angle <code>angle</code>, in radian.
 The origin of the rotation is the central pixel (see <a href="concepts.html#coordinates_origin">Coordinate system origin</a>).</p>
@@ -558,27 +594,27 @@ the <code>"periodic"</code> boundary condition.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Rotation2D-Image-CL-Image-L-dfloat--String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Rotation2D-Image-CL-Image-L-dfloat--String-CL-String-CL" class="m-doc-self">dip::<wbr />Rotation2D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
             <p>Rotates a 2D image</p>
 <p>Calls <a href="geometry.html#dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL"><code>dip::Rotation</code></a>, setting the dimension parameters to 0 and 1. Provides a simplified
 interface for 2D images.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Rotation3D-Image-CL-Image-L-dfloat--dip-uint--String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Rotation3D-Image-CL-Image-L-dfloat--dip-uint--String-CL-String-CL" class="m-doc-self">dip::<wbr />Rotation3D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis = 2,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> axis = 2, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
             <p>Rotates a 3D image in one orthogonal plane</p>
 <p>Calls <a href="geometry.html#dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL"><code>dip::Rotation</code></a>, setting the dimension parameters according to <code>axis</code>. Provides a simplified
 interface for 3D images.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Rotation3D-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Rotation3D-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL-String-CL" class="m-doc-self">dip::<wbr />Rotation3D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> alpha,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> beta,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> alpha, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> beta, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = "", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::ADD_ZEROS</span>)            </h3>
             <p>Applies an arbitrary 3D rotation to a 3D image</p>
 <p>Rotates a 3D image over the Euler angles <code>alpha</code>, <code>beta</code> and <code>gamma</code>, by calling <a href="geometry.html#dip-Rotation-Image-CL-Image-L-dfloat--dip-uint--dip-uint--String-CL-String-CL"><code>dip::Rotation</code></a>
 three times (i.e. using nine skews).
@@ -593,9 +629,9 @@ Therefore, positive angles are clock-wise.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-RotationMatrix2D-Image-L-dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-RotationMatrix2D-Image-L-dfloat-" class="m-doc-self">dip::<wbr />RotationMatrix2D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle</span>)            </h3>
             <p>Creates a 0D (one pixel) 2x2 matrix image containing a 2D rotation matrix.</p>
 <p>Multiplying the output of <a href="generation_coordinates.html#dip-CreateCoordinates-Image-L-UnsignedArray-CL-StringSet-CL-String-CL"><code>dip::CreateCoordinates</code></a> by this rotation matrix will produce
 an image with a rotated coordinate system. The rotation matrix must be on the left-hand-side
@@ -610,9 +646,9 @@ of the multiplication operator.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-RotationMatrix3D-Image-L-dfloat--dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-RotationMatrix3D-Image-L-dfloat--dfloat--dfloat-" class="m-doc-self">dip::<wbr />RotationMatrix3D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> alpha,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> beta,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> alpha, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> beta, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma</span>)            </h3>
             <p>Creates a 0D (one pixel) 3x3 matrix image containing a 3D rotation matrix.</p>
 <p>Multiplying the output of <a href="generation_coordinates.html#dip-CreateCoordinates-Image-L-UnsignedArray-CL-StringSet-CL-String-CL"><code>dip::CreateCoordinates</code></a> by this rotation matrix will produce
 an image with a rotated coordinate system. The rotation matrix must be on the left-hand-side
@@ -629,9 +665,9 @@ a coordinate system (a passive transformation), then the transpose of the matrix
           </div></section>
                         <section class="m-doc-details" id="dip-RotationMatrix3D-Image-L-FloatArray-CL-dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-RotationMatrix3D-Image-L-FloatArray-CL-dfloat-" class="m-doc-self">dip::<wbr />RotationMatrix3D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; vector,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; vector, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle</span>)            </h3>
             <p>Creates a 0D (one pixel) 3x3 matrix image containing a 3D rotation matrix.</p>
 <p>Multiplying the output of <a href="generation_coordinates.html#dip-CreateCoordinates-Image-L-UnsignedArray-CL-StringSet-CL-String-CL"><code>dip::CreateCoordinates</code></a> by this rotation matrix will produce
 an image with a rotated coordinate system. The rotation matrix must be on the left-hand-side
@@ -647,9 +683,9 @@ transformation), then the transpose of the matrix must be used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-AffineTransform-Image-CL-Image-L-FloatArray-CL-String-CL" class="m-doc-self">dip::<wbr />AffineTransform</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; matrix,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; matrix, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR</span>)            </h3>
             <p>Applies an arbitrary affine transformation to the 2D or 3D image.</p>
 <p><code>matrix</code> contains 4 values (<code>in</code> is 2D) or 9 values (<code>in</code> is 3D) representing a linear
 transformation matrix. Optionally, a translation can be represented by 2 (2D) or 3 (3D)
@@ -677,9 +713,9 @@ ignored, nearest neighbor interpolation will be used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-WarpControlPoints-Image-CL-Image-L-FloatCoordinateArray-CL-FloatCoordinateArray-CL-dfloat--String-CL" class="m-doc-self">dip::<wbr />WarpControlPoints</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; inCoordinates,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; outCoordinates,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; inCoordinates, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a> const&amp; outCoordinates, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR</span>)            </h3>
             <p>Warps an image based on a set of control points using thin plate spline interpolation</p>
 <p><code>inCoordinates</code> and <code>outCoordinates</code> are two sets of points (they must be of equal size). The
 point <code>inCoordinates[ ii ]</code> will be moved to <code>outCoordinates[ ii ]</code>, warping the image <code>in</code>
@@ -693,9 +729,9 @@ ignored, nearest neighbor interpolation will be used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-LogPolarTransform2D-Image-CL-Image-L-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-LogPolarTransform2D-Image-CL-Image-L-String-CL" class="m-doc-self">dip::<wbr />LogPolarTransform2D</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR</span>)            </h3>
             <p>Computes the log-polar transform of the 2D image.</p>
 <p>By default, <code>out</code> will be a square image with side equal to the smaller of the two sides of <code>in</code>. However,
 if <code>out</code> is protected (see <a href="dip-Image.html#dip-Image-Protect-bool-"><code>dip::Image::Protect</code></a>), its sizes will be preserved, even if not forged.</p>
@@ -707,9 +743,9 @@ ignored, nearest neighbor interpolation will be used.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-" class="m-doc-self">dip::<wbr />Tile</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> tiling = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> tiling = {}</span>)            </h3>
             <p>Tiles a set of images to form a single image.</p>
 <p>Input images are arranged according to <code>tiling</code>. For example, <code>tiling = { 3, 2 }</code> will generate an
 output where three images are placed horizontally, and two vertically. In this case, up to 6 input images
@@ -731,9 +767,9 @@ be of a type that best can represent the input (see <a href="dip-DataType.html#d
           </div></section>
                         <section class="m-doc-details" id="dip-TileTensorElements-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-TileTensorElements-Image-CL-Image-L" class="m-doc-self">dip::<wbr />TileTensorElements</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Tiles the tensor elements of <code>in</code> to produce a scalar image</p>
 <p>The tensor elements of <code>in</code> are arranged according to its tensor representation, along the first two
 spatial dimensions. This produces a scalar image of size <code>in.Size(0) * in.TensorColumns()</code> along the
@@ -742,9 +778,9 @@ image has the same dimensions as <code>in</code> along the third and further dim
           </div></section>
                         <section class="m-doc-details" id="dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />Concatenate</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0</span>)            </h3>
             <p>Concatenates a set of images along one dimension.</p>
 <p>Input images are concatenated along dimension <code>dimension</code>. They must all have the same sizes along all
 dimensions except <code>dimension</code>, where they can differ.</p>
@@ -752,11 +788,18 @@ dimensions except <code>dimension</code>, where they can differ.</p>
 match, the output image will be a default column vector. If images are differing data types, the output will
 be of a type that best can represent the input (see <a href="dip-DataType.html#dip-DataType-SuggestDyadicOperation-DataType--DataType-"><code>dip::DataType::SuggestDyadicOperation</code></a>).</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Concatenate-Image-CL-Image-CL-Image-L-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Concatenate-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />Concatenate</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0</span>)            </h3>
+            <p>Concatenates two images.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-JoinChannels-ImageConstRefArray-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-JoinChannels-ImageConstRefArray-CL-Image-L" class="m-doc-self">dip::<wbr />JoinChannels</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Concatenates a set of scalar images along the tensor dimension.</p>
 <p>Input images are individual tensor components in the output vector image. They must all have the same sizes
 and be scalar.</p>
@@ -765,7 +808,7 @@ and be scalar.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-SplitChannels-Image-CL"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a></span>
+              <span class="m-doc-return"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> </span>
               <span class="m-doc-name"><a href="#dip-SplitChannels-Image-CL" class="m-doc-self">dip::<wbr />SplitChannels</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in</span>)            </h3>
             <p>Splits the tensor elements of a tensor image into individual images.</p>

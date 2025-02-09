@@ -67,40 +67,79 @@
           <h2>Derived classes</h2>
           <dl class="m-doc">
                           <dt>
-              class <a href="dip-SimpleOutputBuffer.html" class="m-doc">dip::<wbr />SimpleOutputBuffer</a>
-            </dt>
-            <dd>A simple output buffer implementation. <a href="dip-SimpleOutputBuffer.html#dip-SimpleOutputBuffer">more...</a></dd>
-                          <dt>
               class <a href="dip-FixedOutputBuffer.html" class="m-doc">dip::<wbr />FixedOutputBuffer</a>
             </dt>
             <dd>An output buffer implementation that cannot be resized. <a href="dip-FixedOutputBuffer.html#dip-FixedOutputBuffer">more...</a></dd>
+                          <dt>
+              class <a href="dip-SimpleOutputBuffer.html" class="m-doc">dip::<wbr />SimpleOutputBuffer</a>
+            </dt>
+            <dd>A simple output buffer implementation. <a href="dip-SimpleOutputBuffer.html#dip-SimpleOutputBuffer">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-OutputBuffer-size">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-OutputBuffer-size" class="m-doc-self">size</a>(</span><span class="m-doc-wrap">) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Returns the size of the data stored in the buffer.</dd>
-                          <dt id="dip-OutputBuffer-set_size-dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-OutputBuffer-set_size-dip-uint-" class="m-doc-self">set_size</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> ) <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Sets the size of the data stored in the buffer. Must never be larger than <a href="dip-OutputBuffer.html#dip-OutputBuffer-capacity"><code>dip::OutputBuffer::capacity</code></a> or bad things will happen.</dd>
-                          <dt id="dip-OutputBuffer-capacity">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-OutputBuffer-capacity" class="m-doc-self">capacity</a>(</span><span class="m-doc-wrap">) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-warning">virtual</span></span>
-            </dt>
-            <dd>Returns the capacity of the buffer (i.e. the size of the memory allocated for the buffer).</dd>
-                          <dt id="dip-OutputBuffer-assure_capacity-dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-OutputBuffer-assure_capacity-dip-uint-" class="m-doc-self">assure_capacity</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> ) <span class="m-label m-flat m-warning">virtual</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-OutputBuffer-assure_capacity-dip-uint-" class="m-doc">assure_capacity</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> ) <span class="m-label m-flat m-warning">virtual</span></span>
             </dt>
             <dd>Increases the buffer&rsquo;s <a href="dip-OutputBuffer.html#dip-OutputBuffer-capacity"><code>dip::OutputBuffer::capacity</code></a> to be at least <code>capacity</code>. This is used by the writing functions
 when the buffer is full. Can throw an exception if the buffer implementation doesn&rsquo;t support resizing.</dd>
-                          <dt id="dip-OutputBuffer-data">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-OutputBuffer-data" class="m-doc-self">data</a>(</span><span class="m-doc-wrap">) -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>* <span class="m-label m-flat m-warning">pure virtual</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-OutputBuffer-capacity" class="m-doc">capacity</a>(</span><span class="m-doc-wrap">) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Returns the capacity of the buffer (i.e. the size of the memory allocated for the buffer).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-OutputBuffer-data" class="m-doc">data</a>(</span><span class="m-doc-wrap">) -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>* <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
             <dd>Returns a pointer to the data.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-OutputBuffer-set_size-dip-uint-" class="m-doc">set_size</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> ) <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Sets the size of the data stored in the buffer. Must never be larger than <a href="dip-OutputBuffer.html#dip-OutputBuffer-capacity"><code>dip::OutputBuffer::capacity</code></a> or bad things will happen.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-OutputBuffer-size" class="m-doc">size</a>(</span><span class="m-doc-wrap">) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Returns the size of the data stored in the buffer.</dd>
           </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-OutputBuffer-size"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-OutputBuffer-size" class="m-doc-self">size</a></span>(
+) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Returns the size of the data stored in the buffer.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-OutputBuffer-set_size-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-OutputBuffer-set_size-dip-uint-" class="m-doc-self">set_size</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Sets the size of the data stored in the buffer. Must never be larger than <a href="dip-OutputBuffer.html#dip-OutputBuffer-capacity"><code>dip::OutputBuffer::capacity</code></a> or bad things will happen.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-OutputBuffer-capacity"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-OutputBuffer-capacity" class="m-doc-self">capacity</a></span>(
+) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Returns the capacity of the buffer (i.e. the size of the memory allocated for the buffer).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-OutputBuffer-assure_capacity-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-OutputBuffer-assure_capacity-dip-uint-" class="m-doc-self">assure_capacity</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>) <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Increases the buffer&rsquo;s <a href="dip-OutputBuffer.html#dip-OutputBuffer-capacity"><code>dip::OutputBuffer::capacity</code></a> to be at least <code>capacity</code>. This is used by the writing functions
+when the buffer is full. Can throw an exception if the buffer implementation doesn&rsquo;t support resizing.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-OutputBuffer-data"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>* </span>
+              <span class="m-doc-name"><a href="#dip-OutputBuffer-data" class="m-doc-self">data</a></span>(
+) <span class="m-label m-warning">pure virtual</span>            </h3>
+            <p>Returns a pointer to the data.</p>
+          </div></section>
         </section>
       </div>
     </div>

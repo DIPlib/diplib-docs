@@ -81,12 +81,12 @@
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-DFT-T-DFT">
-              <span class="m-doc-wrap-bumper"><a href="#dip-DFT-T-DFT" class="m-doc-self">DFT</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-DFT-T-DFT" class="m-doc">DFT</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>A default-initialized <code>DFT</code> object is useless. Call <code>Initialize</code> to make it useful.</dd>
-                              <dt id="dip-DFT-T-DFT-dip-uint--bool--Option-DFTOptions-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-DFT-T-DFT-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">DFT</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-DFT-T-DFT-dip-uint--bool--Option-DFTOptions-" class="m-doc">DFT</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
               bool inverse,
               <a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {})</span>
             </dt>
@@ -98,59 +98,80 @@ Note that this is not a trivial operation. Not thread safe.</dd>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Apply-std-complex%3CT%3E-P-std-complex%3CT%3E-P-T--C" class="m-doc">Apply</a>(</span><span class="m-doc-wrap">std::complex&lt;T&gt;* source,
+              std::complex&lt;T&gt;* destination,
+              T scale) const</span>
+            </dt>
+            <dd>Apply the transform that the <code>DFT</code> object is configured for. <a href="#dip-DFT-T-Apply-std-complex%3CT%3E-P-std-complex%3CT%3E-P-T--C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-BufferSize-C" class="m-doc">BufferSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-danger">deprecated</span></span>
+            </dt>
+            <dd>Returns the size of the buffer expected by <code>Apply</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Destroy" class="m-doc">Destroy</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-danger">private</span></span>
+            </dt>
+            <dd>Frees memory</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-" class="m-doc">Initialize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
               bool inverse,
               <a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {})</span>
             </dt>
             <dd>Re-configure a <code>DFT</code> object to the given transform size and direction. <a href="#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C" class="m-doc">Apply</a>(</span><span class="m-doc-wrap">std::complex&lt;T&gt;* source,
-              std::complex&lt;T&gt;* destination,
-              T scale) const</span>
-            </dt>
-            <dd>Apply the transform that the <code>DFT</code> object is configured for. <a href="#dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C">more...</a></dd>
-                          <dt id="dip-DFT-T-IsInverse-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsInverse-C" class="m-doc-self">IsInverse</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Returns <code>true</code> if this represents an inverse transform, <code>false</code> for a forward transform.</dd>
-                          <dt id="dip-DFT-T-IsInplace-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsInplace-C" class="m-doc-self">IsInplace</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Returns whether the transform is configured to work in place or not. Not meaningful when using PocketFFT.</dd>
-                          <dt id="dip-DFT-T-IsAligned-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsAligned-C" class="m-doc-self">IsAligned</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsAligned-C" class="m-doc">IsAligned</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>Returns whether the transform is configured to work on aligned buffers or not. Not meaningful when using PocketFFT.</dd>
-                          <dt id="dip-DFT-T-TransformSize-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-TransformSize-C" class="m-doc-self">TransformSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsInplace-C" class="m-doc">IsInplace</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns whether the transform is configured to work in place or not. Not meaningful when using PocketFFT.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-IsInverse-C" class="m-doc">IsInverse</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns <code>true</code> if this represents an inverse transform, <code>false</code> for a forward transform.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-TransformSize-C" class="m-doc">TransformSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the size that the transform is configured for.</dd>
-                          <dt id="dip-DFT-T-BufferSize-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-DFT-T-BufferSize-C" class="m-doc-self">BufferSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-danger">deprecated</span></span>
-            </dt>
-            <dd>Returns the size of the buffer expected by <code>Apply</code>.</dd>
-                          <dt id="dip-DFT-T-Destroy">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-DFT-T-Destroy" class="m-doc-self">Destroy</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-danger">private</span></span>
-            </dt>
-            <dd>Frees memory</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-DFT-T-DFT"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-DFT" class="m-doc-self">DFT</a></span>(
+) <span class="m-label m-info">defaulted</span>            </h3>
+            <p>A default-initialized <code>DFT</code> object is useless. Call <code>Initialize</code> to make it useful.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-DFT-dip-uint--bool--Option-DFTOptions-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-DFT-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">DFT</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size, </span><span class="m-doc-arg">bool inverse, </span><span class="m-doc-arg"><a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {}</span>)            </h3>
+            <p>Construct a <code>DFT</code> object, see <a href="dip-DFT-T.html#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><code>dip::DFT::Initialize</code></a> for the meaning of the parameters.
+Note that this is not a trivial operation. Not thread safe.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">Initialize</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,</span><span class="m-doc-arg">bool inverse,</span><span class="m-doc-arg"><a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size, </span><span class="m-doc-arg">bool inverse, </span><span class="m-doc-arg"><a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {}</span>)            </h3>
             <p>Re-configure a <code>DFT</code> object to the given transform size and direction.</p>
-<p><code>size</code> is the size of the transform. The two pointers passed to <a href="dip-DFT-T.html#dip-DFT-T-Apply-std-complex&lt;T&gt;-P-std-complex&lt;T&gt;-P-T--C"><code>dip::DFT::Apply</code></a> are expected to point at
+<p><code>size</code> is the size of the transform. The two pointers passed to <a href="dip-DFT-T.html#dip-DFT-T-Apply-std-complex%3CT%3E-P-std-complex%3CT%3E-P-T--C"><code>dip::DFT::Apply</code></a> are expected to point at
 buffers with this length. If <code>inverse</code> is <code>true</code>, an inverse transform will be computed.</p>
 <p><code>options</code> determines some properties for the algorithm that will compute the DFT.</p>
 <ul>
-<li><a href="transform_lowlevel.html#dip-Option-DFTOption-InPlace"><code>dip::Option::DFTOption::InPlace</code></a> means the input and output pointers passed to <a href="dip-DFT-T.html#dip-DFT-T-Apply-std-complex&lt;T&gt;-P-std-complex&lt;T&gt;-P-T--C"><code>dip::DFT::Apply</code></a> must be the same.</li>
+<li><a href="transform_lowlevel.html#dip-Option-DFTOption-InPlace"><code>dip::Option::DFTOption::InPlace</code></a> means the input and output pointers passed to <a href="dip-DFT-T.html#dip-DFT-T-Apply-std-complex%3CT%3E-P-std-complex%3CT%3E-P-T--C"><code>dip::DFT::Apply</code></a> must be the same.</li>
 <li><a href="transform_lowlevel.html#dip-Option-DFTOption-TrashInput"><code>dip::Option::DFTOption::TrashInput</code></a> means that the algorithm is free to overwrite the input array.
    Ignored when working in place.</li>
 <li><a href="transform_lowlevel.html#dip-Option-DFTOption-Aligned"><code>dip::Option::DFTOption::Aligned</code></a> means that the input and output buffers are aligned to 16-bit boundaries,
@@ -160,14 +181,14 @@ buffers with this length. If <code>inverse</code> is <code>true</code>, an inver
 <p>Note that this is not a trivial operation, planning an FFT costs time.</p>
 <p>This operation is not thread safe.</p>
           </div></section>
-                        <section class="m-doc-details" id="dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C"><div>
+                        <section class="m-doc-details" id="dip-DFT-T-Apply-std-complex%3CT%3E-P-std-complex%3CT%3E-P-T--C"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-return">void</span>
-              <span class="m-doc-name"><a href="#dip-DFT-T-Apply-std-complex<T>-P-std-complex<T>-P-T--C" class="m-doc-self">Apply</a></span>(
-<span class="m-doc-arg">std::complex&lt;T&gt;* source,</span><span class="m-doc-arg">std::complex&lt;T&gt;* destination,</span><span class="m-doc-arg">T scale</span>) const            </h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-Apply-std-complex%3CT%3E-P-std-complex%3CT%3E-P-T--C" class="m-doc-self">Apply</a></span>(
+<span class="m-doc-arg">std::complex&lt;T&gt;* source, </span><span class="m-doc-arg">std::complex&lt;T&gt;* destination, </span><span class="m-doc-arg">T scale</span>) const            </h3>
             <p>Apply the transform that the <code>DFT</code> object is configured for.</p>
 <p><code>source</code> and <code>destination</code> are pointers to contiguous buffers with <a href="dip-DFT-T.html#dip-DFT-T-TransformSize-C"><code>dip::DFT::TransformSize</code></a> elements.
 This is the value of the <code>size</code> parameter of the constructor or <a href="dip-DFT-T.html#dip-DFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><code>dip::DFT::Initialize</code></a>. These two pointers
@@ -178,6 +199,66 @@ must be <code>true</code> if the two pointers here are the same, or <code>false<
 the input array can be overwritten with intermediate data, but otherwise will be left intact.</p>
 <p><code>scale</code> is a real scalar that the output values are multiplied by. It is typically set to <code>1/size</code> for
 the inverse transform, and 1 for the forward transform.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-IsInverse-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-IsInverse-C" class="m-doc-self">IsInverse</a></span>(
+) const            </h3>
+            <p>Returns <code>true</code> if this represents an inverse transform, <code>false</code> for a forward transform.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-IsInplace-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-IsInplace-C" class="m-doc-self">IsInplace</a></span>(
+) const            </h3>
+            <p>Returns whether the transform is configured to work in place or not. Not meaningful when using PocketFFT.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-IsAligned-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-IsAligned-C" class="m-doc-self">IsAligned</a></span>(
+) const            </h3>
+            <p>Returns whether the transform is configured to work on aligned buffers or not. Not meaningful when using PocketFFT.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-TransformSize-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-TransformSize-C" class="m-doc-self">TransformSize</a></span>(
+) const            </h3>
+            <p>Returns the size that the transform is configured for.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-BufferSize-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-BufferSize-C" class="m-doc-self">BufferSize</a></span>(
+) const <span class="m-label m-danger">deprecated</span>            </h3>
+            <p>Returns the size of the buffer expected by <code>Apply</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-DFT-T-Destroy"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-DFT-T-Destroy" class="m-doc-self">Destroy</a></span>(
+) <span class="m-label m-danger">private</span>            </h3>
+            <p>Frees memory</p>
           </div></section>
         </section>
       </div>

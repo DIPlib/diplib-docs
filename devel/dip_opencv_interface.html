@@ -128,18 +128,13 @@ expected to contain only 0 and 1 values. The functions <a href="dip_opencv_inter
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-MatToDip-cv-Mat-CL-bool-" class="m-doc">dip_opencv::<wbr />MatToDip</a>(</span><span class="m-doc-wrap">cv::Mat const&amp; mat,
-              bool forceUnsigned = false) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-CopyDipToMat-dip-Image-CL" class="m-doc">dip_opencv::<wbr />CopyDipToMat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img) -&gt; cv::Mat</span>
             </dt>
-            <dd>Creates a <em>DIPlib</em> image around an <em>OpenCV</em> <code>cv::Mat</code>, without taking ownership of the data. <a href="#dip_opencv-MatToDip-cv-Mat-CL-bool-">more...</a></dd>
+            <dd>Creates an <em>OpenCV</em> <code>cv::Mat</code> object from a <em>DIPlib</em> image by copy. <a href="#dip_opencv-CopyDipToMat-dip-Image-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-DipToMat-dip-Image-CL" class="m-doc">dip_opencv::<wbr />DipToMat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img) -&gt; cv::Mat</span>
             </dt>
             <dd>Creates an <em>OpenCV</em> <code>cv::Mat</code> object around a <em>DIPlib</em> image, without taking ownership of the data. <a href="#dip_opencv-DipToMat-dip-Image-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-CopyDipToMat-dip-Image-CL" class="m-doc">dip_opencv::<wbr />CopyDipToMat</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img) -&gt; cv::Mat</span>
-            </dt>
-            <dd>Creates an <em>OpenCV</em> <code>cv::Mat</code> object from a <em>DIPlib</em> image by copy. <a href="#dip_opencv-CopyDipToMat-dip-Image-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip_opencv-FixBinaryImageForDip-dip-Image-L" class="m-doc">dip_opencv::<wbr />FixBinaryImageForDip</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img)</span>
             </dt>
@@ -148,15 +143,20 @@ expected to contain only 0 and 1 values. The functions <a href="dip_opencv_inter
               <span class="m-doc-wrap-bumper">void <a href="#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L" class="m-doc">dip_opencv::<wbr />FixBinaryImageForOpenCv</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img)</span>
             </dt>
             <dd>Fixes the binary image <code>img</code> to match expectations of <em>OpenCV</em> (i.e. all bits have the same value). <a href="#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip_opencv-MatToDip-cv-Mat-CL-bool-" class="m-doc">dip_opencv::<wbr />MatToDip</a>(</span><span class="m-doc-wrap">cv::Mat const&amp; mat,
+              bool forceUnsigned = false) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Creates a <em>DIPlib</em> image around an <em>OpenCV</em> <code>cv::Mat</code>, without taking ownership of the data. <a href="#dip_opencv-MatToDip-cv-Mat-CL-bool-">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip_opencv-MatToDip-cv-Mat-CL-bool-"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
               <span class="m-doc-name"><a href="#dip_opencv-MatToDip-cv-Mat-CL-bool-" class="m-doc-self">dip_opencv::<wbr />MatToDip</a></span>(
-<span class="m-doc-arg">cv::Mat const&amp; mat,</span><span class="m-doc-arg">bool forceUnsigned = false</span>)            </h3>
+<span class="m-doc-arg">cv::Mat const&amp; mat, </span><span class="m-doc-arg">bool forceUnsigned = false</span>)            </h3>
             <p>Creates a <em>DIPlib</em> image around an <em>OpenCV</em> <code>cv::Mat</code>, without taking ownership of the data.</p>
 <p>This function maps a <code>cv::Mat</code> object to a <a href="dip-Image.html"><code>dip::Image</code></a> object.
 The <code>dip::Image</code> object will point to the data in the <code>cv::Mat</code>, which must continue existing until the
@@ -181,7 +181,7 @@ in <a href="dip_opencv_interface.html#dip_opencv-FixBinaryImageForOpenCv-dip-Ima
           </div></section>
                         <section class="m-doc-details" id="dip_opencv-DipToMat-dip-Image-CL"><div>
             <h3>
-              <span class="m-doc-return">cv::Mat</span>
+              <span class="m-doc-return">cv::Mat </span>
               <span class="m-doc-name"><a href="#dip_opencv-DipToMat-dip-Image-CL" class="m-doc-self">dip_opencv::<wbr />DipToMat</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img</span>)            </h3>
             <p>Creates an <em>OpenCV</em> <code>cv::Mat</code> object around a <em>DIPlib</em> image, without taking ownership of the data.</p>
@@ -194,7 +194,7 @@ documentation to the module: <a href="dip_opencv_interface.html"><em>DIPlib</em>
           </div></section>
                         <section class="m-doc-details" id="dip_opencv-CopyDipToMat-dip-Image-CL"><div>
             <h3>
-              <span class="m-doc-return">cv::Mat</span>
+              <span class="m-doc-return">cv::Mat </span>
               <span class="m-doc-name"><a href="#dip_opencv-CopyDipToMat-dip-Image-CL" class="m-doc-self">dip_opencv::<wbr />CopyDipToMat</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; img</span>)            </h3>
             <p>Creates an <em>OpenCV</em> <code>cv::Mat</code> object from a <em>DIPlib</em> image by copy.</p>
@@ -204,7 +204,7 @@ an exception will be thrown.</p>
           </div></section>
                         <section class="m-doc-details" id="dip_opencv-FixBinaryImageForDip-dip-Image-L"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip_opencv-FixBinaryImageForDip-dip-Image-L" class="m-doc-self">dip_opencv::<wbr />FixBinaryImageForDip</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img</span>)            </h3>
             <p>Fixes the binary image <code>img</code> to match expectations of <em>DIPlib</em> (i.e. only the bottom bit is used).</p>
@@ -212,7 +212,7 @@ an exception will be thrown.</p>
           </div></section>
                         <section class="m-doc-details" id="dip_opencv-FixBinaryImageForOpenCv-dip-Image-L"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip_opencv-FixBinaryImageForOpenCv-dip-Image-L" class="m-doc-self">dip_opencv::<wbr />FixBinaryImageForOpenCv</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; img</span>)            </h3>
             <p>Fixes the binary image <code>img</code> to match expectations of <em>OpenCV</em> (i.e. all bits have the same value).</p>

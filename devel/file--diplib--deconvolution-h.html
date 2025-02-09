@@ -64,30 +64,16 @@ See <a href="deconvolution.html">Deconvolution</a>.</p>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-StringSet-CL" class="m-doc">dip::<wbr />WienerDeconvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; psf,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; signalPower,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; noisePower,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {S::PAD})</span>
-            </dt>
-            <dd>Wiener deconvolution using estimates of signal and noise power spectra. <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-StringSet-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL" class="m-doc">dip::<wbr />WienerDeconvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; psf,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularization = 1e-4,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {S::PAD})</span>
-            </dt>
-            <dd>Wiener deconvolution using an estimate of noise-to-signal ratio. <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-TikhonovMiller-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL" class="m-doc">dip::<wbr />TikhonovMiller</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-FastIterativeShrinkageThresholding-Image-CL-Image-CL-Image-L-dfloat--dfloat--dip-uint--dip-uint--StringSet-CL" class="m-doc">dip::<wbr />FastIterativeShrinkageThresholding</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; psf,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularization = 0.1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-6,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIterations = 30,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nScales = 3,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {S::PAD})</span>
             </dt>
-            <dd>Tikhonov-Miller deconvolution. <a href="deconvolution.html#dip-TikhonovMiller-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL">more...</a></dd>
+            <dd>Fast Iterative Shrinkage-Thresholding (FISTA) deconvolution. <a href="deconvolution.html#dip-FastIterativeShrinkageThresholding-Image-CL-Image-CL-Image-L-dfloat--dfloat--dip-uint--dip-uint--StringSet-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-IterativeConstrainedTikhonovMiller-Image-CL-Image-CL-Image-L-dfloat--dfloat--dip-uint--dfloat--StringSet-CL" class="m-doc">dip::<wbr />IterativeConstrainedTikhonovMiller</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; psf,
@@ -109,16 +95,30 @@ See <a href="deconvolution.html">Deconvolution</a>.</p>
             </dt>
             <dd>Richardson-Lucy (RL) deconvolution, also sometimes called the expectation maximization (EM) method. <a href="deconvolution.html#dip-RichardsonLucy-Image-CL-Image-CL-Image-L-dfloat--dip-uint--StringSet-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-FastIterativeShrinkageThresholding-Image-CL-Image-CL-Image-L-dfloat--dfloat--dip-uint--dip-uint--StringSet-CL" class="m-doc">dip::<wbr />FastIterativeShrinkageThresholding</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-TikhonovMiller-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL" class="m-doc">dip::<wbr />TikhonovMiller</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; psf,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularization = 0.1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 1e-6,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxIterations = 30,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nScales = 3,
               <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {S::PAD})</span>
             </dt>
-            <dd>Fast Iterative Shrinkage-Thresholding (FISTA) deconvolution. <a href="deconvolution.html#dip-FastIterativeShrinkageThresholding-Image-CL-Image-CL-Image-L-dfloat--dfloat--dip-uint--dip-uint--StringSet-CL">more...</a></dd>
+            <dd>Tikhonov-Miller deconvolution. <a href="deconvolution.html#dip-TikhonovMiller-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-StringSet-CL" class="m-doc">dip::<wbr />WienerDeconvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; psf,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; signalPower,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; noisePower,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {S::PAD})</span>
+            </dt>
+            <dd>Wiener deconvolution using estimates of signal and noise power spectra. <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-StringSet-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL" class="m-doc">dip::<wbr />WienerDeconvolution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; psf,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularization = 1e-4,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; options = {S::PAD})</span>
+            </dt>
+            <dd>Wiener deconvolution using an estimate of noise-to-signal ratio. <a href="deconvolution.html#dip-WienerDeconvolution-Image-CL-Image-CL-Image-L-dfloat--StringSet-CL">more...</a></dd>
           </dl>
         </section>
       </div>

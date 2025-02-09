@@ -77,9 +77,8 @@ and is guaranteed clockwise. <a href="dip-ConvexHull.html#dip-ConvexHull">more..
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-Polygon-Vertices">
-              using <a href="#dip-Polygon-Vertices" class="m-doc-self">Vertices</a> = std::vector&lt;VertexFloat&gt;
-
+                              <dt>
+using <a href="#dip-Polygon-Vertices" class="m-doc">Vertices</a> = std::vector&lt;VertexFloat&gt;
             </dt>
             <dd>Type used to store the vertices.</dd>
             </dl>
@@ -87,76 +86,58 @@ and is guaranteed clockwise. <a href="dip-ConvexHull.html#dip-ConvexHull">more..
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-Polygon-BoundingBox-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-BoundingBox-C" class="m-doc-self">BoundingBox</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">dip::BoundingBoxFloat</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Area-C" class="m-doc">Area</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the (signed) area of the polygon. The default, clockwise polygons have a positive area.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Augment-dfloat-" class="m-doc">Augment</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 1.0) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Adds vertices along each edge of the polygon such that the distance between two consecutive
+vertices is never more than <code>distance</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-BendingEnergy-C" class="m-doc">BendingEnergy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the bending energy of a polygon. <a href="#dip-Polygon-BendingEnergy-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-BoundingBox-C" class="m-doc">BoundingBox</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">dip::BoundingBoxFloat</a></span>
             </dt>
             <dd>Returns the bounding box of the polygon.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-IsClockWise-C" class="m-doc">IsClockWise</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Determine the orientation of the polygon. <a href="#dip-Polygon-IsClockWise-C">more...</a></dd>
-                          <dt id="dip-Polygon-Area-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Area-C" class="m-doc-self">Area</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the (signed) area of the polygon. The default, clockwise polygons have a positive area.</dd>
-                          <dt id="dip-Polygon-Centroid-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Centroid-C" class="m-doc-self">Centroid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Centroid-C" class="m-doc">Centroid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a></span>
             </dt>
             <dd>Computes the centroid of the polygon.</dd>
-                          <dt id="dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C" class="m-doc-self">CovarianceMatrixVertices</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-ConvexHull-C" class="m-doc">ConvexHull</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ConvexHull.html" class="m-doc">dip::ConvexHull</a></span>
             </dt>
-            <dd>Returns the covariance matrix for the vertices of the polygon, using centroid <code>g</code>.</dd>
-                          <dt id="dip-Polygon-CovarianceMatrixVertices-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixVertices-C" class="m-doc-self">CovarianceMatrixVertices</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
-            </dt>
-            <dd>Returns the covariance matrix for the vertices of the polygon.</dd>
-                          <dt id="dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C" class="m-doc-self">CovarianceMatrixSolid</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+            <dd>Returns the convex hull of the polygon. The polygon must be simple.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C" class="m-doc">CovarianceMatrixSolid</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
             </dt>
             <dd>Returns the covariance matrix for the solid object represented by the polygon, using centroid <code>g</code>.</dd>
-                          <dt id="dip-Polygon-CovarianceMatrixSolid-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixSolid-C" class="m-doc-self">CovarianceMatrixSolid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixSolid-C" class="m-doc">CovarianceMatrixSolid</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
             </dt>
             <dd>Returns the covariance matrix for the solid object represented by the polygon.</dd>
-                          <dt id="dip-Polygon-Length-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Length-C" class="m-doc-self">Length</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C" class="m-doc">CovarianceMatrixVertices</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
             </dt>
-            <dd>Computes the length of the polygon (i.e. perimeter). If the polygon represents a pixelated object,
-this function will overestimate the object&rsquo;s perimeter. In this case, use <a href="dip-ChainCode.html#dip-ChainCode-Length-String-CL-C"><code>dip::ChainCode::Length</code></a> instead.</dd>
-                          <dt id="dip-Polygon-Perimeter-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Perimeter-C" class="m-doc-self">Perimeter</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            <dd>Returns the covariance matrix for the vertices of the polygon, using centroid <code>g</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-CovarianceMatrixVertices-C" class="m-doc">CovarianceMatrixVertices</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a></span>
             </dt>
-            <dd>An alias for <a href="dip-Polygon.html#dip-Polygon-Length-C"><code>dip::Polygon::Length</code></a>.</dd>
-                          <dt id="dip-Polygon-RadiusStatistics-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-RadiusStatistics-C" class="m-doc-self">RadiusStatistics</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a></span>
-            </dt>
-            <dd>Returns statistics on the radii of the polygon. The radii are the distances between the centroid
-and each of the vertices.</dd>
-                          <dt id="dip-Polygon-RadiusStatistics-VertexFloat-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-RadiusStatistics-VertexFloat-CL-C" class="m-doc-self">RadiusStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a></span>
-            </dt>
-            <dd>Returns statistics on the radii of the polygon. The radii are the distances between the given centroid
-and each of the vertices.</dd>
+            <dd>Returns the covariance matrix for the vertices of the polygon.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-EllipseVariance-C" class="m-doc">EllipseVariance</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Compares a polygon to the ellipse with the same covariance matrix, returning the coefficient of
 variation of the distance of vertices to the ellipse. <a href="#dip-Polygon-EllipseVariance-C">more...</a></dd>
-                          <dt id="dip-Polygon-EllipseVariance-VertexFloat-CL-dip-CovarianceMatrix-CL-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-EllipseVariance-VertexFloat-CL-dip-CovarianceMatrix-CL-C" class="m-doc-self">EllipseVariance</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g,
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-EllipseVariance-VertexFloat-CL-dip-CovarianceMatrix-CL-C" class="m-doc">EllipseVariance</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g,
               <a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> const&amp; C) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Compares a polygon to the ellipse described by the given centroid and covariance matrix, returning
 the coefficient of variation of the distance of vertices to the ellipse.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-FractalDimension-dfloat--C" class="m-doc">FractalDimension</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> length = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the fractal dimension of a polygon. <a href="#dip-Polygon-FractalDimension-dfloat--C">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-BendingEnergy-C" class="m-doc">BendingEnergy</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the bending energy of a polygon. <a href="#dip-Polygon-BendingEnergy-C">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-FitCircle-C" class="m-doc">FitCircle</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="measurement.html#dip-CircleParameters" class="m-doc">dip::CircleParameters</a></span>
             </dt>
@@ -166,61 +147,93 @@ the coefficient of variation of the distance of vertices to the ellipse.</dd>
             </dt>
             <dd>Fits an ellipse to the polygon vertices. <a href="#dip-Polygon-FitEllipse-C">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-FractalDimension-dfloat--C" class="m-doc">FractalDimension</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> length = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the fractal dimension of a polygon. <a href="#dip-Polygon-FractalDimension-dfloat--C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-IsClockWise-C" class="m-doc">IsClockWise</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Determine the orientation of the polygon. <a href="#dip-Polygon-IsClockWise-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Length-C" class="m-doc">Length</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the length of the polygon (i.e. perimeter). If the polygon represents a pixelated object,
+this function will overestimate the object&rsquo;s perimeter. In this case, use <a href="dip-ChainCode.html#dip-ChainCode-Length-String-CL-C"><code>dip::ChainCode::Length</code></a> instead.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Perimeter-C" class="m-doc">Perimeter</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>An alias for <a href="dip-Polygon.html#dip-Polygon-Length-C"><code>dip::Polygon::Length</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-RadiusStatistics-C" class="m-doc">RadiusStatistics</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a></span>
+            </dt>
+            <dd>Returns statistics on the radii of the polygon. The radii are the distances between the centroid
+and each of the vertices.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-RadiusStatistics-VertexFloat-CL-C" class="m-doc">RadiusStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g) const -&gt; <a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a></span>
+            </dt>
+            <dd>Returns statistics on the radii of the polygon. The radii are the distances between the given centroid
+and each of the vertices.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Reverse" class="m-doc">Reverse</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Reverses the orientation of the polygon, converting a clockwise polygon into a counter-clockwise one
+and vice versa.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Rotate-dfloat-" class="m-doc">Rotate</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Rotates the polygon around the origin by <code>angle</code>, which is positive for clockwise rotation.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Scale-dfloat-" class="m-doc">Scale</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Scales the polygon isotropically by multiplying each vertex coordinate by <code>scale</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Scale-dfloat--dfloat-" class="m-doc">Scale</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleX,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleY) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+            </dt>
+            <dd>Scales the polygon anisotropically by multiplying each vertex coordinate by <code>scaleX</code> and <code>scaleY</code>.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Simplify-dfloat-" class="m-doc">Simplify</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 0.5) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
             </dt>
             <dd>Simplifies the polygon using the Douglas-Peucker algorithm. <a href="#dip-Polygon-Simplify-dfloat-">more...</a></dd>
-                          <dt id="dip-Polygon-Augment-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Augment-dfloat-" class="m-doc-self">Augment</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 1.0) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
-            </dt>
-            <dd>Adds vertices along each edge of the polygon such that the distance between two consecutive
-vertices is never more than <code>distance</code>.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Smooth-dfloat-" class="m-doc">Smooth</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
             </dt>
             <dd>Locally averages the location of vertices of a polygon so it becomes smoother. <a href="#dip-Polygon-Smooth-dfloat-">more...</a></dd>
-                          <dt id="dip-Polygon-Reverse">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Reverse" class="m-doc-self">Reverse</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
-            </dt>
-            <dd>Reverses the orientation of the polygon, converting a clockwise polygon into a counter-clockwise one
-and vice versa.</dd>
-                          <dt id="dip-Polygon-Rotate-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Rotate-dfloat-" class="m-doc-self">Rotate</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
-            </dt>
-            <dd>Rotates the polygon around the origin by <code>angle</code>, which is positive for clockwise rotation.</dd>
-                          <dt id="dip-Polygon-Scale-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Scale-dfloat-" class="m-doc-self">Scale</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
-            </dt>
-            <dd>Scales the polygon isotropically by multiplying each vertex coordinate by <code>scale</code>.</dd>
-                          <dt id="dip-Polygon-Scale-dfloat--dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Scale-dfloat--dfloat-" class="m-doc-self">Scale</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleX,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleY) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
-            </dt>
-            <dd>Scales the polygon anisotropically by multiplying each vertex coordinate by <code>scaleX</code> and <code>scaleY</code>.</dd>
-                          <dt id="dip-Polygon-Translate-VertexFloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Translate-VertexFloat-" class="m-doc-self">Translate</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> shift) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-Translate-VertexFloat-" class="m-doc">Translate</a>(</span><span class="m-doc-wrap"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> shift) -&gt; <a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
             </dt>
             <dd>Translates the polygon by <code>shift</code>.</dd>
-                          <dt id="dip-Polygon-ConvexHull-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Polygon-ConvexHull-C" class="m-doc-self">ConvexHull</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-ConvexHull.html" class="m-doc">dip::ConvexHull</a></span>
-            </dt>
-            <dd>Returns the convex hull of the polygon. The polygon must be simple.</dd>
           </dl>
         </section>
         <section id="variable-members">
            <h2>Variables</h2>
            <dl class="m-doc">
-                            <dt id="dip-Polygon-vertices">
-            <a href="dip-Polygon.html#dip-Polygon-Vertices" class="m-doc">dip::Polygon::Vertices</a> <a href="#dip-Polygon-vertices" class="m-doc-self">vertices</a>
-
+                            <dt>
+            <a href="dip-Polygon.html#dip-Polygon-Vertices" class="m-doc">dip::Polygon::Vertices</a> <a href="#dip-Polygon-vertices" class="m-doc">vertices</a>
             </dt>
             <dd>The vertices.</dd>
            </dl>
         </section>
         <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-Polygon-Vertices"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-Polygon-Vertices" class="m-doc-self">Vertices</a></span> = std::vector&lt;VertexFloat&gt;            </h3>
+            <p>Type used to store the vertices.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-Polygon-BoundingBox-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-BoundingBox-T.html#dip-BoundingBoxFloat" class="m-doc">dip::BoundingBoxFloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-BoundingBox-C" class="m-doc-self">BoundingBox</a></span>(
+) const            </h3>
+            <p>Returns the bounding box of the polygon.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Polygon-IsClockWise-C"><div>
             <h3>
-              <span class="m-doc-return">bool</span>
+              <span class="m-doc-return">bool </span>
               <span class="m-doc-name"><a href="#dip-Polygon-IsClockWise-C" class="m-doc-self">IsClockWise</a></span>(
 ) const            </h3>
             <p>Determine the orientation of the polygon.</p>
@@ -228,9 +241,82 @@ and vice versa.</dd>
 have a single orientation anyway.</p>
 <p>If the polygon is constructed from a chain code, this function should always return <code>true</code>.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Area-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Area-C" class="m-doc-self">Area</a></span>(
+) const            </h3>
+            <p>Computes the (signed) area of the polygon. The default, clockwise polygons have a positive area.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Centroid-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Centroid-C" class="m-doc-self">Centroid</a></span>(
+) const            </h3>
+            <p>Computes the centroid of the polygon.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-CovarianceMatrixVertices-VertexFloat-CL-C" class="m-doc-self">CovarianceMatrixVertices</a></span>(
+<span class="m-doc-arg"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g</span>) const            </h3>
+            <p>Returns the covariance matrix for the vertices of the polygon, using centroid <code>g</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-CovarianceMatrixVertices-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-CovarianceMatrixVertices-C" class="m-doc-self">CovarianceMatrixVertices</a></span>(
+) const            </h3>
+            <p>Returns the covariance matrix for the vertices of the polygon.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-CovarianceMatrixSolid-VertexFloat-CL-C" class="m-doc-self">CovarianceMatrixSolid</a></span>(
+<span class="m-doc-arg"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g</span>) const            </h3>
+            <p>Returns the covariance matrix for the solid object represented by the polygon, using centroid <code>g</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-CovarianceMatrixSolid-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-CovarianceMatrixSolid-C" class="m-doc-self">CovarianceMatrixSolid</a></span>(
+) const            </h3>
+            <p>Returns the covariance matrix for the solid object represented by the polygon.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Length-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Length-C" class="m-doc-self">Length</a></span>(
+) const            </h3>
+            <p>Computes the length of the polygon (i.e. perimeter). If the polygon represents a pixelated object,
+this function will overestimate the object&rsquo;s perimeter. In this case, use <a href="dip-ChainCode.html#dip-ChainCode-Length-String-CL-C"><code>dip::ChainCode::Length</code></a> instead.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Perimeter-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Perimeter-C" class="m-doc-self">Perimeter</a></span>(
+) const            </h3>
+            <p>An alias for <a href="dip-Polygon.html#dip-Polygon-Length-C"><code>dip::Polygon::Length</code></a>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-RadiusStatistics-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-RadiusStatistics-C" class="m-doc-self">RadiusStatistics</a></span>(
+) const            </h3>
+            <p>Returns statistics on the radii of the polygon. The radii are the distances between the centroid
+and each of the vertices.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-RadiusStatistics-VertexFloat-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-RadiusValues.html" class="m-doc">dip::RadiusValues</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-RadiusStatistics-VertexFloat-CL-C" class="m-doc-self">RadiusStatistics</a></span>(
+<span class="m-doc-arg"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g</span>) const            </h3>
+            <p>Returns statistics on the radii of the polygon. The radii are the distances between the given centroid
+and each of the vertices.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Polygon-EllipseVariance-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-Polygon-EllipseVariance-C" class="m-doc-self">EllipseVariance</a></span>(
 ) const            </h3>
             <p>Compares a polygon to the ellipse with the same covariance matrix, returning the coefficient of
@@ -243,9 +329,17 @@ variation of the distance of vertices to the ellipse.</p>
 </ul>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-EllipseVariance-VertexFloat-CL-dip-CovarianceMatrix-CL-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-EllipseVariance-VertexFloat-CL-dip-CovarianceMatrix-CL-C" class="m-doc-self">EllipseVariance</a></span>(
+<span class="m-doc-arg"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> const&amp; g, </span><span class="m-doc-arg"><a href="dip-CovarianceMatrix.html" class="m-doc">dip::CovarianceMatrix</a> const&amp; C</span>) const            </h3>
+            <p>Compares a polygon to the ellipse described by the given centroid and covariance matrix, returning
+the coefficient of variation of the distance of vertices to the ellipse.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Polygon-FractalDimension-dfloat--C"><div>
             <h3>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-Polygon-FractalDimension-dfloat--C" class="m-doc-self">FractalDimension</a></span>(
 <span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> length = 0</span>) const            </h3>
             <p>Computes the fractal dimension of a polygon.</p>
@@ -258,7 +352,7 @@ value), then it is computed.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Polygon-BendingEnergy-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-Polygon-BendingEnergy-C" class="m-doc-self">BendingEnergy</a></span>(
 ) const            </h3>
             <p>Computes the bending energy of a polygon.</p>
@@ -281,7 +375,7 @@ polygon so it better approximates a smooth curve around the object being measure
           </div></section>
                         <section class="m-doc-details" id="dip-Polygon-FitCircle-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="measurement.html#dip-CircleParameters" class="m-doc">dip::CircleParameters</a></span>
+              <span class="m-doc-return"><a href="measurement.html#dip-CircleParameters" class="m-doc">dip::CircleParameters</a> </span>
               <span class="m-doc-name"><a href="#dip-Polygon-FitCircle-C" class="m-doc-self">FitCircle</a></span>(
 ) const            </h3>
             <p>Fits a circle to the polygon vertices.</p>
@@ -420,7 +514,7 @@ is not close to a circle.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Polygon-FitEllipse-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="measurement.html#dip-EllipseParameters" class="m-doc">dip::EllipseParameters</a></span>
+              <span class="m-doc-return"><a href="measurement.html#dip-EllipseParameters" class="m-doc">dip::EllipseParameters</a> </span>
               <span class="m-doc-name"><a href="#dip-Polygon-FitEllipse-C" class="m-doc-self">FitEllipse</a></span>(
 ) const            </h3>
             <p>Fits an ellipse to the polygon vertices.</p>
@@ -515,16 +609,24 @@ Use <a href="dip-CovarianceMatrix.html#dip-CovarianceMatrix-Ellipse-bool--C"><co
           </div></section>
                         <section class="m-doc-details" id="dip-Polygon-Simplify-dfloat-"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
               <span class="m-doc-name"><a href="#dip-Polygon-Simplify-dfloat-" class="m-doc-self">Simplify</a></span>(
 <span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tolerance = 0.5</span>)            </h3>
             <p>Simplifies the polygon using the Douglas-Peucker algorithm.</p>
 <p>For a polygon derived from a chain code, setting tolerance to 0.5 leads to a maximum-length digital straight
 segment representation of the object.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Augment-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Augment-dfloat-" class="m-doc-self">Augment</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 1.0</span>)            </h3>
+            <p>Adds vertices along each edge of the polygon such that the distance between two consecutive
+vertices is never more than <code>distance</code>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Polygon-Smooth-dfloat-"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp;</span>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
               <span class="m-doc-name"><a href="#dip-Polygon-Smooth-dfloat-" class="m-doc-self">Smooth</a></span>(
 <span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1.0</span>)            </h3>
             <p>Locally averages the location of vertices of a polygon so it becomes smoother.</p>
@@ -535,6 +637,58 @@ spaced. <a href="dip-Polygon.html#dip-Polygon-Augment-dfloat-"><code>dip::Polygo
 <p>A polygon derived from the chain code of an object without high curvature, when smoothed with a <code>sigma</code> of 2,
 will fairly well approximate the original smooth boundary. For objects with higher curvature (including very
 small objects), choose a smaller <code>sigma</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Reverse"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Reverse" class="m-doc-self">Reverse</a></span>(
+)            </h3>
+            <p>Reverses the orientation of the polygon, converting a clockwise polygon into a counter-clockwise one
+and vice versa.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Rotate-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Rotate-dfloat-" class="m-doc-self">Rotate</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> angle</span>)            </h3>
+            <p>Rotates the polygon around the origin by <code>angle</code>, which is positive for clockwise rotation.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Scale-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Scale-dfloat-" class="m-doc-self">Scale</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale</span>)            </h3>
+            <p>Scales the polygon isotropically by multiplying each vertex coordinate by <code>scale</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Scale-dfloat--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Scale-dfloat--dfloat-" class="m-doc-self">Scale</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleX, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaleY</span>)            </h3>
+            <p>Scales the polygon anisotropically by multiplying each vertex coordinate by <code>scaleX</code> and <code>scaleY</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-Translate-VertexFloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html" class="m-doc">dip::Polygon</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-Translate-VertexFloat-" class="m-doc-self">Translate</a></span>(
+<span class="m-doc-arg"><a href="dip-Vertex-T.html#dip-VertexFloat" class="m-doc">dip::VertexFloat</a> shift</span>)            </h3>
+            <p>Translates the polygon by <code>shift</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Polygon-ConvexHull-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-ConvexHull.html" class="m-doc">dip::ConvexHull</a> </span>
+              <span class="m-doc-name"><a href="#dip-Polygon-ConvexHull-C" class="m-doc-self">ConvexHull</a></span>(
+) const            </h3>
+            <p>Returns the convex hull of the polygon. The polygon must be simple.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Variable documentation</h2>
+                        <section class="m-doc-details" id="dip-Polygon-vertices"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Polygon.html#dip-Polygon-Vertices" class="m-doc">dip::Polygon::Vertices</a> </span><span class="m-doc-name"><a href="#dip-Polygon-vertices" class="m-doc-self">vertices</a></span>
+            </h3>
+            <p>The vertices.</p>
           </div></section>
         </section>
       </div>

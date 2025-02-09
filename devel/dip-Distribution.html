@@ -81,25 +81,25 @@ The <code>Sort</code> method applies a stable sort to restore the order.</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-Distribution-Distribution-dip-uint--dip-uint--dip-uint-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-dip-uint--dip-uint--dip-uint-" class="m-doc-self">Distribution</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size = 0,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-dip-uint--dip-uint--dip-uint-" class="m-doc">Distribution</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size = 0,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rows = 1,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> columns = 1) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>A zero-initialized distribution can be created by giving a size, and number of values (or rows and columns) per sample</dd>
-                              <dt id="dip-Distribution-Distribution-std-vector<dfloat>-CL-dip-uint--dip-uint-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-std-vector<dfloat>-CL-dip-uint--dip-uint-" class="m-doc-self">Distribution</a>(</span><span class="m-doc-wrap">std::vector&lt;dfloat&gt; const&amp; x,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-std-vector%3Cdfloat%3E-CL-dip-uint--dip-uint-" class="m-doc">Distribution</a>(</span><span class="m-doc-wrap">std::vector&lt;dfloat&gt; const&amp; x,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rows = 1,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> columns = 1) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>A zero-initialized distribution can be created by giving an array of the <em>x</em> values, and number of values (or rows and columns) per sample</dd>
-                              <dt id="dip-Distribution-Distribution-std-vector<dfloat>-CL-std-vector<dfloat>-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-std-vector<dfloat>-CL-std-vector<dfloat>-CL" class="m-doc-self">Distribution</a>(</span><span class="m-doc-wrap">std::vector&lt;dfloat&gt; const&amp; x,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-std-vector%3Cdfloat%3E-CL-std-vector%3Cdfloat%3E-CL" class="m-doc">Distribution</a>(</span><span class="m-doc-wrap">std::vector&lt;dfloat&gt; const&amp; x,
               std::vector&lt;dfloat&gt; const&amp; y)</span>
             </dt>
             <dd>A distribution can be created by giving an array of the <em>x</em> values and an array of the <em>y</em> values</dd>
-                              <dt id="dip-Distribution-Distribution-Histogram-CL">
-              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-Histogram-CL" class="m-doc-self">Distribution</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram)</span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-Distribution-Distribution-Histogram-CL" class="m-doc">Distribution</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram)</span>
             </dt>
             <dd>A 1D <a href="dip-Histogram.html"><code>dip::Histogram</code></a> can be cast to a <code>dip::Distribution</code></dd>
             </dl>
@@ -107,10 +107,6 @@ The <code>Sort</code> method applies a stable sort to restore the order.</p>
         <section id="nested-classes">
           <h2>Classes</h2>
           <dl class="m-doc">
-                          <dt>
-              class <a href="dip-Distribution-Sample.html" class="m-doc">Sample</a>
-            </dt>
-            <dd>One sample of a distribution. <a href="dip-Distribution-Sample.html#dip-Distribution-Sample">more...</a></dd>
                           <dt>
               class <a href="dip-Distribution-ConstSample.html" class="m-doc">ConstSample</a>
             </dt>
@@ -120,170 +116,106 @@ The <code>Sort</code> method applies a stable sort to restore the order.</p>
               class <a href="dip-Distribution-IteratorTemplate-T.html" class="m-doc">IteratorTemplate</a>
             </dt>
             <dd>An iterator for <code>dip::Distribution</code>. Dereferences into a <code>Sample</code> or a <code>ConstSample</code> (the value of <code>T</code>). <a href="dip-Distribution-IteratorTemplate-T.html#dip-Distribution-IteratorTemplate-T">more...</a></dd>
+                          <dt>
+              class <a href="dip-Distribution-Sample.html" class="m-doc">Sample</a>
+            </dt>
+            <dd>One sample of a distribution. <a href="dip-Distribution-Sample.html#dip-Distribution-Sample">more...</a></dd>
           </dl>
         </section>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-Distribution-ValueType">
-              using <a href="#dip-Distribution-ValueType" class="m-doc-self">ValueType</a> = <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
-
-            </dt>
-            <dd>Data type of values stored in container</dd>
-                              <dt id="dip-Distribution-Container">
-              using <a href="#dip-Distribution-Container" class="m-doc-self">Container</a> = std::vector&lt;ValueType&gt;
-
-            </dt>
-            <dd>Container used internally to store the data</dd>
-                              <dt id="dip-Distribution-Iterator">
-              using <a href="#dip-Distribution-Iterator" class="m-doc-self">Iterator</a> = <a href="dip-Distribution-IteratorTemplate-T.html" class="m-doc">dip::Distribution::IteratorTemplate</a>
-
-            </dt>
-            <dd>An iterator for <code>dip::Distribution</code>. Dereferences into a <code>Sample</code>.</dd>
-                              <dt id="dip-Distribution-ConstIterator">
-              using <a href="#dip-Distribution-ConstIterator" class="m-doc-self">ConstIterator</a> = <a href="dip-Distribution-IteratorTemplate-T.html" class="m-doc">dip::Distribution::IteratorTemplate</a>
-
+                              <dt>
+using <a href="#dip-Distribution-ConstIterator" class="m-doc">ConstIterator</a> = <a href="dip-Distribution-IteratorTemplate-T.html" class="m-doc">dip::Distribution::IteratorTemplate</a>
             </dt>
             <dd>An iterator for <code>const dip::Distribution</code>. Dereferences into a <code>ConstSample</code>.</dd>
+                              <dt>
+using <a href="#dip-Distribution-Container" class="m-doc">Container</a> = std::vector&lt;ValueType&gt;
+            </dt>
+            <dd>Container used internally to store the data</dd>
+                              <dt>
+using <a href="#dip-Distribution-Iterator" class="m-doc">Iterator</a> = <a href="dip-Distribution-IteratorTemplate-T.html" class="m-doc">dip::Distribution::IteratorTemplate</a>
+            </dt>
+            <dd>An iterator for <code>dip::Distribution</code>. Dereferences into a <code>Sample</code>.</dd>
+                              <dt>
+using <a href="#dip-Distribution-ValueType" class="m-doc">ValueType</a> = <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
+            </dt>
+            <dd>Data type of values stored in container</dd>
             </dl>
         </section>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-Distribution-Empty-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Empty-C" class="m-doc-self">Empty</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-success">noexcept</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Back" class="m-doc">Back</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution-Sample.html" class="m-doc">dip::Distribution::Sample</a></span>
             </dt>
-            <dd>Checks whether the distribution is empty (size is 0)</dd>
-                          <dt id="dip-Distribution-Size-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Size-C" class="m-doc-self">Size</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            <dd>Gets the <em>x</em> and <em>y</em> values at the end</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Back-C" class="m-doc">Back</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Distribution-ConstSample.html" class="m-doc">dip::Distribution::ConstSample</a></span>
             </dt>
-            <dd>Returns the size of the distribution (number of data points)</dd>
-                          <dt id="dip-Distribution-ValuesPerSample-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-ValuesPerSample-C" class="m-doc-self">ValuesPerSample</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dd>Gets the <em>x</em> and <em>y</em> values at the end</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-begin" class="m-doc">begin</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html#dip-Distribution-Iterator" class="m-doc">dip::Distribution::Iterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Returns the number of <em>y</em> values per sample</dd>
-                          <dt id="dip-Distribution-Rows-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Rows-C" class="m-doc-self">Rows</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dd>Returns an iterator to the beginning</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-begin-C" class="m-doc">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Distribution.html#dip-Distribution-ConstIterator" class="m-doc">dip::Distribution::ConstIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Returns the number of rows in the matrix of <em>y</em> values</dd>
-                          <dt id="dip-Distribution-Columns-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Columns-C" class="m-doc-self">Columns</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            <dd>Returns an iterator to the beginning</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Columns-C" class="m-doc">Columns</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the number of columns in the matrix of <em>y</em> values</dd>
-                          <dt id="dip-Distribution-XUnits-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-XUnits-C" class="m-doc-self">XUnits</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp;</span>
-            </dt>
-            <dd>Returns the units used along the <em>x</em> axis.</dd>
-                          <dt id="dip-Distribution-XUnits">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-XUnits" class="m-doc-self">XUnits</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a>&amp;</span>
-            </dt>
-            <dd>Returns a modifiable reference to the units used along the <em>x</em> axis.</dd>
-                          <dt id="dip-Distribution-Back">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Back" class="m-doc-self">Back</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution-Sample.html" class="m-doc">dip::Distribution::Sample</a></span>
-            </dt>
-            <dd>Gets the <em>x</em> and <em>y</em> values at the end</dd>
-                          <dt id="dip-Distribution-Back-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Back-C" class="m-doc-self">Back</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Distribution-ConstSample.html" class="m-doc">dip::Distribution::ConstSample</a></span>
-            </dt>
-            <dd>Gets the <em>x</em> and <em>y</em> values at the end</dd>
-                          <dt id="dip-Distribution-begin">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-begin" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html#dip-Distribution-Iterator" class="m-doc">dip::Distribution::Iterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an iterator to the beginning</dd>
-                          <dt id="dip-Distribution-begin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-begin-C" class="m-doc-self">begin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Distribution.html#dip-Distribution-ConstIterator" class="m-doc">dip::Distribution::ConstIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an iterator to the beginning</dd>
-                          <dt id="dip-Distribution-end">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-end" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html#dip-Distribution-Iterator" class="m-doc">dip::Distribution::Iterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an iterator to the end</dd>
-                          <dt id="dip-Distribution-end-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-end-C" class="m-doc-self">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Distribution.html#dip-Distribution-ConstIterator" class="m-doc">dip::Distribution::ConstIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an iterator to the end</dd>
-                          <dt id="dip-Distribution-Xbegin">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xbegin" class="m-doc-self">Xbegin</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an <em>x</em>-value iterator to the beginning</dd>
-                          <dt id="dip-Distribution-Xbegin-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xbegin-C" class="m-doc-self">Xbegin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an <em>x</em>-value iterator to the beginning</dd>
-                          <dt id="dip-Distribution-Xend">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xend" class="m-doc-self">Xend</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an <em>x</em>-value iterator to the end</dd>
-                          <dt id="dip-Distribution-Xend-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xend-C" class="m-doc-self">Xend</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns an <em>x</em>-value iterator to the end</dd>
-                          <dt id="dip-Distribution-Ybegin-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Ybegin-dip-uint-" class="m-doc-self">Ybegin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
-            </dt>
-            <dd>Returns an <em>y</em>-value iterator to the beginning</dd>
-                          <dt id="dip-Distribution-Ybegin-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Ybegin-dip-uint--C" class="m-doc-self">Ybegin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a></span>
-            </dt>
-            <dd>Returns an <em>y</em>-value iterator to the beginning</dd>
-                          <dt id="dip-Distribution-Yend-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Yend-dip-uint-" class="m-doc-self">Yend</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
-            </dt>
-            <dd>Returns an <em>y</em>-value iterator to the end</dd>
-                          <dt id="dip-Distribution-Yend-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Yend-dip-uint--C" class="m-doc-self">Yend</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a></span>
-            </dt>
-            <dd>Returns an <em>y</em>-value iterator to the end</dd>
-                          <dt id="dip-Distribution-X-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-X-C" class="m-doc-self">X</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;dfloat&gt;</span>
-            </dt>
-            <dd>Copies the <em>x</em> values to a new array</dd>
-                          <dt id="dip-Distribution-Y-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Y-dip-uint--C" class="m-doc-self">Y</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; std::vector&lt;dfloat&gt;</span>
-            </dt>
-            <dd>Copies the <em>y</em> values to a new array</dd>
-                          <dt id="dip-Distribution-Sort">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Sort" class="m-doc-self">Sort</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
-            </dt>
-            <dd>Sorts the data in the distribution according to the <em>x</em> values.</dd>
-                          <dt id="dip-Distribution-Cumulative">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Cumulative" class="m-doc-self">Cumulative</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Cumulative" class="m-doc">Cumulative</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
             </dt>
             <dd>Converts the distribution to a cumulative distribution, where each element is the sum of
 all elements up to that element in the original distribution (i.e. <em>x</em> spacing is ignored).</dd>
-                          <dt id="dip-Distribution-Sum-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Sum-dip-uint--C" class="m-doc-self">Sum</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the sum of the <em>y</em> values.</dd>
-                          <dt id="dip-Distribution-NormalizeSum">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-NormalizeSum" class="m-doc-self">NormalizeSum</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
-            </dt>
-            <dd>Normalizes the sum of the <em>y</em> values.</dd>
-                          <dt id="dip-Distribution-Integrate">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Integrate" class="m-doc-self">Integrate</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
-            </dt>
-            <dd>Converts the distribution to a cumulative distribution, where each element is the integral of
-the original distribution up to that element. Make sure the data are sorted (see <code>Sort</code>).</dd>
-                          <dt id="dip-Distribution-Integral-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Integral-dip-uint--C" class="m-doc-self">Integral</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the integral of the distribution. Make sure the data are sorted (see <code>Sort</code>).</dd>
-                          <dt id="dip-Distribution-NormalizeIntegral">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-NormalizeIntegral" class="m-doc-self">NormalizeIntegral</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
-            </dt>
-            <dd>Normalizes the integral of the distribution values. Make sure the data are sorted (see <code>Sort</code>).</dd>
-                          <dt id="dip-Distribution-Differentiate">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Differentiate" class="m-doc-self">Differentiate</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Differentiate" class="m-doc">Differentiate</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
             </dt>
             <dd>Converts the cumulative distribution to a distribution, where each element is the derivative of
 the original distribution at that element. Make sure the data are sorted (see <code>Sort</code>).</dd>
-                          <dt id="dip-Distribution-MaximumLikelihood">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-MaximumLikelihood" class="m-doc-self">MaximumLikelihood</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html#dip-Distribution-Container" class="m-doc">dip::Distribution::Container</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Empty-C" class="m-doc">Empty</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Checks whether the distribution is empty (size is 0)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-end" class="m-doc">end</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html#dip-Distribution-Iterator" class="m-doc">dip::Distribution::Iterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns an iterator to the end</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-end-C" class="m-doc">end</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Distribution.html#dip-Distribution-ConstIterator" class="m-doc">dip::Distribution::ConstIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns an iterator to the end</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Integral-dip-uint--C" class="m-doc">Integral</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the integral of the distribution. Make sure the data are sorted (see <code>Sort</code>).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Integrate" class="m-doc">Integrate</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+            </dt>
+            <dd>Converts the distribution to a cumulative distribution, where each element is the integral of
+the original distribution up to that element. Make sure the data are sorted (see <code>Sort</code>).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-MaximumLikelihood" class="m-doc">MaximumLikelihood</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html#dip-Distribution-Container" class="m-doc">dip::Distribution::Container</a></span>
             </dt>
             <dd>Computes the most likely <em>x</em> values. In essence, returns the <em>x</em> values which maximize
 the corresponding <em>y</em> value.</dd>
-                          <dt id="dip-Distribution-SetSampling-PixelSize-CL-dfloat--dfloat-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Distribution-SetSampling-PixelSize-CL-dfloat--dfloat-" class="m-doc-self">SetSampling</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; pixelSize = {},
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-NormalizeIntegral" class="m-doc">NormalizeIntegral</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+            </dt>
+            <dd>Normalizes the integral of the distribution values. Make sure the data are sorted (see <code>Sort</code>).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-NormalizeSum" class="m-doc">NormalizeSum</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+            </dt>
+            <dd>Normalizes the sum of the <em>y</em> values.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Rows-C" class="m-doc">Rows</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of rows in the matrix of <em>y</em> values</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Distribution-SetSampling-PixelSize-CL-dfloat--dfloat-" class="m-doc">SetSampling</a>(</span><span class="m-doc-wrap"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; pixelSize = {},
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> offset = 0.0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaling = 1.0)</span>
             </dt>
@@ -291,43 +223,107 @@ the corresponding <em>y</em> value.</dd>
 and linear increments of <code>pixelSize[0].magnitude * scaling</code>, if the <code>pixelSize</code> is isotropic and has
 physical units. The <code>XUnits</code> are also set to the units of the isotropic <code>pixelSize</code>, or otherwise
 to &ldquo;px&rdquo;.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Size-C" class="m-doc">Size</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns the size of the distribution (number of data points)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Sort" class="m-doc">Sort</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+            </dt>
+            <dd>Sorts the data in the distribution according to the <em>x</em> values.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Sum-dip-uint--C" class="m-doc">Sum</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the sum of the <em>y</em> values.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-ValuesPerSample-C" class="m-doc">ValuesPerSample</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Returns the number of <em>y</em> values per sample</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-X-C" class="m-doc">X</a>(</span><span class="m-doc-wrap">) const -&gt; std::vector&lt;dfloat&gt;</span>
+            </dt>
+            <dd>Copies the <em>x</em> values to a new array</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xbegin" class="m-doc">Xbegin</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns an <em>x</em>-value iterator to the beginning</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xbegin-C" class="m-doc">Xbegin</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns an <em>x</em>-value iterator to the beginning</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xend" class="m-doc">Xend</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns an <em>x</em>-value iterator to the end</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Xend-C" class="m-doc">Xend</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns an <em>x</em>-value iterator to the end</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-XUnits-C" class="m-doc">XUnits</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp;</span>
+            </dt>
+            <dd>Returns the units used along the <em>x</em> axis.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-XUnits" class="m-doc">XUnits</a>(</span><span class="m-doc-wrap">) -&gt; <a href="dip-Units.html" class="m-doc">dip::Units</a>&amp;</span>
+            </dt>
+            <dd>Returns a modifiable reference to the units used along the <em>x</em> axis.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Y-dip-uint--C" class="m-doc">Y</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; std::vector&lt;dfloat&gt;</span>
+            </dt>
+            <dd>Copies the <em>y</em> values to a new array</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Ybegin-dip-uint-" class="m-doc">Ybegin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
+            </dt>
+            <dd>Returns an <em>y</em>-value iterator to the beginning</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Ybegin-dip-uint--C" class="m-doc">Ybegin</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a></span>
+            </dt>
+            <dd>Returns an <em>y</em>-value iterator to the beginning</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Yend-dip-uint-" class="m-doc">Yend</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) -&gt; <a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a></span>
+            </dt>
+            <dd>Returns an <em>y</em>-value iterator to the end</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-Yend-dip-uint--C" class="m-doc">Yend</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0) const -&gt; <a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a></span>
+            </dt>
+            <dd>Returns an <em>y</em>-value iterator to the end</dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-                          <dt id="dip-Distribution-operator%5B%5D-dip-uint-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%5B%5D-dip-uint-" class="m-doc-self">operator[]</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) -&gt; <a href="dip-Distribution-Sample.html" class="m-doc">dip::Distribution::Sample</a></span>
-            </dt>
-            <dd>Gets the <em>x</em> and <em>y</em> values at location <code>index</code></dd>
-                          <dt id="dip-Distribution-operator%5B%5D-dip-uint--C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%5B%5D-dip-uint--C" class="m-doc-self">operator[]</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="dip-Distribution-ConstSample.html" class="m-doc">dip::Distribution::ConstSample</a></span>
-            </dt>
-            <dd>Gets the <em>x</em> and <em>y</em> values at location <code>index</code></dd>
-                          <dt id="dip-Distribution-operator%2B%3D-Distribution-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%2B%3D-Distribution-CL" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; other) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
-            </dt>
-            <dd>Adds two distributions. Their <em>x</em> values must match exactly.</dd>
-                          <dt id="dip-Distribution-operator%2A%3D-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%2A%3D-dfloat-" class="m-doc-self">operator*=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%2A%3D-dfloat-" class="m-doc">operator*=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
             </dt>
             <dd>Scales the distribution, multiplying each <em>y</em> value by <code>scale</code>.</dd>
-                          <dt id="dip-Distribution-operator%2F%3D-dfloat-">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%2F%3D-dfloat-" class="m-doc-self">operator/=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%2B%3D-Distribution-CL" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; other) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
+            </dt>
+            <dd>Adds two distributions. Their <em>x</em> values must match exactly.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%2F%3D-dfloat-" class="m-doc">operator/=</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp;</span>
             </dt>
             <dd>Scales the distribution, dividing each <em>y</em> value by <code>scale</code>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%5B%5D-dip-uint-" class="m-doc">operator[]</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) -&gt; <a href="dip-Distribution-Sample.html" class="m-doc">dip::Distribution::Sample</a></span>
+            </dt>
+            <dd>Gets the <em>x</em> and <em>y</em> values at location <code>index</code></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Distribution-operator%5B%5D-dip-uint--C" class="m-doc">operator[]</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index) const -&gt; <a href="dip-Distribution-ConstSample.html" class="m-doc">dip::Distribution::ConstSample</a></span>
+            </dt>
+            <dd>Gets the <em>x</em> and <em>y</em> values at location <code>index</code></dd>
           </dl>
         </section>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-operator%3C%3C-std-ostream-L-Distribution-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-Distribution-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-Distribution-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; distribution) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>Writes the distribution to a stream</dd>
                             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-Histogram-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-Histogram-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Histogram.html"><code>dip::Histogram</code></a> to <code>std::cout</code> or any other stream. Some
@@ -335,13 +331,344 @@ information about the histogram is printed.</dd>
           </dl>
         </section>
         <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-Distribution-ValueType"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-Distribution-ValueType" class="m-doc-self">ValueType</a></span> = <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>            </h3>
+            <p>Data type of values stored in container</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Container"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-Distribution-Container" class="m-doc-self">Container</a></span> = std::vector&lt;ValueType&gt;            </h3>
+            <p>Container used internally to store the data</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Iterator"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-Distribution-Iterator" class="m-doc-self">Iterator</a></span> = <a href="dip-Distribution-IteratorTemplate-T.html" class="m-doc">dip::Distribution::IteratorTemplate</a>            </h3>
+            <p>An iterator for <code>dip::Distribution</code>. Dereferences into a <code>Sample</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-ConstIterator"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-Distribution-ConstIterator" class="m-doc-self">ConstIterator</a></span> = <a href="dip-Distribution-IteratorTemplate-T.html" class="m-doc">dip::Distribution::IteratorTemplate</a>            </h3>
+            <p>An iterator for <code>const dip::Distribution</code>. Dereferences into a <code>ConstSample</code>.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-Distribution-Distribution-dip-uint--dip-uint--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Distribution-dip-uint--dip-uint--dip-uint-" class="m-doc-self">Distribution</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rows = 1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> columns = 1</span>) <span class="m-label m-info">explicit</span>            </h3>
+            <p>A zero-initialized distribution can be created by giving a size, and number of values (or rows and columns) per sample</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Distribution-std-vector%3Cdfloat%3E-CL-dip-uint--dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Distribution-std-vector%3Cdfloat%3E-CL-dip-uint--dip-uint-" class="m-doc-self">Distribution</a></span>(
+<span class="m-doc-arg">std::vector&lt;dfloat&gt; const&amp; x, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rows = 1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> columns = 1</span>) <span class="m-label m-info">explicit</span>            </h3>
+            <p>A zero-initialized distribution can be created by giving an array of the <em>x</em> values, and number of values (or rows and columns) per sample</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Distribution-std-vector%3Cdfloat%3E-CL-std-vector%3Cdfloat%3E-CL"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Distribution-std-vector%3Cdfloat%3E-CL-std-vector%3Cdfloat%3E-CL" class="m-doc-self">Distribution</a></span>(
+<span class="m-doc-arg">std::vector&lt;dfloat&gt; const&amp; x, </span><span class="m-doc-arg">std::vector&lt;dfloat&gt; const&amp; y</span>)            </h3>
+            <p>A distribution can be created by giving an array of the <em>x</em> values and an array of the <em>y</em> values</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Distribution-Histogram-CL"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Distribution-Histogram-CL" class="m-doc-self">Distribution</a></span>(
+<span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram</span>)            </h3>
+            <p>A 1D <a href="dip-Histogram.html"><code>dip::Histogram</code></a> can be cast to a <code>dip::Distribution</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Empty-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Empty-C" class="m-doc-self">Empty</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Checks whether the distribution is empty (size is 0)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Size-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Size-C" class="m-doc-self">Size</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns the size of the distribution (number of data points)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-ValuesPerSample-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-ValuesPerSample-C" class="m-doc-self">ValuesPerSample</a></span>(
+) const            </h3>
+            <p>Returns the number of <em>y</em> values per sample</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Rows-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Rows-C" class="m-doc-self">Rows</a></span>(
+) const            </h3>
+            <p>Returns the number of rows in the matrix of <em>y</em> values</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Columns-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Columns-C" class="m-doc-self">Columns</a></span>(
+) const            </h3>
+            <p>Returns the number of columns in the matrix of <em>y</em> values</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-XUnits-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Units.html" class="m-doc">dip::Units</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-XUnits-C" class="m-doc-self">XUnits</a></span>(
+) const            </h3>
+            <p>Returns the units used along the <em>x</em> axis.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-XUnits"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Units.html" class="m-doc">dip::Units</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-XUnits" class="m-doc-self">XUnits</a></span>(
+)            </h3>
+            <p>Returns a modifiable reference to the units used along the <em>x</em> axis.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Back"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution-Sample.html" class="m-doc">dip::Distribution::Sample</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Back" class="m-doc-self">Back</a></span>(
+)            </h3>
+            <p>Gets the <em>x</em> and <em>y</em> values at the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Back-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution-ConstSample.html" class="m-doc">dip::Distribution::ConstSample</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Back-C" class="m-doc-self">Back</a></span>(
+) const            </h3>
+            <p>Gets the <em>x</em> and <em>y</em> values at the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-begin"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html#dip-Distribution-Iterator" class="m-doc">dip::Distribution::Iterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-begin" class="m-doc-self">begin</a></span>(
+) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an iterator to the beginning</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-begin-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html#dip-Distribution-ConstIterator" class="m-doc">dip::Distribution::ConstIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-begin-C" class="m-doc-self">begin</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an iterator to the beginning</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-end"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html#dip-Distribution-Iterator" class="m-doc">dip::Distribution::Iterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-end" class="m-doc-self">end</a></span>(
+) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an iterator to the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-end-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html#dip-Distribution-ConstIterator" class="m-doc">dip::Distribution::ConstIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-end-C" class="m-doc-self">end</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an iterator to the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Xbegin"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Xbegin" class="m-doc-self">Xbegin</a></span>(
+) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an <em>x</em>-value iterator to the beginning</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Xbegin-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Xbegin-C" class="m-doc-self">Xbegin</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an <em>x</em>-value iterator to the beginning</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Xend"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Xend" class="m-doc-self">Xend</a></span>(
+) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an <em>x</em>-value iterator to the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Xend-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Xend-C" class="m-doc-self">Xend</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns an <em>x</em>-value iterator to the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Ybegin-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Ybegin-dip-uint-" class="m-doc-self">Ybegin</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0</span>)            </h3>
+            <p>Returns an <em>y</em>-value iterator to the beginning</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Ybegin-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Ybegin-dip-uint--C" class="m-doc-self">Ybegin</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0</span>) const            </h3>
+            <p>Returns an <em>y</em>-value iterator to the beginning</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Yend-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html" class="m-doc">dip::SampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Yend-dip-uint-" class="m-doc-self">Yend</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0</span>)            </h3>
+            <p>Returns an <em>y</em>-value iterator to the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Yend-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-SampleIterator-T.html#dip-ConstSampleIterator-T" class="m-doc">dip::ConstSampleIterator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Yend-dip-uint--C" class="m-doc-self">Yend</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0</span>) const            </h3>
+            <p>Returns an <em>y</em>-value iterator to the end</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-X-C"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;dfloat&gt; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-X-C" class="m-doc-self">X</a></span>(
+) const            </h3>
+            <p>Copies the <em>x</em> values to a new array</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Y-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return">std::vector&lt;dfloat&gt; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Y-dip-uint--C" class="m-doc-self">Y</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0</span>) const            </h3>
+            <p>Copies the <em>y</em> values to a new array</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Sort"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Sort" class="m-doc-self">Sort</a></span>(
+)            </h3>
+            <p>Sorts the data in the distribution according to the <em>x</em> values.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Cumulative"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Cumulative" class="m-doc-self">Cumulative</a></span>(
+)            </h3>
+            <p>Converts the distribution to a cumulative distribution, where each element is the sum of
+all elements up to that element in the original distribution (i.e. <em>x</em> spacing is ignored).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Sum-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Sum-dip-uint--C" class="m-doc-self">Sum</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0</span>) const            </h3>
+            <p>Computes the sum of the <em>y</em> values.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-NormalizeSum"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-NormalizeSum" class="m-doc-self">NormalizeSum</a></span>(
+)            </h3>
+            <p>Normalizes the sum of the <em>y</em> values.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Integrate"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Integrate" class="m-doc-self">Integrate</a></span>(
+)            </h3>
+            <p>Converts the distribution to a cumulative distribution, where each element is the integral of
+the original distribution up to that element. Make sure the data are sorted (see <code>Sort</code>).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Integral-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Integral-dip-uint--C" class="m-doc-self">Integral</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index = 0</span>) const            </h3>
+            <p>Computes the integral of the distribution. Make sure the data are sorted (see <code>Sort</code>).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-NormalizeIntegral"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-NormalizeIntegral" class="m-doc-self">NormalizeIntegral</a></span>(
+)            </h3>
+            <p>Normalizes the integral of the distribution values. Make sure the data are sorted (see <code>Sort</code>).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-Differentiate"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-Differentiate" class="m-doc-self">Differentiate</a></span>(
+)            </h3>
+            <p>Converts the cumulative distribution to a distribution, where each element is the derivative of
+the original distribution at that element. Make sure the data are sorted (see <code>Sort</code>).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-MaximumLikelihood"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html#dip-Distribution-Container" class="m-doc">dip::Distribution::Container</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-MaximumLikelihood" class="m-doc-self">MaximumLikelihood</a></span>(
+)            </h3>
+            <p>Computes the most likely <em>x</em> values. In essence, returns the <em>x</em> values which maximize
+the corresponding <em>y</em> value.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-SetSampling-PixelSize-CL-dfloat--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-SetSampling-PixelSize-CL-dfloat--dfloat-" class="m-doc-self">SetSampling</a></span>(
+<span class="m-doc-arg"><a href="dip-PixelSize.html" class="m-doc">dip::PixelSize</a> const&amp; pixelSize = {}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> offset = 0.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scaling = 1.0</span>)            </h3>
+            <p>Fills the values for the <em>x</em> axis, starting with <code>pixelSize[0].magnitude * offset</code>,
+and linear increments of <code>pixelSize[0].magnitude * scaling</code>, if the <code>pixelSize</code> is isotropic and has
+physical units. The <code>XUnits</code> are also set to the units of the isotropic <code>pixelSize</code>, or otherwise
+to &ldquo;px&rdquo;.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-operator%5B%5D-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution-Sample.html" class="m-doc">dip::Distribution::Sample</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-operator%5B%5D-dip-uint-" class="m-doc-self">operator[]</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index</span>)            </h3>
+            <p>Gets the <em>x</em> and <em>y</em> values at location <code>index</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-operator%5B%5D-dip-uint--C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution-ConstSample.html" class="m-doc">dip::Distribution::ConstSample</a> </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-operator%5B%5D-dip-uint--C" class="m-doc-self">operator[]</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> index</span>) const            </h3>
+            <p>Gets the <em>x</em> and <em>y</em> values at location <code>index</code></p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-operator%2B%3D-Distribution-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-operator%2B%3D-Distribution-CL" class="m-doc-self">operator+=</a></span>(
+<span class="m-doc-arg"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; other</span>)            </h3>
+            <p>Adds two distributions. Their <em>x</em> values must match exactly.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-operator%2A%3D-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-operator%2A%3D-dfloat-" class="m-doc-self">operator*=</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale</span>)            </h3>
+            <p>Scales the distribution, multiplying each <em>y</em> value by <code>scale</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Distribution-operator%2F%3D-dfloat-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Distribution-operator%2F%3D-dfloat-" class="m-doc-self">operator/=</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> scale</span>)            </h3>
+            <p>Scales the distribution, dividing each <em>y</em> value by <code>scale</code>.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%3C%3C-std-ostream-L-Distribution-CL"><div>
+            <h3>
+              <span class="m-doc-return">std::ostream&amp; </span>
+              <span class="m-doc-name"><a href="#dip-operator%3C%3C-std-ostream-L-Distribution-CL" class="m-doc-self">dip::<wbr />operator<<</a></span>(
+<span class="m-doc-arg">std::ostream&amp; os, </span><span class="m-doc-arg"><a href="dip-Distribution.html" class="m-doc">dip::Distribution</a> const&amp; distribution</span>)            </h3>
+            <p>Writes the distribution to a stream</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-operator%3C%3C-std-ostream-L-Histogram-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--histogram-h.html">"diplib/histogram.h"</a></div>
-              <span class="m-doc-return">std::ostream&amp;</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--histogram-h.html">"diplib/histogram.h"</a></div>
+              <span class="m-doc-return">std::ostream&amp; </span>
               <span class="m-doc-name"><a href="#dip-operator%3C%3C-std-ostream-L-Histogram-CL" class="m-doc-self">dip::<wbr />operator<<</a></span>(
-<span class="m-doc-arg">std::ostream&amp; os,</span><span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram</span>)            </h3>
+<span class="m-doc-arg">std::ostream&amp; os, </span><span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram</span>)            </h3>
             <p>You can output a <a href="dip-Histogram.html"><code>dip::Histogram</code></a> to <code>std::cout</code> or any other stream. Some
 information about the histogram is printed.</p>
           </div></section>

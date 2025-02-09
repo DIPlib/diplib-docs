@@ -91,44 +91,43 @@ and one for the background mask. <a href="#dip-Interval-Interval-dip-Image--dip-
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-Interval-Invert">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Interval-Invert" class="m-doc-self">Invert</a>(</span><span class="m-doc-wrap">)</span>
-            </dt>
-            <dd>Inverts the interval, swapping foreground and background pixels. Caution using this function, as
-the <code>Interval</code> can potentially share data with other intervals.</dd>
-                          <dt id="dip-Interval-Image-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-Image-C" class="m-doc-self">Image</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
-            </dt>
-            <dd>Returns the interval image, a <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a> image with values 0, 1 and NaN (for don&rsquo;t care).</dd>
-                          <dt id="dip-Interval-HitImage-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-HitImage-C" class="m-doc-self">HitImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
-            </dt>
-            <dd>Returns the foreground mask image, a binary image.</dd>
-                          <dt id="dip-Interval-MissImage-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-MissImage-C" class="m-doc-self">MissImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
-            </dt>
-            <dd>Returns the background mask image, a binary image.</dd>
-                          <dt id="dip-Interval-Sizes-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-Sizes-C" class="m-doc-self">Sizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
-            </dt>
-            <dd>Returns the sizes of the interval. The output array always has two elements.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-GenerateRotatedVersions-dip-uint--String-CL-C" class="m-doc">GenerateRotatedVersions</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE) const -&gt; <a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
             </dt>
             <dd>Returns rotated versions of the interval, applicable to 2D intervals only. <a href="#dip-Interval-GenerateRotatedVersions-dip-uint--String-CL-C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-HitImage-C" class="m-doc">HitImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Returns the foreground mask image, a binary image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-Image-C" class="m-doc">Image</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp;</span>
+            </dt>
+            <dd>Returns the interval image, a <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a> image with values 0, 1 and NaN (for don&rsquo;t care).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Interval-Invert" class="m-doc">Invert</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Inverts the interval, swapping foreground and background pixels. Caution using this function, as
+the <code>Interval</code> can potentially share data with other intervals.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-MissImage-C" class="m-doc">MissImage</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Returns the background mask image, a binary image.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Interval-Sizes-C" class="m-doc">Sizes</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp;</span>
+            </dt>
+            <dd>Returns the sizes of the interval. The output array always has two elements.</dd>
           </dl>
         </section>
         <section id="related">
           <h2>Related</h2>
           <dl class="m-doc">
-                            <dt id="dip-IntervalArray">
-              using <a href="#dip-IntervalArray" class="m-doc-self">dip::<wbr />IntervalArray</a> = std::vector&lt;Interval&gt;
-
+                            <dt>
+using <a href="#dip-IntervalArray" class="m-doc">dip::<wbr />IntervalArray</a> = std::vector&lt;Interval&gt;
             </dt>
             <dd>An array of intervals.</dd>
-                            <dt id="dip-Invert-IntervalArray-L">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Invert-IntervalArray-L" class="m-doc-self">dip::<wbr />Invert</a>(</span><span class="m-doc-wrap"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>&amp; array)</span>
+                            <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Invert-IntervalArray-L" class="m-doc">dip::<wbr />Invert</a>(</span><span class="m-doc-wrap"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>&amp; array)</span>
             </dt>
             <dd>Inverts the intervals in the array, swapping foreground and background pixels. Works correctly
 if intervals in the array share data. However, this function could also affect other intervals not in
@@ -136,10 +135,18 @@ the array, if data is shared.</dd>
           </dl>
         </section>
         <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-IntervalArray"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-IntervalArray" class="m-doc-self">dip::<wbr />IntervalArray</a></span> = std::vector&lt;Interval&gt;            </h3>
+            <p>An array of intervals.</p>
+          </div></section>
+        </section>
+        <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Interval-Interval-dip-Image-"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-Interval-Interval-dip-Image-" class="m-doc-self">Interval</a></span>(
 <span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> image</span>)            </h3>
             <p>An interval can be constructed with a grey-value image, where <code>1</code> indicates foreground,
@@ -149,20 +156,56 @@ the array, if data is shared.</dd>
           </div></section>
                         <section class="m-doc-details" id="dip-Interval-Interval-dip-Image--dip-Image-"><div>
             <h3>
-              <span class="m-doc-return"></span>
+              <span class="m-doc-return"> </span>
               <span class="m-doc-name"><a href="#dip-Interval-Interval-dip-Image--dip-Image-" class="m-doc-self">Interval</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> hit,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> miss</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> hit, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> miss</span>)            </h3>
             <p>An interval can be constructed with two binary images, one for the foreground mask
 and one for the background mask.</p>
 <p>The images must be odd in size, the origin is in the middle pixel.</p>
 <p>The two images must be disjoint, meaning that <code>dip::Any( dip::Infimum( hit, miss ))</code> must be false.
 An exception will be raised if this is not the case.</p>
           </div></section>
+                        <section class="m-doc-details" id="dip-Interval-Invert"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Interval-Invert" class="m-doc-self">Invert</a></span>(
+)            </h3>
+            <p>Inverts the interval, swapping foreground and background pixels. Caution using this function, as
+the <code>Interval</code> can potentially share data with other intervals.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Interval-Image-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Interval-Image-C" class="m-doc-self">Image</a></span>(
+) const            </h3>
+            <p>Returns the interval image, a <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a> image with values 0, 1 and NaN (for don&rsquo;t care).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Interval-HitImage-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-Interval-HitImage-C" class="m-doc-self">HitImage</a></span>(
+) const            </h3>
+            <p>Returns the foreground mask image, a binary image.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Interval-MissImage-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-Interval-MissImage-C" class="m-doc-self">MissImage</a></span>(
+) const            </h3>
+            <p>Returns the background mask image, a binary image.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Interval-Sizes-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; </span>
+              <span class="m-doc-name"><a href="#dip-Interval-Sizes-C" class="m-doc-self">Sizes</a></span>(
+) const            </h3>
+            <p>Returns the sizes of the interval. The output array always has two elements.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Interval-GenerateRotatedVersions-dip-uint--String-CL-C"><div>
             <h3>
-              <span class="m-doc-return"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a></span>
+              <span class="m-doc-return"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a> </span>
               <span class="m-doc-name"><a href="#dip-Interval-GenerateRotatedVersions-dip-uint--String-CL-C" class="m-doc-self">GenerateRotatedVersions</a></span>(
-<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE</span>) const            </h3>
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> rotationAngle = 45, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; rotationDirection = S::INTERLEAVED_CLOCKWISE</span>) const            </h3>
             <p>Returns rotated versions of the interval, applicable to 2D intervals only.</p>
 <p><code>rotationAngle</code> can be 45, 90 or 180, the output vector will have 8, 4 or 2 intervals. Some
 of the interval images might point at the same data. Rotation angles of 45 degrees are only
@@ -175,6 +218,15 @@ adding &ldquo;don&rsquo;t care&rdquo; pixels.</p>
 <li><code>"clockwise"</code> sorts the angles as follows: 0, 45, 90, 135, 180, 225, 270, 315.</li>
 <li><code>"counter-clockwise"</code> is the same, but goes around the other way.</li>
 </ul>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Invert-IntervalArray-L"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Invert-IntervalArray-L" class="m-doc-self">dip::<wbr />Invert</a></span>(
+<span class="m-doc-arg"><a href="dip-Interval.html#dip-IntervalArray" class="m-doc">dip::IntervalArray</a>&amp; array</span>)            </h3>
+            <p>Inverts the intervals in the array, swapping foreground and background pixels. Works correctly
+if intervals in the array share data. However, this function could also affect other intervals not in
+the array, if data is shared.</p>
           </div></section>
         </section>
       </div>

@@ -67,12 +67,12 @@ a buffer with a 32-byte alignment. The buffer is not initialized.</p>
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-AlignedBuffer-AlignedBuffer">
-              <span class="m-doc-wrap-bumper"><a href="#dip-AlignedBuffer-AlignedBuffer" class="m-doc-self">AlignedBuffer</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-AlignedBuffer-AlignedBuffer" class="m-doc">AlignedBuffer</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>A default-initialized buffer is empty.</dd>
-                              <dt id="dip-AlignedBuffer-AlignedBuffer-dip-uint-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-AlignedBuffer-AlignedBuffer-dip-uint-" class="m-doc-self">AlignedBuffer</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size) <span class="m-label m-flat m-info">explicit</span> </span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-AlignedBuffer-AlignedBuffer-dip-uint-" class="m-doc">AlignedBuffer</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>A buffer of size <code>size</code>, uninitialized.</dd>
             </dl>
@@ -80,31 +80,90 @@ a buffer with a 32-byte alignment. The buffer is not initialized.</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-AlignedBuffer-resize-dip-uint-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-AlignedBuffer-resize-dip-uint-" class="m-doc-self">resize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> newsz)</span>
-            </dt>
-            <dd>Change the size of the buffer to <code>size</code>. Data is not preserved.</dd>
-                          <dt id="dip-AlignedBuffer-clear">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-AlignedBuffer-clear" class="m-doc-self">clear</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-success">noexcept</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-AlignedBuffer-clear" class="m-doc">clear</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Free the buffer&rsquo;s memory.</dd>
-                          <dt id="dip-AlignedBuffer-empty-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-empty-C" class="m-doc-self">empty</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-success">noexcept</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-data" class="m-doc">data</a>(</span><span class="m-doc-wrap">) -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>* <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns a pointer to the first byte of the buffer.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-data-C" class="m-doc">data</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a> const* <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd>Returns a pointer to the first byte of the buffer.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-empty-C" class="m-doc">empty</a>(</span><span class="m-doc-wrap">) const -&gt; bool <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>True if the buffer is empty (its size is zero).</dd>
-                          <dt id="dip-AlignedBuffer-size-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-size-C" class="m-doc-self">size</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-success">noexcept</span></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-AlignedBuffer-resize-dip-uint-" class="m-doc">resize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> newsz)</span>
+            </dt>
+            <dd>Change the size of the buffer to <code>size</code>. Data is not preserved.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-size-C" class="m-doc">size</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Returns  the size of the buffer.</dd>
-                          <dt id="dip-AlignedBuffer-data">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-data" class="m-doc-self">data</a>(</span><span class="m-doc-wrap">) -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>* <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns a pointer to the first byte of the buffer.</dd>
-                          <dt id="dip-AlignedBuffer-data-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-AlignedBuffer-data-C" class="m-doc-self">data</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a> const* <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd>Returns a pointer to the first byte of the buffer.</dd>
           </dl>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-AlignedBuffer"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-AlignedBuffer" class="m-doc-self">AlignedBuffer</a></span>(
+) <span class="m-label m-info">defaulted</span>            </h3>
+            <p>A default-initialized buffer is empty.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-AlignedBuffer-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-AlignedBuffer-dip-uint-" class="m-doc-self">AlignedBuffer</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size</span>) <span class="m-label m-info">explicit</span>            </h3>
+            <p>A buffer of size <code>size</code>, uninitialized.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-resize-dip-uint-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-resize-dip-uint-" class="m-doc-self">resize</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> newsz</span>)            </h3>
+            <p>Change the size of the buffer to <code>size</code>. Data is not preserved.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-clear"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-clear" class="m-doc-self">clear</a></span>(
+) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Free the buffer&rsquo;s memory.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-empty-C"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-empty-C" class="m-doc-self">empty</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>True if the buffer is empty (its size is zero).</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-size-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-size-C" class="m-doc-self">size</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns  the size of the buffer.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-data"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a>* </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-data" class="m-doc-self">data</a></span>(
+) <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns a pointer to the first byte of the buffer.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-AlignedBuffer-data-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-uint8" class="m-doc">dip::uint8</a> const* </span>
+              <span class="m-doc-name"><a href="#dip-AlignedBuffer-data-C" class="m-doc-self">data</a></span>(
+) const <span class="m-label m-success">noexcept</span>            </h3>
+            <p>Returns a pointer to the first byte of the buffer.</p>
+          </div></section>
         </section>
       </div>
     </div>

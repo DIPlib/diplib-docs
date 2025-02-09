@@ -64,95 +64,17 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PercentileFilter-Image-CL-Image-L-dfloat--Kernel-CL-StringArray-CL" class="m-doc">dip::<wbr />PercentileFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-AdaptiveBanana-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL" class="m-doc">dip::<wbr />AdaptiveBanana</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; params,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile,
-              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {5.0,1.0},
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; orders = {0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; exponents = {0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::SYMMETRIC_MIRROR)</span>
             </dt>
-            <dd>Applies a percentile filter to <code>in</code>. <a href="#dip-PercentileFilter-Image-CL-Image-L-dfloat--Kernel-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MedianFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL" class="m-doc">dip::<wbr />MedianFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>The median filter, a non-linear smoothing filter. <a href="#dip-MedianFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-VarianceFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL" class="m-doc">dip::<wbr />VarianceFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Computes, for each pixel, the sample variance within a filter window around the pixel. <a href="#dip-VarianceFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-SelectionFilter-Image-CL-Image-CL-Image-L-Kernel-CL-dfloat--String-CL-StringArray-CL" class="m-doc">dip::<wbr />SelectionFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; control,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::MINIMUM,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Selects, for each pixel, a value from within the filter window, where a control image is minimal or maximal. <a href="#dip-SelectionFilter-Image-CL-Image-CL-Image-L-Kernel-CL-dfloat--String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Kuwahara-Image-CL-Image-L-Kernel--dfloat--StringArray-CL" class="m-doc">dip::<wbr />Kuwahara</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> kernel = {},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>The Kuwahara-Nagao operator, a non-linear edge-preserving smoothing filter. <a href="#dip-Kuwahara-Image-CL-Image-L-Kernel--dfloat--StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-NonMaximumSuppression-Image-CL-Image-CL-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />NonMaximumSuppression</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradmag,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradient,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::INTERPOLATE)</span>
-            </dt>
-            <dd>Non-maximum suppression, as used in the Canny edge detector. <a href="#dip-NonMaximumSuppression-Image-CL-Image-CL-Image-CL-Image-L-String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />MoveToLocalMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; bin,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; weights,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
-            </dt>
-            <dd>Given a sparse binary image <code>bin</code>, moves each set pixel to the pixel in the 3x3 neighborhood with
-lowest <code>weight</code>. <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-Image-L">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PeronaMalikDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />PeronaMalikDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss")</span>
-            </dt>
-            <dd>Applies Perona-Malik anisotropic diffusion <a href="#dip-PeronaMalikDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-GaussianAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />GaussianAnisotropicDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss")</span>
-            </dt>
-            <dd>Applies iterative generic anisotropic diffusion using Gaussian derivatives <a href="#dip-GaussianAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-RobustAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat-" class="m-doc">dip::<wbr />RobustAnisotropicDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 10,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25)</span>
-            </dt>
-            <dd>Applies iterative robust anisotropic diffusion <a href="#dip-RobustAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-CoherenceEnhancingDiffusion-Image-CL-Image-L-dfloat--dfloat--dip-uint--StringSet-CL" class="m-doc">dip::<wbr />CoherenceEnhancingDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> derivativeSigma = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularizationSigma = 3,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
-            </dt>
-            <dd>Applies iterative coherence enhancing (anisotropic) diffusion <a href="#dip-CoherenceEnhancingDiffusion-Image-CL-Image-L-dfloat--dfloat--dip-uint--StringSet-CL">more...</a></dd>
+            <dd>Adaptive Gaussian filtering using curvature. <a href="#dip-AdaptiveBanana-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-AdaptiveGauss-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL" class="m-doc">dip::<wbr />AdaptiveGauss</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; params,
@@ -166,17 +88,25 @@ lowest <code>weight</code>. <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-I
             </dt>
             <dd>Adaptive Gaussian filtering. <a href="#dip-AdaptiveGauss-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-AdaptiveBanana-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL" class="m-doc">dip::<wbr />AdaptiveBanana</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; params,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-BilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--String-CL-StringArray-CL" class="m-doc">dip::<wbr />BilateralFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {5.0,1.0},
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; orders = {0},
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; exponents = {0},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::SYMMETRIC_MIRROR)</span>
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "xysep",
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Adaptive Gaussian filtering using curvature. <a href="#dip-AdaptiveBanana-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL">more...</a></dd>
+            <dd>Bilateral filter, convenience function that allows selecting an implementation <a href="#dip-BilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CoherenceEnhancingDiffusion-Image-CL-Image-L-dfloat--dfloat--dip-uint--StringSet-CL" class="m-doc">dip::<wbr />CoherenceEnhancingDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> derivativeSigma = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularizationSigma = 3,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
+            </dt>
+            <dd>Applies iterative coherence enhancing (anisotropic) diffusion <a href="#dip-CoherenceEnhancingDiffusion-Image-CL-Image-L-dfloat--dfloat--dip-uint--StringSet-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-FullBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--StringArray-CL" class="m-doc">dip::<wbr />FullBilateralFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,
@@ -187,6 +117,62 @@ lowest <code>weight</code>. <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-I
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
             <dd>Bilateral filter, brute-force full kernel implementation <a href="#dip-FullBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GaussianAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />GaussianAnisotropicDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss")</span>
+            </dt>
+            <dd>Applies iterative generic anisotropic diffusion using Gaussian derivatives <a href="#dip-GaussianAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Kuwahara-Image-CL-Image-L-Kernel--dfloat--StringArray-CL" class="m-doc">dip::<wbr />Kuwahara</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> kernel = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>The Kuwahara-Nagao operator, a non-linear edge-preserving smoothing filter. <a href="#dip-Kuwahara-Image-CL-Image-L-Kernel--dfloat--StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MedianFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL" class="m-doc">dip::<wbr />MedianFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>The median filter, a non-linear smoothing filter. <a href="#dip-MedianFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />MoveToLocalMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; bin,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; weights,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>Given a sparse binary image <code>bin</code>, moves each set pixel to the pixel in the 3x3 neighborhood with
+lowest <code>weight</code>. <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-NonMaximumSuppression-Image-CL-Image-CL-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />NonMaximumSuppression</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradmag,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradient,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::INTERPOLATE)</span>
+            </dt>
+            <dd>Non-maximum suppression, as used in the Canny edge detector. <a href="#dip-NonMaximumSuppression-Image-CL-Image-CL-Image-CL-Image-L-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PercentileFilter-Image-CL-Image-L-dfloat--Kernel-CL-StringArray-CL" class="m-doc">dip::<wbr />PercentileFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile,
+              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Applies a percentile filter to <code>in</code>. <a href="#dip-PercentileFilter-Image-CL-Image-L-dfloat--Kernel-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PeronaMalikDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />PeronaMalikDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss")</span>
+            </dt>
+            <dd>Applies Perona-Malik anisotropic diffusion <a href="#dip-PeronaMalikDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-QuantizedBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--FloatArray--dfloat--StringArray-CL" class="m-doc">dip::<wbr />QuantizedBilateralFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,
@@ -199,6 +185,24 @@ lowest <code>weight</code>. <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-I
             </dt>
             <dd>Quantized (piecewise linear) bilateral filter <a href="#dip-QuantizedBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--FloatArray--dfloat--StringArray-CL">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-RobustAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat-" class="m-doc">dip::<wbr />RobustAnisotropicDiffusion</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 10,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25)</span>
+            </dt>
+            <dd>Applies iterative robust anisotropic diffusion <a href="#dip-RobustAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-SelectionFilter-Image-CL-Image-CL-Image-L-Kernel-CL-dfloat--String-CL-StringArray-CL" class="m-doc">dip::<wbr />SelectionFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; control,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::MINIMUM,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Selects, for each pixel, a value from within the filter window, where a control image is minimal or maximal. <a href="#dip-SelectionFilter-Image-CL-Image-CL-Image-L-Kernel-CL-dfloat--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-SeparableBilateralFilter-Image-CL-Image-CL-Image-L-BooleanArray-CL-FloatArray--dfloat--dfloat--StringArray-CL" class="m-doc">dip::<wbr />SeparableBilateralFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -210,25 +214,21 @@ lowest <code>weight</code>. <a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-I
             </dt>
             <dd>Separable bilateral filter, a very fast approximation <a href="#dip-SeparableBilateralFilter-Image-CL-Image-CL-Image-L-BooleanArray-CL-FloatArray--dfloat--dfloat--StringArray-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-BilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--String-CL-StringArray-CL" class="m-doc">dip::<wbr />BilateralFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-VarianceFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL" class="m-doc">dip::<wbr />VarianceFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "xysep",
+              <a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Bilateral filter, convenience function that allows selecting an implementation <a href="#dip-BilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--String-CL-StringArray-CL">more...</a></dd>
+            <dd>Computes, for each pixel, the sample variance within a filter window around the pixel. <a href="#dip-VarianceFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-PercentileFilter-Image-CL-Image-L-dfloat--Kernel-CL-StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-PercentileFilter-Image-CL-Image-L-dfloat--Kernel-CL-StringArray-CL" class="m-doc-self">dip::<wbr />PercentileFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile,</span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile, </span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Applies a percentile filter to <code>in</code>.</p>
 <p>Determines the <code>percentile</code> percentile within the filter window, and assigns that value to the output pixel.
 See also <a href="morphology.html#dip-RankFilter-Image-CL-Image-L-StructuringElement-CL-dip-uint--String-CL-StringArray-CL"><code>dip::RankFilter</code></a>, which does the same thing but uses a rank instead of a percentile as input argument.</p>
@@ -238,9 +238,9 @@ shape with corresponding sizes, or through a binary image. See <a href="dip-Kern
           </div></section>
                         <section class="m-doc-details" id="dip-MedianFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-MedianFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL" class="m-doc-self">dip::<wbr />MedianFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>The median filter, a non-linear smoothing filter.</p>
 <p>The size and shape of the filter window is given by <code>kernel</code>, which you can define through a default
 shape with corresponding sizes, or through a binary image. See <a href="dip-Kernel.html"><code>dip::Kernel</code></a>.</p>
@@ -249,9 +249,9 @@ shape with corresponding sizes, or through a binary image. See <a href="dip-Kern
           </div></section>
                         <section class="m-doc-details" id="dip-VarianceFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-VarianceFilter-Image-CL-Image-L-Kernel-CL-StringArray-CL" class="m-doc-self">dip::<wbr />VarianceFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Computes, for each pixel, the sample variance within a filter window around the pixel.</p>
 <p>The size and shape of the filter window is given by <code>kernel</code>, which you can define through a default
 shape with corresponding sizes, or through a binary image. See <a href="dip-Kernel.html"><code>dip::Kernel</code></a>.</p>
@@ -260,9 +260,9 @@ shape with corresponding sizes, or through a binary image. See <a href="dip-Kern
           </div></section>
                         <section class="m-doc-details" id="dip-SelectionFilter-Image-CL-Image-CL-Image-L-Kernel-CL-dfloat--String-CL-StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-SelectionFilter-Image-CL-Image-CL-Image-L-Kernel-CL-dfloat--String-CL-StringArray-CL" class="m-doc-self">dip::<wbr />SelectionFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; control,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::MINIMUM,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; control, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> const&amp; kernel = {}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::MINIMUM, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Selects, for each pixel, a value from within the filter window, where a control image is minimal or maximal.</p>
 <p>For each pixel, within the filter window, looks for the pixel with the lowest value (<code>mode</code> is <code>"minimum"</code>) or
 highest value (<code>mode</code> is <code>"maximum"</code>), and takes the value from <code>in</code> at that location as the output value. To
@@ -298,9 +298,9 @@ the same size, tensor size, and data type as <code>in</code>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Kuwahara-Image-CL-Image-L-Kernel--dfloat--StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Kuwahara-Image-CL-Image-L-Kernel--dfloat--StringArray-CL" class="m-doc-self">dip::<wbr />Kuwahara</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> kernel = {},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Kernel.html" class="m-doc">dip::Kernel</a> kernel = {}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>The Kuwahara-Nagao operator, a non-linear edge-preserving smoothing filter.</p>
 <p>For each pixel, shifts the filtering window such that the variance within the window is minimal, then
 computes the average value as the output. The shift of the window is always such that the pixel under
@@ -339,9 +339,9 @@ If the Kuwahara filter were applied to each channel independently, false colors 
           </div></section>
                         <section class="m-doc-details" id="dip-NonMaximumSuppression-Image-CL-Image-CL-Image-CL-Image-L-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-NonMaximumSuppression-Image-CL-Image-CL-Image-CL-Image-L-String-CL" class="m-doc-self">dip::<wbr />NonMaximumSuppression</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradmag,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradient,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::INTERPOLATE</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradmag, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gradient, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; mode = S::INTERPOLATE</span>)            </h3>
             <p>Non-maximum suppression, as used in the Canny edge detector.</p>
 <p><code>out</code> contains the value of <code>gradmag</code> where <code>gradmag</code> is a local maximum in the orientation
 specified by the vector image <code>gradient</code>. Note that <code>gradmag</code> does not need to be the magnitude
@@ -349,7 +349,7 @@ of <code>gradient</code>, and that only the direction of the vectors (or orienta
 <p><code>gradmag</code> and <code>gradient</code> must be of the same floating-point type (i.e. they are either
 <a href="pixeltypes.html#dip-DT_SFLOAT"><code>dip::DT_SFLOAT</code></a> or <a href="pixeltypes.html#dip-DT_DFLOAT"><code>dip::DT_DFLOAT</code></a>). <code>gradmag</code> must be scalar, and <code>gradient</code> must have as
 many tensor elements as spatial dimensions. In the 1D case, <code>gradient</code> is not used.</p>
-<p>If <code>gradmag</code> is not forged, the magnitude (<a href="numeric.html#dip-Norm-T-dip-uint--ConstSampleIterator&lt;T&gt;-"><code>dip::Norm</code></a>) of <code>gradient</code> is used instead.</p>
+<p>If <code>gradmag</code> is not forged, the magnitude (<a href="numeric.html#dip-Norm-T-dip-uint--ConstSampleIterator%3CT%3E-"><code>dip::Norm</code></a>) of <code>gradient</code> is used instead.</p>
 <p><code>mask</code>, if forged, must be a binary scalar image. Only those pixels are evaluated that are set in <code>mask</code>.</p>
 <p>All three input images (if forged) must have the same spatial dimensions.</p>
 <p><code>mode</code> can be &ldquo;interpolate&rdquo; or &ldquo;round&rdquo;. The interpolating mode is only valid in 2D; the gradient magnitude
@@ -359,9 +359,9 @@ For higher-dimensional images, gradients are always rounded.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-MoveToLocalMinimum-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-MoveToLocalMinimum-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />MoveToLocalMinimum</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; bin,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; weights,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; bin, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; weights, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Given a sparse binary image <code>bin</code>, moves each set pixel to the pixel in the 3x3 neighborhood with
 lowest <code>weight</code>.</p>
 <p>The neighborhood used is 3x3 in 2D, or 3x3x3 in 3D.
@@ -373,9 +373,9 @@ it will not have more. To move pixels over a larger distance, call this function
           </div></section>
                         <section class="m-doc-details" id="dip-PeronaMalikDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-PeronaMalikDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL" class="m-doc-self">dip::<wbr />PeronaMalikDiffusion</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss"</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss"</span>)            </h3>
             <p>Applies Perona-Malik anisotropic diffusion</p>
 <p>Applies <code>iterations</code> steps of the anisotropic diffusion as proposed by Perona and Malik:</p>
 <div class="m-math"><svg style="width: 13.188em; height: 2.895em; vertical-align: 0.122em; " viewBox="128.13 -30.17 131.88 28.95">
@@ -650,9 +650,9 @@ by the <code>K</code> parameter:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-GaussianAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-GaussianAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat--String-CL" class="m-doc-self">dip::<wbr />GaussianAnisotropicDiffusion</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss"</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> K = 10, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; g = "Gauss"</span>)            </h3>
             <p>Applies iterative generic anisotropic diffusion using Gaussian derivatives</p>
 <p>Applies <code>iterations</code> steps of the generic anisotropic diffusion equation:</p>
 <div class="m-math"><svg style="width: 12.312em; height: 1.446em; vertical-align: 0.002em; " viewBox="132.51 -14.48 123.12 14.46">
@@ -915,9 +915,9 @@ gradients as a discretization strategy.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-RobustAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat-"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-RobustAnisotropicDiffusion-Image-CL-Image-L-dip-uint--dfloat--dfloat-" class="m-doc-self">dip::<wbr />RobustAnisotropicDiffusion</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 10,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 10, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 0.25</span>)            </h3>
             <p>Applies iterative robust anisotropic diffusion</p>
 <p>Applies <code>iterations</code> steps of the robust anisotropic diffusion using Tukey&rsquo;s biweight (Black et al., 1998):</p>
 <div class="m-math"><svg style="width: 13.946em; height: 2.730em; vertical-align: 0.123em; " viewBox="124.34 -28.53 139.46 27.3">
@@ -1141,9 +1141,9 @@ gradients as a discretization strategy.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-CoherenceEnhancingDiffusion-Image-CL-Image-L-dfloat--dfloat--dip-uint--StringSet-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-CoherenceEnhancingDiffusion-Image-CL-Image-L-dfloat--dfloat--dip-uint--StringSet-CL" class="m-doc-self">dip::<wbr />CoherenceEnhancingDiffusion</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> derivativeSigma = 1,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularizationSigma = 3,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> derivativeSigma = 1, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> regularizationSigma = 3, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> iterations = 5, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
             <p>Applies iterative coherence enhancing (anisotropic) diffusion</p>
 <p>Applies <code>iterations</code> steps of the coherence enhancing diffusion:</p>
 <div class="m-math"><svg style="width: 12.371em; height: 1.446em; vertical-align: 0.002em; " viewBox="132.21 -14.48 123.71 14.46">
@@ -1710,9 +1710,9 @@ values across the image (as proposed by Lucas van Vliet).</p>
           </div></section>
                         <section class="m-doc-details" id="dip-AdaptiveGauss-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-AdaptiveGauss-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL" class="m-doc-self">dip::<wbr />AdaptiveGauss</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; params,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {5.0,1.0},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; orders = {0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; exponents = {0},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::SYMMETRIC_MIRROR</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; params, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {5.0,1.0}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; orders = {0}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; exponents = {0}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::SYMMETRIC_MIRROR</span>)            </h3>
             <p>Adaptive Gaussian filtering.</p>
 <p>One or more parameter images in the <code>params</code> array control the size and orientation of the Gaussian kernel.
 These images should have the same size as <code>in</code>, or be singleton-expandable to that size.
@@ -1829,9 +1829,9 @@ Currently <code>boundaryCondition</code> can only be <code>"mirror"</code> (defa
           </div></section>
                         <section class="m-doc-details" id="dip-AdaptiveBanana-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-AdaptiveBanana-Image-CL-ImageConstRefArray-CL-Image-L-FloatArray-CL-UnsignedArray-CL-dfloat--UnsignedArray-CL-String-CL-String-CL" class="m-doc-self">dip::<wbr />AdaptiveBanana</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; params,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {5.0,1.0},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; orders = {0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; exponents = {0},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::SYMMETRIC_MIRROR</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; params, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {5.0,1.0}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; orders = {0}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; exponents = {0}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; interpolationMethod = S::LINEAR, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; boundaryCondition = S::SYMMETRIC_MIRROR</span>)            </h3>
             <p>Adaptive Gaussian filtering using curvature.</p>
 <p>One or more parameter images in the <code>params</code> array control the size, orientation and curvature of the Gaussian kernel.
 These images should have the same size as <code>in</code>, or be singleton-expandable to that size.
@@ -1870,9 +1870,9 @@ Currently <code>boundaryCondition</code> can only be <code>"mirror"</code> (defa
           </div></section>
                         <section class="m-doc-details" id="dip-FullBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-FullBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--StringArray-CL" class="m-doc-self">dip::<wbr />FullBilateralFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Bilateral filter, brute-force full kernel implementation</p>
 <p>The bilateral filter is a non-linear edge-preserving smoothing filter. It locally averages input pixels,
 weighting them with both the spatial distance to the origin as well as the intensity difference with the
@@ -1897,9 +1897,9 @@ to the value of the pixel at the origin of the kernel in <code>estimate</code>. 
           </div></section>
                         <section class="m-doc-details" id="dip-QuantizedBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--FloatArray--dfloat--StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-QuantizedBilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--FloatArray--dfloat--StringArray-CL" class="m-doc-self">dip::<wbr />QuantizedBilateralFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> tonalBins = {},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> tonalBins = {}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Quantized (piecewise linear) bilateral filter</p>
 <p>The bilateral filter is a non-linear edge-preserving smoothing filter. It locally averages input pixels,
 weighting them with both the spatial distance to the origin as well as the intensity difference with the
@@ -1926,9 +1926,9 @@ to the value of the pixel at the origin of the kernel in <code>estimate</code>. 
           </div></section>
                         <section class="m-doc-details" id="dip-SeparableBilateralFilter-Image-CL-Image-CL-Image-L-BooleanArray-CL-FloatArray--dfloat--dfloat--StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-SeparableBilateralFilter-Image-CL-Image-CL-Image-L-BooleanArray-CL-FloatArray--dfloat--dfloat--StringArray-CL" class="m-doc-self">dip::<wbr />SeparableBilateralFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> const&amp; process = {},</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> const&amp; process = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Separable bilateral filter, a very fast approximation</p>
 <p>The bilateral filter is a non-linear edge-preserving smoothing filter. It locally averages input pixels,
 weighting them with both the spatial distance to the origin as well as the intensity difference with the
@@ -1956,9 +1956,9 @@ to the value of the pixel at the origin of the kernel in <code>estimate</code>. 
           </div></section>
                         <section class="m-doc-details" id="dip-BilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--String-CL-StringArray-CL"><div>
             <h3>
-              <span class="m-doc-return">void</span>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-BilateralFilter-Image-CL-Image-CL-Image-L-FloatArray--dfloat--dfloat--String-CL-StringArray-CL" class="m-doc-self">dip::<wbr />BilateralFilter</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "xysep",</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; estimate, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> spatialSigmas = {2.0}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> tonalSigma = 30.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> truncation = 2.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = "xysep", </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {}</span>)            </h3>
             <p>Bilateral filter, convenience function that allows selecting an implementation</p>
 <p>The <code>method</code> can be set to one of the following:</p>
 <ul>

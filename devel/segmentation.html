@@ -80,15 +80,141 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-" class="m-doc">dip::<wbr />Watershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-BackgroundThreshold-Image-CL-Image-CL-Image-L-dfloat--dfloat-" class="m-doc">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Thresholds the image <code>in</code> using the unimodal background-symmetry method, and the histogram of <code>in</code>. <a href="#dip-BackgroundThreshold-Image-CL-Image-CL-Image-L-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Canny-Image-CL-Image-L-FloatArray-CL-dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />Canny</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {1},
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lower = 0.5,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upper = 0.9,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; selection = S::ALL)</span>
+            </dt>
+            <dd>Detect edges in the grey-value image by finding salient ridges in the gradient magnitude <a href="#dip-Canny-Image-CL-Image-L-FloatArray-CL-dfloat--dfloat--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL" class="m-doc">dip::<wbr />CompactWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> flags = {})</span>
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
             </dt>
-            <dd>Computes the watershed of <code>in</code> within <code>mask</code>, with on-line merging of regions. <a href="#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-">more...</a></dd>
+            <dd>Computes the compact watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>. <a href="#dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-FixedThreshold-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />FixedThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Thresholds an image at the <code>threshold</code> value. <a href="#dip-FixedThreshold-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-GaussianMixtureModelThreshold-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />GaussianMixtureModelThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Thresholds the image <code>in</code> using <code>nThresholds</code> thresholds, determined by fitting a Gaussian Mixture
+Model to the histogram of <code>in</code>. <a href="#dip-GaussianMixtureModelThreshold-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-GraphCut-Image-CL-Image-CL-Image-L-dfloat--dfloat--dfloat-" class="m-doc">dip::<wbr />GraphCut</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; markers,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 30.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma = 0.0)</span>
+            </dt>
+            <dd>Graph-cut segmentation <a href="#dip-GraphCut-Image-CL-Image-CL-Image-L-dfloat--dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-HysteresisThreshold-Image-CL-Image-L-dfloat--dfloat-" class="m-doc">dip::<wbr />HysteresisThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowThreshold,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> highThreshold)</span>
+            </dt>
+            <dd>Hysteresis threshold. <a href="#dip-HysteresisThreshold-Image-CL-Image-L-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-IsodataThreshold-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />IsodataThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Thresholds the image <code>in</code> using <code>nThresholds</code> thresholds, determined using the Isodata algorithm
+(k-means clustering), and the histogram of <code>in</code>. <a href="#dip-IsodataThreshold-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-KMeansClustering-Image-CL-Image-L-Random-L-dip-uint-" class="m-doc">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+            </dt>
+            <dd>Applies k-means clustering to an image, yielding <code>nClusters</code> labeled regions. <a href="#dip-KMeansClustering-Image-CL-Image-L-Random-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-KMeansClustering-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+            </dt>
+            <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Maxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks local maxima. <a href="#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Minima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Minima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks local minima. <a href="#dip-Minima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MinimumErrorThreshold-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />MinimumErrorThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Thresholds the image <code>in</code> using the minimal error method by Kittler and Illingworth, and the histogram of <code>in</code>. <a href="#dip-MinimumErrorThreshold-Image-CL-Image-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MinimumVariancePartitioning-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />MinimumVariancePartitioning</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+            </dt>
+            <dd>Spatially partitions an image into <code>nClusters</code> partitions iteratively, minimizing the variance
+of the partitions. <a href="#dip-MinimumVariancePartitioning-Image-CL-Image-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-MultipleThresholds-Image-CL-Image-L-FloatArray-CL" class="m-doc">dip::<wbr />MultipleThresholds</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; thresholds)</span>
+            </dt>
+            <dd>Thresholds an image at multiple values, yielding a labeled image. <a href="#dip-MultipleThresholds-Image-CL-Image-L-FloatArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-OtsuThreshold-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />OtsuThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Thresholds the image <code>in</code> using the maximal inter-class variance method by Otsu, and the histogram of <code>in</code>. <a href="#dip-OtsuThreshold-Image-CL-Image-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-PerObjectEllipsoidFit-Image-CL-Image-L-PerObjectEllipsoidFitParameters-CL" class="m-doc">dip::<wbr />PerObjectEllipsoidFit</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="segmentation.html#dip-PerObjectEllipsoidFitParameters" class="m-doc">dip::PerObjectEllipsoidFitParameters</a> const&amp; parameters)</span>
+            </dt>
+            <dd>Finds a per-object threshold such that found objects are maximally ellipsoidal. <a href="#dip-PerObjectEllipsoidFit-Image-CL-Image-L-PerObjectEllipsoidFitParameters-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-RangeThreshold-Image-CL-Image-L-dfloat--dfloat--String-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />RangeThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0)</span>
+            </dt>
+            <dd>Thresholds an image at two values, equivalent to <code>lowerBound &lt;= in &amp;&amp; in &lt;= upperBound</code>. <a href="#dip-RangeThreshold-Image-CL-Image-L-dfloat--dfloat--String-CL-dfloat--dfloat-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL" class="m-doc">dip::<wbr />SeededWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
@@ -101,16 +227,6 @@
             </dt>
             <dd>Computes the watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>, with on-line merging of regions. <a href="#dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL" class="m-doc">dip::<wbr />CompactWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
-              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {})</span>
-            </dt>
-            <dd>Computes the compact watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>. <a href="#dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
@@ -121,7 +237,7 @@
             </dt>
             <dd>Computes the stochastic watershed of <code>in</code>. <a href="#dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-StochasticWatershed-Image-CL-Image-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc-self">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-StochasticWatershed-Image-CL-Image-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc">dip::<wbr />StochasticWatershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,
@@ -129,166 +245,6 @@
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL)</span>
             </dt>
             <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks significant local minima. <a href="#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks significant local maxima. <a href="#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Minima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Minima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks local minima. <a href="#dip-Minima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />Maxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Marks local maxima. <a href="#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-KMeansClustering-Image-CL-Image-L-Random-L-dip-uint-" class="m-doc">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
-            </dt>
-            <dd>Applies k-means clustering to an image, yielding <code>nClusters</code> labeled regions. <a href="#dip-KMeansClustering-Image-CL-Image-L-Random-L-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-KMeansClustering-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
-            </dt>
-            <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MinimumVariancePartitioning-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />MinimumVariancePartitioning</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
-            </dt>
-            <dd>Spatially partitions an image into <code>nClusters</code> partitions iteratively, minimizing the variance
-of the partitions. <a href="#dip-MinimumVariancePartitioning-Image-CL-Image-L-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-IsodataThreshold-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />IsodataThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Thresholds the image <code>in</code> using <code>nThresholds</code> thresholds, determined using the Isodata algorithm
-(k-means clustering), and the histogram of <code>in</code>. <a href="#dip-IsodataThreshold-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-OtsuThreshold-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />OtsuThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Thresholds the image <code>in</code> using the maximal inter-class variance method by Otsu, and the histogram of <code>in</code>. <a href="#dip-OtsuThreshold-Image-CL-Image-CL-Image-L">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MinimumErrorThreshold-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />MinimumErrorThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Thresholds the image <code>in</code> using the minimal error method by Kittler and Illingworth, and the histogram of <code>in</code>. <a href="#dip-MinimumErrorThreshold-Image-CL-Image-CL-Image-L">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-GaussianMixtureModelThreshold-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />GaussianMixtureModelThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Thresholds the image <code>in</code> using <code>nThresholds</code> thresholds, determined by fitting a Gaussian Mixture
-Model to the histogram of <code>in</code>. <a href="#dip-GaussianMixtureModelThreshold-Image-CL-Image-CL-Image-L-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-TriangleThreshold-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Thresholds the image <code>in</code> using the chord method (a.k.a. skewed bi-modality, maximum distance to triangle),
-and the histogram of <code>in</code>. <a href="#dip-TriangleThreshold-Image-CL-Image-CL-Image-L-dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-BackgroundThreshold-Image-CL-Image-CL-Image-L-dfloat--dfloat-" class="m-doc">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Thresholds the image <code>in</code> using the unimodal background-symmetry method, and the histogram of <code>in</code>. <a href="#dip-BackgroundThreshold-Image-CL-Image-CL-Image-L-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-VolumeThreshold-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc">dip::<wbr />VolumeThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> volumeFraction = 0.5) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Thresholds an image such that a fraction <code>volumeFraction</code> of pixels is foreground. <a href="#dip-VolumeThreshold-Image-CL-Image-CL-Image-L-dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-FixedThreshold-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />FixedThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
-            </dt>
-            <dd>Thresholds an image at the <code>threshold</code> value. <a href="#dip-FixedThreshold-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-RangeThreshold-Image-CL-Image-L-dfloat--dfloat--String-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />RangeThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0)</span>
-            </dt>
-            <dd>Thresholds an image at two values, equivalent to <code>lowerBound &lt;= in &amp;&amp; in &lt;= upperBound</code>. <a href="#dip-RangeThreshold-Image-CL-Image-L-dfloat--dfloat--String-CL-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-HysteresisThreshold-Image-CL-Image-L-dfloat--dfloat-" class="m-doc">dip::<wbr />HysteresisThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowThreshold,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> highThreshold)</span>
-            </dt>
-            <dd>Hysteresis threshold. <a href="#dip-HysteresisThreshold-Image-CL-Image-L-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-MultipleThresholds-Image-CL-Image-L-FloatArray-CL" class="m-doc">dip::<wbr />MultipleThresholds</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; thresholds)</span>
-            </dt>
-            <dd>Thresholds an image at multiple values, yielding a labeled image. <a href="#dip-MultipleThresholds-Image-CL-Image-L-FloatArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Threshold-Image-CL-Image-CL-Image-L-String-CL-dfloat-" class="m-doc">dip::<wbr />Threshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::OTSU,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = infinity) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Automated threshold using <code>method</code>. <a href="#dip-Threshold-Image-CL-Image-CL-Image-L-String-CL-dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-PerObjectEllipsoidFit-Image-CL-Image-L-PerObjectEllipsoidFitParameters-CL" class="m-doc">dip::<wbr />PerObjectEllipsoidFit</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="segmentation.html#dip-PerObjectEllipsoidFitParameters" class="m-doc">dip::PerObjectEllipsoidFitParameters</a> const&amp; parameters)</span>
-            </dt>
-            <dd>Finds a per-object threshold such that found objects are maximally ellipsoidal. <a href="#dip-PerObjectEllipsoidFit-Image-CL-Image-L-PerObjectEllipsoidFitParameters-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Canny-Image-CL-Image-L-FloatArray-CL-dfloat--dfloat--String-CL" class="m-doc">dip::<wbr />Canny</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {1},
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lower = 0.5,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upper = 0.9,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; selection = S::ALL)</span>
-            </dt>
-            <dd>Detect edges in the grey-value image by finding salient ridges in the gradient magnitude <a href="#dip-Canny-Image-CL-Image-L-FloatArray-CL-dfloat--dfloat--String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Superpixels-Image-CL-Image-L-Random-L-dfloat--dfloat--String-CL-StringSet-CL" class="m-doc">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -300,7 +256,7 @@ and the histogram of <code>in</code>. <a href="#dip-TriangleThreshold-Image-CL-I
             </dt>
             <dd>Generates superpixels (oversegmentation) <a href="#dip-Superpixels-Image-CL-Image-L-Random-L-dfloat--dfloat--String-CL-StringSet-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Superpixels-Image-CL-Image-L-dfloat--dfloat--String-CL-StringSet-CL" class="m-doc-self">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Superpixels-Image-CL-Image-L-dfloat--dfloat--String-CL-StringSet-CL" class="m-doc">dip::<wbr />Superpixels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,
@@ -309,22 +265,66 @@ and the histogram of <code>in</code>. <a href="#dip-TriangleThreshold-Image-CL-I
             </dt>
             <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-GraphCut-Image-CL-Image-CL-Image-L-dfloat--dfloat--dfloat-" class="m-doc">dip::<wbr />GraphCut</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; markers,
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Threshold-Image-CL-Image-CL-Image-L-String-CL-dfloat-" class="m-doc">dip::<wbr />Threshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 30.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 1.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma = 0.0)</span>
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::OTSU,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = infinity) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Graph-cut segmentation <a href="#dip-GraphCut-Image-CL-Image-CL-Image-L-dfloat--dfloat--dfloat-">more...</a></dd>
+            <dd>Automated threshold using <code>method</code>. <a href="#dip-Threshold-Image-CL-Image-CL-Image-L-String-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-TriangleThreshold-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Thresholds the image <code>in</code> using the chord method (a.k.a. skewed bi-modality, maximum distance to triangle),
+and the histogram of <code>in</code>. <a href="#dip-TriangleThreshold-Image-CL-Image-CL-Image-L-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-VolumeThreshold-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc">dip::<wbr />VolumeThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> volumeFraction = 0.5) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Thresholds an image such that a fraction <code>volumeFraction</code> of pixels is foreground. <a href="#dip-VolumeThreshold-Image-CL-Image-CL-Image-L-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-" class="m-doc">dip::<wbr />Watershed</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
+              <a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> flags = {})</span>
+            </dt>
+            <dd>Computes the watershed of <code>in</code> within <code>mask</code>, with on-line merging of regions. <a href="#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks significant local maxima. <a href="#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc">dip::<wbr />WatershedMinima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY)</span>
+            </dt>
+            <dd>Marks significant local minima. <a href="#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL">more...</a></dd>
           </dl>
         </section>
         <section>
             <h2>Class documentation</h2>
                           <section class="m-doc-details" id="dip-PerObjectEllipsoidFitParameters"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              struct <span class="m-doc-name"><a href="#dip-PerObjectEllipsoidFitParameters" class="m-doc-self">dip::<wbr />PerObjectEllipsoidFitParameters</a></span>            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">struct </span><span class="m-doc-name"><a href="#dip-PerObjectEllipsoidFitParameters" class="m-doc-self">dip::<wbr />PerObjectEllipsoidFitParameters</a></span>            </h3>
             <p>Defines the parameters for the <code>PerObjectEllipsoidFit</code> function.</p>
             <table class="m-table m-fullwidth m-first-tight m-flat m-doc">
               <thead><tr><th>Variables</th><th></th></tr></thead>
@@ -386,10 +386,10 @@ and the histogram of <code>in</code>. <a href="#dip-TriangleThreshold-Image-CL-I
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-" class="m-doc-self">dip::<wbr />Watershed</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> flags = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> flags = {}</span>)            </h3>
             <p>Computes the watershed of <code>in</code> within <code>mask</code>, with on-line merging of regions.</p>
 <p>The watershed is a segmentation algorithm that divides the image according to its grey-value
 ridges.</p>
@@ -455,10 +455,10 @@ merging. But note that, due to the way that the region seeds are computed (<a hr
           </div></section>
                         <section class="m-doc-details" id="dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-SeededWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-CL" class="m-doc-self">dip::<wbr />SeededWatershed</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
             <p>Computes the watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>, with on-line merging of regions.</p>
 <p><code>seeds</code> is a binary or labeled image (if binary, it is labeled using <code>connectivity</code>). These labels are
 iteratively expanded in the watershed order (i.e. pixels that have a low value in <code>in</code> go first) until
@@ -494,10 +494,10 @@ additions:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-CompactWatershed-Image-CL-Image-CL-Image-CL-Image-L-dip-uint--dfloat--StringSet-CL" class="m-doc-self">dip::<wbr />CompactWatershed</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; seeds, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
             <p>Computes the compact watershed of <code>in</code> within <code>mask</code>, starting at <code>seeds</code>.</p>
 <p><code>seeds</code> is a binary or labeled image (if binary, it is labeled using <code>connectivity</code>). These labels are
 iteratively expanded in the watershed order (i.e. pixels that have a low value in <code>in</code> go first), modified
@@ -524,10 +524,10 @@ on the connectivity parameter.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-StochasticWatershed-Image-CL-Image-L-Random-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc-self">dip::<wbr />StochasticWatershed</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL</span>)            </h3>
             <p>Computes the stochastic watershed of <code>in</code>.</p>
 <p>The stochastic watershed is computed by applying a watershed with randomly placed seeds <code>nIterations</code> times,
 and adding the results. The output is an image where each pixel&rsquo;s value is the likelihood that it belongs to
@@ -571,18 +571,18 @@ is computed.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-StochasticWatershed-Image-CL-Image-L-dip-uint--dip-uint--dfloat--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-StochasticWatershed-Image-CL-Image-L-dip-uint--dip-uint--dfloat--String-CL" class="m-doc-self">dip::<wbr />StochasticWatershed</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nSeeds = 100, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nIterations = 50, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> noise = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; seeds = S::HEXAGONAL</span>)            </h3>
             <p>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-WatershedMinima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc-self">dip::<wbr />WatershedMinima</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
             <p>Marks significant local minima.</p>
 <p>This algorithm works exactly like <a href="segmentation.html#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-"><code>dip::Watershed</code></a> with the <code>"fast"</code> flag set. All pixels with a value
 equal to the lowest value within each watershed basin form a local minimum. Note that they can form
@@ -598,10 +598,10 @@ a labeled image.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-WatershedMaxima-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--String-CL" class="m-doc-self">dip::<wbr />WatershedMaxima</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 1, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> maxDepth = 1, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> maxSize = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
             <p>Marks significant local maxima.</p>
 <p>This algorithm works exactly like <a href="segmentation.html#dip-Watershed-Image-CL-Image-CL-Image-L-dip-uint--dfloat--dip-uint--StringSet-"><code>dip::Watershed</code></a> with the <code>"fast"</code> flag set. All pixels with a value
 equal to the highest value within each watershed basin form a local maximum. Note that they can form
@@ -617,10 +617,10 @@ a labeled image.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Minima-Image-CL-Image-L-dip-uint--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Minima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc-self">dip::<wbr />Minima</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
             <p>Marks local minima.</p>
 <p>This algorithm finds single pixels or plateaus (connected groups of pixels with identical value) that are
 surrounded by pixels with a higher value. If <code>output</code> is <code>"binary"</code>, the result is a binary image where these
@@ -633,10 +633,10 @@ pixels and plateaus are set. If <code>output</code> is <code>"labels"</code>, th
           </div></section>
                         <section class="m-doc-details" id="dip-Maxima-Image-CL-Image-L-dip-uint--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--morphology-h.html">"diplib/morphology.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Maxima-Image-CL-Image-L-dip-uint--String-CL" class="m-doc-self">dip::<wbr />Maxima</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> connectivity = 0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
             <p>Marks local maxima.</p>
 <p>This algorithm finds single pixels or plateaus (connected groups of pixels with identical value) that are
 surrounded by pixels with a lower value. If <code>output</code> is <code>"binary"</code>, the result is a binary image where these
@@ -649,10 +649,10 @@ pixels and plateaus are set. If <code>output</code> is <code>"labels"</code>, th
           </div></section>
                         <section class="m-doc-details" id="dip-KMeansClustering-Image-CL-Image-L-Random-L-dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> </span>
               <span class="m-doc-name"><a href="#dip-KMeansClustering-Image-CL-Image-L-Random-L-dip-uint-" class="m-doc-self">dip::<wbr />KMeansClustering</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2</span>)            </h3>
             <p>Applies k-means clustering to an image, yielding <code>nClusters</code> labeled regions.</p>
 <p><code>in</code> is a scalar, real-valued image. <code>nClusters</code> cluster centers are found, centered on regions
 of high intensity. <code>out</code> is a labeled image with <code>nClusters</code> regions tiling the image. Each
@@ -668,18 +668,18 @@ Element <code>i</code> in this array corresponds to label <code>i+1</code>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-KMeansClustering-Image-CL-Image-L-dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> </span>
               <span class="m-doc-name"><a href="#dip-KMeansClustering-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />KMeansClustering</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2</span>)            </h3>
             <p>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-MinimumVariancePartitioning-Image-CL-Image-L-dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> </span>
               <span class="m-doc-name"><a href="#dip-MinimumVariancePartitioning-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />MinimumVariancePartitioning</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2</span>)            </h3>
             <p>Spatially partitions an image into <code>nClusters</code> partitions iteratively, minimizing the variance
 of the partitions.</p>
 <p>Minimum variance partitioning builds a k-d tree, where, for each node, one orthogonal projection
@@ -697,10 +697,10 @@ can be made, in which case the output array has fewer elements.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-IsodataThreshold-Image-CL-Image-CL-Image-L-dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
               <span class="m-doc-name"><a href="#dip-IsodataThreshold-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />IsodataThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1</span>)            </h3>
             <p>Thresholds the image <code>in</code> using <code>nThresholds</code> thresholds, determined using the Isodata algorithm
 (k-means clustering), and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the Isodata algorithm is applied,
@@ -711,10 +711,10 @@ but the threshold is applied to the whole image. <code>in</code> must be scalar 
           </div></section>
                         <section class="m-doc-details" id="dip-OtsuThreshold-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-OtsuThreshold-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />OtsuThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Thresholds the image <code>in</code> using the maximal inter-class variance method by Otsu, and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
@@ -723,10 +723,10 @@ is applied, but the threshold is applied to the whole image. <code>in</code> mus
           </div></section>
                         <section class="m-doc-details" id="dip-MinimumErrorThreshold-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-MinimumErrorThreshold-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />MinimumErrorThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Thresholds the image <code>in</code> using the minimal error method by Kittler and Illingworth, and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
@@ -735,10 +735,10 @@ is applied, but the threshold is applied to the whole image. <code>in</code> mus
           </div></section>
                         <section class="m-doc-details" id="dip-GaussianMixtureModelThreshold-Image-CL-Image-CL-Image-L-dip-uint-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
               <span class="m-doc-name"><a href="#dip-GaussianMixtureModelThreshold-Image-CL-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />GaussianMixtureModelThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1</span>)            </h3>
             <p>Thresholds the image <code>in</code> using <code>nThresholds</code> thresholds, determined by fitting a Gaussian Mixture
 Model to the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the Gaussian Mixture Model
@@ -749,10 +749,10 @@ algorithm is applied, but the threshold is applied to the whole image. <code>in<
           </div></section>
                         <section class="m-doc-details" id="dip-TriangleThreshold-Image-CL-Image-CL-Image-L-dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-TriangleThreshold-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc-self">dip::<wbr />TriangleThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0</span>)            </h3>
             <p>Thresholds the image <code>in</code> using the chord method (a.k.a. skewed bi-modality, maximum distance to triangle),
 and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
@@ -763,10 +763,10 @@ parameter.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-BackgroundThreshold-Image-CL-Image-CL-Image-L-dfloat--dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-BackgroundThreshold-Image-CL-Image-CL-Image-L-dfloat--dfloat-" class="m-doc-self">dip::<wbr />BackgroundThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0</span>)            </h3>
             <p>Thresholds the image <code>in</code> using the unimodal background-symmetry method, and the histogram of <code>in</code>.</p>
 <p>Only those pixels in <code>mask</code> are used to determine the histogram on which the threshold estimation algorithm
 is applied, but the threshold is applied to the whole image. <code>in</code> must be scalar and real-valued.</p>
@@ -776,10 +776,10 @@ and the <code>sigma</code> parameter.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-VolumeThreshold-Image-CL-Image-CL-Image-L-dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-VolumeThreshold-Image-CL-Image-CL-Image-L-dfloat-" class="m-doc-self">dip::<wbr />VolumeThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> volumeFraction = 0.5</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> volumeFraction = 0.5</span>)            </h3>
             <p>Thresholds an image such that a fraction <code>volumeFraction</code> of pixels is foreground.</p>
 <p>Only pixels within <code>mask</code> are used to determine the threshold value, but the threshold is applied to the
 whole image. <code>in</code> must be scalar and real-valued.</p>
@@ -787,10 +787,10 @@ whole image. <code>in</code> must be scalar and real-valued.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-FixedThreshold-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-FixedThreshold-Image-CL-Image-L-dfloat--dfloat--dfloat--String-CL" class="m-doc-self">dip::<wbr />FixedThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY</span>)            </h3>
             <p>Thresholds an image at the <code>threshold</code> value.</p>
 <p>If <code>output</code> is <code>"binary"</code> (the default), <code>FixedThreshold</code> will produce a binary image. Otherwise an
 image of the same type as the input image is produced, with the pixels set to either
@@ -808,10 +808,10 @@ image of the same type as the input image is produced, with the pixels set to ei
           </div></section>
                         <section class="m-doc-details" id="dip-RangeThreshold-Image-CL-Image-L-dfloat--dfloat--String-CL-dfloat--dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-RangeThreshold-Image-CL-Image-L-dfloat--dfloat--String-CL-dfloat--dfloat-" class="m-doc-self">dip::<wbr />RangeThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowerBound, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upperBound, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; output = S::BINARY, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> foreground = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> background = 0.0</span>)            </h3>
             <p>Thresholds an image at two values, equivalent to <code>lowerBound &lt;= in &amp;&amp; in &lt;= upperBound</code>.</p>
 <p>If <code>output</code> is <code>"binary"</code> (the default), <code>RangeThreshold</code> will produce a binary image. If <code>foreground == 0.0</code>,
 foreground will be set to <code>false</code> and background to <code>true</code>, otherwise the foreground will be <code>true</code> (this is the
@@ -830,10 +830,10 @@ applied:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-HysteresisThreshold-Image-CL-Image-L-dfloat--dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-HysteresisThreshold-Image-CL-Image-L-dfloat--dfloat-" class="m-doc-self">dip::<wbr />HysteresisThreshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowThreshold,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> highThreshold</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lowThreshold, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> highThreshold</span>)            </h3>
             <p>Hysteresis threshold.</p>
 <p>From the binary image <code>in &gt;= lowThreshold</code> only those connected regions are selected for which at least one
 location also has <code>in &gt;= highThreshold</code>.</p>
@@ -842,10 +842,10 @@ location also has <code>in &gt;= highThreshold</code>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-MultipleThresholds-Image-CL-Image-L-FloatArray-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-MultipleThresholds-Image-CL-Image-L-FloatArray-CL" class="m-doc-self">dip::<wbr />MultipleThresholds</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; thresholds</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; thresholds</span>)            </h3>
             <p>Thresholds an image at multiple values, yielding a labeled image.</p>
 <p><code>out</code> will be a <a href="pixeltypes.html#dip-DT_UINT8"><code>dip::DT_UINT8</code></a>, <a href="pixeltypes.html#dip-DT_UINT16"><code>dip::DT_UINT16</code></a>, <a href="pixeltypes.html#dip-DT_UINT32"><code>dip::DT_UINT32</code></a> or <a href="pixeltypes.html#dip-DT_UINT64"><code>dip::DT_UINT64</code></a> image, depending on the length
 of <code>thresholds</code>. All pixels below <code>thresholds[ 0 ]</code> with be assigned the label 0, all pixels greater or
@@ -855,10 +855,10 @@ not be as expected if thresholds are not sorted.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Threshold-Image-CL-Image-CL-Image-L-String-CL-dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
               <span class="m-doc-name"><a href="#dip-Threshold-Image-CL-Image-CL-Image-L-String-CL-dfloat-" class="m-doc-self">dip::<wbr />Threshold</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::OTSU,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = infinity</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::OTSU, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> parameter = infinity</span>)            </h3>
             <p>Automated threshold using <code>method</code>.</p>
 <p>This function computes an optimal threshold value for <code>in</code> using <code>method</code>, and applies it. Returns the found
 threshold value. <code>in</code> must be scalar and real-valued. <code>mask</code> can optionally select the pixels used to determine
@@ -883,10 +883,10 @@ the threshold value. The threshold is applied to the image as a whole, you can c
           </div></section>
                         <section class="m-doc-details" id="dip-PerObjectEllipsoidFit-Image-CL-Image-L-PerObjectEllipsoidFitParameters-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-PerObjectEllipsoidFit-Image-CL-Image-L-PerObjectEllipsoidFitParameters-CL" class="m-doc-self">dip::<wbr />PerObjectEllipsoidFit</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="segmentation.html#dip-PerObjectEllipsoidFitParameters" class="m-doc">dip::PerObjectEllipsoidFitParameters</a> const&amp; parameters</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="segmentation.html#dip-PerObjectEllipsoidFitParameters" class="m-doc">dip::PerObjectEllipsoidFitParameters</a> const&amp; parameters</span>)            </h3>
             <p>Finds a per-object threshold such that found objects are maximally ellipsoidal.</p>
 <p>This function thresholds the image such that all objects found are approximately ellipsoidal, within the bounds expressed
 by <code>parameters</code>. Each object is thresholded at a different level, chosen to maximize its fit to an ellipsoid. The measure
@@ -904,10 +904,10 @@ determining the ellipsoid with the same second order central moments as the obje
           </div></section>
                         <section class="m-doc-details" id="dip-Canny-Image-CL-Image-L-FloatArray-CL-dfloat--dfloat--String-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Canny-Image-CL-Image-L-FloatArray-CL-dfloat--dfloat--String-CL" class="m-doc-self">dip::<wbr />Canny</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {1},</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lower = 0.5,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upper = 0.9,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; selection = S::ALL</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {1}, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lower = 0.5, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> upper = 0.9, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; selection = S::ALL</span>)            </h3>
             <p>Detect edges in the grey-value image by finding salient ridges in the gradient magnitude</p>
 <p>The Canny edge detector finds the ridges in the gradient magnitude of <code>in</code>, which correspond to the
 edges in the image. The gradient magnitude (see <a href="linear.html#dip-GradientMagnitude-Image-CL-Image-L-FloatArray--String-CL-StringArray-CL-BooleanArray--dfloat-"><code>dip::GradientMagnitude</code></a>) is computed using
@@ -941,10 +941,10 @@ only applied in 2D and 3D, since <a href="binary.html#dip-EuclideanSkeleton-Imag
           </div></section>
                         <section class="m-doc-details" id="dip-Superpixels-Image-CL-Image-L-Random-L-dfloat--dfloat--String-CL-StringSet-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Superpixels-Image-CL-Image-L-Random-L-dfloat--dfloat--String-CL-StringSet-CL" class="m-doc-self">dip::<wbr />Superpixels</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Random.html" class="m-doc">dip::Random</a>&amp; random, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
             <p>Generates superpixels (oversegmentation)</p>
 <p><code>density</code> indicates how many superpixels, on average, should be created. It is given in superpixels per pixel.
 That is, <code>1/density</code> is the average size of the superpixels.</p>
@@ -983,18 +983,18 @@ segmentation, such as CIE Lab.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Superpixels-Image-CL-Image-L-dfloat--dfloat--String-CL-StringSet-CL"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-Superpixels-Image-CL-Image-L-dfloat--dfloat--String-CL-StringSet-CL" class="m-doc-self">dip::<wbr />Superpixels</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW,</span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> density = 0.005, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> compactness = 1.0, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; method = S::CW, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-StringSet" class="m-doc">dip::StringSet</a> const&amp; flags = {}</span>)            </h3>
             <p>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-GraphCut-Image-CL-Image-CL-Image-L-dfloat--dfloat--dfloat-"><div>
             <h3>
-              <div class="m-doc-include m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
-              <span class="m-doc-return">void</span>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--segmentation-h.html">"diplib/segmentation.h"</a></div>
+              <span class="m-doc-return">void </span>
               <span class="m-doc-name"><a href="#dip-GraphCut-Image-CL-Image-CL-Image-L-dfloat--dfloat--dfloat-" class="m-doc-self">dip::<wbr />GraphCut</a></span>(
-<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; markers,</span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 30.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 1.0,</span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma = 0.0</span>)            </h3>
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; markers, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 30.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> lambda = 1.0, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> gamma = 0.0</span>)            </h3>
             <p>Graph-cut segmentation</p>
 <p>Applies the graph-cut segmentation algorithm to the image <code>in</code> as described by Boykov and Jolly (2001).
 Pixels in <code>markers</code> with the value 1 are determined by the called to be object pixels; pixels

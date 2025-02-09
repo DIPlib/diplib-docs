@@ -76,58 +76,28 @@ See <a href="histograms.html">Histograms</a>.</p>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-CumulativeHistogram-Histogram-CL" class="m-doc-self">dip::<wbr />CumulativeHistogram</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-BackgroundThreshold-Histogram-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Computes a cumulative histogram from <code>in</code>. See <a href="dip-Histogram.html#dip-Histogram-Cumulative"><code>dip::Histogram::Cumulative</code></a>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Smooth-Histogram-CL-FloatArray-CL" class="m-doc-self">dip::<wbr />Smooth</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigma) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
-            </dt>
-            <dd>Returns a smoothed version of the histogram <code>in</code>. See <a href="dip-Histogram.html#dip-Histogram-Smooth-FloatArray-"><code>dip::Histogram::Smooth</code></a>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Smooth-Histogram-CL-dfloat-" class="m-doc-self">dip::<wbr />Smooth</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
-            </dt>
-            <dd>Returns a smoothed version of the histogram <code>in</code>. See <a href="dip-Histogram.html#dip-Histogram-Smooth-FloatArray-"><code>dip::Histogram::Smooth</code></a>.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Mean-Histogram-CL" class="m-doc">dip::<wbr />Mean</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Computes the mean value of the data represented by the histogram. <a href="histograms.html#dip-Mean-Histogram-CL">more...</a></dd>
+            <dd>Determines a threshold using the unimodal background-symmetry method, and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-BackgroundThreshold-Histogram-CL-dfloat--dfloat-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Covariance-Histogram-CL" class="m-doc">dip::<wbr />Covariance</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
             <dd>Computes the covariance matrix of the data represented by the histogram. <a href="histograms.html#dip-Covariance-Histogram-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MarginalPercentile-Histogram-CL-dfloat-" class="m-doc">dip::<wbr />MarginalPercentile</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile = 50) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-CumulativeHistogram-Histogram-CL" class="m-doc">dip::<wbr />CumulativeHistogram</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
-            <dd>Computes the marginal percentile value of the data represented by the histogram. The marginal percentile
-is a percentile computed independently on each dimension, and thus is not one of the input values. <a href="histograms.html#dip-MarginalPercentile-Histogram-CL-dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MarginalMedian-Histogram-CL" class="m-doc-self">dip::<wbr />MarginalMedian</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Computes the marginal median value of the data represented by the histogram. The median is the 50th
-percentile, see <code>dip::MarginalPercentile</code> for details.</dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Mode-Histogram-CL" class="m-doc">dip::<wbr />Mode</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Returns the mode, the bin with the largest count. <a href="histograms.html#dip-Mode-Histogram-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-PearsonCorrelation-Histogram-CL" class="m-doc">dip::<wbr />PearsonCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the Pearson correlation coefficient between two images from their joint histogram <code>in</code>. <a href="histograms.html#dip-PearsonCorrelation-Histogram-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Regression-Histogram-CL" class="m-doc">dip::<wbr />Regression</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-RegressionParameters" class="m-doc">dip::RegressionParameters</a></span>
-            </dt>
-            <dd>Fits a line through the histogram. Returns the slope and intercept of the regression line. <a href="histograms.html#dip-Regression-Histogram-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MutualInformation-Histogram-CL" class="m-doc">dip::<wbr />MutualInformation</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Calculates the mutual information, in bits, between two images from their joint histogram <code>in</code>. <a href="histograms.html#dip-MutualInformation-Histogram-CL">more...</a></dd>
+            <dd>Computes a cumulative histogram from <code>in</code>. See <a href="dip-Histogram.html#dip-Histogram-Cumulative"><code>dip::Histogram::Cumulative</code></a>.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Entropy-Histogram-CL" class="m-doc">dip::<wbr />Entropy</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Calculates the entropy, in bits, of an image from its histogram <code>in</code>. <a href="histograms.html#dip-Entropy-Histogram-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-EqualizationLookupTable-Histogram-CL" class="m-doc">dip::<wbr />EqualizationLookupTable</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="dip-LookupTable.html" class="m-doc">dip::LookupTable</a></span>
+            </dt>
+            <dd>Computes a lookup table that, when applied to an image with the histogram <code>in</code>, yields an image with a
+flat histogram (or rather a histogram that is as flat as possible). <a href="histograms.html#dip-EqualizationLookupTable-Histogram-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-GaussianMixtureModel-Histogram-CL-dip-uint--dip-uint-" class="m-doc">dip::<wbr />GaussianMixtureModel</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> numberOfGaussians,
@@ -135,37 +105,17 @@ percentile, see <code>dip::MarginalPercentile</code> for details.</dd>
             </dt>
             <dd>Determines the parameters for a Gaussian Mixture Model fitted to the histogram <code>in</code>. <a href="histograms.html#dip-GaussianMixtureModel-Histogram-CL-dip-uint--dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-IsodataThreshold-Histogram-CL-dip-uint-" class="m-doc">dip::<wbr />IsodataThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Determines a set of <code>nThresholds</code> thresholds using the Isodata algorithm (k-means clustering),
-and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-IsodataThreshold-Histogram-CL-dip-uint-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-OtsuThreshold-Histogram-CL" class="m-doc">dip::<wbr />OtsuThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Determines a threshold using the maximal inter-class variance method by Otsu, and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-OtsuThreshold-Histogram-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MinimumErrorThreshold-Histogram-CL" class="m-doc">dip::<wbr />MinimumErrorThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Determines a threshold using the minimal error method method, and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-MinimumErrorThreshold-Histogram-CL">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-GaussianMixtureModelThreshold-Histogram-CL-dip-uint-" class="m-doc">dip::<wbr />GaussianMixtureModelThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
             <dd>Determines a set of <code>nThresholds</code> thresholds by modeling the histogram with a Gaussian Mixture Model,
 and choosing the optimal Bayes thresholds. <a href="histograms.html#dip-GaussianMixtureModelThreshold-Histogram-CL-dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-TriangleThreshold-Histogram-CL-dfloat-" class="m-doc">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-IsodataThreshold-Histogram-CL-dip-uint-" class="m-doc">dip::<wbr />IsodataThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nThresholds = 1) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
-            <dd>Determines a threshold using the using the chord method (a.k.a. skewed bi-modality, maximum distance
-to triangle), and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-TriangleThreshold-Histogram-CL-dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-BackgroundThreshold-Histogram-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />BackgroundThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 2.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Determines a threshold using the unimodal background-symmetry method, and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-BackgroundThreshold-Histogram-CL-dfloat--dfloat-">more...</a></dd>
+            <dd>Determines a set of <code>nThresholds</code> thresholds using the Isodata algorithm (k-means clustering),
+and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-IsodataThreshold-Histogram-CL-dip-uint-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-KMeansClustering-Histogram-CL-Histogram-L-Random-L-dip-uint-" class="m-doc">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; out,
@@ -174,11 +124,36 @@ to triangle), and the image&rsquo;s histogram <code>in</code>. <a href="histogra
             </dt>
             <dd>Partitions a (multi-dimensional) histogram into <code>nClusters</code> partitions using k-means clustering. <a href="histograms.html#dip-KMeansClustering-Histogram-CL-Histogram-L-Random-L-dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-KMeansClustering-Histogram-CL-Histogram-L-dip-uint-" class="m-doc-self">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-KMeansClustering-Histogram-CL-Histogram-L-dip-uint-" class="m-doc">dip::<wbr />KMeansClustering</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> nClusters = 2) -&gt; <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a></span>
             </dt>
             <dd>Like above, using a default-initialized <a href="dip-Random.html"><code>dip::Random</code></a> object.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MarginalMedian-Histogram-CL" class="m-doc">dip::<wbr />MarginalMedian</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Computes the marginal median value of the data represented by the histogram. The median is the 50th
+percentile, see <code>dip::MarginalPercentile</code> for details.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MarginalPercentile-Histogram-CL-dfloat-" class="m-doc">dip::<wbr />MarginalPercentile</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> percentile = 50) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Computes the marginal percentile value of the data represented by the histogram. The marginal percentile
+is a percentile computed independently on each dimension, and thus is not one of the input values. <a href="histograms.html#dip-MarginalPercentile-Histogram-CL-dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MatchingLookupTable-Histogram-CL-Histogram-CL" class="m-doc">dip::<wbr />MatchingLookupTable</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; example) -&gt; <a href="dip-LookupTable.html" class="m-doc">dip::LookupTable</a></span>
+            </dt>
+            <dd>Computes a lookup table that, when applied to an image with the histogram <code>in</code>, yields an image with a
+histogram as similar as possible to <code>example</code>. <a href="histograms.html#dip-MatchingLookupTable-Histogram-CL-Histogram-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Mean-Histogram-CL" class="m-doc">dip::<wbr />Mean</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Computes the mean value of the data represented by the histogram. <a href="histograms.html#dip-Mean-Histogram-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MinimumErrorThreshold-Histogram-CL" class="m-doc">dip::<wbr />MinimumErrorThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Determines a threshold using the minimal error method method, and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-MinimumErrorThreshold-Histogram-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MinimumVariancePartitioning-Histogram-CL-Histogram-L-dip-uint-" class="m-doc">dip::<wbr />MinimumVariancePartitioning</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a>&amp; out,
@@ -187,16 +162,21 @@ to triangle), and the image&rsquo;s histogram <code>in</code>. <a href="histogra
             <dd>Partitions a (multi-dimensional) histogram into <code>nClusters</code> partitions iteratively using Otsu
 thresholding along individual dimensions. <a href="histograms.html#dip-MinimumVariancePartitioning-Histogram-CL-Histogram-L-dip-uint-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-EqualizationLookupTable-Histogram-CL" class="m-doc">dip::<wbr />EqualizationLookupTable</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="dip-LookupTable.html" class="m-doc">dip::LookupTable</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Mode-Histogram-CL" class="m-doc">dip::<wbr />Mode</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
             </dt>
-            <dd>Computes a lookup table that, when applied to an image with the histogram <code>in</code>, yields an image with a
-flat histogram (or rather a histogram that is as flat as possible). <a href="histograms.html#dip-EqualizationLookupTable-Histogram-CL">more...</a></dd>
+            <dd>Returns the mode, the bin with the largest count. <a href="histograms.html#dip-Mode-Histogram-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MatchingLookupTable-Histogram-CL-Histogram-CL" class="m-doc">dip::<wbr />MatchingLookupTable</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
-              <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; example) -&gt; <a href="dip-LookupTable.html" class="m-doc">dip::LookupTable</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-MutualInformation-Histogram-CL" class="m-doc">dip::<wbr />MutualInformation</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Computes a lookup table that, when applied to an image with the histogram <code>in</code>, yields an image with a
-histogram as similar as possible to <code>example</code>. <a href="histograms.html#dip-MatchingLookupTable-Histogram-CL-Histogram-CL">more...</a></dd>
+            <dd>Calculates the mutual information, in bits, between two images from their joint histogram <code>in</code>. <a href="histograms.html#dip-MutualInformation-Histogram-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-OtsuThreshold-Histogram-CL" class="m-doc">dip::<wbr />OtsuThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Determines a threshold using the maximal inter-class variance method by Otsu, and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-OtsuThreshold-Histogram-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-PearsonCorrelation-Histogram-CL" class="m-doc">dip::<wbr />PearsonCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Pearson correlation coefficient between two images from their joint histogram <code>in</code>. <a href="histograms.html#dip-PearsonCorrelation-Histogram-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-PerObjectHistogram-Image-CL-Image-CL-Image-CL-Histogram-Configuration--String-CL-String-CL" class="m-doc">dip::<wbr />PerObjectHistogram</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; grey,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; label,
@@ -206,23 +186,43 @@ histogram as similar as possible to <code>example</code>. <a href="histograms.ht
               <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; background = S::EXCLUDE) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
             </dt>
             <dd>Computes a histogram of grey values in <code>grey</code> for each object in <code>label</code>. <a href="histograms.html#dip-PerObjectHistogram-Image-CL-Image-CL-Image-CL-Histogram-Configuration--String-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Regression-Histogram-CL" class="m-doc">dip::<wbr />Regression</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in) -&gt; <a href="supporttypes.html#dip-RegressionParameters" class="m-doc">dip::RegressionParameters</a></span>
+            </dt>
+            <dd>Fits a line through the histogram. Returns the slope and intercept of the regression line. <a href="histograms.html#dip-Regression-Histogram-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Smooth-Histogram-CL-FloatArray-CL" class="m-doc">dip::<wbr />Smooth</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigma) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
+            </dt>
+            <dd>Returns a smoothed version of the histogram <code>in</code>. See <a href="dip-Histogram.html#dip-Histogram-Smooth-FloatArray-"><code>dip::Histogram::Smooth</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-Smooth-Histogram-CL-dfloat-" class="m-doc">dip::<wbr />Smooth</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 1) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
+            </dt>
+            <dd>Returns a smoothed version of the histogram <code>in</code>. See <a href="dip-Histogram.html#dip-Histogram-Smooth-FloatArray-"><code>dip::Histogram::Smooth</code></a>.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="histograms.html#dip-TriangleThreshold-Histogram-CL-dfloat-" class="m-doc">dip::<wbr />TriangleThreshold</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; in,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 4.0) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Determines a threshold using the using the chord method (a.k.a. skewed bi-modality, maximum distance
+to triangle), and the image&rsquo;s histogram <code>in</code>. <a href="histograms.html#dip-TriangleThreshold-Histogram-CL-dfloat-">more...</a></dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator%2B-Histogram-CL-Histogram-CL" class="m-doc-self">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator%2B-Histogram-CL-Histogram-CL" class="m-doc">dip::<wbr />operator+</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Adds two histograms.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator--Histogram-CL-Histogram-CL" class="m-doc-self">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Histogram.html#dip-operator--Histogram-CL-Histogram-CL" class="m-doc">dip::<wbr />operator-</a>(</span><span class="m-doc-wrap"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Subtracts two histograms.</dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="dip-Distribution.html#dip-operator%3C%3C-std-ostream-L-Histogram-CL" class="m-doc-self">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <span class="m-doc-wrap-bumper">auto <a href="dip-Distribution.html#dip-operator%3C%3C-std-ostream-L-Histogram-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram) -&gt; std::ostream&amp;</span>
             </dt>
             <dd>You can output a <a href="dip-Histogram.html"><code>dip::Histogram</code></a> to <code>std::cout</code> or any other stream. Some
@@ -233,8 +233,7 @@ information about the histogram is printed.</dd>
           <h2>Variables</h2>
           <dl class="m-doc">
                           <dt>
-            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="dip-Histogram.html#dip-DT_COUNT" class="m-doc-self">dip::<wbr />DT_COUNT</a>
- <span class="m-label m-flat m-primary">constexpr</span>
+            <a href="dip-DataType.html" class="m-doc">dip::DataType</a> const <a href="dip-Histogram.html#dip-DT_COUNT" class="m-doc">dip::<wbr />DT_COUNT</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd>Data type of histogram bins. See <a href="dip-Histogram.html#dip-Histogram-CountType"><code>dip::Histogram::CountType</code></a>.</dd>
           </dl>

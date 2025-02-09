@@ -77,23 +77,23 @@ including the ones from <a href="dip-Feature-Base.html"><code>dip::Feature::Base
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Feature-Composite-Dependencies" class="m-doc">Dependencies</a>(</span><span class="m-doc-wrap">) -&gt; <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> <span class="m-label m-flat m-warning">pure virtual</span></span>
-            </dt>
-            <dd>Lists the features that the measurement depends on. These features will be computed and made
-available to the <code>Measure</code> method. This function is always called after <a href="dip-Feature-Base.html#dip-Feature-Base-Initialize-Image-CL-Image-CL-dip-uint-"><code>dip::Feature::Base::Initialize</code></a>. <a href="#dip-Feature-Composite-Dependencies">more...</a></dd>
-                          <dt id="dip-Feature-Composite-Compose-Measurement-IteratorObject-L-Measurement-ValueIterator-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Feature-Composite-Compose-Measurement-IteratorObject-L-Measurement-ValueIterator-" class="m-doc-self">Compose</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorObject.html" class="m-doc">dip::Measurement::IteratorObject</a>&amp; dependencies,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Feature-Composite-Compose-Measurement-IteratorObject-L-Measurement-ValueIterator-" class="m-doc">Compose</a>(</span><span class="m-doc-wrap"><a href="dip-Measurement-IteratorObject.html" class="m-doc">dip::Measurement::IteratorObject</a>&amp; dependencies,
               <a href="dip-Measurement.html#dip-Measurement-ValueIterator" class="m-doc">dip::Measurement::ValueIterator</a> output) <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
             <dd>Called once for each object, the input <code>dependencies</code> object contains the measurements
 for the object from all the features in the <a href="dip-Feature-Composite.html#dip-Feature-Composite-Dependencies"><code>dip::Feature::Composite::Dependencies</code></a> list.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Feature-Composite-Dependencies" class="m-doc">Dependencies</a>(</span><span class="m-doc-wrap">) -&gt; <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> <span class="m-label m-flat m-warning">pure virtual</span></span>
+            </dt>
+            <dd>Lists the features that the measurement depends on. These features will be computed and made
+available to the <code>Measure</code> method. This function is always called after <a href="dip-Feature-Base.html#dip-Feature-Base-Initialize-Image-CL-Image-CL-dip-uint-"><code>dip::Feature::Base::Initialize</code></a>. <a href="#dip-Feature-Composite-Dependencies">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Feature-Composite-Dependencies"><div>
             <h3>
-              <span class="m-doc-return"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a></span>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> </span>
               <span class="m-doc-name"><a href="#dip-Feature-Composite-Dependencies" class="m-doc-self">Dependencies</a></span>(
 ) <span class="m-label m-warning">pure virtual</span>            </h3>
             <p>Lists the features that the measurement depends on. These features will be computed and made
@@ -104,6 +104,14 @@ available to the <code>Measure</code> method. This function is always called aft
 other <code>Type::COMPOSITE</code> features. This would require processing the composite features in the
 right order for all dependencies to be present when needed.</p>
 </aside>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Feature-Composite-Compose-Measurement-IteratorObject-L-Measurement-ValueIterator-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Feature-Composite-Compose-Measurement-IteratorObject-L-Measurement-ValueIterator-" class="m-doc-self">Compose</a></span>(
+<span class="m-doc-arg"><a href="dip-Measurement-IteratorObject.html" class="m-doc">dip::Measurement::IteratorObject</a>&amp; dependencies, </span><span class="m-doc-arg"><a href="dip-Measurement.html#dip-Measurement-ValueIterator" class="m-doc">dip::Measurement::ValueIterator</a> output</span>) <span class="m-label m-warning">pure virtual</span>            </h3>
+            <p>Called once for each object, the input <code>dependencies</code> object contains the measurements
+for the object from all the features in the <a href="dip-Feature-Composite.html#dip-Feature-Composite-Dependencies"><code>dip::Feature::Composite::Dependencies</code></a> list.</p>
           </div></section>
         </section>
       </div>

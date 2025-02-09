@@ -75,8 +75,7 @@ See <a href="detection.html">Detection</a>.</p>
             <h2>Aliases</h2>
             <dl class="m-doc">
                               <dt>
-              using <a href="detection_circles.html#dip-RadonCircleParametersArray" class="m-doc-self">dip::<wbr />RadonCircleParametersArray</a> = std::vector&lt;RadonCircleParameters&gt;
-
+using <a href="detection_circles.html#dip-RadonCircleParametersArray" class="m-doc">dip::<wbr />RadonCircleParametersArray</a> = std::vector&lt;RadonCircleParameters&gt;
             </dt>
             <dd>An array of <a href="detection_circles.html#dip-RadonCircleParameters"><code>dip::RadonCircleParameters</code></a>, storing parameters for all hyperspheres
 detected by <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-Image-L-Range--dfloat--dfloat--String-CL-StringSet-CL"><code>dip::RadonTransformCircles</code></a>.</dd>
@@ -86,24 +85,13 @@ detected by <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-I
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="detection_circles.html#dip-HoughTransformCircleCenters-Image-CL-Image-CL-Image-L-UnsignedArray-CL" class="m-doc">dip::<wbr />HoughTransformCircleCenters</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gv,
+              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-DanielssonLineDetector-Image-CL-Image-L-dip-FloatArray-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />DanielssonLineDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; range = {})</span>
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
-            <dd>Hough transform for circles in 2D binary images. <a href="detection_circles.html#dip-HoughTransformCircleCenters-Image-CL-Image-CL-Image-L-UnsignedArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="detection_circles.html#dip-FindHoughMaxima-Image-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />FindHoughMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 10.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> fraction = 0.1) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
-            </dt>
-            <dd>Find local maxima in Hough parameter space. <a href="detection_circles.html#dip-FindHoughMaxima-Image-CL-dfloat--dfloat-">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="detection_circles.html#dip-PointDistanceDistribution-Image-CL-CoordinateArray-CL-UnsignedArray-" class="m-doc">dip::<wbr />PointDistanceDistribution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> const&amp; points,
-              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> range = {}) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
-            </dt>
-            <dd>Compute distance distribution for a set of points. <a href="detection_circles.html#dip-PointDistanceDistribution-Image-CL-CoordinateArray-CL-UnsignedArray-">more...</a></dd>
+            <dd>Danielsson&rsquo;s Hessian-based line detector <a href="detection_lines.html#dip-DanielssonLineDetector-Image-CL-Image-L-dip-FloatArray-CL-String-CL-StringArray-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="detection_circles.html#dip-FindHoughCircles-Image-CL-Image-CL-UnsignedArray-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />FindHoughCircles</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gv,
@@ -112,6 +100,58 @@ detected by <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-I
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> fraction = 0.1) -&gt; <a href="supporttypes.html#dip-FloatCoordinateArray" class="m-doc">dip::FloatCoordinateArray</a></span>
             </dt>
             <dd>Find circles in 2D binary images. <a href="detection_circles.html#dip-FindHoughCircles-Image-CL-Image-CL-UnsignedArray-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="detection_circles.html#dip-FindHoughMaxima-Image-CL-dfloat--dfloat-" class="m-doc">dip::<wbr />FindHoughMaxima</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> distance = 10.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> fraction = 0.1) -&gt; <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a></span>
+            </dt>
+            <dd>Find local maxima in Hough parameter space. <a href="detection_circles.html#dip-FindHoughMaxima-Image-CL-dfloat--dfloat-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-FrangiVesselness-Image-CL-Image-L-FloatArray-CL-FloatArray--String-CL-StringArray-CL" class="m-doc">dip::<wbr />FrangiVesselness</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> parameters = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Frangi vessel detector, single scale (Hessian based) <a href="detection_lines.html#dip-FrangiVesselness-Image-CL-Image-L-FloatArray-CL-FloatArray--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="detection_corners.html#dip-HarrisCornerDetector-Image-CL-Image-L-dfloat--FloatArray-CL-StringArray-CL" class="m-doc">dip::<wbr />HarrisCornerDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> kappa = 0.04,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Harris corner detector <a href="detection_corners.html#dip-HarrisCornerDetector-Image-CL-Image-L-dfloat--FloatArray-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="detection_circles.html#dip-HoughTransformCircleCenters-Image-CL-Image-CL-Image-L-UnsignedArray-CL" class="m-doc">dip::<wbr />HoughTransformCircleCenters</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; gv,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; range = {})</span>
+            </dt>
+            <dd>Hough transform for circles in 2D binary images. <a href="detection_circles.html#dip-HoughTransformCircleCenters-Image-CL-Image-CL-Image-L-UnsignedArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-MatchedFiltersLineDetector2D-Image-CL-Image-L-dip-dfloat--dip-dfloat--String-CL-StringArray-CL" class="m-doc">dip::<wbr />MatchedFiltersLineDetector2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 2.0,
+              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> length = 10.0,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Matched filters for line detection in 2D <a href="detection_lines.html#dip-MatchedFiltersLineDetector2D-Image-CL-Image-L-dip-dfloat--dip-dfloat--String-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="detection_corners.html#dip-NobleCornerDetector-Image-CL-Image-L-FloatArray-CL-StringArray-CL" class="m-doc">dip::<wbr />NobleCornerDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
+              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+            </dt>
+            <dd>Noble&rsquo;s corner detector (also known as the Plessey detector) <a href="detection_corners.html#dip-NobleCornerDetector-Image-CL-Image-L-FloatArray-CL-StringArray-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="detection_circles.html#dip-PointDistanceDistribution-Image-CL-CoordinateArray-CL-UnsignedArray-" class="m-doc">dip::<wbr />PointDistanceDistribution</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-CoordinateArray" class="m-doc">dip::CoordinateArray</a> const&amp; points,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> range = {}) -&gt; <a href="dip-Distribution.html" class="m-doc">dip::Distribution</a></span>
+            </dt>
+            <dd>Compute distance distribution for a set of points. <a href="detection_circles.html#dip-PointDistanceDistribution-Image-CL-CoordinateArray-CL-UnsignedArray-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">auto <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-Image-L-Range--dfloat--dfloat--String-CL-StringSet-CL" class="m-doc">dip::<wbr />RadonTransformCircles</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -123,13 +163,12 @@ detected by <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-I
             </dt>
             <dd>Detects hyperspheres (circles, spheres) using the generalized Radon transform. <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-Image-L-Range--dfloat--dfloat--String-CL-StringSet-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="detection_corners.html#dip-HarrisCornerDetector-Image-CL-Image-L-dfloat--FloatArray-CL-StringArray-CL" class="m-doc">dip::<wbr />HarrisCornerDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-RORPOLineDetector-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />RORPOLineDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> kappa = 0.04,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 15,
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE)</span>
             </dt>
-            <dd>Harris corner detector <a href="detection_corners.html#dip-HarrisCornerDetector-Image-CL-Image-L-dfloat--FloatArray-CL-StringArray-CL">more...</a></dd>
+            <dd>Line detector based on robust path openings <a href="detection_lines.html#dip-RORPOLineDetector-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="detection_corners.html#dip-ShiTomasiCornerDetector-Image-CL-Image-L-FloatArray-CL-StringArray-CL" class="m-doc">dip::<wbr />ShiTomasiCornerDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
@@ -138,13 +177,6 @@ detected by <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-I
             </dt>
             <dd>Shi-Tomasi corner detector <a href="detection_corners.html#dip-ShiTomasiCornerDetector-Image-CL-Image-L-FloatArray-CL-StringArray-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="detection_corners.html#dip-NobleCornerDetector-Image-CL-Image-L-FloatArray-CL-StringArray-CL" class="m-doc">dip::<wbr />NobleCornerDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Noble&rsquo;s corner detector (also known as the Plessey detector) <a href="detection_corners.html#dip-NobleCornerDetector-Image-CL-Image-L-FloatArray-CL-StringArray-CL">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="detection_corners.html#dip-WangBradyCornerDetector-Image-CL-Image-L-dfloat--FloatArray-CL-StringArray-CL" class="m-doc">dip::<wbr />WangBradyCornerDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> threshold = 0.1,
@@ -152,39 +184,6 @@ detected by <a href="detection_circles.html#dip-RadonTransformCircles-Image-CL-I
               <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
             </dt>
             <dd>Wang-Brady corner detector <a href="detection_corners.html#dip-WangBradyCornerDetector-Image-CL-Image-L-dfloat--FloatArray-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-FrangiVesselness-Image-CL-Image-L-FloatArray-CL-FloatArray--String-CL-StringArray-CL" class="m-doc">dip::<wbr />FrangiVesselness</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> parameters = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Frangi vessel detector, single scale (Hessian based) <a href="detection_lines.html#dip-FrangiVesselness-Image-CL-Image-L-FloatArray-CL-FloatArray--String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-MatchedFiltersLineDetector2D-Image-CL-Image-L-dip-dfloat--dip-dfloat--String-CL-StringArray-CL" class="m-doc">dip::<wbr />MatchedFiltersLineDetector2D</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> sigma = 2.0,
-              <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> length = 10.0,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Matched filters for line detection in 2D <a href="detection_lines.html#dip-MatchedFiltersLineDetector2D-Image-CL-Image-L-dip-dfloat--dip-dfloat--String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-DanielssonLineDetector-Image-CL-Image-L-dip-FloatArray-CL-String-CL-StringArray-CL" class="m-doc">dip::<wbr />DanielssonLineDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> const&amp; sigmas = {2.0},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE,
-              <a href="supporttypes.html#dip-StringArray" class="m-doc">dip::StringArray</a> const&amp; boundaryCondition = {})</span>
-            </dt>
-            <dd>Danielsson&rsquo;s Hessian-based line detector <a href="detection_lines.html#dip-DanielssonLineDetector-Image-CL-Image-L-dip-FloatArray-CL-String-CL-StringArray-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="detection_lines.html#dip-RORPOLineDetector-Image-CL-Image-L-dip-uint--String-CL" class="m-doc">dip::<wbr />RORPOLineDetector</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> length = 15,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; polarity = S::WHITE)</span>
-            </dt>
-            <dd>Line detector based on robust path openings <a href="detection_lines.html#dip-RORPOLineDetector-Image-CL-Image-L-dip-uint--String-CL">more...</a></dd>
           </dl>
         </section>
       </div>

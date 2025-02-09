@@ -149,9 +149,8 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="alias-members">
             <h2>Aliases</h2>
             <dl class="m-doc">
-                              <dt id="dip-CovarianceAccumulator-RegressionResult">
-              using <a href="#dip-CovarianceAccumulator-RegressionResult" class="m-doc-self">RegressionResult</a> = <a href="supporttypes.html#dip-RegressionParameters" class="m-doc">dip::RegressionParameters</a>
-
+                              <dt>
+using <a href="#dip-CovarianceAccumulator-RegressionResult" class="m-doc">RegressionResult</a> = <a href="supporttypes.html#dip-RegressionParameters" class="m-doc">dip::RegressionParameters</a>
             </dt>
             <dd>Copying type for backward compatibility.</dd>
             </dl>
@@ -159,69 +158,178 @@ and add the accumulators together using the <code>+</code> operator.</p>
         <section id="function-members">
           <h2>Functions</h2>
           <dl class="m-doc">
-                          <dt id="dip-CovarianceAccumulator-Reset">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-CovarianceAccumulator-Reset" class="m-doc-self">Reset</a>(</span><span class="m-doc-wrap">)</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Correlation-C" class="m-doc">Correlation</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
-            <dd>Reset the accumulator, leaving it as if newly allocated.</dd>
-                          <dt id="dip-CovarianceAccumulator-Push-dfloat--dfloat-">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-CovarianceAccumulator-Push-dfloat--dfloat-" class="m-doc-self">Push</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x,
+            <dd>Estimator of correlation between the two variables</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Covariance-C" class="m-doc">Covariance</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Unbiased estimator of population covariance</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-MeanX-C" class="m-doc">MeanX</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Unbiased estimator of population mean for first variable</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-MeanY-C" class="m-doc">MeanY</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Unbiased estimator of population mean for second variable</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Number-C" class="m-doc">Number</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+            </dt>
+            <dd>Number of samples</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CovarianceAccumulator-Push-dfloat--dfloat-" class="m-doc">Push</a>(</span><span class="m-doc-wrap"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x,
               <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y)</span>
             </dt>
             <dd>Add a pair of samples to the accumulator</dd>
-                          <dt id="dip-CovarianceAccumulator-Number-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Number-C" class="m-doc-self">Number</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
-            </dt>
-            <dd>Number of samples</dd>
-                          <dt id="dip-CovarianceAccumulator-MeanX-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-MeanX-C" class="m-doc-self">MeanX</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Unbiased estimator of population mean for first variable</dd>
-                          <dt id="dip-CovarianceAccumulator-MeanY-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-MeanY-C" class="m-doc-self">MeanY</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Unbiased estimator of population mean for second variable</dd>
-                          <dt id="dip-CovarianceAccumulator-VarianceX-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-VarianceX-C" class="m-doc-self">VarianceX</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Unbiased estimator of population variance for first variable</dd>
-                          <dt id="dip-CovarianceAccumulator-VarianceY-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-VarianceY-C" class="m-doc-self">VarianceY</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Unbiased estimator of population variance for second variable</dd>
-                          <dt id="dip-CovarianceAccumulator-StandardDeviationX-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-StandardDeviationX-C" class="m-doc-self">StandardDeviationX</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Estimator of population standard deviation for first variable (it is not possible to derive an unbiased estimator)</dd>
-                          <dt id="dip-CovarianceAccumulator-StandardDeviationY-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-StandardDeviationY-C" class="m-doc-self">StandardDeviationY</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Estimator of population standard deviation for second variable (it is not possible to derive an unbiased estimator)</dd>
-                          <dt id="dip-CovarianceAccumulator-Covariance-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Covariance-C" class="m-doc-self">Covariance</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Unbiased estimator of population covariance</dd>
-                          <dt id="dip-CovarianceAccumulator-Correlation-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Correlation-C" class="m-doc-self">Correlation</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Estimator of correlation between the two variables</dd>
-                          <dt id="dip-CovarianceAccumulator-Slope-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Slope-C" class="m-doc-self">Slope</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the slope of the regression line</dd>
-                          <dt id="dip-CovarianceAccumulator-Regression-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Regression-C" class="m-doc-self">Regression</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceAccumulator.html#dip-CovarianceAccumulator-RegressionResult" class="m-doc">dip::CovarianceAccumulator::RegressionResult</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Regression-C" class="m-doc">Regression</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="dip-CovarianceAccumulator.html#dip-CovarianceAccumulator-RegressionResult" class="m-doc">dip::CovarianceAccumulator::RegressionResult</a></span>
             </dt>
             <dd>Computes the slope and intercept of the regression line</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-CovarianceAccumulator-Reset" class="m-doc">Reset</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd>Reset the accumulator, leaving it as if newly allocated.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-Slope-C" class="m-doc">Slope</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the slope of the regression line</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-StandardDeviationX-C" class="m-doc">StandardDeviationX</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Estimator of population standard deviation for first variable (it is not possible to derive an unbiased estimator)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-StandardDeviationY-C" class="m-doc">StandardDeviationY</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Estimator of population standard deviation for second variable (it is not possible to derive an unbiased estimator)</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-VarianceX-C" class="m-doc">VarianceX</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Unbiased estimator of population variance for first variable</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-VarianceY-C" class="m-doc">VarianceY</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Unbiased estimator of population variance for second variable</dd>
           </dl>
         </section>
         <section id="operator-members">
           <h2>Operators</h2>
           <dl class="m-doc">
-                          <dt id="dip-CovarianceAccumulator-operator%2B%3D-CovarianceAccumulator-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-operator%2B%3D-CovarianceAccumulator-CL" class="m-doc-self">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a> const&amp; other) -&gt; <a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a>&amp;</span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CovarianceAccumulator-operator%2B%3D-CovarianceAccumulator-CL" class="m-doc">operator+=</a>(</span><span class="m-doc-wrap"><a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a> const&amp; other) -&gt; <a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a>&amp;</span>
             </dt>
             <dd>Combine two accumulators</dd>
           </dl>
+        </section>
+        <section>
+          <h2>Alias documentation</h2>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-RegressionResult"><div>
+            <h3>
+              <span class="m-doc-return">using </span><span class="m-doc-name"><a href="#dip-CovarianceAccumulator-RegressionResult" class="m-doc-self">RegressionResult</a></span> = <a href="supporttypes.html#dip-RegressionParameters" class="m-doc">dip::RegressionParameters</a>            </h3>
+            <p>Copying type for backward compatibility.</p>
+          </div></section>
+        </section>
+        <section>
+          <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-Reset"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-Reset" class="m-doc-self">Reset</a></span>(
+)            </h3>
+            <p>Reset the accumulator, leaving it as if newly allocated.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-Push-dfloat--dfloat-"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-Push-dfloat--dfloat-" class="m-doc-self">Push</a></span>(
+<span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> x, </span><span class="m-doc-arg"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> y</span>)            </h3>
+            <p>Add a pair of samples to the accumulator</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-Number-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-Number-C" class="m-doc-self">Number</a></span>(
+) const            </h3>
+            <p>Number of samples</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-MeanX-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-MeanX-C" class="m-doc-self">MeanX</a></span>(
+) const            </h3>
+            <p>Unbiased estimator of population mean for first variable</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-MeanY-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-MeanY-C" class="m-doc-self">MeanY</a></span>(
+) const            </h3>
+            <p>Unbiased estimator of population mean for second variable</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-VarianceX-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-VarianceX-C" class="m-doc-self">VarianceX</a></span>(
+) const            </h3>
+            <p>Unbiased estimator of population variance for first variable</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-VarianceY-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-VarianceY-C" class="m-doc-self">VarianceY</a></span>(
+) const            </h3>
+            <p>Unbiased estimator of population variance for second variable</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-StandardDeviationX-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-StandardDeviationX-C" class="m-doc-self">StandardDeviationX</a></span>(
+) const            </h3>
+            <p>Estimator of population standard deviation for first variable (it is not possible to derive an unbiased estimator)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-StandardDeviationY-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-StandardDeviationY-C" class="m-doc-self">StandardDeviationY</a></span>(
+) const            </h3>
+            <p>Estimator of population standard deviation for second variable (it is not possible to derive an unbiased estimator)</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-Covariance-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-Covariance-C" class="m-doc-self">Covariance</a></span>(
+) const            </h3>
+            <p>Unbiased estimator of population covariance</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-Correlation-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-Correlation-C" class="m-doc-self">Correlation</a></span>(
+) const            </h3>
+            <p>Estimator of correlation between the two variables</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-Slope-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-Slope-C" class="m-doc-self">Slope</a></span>(
+) const            </h3>
+            <p>Computes the slope of the regression line</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-Regression-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceAccumulator.html#dip-CovarianceAccumulator-RegressionResult" class="m-doc">dip::CovarianceAccumulator::RegressionResult</a> </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-Regression-C" class="m-doc-self">Regression</a></span>(
+) const            </h3>
+            <p>Computes the slope and intercept of the regression line</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-CovarianceAccumulator-operator%2B%3D-CovarianceAccumulator-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a>&amp; </span>
+              <span class="m-doc-name"><a href="#dip-CovarianceAccumulator-operator%2B%3D-CovarianceAccumulator-CL" class="m-doc-self">operator+=</a></span>(
+<span class="m-doc-arg"><a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a> const&amp; other</span>)            </h3>
+            <p>Combine two accumulators</p>
+          </div></section>
         </section>
       </div>
     </div>
