@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -49,7 +49,7 @@
           Statistics <span class="m-thin">module</span>          <div class="m-doc-include m-code m-thin m-text-right">#include <a href="file--diplib--statistics-h.html">"diplib/statistics.h"</a></div>
         </h1>
         <p>Image sample statistics.</p>
-        <div class="m-block m-default">
+        <div class="m-index m-block m-default">
           <h3>Contents</h3>
           <ul>
             <li>
@@ -65,22 +65,37 @@
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-CenterOfMass-Image-CL-Image-CL" class="m-doc">dip::<wbr />CenterOfMass</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
+            </dt>
+            <dd>Computes the center of mass (first order moments) of the image <code>in</code>, optionally using only
+those pixels selected by <code>mask</code>. <a href="#dip-CenterOfMass-Image-CL-Image-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ContainsInfinity-Image-CL-Image-CL" class="m-doc">dip::<wbr />ContainsInfinity</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; bool</span>
+            </dt>
+            <dd>True if any pixel is infinite.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ContainsNonFiniteValue-Image-CL-Image-CL" class="m-doc">dip::<wbr />ContainsNonFiniteValue</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; bool</span>
+            </dt>
+            <dd>True if any pixel is non-finite (infinite or NaN).</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ContainsNotANumber-Image-CL-Image-CL" class="m-doc">dip::<wbr />ContainsNotANumber</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; bool</span>
+            </dt>
+            <dd>True if any pixel is NaN.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Count-Image-CL-Image-CL" class="m-doc">dip::<wbr />Count</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Counts the number of non-zero pixels in a scalar image. <a href="#dip-Count-Image-CL-Image-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MaximumPixel-Image-CL-Image-CL-String-CL" class="m-doc">dip::<wbr />MaximumPixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Covariance-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />Covariance</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a></span>
             </dt>
-            <dd>Returns the coordinates of the maximum pixel in the image. <a href="#dip-MaximumPixel-Image-CL-Image-CL-String-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-MinimumPixel-Image-CL-Image-CL-String-CL" class="m-doc">dip::<wbr />MinimumPixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
-            </dt>
-            <dd>Returns the coordinates of the minimum pixel in the image. <a href="#dip-MinimumPixel-Image-CL-Image-CL-String-CL">more...</a></dd>
+            <dd>Computes the covariance and correlation between the two images, within an optional mask. <a href="#dip-Covariance-Image-CL-Image-CL-Image-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-CumulativeSum-Image-CL-Image-CL-Image-L-BooleanArray-CL" class="m-doc">dip::<wbr />CumulativeSum</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
@@ -94,6 +109,30 @@
             </dt>
             <dd>Finds the largest and smallest value in the image, within an optional mask. <a href="#dip-MaximumAndMinimum-Image-CL-Image-CL">more...</a></dd>
                           <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MaximumPixel-Image-CL-Image-CL-String-CL" class="m-doc">dip::<wbr />MaximumPixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Returns the coordinates of the maximum pixel in the image. <a href="#dip-MaximumPixel-Image-CL-Image-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-MinimumPixel-Image-CL-Image-CL-String-CL" class="m-doc">dip::<wbr />MinimumPixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
+              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST) -&gt; <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a></span>
+            </dt>
+            <dd>Returns the coordinates of the minimum pixel in the image. <a href="#dip-MinimumPixel-Image-CL-Image-CL-String-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Moments-Image-CL-Image-CL" class="m-doc">dip::<wbr />Moments</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a></span>
+            </dt>
+            <dd>Computes the first order normalized moments and second order normalized central moments of the image <code>in</code>,
+optionally using only those pixels selected by <code>mask</code>. <a href="#dip-Moments-Image-CL-Image-CL">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-PearsonCorrelation-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />PearsonCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
+            </dt>
+            <dd>Computes the Pearson correlation coefficient. See <a href="histograms.html#dip-Covariance-Histogram-CL"><code>dip::Covariance</code></a>.</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-Quartiles-Image-CL-Image-CL" class="m-doc">dip::<wbr />Quartiles</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="supporttypes.html#dip-QuartilesResult" class="m-doc">dip::QuartilesResult</a></span>
             </dt>
@@ -105,45 +144,20 @@ upper quartile (75th percentile), and maximum. <a href="#dip-Quartiles-Image-CL-
             </dt>
             <dd>Computes the first four central moments of the pixel intensities, within an optional mask. <a href="#dip-SampleStatistics-Image-CL-Image-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Covariance-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />Covariance</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a></span>
-            </dt>
-            <dd>Computes the covariance and correlation between the two images, within an optional mask. <a href="#dip-Covariance-Image-CL-Image-CL-Image-CL">more...</a></dd>
-                          <dt id="dip-PearsonCorrelation-Image-CL-Image-CL-Image-CL">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-PearsonCorrelation-Image-CL-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />PearsonCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
-            </dt>
-            <dd>Computes the Pearson correlation coefficient. See <a href="histograms.html#dip-Covariance-Histogram-CL"><code>dip::Covariance</code></a>.</dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-SpearmanRankCorrelation-Image-CL-Image-CL-Image-CL" class="m-doc">dip::<wbr />SpearmanRankCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a></span>
             </dt>
             <dd>Computes the Spearman rank correlation coefficient. <a href="#dip-SpearmanRankCorrelation-Image-CL-Image-CL-Image-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-CenterOfMass-Image-CL-Image-CL" class="m-doc">dip::<wbr />CenterOfMass</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a></span>
-            </dt>
-            <dd>Computes the center of mass (first order moments) of the image <code>in</code>, optionally using only
-those pixels selected by <code>mask</code>. <a href="#dip-CenterOfMass-Image-CL-Image-CL">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-Moments-Image-CL-Image-CL" class="m-doc">dip::<wbr />Moments</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}) -&gt; <a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a></span>
-            </dt>
-            <dd>Computes the first order normalized moments and second order normalized central moments of the image <code>in</code>,
-optionally using only those pixels selected by <code>mask</code>. <a href="#dip-Moments-Image-CL-Image-CL">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Count-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Count-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Count</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-Count-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Count</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Counts the number of non-zero pixels in a scalar image.</p>
 <p><code>in</code> must be scalar, but can have any data type. <code>mask</code>, if forged, must be of the same sizes as <code>in</code>, or be
 singleton expandable to that size, and must be binary.</p>
@@ -152,13 +166,32 @@ singleton expandable to that size, and must be binary.</p>
 <p><a href="analysis.html#dip-Find-Image-CL-Image-CL"><code>dip::Find</code></a></p>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-ContainsNotANumber-Image-CL-Image-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ContainsNotANumber-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />ContainsNotANumber</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
+            <p>True if any pixel is NaN.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ContainsInfinity-Image-CL-Image-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ContainsInfinity-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />ContainsInfinity</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
+            <p>True if any pixel is infinite.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ContainsNonFiniteValue-Image-CL-Image-CL"><div>
+            <h3>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-ContainsNonFiniteValue-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />ContainsNonFiniteValue</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
+            <p>True if any pixel is non-finite (infinite or NaN).</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-MaximumPixel-Image-CL-Image-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MaximumPixel-Image-CL-Image-CL-String-CL" class="m-doc-self">dip::<wbr />MaximumPixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-MaximumPixel-Image-CL-Image-CL-String-CL" class="m-doc-self">dip::<wbr />MaximumPixel</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST</span>)            </h3>
             <p>Returns the coordinates of the maximum pixel in the image.</p>
 <p>The image must be scalar. If <code>in</code> is complex, the modulus of its values are used.
 If <code>positionFlag</code> is <code>"first"</code>, the first maximum is found, in linear index order.
@@ -170,11 +203,9 @@ If it is <code>"last"</code>, the last one is found.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-MinimumPixel-Image-CL-Image-CL-String-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MinimumPixel-Image-CL-Image-CL-String-CL" class="m-doc-self">dip::<wbr />MinimumPixel</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {},
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-MinimumPixel-Image-CL-Image-CL-String-CL" class="m-doc-self">dip::<wbr />MinimumPixel</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; positionFlag = S::FIRST</span>)            </h3>
             <p>Returns the coordinates of the minimum pixel in the image.</p>
 <p>The image must be scalar. If <code>in</code> is complex, the modulus of its values are used.
 If <code>positionFlag</code> is <code>"first"</code>, the first minimum is found, in linear index order.
@@ -186,12 +217,9 @@ If it is <code>"last"</code>, the last one is found.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-CumulativeSum-Image-CL-Image-CL-Image-L-BooleanArray-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-CumulativeSum-Image-CL-Image-CL-Image-L-BooleanArray-CL" class="m-doc-self">dip::<wbr />CumulativeSum</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> const&amp; process = {})</span></span>
-            </h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-CumulativeSum-Image-CL-Image-CL-Image-L-BooleanArray-CL" class="m-doc-self">dip::<wbr />CumulativeSum</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-BooleanArray" class="m-doc">dip::BooleanArray</a> const&amp; process = {}</span>)            </h3>
             <p>Calculates the cumulative sum of the pixel values over all those dimensions which are specified by <code>process</code>.</p>
 <p>If <code>process</code> is an empty array, all dimensions are processed. The output is an image of the same size as the input.
 For tensor images, the output has the same tensor size and shape as the input.</p>
@@ -199,10 +227,9 @@ For tensor images, the output has the same tensor size and shape as the input.</
           </div></section>
                         <section class="m-doc-details" id="dip-MaximumAndMinimum-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MaximumAndMinimum-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />MaximumAndMinimum</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-MinMaxAccumulator.html" class="m-doc">dip::MinMaxAccumulator</a> </span>
+              <span class="m-doc-name"><a href="#dip-MaximumAndMinimum-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />MaximumAndMinimum</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Finds the largest and smallest value in the image, within an optional mask.</p>
 <p>If <code>mask</code> is not forged, all input pixels are considered. In case of a tensor
 image, returns the maximum and minimum sample values. In case of a complex
@@ -210,35 +237,31 @@ samples, treats real and imaginary components as individual samples.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Quartiles-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-QuartilesResult" class="m-doc">dip::QuartilesResult</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Quartiles-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Quartiles</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-QuartilesResult" class="m-doc">dip::QuartilesResult</a> </span>
+              <span class="m-doc-name"><a href="#dip-Quartiles-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Quartiles</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Computes the minimum, lower quartile (25th percentile), median (50th percentile),
 upper quartile (75th percentile), and maximum.</p>
 <p>Percentiles are always one of the values in the image. The nearest value to a given partition
-is used, rather than interpolate as classically done.</p>
+is used, rather than interpolate as classically done. NaN values are ignored.</p>
 <p>If <code>mask</code> is not forged, all input pixels are considered. In case of a tensor
 image, returns the maximum and minimum sample values. In case of a complex
 samples, treats real and imaginary components as individual samples.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-SampleStatistics-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SampleStatistics-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />SampleStatistics</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-StatisticsAccumulator.html" class="m-doc">dip::StatisticsAccumulator</a> </span>
+              <span class="m-doc-name"><a href="#dip-SampleStatistics-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />SampleStatistics</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Computes the first four central moments of the pixel intensities, within an optional mask.</p>
 <p>If <code>mask</code> is not forged, all input pixels are considered. In case of a tensor
 image, returns the statistics over all sample values. The image must be real-valued.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Covariance-Image-CL-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Covariance-Image-CL-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Covariance</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-CovarianceAccumulator.html" class="m-doc">dip::CovarianceAccumulator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Covariance-Image-CL-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Covariance</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Computes the covariance and correlation between the two images, within an optional mask.</p>
 <p>If <code>mask</code> is not forged, all input pixels are considered. In case of tensor
 images, returns the covariance over all sample values. The images must be real-valued and
@@ -247,13 +270,18 @@ have the same number of tensor elements.</p>
 <div class="m-code"><pre><span></span><span class="n">Covariance</span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="n">in</span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
           </div></section>
+                        <section class="m-doc-details" id="dip-PearsonCorrelation-Image-CL-Image-CL-Image-CL"><div>
+            <h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-PearsonCorrelation-Image-CL-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />PearsonCorrelation</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
+            <p>Computes the Pearson correlation coefficient. See <a href="histograms.html#dip-Covariance-Histogram-CL"><code>dip::Covariance</code></a>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-SpearmanRankCorrelation-Image-CL-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-SpearmanRankCorrelation-Image-CL-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />SpearmanRankCorrelation</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="pixeltypes.html#dip-dfloat" class="m-doc">dip::dfloat</a> </span>
+              <span class="m-doc-name"><a href="#dip-SpearmanRankCorrelation-Image-CL-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />SpearmanRankCorrelation</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Computes the Spearman rank correlation coefficient.</p>
 <p>If <code>mask</code> is not forged, all input pixels are considered. In case of tensor
 images, returns the Spearman rank correlation coefficient over all sample values.
@@ -264,20 +292,18 @@ The images must be real-valued and have the same number of tensor elements.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-CenterOfMass-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-CenterOfMass-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />CenterOfMass</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-FloatArray" class="m-doc">dip::FloatArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-CenterOfMass-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />CenterOfMass</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Computes the center of mass (first order moments) of the image <code>in</code>, optionally using only
 those pixels selected by <code>mask</code>.</p>
 <p>If <code>mask</code> is not forged, all input pixels are considered. <code>in</code> must be scalar and real-valued.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Moments-Image-CL-Image-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Moments-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Moments</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {})</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-MomentAccumulator.html" class="m-doc">dip::MomentAccumulator</a> </span>
+              <span class="m-doc-name"><a href="#dip-Moments-Image-CL-Image-CL" class="m-doc-self">dip::<wbr />Moments</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask = {}</span>)            </h3>
             <p>Computes the first order normalized moments and second order normalized central moments of the image <code>in</code>,
 optionally using only those pixels selected by <code>mask</code>.</p>
 <p>If <code>mask</code> is not forged, all input pixels are considered. <code>in</code> must be scalar and real-valued.</p>

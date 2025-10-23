@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -51,7 +51,7 @@
           <div class="m-doc-template"><span class="m-doc-wrap-bumper">template&lt;</span><span class="m-doc-wrap">typename T&gt;</span></div>
           <span class="m-breadcrumb"><a href="dip.html">dip</a>::<wbr/></span>RDFT <span class="m-thin">class</span>        </h1>
         <p>An object that encapsulates the real-valued Discrete Fourier Transform (DFT).</p>
-        <div class="m-block m-default">
+        <div class="m-index m-block m-default">
           <h3>Contents</h3>
           <ul>
             <li>
@@ -85,12 +85,12 @@ array. Both arrays are passed into <a href="dip-RDFT-T.html#dip-RDFT-T-Apply-T-P
         <section id="typeless-methods">
             <h2>Constructors, destructors, assignment and conversion operators</h2>
             <dl class="m-doc">
-                              <dt id="dip-RDFT-T-RDFT">
-              <span class="m-doc-wrap-bumper"><a href="#dip-RDFT-T-RDFT" class="m-doc-self">RDFT</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-RDFT-T-RDFT" class="m-doc">RDFT</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>A default-initialized <code>DFT</code> object is useless. Call <code>Initialize</code> to make it useful.</dd>
-                              <dt id="dip-RDFT-T-RDFT-dip-uint--bool--Option-DFTOptions-">
-              <span class="m-doc-wrap-bumper"><a href="#dip-RDFT-T-RDFT-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">RDFT</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
+                              <dt>
+              <span class="m-doc-wrap-bumper"><a href="#dip-RDFT-T-RDFT-dip-uint--bool--Option-DFTOptions-" class="m-doc">RDFT</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
               bool inverse,
               <a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {})</span>
             </dt>
@@ -102,51 +102,70 @@ Note that this is not a trivial operation. Not thread safe.</dd>
           <h2>Functions</h2>
           <dl class="m-doc">
                           <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-RDFT-T-Apply-T-P-T-P-T--C" class="m-doc">Apply</a>(</span><span class="m-doc-wrap">T* source,
+              T* destination,
+              T scale) const</span>
+            </dt>
+            <dd>Apply the transform that the <code>RDFT</code> object is configured for. <a href="#dip-RDFT-T-Apply-T-P-T-P-T--C">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-RDFT-T-Destroy" class="m-doc">Destroy</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-danger">private</span></span>
+            </dt>
+            <dd>Frees memory</dd>
+                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-RDFT-T-Initialize-dip-uint--bool--Option-DFTOptions-" class="m-doc">Initialize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
               bool inverse,
               <a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {})</span>
             </dt>
             <dd>Re-configure a <code>RDFT</code> object to the given transform size and direction. <a href="#dip-RDFT-T-Initialize-dip-uint--bool--Option-DFTOptions-">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-RDFT-T-Apply-T-P-T-P-T--C" class="m-doc">Apply</a>(</span><span class="m-doc-wrap">T* source,
-              T* destination,
-              T scale) const</span>
-            </dt>
-            <dd>Apply the transform that the <code>RDFT</code> object is configured for. <a href="#dip-RDFT-T-Apply-T-P-T-P-T--C">more...</a></dd>
-                          <dt id="dip-RDFT-T-IsInverse-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-IsInverse-C" class="m-doc-self">IsInverse</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Returns <code>true</code> if this represents an inverse transform, <code>false</code> for a forward transform.</dd>
-                          <dt id="dip-RDFT-T-IsInplace-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-IsInplace-C" class="m-doc-self">IsInplace</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
-            </dt>
-            <dd>Returns whether the transform is configured to work in place or not. Not meaningful when using PocketFFT.</dd>
-                          <dt id="dip-RDFT-T-IsAligned-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-IsAligned-C" class="m-doc-self">IsAligned</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-IsAligned-C" class="m-doc">IsAligned</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
             </dt>
             <dd>Returns whether the transform is configured to work on aligned buffers or not. Not meaningful when using PocketFFT.</dd>
-                          <dt id="dip-RDFT-T-TransformSize-C">
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-TransformSize-C" class="m-doc-self">TransformSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-IsInplace-C" class="m-doc">IsInplace</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns whether the transform is configured to work in place or not. Not meaningful when using PocketFFT.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-IsInverse-C" class="m-doc">IsInverse</a>(</span><span class="m-doc-wrap">) const -&gt; bool</span>
+            </dt>
+            <dd>Returns <code>true</code> if this represents an inverse transform, <code>false</code> for a forward transform.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-RDFT-T-TransformSize-C" class="m-doc">TransformSize</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a></span>
             </dt>
             <dd>Returns the size that the transform is configured for.</dd>
-                          <dt id="dip-RDFT-T-Destroy">
-              <span class="m-doc-wrap-bumper">void <a href="#dip-RDFT-T-Destroy" class="m-doc-self">Destroy</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-danger">private</span></span>
-            </dt>
-            <dd>Frees memory</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
+                        <section class="m-doc-details" id="dip-RDFT-T-RDFT"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-RDFT" class="m-doc-self">RDFT</a></span>(
+) <span class="m-label m-info">defaulted</span>            </h3>
+            <p>A default-initialized <code>DFT</code> object is useless. Call <code>Initialize</code> to make it useful.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-RDFT-T-RDFT-dip-uint--bool--Option-DFTOptions-"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"> </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-RDFT-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">RDFT</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size, </span><span class="m-doc-arg">bool inverse, </span><span class="m-doc-arg"><a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {}</span>)            </h3>
+            <p>Construct a <code>DFT</code> object, see <a href="dip-RDFT-T.html#dip-RDFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><code>dip::RDFT::Initialize</code></a> for the meaning of the parameters.
+Note that this is not a trivial operation. Not thread safe.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-RDFT-T-Initialize-dip-uint--bool--Option-DFTOptions-"><div>
             <h3>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-RDFT-T-Initialize-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">Initialize</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size,
-              bool inverse,
-              <a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {})</span></span>
-            </h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-Initialize-dip-uint--bool--Option-DFTOptions-" class="m-doc-self">Initialize</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> size, </span><span class="m-doc-arg">bool inverse, </span><span class="m-doc-arg"><a href="transform_lowlevel.html#dip-Option-DFTOptions" class="m-doc">dip::Option::DFTOptions</a> options = {}</span>)            </h3>
             <p>Re-configure a <code>RDFT</code> object to the given transform size and direction.</p>
 <p><code>size</code> is the size of the transform. The real-valued pointer passed to <a href="dip-RDFT-T.html#dip-RDFT-T-Apply-T-P-T-P-T--C"><code>dip::RDFT::Apply</code></a> is expected to point at
 a buffer with this length. If <code>inverse</code> is <code>true</code>, an inverse transform will be computed (complex to real).
@@ -170,11 +189,9 @@ The complex buffer has a size of <code>size/2+1</code>.</p>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-RDFT-T-Apply-T-P-T-P-T--C" class="m-doc-self">Apply</a>(</span><span class="m-doc-wrap">T* source,
-              T* destination,
-              T scale) const</span></span>
-            </h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-Apply-T-P-T-P-T--C" class="m-doc-self">Apply</a></span>(
+<span class="m-doc-arg">T* source, </span><span class="m-doc-arg">T* destination, </span><span class="m-doc-arg">T scale</span>) const            </h3>
             <p>Apply the transform that the <code>RDFT</code> object is configured for.</p>
 <p><code>source</code> and <code>destination</code> are pointers to contiguous buffers.
 If configured as a forward transform, <code>source</code> is the real-valued array with <a href="dip-RDFT-T.html#dip-RDFT-T-TransformSize-C"><code>dip::RDFT::TransformSize</code></a> elements,
@@ -190,6 +207,56 @@ if they are different.</p>
 the input array can be overwritten with intermediate data, but otherwise will be left intact.</p>
 <p><code>scale</code> is a real scalar that the output values are multiplied by. It is typically set to <code>1/size</code> for
 the inverse transform, and 1 for the forward transform.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-RDFT-T-IsInverse-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-IsInverse-C" class="m-doc-self">IsInverse</a></span>(
+) const            </h3>
+            <p>Returns <code>true</code> if this represents an inverse transform, <code>false</code> for a forward transform.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-RDFT-T-IsInplace-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-IsInplace-C" class="m-doc-self">IsInplace</a></span>(
+) const            </h3>
+            <p>Returns whether the transform is configured to work in place or not. Not meaningful when using PocketFFT.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-RDFT-T-IsAligned-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">bool </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-IsAligned-C" class="m-doc-self">IsAligned</a></span>(
+) const            </h3>
+            <p>Returns whether the transform is configured to work on aligned buffers or not. Not meaningful when using PocketFFT.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-RDFT-T-TransformSize-C"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-TransformSize-C" class="m-doc-self">TransformSize</a></span>(
+) const            </h3>
+            <p>Returns the size that the transform is configured for.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-RDFT-T-Destroy"><div>
+            <h3>
+              <div class="m-doc-template">
+                template&lt;typename T&gt;
+              </div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-RDFT-T-Destroy" class="m-doc-self">Destroy</a></span>(
+) <span class="m-label m-danger">private</span>            </h3>
+            <p>Frees memory</p>
           </div></section>
         </section>
       </div>

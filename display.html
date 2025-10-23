@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -48,7 +48,7 @@
           Display <span class="m-thin">module</span>          <div class="m-doc-include m-code m-thin m-text-right">#include <a href="file--diplib--display-h.html">"diplib/display.h"</a></div>
         </h1>
         <p>Image display</p>
-        <div class="m-block m-default">
+        <div class="m-index m-block m-default">
           <h3>Contents</h3>
           <ul>
             <li>
@@ -65,7 +65,7 @@
           <h2>Modules</h2>
           <dl class="m-doc">
                           <dt>module <a href="dipviewer.html" class="m-doc"><em>DIPviewer</em></a></dt>
-            <dd>Interactive image display.</dd>
+            <dd>Interactive image display. <a href="dipviewer.html#dipviewer">more...</a></dd>
           </dl>
         </section>
         <section id="nested-classes">
@@ -75,7 +75,7 @@
               class <a href="dip-ImageDisplay.html" class="m-doc">dip::<wbr />ImageDisplay</a>
             </dt>
             <dd>Encapsulates state of an image in a display window, and provides the functionality for converting the
-image to a form suitable for display.</dd>
+image to a form suitable for display. <a href="dip-ImageDisplay.html#dip-ImageDisplay">more...</a></dd>
           </dl>
         </section>
         <section id="function-members">
@@ -88,32 +88,34 @@ image to a form suitable for display.</dd>
             </dt>
             <dd>Applies a color map to an image prepared for display using <a href="dip-ImageDisplay.html"><code>dip::ImageDisplay</code></a>. <a href="#dip-ApplyColorMap-Image-CL-Image-L-String-CL">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Overlay-Image-CL-Image-CL-Image-L-Image-Pixel-CL" class="m-doc">dip::<wbr />Overlay</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; overlay,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; color = {255,0,0})</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ColorMapLut-String-CL" class="m-doc">dip::<wbr />ColorMapLut</a>(</span><span class="m-doc-wrap"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorMap = "grey") -&gt; <a href="dip-LookupTable.html" class="m-doc">dip::LookupTable</a></span>
             </dt>
-            <dd>Adds a colored overlay to the image <code>in</code>, yielding an RGB image. <a href="#dip-Overlay-Image-CL-Image-CL-Image-L-Image-Pixel-CL">more...</a></dd>
+            <dd>Creates a <a href="dip-LookupTable.html"><code>dip::LookupTable</code></a> with a pre-computed sRGB color map. <a href="#dip-ColorMapLut-String-CL">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-MarkLabelEdges-Image-CL-Image-L-dip-uint-" class="m-doc">dip::<wbr />MarkLabelEdges</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> factor = 2)</span>
             </dt>
             <dd>Upscales a labeled image and outlines each region with the background label. <a href="#dip-MarkLabelEdges-Image-CL-Image-L-dip-uint-">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Overlay-Image-CL-Image-CL-Image-L-Image-Pixel-CL" class="m-doc">dip::<wbr />Overlay</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; overlay,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
+              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; color = {255,0,0})</span>
+            </dt>
+            <dd>Adds a colored overlay to the image <code>in</code>, yielding an RGB image. <a href="#dip-Overlay-Image-CL-Image-CL-Image-L-Image-Pixel-CL">more...</a></dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-                        <section class="m-doc-details" id="dip-ApplyColorMap-Image-CL-Image-L-String-CL"><div>
+                        <section class="m-doc-details" id="dip-ColorMapLut-String-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-ApplyColorMap-Image-CL-Image-L-String-CL" class="m-doc-self">dip::<wbr />ApplyColorMap</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorMap = "grey")</span></span>
-            </h3>
-            <p>Applies a color map to an image prepared for display using <a href="dip-ImageDisplay.html"><code>dip::ImageDisplay</code></a>.</p>
-<p><code>in</code> is a scalar, 8-bit unsigned image. <code>out</code> will be an image of the same size and type
-but with three tensor components, and in the &ldquo;sRGB&rdquo; color space.</p>
+              <span class="m-doc-return"><a href="dip-LookupTable.html" class="m-doc">dip::LookupTable</a> </span>
+              <span class="m-doc-name"><a href="#dip-ColorMapLut-String-CL" class="m-doc-self">dip::<wbr />ColorMapLut</a></span>(
+<span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorMap = "grey"</span>)            </h3>
+            <p>Creates a <a href="dip-LookupTable.html"><code>dip::LookupTable</code></a> with a pre-computed sRGB color map.</p>
+<p>All color maps have 256 values, and should be applied to images normalized to the range [0, 255].
+You will need to include <a href="file--diplib--lookup_table-h.html">diplib/lookup_table.h</a> where the output class is defined.</p>
 <p><code>colorMap</code> can currently be one of the following color maps:</p>
 <ul>
 <li><code>"grey"</code>: Each grey level maps to an RGB value that represents the same grey level.</li>
@@ -131,7 +133,6 @@ but with three tensor components, and in the &ldquo;sRGB&rdquo; color space.</p>
   that of nearby grey values. 16 different colors are used. The 0 grey value is considered background
   and colored black. Use with the <code>"modulo"</code> range mode of <a href="dip-ImageDisplay.html"><code>dip::ImageDisplay</code></a>.</li>
 </ul>
-<p>For more information regarding the range modes of <a href="dip-ImageDisplay.html"><code>dip::ImageDisplay</code></a>, see <a href="dip-ImageDisplay.html#dip-ImageDisplay-SetRange-Limits-"><code>dip::ImageDisplay::SetRange</code></a>.</p>
 <p>The <code>"linear"</code>, <code>"diverging"</code> and <code>"cyclic"</code> are by <a href="https://colorcet.com">Peter Kovesi</a>.</p>
 <aside class="m-note m-default">
 <h4>Literature</h4>
@@ -140,14 +141,21 @@ but with three tensor components, and in the &ldquo;sRGB&rdquo; color space.</p>
 </ul>
 </aside>
           </div></section>
+                        <section class="m-doc-details" id="dip-ApplyColorMap-Image-CL-Image-L-String-CL"><div>
+            <h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-ApplyColorMap-Image-CL-Image-L-String-CL" class="m-doc-self">dip::<wbr />ApplyColorMap</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; colorMap = "grey"</span>)            </h3>
+            <p>Applies a color map to an image prepared for display using <a href="dip-ImageDisplay.html"><code>dip::ImageDisplay</code></a>.</p>
+<p><code>in</code> is a scalar, 8-bit unsigned image. <code>out</code> will be an image of the same size and type
+but with three tensor components, and in the &ldquo;sRGB&rdquo; color space.</p>
+<p>See <a href="display.html#dip-ColorMapLut-String-CL"><code>dip::ColorMapLut</code></a> for possible values for <code>colorMap</code>.</p>
+          </div></section>
                         <section class="m-doc-details" id="dip-Overlay-Image-CL-Image-CL-Image-L-Image-Pixel-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Overlay-Image-CL-Image-CL-Image-L-Image-Pixel-CL" class="m-doc-self">dip::<wbr />Overlay</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; overlay,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; color = {255,0,0})</span></span>
-            </h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Overlay-Image-CL-Image-CL-Image-L-Image-Pixel-CL" class="m-doc-self">dip::<wbr />Overlay</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; overlay, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="dip-Image-Pixel.html" class="m-doc">dip::Image::Pixel</a> const&amp; color = {255,0,0}</span>)            </h3>
             <p>Adds a colored overlay to the image <code>in</code>, yielding an RGB image.</p>
 <p><code>in</code> must be either scalar (grey-value image) or RGB. <code>overlay</code> can be binary or integer.</p>
 <p>In the case of a binary overlay image, the pixels selected by it will be assigned the value <code>color</code>,
@@ -158,11 +166,9 @@ create a label image overlay. <code>color</code> will be ignored.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-MarkLabelEdges-Image-CL-Image-L-dip-uint-"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-MarkLabelEdges-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />MarkLabelEdges</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> factor = 2)</span></span>
-            </h3>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-MarkLabelEdges-Image-CL-Image-L-dip-uint-" class="m-doc-self">dip::<wbr />MarkLabelEdges</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; labels, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> factor = 2</span>)            </h3>
             <p>Upscales a labeled image and outlines each region with the background label.</p>
 <p><code>out</code> will be a labeled image like <code>labels</code>, but <code>factor</code> times as large along each dimension.
 In the upscaled image, the pixels that form the border of each region are set to 0, the background label.</p>

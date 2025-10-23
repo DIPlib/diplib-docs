@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.5.2" class="m-thin">version 3.5.2</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -48,7 +48,7 @@
           <span class="m-breadcrumb"><a href="math.html">Math and statistics</a> &raquo;</span>
           Comparison operators <span class="m-thin">module</span>        </h1>
         <p>Monadic and dyadic image comparison operators.</p>
-        <div class="m-block m-default">
+        <div class="m-index m-block m-default">
           <h3>Contents</h3>
           <ul>
             <li>
@@ -70,11 +70,33 @@
             </dt>
             <dd>Equality comparison, sample-wise, with singleton expansion. <a href="#dip-Equal-Image-CL-Image-CL-Image-L">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-NotEqual-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />NotEqual</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-Greater-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />Greater</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
-            <dd>Inequality comparison, sample-wise, with singleton expansion. <a href="#dip-NotEqual-Image-CL-Image-CL-Image-L">more...</a></dd>
+            <dd>Inequality comparison, sample-wise, with singleton expansion. <a href="#dip-Greater-Image-CL-Image-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-InRange-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />InRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>In-range ternary comparison, sample-wise, with singleton expansion. <a href="#dip-InRange-Image-CL-Image-CL-Image-CL-Image-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-IsFinite-Image-CL-Image-L" class="m-doc">dip::<wbr />IsFinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>True for each pixel that is not NaN nor infinity.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-IsInfinite-Image-CL-Image-L" class="m-doc">dip::<wbr />IsInfinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>True for each pixel that is positive or negative infinity.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">void <a href="#dip-IsNotANumber-Image-CL-Image-L" class="m-doc">dip::<wbr />IsNotANumber</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
+            </dt>
+            <dd>True for each pixel that is NaN.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Lesser-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />Lesser</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
@@ -82,11 +104,11 @@
             </dt>
             <dd>Inequality comparison, sample-wise, with singleton expansion. <a href="#dip-Lesser-Image-CL-Image-CL-Image-L">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-Greater-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />Greater</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              <span class="m-doc-wrap-bumper">void <a href="#dip-NotEqual-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />NotEqual</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
-            <dd>Inequality comparison, sample-wise, with singleton expansion. <a href="#dip-Greater-Image-CL-Image-CL-Image-L">more...</a></dd>
+            <dd>Inequality comparison, sample-wise, with singleton expansion. <a href="#dip-NotEqual-Image-CL-Image-CL-Image-L">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-NotGreater-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />NotGreater</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
@@ -100,34 +122,12 @@
             </dt>
             <dd>Inequality comparison, sample-wise, with singleton expansion. <a href="#dip-NotLesser-Image-CL-Image-CL-Image-L">more...</a></dd>
                           <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-InRange-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />InRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
-            </dt>
-            <dd>In-range ternary comparison, sample-wise, with singleton expansion. <a href="#dip-InRange-Image-CL-Image-CL-Image-CL-Image-L">more...</a></dd>
-                          <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-OutOfRange-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc">dip::<wbr />OutOfRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
             </dt>
             <dd>Out-of-range ternary comparison, sample-wise, with singleton expansion. <a href="#dip-OutOfRange-Image-CL-Image-CL-Image-CL-Image-L">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-IsNotANumber-Image-CL-Image-L" class="m-doc">dip::<wbr />IsNotANumber</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
-            </dt>
-            <dd>True for each pixel that is NaN. <a href="#dip-IsNotANumber-Image-CL-Image-L">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-IsInfinite-Image-CL-Image-L" class="m-doc">dip::<wbr />IsInfinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
-            </dt>
-            <dd>True for each pixel that is positive or negative infinity. <a href="#dip-IsInfinite-Image-CL-Image-L">more...</a></dd>
-                          <dt>
-              <span class="m-doc-wrap-bumper">void <a href="#dip-IsFinite-Image-CL-Image-L" class="m-doc">dip::<wbr />IsFinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
-            </dt>
-            <dd>True for each pixel that is not NaN nor infinity. <a href="#dip-IsFinite-Image-CL-Image-L">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-Select-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-String-CL" class="m-doc">dip::<wbr />Select</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
               <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
@@ -158,52 +158,50 @@
           <dl class="m-doc">
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3D%3D-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
-            </dt>
-            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Equal-Image-CL-Image-CL-Image-L"><code>dip::Equal</code></a>. <a href="#dip-operator%3D%3D-T-Image-CL-T-CL">more...</a></dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%21%3D-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotEqual-Image-CL-Image-CL-Image-L"><code>dip::NotEqual</code></a>. <a href="#dip-operator%21%3D-T-Image-CL-T-CL">more...</a></dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotEqual-Image-CL-Image-CL-Image-L"><code>dip::NotEqual</code></a>.</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator<</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Lesser-Image-CL-Image-CL-Image-L"><code>dip::Lesser</code></a>. <a href="#dip-operator%3C-T-Image-CL-T-CL">more...</a></dd>
-                          <dt>
-              <div class="m-doc-template">template&lt;typename T&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3E-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
-            </dt>
-            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Greater-Image-CL-Image-CL-Image-L"><code>dip::Greater</code></a>. <a href="#dip-operator%3E-T-Image-CL-T-CL">more...</a></dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Lesser-Image-CL-Image-CL-Image-L"><code>dip::Lesser</code></a>.</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3D-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotGreater-Image-CL-Image-CL-Image-L"><code>dip::NotGreater</code></a>. <a href="#dip-operator%3C%3D-T-Image-CL-T-CL">more...</a></dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotGreater-Image-CL-Image-CL-Image-L"><code>dip::NotGreater</code></a>.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3D%3D-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Equal-Image-CL-Image-CL-Image-L"><code>dip::Equal</code></a>.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename T&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3E-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
+              T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
+            </dt>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-Greater-Image-CL-Image-CL-Image-L"><code>dip::Greater</code></a>.</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename T&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3E%3D-T-Image-CL-T-CL" class="m-doc">dip::<wbr />operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
               T const&amp; rhs) -&gt; <a href="dip-Image.html" class="m-doc">dip::Image</a></span>
             </dt>
-            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotLesser-Image-CL-Image-CL-Image-L"><code>dip::NotLesser</code></a>. <a href="#dip-operator%3E%3D-T-Image-CL-T-CL">more...</a></dd>
+            <dd>Comparison operator, calls <a href="math_comparison.html#dip-NotLesser-Image-CL-Image-CL-Image-L"><code>dip::NotLesser</code></a>.</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
                         <section class="m-doc-details" id="dip-Equal-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Equal-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Equal</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Equal-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Equal</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Equality comparison, sample-wise, with singleton expansion.</p>
 <p>Out will be binary. <code>lhs</code> must be an image, but <code>rhs</code> can also be a pixel or a sample
 (or a scalar value that implicitly converts to one).</p>
@@ -214,12 +212,10 @@
           </div></section>
                         <section class="m-doc-details" id="dip-NotEqual-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-NotEqual-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />NotEqual</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-NotEqual-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />NotEqual</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Inequality comparison, sample-wise, with singleton expansion.</p>
 <p>Out will be binary. <code>lhs</code> must be an image, but <code>rhs</code> can also be a pixel or a sample
 (or a scalar value that implicitly converts to one).</p>
@@ -230,12 +226,10 @@
           </div></section>
                         <section class="m-doc-details" id="dip-Lesser-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Lesser-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Lesser</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Lesser-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Lesser</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Inequality comparison, sample-wise, with singleton expansion.</p>
 <p>Out will be binary. <code>lhs</code> must be an image, but <code>rhs</code> can also be a pixel or a sample
 (or a scalar value that implicitly converts to one).</p>
@@ -246,12 +240,10 @@
           </div></section>
                         <section class="m-doc-details" id="dip-Greater-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Greater-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Greater</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Greater-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Greater</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Inequality comparison, sample-wise, with singleton expansion.</p>
 <p>Out will be binary. <code>lhs</code> must be an image, but <code>rhs</code> can also be a pixel or a sample
 (or a scalar value that implicitly converts to one).</p>
@@ -262,12 +254,10 @@
           </div></section>
                         <section class="m-doc-details" id="dip-NotGreater-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-NotGreater-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />NotGreater</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-NotGreater-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />NotGreater</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Inequality comparison, sample-wise, with singleton expansion.</p>
 <p>Out will be binary. <code>lhs</code> must be an image, but <code>rhs</code> can also be a pixel or a sample
 (or a scalar value that implicitly converts to one).</p>
@@ -278,12 +268,10 @@
           </div></section>
                         <section class="m-doc-details" id="dip-NotLesser-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-NotLesser-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />NotLesser</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-NotLesser-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />NotLesser</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Inequality comparison, sample-wise, with singleton expansion.</p>
 <p>Out will be binary. <code>lhs</code> must be an image, but <code>rhs</code> can also be a pixel or a sample
 (or a scalar value that implicitly converts to one).</p>
@@ -294,13 +282,10 @@
           </div></section>
                         <section class="m-doc-details" id="dip-InRange-Image-CL-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-InRange-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />InRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-InRange-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />InRange</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>In-range ternary comparison, sample-wise, with singleton expansion.</p>
 <p>Computes</p>
 <div class="m-code"><pre><span></span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="p">);</span>
@@ -311,13 +296,10 @@
           </div></section>
                         <section class="m-doc-details" id="dip-OutOfRange-Image-CL-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-OutOfRange-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />OutOfRange</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib-h.html">"diplib.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-OutOfRange-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />OutOfRange</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; rhs, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Out-of-range ternary comparison, sample-wise, with singleton expansion.</p>
 <p>Computes</p>
 <div class="m-code"><pre><span></span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="p">);</span>
@@ -328,42 +310,34 @@
           </div></section>
                         <section class="m-doc-details" id="dip-IsNotANumber-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-IsNotANumber-Image-CL-Image-L" class="m-doc-self">dip::<wbr />IsNotANumber</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-IsNotANumber-Image-CL-Image-L" class="m-doc-self">dip::<wbr />IsNotANumber</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>True for each pixel that is NaN.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-IsInfinite-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-IsInfinite-Image-CL-Image-L" class="m-doc-self">dip::<wbr />IsInfinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-IsInfinite-Image-CL-Image-L" class="m-doc-self">dip::<wbr />IsInfinite</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>True for each pixel that is positive or negative infinity.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-IsFinite-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-IsFinite-Image-CL-Image-L" class="m-doc-self">dip::<wbr />IsFinite</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-IsFinite-Image-CL-Image-L" class="m-doc-self">dip::<wbr />IsFinite</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>True for each pixel that is not NaN nor infinity.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Select-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-String-CL"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Select-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-String-CL" class="m-doc-self">dip::<wbr />Select</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in3,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in4,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,
-              <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; selector)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Select-Image-CL-Image-CL-Image-CL-Image-CL-Image-L-String-CL" class="m-doc-self">dip::<wbr />Select</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in3, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in4, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> const&amp; selector</span>)            </h3>
             <p>Compares <code>in1</code> to <code>in2</code> according to <code>selector</code>, and writes <code>in3</code> or <code>in4</code> to <code>out</code> depending on the result.</p>
 <p>In short, this is the operation that is applied sample by sample:</p>
 <div class="m-code"><pre><span></span><span class="n">in1</span><span class="w"> </span><span class="o">&lt;</span><span class="n">selector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">in2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">in3</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">in4</span>
@@ -391,13 +365,10 @@ values for <code>in3</code> and <code>in4</code>:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Select-Image-CL-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Select-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Select</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Select-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Select</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; mask, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Writes either <code>in1</code> or <code>in2</code> to <code>out</code> depending on the value of <code>mask</code>.</p>
 <p>In short, this is the operation that is applied sample by sample:</p>
 <div class="m-code"><pre><span></span><span class="n">mask</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">in1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">in2</span>
@@ -422,13 +393,10 @@ values for <code>in3</code> and <code>in4</code>:</p>
           </div></section>
                         <section class="m-doc-details" id="dip-Toggle-Image-CL-Image-CL-Image-CL-Image-L"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">void
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-Toggle-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Toggle</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2,
-              <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
-            </h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right">#include <a href="file--diplib--math-h.html">"diplib/math.h"</a></div>
+              <span class="m-doc-return">void </span>
+              <span class="m-doc-name"><a href="#dip-Toggle-Image-CL-Image-CL-Image-CL-Image-L" class="m-doc-self">dip::<wbr />Toggle</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in1, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in2, </span><span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out</span>)            </h3>
             <p>Writes to <code>out</code> whichever of <code>in1</code> or <code>in2</code> is closest to <code>in</code>.</p>
 <p>Each pixel in <code>out</code> will contain the corresponding value in <code>in1</code> or <code>in2</code>, whichever is closer to the value of <code>in</code>.</p>
 <p>An alternative, slower implementation would be:</p>
@@ -446,10 +414,9 @@ values for <code>in3</code> and <code>in4</code>:</p>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%3D%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator==</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%3D%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator==</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg">T const&amp; rhs</span>)            </h3>
             <p>Comparison operator, calls <a href="math_comparison.html#dip-Equal-Image-CL-Image-CL-Image-L"><code>dip::Equal</code></a>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-operator%21%3D-T-Image-CL-T-CL"><div>
@@ -458,10 +425,9 @@ values for <code>in3</code> and <code>in4</code>:</p>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%21%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator!=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%21%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator!=</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg">T const&amp; rhs</span>)            </h3>
             <p>Comparison operator, calls <a href="math_comparison.html#dip-NotEqual-Image-CL-Image-CL-Image-L"><code>dip::NotEqual</code></a>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-operator%3C-T-Image-CL-T-CL"><div>
@@ -470,10 +436,9 @@ values for <code>in3</code> and <code>in4</code>:</p>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%3C-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator<</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%3C-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator<</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg">T const&amp; rhs</span>)            </h3>
             <p>Comparison operator, calls <a href="math_comparison.html#dip-Lesser-Image-CL-Image-CL-Image-L"><code>dip::Lesser</code></a>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-operator%3E-T-Image-CL-T-CL"><div>
@@ -482,10 +447,9 @@ values for <code>in3</code> and <code>in4</code>:</p>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%3E-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator></a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%3E-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator></a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg">T const&amp; rhs</span>)            </h3>
             <p>Comparison operator, calls <a href="math_comparison.html#dip-Greater-Image-CL-Image-CL-Image-L"><code>dip::Greater</code></a>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-operator%3C%3D-T-Image-CL-T-CL"><div>
@@ -494,10 +458,9 @@ values for <code>in3</code> and <code>in4</code>:</p>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%3C%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator<=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%3C%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator<=</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg">T const&amp; rhs</span>)            </h3>
             <p>Comparison operator, calls <a href="math_comparison.html#dip-NotGreater-Image-CL-Image-CL-Image-L"><code>dip::NotGreater</code></a>.</p>
           </div></section>
                         <section class="m-doc-details" id="dip-operator%3E%3D-T-Image-CL-T-CL"><div>
@@ -506,10 +469,9 @@ values for <code>in3</code> and <code>in4</code>:</p>
               <div class="m-doc-template">
                 template&lt;typename T&gt;
               </div>
-              <span class="m-doc-wrap-bumper"><a href="dip-Image.html" class="m-doc">dip::Image</a>
-                </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#dip-operator%3E%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator>=</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs,
-              T const&amp; rhs)</span></span>
-            </h3>
+              <span class="m-doc-return"><a href="dip-Image.html" class="m-doc">dip::Image</a> </span>
+              <span class="m-doc-name"><a href="#dip-operator%3E%3D-T-Image-CL-T-CL" class="m-doc-self">dip::<wbr />operator>=</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; lhs, </span><span class="m-doc-arg">T const&amp; rhs</span>)            </h3>
             <p>Comparison operator, calls <a href="math_comparison.html#dip-NotLesser-Image-CL-Image-CL-Image-L"><code>dip::NotLesser</code></a>.</p>
           </div></section>
         </section>
