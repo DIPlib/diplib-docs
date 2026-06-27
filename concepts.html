@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.1" class="m-thin">version 3.6.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -51,6 +51,7 @@
           <h3>Contents</h3>
           <ul>
             <li><a href="#connectivity">Connectivity</a></li>
+            <li><a href="#boundary_conditions">Boundary Conditions</a></li>
             <li><a href="#aliasing">Handling input and output images that alias each other</a></li>
             <li><a href="#coordinates_origin">Coordinate system origin</a></li>
             <li><a href="#normal_strides">Normal strides</a></li>
@@ -142,6 +143,85 @@ available only if the function takes a <a href="supporttypes.html#dip-sint"><cod
 <p>Some functions will interpret a connectivity of 0 to mean the maximum connectivity
 (i.e. equal to the image dimensionality). This is an easy way to define a default
 value that changes depending on the image dimensionality.</p>
+<h2 id="boundary_conditions">Boundary Conditions</h2>
+<p>When computing on images, one usually needs to read data outside the image domain. For example, a filter
+with a 7x7 window will need to read up to 3 pixels past the image boundary when computing the output at
+pixels inside the image but near the boundary. Most functions will pad (extend) the image, fill in some
+meaningful values in the padded areas, and use the result to read from when computing their output. Some
+functions will do this explicitly for the entire image, separable filters will do this on one image line
+at the time, and some other functions will do this only implicitly. One can use the function
+<a href="boundary.html#dip-ExtendImage-Image-CL-Image-L-UnsignedArray--BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a> to visualize what the extended image looks like to a filter, or to extend the image
+when manually implementing a function that needs to read outside the image bounds.</p>
+<p>In DIPlib, we refer to the method used to fill in the padded areas as the <em>boundary condition</em>. DIPlib
+knows quite a lot of different boundary conditions, see <a href="boundary.html#dip-BoundaryCondition"><code>dip::BoundaryCondition</code></a>. Here we show what
+they do, what the conditions are that are applied to the boundary, and discuss what condition to pick
+for some common situations.</p>
+<p>The default boundary condition is <code>"mirror"</code>. The image data is mirrored at the image boundary, creating
+an even function around the boundary pixel. This is the default because it is a reasonable condition
+in most situations, and is the recommended boundary condition for low-pass filters and non-linear smoothing
+filters. Asymmetric mirror (<code>"asym mirror"</code>) does  the same thing, but additionally inverts the pixel values,
+creating an odd function around the boundary pixel. Note that, for unsigned integer images, this uses
+<a href="pixeltypes.html#dip-saturated_inv-T-T-"><code>dip::saturated_inv</code></a>.</p>
+<p>The plots below show a 1D signal (an image line) padded  using these boundary conditions.</p>
+<p class="m-text-center"><img alt="The &quot;mirror&quot; boundary condition" class="m-image" src="border_condition_mirror.png" width="400px">
+<em>The <code>"mirror"</code> boundary condition</em></p>
+<p class="m-text-center"><img alt="The &quot;asym mirror&quot; boundary condition" class="m-image" src="border_condition_asym_mirror.png" width="400px">
+<em>The <code>"asym mirror"</code> boundary condition</em></p>
+<p>Antisymmetric reflect (<code>"antisym reflect"</code>) is similar to asymmetric mirror, but reflects the data also
+in the intensity axis (the y axis in the plot below). This causes the gradient to be equal on both
+sides of the boundary pixel. This is a good boundary condition to use when computing derivatives.
+Note that for integer types, this boundary condition can lead to values outside the input range, which
+will be clipped to the range. Note also that this boundary condition is noise-sensitive, as the one
+pixel at the edge affects all the padded pixels.</p>
+<p class="m-text-center"><img alt="The &quot;antisym reflect&quot; boundary condition" class="m-image" src="border_condition_antisym_reflect.png" width="400px">
+<em>The <code>"antisym reflect"</code> boundary condition</em></p>
+<p>The periodic boundary condition simply repeats the image, as if one enters the domain on one side when
+exiting it on the other, like in pac-man. For a 2D image, this corresponds to wrapping the image onto a
+toroidal geometry. The Discrete Fourier Transform implicitly uses this boundary condition, other filters
+can use it too to mimic a filter applied in the discrete Fourier domain. The asymmetric periodic condition
+additionally inverts the pixel values.</p>
+<p class="m-text-center"><img alt="The &quot;periodic&quot; boundary condition" class="m-image" src="border_condition_periodic.png" width="400px">
+<em>The <code>"periodic"</code> boundary condition</em></p>
+<p class="m-text-center"><img alt="The &quot;asym periodic&quot; boundary condition" class="m-image" src="border_condition_asym_periodic.png" width="400px">
+<em>The <code>"asym periodic"</code> boundary condition</em></p>
+<p>Three trivial conditions simply set the values outside the image to a specific value, either zero (<code>"add zeros"</code>),
+the maximum value for the data type (<code>"add max"</code>), or the minimum value for the data type (<code>"add min"</code>).</p>
+<p>Padding with zeros is useful for example in the case of normalized convolution (where it&rsquo;s the default), when
+extending the Fourier transform of an image, and in many cases for geometric transformations (it&rsquo;s the default
+also for rotation).</p>
+<p>Padding with the maximum value is useful in the morphological erosion (<a href="morphology.html#dip-Erosion-Image-CL-Image-L-StructuringElement-CL-StringArray-CL"><code>dip::Erosion</code></a>), and with the minimum
+value for dilation (<a href="morphology.html#dip-Dilation-Image-CL-Image-L-StructuringElement-CL-StringArray-CL"><code>dip::Dilation</code></a>).</p>
+<p class="m-text-center"><img alt="The &quot;add zeros&quot; boundary condition" class="m-image" src="border_condition_add_zeros.png" width="400px">
+<em>The <code>"add zeros"</code> boundary condition</em></p>
+<p>To impose a boundary condition that is a constant other than 0, min or max, subtract the desired value from
+the image, apply the operation with the boundary condition <code>"add zeros"</code>, then add that value back to the image.
+This might require converting the image to a signed type for the initial subtraction to do the right thing.
+For example, to use a value of 100 as the constant boundary condition:</p>
+<div class="m-code"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">bc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">ImageRead</span><span class="p">(</span><span class="s">&quot;examples/cameraman.tif&quot;</span><span class="p">);</span>
+<span class="n">dip</span><span class="o">::</span><span class="n">Image</span><span class="w"> </span><span class="n">rotated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">img</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bc</span><span class="p">;</span><span class="w">  </span><span class="c1">// Note that the result here is single float</span>
+<span class="n">rotated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">Rotation2D</span><span class="p">(</span><span class="n">rotated</span><span class="p">,</span><span class="w"> </span><span class="n">dip</span><span class="o">::</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;add zeros&quot;</span><span class="p">);</span>
+<span class="n">rotated</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bc</span><span class="p">;</span>
+<span class="n">rotated</span><span class="p">.</span><span class="n">Convert</span><span class="p">(</span><span class="n">dip</span><span class="o">::</span><span class="n">DT_UINT8</span><span class="p">);</span>
+</pre></div>
+
+<p>The last four boundary conditions extrapolate based on one or two pixels at the boundary. They
+establish a polygon with increasing order. All of these are very noise sensitive, and the higher
+the order, the more sensitive they are. The zero and first order extrapolation use only one boundary
+pixel. <code>"zero order"</code> simply replicates this one value out. <code>"first order"</code> fits a first order
+polynomial between this pixel and the end of the padding area, where it reaches zero. The
+second and third order extrapolation use two boundary pixels, fitting a second and third order
+polynomial that also reach zero at the end of the padding area. The third order extrapolation
+reaches zero with a zero gradient. Do not use these higher order extrapolation modes with
+noisy data.</p>
+<p class="m-text-center"><img alt="The &quot;zero order&quot; boundary condition" class="m-image" src="border_condition_zero_order.png" width="400px">
+<em>The <code>"zero order"</code> boundary condition</em></p>
+<p class="m-text-center"><img alt="The &quot;first order&quot; boundary condition" class="m-image" src="border_condition_first_order.png" width="400px">
+<em>The <code>"first order"</code> boundary condition</em></p>
+<p class="m-text-center"><img alt="The &quot;second order&quot; boundary condition" class="m-image" src="border_condition_second_order.png" width="400px">
+<em>The <code>"second order"</code> boundary condition</em></p>
+<p class="m-text-center"><img alt="The &quot;third order&quot; boundary condition" class="m-image" src="border_condition_third_order.png" width="400px">
+<em>The <code>"third order"</code> boundary condition</em></p>
 <h2 id="aliasing">Handling input and output images that alias each other</h2>
 <p>Many of the old <em>DIPlib 2</em> functions (the ones that cannot work
 in-place) used a function <code>dip_ImagesSeparate()</code> to create temporary images

@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.1" class="m-thin">version 3.6.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -312,6 +312,12 @@ potentially lead to extremely large histograms.</dd>
               <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs) -&gt; <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a></span>
             </dt>
             <dd>Subtracts two histograms.</dd>
+                            <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-operator%3C%3C-std-ostream-L-Histogram-CL" class="m-doc">dip::<wbr />operator<<</a>(</span><span class="m-doc-wrap">std::ostream&amp; os,
+              <a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram) -&gt; std::ostream&amp;</span>
+            </dt>
+            <dd>You can output a <a href="dip-Histogram.html"><code>dip::Histogram</code></a> to <code>std::cout</code> or any other stream. Some
+information about the histogram is printed.</dd>
           </dl>
         </section>
         <section>
@@ -421,29 +427,29 @@ pointer to the data later.</p>
 \(2 \text{IQR} / \sqrt[3]{n}\)
 </title>
 <defs>
-<path id='eq121-g4-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
-<path id='eq121-g1-112' d='M8.73-.67H8.04L5.34 8.66L3 3.69L.71 4.91L.86 5.16L2.13 4.68L5.26 11.24L8.73-.67Z'/>
-<path id='eq121-g1-157' d='M.74 2.3H1.36L4.74-8.42H4.12L.74 2.3Z'/>
-<use id='eq121-g11-50' xlink:href='#eq121-g8-50' transform='scale(1.82)'/>
-<use id='eq121-g11-73' xlink:href='#eq121-g8-73' transform='scale(1.82)'/>
-<use id='eq121-g11-81' xlink:href='#eq121-g8-81' transform='scale(1.82)'/>
-<use id='eq121-g11-82' xlink:href='#eq121-g8-82' transform='scale(1.82)'/>
-<path id='eq121-g8-50' d='M3.11-.9L3.03-.93C2.78-.56 2.7-.5 2.4-.5H.84L1.94-1.65C2.52-2.26 2.78-2.76 2.78-3.27C2.78-3.92 2.25-4.43 1.57-4.43C1.21-4.43 .86-4.28 .62-4.02C.41-3.8 .31-3.59 .2-3.12L.34-3.09C.6-3.73 .84-3.94 1.29-3.94C1.84-3.94 2.21-3.57 2.21-3.02C2.21-2.51 1.91-1.9 1.36-1.32L.2-.08V0H2.75L3.11-.9Z'/>
-<path id='eq121-g8-51' d='M2.83-1.43C2.83-1.77 2.73-2.08 2.54-2.28C2.4-2.42 2.28-2.5 1.99-2.63C2.44-2.93 2.61-3.18 2.61-3.53C2.61-4.06 2.19-4.43 1.59-4.43C1.26-4.43 .97-4.32 .73-4.11C.54-3.93 .44-3.76 .29-3.37L.39-3.34C.66-3.82 .96-4.04 1.37-4.04C1.79-4.04 2.09-3.75 2.09-3.33C2.09-3.1 1.99-2.86 1.83-2.7C1.63-2.5 1.45-2.4 1-2.25V-2.16C1.39-2.16 1.54-2.15 1.7-2.09C2.1-1.95 2.36-1.57 2.36-1.12C2.36-.57 1.98-.14 1.5-.14C1.32-.14 1.19-.19 .95-.35C.75-.47 .64-.51 .53-.51C.38-.51 .28-.42 .28-.28C.28-.05 .56 .09 1.02 .09C1.53 .09 2.04-.08 2.35-.35S2.83-1 2.83-1.43Z'/>
-<path id='eq121-g8-73' d='M2.06 0V-.12C1.53-.14 1.42-.24 1.42-.71V-3.62C1.42-4.1 1.51-4.19 2.06-4.21V-4.34H.12V-4.21C.67-4.18 .75-4.11 .75-3.62V-.71C.75-.22 .67-.14 .12-.12V0H2.06Z'/>
-<path id='eq121-g8-81' d='M4.59 1.16V1.04C3.85 1.04 3.32 .73 2.79 .05C3.24-.04 3.47-.15 3.77-.41C4.26-.85 4.51-1.44 4.51-2.17C4.51-3.49 3.62-4.43 2.36-4.43S.22-3.49 .22-2.16C.22-1.51 .42-.98 .81-.56C1.06-.28 1.27-.15 1.74 .01L2.04 .37C2.49 .88 3.28 1.17 4.32 1.17C4.42 1.17 4.48 1.17 4.55 1.16H4.59ZM3.76-2.18C3.76-1.53 3.57-.86 3.31-.56C3.07-.29 2.73-.14 2.36-.14C2.05-.14 1.76-.26 1.53-.47C1.18-.77 .97-1.43 .97-2.19C.97-2.82 1.16-3.47 1.43-3.77C1.7-4.05 2-4.19 2.38-4.19C2.67-4.19 2.97-4.07 3.2-3.86C3.55-3.55 3.76-2.92 3.76-2.18Z'/>
-<path id='eq121-g8-82' d='M4.32 0V-.12C4.07-.14 3.94-.21 3.75-.43L2.4-2.09C2.84-2.17 3.03-2.25 3.25-2.43C3.46-2.6 3.58-2.88 3.58-3.18C3.58-3.47 3.5-3.71 3.33-3.9C3.08-4.17 2.54-4.34 1.92-4.34H.11V-4.21C.6-4.16 .67-4.09 .67-3.62V-.79C.67-.24 .6-.16 .11-.12V0H1.93V-.12C1.42-.16 1.34-.24 1.34-.71V-2L1.7-2.02L3.26 0H4.32ZM2.87-3.2C2.87-2.87 2.73-2.59 2.5-2.47C2.19-2.3 1.97-2.26 1.34-2.25V-3.86C1.34-4.04 1.41-4.09 1.67-4.09C2.49-4.09 2.87-3.81 2.87-3.2Z'/>
+<path id='eq130-g1-112' d='M8.73-.67H8.04L5.34 8.66L3 3.69L.71 4.91L.86 5.16L2.13 4.68L5.26 11.24L8.73-.67Z'/>
+<path id='eq130-g1-157' d='M.74 2.3H1.36L4.74-8.42H4.12L.74 2.3Z'/>
+<path id='eq130-g4-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
+<use id='eq130-g11-50' xlink:href='#eq130-g8-50' transform='scale(1.82)'/>
+<use id='eq130-g11-73' xlink:href='#eq130-g8-73' transform='scale(1.82)'/>
+<use id='eq130-g11-81' xlink:href='#eq130-g8-81' transform='scale(1.82)'/>
+<use id='eq130-g11-82' xlink:href='#eq130-g8-82' transform='scale(1.82)'/>
+<path id='eq130-g8-50' d='M3.11-.9L3.03-.93C2.78-.56 2.7-.5 2.4-.5H.84L1.94-1.65C2.52-2.26 2.78-2.76 2.78-3.27C2.78-3.92 2.25-4.43 1.57-4.43C1.21-4.43 .86-4.28 .62-4.02C.41-3.8 .31-3.59 .2-3.12L.34-3.09C.6-3.73 .84-3.94 1.29-3.94C1.84-3.94 2.21-3.57 2.21-3.02C2.21-2.51 1.91-1.9 1.36-1.32L.2-.08V0H2.75L3.11-.9Z'/>
+<path id='eq130-g8-51' d='M2.83-1.43C2.83-1.77 2.73-2.08 2.54-2.28C2.4-2.42 2.28-2.5 1.99-2.63C2.44-2.93 2.61-3.18 2.61-3.53C2.61-4.06 2.19-4.43 1.59-4.43C1.26-4.43 .97-4.32 .73-4.11C.54-3.93 .44-3.76 .29-3.37L.39-3.34C.66-3.82 .96-4.04 1.37-4.04C1.79-4.04 2.09-3.75 2.09-3.33C2.09-3.1 1.99-2.86 1.83-2.7C1.63-2.5 1.45-2.4 1-2.25V-2.16C1.39-2.16 1.54-2.15 1.7-2.09C2.1-1.95 2.36-1.57 2.36-1.12C2.36-.57 1.98-.14 1.5-.14C1.32-.14 1.19-.19 .95-.35C.75-.47 .64-.51 .53-.51C.38-.51 .28-.42 .28-.28C.28-.05 .56 .09 1.02 .09C1.53 .09 2.04-.08 2.35-.35S2.83-1 2.83-1.43Z'/>
+<path id='eq130-g8-73' d='M2.06 0V-.12C1.53-.14 1.42-.24 1.42-.71V-3.62C1.42-4.1 1.51-4.19 2.06-4.21V-4.34H.12V-4.21C.67-4.18 .75-4.11 .75-3.62V-.71C.75-.22 .67-.14 .12-.12V0H2.06Z'/>
+<path id='eq130-g8-81' d='M4.59 1.16V1.04C3.85 1.04 3.32 .73 2.79 .05C3.24-.04 3.47-.15 3.77-.41C4.26-.85 4.51-1.44 4.51-2.17C4.51-3.49 3.62-4.43 2.36-4.43S.22-3.49 .22-2.16C.22-1.51 .42-.98 .81-.56C1.06-.28 1.27-.15 1.74 .01L2.04 .37C2.49 .88 3.28 1.17 4.32 1.17C4.42 1.17 4.48 1.17 4.55 1.16H4.59ZM3.76-2.18C3.76-1.53 3.57-.86 3.31-.56C3.07-.29 2.73-.14 2.36-.14C2.05-.14 1.76-.26 1.53-.47C1.18-.77 .97-1.43 .97-2.19C.97-2.82 1.16-3.47 1.43-3.77C1.7-4.05 2-4.19 2.38-4.19C2.67-4.19 2.97-4.07 3.2-3.86C3.55-3.55 3.76-2.92 3.76-2.18Z'/>
+<path id='eq130-g8-82' d='M4.32 0V-.12C4.07-.14 3.94-.21 3.75-.43L2.4-2.09C2.84-2.17 3.03-2.25 3.25-2.43C3.46-2.6 3.58-2.88 3.58-3.18C3.58-3.47 3.5-3.71 3.33-3.9C3.08-4.17 2.54-4.34 1.92-4.34H.11V-4.21C.6-4.16 .67-4.09 .67-3.62V-.79C.67-.24 .6-.16 .11-.12V0H1.93V-.12C1.42-.16 1.34-.24 1.34-.71V-2L1.7-2.02L3.26 0H4.32ZM2.87-3.2C2.87-2.87 2.73-2.59 2.5-2.47C2.19-2.3 1.97-2.26 1.34-2.25V-3.86C1.34-4.04 1.41-4.09 1.67-4.09C2.49-4.09 2.87-3.81 2.87-3.2Z'/>
 </defs>
-<g id='eq121-page1'>
-<use x='0' y='0' xlink:href='#eq121-g11-50'/>
-<use x='5.98' y='0' xlink:href='#eq121-g11-73'/>
-<use x='9.96' y='0' xlink:href='#eq121-g11-81'/>
-<use x='18.59' y='0' xlink:href='#eq121-g11-82'/>
-<use x='26.56' y='0' xlink:href='#eq121-g1-157'/>
-<use x='35.38' y='-4.33' xlink:href='#eq121-g8-51'/>
-<use x='32.03' y='-8.59' xlink:href='#eq121-g1-112'/>
+<g id='eq130-page1'>
+<use x='0' y='0' xlink:href='#eq130-g11-50'/>
+<use x='5.98' y='0' xlink:href='#eq130-g11-73'/>
+<use x='9.96' y='0' xlink:href='#eq130-g11-81'/>
+<use x='18.59' y='0' xlink:href='#eq130-g11-82'/>
+<use x='26.56' y='0' xlink:href='#eq130-g1-157'/>
+<use x='35.38' y='-4.33' xlink:href='#eq130-g8-51'/>
+<use x='32.03' y='-8.59' xlink:href='#eq130-g1-112'/>
 <rect x='40.44' y='-9.25' height='.66' width='6.19'/>
-<use x='40.49' y='0' xlink:href='#eq121-g4-61'/>
+<use x='40.49' y='0' xlink:href='#eq130-g4-61'/>
 </g>
 </svg></span>, where IQR is the
 interquartile range (the distance from the lower to the upper quartile), and <span class="m-math"><svg style="width: 0.548em; height: 0.536em; vertical-align: -0.011em;  vertical-align: -0.011em;" viewBox=".23 -5.25 5.48 5.36">
@@ -451,10 +457,10 @@ interquartile range (the distance from the lower to the upper quartile), and <sp
 \(n\)
 </title>
 <defs>
-<path id='eq122-g1-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
+<path id='eq131-g1-61' d='M5.65-1.24L5.48-1.39C5.4-1.29 5.31-1.18 5.23-1.08C4.88-.64 4.67-.45 4.5-.45C4.39-.45 4.31-.54 4.31-.64C4.31-.74 4.36-.96 4.48-1.39L5.16-3.85C5.23-4.1 5.26-4.36 5.26-4.53C5.26-4.95 4.94-5.25 4.48-5.25C3.72-5.25 2.97-4.53 1.74-2.63L2.54-5.23L2.5-5.25L.57-4.88V-4.69C1.18-4.68 1.33-4.61 1.33-4.37C1.33-4.3 1.32-4.23 1.31-4.17L.17 0H1.06C1.62-1.88 1.73-2.14 2.25-2.95C2.97-4.06 3.57-4.65 4.01-4.65C4.19-4.65 4.3-4.51 4.3-4.3C4.3-4.16 4.23-3.76 4.13-3.39L3.61-1.43C3.45-.81 3.42-.66 3.42-.54C3.42-.08 3.59 .11 3.98 .11C4.51 .11 4.81-.13 5.65-1.24Z'/>
 </defs>
-<g id='eq122-page1'>
-<use x='.06' y='0' xlink:href='#eq122-g1-61'/>
+<g id='eq131-page1'>
+<use x='.06' y='0' xlink:href='#eq131-g1-61'/>
 </g>
 </svg></span> is the number of samples
 over which the histogram will be computed.</p>
@@ -729,6 +735,14 @@ from multiple images, or in multiple threads.</p>
               <span class="m-doc-name"><a href="#dip-operator--Histogram-CL-Histogram-CL" class="m-doc-self">dip::<wbr />operator-</a></span>(
 <span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; lhs, </span><span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; rhs</span>)            </h3>
             <p>Subtracts two histograms.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-operator%3C%3C-std-ostream-L-Histogram-CL"><div>
+            <h3>
+              <span class="m-doc-return">std::ostream&amp; </span>
+              <span class="m-doc-name"><a href="#dip-operator%3C%3C-std-ostream-L-Histogram-CL" class="m-doc-self">dip::<wbr />operator<<</a></span>(
+<span class="m-doc-arg">std::ostream&amp; os, </span><span class="m-doc-arg"><a href="dip-Histogram.html" class="m-doc">dip::Histogram</a> const&amp; histogram</span>)            </h3>
+            <p>You can output a <a href="dip-Histogram.html"><code>dip::Histogram</code></a> to <code>std::cout</code> or any other stream. Some
+information about the histogram is printed.</p>
           </div></section>
         </section>
         <section>

@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.1" class="m-thin">version 3.6.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -177,6 +177,11 @@ using <a href="#dip-InterpolationFunctionPointer" class="m-doc">dip::<wbr />Inte
               <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> dimension = 0)</span>
             </dt>
             <dd>Concatenates two images.</dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-Dice-Image-CL-UnsignedArray-" class="m-doc">dip::<wbr />Dice</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
+              <a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> grid) -&gt; <a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a></span>
+            </dt>
+            <dd>Cut an image up according to a grid. <a href="#dip-Dice-Image-CL-UnsignedArray-">more...</a></dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="#dip-JoinChannels-ImageConstRefArray-CL-Image-L" class="m-doc">dip::<wbr />JoinChannels</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html#dip-ImageConstRefArray" class="m-doc">dip::ImageConstRefArray</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out)</span>
@@ -583,14 +588,15 @@ Using <a href="dip-Image.html#dip-Image-Rotation90-dip-sint--dip-uint--dip-uint-
 Therefore, positive angles are clock-wise.</p>
 </aside>
 <p>The output image has the same data type as the input image.</p>
-<p>The rotation is computed by three consecutive calls to <a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--dip-uint--String-CL-BoundaryConditionArray-"><code>dip::Skew</code></a>. See that function for the meaning of
-<code>interpolationMethod</code> and <code>boundaryCondition</code>.</p>
+<p>See <a href="geometry.html#interpolation_methods">Interpolation methods</a> for information on the <code>interpolationMethod</code> parameter.</p>
+<p><code>boundaryCondition</code> determines how data outside of the input image domain are filled in. See
+<a href="boundary.html#dip-BoundaryCondition"><code>dip::BoundaryCondition</code></a>. The <code>"periodic"</code> boundary condition is currently not supported.</p>
+<p>The rotation is computed by three consecutive calls to <a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--dip-uint--String-CL-BoundaryConditionArray-"><code>dip::Skew</code></a>.</p>
 <aside class="m-note m-primary">
 <h4>Note</h4>
-<p>The <code>"periodic"</code> boundary condition currently produces an output image of the same size as
-the input, where the corners of the image that rotate out of the field of view are cut off and fill the
-sections that were outside of the input field of view. This is due to the way that <a href="#dip-Skew-Image-CL-Image-L-FloatArray-CL-dip-uint--dip-uint--String-CL-BoundaryConditionArray-"><code>dip::Skew</code></a> handles
-the <code>"periodic"</code> boundary condition.</p>
+<p>Because of the implementation as three consecutive skews, boundary conditions like <code>"mirror</code>&rdquo; do not
+fill the new image regions in the same way that a single call to <a href="boundary.html#dip-ExtendImage-Image-CL-Image-L-UnsignedArray--BoundaryConditionArray--Option-ExtendImageFlags-"><code>dip::ExtendImage</code></a> would.</p>
+<p>The <code>"periodic"</code> boundary condition is currently not supported.</p>
 </aside>
 <aside class="m-note m-warning">
 <h4>Warning</h4>
@@ -764,11 +770,15 @@ has 6 images, they will be placed as follows:</p>
 of elements, it is for example possible to tile 2D images along the 4<sup>th</sup> dimension.</p>
 <p>If <code>tiling</code> is an empty array (the default), then <code>ceil(sqrt(in.size()))</code> images will be placed horizontally,
 in however many rows are necessary to fit all images.</p>
-<p>The input images must all have the same sizes, with the exception for the case where all images are tiled
-along a single dimension, in which case their sizes can differ along that dimension (see <a href="geometry.html#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-"><code>dip::Concatenate</code></a>)</p>
+<p>The input images must have matching sizes. That is, images on the same row must have the same height, and images
+on the same column must have the same width.</p>
 <p>The input images must all have the same number of tensor elements. If their tensor representations do not
 match, the output image will be a default column vector. If images are differing data types, the output will
 be of a type that best can represent the input (see <a href="dip-DataType.html#dip-DataType-SuggestDyadicOperation-DataType--DataType-"><code>dip::DataType::SuggestDyadicOperation</code></a>).</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="geometry.html#dip-TileTensorElements-Image-CL-Image-L"><code>dip::TileTensorElements</code></a>, <a href="geometry.html#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-"><code>dip::Concatenate</code></a>, <a href="geometry.html#dip-Dice-Image-CL-UnsignedArray-"><code>dip::Dice</code></a></p>
+</aside>
           </div></section>
                         <section class="m-doc-details" id="dip-TileTensorElements-Image-CL-Image-L"><div>
             <h3>
@@ -780,6 +790,10 @@ be of a type that best can represent the input (see <a href="dip-DataType.html#d
 spatial dimensions. This produces a scalar image of size <code>in.Size(0) * in.TensorColumns()</code> along the
 horizontal dimension, and size <code>in.Size(1) * in.TensorRows()</code> along the vertical dimension. The output
 image has the same dimensions as <code>in</code> along the third and further dimensions.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="geometry.html#dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-"><code>dip::Tile</code></a>, <a href="geometry.html#dip-Dice-Image-CL-UnsignedArray-"><code>dip::Dice</code></a></p>
+</aside>
           </div></section>
                         <section class="m-doc-details" id="dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-"><div>
             <h3>
@@ -792,6 +806,10 @@ dimensions except <code>dimension</code>, where they can differ.</p>
 <p>The input images must all have the same number of tensor elements. If their tensor representations do not
 match, the output image will be a default column vector. If images are differing data types, the output will
 be of a type that best can represent the input (see <a href="dip-DataType.html#dip-DataType-SuggestDyadicOperation-DataType--DataType-"><code>dip::DataType::SuggestDyadicOperation</code></a>).</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="geometry.html#dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-"><code>dip::Tile</code></a>, <a href="geometry.html#dip-Dice-Image-CL-UnsignedArray-"><code>dip::Dice</code></a></p>
+</aside>
           </div></section>
                         <section class="m-doc-details" id="dip-Concatenate-Image-CL-Image-CL-Image-L-dip-uint-"><div>
             <h3>
@@ -810,6 +828,23 @@ be of a type that best can represent the input (see <a href="dip-DataType.html#d
 and be scalar.</p>
 <p>If images are differing data types, the output will be of a type that best can represent the input
 (see <a href="dip-DataType.html#dip-DataType-SuggestDyadicOperation-DataType--DataType-"><code>dip::DataType::SuggestDyadicOperation</code></a>). <code>out</code> will be a vector image with <code>in.size()</code> samples per pixel.</p>
+          </div></section>
+                        <section class="m-doc-details" id="dip-Dice-Image-CL-UnsignedArray-"><div>
+            <h3>
+              <span class="m-doc-return"><a href="dip-Image.html#dip-ImageArray" class="m-doc">dip::ImageArray</a> </span>
+              <span class="m-doc-name"><a href="#dip-Dice-Image-CL-UnsignedArray-" class="m-doc-self">dip::<wbr />Dice</a></span>(
+<span class="m-doc-arg"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> grid</span>)            </h3>
+            <p>Cut an image up according to a grid.</p>
+<p>The input image is cut up into smaller images, according to <code>grid</code>. For example, <code>grid = { 3, 2 }</code> will cut the image
+horizontally into three equal parts, and vertically into two, generating an array with 6 images. The images are ordered
+in the output array from left to right, top to bottom. <code>grid</code> can have any number of dimensions.</p>
+<p>The images are all <code>in.Size(i) / grid[i]</code> (integer division) pixels along dimension <code>i</code>. This means that, if the input
+image size does not evenly divide into <code>grid</code>, some pixels will not be included in the output.</p>
+<p>The images in the output array share data with the input image.</p>
+<aside class="m-note m-default">
+<h4>See also</h4>
+<p><a href="geometry.html#dip-Tile-ImageConstRefArray-CL-Image-L-UnsignedArray-"><code>dip::Tile</code></a>, <a href="geometry.html#dip-Concatenate-ImageConstRefArray-CL-Image-L-dip-uint-"><code>dip::Concatenate</code></a></p>
+</aside>
           </div></section>
                         <section class="m-doc-details" id="dip-SplitChannels-Image-CL"><div>
             <h3>

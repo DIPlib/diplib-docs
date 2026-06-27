@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.1" class="m-thin">version 3.6.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -118,10 +118,10 @@ for the <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataTy
             </dt>
             <dd>Parameters to the line filter for <a href="frameworks.html#dip-Framework-Separable-Image-CL-Image-L-DataType--DataType--BooleanArray--UnsignedArray--BoundaryConditionArray--SeparableLineFilter-L-SeparableOptions-"><code>dip::Framework::Separable</code></a>. <a href="frameworks.html#dip-Framework-SeparableLineFilterParameters">more...</a></dd>
                           <dt>
-              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> N, typename TPI, typename F&gt;</div>
+              <div class="m-doc-template">template&lt;<a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> N, typename TPI, typename F, bool Scalar = false&gt;</div>
               class <a href="dip-Framework-VariadicScanLineFilter-T.html" class="m-doc">dip::<wbr />Framework::<wbr />VariadicScanLineFilter</a>
             </dt>
-            <dd>An implementation of the ScanLinefilter for N input images and 1 output image. <a href="dip-Framework-VariadicScanLineFilter-T.html#dip-Framework-VariadicScanLineFilter-T">more...</a></dd>
+            <dd>An implementation of the <a href="dip-Framework-ScanLineFilter.html"><code>dip::Framework::ScanLineFilter</code></a> for N input images and 1 output image. <a href="dip-Framework-VariadicScanLineFilter-T.html#dip-Framework-VariadicScanLineFilter-T">more...</a></dd>
           </dl>
         </section>
         <section id="alias-members">
@@ -181,31 +181,59 @@ using <a href="frameworks.html#dip-Framework-SeparableOptions" class="m-doc">dip
                           <dt>
               <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewDyadicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewDyadicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt; <span class="m-label m-danger">deprecated</span></span>
             </dt>
             <dd>Support for quickly defining dyadic operators (2 input images, 1 output image).
-See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
+Deprecated, use <a href="frameworks.html#dip-Framework-NewScalarDyadicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewScalarDyadicScanLineFilter</code></a> instead.</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewMonadicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewMonadicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt; <span class="m-label m-danger">deprecated</span></span>
             </dt>
             <dd>Support for quickly defining monadic operators (1 input image, 1 output image).
+Deprecated, use <a href="frameworks.html#dip-Framework-NewScalarMonadicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewScalarMonadicScanLineFilter</code></a> instead.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewScalarDyadicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewScalarDyadicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+            </dt>
+            <dd>Support for quickly defining dyadic operators (2 input images, 1 output image) on scalar images.
+See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewScalarMonadicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewScalarMonadicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+            </dt>
+            <dd>Support for quickly defining monadic operators (1 input image, 1 output image) on scalar images.
+See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewScalarTetradicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewScalarTetradicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+            </dt>
+            <dd>Support for quickly defining tetradic operators (4 input images, 1 output image) on scalar images.
+See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
+                          <dt>
+              <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewScalarTriadicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewScalarTriadicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+            </dt>
+            <dd>Support for quickly defining triadic operators (3 input images, 1 output image) on scalar images.
 See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewTetradicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewTetradicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt; <span class="m-label m-danger">deprecated</span></span>
             </dt>
             <dd>Support for quickly defining tetradic operators (4 input images, 1 output image).
-See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
+Deprecated, use <a href="frameworks.html#dip-Framework-NewScalarTetradicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewScalarTetradicScanLineFilter</code></a> instead.</dd>
                           <dt>
               <div class="m-doc-template">template&lt;typename TPI, typename F&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a href="frameworks.html#dip-Framework-NewTriadicScanLineFilter-T-F-CL-dip-uint-" class="m-doc">dip::<wbr />Framework::<wbr />NewTriadicScanLineFilter</a>(</span><span class="m-doc-wrap">F const&amp; func,
-              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt;</span>
+              <a href="supporttypes.html#dip-uint" class="m-doc">dip::uint</a> cost = 1) -&gt; std::unique_ptr&lt;ScanLineFilter&gt; <span class="m-label m-danger">deprecated</span></span>
             </dt>
             <dd>Support for quickly defining triadic operators (3 input images, 1 output image).
-See <a href="dip-Framework-VariadicScanLineFilter-T.html"><code>dip::Framework::VariadicScanLineFilter</code></a>.</dd>
+Deprecated, use <a href="frameworks.html#dip-Framework-NewScalarTriadicScanLineFilter-T-F-CL-dip-uint-"><code>dip::Framework::NewScalarTriadicScanLineFilter</code></a> instead.</dd>
                           <dt>
               <span class="m-doc-wrap-bumper">void <a href="frameworks.html#dip-Framework-OneDimensionalLineFilter-Image-CL-Image-L-DataType--DataType--DataType--dip-uint--dip-uint--BoundaryCondition--SeparableLineFilter-L-SeparableOptions-" class="m-doc">dip::<wbr />Framework::<wbr />OneDimensionalLineFilter</a>(</span><span class="m-doc-wrap"><a href="dip-Image.html" class="m-doc">dip::Image</a> const&amp; in,
               <a href="dip-Image.html" class="m-doc">dip::Image</a>&amp; out,

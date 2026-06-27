@@ -14,7 +14,7 @@
   <div class="m-container">
     <div class="m-row">
       <span id="m-navbar-brand" class="m-col-t-8 m-col-m-none m-left-m">
-        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.0" class="m-thin">version 3.6.0</a>      </span>
+        <a href="https://diplib.org"><img src="DIPlib_logo.svg" alt="" />DIPlib</a><span class="m-breadcrumb">┃</span><a href="index.html" class="m-thin">a library for quantitative image analysis</a><span class="m-breadcrumb">┃</span><a href="https://github.com/DIPlib/diplib/releases/tag/3.6.1" class="m-thin">version 3.6.1</a>      </span>
       <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
         <a href="#search" class="m-doc-search-icon" title="Search" onclick="return showSearch()"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
           <path id="m-doc-search-icon-path" d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z"/>
@@ -95,7 +95,12 @@ the interface.</p>
               <a href="dip-Tensor.html" class="m-doc">dip::Tensor</a> const&amp; tensor,
               <a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a>&amp; tensorStride) -&gt; <a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a> <span class="m-label m-flat m-warning">pure virtual</span></span>
             </dt>
-            <dd>Allocates the data for an image. The function is required to set <code>strides</code>, <a href="#dip-ExternalInterface-AllocateData-void-PL-dip-DataType--UnsignedArray-CL-IntegerArray-L-dip-Tensor-CL-dip-sint-L">more...</a></dd>
+            <dd>Allocates the data for an image. <a href="#dip-ExternalInterface-AllocateData-void-PL-dip-DataType--UnsignedArray-CL-IntegerArray-L-dip-Tensor-CL-dip-sint-L">more...</a></dd>
+                          <dt>
+              <span class="m-doc-wrap-bumper">auto <a href="#dip-ExternalInterface-Name-C" class="m-doc">Name</a>(</span><span class="m-doc-wrap">) const -&gt; <a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> <span class="m-label m-flat m-warning">virtual</span></span>
+            </dt>
+            <dd>Overriding the <code>Name</code> function allows the user to find out what the external interface attached
+to an image is.</dd>
           </dl>
         </section>
         <section>
@@ -105,14 +110,31 @@ the interface.</p>
               <span class="m-doc-return"><a href="imagetype.html#dip-DataSegment" class="m-doc">dip::DataSegment</a> </span>
               <span class="m-doc-name"><a href="#dip-ExternalInterface-AllocateData-void-PL-dip-DataType--UnsignedArray-CL-IntegerArray-L-dip-Tensor-CL-dip-sint-L" class="m-doc-self">AllocateData</a></span>(
 <span class="m-doc-arg">void*&amp; origin, </span><span class="m-doc-arg"><a href="dip-DataType.html" class="m-doc">dip::DataType</a> dataType, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-UnsignedArray" class="m-doc">dip::UnsignedArray</a> const&amp; sizes, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-IntegerArray" class="m-doc">dip::IntegerArray</a>&amp; strides, </span><span class="m-doc-arg"><a href="dip-Tensor.html" class="m-doc">dip::Tensor</a> const&amp; tensor, </span><span class="m-doc-arg"><a href="supporttypes.html#dip-sint" class="m-doc">dip::sint</a>&amp; tensorStride</span>) <span class="m-label m-warning">pure virtual</span>            </h3>
-            <p>Allocates the data for an image. The function is required to set <code>strides</code>,</p>
-<p><code>tensorStride</code> and <code>origin</code>, and return a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that owns the
+            <p>Allocates the data for an image.</p>
+<p>This function is called when <a href="dip-Image.html#dip-Image-Forge"><code>dip::Image::Forge</code></a> is called on an image with this
+external interface. It should be overridden by a function that will allocate space
+according to <code>dataType</code>, <code>sizes</code> and <code>tensor.Elements()</code>.
+<code>strides</code> and <code>tensorStride</code> might have been set by the user before calling forging,
+and should be honored if possible.</p>
+<p>The function is required to set <code>strides</code>,
+<code>tensorStride</code> and <code>origin</code>, and return a <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a> that owns the
 allocated data segment. <code>origin</code> does not need to be the same pointer as
 stored in the returned <a href="imagetype.html#dip-DataSegment"><code>dip::DataSegment</code></a>. For example, the latter can point
 to a container object (e.g. <code>std::vector</code>), and <code>origin</code> can point to data
 owned by the container object (e.g. <code>std::vector::data()</code>).</p>
-<p>Note that <code>strides</code> and <code>tensorStride</code> might have been set by the user before
-calling <a href="dip-Image.html#dip-Image-Forge"><code>dip::Image::Forge</code></a>, and should be honored if possible.</p>
+<p>There are two possible failure modes:</p>
+<ol>
+<li>The function can throw an exception, which will not be caught, and causes the call to <code>Forge</code> to fail.</li>
+<li>The function can return a <code>nullptr</code>, which tells <code>Forge</code> to use the default allocator instead.</li>
+</ol>
+          </div></section>
+                        <section class="m-doc-details" id="dip-ExternalInterface-Name-C"><div>
+            <h3>
+              <span class="m-doc-return"><a href="supporttypes.html#dip-String" class="m-doc">dip::String</a> </span>
+              <span class="m-doc-name"><a href="#dip-ExternalInterface-Name-C" class="m-doc-self">Name</a></span>(
+) const <span class="m-label m-warning">virtual</span>            </h3>
+            <p>Overriding the <code>Name</code> function allows the user to find out what the external interface attached
+to an image is.</p>
           </div></section>
         </section>
       </div>
